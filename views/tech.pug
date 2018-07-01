@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  div.content
+    h1= title
+    p= tech.description
+
+    h2 Features and Tests
+
+    if tech.features.length === 0
+      p We don't have any features listed yet. Please contribute some!
+    else
+      p Can't find what you are looking for? Please create an issue and let us know.
+      table
+        tr
+          th Feature
+          th Support
+        each feature in tech.features
+            tr
+              td
+                a(href='/tech/'+tech.id+'/'+feature.id) #{feature.id}
+              td #{helper.generateSupportString(feature.core_support)}
+  if tech.references
+    div.sidebar
+      h2 References
+      ul
+        each reference in tech.references
+          li
+            a(href=reference.url) #{reference.title}

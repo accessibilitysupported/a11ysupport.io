@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    div.content
+        h1 Technologies
+        ul
+            each technology in tech
+                li
+                    a(href='/tech/'+technology.id) #{technology.id}

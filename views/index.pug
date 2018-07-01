@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.content
+    p Welcome to #{title}
+
+    p This website aims help developers understand what is #[a(href='https://www.w3.org/TR/WCAG21/#cc4') accessibility supported].
+
+    h2 Technologies
+    ul
+      each technology in tech
+        li
+          a(href='/tech/'+technology.id) #{technology.id}
