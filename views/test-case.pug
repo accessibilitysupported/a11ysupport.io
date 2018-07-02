@@ -3,15 +3,30 @@ extends layout
 block content
     div.content
         h1= 'Test: ' + test.title
-        p This is a test for the #[a(href='/tech/' + techId + '/' + featureId) #{data.title}] feature.
-        p= 'Support Level: ' + helper.generateSupportString(test.core_support)
+        div(class="current-support-container "+helper.generateSupportString(test.core_support).replace(" ", "-"))
+            p= 'Current support: ' + helper.generateSupportString(test.core_support)
         p= test.description
+        p This test is found in the following features:
 
-        h2 Run the test
+        ul
+            each featureInfo in features
+                li
+                    a(href="tech/"+featureInfo.techId+'/'+featureInfo.featureId) #{featureInfo.title}
+
+        h2 On this page
+        ul
+            li
+                a(href="#run-test") Run the test
+            li
+                a(href="#support-tables") Support tables
+            li
+                a(href="#history") History
+
+        h2(id="run-test") Run the test
         h3 Test HTML
         pre
             code= testHTML
-        a(href='/test_data/' + techId + '/' + featureId + '/' + test.id + '.html') Open test HTML to run the test
+        a(href='/tests/' + test.id + '.html') Open test HTML to run the test
 
         if (test.sr_instructions)
             h3 Screen Reader Instructions
@@ -21,7 +36,7 @@ block content
             h3 Voice Command Instructions
             p= test.vc_instructions
 
-        h2 Support tables
+        h2(id="support-tables") Support tables
         table
             caption core support
             tr
@@ -64,6 +79,9 @@ block content
                         td= test.at[at.id].browsers[browser].support
                         td
                             a(href='#') Submit a change
+        h2(id="history") History
+        p A history of changes will be listed here.
+
     div.sidebar
         h2 Is something not right?
         p Use the support tables to report issues or changes for different combinations.

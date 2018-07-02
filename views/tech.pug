@@ -15,11 +15,19 @@ block content
         tr
           th Feature
           th Support
+          th Failing tests
         each feature in tech.features
             tr
               td
                 a(href='/tech/'+tech.id+'/'+feature.id) #{feature.id}
               td #{helper.generateSupportString(feature.core_support)}
+              td
+                if feature.failing_tests.length
+                  ul
+                    each test in feature.failing_tests
+                      li
+                        a(href="/tests/"+test.id)= test.title
+
   if tech.references
     div.sidebar
       h2 References

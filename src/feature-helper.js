@@ -145,52 +145,28 @@ helper.initalizeFeatureObject = function(featureObject) {
 	featureObject.extended_support = [];
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
-		//Set support properties
-		featureObject.tests[testIndex].core_support = [];
-		featureObject.tests[testIndex].extended_support = [];
+		//Tidy up and transform the test case
+		//TODO: Add a build step so that this stuff is only done once.
+		if (typeof featureObject.tests[testIndex] === 'string') {
+			let testCase = require('../data/tests/'+featureObject.tests[testIndex]);
+			helper.initalizeTestCase(testCase);
+			featureObject.tests[testIndex] = testCase;
+		}
 
-		//Add missing AT
+		let testCase = featureObject.tests[testIndex];
+
+		// Detect support
 		for(let at in this.at){
-			//Add an empty versions array if we don't have any info on versions
-			if (!featureObject.tests[testIndex].at.hasOwnProperty(at)) {
-				featureObject.tests[testIndex].at[at] = {
-					"browsers": {},
-				}
-			}
-
-			//Set this ID so we can use it later with a `this` scope where `this` is the AT object
-			featureObject.tests[testIndex].at[at].id = at;
-			featureObject.tests[testIndex].at[at].core_support = [];
-			featureObject.tests[testIndex].at[at].extended_support = [];
-
 			for (let browser in helper.browsers) {
-				if (!featureObject.tests[testIndex].at[at].browsers) {
-					//Add the missing browser property
-					featureObject.tests[testIndex].at[at].browsers = {};
-				}
-
-				if (!featureObject.tests[testIndex].at[at].browsers[browser]) {
-					//Add an empty array to make future operations easier
-					featureObject.tests[testIndex].at[at].browsers[browser] = {
-						"support": "u", //unknown support
-						"id": browser
-					};
-				}
-
 				//Set support arrays
-				let support = featureObject.tests[testIndex].at[at].browsers[browser].support;
+				let support = testCase.at[at].browsers[browser].support;
 				if (helper.at[at].core_browsers.includes(browser)) {
-					featureObject.tests[testIndex].at[at].core_support.pushUnique(support);
 					if (helper.core_at.includes(at)) {
-						featureObject.tests[testIndex].core_support.pushUnique(support);
 						featureObject.core_support.pushUnique(support);
 					} else {
-						featureObject.tests[testIndex].extended_support.pushUnique(support);
 						featureObject.extended_support.pushUnique(support);
 					}
 				} else if (helper.at[at].extended_browsers.includes(browser)) {
-					featureObject.tests[testIndex].at[at].extended_support.pushUnique(support);
-					featureObject.tests[testIndex].extended_support.pushUnique(support);
 					featureObject.extended_support.pushUnique(support);
 				}
 			}
@@ -202,6 +178,57 @@ helper.initalizeFeatureObject = function(featureObject) {
 	fs.writeFileSync('test.json', JSON.stringify(featureObject, null, 2));
 
 	return featureObject;
+};
+
+
+helper.initalizeTestCase = function (testCase) {
+//Set support properties
+	testCase.core_support = [];
+	testCase.extended_support = [];
+
+	//Add missing AT
+	for(let at in this.at){
+		//Add an empty versions array if we don't have any info on versions
+		if (!testCase.at.hasOwnProperty(at)) {
+			testCase.at[at] = {
+				"browsers": {},
+			}
+		}
+
+		//Set this ID so we can use it later with a `this` scope where `this` is the AT object
+		testCase.at[at].id = at;
+		testCase.at[at].core_support = [];
+		testCase.at[at].extended_support = [];
+
+		for (let browser in helper.browsers) {
+			if (!testCase.at[at].browsers) {
+				//Add the missing browser property
+				testCase.at[at].browsers = {};
+			}
+
+			if (!testCase.at[at].browsers[browser]) {
+				//Add an empty array to make future operations easier
+				testCase.at[at].browsers[browser] = {
+					"support": "u", //unknown support
+					"id": browser
+				};
+			}
+
+			//Set support arrays
+			let support = testCase.at[at].browsers[browser].support;
+			if (helper.at[at].core_browsers.includes(browser)) {
+				testCase.at[at].core_support.pushUnique(support);
+				if (helper.core_at.includes(at)) {
+					testCase.core_support.pushUnique(support);
+				} else {
+					testCase.extended_support.pushUnique(support);
+				}
+			} else if (helper.at[at].extended_browsers.includes(browser)) {
+				testCase.at[at].extended_support.pushUnique(support);
+				testCase.extended_support.pushUnique(support);
+			}
+		}
+	}
 };
 
 helper.generateSupportString = function(support) {

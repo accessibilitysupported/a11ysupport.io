@@ -3,7 +3,8 @@ extends layout
 block content
   div.content
     h1= data.title
-    p= 'Support level: ' + helper.generateSupportString(data.core_support)
+    div(class="current-support-container "+helper.generateSupportString(data.core_support).replace(" ", "-"))
+      p= 'Support level: ' + helper.generateSupportString(data.core_support)
     p= data.description
 
     if data.tests.length > 1
@@ -20,7 +21,7 @@ block content
 
     h2 Summary of tests
     each test, index in data.tests
-      a(href='/tech/' + techId + '/' + featureId + '/' + index)
+      a(href='/tests/' + test.id)
         h3(id=test.id)= test.title
       p= 'Support level: ' + helper.generateSupportString(test.core_support)
       p= test.description
@@ -40,7 +41,7 @@ block content
                 if (test.at[at].browsers[browser].browser_version)
                     span= ' ' + test.at[at].browsers[browser].browser_version
               td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
-      a(href='/tech/' + techId + '/' + featureId + '/' + index) Learn more about the #{test.title} test
+      a(href='/tests/' + test.id) Learn more about the #{test.title} test
   if data.references
     div.sidebar
       h2 Is something not right?

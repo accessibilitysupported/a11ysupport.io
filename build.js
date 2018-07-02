@@ -43,6 +43,8 @@ let tech = {
 	}
 };
 
+let testMap = {};
+
 let getFeatures = function(techId) {
 	let dir_feature = __dirname + '/data/tech/'+techId;
 	let files = fs.readdirSync(dir_feature);
@@ -50,11 +52,33 @@ let getFeatures = function(techId) {
 	files.forEach(function(file) {
 		let feature = require(dir_feature+'/'+file);
 		let id = file.slice(0, -5);
+		let failingTests = [];
 		helper.initalizeFeatureObject(feature);
+
+		for (let testIndex = 0; testIndex < feature.tests.length; testIndex++) {
+			if (!testMap[feature.tests[testIndex].id]) {
+				testMap[feature.tests[testIndex].id] = [];
+			}
+			testMap[feature.tests[testIndex].id].push({
+				techId: techId,
+				featureId: id,
+				title: feature.title
+			});
+
+			//populate failing tests
+			if (feature.tests[testIndex].core_support.includes('n')) {
+				failingTests.push({
+					title: feature.tests[testIndex].title,
+					id: feature.tests[testIndex].id
+				});
+			}
+		}
+
 		features.push({
 			id: id,
 			title: feature.title,
-			core_support: feature.core_support
+			core_support: feature.core_support,
+			failing_tests: failingTests
 		});
 	});
 
@@ -65,3 +89,4 @@ tech.html.features = getFeatures('html');
 tech.css.features = getFeatures('css');
 
 fs.writeFileSync(__dirname+'/tech.json', JSON.stringify(tech));
+fs.writeFileSync(__dirname+'/test_map.json', JSON.stringify(testMap));
