@@ -1,49 +1,110 @@
 let expect = require('chai').expect;
+let fs = require('fs');
+const Ajv = require('ajv');
+let ajv = new Ajv({schemas: [
+		require('./data/schema/test.json'),
+		require('./data/schema/dev-test.json'),
+		require('./data/schema/feature.json'),
+		require('./data/schema/dev-feature.json'),
+	]});
 
-let featureObject = require('./data/sample_feature.json');
-let helper = require('./src/feature-helper');
+let buildDir = __dirname+'/build';
+let devDir = __dirname+'/data';
+let tech = require(buildDir+"/tech.json");
 
-featureObject = helper.initalizeFeatureObject(featureObject);
+describe('Development tests', function () {
+	let testFiles = fs.readdirSync(devDir+'/tests');
 
-
-describe('Sample Feature Object', function () {
-	it('sample.test should be an array', function () {
-		expect(featureObject.tests).to.be.an.instanceof(Array);
-	});
-
-	describe('sample.tests[0].at', function () {
-		for(let at in helper.at){
-			it('sample.at property for ' + at, function () {
-				expect(featureObject.tests[0].at).to.have.a.property(at);
-			});
+	testFiles.forEach(function (file) {
+		if (!file.endsWith('.json')) {
+			return;
 		}
 
-		describe('sample.tests[0].at.nvda', function () {
-			for(let browser in helper.browsers){
-				it('sample.tests[0].at.nvda.browsers should have a property for the browser: ' + browser, function () {
-					expect(featureObject.tests[0].at.nvda.browsers).to.have.a.property(browser);
-				});
+		it(file + ' should conform to the dev-test schema', function () {
+			let test = require(devDir + '/tests/' + file);
+			let valid = ajv.validate('http://accessibilitysupported.com/dev-test.json', test);
+			if (!valid) {
+				console.log(ajv.errors);
 			}
+			expect(valid).to.be.equal(true);
+		});
 
-			describe('sample.tests[0].at.nvda.browsers.firefox', function () {
-				it('should have a browser version', function () {
-					expect(featureObject.tests[0].at.nvda.browsers.firefox.browser_version).to.equal("60");
+	});
+});
+
+describe('Development tech features', function () {
+	for (let techId in tech) {
+		describe(techId, function() {
+			let featureDir = devDir + '/tech/'+techId;
+			if (!fs.existsSync(featureDir)) {
+				// Directory doesn't exist, so there are not features yet
+				return;
+			}
+			let files = fs.readdirSync(featureDir);
+			files.forEach(function(file) {
+				let feature = require(featureDir + '/' + file);
+
+				it(file + ' should conform to the dev-feature schema', function () {
+					let valid = ajv.validate('http://accessibilitysupported.com/dev-feature.json', feature);
+					if (!valid) {
+						console.log(ajv.errors);
+					}
+					expect(valid).to.be.equal(true);
 				});
 
-				it('should have an AT version', function () {
-					expect(featureObject.tests[0].at.nvda.browsers.firefox.at_version).to.equal("2018.1.1");
-				});
-
-				it('should have a support property', function () {
-					expect(featureObject.tests[0].at.nvda.browsers.firefox.support).to.equal("y");
+				describe(file + ' tests', function() {
+					for (let i=0; i < feature.tests.length; i++) {
+						it('tests/'+feature.tests[i] + '.json should exist', function () {
+							let exists = fs.existsSync(devDir+'/tests/'+feature.tests[i]+'.json');
+							expect(exists).to.be.equal(true);
+						});
+					}
 				});
 			});
 		});
-	});
-
-	//TODO: Set and test static .currentSupport and .previousSupport properties (for both core and extended browsers)
-	//If all=="n":"n" - "no combination support" ("all-n")
-	//If some="n"&some="p"&none="y":"?????" - "some combination(s) partially support" ("some-p")
-	//If some="p"&some="y":"p" - "some combination(s) fully support" ("some-y")
-	//If all="y":"y" - "all combinations fully support" ("all-y")
+	}
 });
+
+describe('Built tests', function () {
+	let testFiles = fs.readdirSync(buildDir+'/tests');
+
+	testFiles.forEach(function (file) {
+		if (!file.endsWith('.json')) {
+			return;
+		}
+
+		it(file + ' should conform to the test schema', function () {
+			let test = require(buildDir + '/tests/' + file);
+			let valid = ajv.validate('http://accessibilitysupported.com/test.json', test);
+			if (!valid) {
+				console.log(ajv.errors);
+			}
+			expect(valid).to.be.equal(true);
+		});
+
+	});
+});
+
+describe('Built tech features', function () {
+	for (let techId in tech) {
+		describe(techId, function() {
+			let featureDir = buildDir + '/tech/'+techId;
+			if (!fs.existsSync(featureDir)) {
+				// Directory doesn't exist, so there are not features yet
+				return;
+			}
+			let files = fs.readdirSync(featureDir);
+			files.forEach(function(file) {
+				it(file + ' should conform to the feature schema', function () {
+					let feature = require(featureDir + '/' + file);
+					let valid = ajv.validate('http://accessibilitysupported.com/feature.json', feature);
+					if (!valid) {
+						console.log(ajv.errors);
+					}
+					expect(valid).to.be.equal(true);
+				});
+			});
+		});
+	}
+});
+
