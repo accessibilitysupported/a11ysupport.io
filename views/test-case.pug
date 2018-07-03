@@ -78,7 +78,8 @@ block content
                                 span= ' ' + test.at[at.id].browsers[browser].browser_version
                         td= test.at[at.id].browsers[browser].support
                         td
-                            a(href='#') Submit a change
+                            - let issue_title = test.id + ' with ' + at.id + '/' + browser;
+                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point') Submit a change
         h2(id="history") History
         p A history of changes will be listed here.
 
