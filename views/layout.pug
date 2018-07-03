@@ -7,6 +7,7 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
+      a(class="skip-nav" href="#main") Skip to main content
       div(class='logo-area')
         div(class='site-title')
           a(href='/') Accessibility Supported
@@ -18,13 +19,13 @@ html(lang='en')
             a(href='/faq') FAQ
           li
             a(href='/contribute') Contribute
-    main
+    main(id="main" tabindex="-1")
       div(class='beta-warning')
-        p Warning! This is a prototype for feedback purposes only. Data may be inaccurate and/or incomplete.
+        p Warning! This is a prototype for feedback purposes only. Data may be inaccurate and/or incomplete. #[a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new") Please submit feedback].
       div(class='content-wrapper')
         block content
     footer
-      p This is a work in progress.
+      p This is a prototype, developed by the Michael Fairchild
       p
         a(href='#') Find us on GitHub
 

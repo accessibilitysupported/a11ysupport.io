@@ -47,6 +47,7 @@ main {
   display: block;
   min-height: 15em;
   background-color: #fff;
+  padding-bottom: 1em;
 }
 
 header {
@@ -105,15 +106,20 @@ nav ul li a {
 }
 
 footer {
+  border-top: 2px solid #999999;
   padding-left: 5.62vw;
   padding-right: 5.62vw;
 }
 
 .beta-warning {
-  background-color: #b94a48;
-  color: #fff;
+  background-color: #ffbfbd;
+  color: #000;
   width: 100%;
   padding: .5em;
+}
+
+.beta-warning a, .beta-warning a:visited {
+  color: #00ff;
 }
 
 .beta-warning > p {
@@ -138,3 +144,24 @@ footer {
 }
 
 
+.skip-nav {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+a.skip-nav:active,
+a.skip-nav:focus,
+a.skip-nav:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background-color: #fff;
+  padding:1em;
+}
