@@ -3,8 +3,8 @@ extends layout
 block content
   div.content
     h1= data.title
-    div(class="current-support-container "+helper.generateSupportString(data.core_support).replace(" ", "-"))
-      p= 'Support level: ' + helper.generateSupportString(data.core_support)
+    div(class="current-support-container "+data.core_support_string.replace(" ", "-"))
+      p= 'Support level: ' + data.core_support_string
     p= data.description
 
     if data.tests.length > 1
@@ -17,13 +17,13 @@ block content
             tr
               td
                 a(href='#'+test.id) #{test.title}
-              td= helper.generateSupportString(test.core_support)
+              td= test.core_support_string
 
     h2 Summary of tests
     each test, index in data.tests
       a(href='/tests/' + test.id)
         h3(id=test.id)= test.title
-      p= 'Support level: ' + helper.generateSupportString(test.core_support)
+      p= 'Support level: ' + test.core_support_string
       p= test.description
       table
         caption #{test.title} Support (for core combinations)
@@ -31,13 +31,13 @@ block content
           th AT
           th Browser
           th Support
-        each at in helper.core_at
-          each browser in helper.at[at].core_browsers
+        each at in ATBrowsers.core_at
+          each browser in ATBrowsers.at[at].core_browsers
             tr
-              td= helper.at[at].title
+              td= ATBrowsers.at[at].title
                 if test.at[at].browsers[browser].at_version
                     span= ' ' + test.at[at].browsers[browser].at_version
-              td= helper.browsers[browser].title
+              td= ATBrowsers.browsers[browser].title
                 if (test.at[at].browsers[browser].browser_version)
                     span= ' ' + test.at[at].browsers[browser].browser_version
               td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support

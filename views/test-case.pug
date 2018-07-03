@@ -3,8 +3,8 @@ extends layout
 block content
     div.content
         h1= 'Test: ' + test.title
-        div(class="current-support-container "+helper.generateSupportString(test.core_support).replace(" ", "-"))
-            p= 'Current support: ' + helper.generateSupportString(test.core_support)
+        div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
+            p= 'Current support: ' + test.core_support_string
         p= test.description
         p This test is found in the following features:
 
@@ -44,13 +44,13 @@ block content
                 th Browser
                 th Support
                 th Action
-            each at in helper.core_at
-                each browser in helper.at[at].core_browsers
+            each at in ATBrowsers.core_at
+                each browser in ATBrowsers.at[at].core_browsers
                     tr
-                        td= helper.at[at].title
+                        td= ATBrowsers.at[at].title
                             if test.at[at].browsers[browser].at_version
                                 span= ' ' + test.at[at].browsers[browser].at_version
-                        td= helper.browsers[browser].title
+                        td= ATBrowsers.browsers[browser].title
                             if test.at[at].browsers[browser].browser_version
                                 span= ' ' + test.at[at].browsers[browser].browser_version
                         td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
@@ -64,16 +64,16 @@ block content
                 th Browser
                 th Support
                 th Action
-            each at in helper.at
+            each at in ATBrowsers.at
                 - var browsers = at.extended_browsers
-                if helper.extended_at.includes(at.id)
+                if ATBrowsers.extended_at.includes(at.id)
                     - var browsers = browsers.concat(at.core_browsers)
                 each browser in browsers
                     tr
                         td= at.title
                             if test.at[at.id].browsers[browser].at_version
                                 span= ' ' + test.at[at.id].browsers[browser].at_version
-                        td= helper.browsers[browser].title
+                        td= ATBrowsers.browsers[browser].title
                             if test.at[at.id].browsers[browser].browser_version
                                 span= ' ' + test.at[at.id].browsers[browser].browser_version
                         td= test.at[at.id].browsers[browser].support

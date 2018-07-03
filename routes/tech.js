@@ -5,41 +5,36 @@ let sanitize = require("sanitize-filename");
 
 /* GET feature listing. */
 router.get('/', function(req, res, next) {
-	let tech = require(__dirname+'/../tech.json');
-	let helper = require(__dirname+'/../src/feature-helper.js');
+	let tech = require(__dirname+'/../build/tech.json');
 
 	res.render('tech-index', {
 		tech: tech,
 		title: 'All Technologies',
-		helper: helper
 	});
 });
 
 /* GET feature listing. */
 router.get('/:techId', function(req, res, next) {
-	let tech = require(__dirname+'/../tech.json');
-	let helper = require(__dirname+'/../src/feature-helper.js');
+	let tech = require(__dirname+'/../build/tech.json');
 
 	res.render('tech', {
 		techId: req.params.techId,
 		tech: tech[req.params.techId],
 		title: req.params.techId,
-		helper: helper
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
 	});
 });
 
 /* GET a specific feature. */
 router.get('/:techId/:featureId', function(req, res, next) {
-	let helper = require(__dirname+'/../src/feature-helper');
-	let feature_object = require(__dirname+'/../data/tech/'+sanitize(req.params.techId)+'/'+sanitize(req.params.featureId)+'.json');
-	helper.initalizeFeatureObject(feature_object);
+	let feature_object = require(__dirname+'/../build/tech/'+sanitize(req.params.techId)+'/'+sanitize(req.params.featureId)+'.json');
 
 	res.render('feature', {
 		title: 'Feature',
 		techId: req.params.techId,
 		featureId: req.params.featureId,
 		data: feature_object,
-		helper: helper
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
 	});
 });
 
