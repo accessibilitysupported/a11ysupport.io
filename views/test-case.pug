@@ -11,7 +11,7 @@ block content
         ul
             each featureInfo in features
                 li
-                    a(href="tech/"+featureInfo.techId+'/'+featureInfo.featureId) #{featureInfo.title}
+                    a(href="/tech/"+featureInfo.techId+'/'+featureInfo.featureId) #{featureInfo.title}
 
         h2 On this page
         ul
@@ -55,7 +55,8 @@ block content
                                 span= ' ' + test.at[at].browsers[browser].browser_version
                         td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
                         td
-                            a(href='#') Submit a change
+                            - let issue_title = test.id + ' with ' + at + '/' + browser;
+                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point,core%20support') Change
         br
         table
             caption extended support
@@ -79,10 +80,16 @@ block content
                         td= test.at[at.id].browsers[browser].support
                         td
                             - let issue_title = test.id + ' with ' + at.id + '/' + browser;
-                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point') Submit a change
+                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point,extended%20support') Change
         h2(id="history") History
         p A history of changes will be listed here.
 
     div.sidebar
         h2 Is something not right?
-        p Use the support tables to report issues or changes for different combinations.
+        p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
+
+        ul
+            li
+                a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+test.id+'&labels=test%20case') There is a problem with this test case (the test file, procedure, expected results, etc)
+            li
+                p Use the support tables to report issues or changes for different combinations.
