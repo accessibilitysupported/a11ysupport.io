@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fs = require('fs');
 
 var indexRouter = require('./routes/index');
 var featuresRouter = require('./routes/tech');
@@ -24,6 +25,10 @@ app.use(express.static(path.join(__dirname, 'data')));
 app.use('/', indexRouter);
 app.use('/tech', featuresRouter);
 app.use('/tests', testsRouter);
+
+if (fs.existsSync(__dirname+'/ga.html')) {
+	app.locals.ga = fs.readFileSync(__dirname+'/ga.html', 'utf8');
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
