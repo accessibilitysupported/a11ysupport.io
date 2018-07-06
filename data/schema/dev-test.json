@@ -1,0 +1,151 @@
+{
+  "$id": "http://accessibilitysupported.com/dev-test.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "definitions": {
+    "at": {
+      "type": "object",
+      "properties": {
+        "browsers": {
+          "type": "object",
+          "properties": {
+            "chrome": {
+              "$ref": "#/definitions/browser"
+            },
+            "and_chr": {
+              "$ref": "#/definitions/browser"
+            },
+            "edge": {
+              "$ref": "#/definitions/browser"
+            },
+            "firefox": {
+              "$ref": "#/definitions/browser"
+            },
+            "and_ff": {
+              "$ref": "#/definitions/browser"
+            },
+            "ie": {
+              "$ref": "#/definitions/browser"
+            },
+            "ios_saf": {
+              "$ref": "#/definitions/browser"
+            },
+            "safari": {
+              "$ref": "#/definitions/browser"
+            }
+          }
+        }
+      },
+      "required": ["browsers"]
+    },
+    "browser": {
+      "type": "object",
+      "properties": {
+        "at_version": {
+          "type": "string"
+        },
+        "browser_version": {
+          "type": "string"
+        },
+        "support": {
+          "description": "Is the combination supported? y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.",
+          "type": "string",
+          "enum": ["y", "p", "n", "na", "u"]
+        }
+      },
+      "required": ["support", "at_version", "browser_version"]
+    },
+    "history": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["date", "message"]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "sr_instructions": {
+      "type": "string"
+    },
+    "vc_instructions": {
+      "type": "string"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/history"
+      }
+    },
+    "core_support": {
+      "type": "array"
+    },
+    "extended_support": {
+      "type": "array"
+    },
+    "core_support_string": {
+      "type": "string"
+    },
+    "extended_support_string": {
+      "type": "string"
+    },
+    "at": {
+      "type": "object",
+      "properties": {
+        "jaws": {
+          "$ref": "#/definitions/at"
+        },
+        "nvda": {
+          "$ref": "#/definitions/at"
+        },
+        "vo_ios": {
+          "$ref": "#/definitions/at"
+        },
+        "vo_macos": {
+          "$ref": "#/definitions/at"
+        },
+        "windoweyes": {
+          "$ref": "#/definitions/at"
+        },
+        "narrator": {
+          "$ref": "#/definitions/at"
+        },
+        "android": {
+          "$ref": "#/definitions/at"
+        },
+        "dragon_win": {
+          "$ref": "#/definitions/at"
+        },
+        "dragon_mac": {
+          "$ref": "#/definitions/at"
+        }
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "sr_instructions",
+    "vc_instructions",
+    "history",
+    "at"
+  ]
+}
