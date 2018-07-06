@@ -7,9 +7,9 @@ accessibilitysupported.com
 ## Install and run
 
 1. Install required node packages: `npm install`
-2. Build data: `npm build`
-3. Run tests: `npm test`
-4. Serve: `npm start`
+2. Build data: `npm run build`
+3. Run tests: `npm run test`
+4. Serve: `npm run start`
 
 ## Structure
 
