@@ -82,7 +82,11 @@ block content
                             - let issue_title = test.id + ' with ' + at.id + '/' + browser;
                             a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point,extended%20support') Change
         h2(id="history") History
-        p A history of changes will be listed here.
+        ul
+            each record in test.history
+                li
+                    strong= record.date + ' '
+                    span= record.message
 
     div.sidebar
         h2 Is something not right?
