@@ -3,7 +3,7 @@
 1. [What is this?](#what-is-this%3F)
 1. [Can't this be automated?](#cant-this-be-automated%3F)
 2. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
-3. [Who runs this?](#who-runs-this)
+3. [Who runs this?](#who-runs-this%3F)
 4. [What are the levels of support?](#what-are-the-levels-of-support%3F)
 
 ## What is this?
