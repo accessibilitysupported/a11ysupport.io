@@ -46,6 +46,8 @@ There will be some exceptions too this rule, but we will do our best to follow i
 
 Extended combinations include rare AT/Browser combinations or AT/Browser combinations that are rarely used in the wild.
 
+**The Accessibility Supported conformance requirement in WCAG does not specify what technologies must be supported.** Our core support list may not match the list of technologies that you choose to support for any given project.
+
 For now, we base most of our data on the results of the latest [WebAim Screen Reader Survey](https://webaim.org/projects/screenreadersurvey7/).
 
 ## Who runs this?
