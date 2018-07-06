@@ -1,115 +1,14 @@
 {
-  "$id": "http://example.com/example.json",
+  "$id": "http://accessibilitysupported.com/feature.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "definitions": {
-    "test": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "file": {
-          "type": "string"
-        },
-        "expected_output": {
-          "type": "string"
-        },
-        "at": {
-          "type": "object",
-          "properties": {
-            "jaws": {
-              "$ref": "#/definitions/at"
-            },
-            "nvda": {
-              "$ref": "#/definitions/at"
-            },
-            "vo_ios": {
-              "$ref": "#/definitions/at"
-            },
-            "vo_macos": {
-              "$ref": "#/definitions/at"
-            },
-            "windoweyes": {
-              "$ref": "#/definitions/at"
-            },
-            "narrator": {
-              "$ref": "#/definitions/at"
-            },
-            "android": {
-              "$ref": "#/definitions/at"
-            },
-            "dragon_win": {
-              "$ref": "#/definitions/at"
-            },
-            "dragon_mac": {
-              "$ref": "#/definitions/at"
-            }
-          }
-        }
-      },
-      "required": ["title", "description", "file", "expected_output", "at"]
-    },
-    "at": {
-      "type": "object",
-      "properties": {
-        "browsers": {
-          "type": "object",
-          "properties": {
-            "chrome": {
-              "$ref": "#/definitions/browser"
-            },
-            "and_chr": {
-              "$ref": "#/definitions/browser"
-            },
-            "edge": {
-              "$ref": "#/definitions/browser"
-            },
-            "firefox": {
-              "$ref": "#/definitions/browser"
-            },
-            "and_ff": {
-              "$ref": "#/definitions/browser"
-            },
-            "ie": {
-              "$ref": "#/definitions/browser"
-            },
-            "ios_saf": {
-              "$ref": "#/definitions/browser"
-            },
-            "safari": {
-              "$ref": "#/definitions/browser"
-            }
-          }
-        }
-      },
-      "required": ["browsers"]
-    },
-    "browser": {
-      "type": "object",
-      "properties": {
-        "at_version": {
-          "type": "string"
-        },
-        "browser_version": {
-          "type": "string"
-        },
-        "support": {
-          "description": "Is the combination supported? y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.",
-          "type": "string",
-          "enum": ["y", "p", "n", "na", "u"]
-        },
-        "output:": {
-          "type": "string"
-        }
-      },
-      "required": ["at_version", "browser_version", "support"]
-    }
+
   },
   "properties": {
+    "id": {
+      "type": "string"
+    },
     "title": {
       "type": "string"
     },
@@ -120,7 +19,7 @@
     "tests": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/test"
+        "$ref": "test.json"
       }
     },
     "tags": {
