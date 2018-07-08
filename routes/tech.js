@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let fs = require('fs');
 let sanitize = require("sanitize-filename");
+let createError = require('http-errors');
 
 /* GET feature listing. */
 router.get('/', function(req, res, next) {
@@ -17,6 +18,12 @@ router.get('/', function(req, res, next) {
 router.get('/:techId', function(req, res, next) {
 	let tech = require(__dirname+'/../build/tech.json');
 
+	if (!tech[req.params.techId]) {
+		// Not found
+		next(createError(404));
+		return;
+	}
+
 	res.render('tech', {
 		title: req.params.techId + ' | Accessibility Supported',
 		techId: req.params.techId,
@@ -27,7 +34,14 @@ router.get('/:techId', function(req, res, next) {
 
 /* GET a specific feature. */
 router.get('/:techId/:featureId', function(req, res, next) {
-	let feature_object = require(__dirname+'/../build/tech/'+sanitize(req.params.techId)+'/'+sanitize(req.params.featureId)+'.json');
+	let feature_object;
+	try {
+		feature_object = require(__dirname+'/../build/tech/'+sanitize(req.params.techId)+'/'+sanitize(req.params.featureId)+'.json');
+	} catch(e) {
+		// Not found
+		next(createError(404));
+		return;
+	}
 
 	res.render('feature', {
 		title: req.params.featureId + ' ' + req.params.techId + ' Feature | Accessibility Supported',
