@@ -16,7 +16,7 @@ router.get('/:testId', function(req, res, next) {
 	}
 
 	res.render('test-case', {
-		title: 'Test: '+test.title,
+		title: 'Test: '+test.title + ' test | Accessibility Supported',
 		techId: req.params.techId,
 		testMap: testMap,
 		testHTML: test_html,

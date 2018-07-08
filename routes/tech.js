@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 	res.render('tech-index', {
 		tech: tech,
-		title: 'All Technologies',
+		title: 'All Technologies | Accessibility',
 	});
 });
 
@@ -18,9 +18,9 @@ router.get('/:techId', function(req, res, next) {
 	let tech = require(__dirname+'/../build/tech.json');
 
 	res.render('tech', {
+		title: req.params.techId + ' | Accessibility Supported',
 		techId: req.params.techId,
 		tech: tech[req.params.techId],
-		title: req.params.techId,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
 	});
 });
@@ -30,7 +30,7 @@ router.get('/:techId/:featureId', function(req, res, next) {
 	let feature_object = require(__dirname+'/../build/tech/'+sanitize(req.params.techId)+'/'+sanitize(req.params.featureId)+'.json');
 
 	res.render('feature', {
-		title: 'Feature',
+		title: req.params.featureId + ' ' + req.params.techId + ' Feature | Accessibility Supported',
 		techId: req.params.techId,
 		featureId: req.params.featureId,
 		data: feature_object,

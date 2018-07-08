@@ -17,7 +17,7 @@ router.get('/contribute', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
 	res.render('static-page', {
-		title: 'Contributing',
+		title: 'Contributing | Accessibility Supported',
 		result: result
 	});
 });
@@ -28,7 +28,7 @@ router.get('/faq', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
 	res.render('static-page', {
-		title: 'Contributing',
+		title: 'FAQ | Accessibility Supported',
 		result: result
 	});
 });
