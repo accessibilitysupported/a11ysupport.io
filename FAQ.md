@@ -52,7 +52,7 @@ For now, we base most of our data on the results of the latest [WebAim Screen Re
 
 ## Who runs this?
 
-This project was originally developed by the University of Nebraska - Lincoln. It is run by the community and anyone can contribute to it.
+We are figuring this out. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software is opened sourced under the GPL 3.0 license.
 
 ## What are the levels of support?
 
