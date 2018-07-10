@@ -24,19 +24,23 @@ The best thing you can do to help us out is to run tests against specific AT/Bro
 A support point is the support value for a given AT/Browser/Test.
 
 1. Find a test that you want to run.
-2. Run the test and follow the provided instructions so that you understand the expected results.
-3. Open an issue that details the results or create a pull request with your findings. Be sure to provide specific versions of both the AT and Browser that were used.
-4. Your findings must be verified by at least one other person before they are accepted.
+2. Read the provided instructions so that you understand the expected results.
+2. Use your chosen AT/Browser combination to run the test.
+3. Open an issue that details the results or create a pull request with your findings. Be sure to provide specific versions of the AT, Browser, and OS that were used.
+4. Add an entry to the history array for the test that describes any changes.
+5. Your findings must be verified by at least one other person before they are accepted. Verification must either be done manually, or by citing a trust worthy 3rd party resource.
 
 ## Suggest a missing test case
 
 Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new test case. Details for the test case should include:
 
 1. A name for the test case.
-2. Sample code for the test case.
-3. The Expected output and instructions.
-4. Any current support if you know it.
-5. All new test cases must be approved by at least one other person.
+2. Sample code for the test case (preferably committed to this project so that it doesn't change without our knowledge).
+4. List the feature(s) should reference the test case. If you are making a pull request, update the features to reference the test.
+5. Describe the Expected output and instructions. This must be objective and empirical in nature and must correlate to the output that is described by associated standards.
+6. Any current support if you know it (follow the instructions for adding a new support point).
+
+All new test cases must be approved by at least one other person.
 
 ## Improve a test case
 
@@ -47,20 +51,19 @@ If you find a problem with a test case, please [create an issue](https://github.
 Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new technology. A new technology should include:
 
 1. A link to the standard that supports the technology
-2. Any relevant links to aid in determining the correct AT behavior when interacting with the technology.
-3. At least one feature with at least one test.
-4. If possible, please include support details for the provided tests.
+2. Any relevant links to aid in determining the correct AT behavior when interacting with the technology. There must be at least one.
+3. At least one feature with at least one test with at least one support point (follow relevant instructions).
 
 All new technologies must be approved by at least one other person.
 
 ## Suggest a new feature
 
-Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new feature. A new feature should include:
+Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new feature. A new feature will only be accepted if it includes:
 
 1. A name for the feature.
-2. Links to relevant standards to support the feature and AT interaction.
-3. At least one test case.
+2. A description of the feature.
+2. Links to relevant standards to support the feature and describe how AT interaction is supposed to work.
+3. At least one test case with at least one support point.
 4. Any support details that you are aware of.
 
 All new features must be approved by at least one other person.
-

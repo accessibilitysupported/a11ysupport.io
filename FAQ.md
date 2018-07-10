@@ -16,7 +16,7 @@ Our goal is not to tell you what you can or can not use, but to help you make in
 
 There are many different ways that Assistive Technology (AT) interacts with a browser and your code.
 
-1. Accessibility APIs (most common). In this method, a browser will create an accessibility tree (subset of the DOM) and expose it to a system Accessibility API. The AT will then consume that API. This mapping is being standardied via the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1/).
+1. Accessibility APIs (most common). In this method, a browser will create an accessibility tree (subset of the DOM) and expose it to a system Accessibility API. The AT will then consume that API. This mapping is being standardized for many technologies via the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1/).
 2. The AT will directly interface with the browser and read the DOM.
 3. A mixture of 1 and 2.
 
@@ -25,6 +25,10 @@ It is possible to automatically test the Accessibility APIs and DOM, but the AT 
 Unfortunately, it is not yet possible to fully drive AT in an automated way, so we are left with having to do manual tests.
 
 ## What Assistive Technologies are in scope?
+
+**The Accessibility Supported conformance requirement in WCAG does not specify what technologies must be supported.** Our core support list may not match the list of technologies that you choose to support for any given project.
+
+**Our goal is to test against a manageable list of common and widely available AT.**
 
 We list Assistive Technologies that must interact with code in order to be operable. This boils down to two main categories of AT:
  
@@ -36,19 +40,36 @@ Testing every possible combination of AT and Browser is simply unrealistic. We o
 1. Core
 2. Extended
 
-Core AT and Browsers are commonly used or widely available. We try to keep the list to a minimum in order to make testing easier. We try to use the following rule to determine what should be considered 'core':
+### Core AT + Browser combinations
 
-* AT that is built into the operating system + the native browser on that operating system (eg. VoiceOver and Safari).
-* Free or Open source AT that is widely available (eg. NVDA).
-* AT that requires a paid license, but is widely adopted (eg. Jaws).
+Core AT and Browsers are commonly used or widely available. We try to keep the list to a minimum in order to make testing easier. The following rules are used to determine what should be considered 'core':
 
-There will be some exceptions too this rule, but we will do our best to follow it.
+For each category of AT that is within scope:
+1. AT that is built into the operating system if it is used by at least 10% of respondents + the native browser on that operating system. This currently includes:
+    * VoiceOver for Mac + Safari for Mac
+    * VoiceOver for iOS + Safari for iOS
+    * Windows Narrator + Edge
+    * Android Accessibility Suite + Google Chrome Chrome
+2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT. This currently includes:
+    * NVDA + Firefox
+3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT. This currently includes:
+    * JAWS + IE and Edge (both browsers during transition from IE)
+    * Dragon Naturally Speaking + Google Chrome (voice control software)
 
-Extended combinations include rare AT/Browser combinations or AT/Browser combinations that are rarely used in the wild.
+The phrase 'widely supported' for core AT means that greater than or equal to 20% of respondents use it as their primary AT.
 
-**The Accessibility Supported conformance requirement in WCAG does not specify what technologies must be supported.** Our core support list may not match the list of technologies that you choose to support for any given project.
+### Extended Combinations
 
-For now, we base most of our data on the results of the latest [WebAim Screen Reader Survey](https://webaim.org/projects/screenreadersurvey7/).
+Extended combinations include rarer AT/Browser combinations that are used by at least 10% of respondents + the major browsers available on the operating system.
+
+Major browsers are defined as: Google Chrome, Edge, Firefox, Internet Explorer, and Safari.
+
+### Survey Sources
+
+For now, we base our data on the results of the latest
+
+* [WebAim Screen Reader Survey](https://webaim.org/projects/screenreadersurvey7/). 
+* [UK.gov AT Survey](https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/)
 
 ## Who runs this?
 
