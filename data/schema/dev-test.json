@@ -71,6 +71,18 @@
         }
       },
       "required": ["date", "message"]
+    },
+    "state_or_property": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "value"]
     }
   },
   "properties": {
@@ -86,11 +98,49 @@
     "url": {
       "type": "string"
     },
+    "supports_sr": {
+      "type": "boolean"
+    },
+    "supports_vc": {
+      "type": "boolean",
+      "description": "A test will usually only support VC if the target element is interactive."
+    },
     "sr_instructions": {
-      "type": "string"
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
     },
     "vc_instructions": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "css_target": {
       "type": "string"
+    },
+    "expected": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "accessible_name": {
+          "type": "string"
+        },
+        "accessible_description": {
+          "type": "string"
+        },
+        "states_and_properties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/state_or_property"
+          }
+        }
+      },
+      "required": ["role", "accessible_name", "accessible_description", "states_and_properties"]
     },
     "history": {
       "type": "array",
@@ -147,8 +197,10 @@
   "required": [
     "title",
     "description",
-    "sr_instructions",
-    "vc_instructions",
+    "supports_sr",
+    "supports_vc",
+    "css_target",
+    "expected",
     "history",
     "at"
   ]

@@ -28,13 +28,48 @@ block content
             code= testHTML
         a(href='/tests/' + test.id + '.html') Open test HTML to run the test
 
-        if (test.sr_instructions)
-            h3 Screen Reader Instructions
-            p= test.sr_instructions
+        h3 Expected name, role, and properties
+        table
+            tr
+                th Role
+                td= test.expected.role
+            tr
+                th Accessible Name
+                td= test.expected.accessible_name
+            tr
+                th Accessible Description
+                td= test.expected.accessible_description
+            each state_or_property in test.expected.states_and_properties
+                th= state_or_property.title
+                td= state_or_property.value
 
-        if (test.vc_instructions)
+        p Screen readers will usually announce an element in the format: "&lt;role&gt;, &lt;accessible name&gt;, &lt;accessible descriptio&gt;, &lt;other statues and properties&gt;". The order in which the name, role, and properties are announced might differ between screen readers.
+
+
+        if (test.supports_sr)
+            h3 Screen Reader Instructions
+            ol
+                li Launch the screen reader that you want to test with
+                li Open the test html
+                li= "Locate the target element. The CSS selector for the target is: " + test.css_target
+                if test.sr_instructions
+                    each instruction in test.sr_instructions
+                        li= instruction
+                else
+                li The test passes if the screen reader output matches the expected name, role, and properties.
+
+        if (test.supports_vc)
             h3 Voice Command Instructions
-            p= test.vc_instructions
+            ol
+                li Lunc the voice command software that you want to test with
+                li open the test html
+                if test.vc_instructions
+                    each instruction in test.vc_instructions
+                        li= instruction
+                else
+                    li= "Say \"click "+ test.expected.accessible_name +"\""
+                    li The test passes if the Voice Command software is able to locate and activate the target element.
+
 
         h2(id="support-tables") Support tables
         table

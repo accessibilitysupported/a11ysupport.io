@@ -2,8 +2,15 @@
   "id": "html_label_with_css_content",
   "title": "HTML label with CSS generated content",
   "description": "This test uses ::before and ::after pseudo classes to add content to a label",
-  "sr_instructions": "The label should be read as 'This is generated content.' when the text input is focused.",
-  "vc_instructions": "You should be able to activate the input by saying it's label.",
+  "supports_sr": true,
+  "supports_vc": true,
+  "css_target": "#target",
+  "expected": {
+    "role": "textbox",
+    "accessible_name": "This is generated content.",
+    "accessible_description": "",
+    "states_and_properties": []
+  },
   "history": [
     {
       "date": "2018-07-06",
