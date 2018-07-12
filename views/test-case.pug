@@ -55,8 +55,7 @@ block content
                                 span= ' ' + test.at[at].browsers[browser].browser_version
                         td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
                         td
-                            - let issue_title = test.id + ' with ' + at + '/' + browser;
-                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point,core%20support') Change
+                            a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
         br
         table
             caption extended support (less common combinations)
@@ -79,8 +78,7 @@ block content
                                 span= ' ' + test.at[at.id].browsers[browser].browser_version
                         td= test.at[at.id].browsers[browser].support
                         td
-                            - let issue_title = test.id + ' with ' + at.id + '/' + browser;
-                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+issue_title+'&labels=support%20point,extended%20support') Change
+                            a(href="/tests/" + test.id + "/" + at.id + "/" + browser) More information
         h2(id="history") History
         ul
             each record in test.history
@@ -96,4 +94,4 @@ block content
             li
                 a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+test.id+'&labels=test%20case') There is a problem with this test case (the test file, procedure, expected results, etc)
             li
-                p Use the support tables to report issues or changes for different combinations.
+                p Use the support tables to view details and report issues or changes.

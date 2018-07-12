@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    div.content
+        h1= 'Test: ' + test.title + ' ('+ATBrowsers.at[atId].title+'/'+ATBrowsers.browsers[browserId].title+')'
+
+        a(href="/tests/"+test.id class="back") Go back to the test
+
+        table
+            caption Details
+            thead
+                tr
+                    th Property
+                    th Value
+            tbody
+                tr
+                    th(scope="row") Support
+                    td= test.at[atId].browsers[browserId].support
+                tr
+                    th(scope="row") AT Name
+                    td
+                        a(href="/learn/at/"+atId)=ATBrowsers.at[atId].title
+                tr
+                    th(scope="row") AT Version
+                    td= test.at[atId].browsers[browserId].at_version
+                tr
+                    th(scope="row") Browser Name
+                    td= ATBrowsers.browsers[browserId].title
+                tr
+                    th(scope="row") Browser Version
+                    td= test.at[atId].browsers[browserId].browser_version
+                tr
+                    th(scope="row") OS version
+                    td= test.at[atId].browsers[browserId].os_version
+                tr
+                    th(scope="row") Sample Output
+                    td -
+                tr
+                    th(scope="row") Is this not right?
+                    td
+                        - let issue_title = test.id + ' with ' + at + '/' + browser;
+                            a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=' + issue_title + '&labels=support%20point,core%20support') Open an issue
+
+    div.sidebar
