@@ -16,15 +16,13 @@ block content
         each test, index in data.tests
             tr
               td
-                a(href='#'+test.id) #{test.title}
+                a(href='/tests/'+test.id) #{test.title}
               td= test.core_support_string
 
     h2 Summary of tests
     each test, index in data.tests
       a(href='/tests/' + test.id)
         h3(id=test.id)= test.title
-      p= 'Support level: ' + test.core_support_string
-      p= test.description
       table
         caption #{test.title} Support (for core combinations)
         tr
@@ -41,7 +39,6 @@ block content
                 if (test.at[at].browsers[browser].browser_version)
                     span= ' ' + test.at[at].browsers[browser].browser_version
               td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
-      a(href='/tests/' + test.id) Learn more about the #{test.title} test
   if data.references
     div.sidebar
       h2 Is something not right?
