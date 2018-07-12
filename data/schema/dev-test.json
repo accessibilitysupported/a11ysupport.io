@@ -47,13 +47,17 @@
         "browser_version": {
           "type": "string"
         },
+        "os_version": {
+          "type": "string",
+          "description": "The OS version indicates what accessibility APIs are in use"
+        },
         "support": {
           "description": "Is the combination supported? y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.",
           "type": "string",
           "enum": ["y", "p", "n", "na", "u"]
         }
       },
-      "required": ["support", "at_version", "browser_version"]
+      "required": ["support", "at_version", "browser_version", "os_version"]
     },
     "history": {
       "type": "object",
