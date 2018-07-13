@@ -5,7 +5,10 @@ block content
     h1= data.title
     div(class="current-support-container "+data.core_support_string.replace(" ", "-"))
       p= 'Support level: ' + data.core_support_string
-    p= data.description
+    p!= md.renderInline(data.description)
+
+    if data.recommendation
+      p= "Recommendation: " + data.recommendation
 
     if data.tests.length > 1
       table
@@ -19,15 +22,11 @@ block content
                 a(href='/tests/'+test.id) #{test.title}
               td= test.core_support_string
 
-      if data.recommendation
-        p= "Recommendation: " + data.recommendation
-
     h2 Summary of tests
     each test, index in data.tests
       a(href='/tests/' + test.id)
-        h3(id=test.id)= test.title
-      table
-        caption #{test.title} Support (for core combinations)
+        h3(id='support-table-'+test.id)= 'Support for ' + test.title
+      table(aria-labelledby='support-table-'+test.id)
         tr
           th AT
           th Browser

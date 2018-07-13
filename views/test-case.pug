@@ -6,12 +6,6 @@ block content
         div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
             p= 'Current support: ' + test.core_support_string
         p= test.description
-        p This test is found in the following features:
-
-        ul
-            each featureInfo in features
-                li
-                    a(href="/tech/"+featureInfo.techId+'/'+featureInfo.featureId) #{featureInfo.title}
 
         h2 On this page
         ul
@@ -38,31 +32,33 @@ block content
                 td= test.expected.accessible_name
             tr
                 th Accessible Description
-                td= test.expected.accessible_description
+                td= test.expected.accessible_description||'(none)'
             each state_or_property in test.expected.states_and_properties
                 th= state_or_property.title
                 td= state_or_property.value
 
-        p Note: Screen readers will usually announce an element in the format: "&lt;role&gt;, &lt;accessible name&gt;, &lt;accessible descriptio&gt;, &lt;other states and properties&gt;". The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
+        p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
 
         if (test.supports_sr)
             h3 Screen Reader Instructions
             ol
-                li Launch the screen reader that you want to test with
+                li Launch the screen reader that you want to test with.
                 li
                     a(href='/tests/' + test.id + '.html') Open the test HTML
-                li= "Locate the target element. The CSS selector for the target is: " + test.css_target
+                li= "Locate the target element. The CSS selector for the target is: "
+                    strong= test.css_target
                 if test.sr_instructions
                     each instruction in test.sr_instructions
                         li= instruction
                 else
-                li The test passes if the screen reader output matches the expected name, role, and properties.
+                li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers).
+                li Use the support tables to create an issue for the given browser/screen reader combination.
 
         if (test.supports_vc)
             h3 Voice Command Instructions
             ol
-                li Launch the voice command software that you want to test with
+                li Launch the voice command software that you want to test with.
                 li
                     a(href='/tests/' + test.id + '.html') Open the test HTML
                 if test.vc_instructions
@@ -71,6 +67,7 @@ block content
                 else
                     li= "Say \"click "+ test.expected.accessible_name +"\""
                     li The test passes if the Voice Command software is able to locate and activate the target element.
+                    li Use the support tables to create an issue for the given browser/voice command software combination.
 
 
         h2(id="support-tables") Support tables
@@ -127,6 +124,13 @@ block content
                     span= record.message
 
     div.sidebar
+        h2 Related Features
+        p This test is found in the following features:
+        ul
+            each featureInfo in features
+                li
+                    a(href="/tech/" + featureInfo.techId + '/' + featureInfo.featureId) #{featureInfo.title}
+
         h2 Is something not right?
         p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
 

@@ -3,6 +3,8 @@ let router = express.Router();
 let fs = require('fs');
 let sanitize = require("sanitize-filename");
 let createError = require('http-errors');
+let MarkdownIt = require('markdown-it');
+let md = new MarkdownIt().use(require('markdown-it-anchor'));
 
 /* GET feature listing. */
 router.get('/', function(req, res, next) {
@@ -48,7 +50,8 @@ router.get('/:techId/:featureId', function(req, res, next) {
 		techId: req.params.techId,
 		featureId: req.params.featureId,
 		data: feature_object,
-		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		md: md
 	});
 });
 
