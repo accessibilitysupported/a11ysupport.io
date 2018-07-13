@@ -48,10 +48,20 @@ Please [create an issue](https://github.com/accessibilitysupported/accessibility
 1. A name for the test case.
 2. Sample code for the test case (preferably committed to this project so that it doesn't change without our knowledge).
 4. List the feature(s) should reference the test case. If you are making a pull request, update the features to reference the test.
-5. Describe the Expected output and instructions. This must be objective and empirical in nature and must correlate to the output that is described by associated standards.
+5. Describe the Expected output and instructions. This must be objective and empirical in nature and must correlate to the output that is described by associated standards. The following must be listed
+    * The CSS selector for the target element
+    * The expected role, accessible name, accessible description, states, and properties of the element
 6. Any current support if you know it (follow the instructions for adding a new support point).
 
 All new test cases must be approved by at least one other person.
+
+### Determine the expected role, accessible name, accessible description, states, and properties
+
+Use the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1/) wherever possible to determine the expected values.
+
+* [Accessible Name and Description Computation](https://www.w3.org/TR/accname-1.1/) - general expectations
+* [HTML AAM](https://www.w3.org/TR/html-aam-1.0/) - specific HTML rules
+* [SVG AAM](https://www.w3.org/TR/svg-aam-1.0/) - specific SVG rules
 
 ## Improve a test case
 
