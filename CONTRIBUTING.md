@@ -30,6 +30,17 @@ A support point is the support value for a given AT/Browser/Test.
 4. Add an entry to the history array for the test that describes any changes.
 5. Your findings must be verified by at least one other person before they are accepted. Verification must either be done manually, or by citing a trust worthy 3rd party resource.
 
+An issue to add or modify a support point should include:
+
+1. The name of the test
+2. The AT name
+3. The AT version
+4. The Browser Name
+5. The Browser version
+6. The OS version
+7. The output announced by the screen reader (if using a screen reader).
+8. Whether or not you think the test passes or fails
+
 ## Suggest a missing test case
 
 Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new test case. Details for the test case should include:
