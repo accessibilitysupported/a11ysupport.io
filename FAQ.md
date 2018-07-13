@@ -12,6 +12,15 @@ This is a community driven website that aims to help inform developers about wha
 
 Our goal is not to tell you what you can or can not use, but to help you make informed decisions. For example, you may be able to use unsupported features in a way that does not negatively affect AT interaction.
 
+We also hope to help developers learn how to test with assistive technologies. To accomplish this, we will provide introductory materials on how to use different assistive technologies and provide detailed instructions about how to perform tests. We also hope to run workshops at developer conferences.
+
+There are some other projects that are similar to this, however most of them:
+* Are closed sourced (no contributions)
+* Do not cover all of the common AT
+* Do not disclose exactly how tests are performed
+* Only tests a specific technology (or subset of that technology)
+* Only tests the accessibility API layer, not the end result of the AT
+
 ## Can't this be automated?
 
 There are many different ways that Assistive Technology (AT) interacts with a browser and your code.
