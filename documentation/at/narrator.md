@@ -29,8 +29,6 @@ Narrator is built in to the Windows 10 operating system.
 | Open Element List | Not Available |
 | Navigate between items | left arrow, right arrow, up arrow, or down arrow |
 
-The type of 
-
 ## Modes
 
 * Scan Mode: Caps Lock +  Space
