@@ -43,14 +43,15 @@ block content
                 th= state_or_property.title
                 td= state_or_property.value
 
-        p Screen readers will usually announce an element in the format: "&lt;role&gt;, &lt;accessible name&gt;, &lt;accessible descriptio&gt;, &lt;other statues and properties&gt;". The order in which the name, role, and properties are announced might differ between screen readers.
+        p Note: Screen readers will usually announce an element in the format: "&lt;role&gt;, &lt;accessible name&gt;, &lt;accessible descriptio&gt;, &lt;other states and properties&gt;". The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
 
         if (test.supports_sr)
             h3 Screen Reader Instructions
             ol
                 li Launch the screen reader that you want to test with
-                li Open the test html
+                li
+                    a(href='/tests/' + test.id + '.html') Open the test HTML
                 li= "Locate the target element. The CSS selector for the target is: " + test.css_target
                 if test.sr_instructions
                     each instruction in test.sr_instructions
@@ -61,8 +62,9 @@ block content
         if (test.supports_vc)
             h3 Voice Command Instructions
             ol
-                li Lunc the voice command software that you want to test with
-                li open the test html
+                li Launch the voice command software that you want to test with
+                li
+                    a(href='/tests/' + test.id + '.html') Open the test HTML
                 if test.vc_instructions
                     each instruction in test.vc_instructions
                         li= instruction
@@ -72,8 +74,10 @@ block content
 
 
         h2(id="support-tables") Support tables
-        table
-            caption core support
+
+        h3(id="core-support") Core support
+        p These are common combinations.
+        table(aria-labelledby="core-support")
             tr
                 th AT
                 th Browser
@@ -91,9 +95,10 @@ block content
                         td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
                         td
                             a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
-        br
-        table
-            caption extended support (less common combinations)
+
+        h3(id="extended-support") Extended Support
+        p These are less common combinations
+        table(aria-labelledby="extended-support")
             tr
                 th AT
                 th Browser
