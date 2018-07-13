@@ -19,6 +19,9 @@ block content
                 a(href='/tests/'+test.id) #{test.title}
               td= test.core_support_string
 
+      if data.recommendation
+        p= "Recommendation: " + data.recommendation
+
     h2 Summary of tests
     each test, index in data.tests
       a(href='/tests/' + test.id)
