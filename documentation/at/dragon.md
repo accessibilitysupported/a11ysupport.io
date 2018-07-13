@@ -4,6 +4,15 @@ Dragon Naturally Speaking is dictation software from Nuance. It is also a popula
 
 We include Dragon Naturally Speaking for windows in our core AT support. Dragon Naturally Speaking for Mac is listed in extended support.
 
+## TODO
+
+This information is still in development. Feel free to contribute. The following still needs to be done:
+
+* Add information on how to capture output for tests (manual, copy/paste, etc)
+* Add details on how to find the version of this AT and os
+* Proof read
+* Ensure that the listed commands are accurate and make sense
+
 ## Install
 
 1. [Purchase Dragon Naturally Speaking from Nuance](https://www.nuance.com/dragon.html). A demo is not available.
