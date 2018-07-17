@@ -4,6 +4,19 @@ let rimraf = require('rimraf');
 let helper = require(__dirname+'/src/feature-helper');
 let tech = require(__dirname+"/data/tech.json");
 let testMap = {};
+let allFeatures = [];
+
+/**
+ * Generic array sorting
+ *
+ * @param property
+ * @returns {Function}
+ */
+let sortByProperty = function (property) {
+	return function (x, y) {
+		return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
+	};
+};
 
 let getFeatures = function(techId, buildDir) {
 	let dir_feature = __dirname + '/data/tech/'+techId;
@@ -27,6 +40,7 @@ let getFeatures = function(techId, buildDir) {
 		// Initialize the feature object to add missing data points and generate support strings
 		helper.initalizeFeatureObject(feature);
 		feature.id = techId + '/' + id;
+		feature.techId = techId;
 
 		// Save initialized JSON in the build dir
 		fs.writeFileSync(techDir+'/'+file, JSON.stringify(feature, null, 2));
@@ -54,9 +68,11 @@ let getFeatures = function(techId, buildDir) {
 		// Push to the list of features
 		features.push({
 			id: id,
+			techId: feature.techId,
 			title: feature.title,
 			core_support: feature.core_support,
 			core_support_string: feature.core_support_string,
+			core_support_by_at: feature.core_support_by_at,
 			failing_tests: failingTests
 		});
 	});
@@ -89,7 +105,14 @@ testFiles.forEach(function(file) {
 
 for (let techId in tech) {
 	tech[techId].features = getFeatures(techId, buildDir);
+
+	if (tech[techId].features) {
+		allFeatures = allFeatures.concat(tech[techId].features);
+	}
 }
+
+allFeatures.sort(sortByProperty('title'));
 
 fs.writeFileSync(buildDir+'/tech.json', JSON.stringify(tech, null, 2));
 fs.writeFileSync(buildDir+'/test_map.json', JSON.stringify(testMap, null, 2));
+fs.writeFileSync(buildDir+'/features.json', JSON.stringify(allFeatures, null, 2));
