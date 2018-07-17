@@ -1,142 +1,143 @@
 extends layout
 
 block content
-    div.content
-        h1= 'Test: ' + test.title
-        div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
-            p= 'Current support: ' + test.core_support_string
-        p= test.description
+    div.content-wrapper
+        div.content
+            h1= 'Test: ' + test.title
+            div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
+                p= 'Current support: ' + test.core_support_string
+            p= test.description
 
-        h2 On this page
-        ul
-            li
-                a(href="#run-test") Run the test
-            li
-                a(href="#support-tables") Support tables
-            li
-                a(href="#history") History
-
-        h2(id="run-test") Run the test
-        h3 Test HTML
-        pre
-            code= testHTML
-        a(href='/tests/' + test.id + '.html') Open test HTML to run the test
-
-        h3 Expected name, role, and properties
-        table
-            tr
-                th Role
-                td= test.expected.role
-            tr
-                th Accessible Name
-                td= test.expected.accessible_name
-            tr
-                th Accessible Description
-                td= test.expected.accessible_description||'(none)'
-            each state_or_property in test.expected.states_and_properties
-                th= state_or_property.title
-                td= state_or_property.value
-
-        p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
-
-
-        if (test.supports_sr)
-            h3 Screen Reader Instructions
-            ol
-                li Launch the screen reader that you want to test with.
-                li Ensure that the screen reader is set to factory defaults.
+            h2 On this page
+            ul
                 li
-                    a(href='/tests/' + test.id + '.html') Open the test HTML
-                li= "Locate the target element. The CSS selector for the target is: "
-                    strong= test.css_target
-                if test.sr_instructions
-                    each instruction in test.sr_instructions
-                        li= instruction
-                else
-                li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers).
-                li Use the support tables to create an issue for the given browser/screen reader combination.
-
-        if (test.supports_vc)
-            h3 Voice Command Instructions
-            ol
-                li Launch the voice command software that you want to test with.
+                    a(href="#run-test") Run the test
                 li
-                    a(href='/tests/' + test.id + '.html') Open the test HTML
-                if test.vc_instructions
-                    each instruction in test.vc_instructions
-                        li= instruction
-                else
-                    li= "Say \"click "+ test.expected.accessible_name +"\""
-                    li The test passes if the Voice Command software is able to locate and activate the target element.
-                    li Use the support tables to create an issue for the given browser/voice command software combination.
-
-
-        h2(id="support-tables") Support tables
-
-        h3(id="core-support") Core support
-        p These are common combinations.
-        table(aria-labelledby="core-support")
-            tr
-                th AT
-                th Browser
-                th Support
-                th Action
-            each at in ATBrowsers.core_at
-                each browser in ATBrowsers.at[at].core_browsers
-                    tr
-                        td= ATBrowsers.at[at].title
-                            if test.at[at].browsers[browser].at_version
-                                span= ' ' + test.at[at].browsers[browser].at_version
-                        td= ATBrowsers.browsers[browser].title
-                            if test.at[at].browsers[browser].browser_version
-                                span= ' ' + test.at[at].browsers[browser].browser_version
-                        td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
-                        td
-                            a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
-
-        h3(id="extended-support") Extended Support
-        p These are less common combinations
-        table(aria-labelledby="extended-support")
-            tr
-                th AT
-                th Browser
-                th Support
-                th Action
-            each at in ATBrowsers.at
-                - var browsers = at.extended_browsers
-                if ATBrowsers.extended_at.includes(at.id)
-                    - var browsers = browsers.concat(at.core_browsers)
-                each browser in browsers
-                    tr
-                        td= at.title
-                            if test.at[at.id].browsers[browser].at_version
-                                span= ' ' + test.at[at.id].browsers[browser].at_version
-                        td= ATBrowsers.browsers[browser].title
-                            if test.at[at.id].browsers[browser].browser_version
-                                span= ' ' + test.at[at.id].browsers[browser].browser_version
-                        td= test.at[at.id].browsers[browser].support
-                        td
-                            a(href="/tests/" + test.id + "/" + at.id + "/" + browser) More information
-        h2(id="history") History
-        ul
-            each record in test.history
+                    a(href="#support-tables") Support tables
                 li
-                    strong= record.date + ' '
-                    span= record.message
+                    a(href="#history") History
 
-    div.sidebar
-        h2 Related Features
-        p This test is found in the following features:
-        ul
-            each featureInfo in features
+            h2(id="run-test") Run the test
+            h3 Test HTML
+            pre
+                code= testHTML
+            a(href='/tests/' + test.id + '.html') Open test HTML to run the test
+
+            h3 Expected name, role, and properties
+            table
+                tr
+                    th Role
+                    td= test.expected.role
+                tr
+                    th Accessible Name
+                    td= test.expected.accessible_name
+                tr
+                    th Accessible Description
+                    td= test.expected.accessible_description||'(none)'
+                each state_or_property in test.expected.states_and_properties
+                    th= state_or_property.title
+                    td= state_or_property.value
+
+            p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
+
+
+            if (test.supports_sr)
+                h3 Screen Reader Instructions
+                ol
+                    li Launch the screen reader that you want to test with.
+                    li Ensure that the screen reader is set to factory defaults.
+                    li
+                        a(href='/tests/' + test.id + '.html') Open the test HTML
+                    li= "Locate the target element. The CSS selector for the target is: "
+                        strong= test.css_target
+                    if test.sr_instructions
+                        each instruction in test.sr_instructions
+                            li= instruction
+                    else
+                    li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers).
+                    li Use the support tables to create an issue for the given browser/screen reader combination.
+
+            if (test.supports_vc)
+                h3 Voice Command Instructions
+                ol
+                    li Launch the voice command software that you want to test with.
+                    li
+                        a(href='/tests/' + test.id + '.html') Open the test HTML
+                    if test.vc_instructions
+                        each instruction in test.vc_instructions
+                            li= instruction
+                    else
+                        li= "Say \"click "+ test.expected.accessible_name +"\""
+                        li The test passes if the Voice Command software is able to locate and activate the target element.
+                        li Use the support tables to create an issue for the given browser/voice command software combination.
+
+
+            h2(id="support-tables") Support tables
+
+            h3(id="core-support") Core support
+            p These are common combinations.
+            table(aria-labelledby="core-support")
+                tr
+                    th AT
+                    th Browser
+                    th Support
+                    th Action
+                each at in ATBrowsers.core_at
+                    each browser in ATBrowsers.at[at].core_browsers
+                        tr
+                            td= ATBrowsers.at[at].title
+                                if test.at[at].browsers[browser].at_version
+                                    span= ' ' + test.at[at].browsers[browser].at_version
+                            td= ATBrowsers.browsers[browser].title
+                                if test.at[at].browsers[browser].browser_version
+                                    span= ' ' + test.at[at].browsers[browser].browser_version
+                            td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
+                            td
+                                a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
+
+            h3(id="extended-support") Extended Support
+            p These are less common combinations
+            table(aria-labelledby="extended-support")
+                tr
+                    th AT
+                    th Browser
+                    th Support
+                    th Action
+                each at in ATBrowsers.at
+                    - var browsers = at.extended_browsers
+                    if ATBrowsers.extended_at.includes(at.id)
+                        - var browsers = browsers.concat(at.core_browsers)
+                    each browser in browsers
+                        tr
+                            td= at.title
+                                if test.at[at.id].browsers[browser].at_version
+                                    span= ' ' + test.at[at.id].browsers[browser].at_version
+                            td= ATBrowsers.browsers[browser].title
+                                if test.at[at.id].browsers[browser].browser_version
+                                    span= ' ' + test.at[at.id].browsers[browser].browser_version
+                            td= test.at[at.id].browsers[browser].support
+                            td
+                                a(href="/tests/" + test.id + "/" + at.id + "/" + browser) More information
+            h2(id="history") History
+            ul
+                each record in test.history
+                    li
+                        strong= record.date + ' '
+                        span= record.message
+
+        div.sidebar
+            h2 Related Features
+            p This test is found in the following features:
+            ul
+                each featureInfo in features
+                    li
+                        a(href="/tech/" + featureInfo.techId + '/' + featureInfo.featureId) #{featureInfo.title}
+
+            h2 Is something not right?
+            p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
+
+            ul
                 li
-                    a(href="/tech/" + featureInfo.techId + '/' + featureInfo.featureId) #{featureInfo.title}
-
-        h2 Is something not right?
-        p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
-
-        ul
-            li
-                a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+test.id+'&labels=test%20case') There is a problem with this test case (the test file, procedure, expected results, etc)
-            li
-                p Use the support tables to view details and report issues or changes.
+                    a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+test.id+'&labels=test%20case') There is a problem with this test case (the test file, procedure, expected results, etc)
+                li
+                    p Use the support tables to view details and report issues or changes.

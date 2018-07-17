@@ -2,11 +2,10 @@ extends layout
 
 block content
   div.content
-    p This website aims help developers understand the #[a(href='https://www.w3.org/TR/WCAG21/#cc4') accessibility support] of various programming features in HTML, ARIA, CSS, SVG, etc. We hope to help developers 1) learn how to test with assistive technologies and 2) help developers meet the accessibility supported requirement of WCAG.
-
-    h2 Technologies
-    p Technologies represent different standards such as HTML, CSS, ARIA, and SVG. Each technology can have many features.
-    ul
-      each technology in tech
-        li
-          a(href='/tech/'+technology.id) #{technology.id}
+    div.search-container
+      div.search-controls
+        form
+          label(for="feature-search") Find support for a feature
+          input(id="feature-search" type="text").search
+      div.summary-container(aria-live="polite" tabindex="-1")
+      div.search-results

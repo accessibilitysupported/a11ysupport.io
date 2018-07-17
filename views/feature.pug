@@ -1,54 +1,55 @@
 extends layout
 
 block content
-  div.content
-    h1= data.title
-    div(class="current-support-container "+data.core_support_string.replace(" ", "-"))
-      p= 'Support level: ' + data.core_support_string
-    p!= md.renderInline(data.description)
+  div.content-wrapper
+    div.content
+      h1= data.title
+      div(class="current-support-container "+data.core_support_string.replace(" ", "-"))
+        p= 'Support level: ' + data.core_support_string
+      p!= md.renderInline(data.description)
 
-    if data.recommendation
-      p= "Recommendation: " + data.recommendation
+      if data.recommendation
+        p= "Recommendation: " + data.recommendation
 
-    if data.tests.length > 1
-      table
-        caption Test Overview
-        tr
-          th Test
-          th Support
-        each test, index in data.tests
-            tr
-              td
-                a(href='/tests/'+test.id) #{test.title}
-              td= test.core_support_string
+      if data.tests.length > 1
+        table
+          caption Test Overview
+          tr
+            th Test
+            th Support
+          each test, index in data.tests
+              tr
+                td
+                  a(href='/tests/'+test.id) #{test.title}
+                td= test.core_support_string
 
-    h2 Summary of tests
-    each test, index in data.tests
-      a(href='/tests/' + test.id)
-        h3(id='support-table-'+test.id)= 'Support for ' + test.title
-      table(aria-labelledby='support-table-'+test.id)
-        tr
-          th AT
-          th Browser
-          th Support
-        each at in ATBrowsers.core_at
-          each browser in ATBrowsers.at[at].core_browsers
-            tr
-              td= ATBrowsers.at[at].title
-                if test.at[at].browsers[browser].at_version
-                    span= ' ' + test.at[at].browsers[browser].at_version
-              td= ATBrowsers.browsers[browser].title
-                if (test.at[at].browsers[browser].browser_version)
-                    span= ' ' + test.at[at].browsers[browser].browser_version
-              td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
-  if data.references
-    div.sidebar
-      h2 Is something not right?
-      p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
-      a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
+      h2 Summary of tests
+      each test, index in data.tests
+        a(href='/tests/' + test.id)
+          h3(id='support-table-'+test.id)= 'Support for ' + test.title
+        table(aria-labelledby='support-table-'+test.id)
+          tr
+            th AT
+            th Browser
+            th Support
+          each at in ATBrowsers.core_at
+            each browser in ATBrowsers.at[at].core_browsers
+              tr
+                td= ATBrowsers.at[at].title
+                  if test.at[at].browsers[browser].at_version
+                      span= ' ' + test.at[at].browsers[browser].at_version
+                td= ATBrowsers.browsers[browser].title
+                  if (test.at[at].browsers[browser].browser_version)
+                      span= ' ' + test.at[at].browsers[browser].browser_version
+                td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
+    if data.references
+      div.sidebar
+        h2 Is something not right?
+        p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
+        a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
 
-      h2 References
-      ul
-        each reference in data.references
-          li
-            a(href=reference.url) #{reference.title}
+        h2 References
+        ul
+          each reference in data.references
+            li
+              a(href=reference.url) #{reference.title}

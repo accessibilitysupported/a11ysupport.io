@@ -1,42 +1,43 @@
 extends layout
 
 block content
-  div.content
-    h1= title
-    p= tech.description
+  div.content-wrapper
+    div.content
+      h1= title
+      p= tech.description
 
-    h2 Features and Tests
+      h2 Features and Tests
 
-    p Features represent the various aspects of a technology. In HTML a feature might be an element or attribute. In CSS a feature might be a property. In ARIA a feature might be an attribute.
+      p Features represent the various aspects of a technology. In HTML a feature might be an element or attribute. In CSS a feature might be a property. In ARIA a feature might be an attribute.
 
-    p A test is a manual verification that a feature works like it is supposed to. The expectations of a feature might change in different contexts or when combined with different features and technologies. Therefore each feature can have many tests, and a test can be shared between many features and technologies. In general, a test should be specifically tailored to measure a single outcome.
+      p A test is a manual verification that a feature works like it is supposed to. The expectations of a feature might change in different contexts or when combined with different features and technologies. Therefore each feature can have many tests, and a test can be shared between many features and technologies. In general, a test should be specifically tailored to measure a single outcome.
 
-    if !tech.features || tech.features.length === 0
-      p
-        strong We don't have any features listed yet. Please contribute some!
-    else
-      p Can't find what you are looking for? Please #[a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new") create an issue] and let us know.
-      table
-        tr
-          th Feature
-          th Support
-          th Failing tests
-        each feature in tech.features
-            tr
-              td
-                a(href='/tech/'+tech.id+'/'+feature.id) #{feature.id}
-              td #{feature.core_support_string}
-              td
-                if feature.failing_tests.length
-                  ul
-                    each test in feature.failing_tests
-                      li
-                        a(href="/tests/"+test.id)= test.title
+      if !tech.features || tech.features.length === 0
+        p
+          strong We don't have any features listed yet. Please contribute some!
+      else
+        p Can't find what you are looking for? Please #[a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new") create an issue] and let us know.
+        table
+          tr
+            th Feature
+            th Support
+            th Failing tests
+          each feature in tech.features
+              tr
+                td
+                  a(href='/tech/'+tech.id+'/'+feature.id) #{feature.id}
+                td #{feature.core_support_string}
+                td
+                  if feature.failing_tests.length
+                    ul
+                      each test in feature.failing_tests
+                        li
+                          a(href="/tests/"+test.id)= test.title
 
-  if tech.references
-    div.sidebar
-      h2 References
-      ul
-        each reference in tech.references
-          li
-            a(href=reference.url) #{reference.title}
+    if tech.references
+      div.sidebar
+        h2 References
+        ul
+          each reference in tech.references
+            li
+              a(href=reference.url) #{reference.title}
