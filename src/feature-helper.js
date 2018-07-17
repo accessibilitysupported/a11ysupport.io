@@ -37,7 +37,14 @@ helper.initalizeFeatureObject = function(featureObject) {
 				let support = featureObject.tests[testIndex].at[at].browsers[browser].support;
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 					if (ATBrowsers.core_at.includes(at)) {
-						featureObject.core_support_by_at[at] = support;
+						if (!featureObject.core_support_by_at[at]) {
+							featureObject.core_support_by_at[at] = {
+								'string': null,
+								'values': []
+							};
+						}
+
+						featureObject.core_support_by_at[at].values.push(support);
 						featureObject.core_support.push(support);
 					} else {
 						featureObject.extended_support.push(support);
@@ -52,6 +59,11 @@ helper.initalizeFeatureObject = function(featureObject) {
 	//Set support strings
 	featureObject.core_support_string = helper.generateSupportString(featureObject.core_support);
 	featureObject.extended_support_string = helper.generateSupportString(featureObject.extended_support);
+
+	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
+		let at = ATBrowsers.core_at[i];
+		featureObject.core_support_by_at[at].string = helper.generateSupportString(featureObject.core_support_by_at[at].values);
+	}
 };
 
 

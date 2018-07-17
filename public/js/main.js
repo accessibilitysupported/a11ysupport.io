@@ -55,8 +55,11 @@ function buildResult(feature) {
 	for(var at in feature.core_support_by_at) {
 		var th = document.createElement("TH");
 		var td = document.createElement("TD");
+		var supportClass = feature.core_support_by_at[at].string.replace(" ", "-");
 		th.textContent = ATBrowsers.at[at].short_title;
-		td.textContent = feature.core_support_by_at[at];
+		th.classList.add(supportClass);
+		td.textContent = feature.core_support_by_at[at].string;
+		td.classList.add(supportClass);
 		headerRow.appendChild(th);
 		row.appendChild(td);
 	}
