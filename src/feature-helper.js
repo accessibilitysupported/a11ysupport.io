@@ -22,6 +22,7 @@ helper.initalizeFeatureObject = function(featureObject) {
 
 	//Set up support properties
 	featureObject.core_support = [];
+	featureObject.core_support_by_at = {};
 	featureObject.core_support_string = 'unknown';
 	featureObject.extended_support = [];
 	featureObject.extended_support_string = 'unknown';
@@ -36,6 +37,7 @@ helper.initalizeFeatureObject = function(featureObject) {
 				let support = featureObject.tests[testIndex].at[at].browsers[browser].support;
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 					if (ATBrowsers.core_at.includes(at)) {
+						featureObject.core_support_by_at[at] = support;
 						featureObject.core_support.push(support);
 					} else {
 						featureObject.extended_support.push(support);
