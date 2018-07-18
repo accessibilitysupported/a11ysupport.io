@@ -46,7 +46,7 @@ router.get('/:techId/:featureId', function(req, res, next) {
 	}
 
 	res.render('feature', {
-		title: req.params.featureId + ' ' + req.params.techId + ' Feature | Accessibility Supported',
+		title: req.params.featureId + ' (' + req.params.techId + ') | Accessibility Supported',
 		techId: req.params.techId,
 		featureId: req.params.featureId,
 		data: feature_object,
