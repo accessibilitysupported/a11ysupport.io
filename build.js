@@ -73,7 +73,8 @@ let getFeatures = function(techId, buildDir) {
 			core_support: feature.core_support,
 			core_support_string: feature.core_support_string,
 			core_support_by_at: feature.core_support_by_at,
-			failing_tests: failingTests
+			failing_tests: failingTests,
+			total_test_count: feature.tests.length
 		});
 	});
 

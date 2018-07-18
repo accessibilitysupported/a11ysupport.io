@@ -38,11 +38,13 @@ function filterFeatures(query) {
 
 function buildResult(feature) {
 	var container = document.createElement("DIV");
+	container.classList.add('result');
 	var link = document.createElement("A");
 	var title = document.createElement("H2");
 	link.href = '/tech/'+feature.techId + '/' + feature.id;
-	link.textContent = feature.title;
+	link.textContent = feature.title + ' (' + feature.techId + ')';
 	title.appendChild(link);
+
 
 	var tableContainer = document.createElement("DIV");
 	tableContainer.classList.add('responsive-table');
@@ -70,8 +72,16 @@ function buildResult(feature) {
 	table.appendChild(tbody);
 	tableContainer.appendChild(table);
 
+	var details = document.createElement('P');
+	details.appendChild(document.createTextNode('Supported by ' + feature.total_test_count + ' tests. '));
+	if (feature.core_support.includes('u')) {
+		details.appendChild(document.createTextNode('We are missing data on some combinations.'));
+	}
+
 	container.appendChild(title);
 	container.appendChild(tableContainer);
+	container.appendChild(details);
+
 
 	return container;
 }
