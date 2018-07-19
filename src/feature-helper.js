@@ -56,6 +56,16 @@ helper.initalizeFeatureObject = function(featureObject) {
 		}
 	}
 
+	if (featureObject.tests.length === 0) {
+		// This is just a stub
+		featureObject.core_support.push('u');
+		for (let i = 0; i < ATBrowsers.core_at.length; i++) {
+			featureObject.core_support_by_at[ATBrowsers.core_at[i]] = {};
+			featureObject.core_support_by_at[ATBrowsers.core_at[i]].values = ['u'];
+			featureObject.core_support_by_at[ATBrowsers.core_at[i]].string = helper.generateSupportString(['u']);
+		}
+	}
+
 	//Set support strings
 	featureObject.core_support_string = helper.generateSupportString(featureObject.core_support);
 	featureObject.extended_support_string = helper.generateSupportString(featureObject.extended_support);
