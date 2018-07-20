@@ -139,6 +139,7 @@ footer {
   color: #000;
   width: 100%;
   padding: .5em;
+  box-sizing: border-box;
 }
 
 .beta-warning a, .beta-warning a:visited {
@@ -213,8 +214,17 @@ p .inline-quote {
   overflow-x: scroll;
 }
 
+.search-container .search-controls .input {
+  grid-area: search-input;
+}
+
 .search-container {
   margin-top: 1em;
+}
+
+.search-container .search-controls .input {
+  display: inline-block;
+  width: 100%;
 }
 
 .search-container .search-controls label {
@@ -223,10 +233,23 @@ p .inline-quote {
 
 .search-container .search-controls input.search {
   display: inline-block;
-  width: 90%;
+  width: 100%;
   font-size: 2em;
   padding: .25em .5em;
   border: 3px solid #efeded;
+  box-sizing: border-box;
+}
+
+.search-container .search-controls .submit {
+  width: 100%;
+  text-align: right;
+}
+
+.search-container form button {
+  border: 3px solid #efeded;
+  background-color: #efeded;
+  padding: .25em .5em;
+  font-size: 1em;
 }
 
 .search-results {
