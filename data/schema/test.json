@@ -200,13 +200,31 @@
     "description",
     "supports_sr",
     "supports_vc",
-    "css_target",
-    "expected",
     "history",
     "core_support",
     "extended_support",
     "core_support_string",
     "extended_support_string",
     "at"
+  ],
+  "anyOf": [
+    {
+      "properties": {
+        "type": { "enum": ["aam"] }
+      },
+      "required": ["expected", "css_target"]
+    },
+    {
+      "properties": {
+        "type": { "enum": ["external"] }
+      },
+      "required": ["url"]
+    },
+    {
+      "properties": {
+        "type": { "enum": ["custom"] }
+      },
+      "required": ["expected", "css_target", "sr_instructions", "vc_instructions"]
+    }
   ]
 }

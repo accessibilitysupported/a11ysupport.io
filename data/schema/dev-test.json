@@ -89,6 +89,11 @@
     "id": {
       "type": "string"
     },
+    "type": {
+      "type": "string",
+      "enum": ["aam", "external", "custom"],
+      "description": "The type indicates the kind of test. An AAM test checks for proper accessibility api mappings according to the AAM standards. An external test brings in the results from a test published on another site. A custom test describes the exact expectations and steps."
+    },
     "title": {
       "type": "string"
     },
@@ -108,13 +113,13 @@
     "sr_instructions": {
       "type": "array",
       "items": {
-        "type": "number"
+        "type": "string"
       }
     },
     "vc_instructions": {
       "type": "array",
       "items": {
-        "type": "number"
+        "type": "string"
       }
     },
     "css_target": {
@@ -196,12 +201,31 @@
   },
   "required": [
     "title",
+    "type",
     "description",
     "supports_sr",
     "supports_vc",
-    "css_target",
-    "expected",
     "history",
     "at"
+  ],
+  "anyOf": [
+    {
+      "properties": {
+        "type": { "enum": ["aam"] }
+      },
+      "required": ["expected", "css_target"]
+    },
+    {
+      "properties": {
+        "type": { "enum": ["external"] }
+      },
+      "required": ["url"]
+    },
+    {
+      "properties": {
+        "type": { "enum": ["custom"] }
+      },
+      "required": ["expected", "css_target", "sr_instructions", "vc_instructions"]
+    }
   ]
 }
