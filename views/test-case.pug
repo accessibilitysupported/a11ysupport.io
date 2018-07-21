@@ -18,59 +18,63 @@ block content
                     a(href="#history") History
 
             h2(id="run-test") Run the test
-            h3 Test HTML
-            pre
-                code= testHTML
-            a(href='/tests/' + test.id + '.html') Open test HTML to run the test
 
-            h3 Expected name, role, and properties
-            table
-                tr
-                    th Role
-                    td= test.expected.role
-                tr
-                    th Accessible Name
-                    td= test.expected.accessible_name
-                tr
-                    th Accessible Description
-                    td= test.expected.accessible_description||'(none)'
-                each state_or_property in test.expected.states_and_properties
-                    th= state_or_property.title
-                    td= state_or_property.value
+            if (test.type === "aam" || test.type === "other")
+                h3 Test HTML
+                pre
+                    code= testHTML
+                a(href='/tests/' + test.id + '.html') Open test HTML to run the test
 
-            p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
+                h3 Expected name, role, and properties
+                table
+                    tr
+                        th Role
+                        td= test.expected.role
+                    tr
+                        th Accessible Name
+                        td= test.expected.accessible_name
+                    tr
+                        th Accessible Description
+                        td= test.expected.accessible_description||'(none)'
+                    each state_or_property in test.expected.states_and_properties
+                        th= state_or_property.title
+                        td= state_or_property.value
+
+                p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
 
-            if (test.supports_sr)
-                h3 Screen Reader Instructions
-                ol
-                    li Launch the screen reader that you want to test with.
-                    li Ensure that the screen reader is set to factory defaults.
-                    li
-                        a(href='/tests/' + test.id + '.html') Open the test HTML
-                    li= "Locate the target element. The CSS selector for the target is: "
-                        strong= test.css_target
-                    if test.sr_instructions
-                        each instruction in test.sr_instructions
-                            li= instruction
-                    else
-                    li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers).
-                    li Use the support tables to create an issue for the given browser/screen reader combination.
+                if (test.supports_sr)
+                    h3 Screen Reader Instructions
+                    ol
+                        li Launch the screen reader that you want to test with.
+                        li Ensure that the screen reader is set to factory defaults.
+                        li
+                            a(href='/tests/' + test.id + '.html') Open the test HTML
+                        li= "Locate the target element. The CSS selector for the target is: "
+                            strong= test.css_target
+                        if test.sr_instructions
+                            each instruction in test.sr_instructions
+                                li= instruction
+                        else
+                        li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers).
+                        li Use the support tables to create an issue for the given browser/screen reader combination.
 
-            if (test.supports_vc)
-                h3 Voice Command Instructions
-                ol
-                    li Launch the voice command software that you want to test with.
-                    li
-                        a(href='/tests/' + test.id + '.html') Open the test HTML
-                    if test.vc_instructions
-                        each instruction in test.vc_instructions
-                            li= instruction
-                    else
-                        li= "Say \"click "+ test.expected.accessible_name +"\""
-                        li The test passes if the Voice Command software is able to locate and activate the target element.
-                        li Use the support tables to create an issue for the given browser/voice command software combination.
+                if (test.supports_vc)
+                    h3 Voice Command Instructions
+                    ol
+                        li Launch the voice command software that you want to test with.
+                        li
+                            a(href='/tests/' + test.id + '.html') Open the test HTML
+                        if test.vc_instructions
+                            each instruction in test.vc_instructions
+                                li= instruction
+                        else
+                            li= "Say \"click "+ test.expected.accessible_name +"\""
+                            li The test passes if the Voice Command software is able to locate and activate the target element.
+                            li Use the support tables to create an issue for the given browser/voice command software combination.
 
+            else if (test.type === "external")
+                a(href=test.url.url)= test.url.title
 
             h2(id="support-tables") Support tables
 
