@@ -18,7 +18,7 @@ router.get('/:testId', function(req, res, next) {
 		return;
 	}
 
-	test_html_file = __dirname+'/../data/tests/'+sanitize(req.params.testId)+'.html';
+	test_html_file = __dirname+'/../data/tests/html/'+sanitize(req.params.testId)+'.html';
 
 	if (fs.existsSync(test_html_file)) {
 		test_html = fs.readFileSync(test_html_file, 'utf8');
