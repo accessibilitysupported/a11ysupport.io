@@ -39,7 +39,7 @@ An issue to add or modify a support point should include:
 5. The Browser version
 6. The OS version
 7. The output announced by the screen reader (if using a screen reader).
-8. Whether or not you think the test passes or fails
+8. Whether or not you think the test passes or fails and why
 
 ## Suggest a missing test case
 
@@ -48,10 +48,16 @@ Please [create an issue](https://github.com/accessibilitysupported/accessibility
 1. A name for the test case.
 2. Sample code for the test case (preferably committed to this project so that it doesn't change without our knowledge).
 4. List the feature(s) should reference the test case. If you are making a pull request, update the features to reference the test.
-5. Describe the Expected output and instructions. This must be objective and empirical in nature and must correlate to the output that is described by associated standards. The following must be listed
+5. Describe the Expected output and instructions. This must be objective and empirical in nature and must correlate to the output that is described by associated standards. The following should be listed
     * The CSS selector for the target element
     * The expected role, accessible name, accessible description, states, and properties of the element
 6. Any current support if you know it (follow the instructions for adding a new support point).
+
+We support three kinds of test cases:
+
+1. AAM test - usually used to verify proper mapping of the accessible name, description, states, and properties. Can include custom instructions for tests that depend on specific interactions.
+2. External test - Used to include the rests of an external test. These tests should include details on methodology, as well as detailed information about AT, Browser, and OS versions.
+3. Custom test - these tests check for functionality not covered by an AAM test. This might include dynamic functionality such as aria-live and always requires custom instructions to be developed.
 
 All new test cases must be approved by at least one other person.
 
