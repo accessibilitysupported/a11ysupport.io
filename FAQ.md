@@ -58,7 +58,7 @@ For each category of AT that is within scope:
     * VoiceOver for Mac + Safari for Mac
     * VoiceOver for iOS + Safari for iOS
     * Windows Narrator + Edge
-    * Android Accessibility Suite + Google Chrome Chrome
+    * Android Accessibility Suite + Google Chrome
 2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT. This currently includes:
     * NVDA + Firefox
 3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT. This currently includes:
