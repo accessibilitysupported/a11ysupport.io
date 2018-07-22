@@ -19,12 +19,13 @@ block content
 
             h2(id="run-test") Run the test
 
-            if (test.type === "aam" || test.type === "other")
+            if (test.type === "aam" || test.type === "custom")
                 h3 Test HTML
                 pre
                     code= testHTML
                 a(href='/tests/html/' + test.id + '.html') Open test HTML to run the test
 
+            if (test.type === "aam")
                 h3 Expected name, role, and properties
                 table
                     tr
@@ -72,6 +73,21 @@ block content
                             li= "Say \"click "+ test.expected.accessible_name +"\""
                             li The test passes if the Voice Command software is able to locate and activate the target element.
                             li Use the support tables to create an issue for the given browser/voice command software combination.
+
+            else if (test.type === "custom")
+
+                if (test.supports_sr)
+                    h3 Screen Reader Instructions
+                    ol
+                        each instruction in test.sr_instructions
+                            li= instruction
+
+                if (test.supports_vc)
+                    h3 Voice Command Instructions
+                    ol
+                        each instruction in test.vc_instructions
+                            li= instruction
+
 
             else if (test.type === "external")
                 a(href=test.url.url)= test.url.title
