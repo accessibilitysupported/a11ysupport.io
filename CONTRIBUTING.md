@@ -43,7 +43,11 @@ An issue to add or modify a support point should include:
 
 ## Suggest a missing test case
 
-Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new test case. Details for the test case should include:
+Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new test case.
+
+A test case provides instructions to test the functionality of a feature when used with AT. For example, a test case might include a specific attribute or value that is used to modify a feature. If `aria-hidden` is a feature, separate test cases should exist to test `aria-hidden="true"` and `aria-hidden="false"`.
+
+Details for the test case should include:
 
 1. A name for the test case.
 2. Sample code for the test case (preferably committed to this project so that it doesn't change without our knowledge).
@@ -73,6 +77,28 @@ Use the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1
 
 If you find a problem with a test case, please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to detail the problem. Any changes to a test case must be approved by one other person.
 
+## Suggest a new feature
+
+Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new feature. 
+
+What is and is not a feature can be hard to define and might depend on the technology or unique circumstances. In general a feature is a high level object that is provided by a technology.
+
+In HTML, a feature might be an element. Note that an HTML tag does not necessarily map 1:1 with an element. For example, an `input` tag with the attribute `type="text"` represents a different element than `input[type="email"]`.
+
+In ARIA, a feature might be a role or an attribute. For example the `aria-hidden` attribute should be considered a feature in the same way that `heading` role is a feature.
+
+For both ARIA and HTML, attributes that can be used across many different features should also be considered features. However, attributes that are restricted to specific features are not. Separate test cases cases should be created for these feature-specific modifiers.
+
+A new feature will only be accepted if it includes:
+
+1. A name for the feature.
+2. A description of the feature.
+2. Links to relevant standards to support the feature and describe how AT interaction is supposed to work.
+3. At least one test case with at least one support point.
+4. Any support details that you are aware of.
+
+All new features must be approved by at least one other person.
+
 ## Suggest a new technology
 
 Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new technology. A new technology should include:
@@ -82,15 +108,3 @@ Please [create an issue](https://github.com/accessibilitysupported/accessibility
 3. At least one feature with at least one test with at least one support point (follow relevant instructions).
 
 All new technologies must be approved by at least one other person.
-
-## Suggest a new feature
-
-Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new feature. A new feature will only be accepted if it includes:
-
-1. A name for the feature.
-2. A description of the feature.
-2. Links to relevant standards to support the feature and describe how AT interaction is supposed to work.
-3. At least one test case with at least one support point.
-4. Any support details that you are aware of.
-
-All new features must be approved by at least one other person.
