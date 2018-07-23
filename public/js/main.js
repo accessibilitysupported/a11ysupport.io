@@ -95,6 +95,8 @@ function initSearch() {
 	var input = searchContainer.querySelector('input.search');
 	var summary = searchContainer.querySelector('.summary-container');
 	var resultsContainer = searchContainer.querySelector('.search-results');
+	var liveAnnouncements = searchContainer.querySelector('.live-announcements');
+	var liveTimeoutId;
 
 	form.addEventListener('submit', function(e) {
 		e.preventDefault();
@@ -105,6 +107,26 @@ function initSearch() {
 		return false;
 	});
 
+	/**
+	 * Set up a separate aria-live region to announce results. Because results are populated on each keypress, we need to rate limit the announcement of results so as to not make the screen reader output too verbose.
+	 * @param string
+	 */
+	function setLiveResultNotification(string) {
+		//Stop a previously pending announcement
+		if (liveTimeoutId) {
+			window.clearTimeout(liveTimeoutId);
+		}
+
+		liveTimeoutId = window.setTimeout(function() {
+			liveAnnouncements.innerHTML = string;
+
+			//Now... set a timeout to clear the contents
+			liveTimeoutId = window.setTimeout(function() {
+				liveAnnouncements.innerHTML = '';
+			}, 2000);
+		}, 750);
+	}
+
 	function showSearchResults(query) {
 		//Empty the current results
 		resultsContainer.innerHTML = '';
@@ -112,20 +134,25 @@ function initSearch() {
 
 		if (query.length === 0) {
 			//No query was selected
+			setLiveResultNotification('results cleared');
 			return;
 		}
 
 		var results = filterFeatures(query);
 
 		if (!results.length) {
-			summary.innerHTML = 'Sorry, no results could be found.';
+			var string = 'Sorry, no results could be found.';
+			summary.innerHTML = string;
+			setLiveResultNotification(string);
 			return;
 		}
 
-		summary.innerHTML = results.length + ' results found';
+		var string = results.length + ' results found';
+		summary.innerHTML = string;
+		setLiveResultNotification(string);
 
 		//Repopulate
-		for (let i = 0; i < results.length; i++) {
+		for (var i = 0; i < results.length; i++) {
 			resultsContainer.appendChild(buildResult(results[i]));
 		}
 	}

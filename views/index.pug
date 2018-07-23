@@ -3,6 +3,7 @@ extends layout
 block content
   div.content
     div.search-container
+      div.live-announcements(aria-live="polite" aria-atomic="true").visually-hidden
       div.search-controls
         form
           div.input
@@ -10,5 +11,5 @@ block content
             input(id="feature-search" type="text").search
           div.submit
             button Search
-      div.summary-container(aria-live="polite" aria-atomic="true" tabindex="-1")
+      div.summary-container(tabindex="-1")
       div.search-results
