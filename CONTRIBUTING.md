@@ -85,7 +85,7 @@ What is and is not a feature can be hard to define and might depend on the techn
 
 In HTML, a feature might be an element. Note that an HTML tag does not necessarily map 1:1 with an element. For example, an `input` tag with the attribute `type="text"` represents a different element than `input[type="email"]`.
 
-In ARIA, a feature might be a role or an attribute. For example the `aria-hidden` attribute should be considered a feature in the same way that `heading` role is a feature.
+In ARIA, a feature might be a role or an attribute. For example the `aria-hidden` attribute should be considered a feature in the same way that the `heading` role is a feature.
 
 For both ARIA and HTML, attributes that can be used across many different features should also be considered features. However, attributes that are restricted to specific features are not. Separate test cases cases should be created for these feature-specific modifiers.
 
