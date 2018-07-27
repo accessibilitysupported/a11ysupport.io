@@ -1,25 +1,10 @@
 var features;
 var ATBrowsers;
 
-var getJson = function(url, success, err) {
-	var request = new XMLHttpRequest();
-	request.open('GET', url, true);
-	request.onload = function() {
-		if (request.status >= 200 && request.status < 400) {
-			success(JSON.parse(request.responseText));
-		} else {
-			// We reached our target server, but it returned an error
-			err(request.status);
-		}
-	};
-	request.onerror = err;
-	request.send();
-};
-
 // Fetch all of the required data
 getJson('/features.json', function(data) {
 	features = data;
-	getJson('ATBrowsers.json', function(data) {
+	getJson('/ATBrowsers.json', function(data) {
 		ATBrowsers = data;
 
 		// Now that we have the data, init search

@@ -201,9 +201,13 @@ a.back {
   margin-bottom: 1em;
 }
 
-p.note {
+p.note, .call-out {
     background-color: #eee;
     padding: 1em;
+}
+
+p.note h4, .call-out h4 {
+  margin-top: 0;
 }
 
 p .inline-quote {
@@ -300,4 +304,43 @@ p .inline-quote {
   margin: -1px;
   overflow: hidden;
   padding: 0;
+}
+
+form.stacked-form label {
+  display: block;
+}
+
+form.stacked-form input,
+  form.stacked-form textarea,
+  form.stacked-form select {
+  display: block;
+  padding: .5em;
+  margin-top: .25em;
+  margin-bottom: .25em;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+form.stacked-form select {
+  height: 2em;
+}
+
+form.stacked-form .control {
+  margin-bottom: .25em;
+}
+
+#run-test-container {
+  display: none;
+  margin-left: .5em;
+  padding-left: 1em;
+  border-left: 2px solid #ccc;
+}
+
+#run-test-container.open {
+  display: block;
+}
+
+dt {
+  font-weight: bold;
 }
