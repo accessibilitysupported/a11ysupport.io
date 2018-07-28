@@ -55,9 +55,14 @@
           "description": "Is the combination supported? y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.",
           "type": "string",
           "enum": ["y", "p", "n", "na", "u"]
+        },
+        "date": {
+          "description": "The date is required to help us determine which support points have priority for testing.",
+          "type": "string",
+          "format": "date"
         }
       },
-      "required": ["support", "at_version", "browser_version", "os_version"]
+      "required": ["support", "at_version", "browser_version", "os_version", "date"]
     },
     "history": {
       "type": "object",

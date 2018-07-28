@@ -1,4 +1,6 @@
 let helper = {};
+const moment = require('moment');
+let now = new moment();
 
 Array.prototype.unique = function() {
 	return this.filter(function(elem, pos, self) {
@@ -146,11 +148,26 @@ helper.initalizeTestCase = function (testCase) {
 				if (ATBrowsers.core_at.includes(at) && ATBrowsers.at[at].core_browsers.includes(browser)) {
 					// core support
 					if (support === 'u') {
+						// Unknown core support is always top priority
 						testCase.at[at].browsers[browser].priority = 0;
 					} else if (['n', 'p'].includes(support)) {
-						testCase.at[at].browsers[browser].priority = 1;
+						let date = moment(testCase.at[at].browsers[browser].date);
+						let diff = now.diff(date, 'days');
+						if (diff >= 6) {
+							// Older tests should have a higher priority
+							testCase.at[at].browsers[browser].priority = 1;
+						} else {
+							testCase.at[at].browsers[browser].priority = 2;
+						}
 					} else if (support === 'y') {
-						testCase.at[at].browsers[browser].priority = 2;
+						let date = moment(testCase.at[at].browsers[browser].date);
+						let diff = now.diff(date, 'days');
+						if (diff >= 12) {
+							// Older tests should have a higher priority
+							testCase.at[at].browsers[browser].priority = 3;
+						} else {
+							testCase.at[at].browsers[browser].priority = 4;
+						}
 					} else {
 						// na (no need to test)
 						testCase.at[at].browsers[browser].priority = null;
@@ -158,11 +175,11 @@ helper.initalizeTestCase = function (testCase) {
 				} else {
 					// extended support
 					if (support === 'u') {
-						testCase.at[at].browsers[browser].priority = 3;
-					} else if (['n', 'p'].includes(support)) {
-						testCase.at[at].browsers[browser].priority = 4;
-					} else if (support === 'y') {
 						testCase.at[at].browsers[browser].priority = 5;
+					} else if (['n', 'p'].includes(support)) {
+						testCase.at[at].browsers[browser].priority = 6;
+					} else if (support === 'y') {
+						testCase.at[at].browsers[browser].priority = 7;
 					} else {
 						// na (no need to test)
 						testCase.at[at].browsers[browser].priority = null;
