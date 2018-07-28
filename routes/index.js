@@ -23,6 +23,15 @@ router.get('/contribute', function(req, res, next) {
 	});
 });
 
+router.get('/run-tests', function(req, res, next) {
+	let supportPoints = require(__dirname+'/../build/support_points.json');
+	res.render('run-tests', {
+		title: 'Run Tests | Accessibility Supported',
+		supportPoints: supportPoints,
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+	});
+});
+
 router.get('/faq', function(req, res, next) {
 	let markdown = fs.readFileSync(__dirname+'/../FAQ.md', 'utf8');
 	let MarkdownIt = require('markdown-it');

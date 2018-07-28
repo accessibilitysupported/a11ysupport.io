@@ -1,0 +1,53 @@
+extends layout
+
+block content
+    div.content
+        h1 Run Tests
+        p The best thing thing that you can do to help this project is to run tests and report the results. The following are support points that need to be tested. The support points are ordered by priority, with the highest priority being zero. Lower priority tests are not currently listed to encourage a focus on higher priorities.
+
+        h2 The testing process
+        ol
+            li Select a test combination from this page and follow the link. Please focus on higher priority tests first.
+            li Follow the instructions for the given test, assistive technology, and browser.
+            li Use the provided form in the test instructions to create a GitHub issue.
+            li This project will be updated with the new result once your findings have been verified by another user.
+
+
+    // supportPoints is ordered by priority
+    - var currentPriority = null;
+    each supportPoint in supportPoints
+        if (supportPoint.priority === null)
+            - continue
+        if (supportPoint.priority >= 4)
+            // Lets not focus on any lower priorities for now
+            -continue
+
+        if (currentPriority != supportPoint.priority)
+            if (currentPriority != null)
+                </ul>
+            - var currentPriority = supportPoint.priority
+            h2= "Priority " + currentPriority
+            case currentPriority
+                when 0
+                    p These are top priority and usually include combinations that have not been tested yet.
+                when 1
+                    p These are failing tests that have not been re-tested in 6 months.
+                when 2
+                    p These are failing tests that have been tested recently.
+                when 3
+                    p These are passing tests that have not been re-tested in the last year
+                when 4
+                    p These are passing tests that have been tested in the last year
+                when 5
+                    p These are extended tests that are have unknown support
+                when 6
+                    p These are extended tests that are failing
+                when 7
+                    p These are extended tests that are passing
+
+            <ul>
+
+        li
+            a(href="/tests/"+supportPoint.testId)= supportPoint.test_title + ' with ' + supportPoint.ATId + ' and ' + supportPoint.id
+
+    </ul>
