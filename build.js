@@ -123,6 +123,7 @@ for (let techId in tech) {
 }
 
 allFeatures.sort(sortByProperty('title'));
+supportPoints.sort(sortByProperty('priority'));
 
 fs.writeFileSync(buildDir+'/tech.json', JSON.stringify(tech, null, 2));
 fs.writeFileSync(buildDir+'/test_map.json', JSON.stringify(testMap, null, 2));
