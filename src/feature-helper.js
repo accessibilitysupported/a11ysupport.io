@@ -32,7 +32,8 @@ helper.initalizeFeatureObject = function(featureObject) {
 
 		// Detect support
 		for(let at in ATBrowsers.at){
-			for (let browser in ATBrowsers.browsers) {
+			let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+			validBrowsers.forEach(function(browser) {
 				//Set support arrays
 				let support = featureObject.tests[testIndex].at[at].browsers[browser].support;
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
@@ -52,7 +53,7 @@ helper.initalizeFeatureObject = function(featureObject) {
 				} else if (ATBrowsers.at[at].extended_browsers.includes(browser)) {
 					featureObject.extended_support.push(support);
 				}
-			}
+			});
 		}
 	}
 
@@ -103,7 +104,8 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.at[at].extended_support = [];
 		testCase.at[at].extended_support_string = 'unknown';
 
-		for (let browser in ATBrowsers.browsers) {
+		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+		validBrowsers.forEach(function(browser) {
 			if (!testCase.at[at].browsers) {
 				//Add the missing browser property
 				testCase.at[at].browsers = {};
@@ -117,7 +119,7 @@ helper.initalizeTestCase = function (testCase) {
 				};
 			}
 
-			//Set support arrays
+			// Set support arrays
 			let support = testCase.at[at].browsers[browser].support;
 			if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 				testCase.at[at].core_support.push(support);
@@ -130,7 +132,41 @@ helper.initalizeTestCase = function (testCase) {
 				testCase.at[at].extended_support.push(support);
 				testCase.extended_support.push(support);
 			}
-		}
+
+			// Set the priority for manual testing
+			if (testCase.type === 'external') {
+				// External test, low or no priority. (no priority for now)
+				testCase.at[at].browsers[browser].priority = null;
+			} else {
+				// Internal tests, higher priority
+				if (ATBrowsers.core_at.includes(at) && ATBrowsers.at[at].core_browsers.includes(browser)) {
+					// core support
+					if (support === 'u') {
+						testCase.at[at].browsers[browser].priority = 0;
+					} else if (['n', 'p'].includes(support)) {
+						testCase.at[at].browsers[browser].priority = 1;
+					} else if (support === 'y') {
+						testCase.at[at].browsers[browser].priority = 2;
+					} else {
+						// na (no need to test)
+						testCase.at[at].browsers[browser].priority = null;
+					}
+				} else {
+					// extended support
+					if (support === 'u') {
+						testCase.at[at].browsers[browser].priority = 3;
+					} else if (['n', 'p'].includes(support)) {
+						testCase.at[at].browsers[browser].priority = 4;
+					} else if (support === 'y') {
+						testCase.at[at].browsers[browser].priority = 5;
+					} else {
+						// na (no need to test)
+						testCase.at[at].browsers[browser].priority = null;
+					}
+				}
+			}
+
+		});
 
 		//Set support strings
 		testCase.at[at].core_support_string = helper.generateSupportString(testCase.at[at].core_support);
