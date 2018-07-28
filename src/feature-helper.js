@@ -119,6 +119,10 @@ helper.initalizeTestCase = function (testCase) {
 				};
 			}
 
+			// Set associated IDs to help define the support point
+			testCase.at[at].browsers[browser].testId = testCase.id;
+			testCase.at[at].browsers[browser].ATId = at;
+
 			// Set support arrays
 			let support = testCase.at[at].browsers[browser].support;
 			if (ATBrowsers.at[at].core_browsers.includes(browser)) {

@@ -3,6 +3,7 @@ let rimraf = require('rimraf');
 
 let helper = require(__dirname+'/src/feature-helper');
 let tech = require(__dirname+"/data/tech.json");
+let ATBrowsers = require(__dirname+"/data/ATBrowsers.json");
 let testMap = {};
 let allFeatures = [];
 
@@ -93,6 +94,7 @@ fs.mkdirSync(buildDir+'/tech');
 fs.mkdirSync(buildDir+'/tests');
 
 let testFiles = fs.readdirSync(dataDir+'/tests');
+let supportPoints = [];
 
 testFiles.forEach(function(file) {
 	if (!file.endsWith('.json')) {
@@ -101,6 +103,14 @@ testFiles.forEach(function(file) {
 
 	let test = require(dataDir+'/tests/'+file);
 	helper.initalizeTestCase(test);
+
+	for(let at in ATBrowsers.at) {
+		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+		validBrowsers.forEach(function(browser) {
+			supportPoints.push(test.at[at].browsers[browser]);
+		});
+	}
+
 	fs.writeFileSync(buildDir+'/tests/'+file, JSON.stringify(test, null, 2));
 });
 
@@ -117,3 +127,4 @@ allFeatures.sort(sortByProperty('title'));
 fs.writeFileSync(buildDir+'/tech.json', JSON.stringify(tech, null, 2));
 fs.writeFileSync(buildDir+'/test_map.json', JSON.stringify(testMap, null, 2));
 fs.writeFileSync(buildDir+'/features.json', JSON.stringify(allFeatures, null, 2));
+fs.writeFileSync(buildDir+'/support_points.json', JSON.stringify(supportPoints, null, 2));
