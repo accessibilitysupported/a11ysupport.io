@@ -102,6 +102,11 @@ testFiles.forEach(function(file) {
 	}
 
 	let test = require(dataDir+'/tests/'+file);
+
+	// Set the test ID to the file name minus the extension
+	test.id = file.slice(0, -4);
+
+	// Set up the test case
 	helper.initalizeTestCase(test);
 
 	for(let at in ATBrowsers.at) {
