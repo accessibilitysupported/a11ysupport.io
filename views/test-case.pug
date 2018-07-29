@@ -125,31 +125,36 @@ block content
                     a(href=test.url.url)= test.url.title
 
                 h3 Submit your findings
-                p Your findings can be submitted via a GitHub issue with this form.
+                p Your findings can be submitted via a GitHub issue with this form. Some selections will be saved to speed up future submissions.
                 form.submit-test-result.stacked-form
                     input(type="hidden" name="title" value=test.id)
 
+                    div(id="error_container")
+
                     div.control
-                        label(for="support") Test result
-                        select(name="support" id="support")
+                        label(for="support") Test result (required)
+                        select(name="support" id="support" aria-required="true")
                             option(value="y") Passed
                             option(value="n") Failed
                     div.control
-                        label(for="at") AT used
-                        select(name="at" id="at")
+                        label(for="at") AT used (required)
+                        select(name="at" id="at" aria-required="true")
                             each at, at_id in ATBrowsers.at
                                 option(value=at_id)=at.title
                     div.control
-                        label(for="at_version") AT Version
-                        input(type="text" name="at_version" id="at_version")
+                        label(for="at_version") AT Version (required)
+                        input(type="text" name="at_version" id="at_version" aria-required="true")
                     div.control
-                        label(for="os_version") OS Version
-                        input(type="text" name="os_version" id="os_version")
+                        label(for="os_version") OS Version (required)
+                        input(type="text" name="os_version" id="os_version" aria-required="true")
                     div.control
-                        label(for="browser") Browser used
-                            select(name="browser" id="browser")
-                                each browser, browser_id in ATBrowsers.browsers
-                                    option(value=browser_id)=browser.title
+                        label(for="browser") Browser used (required)
+                        select(name="browser" id="browser" aria-required="true")
+                            each browser, browser_id in ATBrowsers.browsers
+                                option(value=browser_id)=browser.title
+                    div.control
+                        label(for="browser_version") Browser Version (required)
+                        input(type="text" name="browser_version" id="browser_version" aria-required="true")
                     div.control
                         label(for="output") AT Output
                         input(type="text" name="output" id="output")

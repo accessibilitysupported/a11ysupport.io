@@ -1,6 +1,12 @@
 var test;
 var ATBrowsers;
 
+var dom_at = document.querySelector('#at');
+var dom_browser = document.querySelector('#browser');
+var dom_at_version = document.querySelector('#at_version');
+var dom_browser_version = document.querySelector('#browser_version');
+var dom_os_version = document.querySelector('#os_version');
+
 function initTestingPrefForm()
 {
 	var form = document.querySelector('form.testing-pref');
@@ -12,8 +18,10 @@ function initTestingPrefForm()
 		var choice = select.value;
 		choice = choice.split('/');
 
-		localStorage.setItem('at', choice[0]);
-		localStorage.setItem('browser', choice[1]);
+		sessionStorage.setItem('at', choice[0]);
+		sessionStorage.setItem('browser', choice[1]);
+		sessionStorage.removeItem('at_version');
+		sessionStorage.removeItem('browser_version');
 
 		displayTestingPrefs(true);
 	});
@@ -21,10 +29,10 @@ function initTestingPrefForm()
 
 function displayTestingPrefs(focusResults)
 {
-	var at = localStorage.getItem('at');
-	var browser = localStorage.getItem('browser');
+	var at_value = sessionStorage.getItem('at');
+	var browser_value = sessionStorage.getItem('browser');
 
-	if (!at || !browser) {
+	if (!at_value || !browser_value) {
 		// Settings haven't been saved yet.
 		return;
 	}
@@ -35,11 +43,11 @@ function displayTestingPrefs(focusResults)
 	var dt = document.createElement('dt');
 	dt.innerText = 'Selected combination';
 	var dd = document.createElement('dd');
-	dd.innerText = ATBrowsers.at[at].short_title  + ' / ' + ATBrowsers.browsers[browser].title;
+	dd.innerText = ATBrowsers.at[at_value].short_title  + ' / ' + ATBrowsers.browsers[browser_value].title;
 	dl.appendChild(dt);
 	dl.appendChild(dd);
 
-	var supportPoint = test.at[at].browsers[browser];
+	var supportPoint = test.at[at_value].browsers[browser_value];
 
 	var dt = document.createElement('dt');
 	dt.innerText = 'Current support';
@@ -61,8 +69,8 @@ function displayTestingPrefs(focusResults)
 	dt.innerText = 'Helpful Links';
 	var dd = document.createElement('dd');
 	var a = document.createElement('a');
-	a.setAttribute('href', '/learn/at/'+at);
-	a.innerText = 'Learn how to use ' + ATBrowsers.at[at].short_title;
+	a.setAttribute('href', '/learn/at/'+at_value);
+	a.innerText = 'Learn how to use ' + ATBrowsers.at[at_value].short_title;
 	dd.appendChild(a);
 	dl.appendChild(dt);
 	dl.appendChild(dd);
@@ -82,10 +90,13 @@ function displayTestingPrefs(focusResults)
 	}
 
 	// Now set form inputs
-	var atOption = document.querySelector('#at option[value="'+at+'"]');
+	var atOption = document.querySelector('#at option[value="'+at_value+'"]');
 	atOption.setAttribute('selected', '');
-	var browserOption = document.querySelector('#browser option[value="'+browser+'"]');
+	var browserOption = document.querySelector('#browser option[value="'+browser_value+'"]');
 	browserOption.setAttribute('selected', '');
+	dom_at_version.value = sessionStorage.getItem('at_version');
+	dom_browser_version.value = sessionStorage.getItem('browser_version');
+	dom_os_version.value = sessionStorage.getItem('os_version');
 }
 
 
@@ -112,6 +123,60 @@ function initFeatureTest() {
 		}
 	});
 
+	var validate = function(data) {
+		var errors = [];
+
+		function generateErrorLink(url, text) {
+			let link = document.createElement('a');
+			link.setAttribute('href', url);
+			link.innerText = text;
+			return link;
+		}
+
+		if (!dom_at.value) {
+			errors.push(generateErrorLink("#at", "'AT used' in required"));
+			dom_at.setAttribute('aria-invalid', 'true');
+		}
+		if (!dom_browser.value) {
+			errors.push(generateErrorLink("#browser", "'Browser used' in required"));
+			dom_browser.setAttribute('aria-invalid', 'true');
+		}
+		if (!dom_at_version.value) {
+			errors.push(generateErrorLink("#at_version", "'AT version' in required"));
+			dom_at_version.setAttribute('aria-invalid', 'true');
+		}
+		if (!dom_browser_version.value) {
+			errors.push(generateErrorLink("#browser_version", "'Browser version' in required"));
+			dom_browser_version.setAttribute('aria-invalid', 'true');
+		}
+		if (!dom_os_version.value) {
+			errors.push(generateErrorLink("#os_version", "'OS version' in required"));
+			dom_os_version.setAttribute('aria-invalid', 'true');
+		}
+
+		if (errors.length) {
+			var ul = document.createElement('ul');
+			for (var i=0; i<errors.length; i++) {
+				var li = document.createElement('li');
+				li.appendChild(errors[i]);
+				ul.appendChild(li);
+			}
+
+			var error_container = document.querySelector('#error_container');
+			var headding = document.createElement('h2');
+			headding.innerText = 'Error';
+
+			error_container.innerHTML = '';
+			error_container.appendChild(headding);
+			error_container.appendChild(ul);
+			error_container.setAttribute('tabindex', '-1');
+			error_container.focus();
+
+			return false;
+		}
+
+		return true;
+	};
 
 
 	form.addEventListener('submit', function(e) {
@@ -119,6 +184,16 @@ function initFeatureTest() {
 		e.stopPropagation();
 
 		var data = new FormData(e.target);
+
+		if (!validate(data)) {
+			return;
+		}
+
+		sessionStorage.setItem('at', data.get('at'));
+		sessionStorage.setItem('browser', data.get('browser'));
+		sessionStorage.setItem('browser_version', data.get('browser_version'));
+		sessionStorage.setItem('at_version', data.get('at_version'));
+		sessionStorage.setItem('os_version', data.get('os_version'));
 
 		var url = 'https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=';
 		var title = data.get('title') + ' ' + data.get('at') + '/' + data.get('browser');
