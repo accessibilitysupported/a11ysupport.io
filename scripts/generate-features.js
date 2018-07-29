@@ -50,7 +50,7 @@ fetch('https://raw.githubusercontent.com/w3c/elements-of-html/master/elements.js
 			}
 
 			// There are a LOT of elements, so lets reduce it to keep it simple for testing purposes
-			let temporary_whitelist = ['canvas', 'dialog', 'input[type="text"]', 'input[type="tel"]'];
+			let temporary_whitelist = ['canvas', 'dialog', 'input[type="text"]', 'input[type="tel"]', 'th', 'td'];
 			if (!temporary_whitelist.includes(json[i].element)) {
 				continue;
 			}
