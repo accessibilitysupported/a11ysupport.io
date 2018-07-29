@@ -68,6 +68,9 @@ router.get('/:testId/:atId/:browserId', function(req, res, next) {
 		test_html = fs.readFileSync(test_html_file, 'utf8');
 	}
 
+	let MarkdownIt = require('markdown-it');
+	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+
 	res.render('test-case-support-point', {
 		title: req.params.atId + '/' + req.params.browserId + ' | Test: '+test.title + ' | Accessibility Supported',
 		techId: req.params.techId,
@@ -77,7 +80,8 @@ router.get('/:testId/:atId/:browserId', function(req, res, next) {
 		testHTML: test_html,
 		test: test,
 		features: features,
-		ATBrowsers: ATBrowsers
+		ATBrowsers: ATBrowsers,
+		md: md
 	});
 });
 
