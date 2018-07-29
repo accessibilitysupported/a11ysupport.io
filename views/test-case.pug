@@ -39,14 +39,13 @@ block content
                                 each browser_id in ATBrowsers.at[at].core_browsers
                                         option(value=at + '/' + browser_id)= ATBrowsers.at[at].short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (core)'
 
-                            optgroup(label="Extended combinations")
-                                each at, at_id in ATBrowsers.at
-                                    each browser_id in ATBrowsers.at[at_id].core_browsers
-                                        if (ATBrowsers.extended_at.includes(at_id))
-                                            option(value=at_id + '/' + browser_id)= at.short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (extended)'
-                                    each browser_id in ATBrowsers.at[at_id].extended_browsers
+                        optgroup(label="Extended combinations")
+                            each at, at_id in ATBrowsers.at
+                                each browser_id in ATBrowsers.at[at_id].core_browsers
+                                    if (ATBrowsers.extended_at.includes(at_id))
                                         option(value=at_id + '/' + browser_id)= at.short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (extended)'
-                                button set
+                                each browser_id in ATBrowsers.at[at_id].extended_browsers
+                                    option(value=at_id + '/' + browser_id)= at.short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (extended)'
                     button set
                 div(id="testing-pref-results")
 
@@ -86,16 +85,16 @@ block content
                     h3 Expected name, role, and properties
                     table
                         tr
-                            th Role
+                            th(scope="row") Role
                             td= test.expected.role
                         tr
-                            th Accessible Name
+                            th(scope="row") Accessible Name
                             td= test.expected.accessible_name
                         tr
-                            th Accessible Description
+                            th(scope="row") Accessible Description
                             td= test.expected.accessible_description || '(none)'
                         each state_or_property in test.expected.states_and_properties
-                            th= state_or_property.title
+                            th(scope="row")= state_or_property.title
                             td= state_or_property.value
 
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
