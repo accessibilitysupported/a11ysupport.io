@@ -139,7 +139,22 @@ function initFeatureTest() {
 			body += '\n\n'+encodeURIComponent(notes)+'\n';
 		}
 
+		var isCore = false;
+		if (ATBrowsers.core_at.includes(data.get('at')) && ATBrowsers.at[data.get('at')].core_browsers.includes(data.get('browser'))) {
+			isCore = true;
+		}
+
 		url += '&body='+encodeURIComponent(body);
+
+		let labels = [encodeURIComponent('needs verification'), encodeURIComponent('support point')];
+
+		if (isCore) {
+			labels.push(encodeURIComponent('core support'));
+		} else {
+			labels.push(encodeURIComponent('extended support'));
+		}
+
+		url += '&labels='+labels.join(',');
 
 		window.location = url;
 	});
