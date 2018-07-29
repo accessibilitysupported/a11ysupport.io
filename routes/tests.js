@@ -25,7 +25,7 @@ router.get('/:testId', function(req, res, next) {
 	}
 
 	res.render('test-case', {
-		title: 'Test: '+test.title + ' | Accessibility Supported',
+		title: 'Test: '+test.title + ' | Accessibility Support',
 		techId: req.params.techId,
 		testMap: testMap,
 		testHTML: test_html,
@@ -72,7 +72,7 @@ router.get('/:testId/:atId/:browserId', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 
 	res.render('test-case-support-point', {
-		title: req.params.atId + '/' + req.params.browserId + ' | Test: '+test.title + ' | Accessibility Supported',
+		title: req.params.atId + '/' + req.params.browserId + ' | Test: '+test.title + ' | Accessibility Support',
 		techId: req.params.techId,
 		atId: req.params.atId,
 		browserId: req.params.browserId,

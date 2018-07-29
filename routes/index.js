@@ -18,7 +18,7 @@ router.get('/contribute', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
 	res.render('static-page', {
-		title: 'Contributing | Accessibility Supported',
+		title: 'Contributing | Accessibility Support',
 		result: result
 	});
 });
@@ -26,7 +26,7 @@ router.get('/contribute', function(req, res, next) {
 router.get('/run-tests', function(req, res, next) {
 	let supportPoints = require(__dirname+'/../build/support_points.json');
 	res.render('run-tests', {
-		title: 'Run Tests | Accessibility Supported',
+		title: 'Run Tests | Accessibility Support',
 		supportPoints: supportPoints,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
 	});
@@ -38,7 +38,7 @@ router.get('/faq', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
 	res.render('static-page', {
-		title: 'FAQ | Accessibility Supported',
+		title: 'FAQ | Accessibility Support',
 		result: result
 	});
 });
@@ -49,7 +49,7 @@ router.get('/learn', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
 	res.render('static-page', {
-		title: 'Learn | Accessibility Supported',
+		title: 'Learn | Accessibility Support',
 		result: result
 	});
 });
@@ -67,7 +67,7 @@ router.get('/learn/at/:id', function(req, res, next) {
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
 	res.render('static-page', {
-		title: req.params.id + ' | Learn | Accessibility Supported',
+		title: req.params.id + ' | Learn | Accessibility Support',
 		result: result
 	});
 });

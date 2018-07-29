@@ -27,7 +27,7 @@ router.get('/:techId', function(req, res, next) {
 	}
 
 	res.render('tech', {
-		title: req.params.techId + ' | Accessibility Supported',
+		title: req.params.techId + ' | Accessibility Support',
 		techId: req.params.techId,
 		tech: tech[req.params.techId],
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
@@ -46,7 +46,7 @@ router.get('/:techId/:featureId', function(req, res, next) {
 	}
 
 	res.render('feature', {
-		title: req.params.featureId + ' (' + req.params.techId + ') | Accessibility Supported',
+		title: req.params.featureId + ' (' + req.params.techId + ') | Accessibility Support',
 		techId: req.params.techId,
 		featureId: req.params.featureId,
 		data: feature_object,
