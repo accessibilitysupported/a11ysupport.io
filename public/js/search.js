@@ -17,8 +17,8 @@ getJson('/features.json', function(data) {
  */
 function filterFeatures(query) {
 	return features.filter(function(feature) {
-		return feature.title.toLowerCase().indexOf(query.toLowerCase()) > -1;
-	})
+		return feature.keywords_string.toLowerCase().indexOf(query.toLowerCase()) > -1;
+	});
 }
 
 function buildResult(feature) {

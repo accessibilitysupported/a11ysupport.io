@@ -29,8 +29,19 @@ helper.initalizeFeatureObject = function(featureObject) {
 	featureObject.extended_support = [];
 	featureObject.extended_support_string = 'unknown';
 
+	if (!featureObject.keywords) {
+		featureObject.keywords = [];
+	}
+
+	featureObject.keywords.push(featureObject.title);
+
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
 		featureObject.tests[testIndex] = require('../build/tests/'+featureObject.tests[testIndex]);
+
+		// Set up keywords to help searches
+		if (featureObject.tests[testIndex].keywords) {
+			featureObject.keywords = featureObject.keywords.concat(featureObject.tests[testIndex].keywords);
+		}
 
 		// Detect support
 		for(let at in ATBrowsers.at){
@@ -77,6 +88,9 @@ helper.initalizeFeatureObject = function(featureObject) {
 		let at = ATBrowsers.core_at[i];
 		featureObject.core_support_by_at[at].string = helper.generateSupportString(featureObject.core_support_by_at[at].values);
 	}
+
+	// Define the keywords_string
+	featureObject.keywords_string = featureObject.keywords.join(' ');
 };
 
 
