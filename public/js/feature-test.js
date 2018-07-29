@@ -68,10 +68,25 @@ function displayTestingPrefs(focusResults)
 	var dt = document.createElement('dt');
 	dt.innerText = 'Helpful Links';
 	var dd = document.createElement('dd');
+	var ul = document.createElement('ul');
+
+	if (ATBrowsers.at[at_value].support != 'u') {
+		var a = document.createElement('a');
+		a.setAttribute('href', '/test/'+test.id+'/'+at_value+'/'+browser_value);
+		a.innerText = 'View details about the current support point (including notes if available)';
+		var li = document.createElement('li');
+		li.appendChild(a);
+		ul.appendChild(li);
+	}
+
 	var a = document.createElement('a');
 	a.setAttribute('href', '/learn/at/'+at_value);
 	a.innerText = 'Learn how to use ' + ATBrowsers.at[at_value].short_title;
-	dd.appendChild(a);
+	var li = document.createElement('li');
+	li.appendChild(a);
+	ul.appendChild(li);
+
+	dd.appendChild(ul);
 	dl.appendChild(dt);
 	dl.appendChild(dd);
 
