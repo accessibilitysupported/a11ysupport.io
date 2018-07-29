@@ -28,8 +28,6 @@ block content
             button(aria-expanded="false" aria-controls="run-test-container").toggle-run-test-container Toggle test instructions
 
             div(id="run-test-container")
-                p This test checks the name, role, and properties of the feature.
-
                 h3 What are you testing with?
                 form.testing-pref
                     label(for="combination") Select your testing combination
@@ -49,6 +47,10 @@ block content
                     button set
                 div(id="testing-pref-results")
 
+                div.call-out
+                    h3 Make sure everything is up to date
+                    p Always make sure that your OS, Browser, and Assistive technology are up to date with the latest production versions before submitting test results. Also make sure that your assistive technology is set to factory defaults.
+
                 if (test.type === "aam")
                     if (test.supports_sr)
                         h3 Screen Reader Instructions
@@ -57,7 +59,6 @@ block content
 
                         ol
                             li Launch the screen reader that you want to test with.
-                            li Ensure that the screen reader is set to factory defaults.
                             li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
                             li= "Locate the target element. The CSS selector for the target is: "
                                 strong= test.css_target
@@ -71,9 +72,8 @@ block content
                     if (test.supports_vc)
                         h3 Voice Command Instructions
                         ol
-                            li Launch the voice command software that you want to test with.
-                            li
-                                a(href='/tests/' + test.id + '.html') Open the test HTML
+                            li Launch the Voice Command software that you want to test with.
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
                             if test.vc_instructions
                                 each instruction in test.vc_instructions
                                     li= instruction
@@ -103,16 +103,19 @@ block content
                     iframe(src='/tests/html/' + test.id + '.html' aria-label="the test page")
 
                 else if (test.type === "custom")
-                    p This is a custom test.
                     if (test.supports_sr)
                         h3 Screen Reader Instructions
                         ol
+                            li Launch the screen reader that you want to test with.
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
                             each instruction in test.sr_instructions
                                 li= instruction
 
                     if (test.supports_vc)
                         h3 Voice Command Instructions
                         ol
+                            li Launch the Voice Command software that you want to test with.
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
                             each instruction in test.vc_instructions
                                 li= instruction
 
