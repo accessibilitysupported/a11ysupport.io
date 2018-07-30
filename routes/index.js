@@ -7,7 +7,7 @@ let createError = require('http-errors');
 router.get('/', function(req, res, next) {
 	let tech = require(__dirname+'/../build/tech.json');
 	res.render('index', {
-		title: 'Accessibility Supported',
+		title: 'Accessibility Support',
 		tech: tech
 	});
 });
