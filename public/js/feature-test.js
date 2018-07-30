@@ -226,7 +226,7 @@ function initFeatureTest() {
 
 		var notes = data.get('notes');
 		if (notes) {
-			body += '\n\n'+encodeURIComponent(notes)+'\n';
+			body += '\n\n'+notes+'\n';
 		}
 
 		var isCore = false;
