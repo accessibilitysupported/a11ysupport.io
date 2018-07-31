@@ -5,10 +5,18 @@ let moment = require('moment');
 
 let currentDateString = moment().format('YYYY-MM-DD');
 
+let urlSafe = function(string) {
+	string = string.replace('[', '(');
+	string = string.replace(']', ')');
+	string = string.replace('=', '-');
+	return string;
+};
+
 let createFeature = function(id, featureType, techId, title, description, linkTitle, linkUrl) {
 	//Ensure a constant and safe file name
 	id = id.replace(' ', '_').toLowerCase(); //Remove spaces
 	id = sanitize(id);
+	id = urlSafe(string);
 
 	let file = __dirname + '/../data/tech/'+techId+'/'+id+'.json';
 
