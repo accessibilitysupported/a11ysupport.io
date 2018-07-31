@@ -26,7 +26,20 @@
           "os_version": "10.13.6",
           "support": "p",
           "date": "2018-07-29",
-          "output": "target, column 2 of 2",
+          "output": [
+            {
+              "command": "Control + Option + left/right arrows",
+              "command_name": "Read cell to left/right",
+              "output": "target, column 2 of 2",
+              "result": "fail"
+            },
+            {
+              "command": "Control + Option + up/down arrows",
+              "command_name": "Read cell above/below",
+              "output": "Row 1 of 2 Row one header, target",
+              "result": "fail"
+            }
+          ],
           "notes": "When the table is first announced by VO, it states that you can \"navigate the cells within this table by pressing Control-Option, and then Up Arrow, Down Arrow, Left Arrow, or Right Arrow\". When navigating by Control+Option + Left/Right Arrows, the test fails. The test passes when navigating by Control+Option Up/Down Arrows."
         }
       }
@@ -37,10 +50,24 @@
           "at_version": "1803",
           "browser_version": "42.17134.1.0",
           "os_version": "1803",
-          "support": "n",
+          "support": "p",
           "date": "2018-07-30",
-          "output": "output",
-          "notes": "Navigating forwards and backwards through the table via Caps Lock + Right/Left Arrows made no difference in output.\nNavigating with table specific commands improves the experience, however the target element fails the test. No header is found when Caps Lock + F10 (read row header) is pressed while on the target element. However, the correct row header is announced for row 2 column 2."
+          "output": "target, non-selected, row 1 of 2 column 2 of 2",
+          "output": [
+            {
+              "command": "Caps Lock + right/left arrows",
+              "command_name": "Read next/previous item",
+              "output": "target, non-selected, row 1 of 2 column 2 of 2",
+              "result": "fail"
+            },
+            {
+              "command": "Control + Alt + up/down Arrow",
+              "command_name": "Cell above",
+              "output": "target, non-selected, row 1 of 2 column 2 of 2",
+              "result": "fail"
+            }
+          ],
+          "notes": "Navigating forwards and backwards through the table via Caps Lock + Right/Left Arrows made no difference in output.\nNavigating with table specific commands improves the experience, however the target element fails the test. No header is found when Caps Lock + F10 (read row header) is pressed while on the target element. However, the correct row header is announced for row 2 column 2. While the target element fails, it appears that the scope=row attribute is sometimes supported."
         }
       }
     },
@@ -52,7 +79,20 @@
           "os_version": "1803",
           "support": "p",
           "date": "2018-07-30",
-          "output": "Row one header column 2 target",
+          "output": [
+            {
+              "command": "Down Arrow",
+              "command_name": "Read next item",
+              "output": "Row 1 column 2 target",
+              "result": "pass"
+            },
+            {
+              "command": "Up Arrow",
+              "command_name": "Read previous item",
+              "output": "Row one header column 2 target",
+              "result": "fail"
+            }
+          ],
           "notes": "The row header was not announced while moving forward through the table (using down arrow). However if reading backwards through the table (up arrow) the row header was read."
         }
       }

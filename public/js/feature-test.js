@@ -56,15 +56,6 @@ function displayTestingPrefs(focusResults)
 	dl.appendChild(dt);
 	dl.appendChild(dd);
 
-	if (supportPoint.output && supportPoint.output !== '') {
-		var dt = document.createElement('dt');
-		dt.innerText = 'Previous output';
-		var dd = document.createElement('dd');
-		dd.innerText = supportPoint.output;
-		dl.appendChild(dt);
-		dl.appendChild(dd);
-	}
-
 	var dt = document.createElement('dt');
 	dt.innerText = 'Helpful Links';
 	var dd = document.createElement('dd');
@@ -82,7 +73,7 @@ function displayTestingPrefs(focusResults)
 
 	var reviewDetails = document.querySelector('#review-details');
 	if (reviewDetails) {
-		if (supportPoint.notes && supportPoint.notes !== '') {
+		if (supportPoint.notes || supportPoint.output) {
 			var a = document.createElement('a');
 			a.href = support_point_url;
 			a.innerText = reviewDetails.innerText;

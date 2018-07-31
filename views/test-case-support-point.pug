@@ -38,6 +38,22 @@ block content
                 tr
                     th(scope="row") Notes
                     td!= test.at[atId].browsers[browserId].notes ? md.render(test.at[atId].browsers[browserId].notes) : ''
-                tr
-                    th(scope="row") Is this not right?
-                    td Use the provided instructions in the test to submit a correction
+
+        if test.at[atId].browsers[browserId].output
+            h2 Commands and Output
+            p These are specific commands used to access the target element in the test, along with the resulting output.
+            table
+                thead
+                    tr
+                        th Command
+                        th Command name
+                        th Result
+                        th Output
+                tbody
+                    each output in test.at[atId].browsers[browserId].output
+                        tr
+                            td=output.command
+                            td=output.command_name
+                            td=output.result
+                            td=output.output
+
