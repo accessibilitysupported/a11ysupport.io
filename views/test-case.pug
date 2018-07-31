@@ -51,11 +51,13 @@ block content
                     h3 Make sure everything is up to date
                     p Always make sure that your OS, Browser, and Assistive technology are up to date with the latest production versions before submitting test results. Also make sure that your assistive technology is set to factory defaults.
 
+                p Please be sure to read the full instructions before completing the test.
+
                 if (test.type === "aam")
                     if (test.supports_sr)
                         h3 Screen Reader Instructions
 
-                        p Please be sure to read the full instructions before completing the test.
+                        include test-case/locate-note.pug
 
                         ol
                             li Launch the screen reader that you want to test with.
@@ -66,8 +68,8 @@ block content
                                 each instruction in test.sr_instructions
                                     li= instruction
                             else
-                            li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers). The expected name, role, and properties can be found after the instructions.
-                            li Use the form to create an issue for the given browser/screen reader combination.
+                            li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers). The expected name, role, and properties can be found after the instructions. If some commands work and others do not, the test should be marked as 'partial support'.
+                            li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
 
                     if (test.supports_vc)
                         h3 Voice Command Instructions
@@ -105,6 +107,9 @@ block content
                 else if (test.type === "custom")
                     if (test.supports_sr)
                         h3 Screen Reader Instructions
+
+                        include test-case/locate-note.pug
+
                         ol
                             li Launch the screen reader that you want to test with.
                             li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
@@ -137,6 +142,7 @@ block content
                         label(for="support") Test result (required)
                         select(name="support" id="support" aria-required="true")
                             option(value="y") Passed
+                            option(value="p") Partial (please explain in notes)
                             option(value="n") Failed
                     div.control
                         label(for="at") AT used (required)
