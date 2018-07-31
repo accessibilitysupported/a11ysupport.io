@@ -12,13 +12,13 @@ html(lang='en')
       | !{ga}
 
   body
-    header
+    header(role="banner")
       a(class="skip-nav" href="#main") Skip to main content
       div(class='logo-area')
         div(class='site-title')
           a(href='/') Accessibility Support
         span Will your code work with assistive technologies?
-      nav
+      nav(role="navigation")
         ul
           li
             a(href='/tech') Tech
@@ -28,11 +28,11 @@ html(lang='en')
             a(href='/contribute') Contribute
           li
             a(href='/learn') Learn
-    main(id="main" tabindex="-1")
+    main(role="main" id="main" tabindex="-1")
       div(class='beta-warning')
         p Warning! This is a prototype for feedback purposes only. Data may be inaccurate and/or incomplete. #[a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new") Please submit feedback].
       block content
-    footer
+    footer(role="contentinfo")
       p This work was originally created by Michael Fairchild. This is a community-drive and open source project. Text and data is available under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
       p
         a(href='https://github.com/accessibilitysupported/accessibilitysupported/') Find us on GitHub
