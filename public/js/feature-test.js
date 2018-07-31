@@ -70,13 +70,33 @@ function displayTestingPrefs(focusResults)
 	var dd = document.createElement('dd');
 	var ul = document.createElement('ul');
 
+	var support_point_url = '/tests/'+test.id+'/'+at_value+'/'+browser_value;
 	if (ATBrowsers.at[at_value].support != 'u') {
 		var a = document.createElement('a');
-		a.setAttribute('href', '/test/'+test.id+'/'+at_value+'/'+browser_value);
-		a.innerText = 'View details about the current support point (including notes if available)';
+		a.setAttribute('href', support_point_url);
+		a.innerText = 'View details about the current support point (including versions used)';
 		var li = document.createElement('li');
 		li.appendChild(a);
 		ul.appendChild(li);
+	}
+
+	var reviewDetails = document.querySelector('#review-details');
+	if (reviewDetails) {
+		if (supportPoint.notes && supportPoint.notes !== '') {
+			var a = document.createElement('a');
+			a.href = support_point_url;
+			a.innerText = reviewDetails.innerText;
+			reviewDetails.innerHTML = '';
+			reviewDetails.appendChild(a);
+
+			var span = document.createElement('span');
+			span.innerText = ' There are notes that might describe commands that were used.';
+			reviewDetails.parentElement.appendChild(span);
+			reviewDetails.parentElement.hidden = false;
+		} else {
+			// There is nothing available to help understand
+			reviewDetails.parentElement.hidden = true;
+		}
 	}
 
 	var a = document.createElement('a');
