@@ -227,13 +227,13 @@ function initFeatureTest() {
 
 		var body = '| property | value |\n';
 		body += '| --- | --- |\n';
-		body += '| support | ' + data.get('support') + ' |\n';
-		body += '| at | ' + data.get('at') + ' |\n';
-		body += '| at_version | ' + data.get('at_version') + ' |\n';
-		body += '| browser | ' + data.get('browser') + ' |\n';
-		body += '| browser_version | ' + data.get('browser_version') + ' |\n';
-		body += '| os_version: | ' + data.get('os_version') + ' |\n';
-		body += '| output: | ' + data.get('output') + ' |\n';
+
+		for (var element of data) {
+			if (element[0] === 'notes') {
+				continue;
+			}
+			body += '| '+element[0]+' | ' + element[1] + ' |\n';
+		}
 
 		var notes = data.get('notes');
 		if (notes) {
@@ -259,6 +259,91 @@ function initFeatureTest() {
 
 		window.location = url;
 	});
+
+	var initOutputDetails = function() {
+		var addOutputButton = document.querySelector('#add-output');
+		addOutputButton.addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+			var key = currentRows.length+1;
+			var fieldset = document.createElement('fieldset');
+			var legend = document.createElement('legend');
+			legend.innerText = 'Output row ' + key;
+			fieldset.appendChild(legend);
+
+			// command used
+			var div = document.createElement('div');
+			div.classList.add('control');
+			var label = document.createElement('label');
+			label.innerText = 'The command used (list the keystrokes, or describe the gesture or voice command)';
+			var id = 'output_'+key+'_command';
+			label.setAttribute('for', id);
+			var commandInput = document.createElement('input');
+			commandInput.setAttribute('type', 'text');
+			commandInput.setAttribute('id', id);
+			commandInput.setAttribute('name', id);
+			div.appendChild(label);
+			div.appendChild(commandInput);
+			fieldset.appendChild(div);
+
+			// output from AT
+			var div = document.createElement('div');
+			div.classList.add('control');
+			var label = document.createElement('label');
+			label.innerText = 'Output from AT';
+			var id = 'output_'+key+'_output';
+			label.setAttribute('for', id);
+			var input = document.createElement('input');
+			input.setAttribute('type', 'text');
+			input.setAttribute('id', id);
+			input.setAttribute('name', id);
+			div.appendChild(label);
+			div.appendChild(input);
+			fieldset.appendChild(div);
+
+			// Result
+			var div = document.createElement('div');
+			div.classList.add('control');
+			var label = document.createElement('label');
+			label.innerText = 'result';
+			var id = 'output_'+key+'_result';
+			label.setAttribute('for', id);
+			var select = document.createElement('select');
+			select.setAttribute('id', id);
+			select.setAttribute('name', id);
+			var option = document.createElement('option');
+			option.innerText = 'pass';
+			option.value = 'pass';
+			select.appendChild(option);
+			var option = document.createElement('option');
+			option.innerText = 'fail';
+			option.value = 'fail';
+			select.appendChild(option);
+			var option = document.createElement('option');
+			option.innerText = 'partial';
+			option.value = 'partial';
+			select.appendChild(option);
+			div.appendChild(label);
+			div.appendChild(select);
+			fieldset.appendChild(div);
+
+			var removeButton = document.createElement('button');
+			removeButton.innerText = 'Remove this row';
+			removeButton.addEventListener('click', function(e) {
+				e.preventDefault();
+				fieldset.remove();
+				addOutputButton.focus();
+			});
+
+			fieldset.appendChild(removeButton);
+
+			addOutputButton.parentElement.insertBefore(fieldset, addOutputButton);
+			commandInput.focus();
+		});
+	};
+
+	initOutputDetails();
 }
 
 // Fetch all of the required data
