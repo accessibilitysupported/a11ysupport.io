@@ -38,8 +38,9 @@ An issue to add or modify a support point should include:
 4. The Browser Name
 5. The Browser version
 6. The OS version
-7. The output announced by the screen reader (if using a screen reader).
-8. Whether or not you think the test passes or fails and why
+7. The specific command(s) used to access the target element with the AT (keys used, touch gestures, or voice command)
+8. The output announced by the screen reader for each specific command (if using a screen reader). #7 and #8 help to make the test easier to replicate.
+9. Whether or not you think the test passes or fails and why
 
 ## Suggest a missing test case
 
