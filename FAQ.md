@@ -82,7 +82,7 @@ For now, we base our data on the results of the latest
 
 ## Who runs this?
 
-We are figuring this out. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software is opened sourced under the GPL 3.0 license.
+The community both runs and ownes this project. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software is opened sourced under the GPL 3.0 license.
 
 ## What are the levels of support?
 
