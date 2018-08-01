@@ -23,25 +23,27 @@ block content
                   a(href='/tests/'+test.id) #{test.title}
                 td= test.core_support_string
 
-      h2 Summary of tests
-      each test, index in data.tests
-        a(href='/tests/' + test.id)
-          h3(id='support-table-'+test.id)= 'Support for ' + test.title
-        table(aria-labelledby='support-table-'+test.id)
-          tr
-            th AT
-            th Browser
-            th Support
-          each at in ATBrowsers.core_at
-            each browser in ATBrowsers.at[at].core_browsers
-              tr
-                td= ATBrowsers.at[at].title
-                  if test.at[at].browsers[browser].at_version
-                      span= ' ' + test.at[at].browsers[browser].at_version
-                td= ATBrowsers.browsers[browser].title
-                  if (test.at[at].browsers[browser].browser_version)
-                      span= ' ' + test.at[at].browsers[browser].browser_version
-                td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
+        h2 Summary of tests
+        each test, index in data.tests
+          a(href='/tests/' + test.id)
+            h3(id='support-table-'+test.id)= 'Support for ' + test.title
+          table(aria-labelledby='support-table-'+test.id)
+            tr
+              th AT
+              th Browser
+              th Support
+            each at in ATBrowsers.core_at
+              each browser in ATBrowsers.at[at].core_browsers
+                tr
+                  td= ATBrowsers.at[at].title
+                    if test.at[at].browsers[browser].at_version
+                        span= ' ' + test.at[at].browsers[browser].at_version
+                  td= ATBrowsers.browsers[browser].title
+                    if (test.at[at].browsers[browser].browser_version)
+                        span= ' ' + test.at[at].browsers[browser].browser_version
+                  td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
+      else
+        p Sorry, this feature does not have any tests. Please feel free to propose one on GitHub.
     if data.references
       div.sidebar
         h2 Is something not right?
