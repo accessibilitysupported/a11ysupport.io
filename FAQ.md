@@ -8,7 +8,7 @@
 
 ## What is this?
 
-This is a community driven website that aims to help inform developers about what is [accessibility supported](https://www.w3.org/TR/WCAG21/#cc4). In order to conform to WCAG 2.0, you must use code in ways that are supported by assistive technologies (such as screen readers).
+This is a community driven website that aims to help inform developers about what is [accessibility supported](https://www.w3.org/TR/WCAG21/#cc4). In order to conform to WCAG 2.0, you must write code in ways that are supported by assistive technologies (such as screen readers).
 
 Our goal is not to tell you what you can or can not use, but to help you make informed decisions. For example, you may be able to use unsupported features in a way that does not negatively affect AT interaction.
 
