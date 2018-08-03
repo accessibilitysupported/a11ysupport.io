@@ -33,9 +33,6 @@ block content
                     th(scope="row") OS version
                     td= test.at[atId].browsers[browserId].os_version
                 tr
-                    th(scope="row") Sample Output
-                    td= test.at[atId].browsers[browserId].output ? test.at[atId].browsers[browserId].output : ''
-                tr
                     th(scope="row") Notes
                     td!= test.at[atId].browsers[browserId].notes ? md.render(test.at[atId].browsers[browserId].notes) : ''
 
