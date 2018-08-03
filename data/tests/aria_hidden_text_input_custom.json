@@ -15,11 +15,40 @@
   ],
   "history": [
     {
+      "date": "2018-08-02",
+      "message": "NVDA/Firefox support added. Thank you @ShadowBB"
+    },
+    {
       "date": "2018-07-22",
       "message": "Sample data has been added. This data has not been verified."
     }
   ],
   "at": {
-
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.2.1",
+          "browser_version": "61.0.1",
+          "os_version": "17134.165",
+          "support": "y",
+          "output": [
+            {
+              "command": "down arrow",
+              "command_name": "read next item",
+              "output": "(target not read)",
+              "result": "pass"
+            },
+            {
+              "command": "tab",
+              "command_name": "next focusable item",
+              "output": "Your name edit has auto complete",
+              "result": "pass"
+            }
+          ],
+          "date": "2018-08-02",
+          "notes": "When using focus mode (tab key) the control is still read. This is because the `aria-hidden=\"true\"` does not make elements in the sub tree inert. It is the author's responsibility to make controls inert. See [nvaccess/nvda #5014](https://github.com/nvaccess/nvda/issues/5014) for more information."
+        }
+      }
+    }
   }
 }
