@@ -7,16 +7,17 @@ var dom_at_version = document.querySelector('#at_version');
 var dom_browser_version = document.querySelector('#browser_version');
 var dom_os_version = document.querySelector('#os_version');
 var addOutputButton = document.querySelector('#add-output');
+var testingPrefForm = document.querySelector('form.testing-pref');
+var ATBrowserSelect = testingPrefForm.querySelector('select');
 
 function initTestingPrefForm()
 {
-	var form = document.querySelector('form.testing-pref');
-	form.addEventListener('submit', function(e) {
+
+	testingPrefForm.addEventListener('submit', function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 
-		var select = form.querySelector('select');
-		var choice = select.value;
+		var choice = ATBrowserSelect.value;
 		choice = choice.split('/');
 
 		sessionStorage.setItem('at', choice[0]);
@@ -41,6 +42,9 @@ function displayTestingPrefs(focusResults)
 		createCommandOutputRow(null, false);
 		return;
 	}
+
+	// Set the ATBrowser selector to the currently selected value
+	ATBrowserSelect.value = at_value+'/'+browser_value;
 
 	var resultsContainer = document.querySelector('#testing-pref-results');
 
