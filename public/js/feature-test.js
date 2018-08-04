@@ -6,6 +6,7 @@ var dom_browser = document.querySelector('#browser');
 var dom_at_version = document.querySelector('#at_version');
 var dom_browser_version = document.querySelector('#browser_version');
 var dom_os_version = document.querySelector('#os_version');
+var addOutputButton = document.querySelector('#add-output');
 
 function initTestingPrefForm()
 {
@@ -32,8 +33,12 @@ function displayTestingPrefs(focusResults)
 	var at_value = sessionStorage.getItem('at');
 	var browser_value = sessionStorage.getItem('browser');
 
+	// Always remove command output that is already in place.
+	removeAllCommandOutputRows();
+
 	if (!at_value || !browser_value) {
-		// Settings haven't been saved yet.
+		// Settings haven't been saved yet. But we still need a placeholder for output.
+		createCommandOutputRow(null, false);
 		return;
 	}
 
@@ -111,6 +116,16 @@ function displayTestingPrefs(focusResults)
 	resultsContainer.appendChild(dl);
 	resultsContainer.classList.add('call-out');
 
+	// Pre-fill output rows
+	if (supportPoint.output && supportPoint.output.length > 0) {
+		for (var i=0; i<supportPoint.output.length; i++) {
+			createCommandOutputRow(supportPoint.output[i], false);
+		}
+	} else {
+		// Still require at least one row
+		createCommandOutputRow(null, false);
+	}
+
 	if (focusResults) {
 		heading.focus();
 	}
@@ -125,6 +140,133 @@ function displayTestingPrefs(focusResults)
 	dom_os_version.value = sessionStorage.getItem('os_version');
 }
 
+var removeAllCommandOutputRows = function() {
+	var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+	for (var i=0; i < currentRows.length; i++) {
+		currentRows[i].remove();
+	}
+};
+
+var createCommandOutputRow = function(outputObject, focus) {
+	var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+	var key = currentRows.length+1;
+	var fieldset = document.createElement('fieldset');
+	var legend = document.createElement('legend');
+	legend.innerText = 'Output row ' + key;
+	fieldset.appendChild(legend);
+
+	// command used
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'The command used (required)';
+	var span = document.createElement('span');
+	var id = 'output_'+key+'_command';
+	label.setAttribute('for', id);
+	span.innerText = '(list the keystrokes, or describe the gesture or voice command)';
+	span.id = id + '_description';
+	label.setAttribute('aria-describedby', span.id);
+	var commandInput = document.createElement('input');
+	commandInput.setAttribute('type', 'text');
+	commandInput.setAttribute('id', id);
+	commandInput.setAttribute('name', id);
+	div.appendChild(label);
+	div.insertBefore(span, label.nextSibling);
+	div.appendChild(commandInput);
+	fieldset.appendChild(div);
+
+	if (outputObject) {
+		commandInput.value = outputObject.command;
+	}
+
+	// command name used
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'The command name (required)';
+	var span = document.createElement('span');
+	var id = 'output_'+key+'_command_name';
+	label.setAttribute('for', id);
+	var input = document.createElement('input');
+	input.setAttribute('type', 'text');
+	input.setAttribute('id', id);
+	input.setAttribute('name', id);
+	div.appendChild(label);
+	div.appendChild(input);
+	fieldset.appendChild(div);
+
+	if (outputObject) {
+		input.value = outputObject.command_name;
+	}
+
+	// output from AT
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'Output from AT (required)';
+	var id = 'output_'+key+'_output';
+	label.setAttribute('for', id);
+	var input = document.createElement('input');
+	input.setAttribute('type', 'text');
+	input.setAttribute('id', id);
+	input.setAttribute('name', id);
+	div.appendChild(label);
+	div.appendChild(input);
+	fieldset.appendChild(div);
+
+	if (outputObject) {
+		input.value = outputObject.output;
+	}
+
+	// Result
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'result (required)';
+	var id = 'output_'+key+'_result';
+	label.setAttribute('for', id);
+	var select = document.createElement('select');
+	select.setAttribute('id', id);
+	select.setAttribute('name', id);
+	var option = document.createElement('option');
+	option.innerText = 'pass';
+	option.value = 'pass';
+	select.appendChild(option);
+	var option = document.createElement('option');
+	option.innerText = 'fail';
+	option.value = 'fail';
+	select.appendChild(option);
+	var option = document.createElement('option');
+	option.innerText = 'partial';
+	option.value = 'partial';
+	select.appendChild(option);
+	div.appendChild(label);
+	div.appendChild(select);
+	fieldset.appendChild(div);
+
+	if (outputObject) {
+		select.value = outputObject.result;
+	}
+
+	if (currentRows.length > 0) {
+		// Don't allow removing the first row
+		var removeButton = document.createElement('button');
+		removeButton.innerText = 'Remove this row';
+		removeButton.addEventListener('click', function(e) {
+			e.preventDefault();
+			fieldset.remove();
+			addOutputButton.focus();
+		});
+		fieldset.appendChild(removeButton);
+	}
+
+	addOutputButton.parentElement.insertBefore(fieldset, addOutputButton);
+
+	if (focus) {
+		commandInput.focus();
+	}
+};
+
 
 function initFeatureTest() {
 	var form = document.querySelector('form.submit-test-result');
@@ -136,7 +278,6 @@ function initFeatureTest() {
 
 	var button = document.querySelector('.toggle-run-test-container');
 	var testContainer = document.querySelector('#run-test-container');
-	var addOutputButton = document.querySelector('#add-output');
 
 	button.addEventListener('click', function() {
 		if (button.getAttribute('aria-expanded') === 'true') {
@@ -292,115 +433,11 @@ function initFeatureTest() {
 		addOutputButton.addEventListener('click', function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			createInCommandOutputRow(true);
+			createCommandOutputRow(null, true);
 		});
 
 		// Always create the first row so that some input/output is required
-		createInCommandOutputRow(false);
-	};
-
-	var createInCommandOutputRow = function(focus) {
-		var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
-		var key = currentRows.length+1;
-		var fieldset = document.createElement('fieldset');
-		var legend = document.createElement('legend');
-		legend.innerText = 'Output row ' + key;
-		fieldset.appendChild(legend);
-
-		// command used
-		var div = document.createElement('div');
-		div.classList.add('control');
-		var label = document.createElement('label');
-		label.innerText = 'The command used (required)';
-		var span = document.createElement('span');
-		var id = 'output_'+key+'_command';
-		label.setAttribute('for', id);
-		span.innerText = '(list the keystrokes, or describe the gesture or voice command)';
-		span.id = id + '_description';
-		label.setAttribute('aria-describedby', span.id);
-		var commandInput = document.createElement('input');
-		commandInput.setAttribute('type', 'text');
-		commandInput.setAttribute('id', id);
-		commandInput.setAttribute('name', id);
-		div.appendChild(label);
-		div.insertBefore(span, label.nextSibling);
-		div.appendChild(commandInput);
-		fieldset.appendChild(div);
-
-		// command name used
-		var div = document.createElement('div');
-		div.classList.add('control');
-		var label = document.createElement('label');
-		label.innerText = 'The command name (required)';
-		var span = document.createElement('span');
-		var id = 'output_'+key+'_command_name';
-		label.setAttribute('for', id);
-		var input = document.createElement('input');
-		input.setAttribute('type', 'text');
-		input.setAttribute('id', id);
-		input.setAttribute('name', id);
-		div.appendChild(label);
-		div.appendChild(input);
-		fieldset.appendChild(div);
-
-		// output from AT
-		var div = document.createElement('div');
-		div.classList.add('control');
-		var label = document.createElement('label');
-		label.innerText = 'Output from AT (required)';
-		var id = 'output_'+key+'_output';
-		label.setAttribute('for', id);
-		var input = document.createElement('input');
-		input.setAttribute('type', 'text');
-		input.setAttribute('id', id);
-		input.setAttribute('name', id);
-		div.appendChild(label);
-		div.appendChild(input);
-		fieldset.appendChild(div);
-
-		// Result
-		var div = document.createElement('div');
-		div.classList.add('control');
-		var label = document.createElement('label');
-		label.innerText = 'result (required)';
-		var id = 'output_'+key+'_result';
-		label.setAttribute('for', id);
-		var select = document.createElement('select');
-		select.setAttribute('id', id);
-		select.setAttribute('name', id);
-		var option = document.createElement('option');
-		option.innerText = 'pass';
-		option.value = 'pass';
-		select.appendChild(option);
-		var option = document.createElement('option');
-		option.innerText = 'fail';
-		option.value = 'fail';
-		select.appendChild(option);
-		var option = document.createElement('option');
-		option.innerText = 'partial';
-		option.value = 'partial';
-		select.appendChild(option);
-		div.appendChild(label);
-		div.appendChild(select);
-		fieldset.appendChild(div);
-
-		if (currentRows.length > 0) {
-			// Don't allow removing the first row
-			var removeButton = document.createElement('button');
-			removeButton.innerText = 'Remove this row';
-			removeButton.addEventListener('click', function(e) {
-				e.preventDefault();
-				fieldset.remove();
-				addOutputButton.focus();
-			});
-			fieldset.appendChild(removeButton);
-		}
-
-		addOutputButton.parentElement.insertBefore(fieldset, addOutputButton);
-
-		if (focus) {
-			commandInput.focus();
-		}
+		createCommandOutputRow(null, false);
 	};
 
 	initOutputDetails();
