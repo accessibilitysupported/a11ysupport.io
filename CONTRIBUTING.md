@@ -25,10 +25,10 @@ A support point is the support value for a given AT/Browser/Test.
 
 1. Find a test that you want to run.
 2. Read the provided instructions so that you understand the expected results.
-2. Use your chosen AT/Browser combination to run the test.
+2. Use the chosen AT/Browser combination to run the test.
 3. Use the provided form to open an issue that details the results. You can also create a pull request with your findings. Be sure to provide specific versions of the AT, Browser, and OS that were used.
 4. If creating a pull request, add an entry to the history array for the test that describes any changes and set the support point's date to today's date.
-5. Your findings should be verified by at least one other person before they are accepted. Verification must either be done manually, or by citing a trust worthy 3rd party resource.
+5. Your findings should be verified by at least one other person before they are accepted. Verification must either be done manually or by citing a trustworthy 3rd party resource.
 
 An issue to add or modify a support point should include:
 
@@ -82,13 +82,13 @@ If you find a problem with a test case, please [create an issue](https://github.
 
 Please [create an issue](https://github.com/accessibilitysupported/accessibilitysupported/issues) or create a pull request to suggest a new feature. 
 
-What is and is not a feature can be hard to define and might depend on the technology or unique circumstances. In general a feature is a high level object that is provided by a technology.
+What is and is not a feature can be hard to define and might depend on the technology or unique circumstances. In general, a feature is a high-level object that is provided by a technology.
 
 In HTML, a feature might be an element. Note that an HTML tag does not necessarily map 1:1 with an element. For example, an `input` tag with the attribute `type="text"` represents a different element than `input[type="email"]`.
 
-In ARIA, a feature might be a role or an attribute. For example the `aria-hidden` attribute should be considered a feature in the same way that the `heading` role is a feature.
+In ARIA, a feature might be a role or an attribute. For example, the `aria-hidden` attribute should be considered a feature in the same way that the `heading` role is a feature.
 
-For both ARIA and HTML, attributes that can be used across many different features should also be considered features. However, attributes that are restricted to specific features are not. Separate test cases cases should be created for these feature-specific modifiers.
+For both ARIA and HTML, attributes that can be used across many different features should also be considered features. However, attributes that are restricted to specific features are not. Separate test cases should be created for these feature-specific modifiers.
 
 A new feature will only be accepted if it includes:
 

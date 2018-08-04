@@ -14,18 +14,18 @@ Our goal is not to tell you what you can or can not use, but to help you make in
 
 We also hope to help developers learn how to test with assistive technologies. To accomplish this, we will provide introductory materials on how to use different assistive technologies and provide detailed instructions about how to perform tests. We also hope to run workshops at developer conferences.
 
-There are some other projects that are similar to this, however most of them:
+There are some other projects that are similar to this, however, most of them:
 * Are closed sourced (no contributions)
 * Do not cover all of the common AT
 * Do not disclose exactly how tests are performed
-* Only tests a specific technology (or subset of that technology)
+* Only tests a specific technology (or a subset of that technology)
 * Only tests the accessibility API layer, not the end result of the AT
 
 ## Can't this be automated?
 
 There are many different ways that Assistive Technology (AT) interacts with a browser and your code.
 
-1. Accessibility APIs (most common). In this method, a browser will create an accessibility tree (subset of the DOM) and expose it to a system Accessibility API. The AT will then consume that API. This mapping is being standardized for many technologies via the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1/).
+1. Accessibility APIs (most common). In this method, a browser will create an accessibility tree (a subset of the DOM) and expose it to a system Accessibility API. The AT will then consume that API. This mapping is being standardized for many technologies via the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1/).
 2. The AT will directly interface with the browser and read the DOM.
 3. A mixture of 1 and 2.
 
@@ -53,7 +53,7 @@ Testing every possible combination of AT and Browser is simply unrealistic. We o
 
 Core AT and Browsers are commonly used or widely available. We try to keep the list to a minimum in order to make testing easier. The following rules are used to determine what should be considered 'core':
 
-For each category of AT that is within scope:
+For each category of AT that is within the scope:
 1. AT that is built into the operating system if it is used by at least 10% of respondents + the native browser on that operating system. This currently includes:
     * VoiceOver for Mac + Safari for Mac
     * VoiceOver for iOS + Safari for iOS
@@ -62,7 +62,7 @@ For each category of AT that is within scope:
 2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT. This currently includes:
     * NVDA + Firefox
 3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT. This currently includes:
-    * JAWS + IE and Edge (both browsers during transition from IE)
+    * JAWS + IE and Edge (both browsers during the transition from IE)
     * Dragon Naturally Speaking + Google Chrome (voice control software)
 
 The phrase 'widely supported' for core AT means that greater than or equal to 20% of respondents use it as their primary AT.
@@ -71,7 +71,7 @@ The phrase 'widely supported' for core AT means that greater than or equal to 20
 
 Extended combinations include rarer AT/Browser combinations that are used by at least 10% of respondents + the major browsers available on the operating system.
 
-Major browsers are defined as: Google Chrome, Edge, Firefox, Internet Explorer, and Safari.
+Major browsers are defined as Google Chrome, Edge, Firefox, Internet Explorer, and Safari.
 
 ### Survey Sources
 
@@ -82,7 +82,7 @@ For now, we base our data on the results of the latest
 
 ## Who runs this?
 
-The community both runs and ownes this project. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software is opened sourced under the GPL 3.0 license.
+The community both runs and owns this project. The original idea and prototype were developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are opened sourced under the GPL 3.0 license.
 
 ## What are the levels of support?
 
