@@ -136,6 +136,7 @@ function initFeatureTest() {
 
 	var button = document.querySelector('.toggle-run-test-container');
 	var testContainer = document.querySelector('#run-test-container');
+	var addOutputButton = document.querySelector('#add-output');
 
 	button.addEventListener('click', function() {
 		if (button.getAttribute('aria-expanded') === 'true') {
@@ -160,24 +161,51 @@ function initFeatureTest() {
 		}
 
 		if (!dom_at.value) {
-			errors.push(generateErrorLink("#at", "'AT used' in required"));
+			errors.push(generateErrorLink("#at", "'AT used' is required"));
 			dom_at.setAttribute('aria-invalid', 'true');
 		}
 		if (!dom_browser.value) {
-			errors.push(generateErrorLink("#browser", "'Browser used' in required"));
+			errors.push(generateErrorLink("#browser", "'Browser used' is required"));
 			dom_browser.setAttribute('aria-invalid', 'true');
 		}
 		if (!dom_at_version.value) {
-			errors.push(generateErrorLink("#at_version", "'AT version' in required"));
+			errors.push(generateErrorLink("#at_version", "'AT version' is required"));
 			dom_at_version.setAttribute('aria-invalid', 'true');
 		}
 		if (!dom_browser_version.value) {
-			errors.push(generateErrorLink("#browser_version", "'Browser version' in required"));
+			errors.push(generateErrorLink("#browser_version", "'Browser version' is required"));
 			dom_browser_version.setAttribute('aria-invalid', 'true');
 		}
 		if (!dom_os_version.value) {
-			errors.push(generateErrorLink("#os_version", "'OS version' in required"));
+			errors.push(generateErrorLink("#os_version", "'OS version' is required"));
 			dom_os_version.setAttribute('aria-invalid', 'true');
+		}
+
+		var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+		for (var i=0; i<currentRows.length; i++) {
+			var idPrefix = '#output_'+(i+1);
+			var command = document.querySelector(idPrefix+'_command');
+			var command_name = document.querySelector(idPrefix+'_command_name');
+			var output = document.querySelector(idPrefix+'_command');
+			var result = document.querySelector(idPrefix+'_result');
+
+			if (!command.value) {
+				errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " command is required"));
+				command.setAttribute('aria-invalid', 'true');
+			}
+			if (!command_name.value) {
+				errors.push(generateErrorLink(idPrefix+'_command_name', "Output row " + (i+1) + " command name is required"));
+				command_name.setAttribute('aria-invalid', 'true');
+			}
+			if (!output.value) {
+				errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " output is required"));
+				output.setAttribute('aria-invalid', 'true');
+			}
+			if (!result.value) {
+				errors.push(generateErrorLink(idPrefix+'_result', "Output row " + (i+1) + " result is required"));
+				result.setAttribute('aria-invalid', 'true');
+			}
+
 		}
 
 		if (errors.length) {
@@ -261,73 +289,103 @@ function initFeatureTest() {
 	});
 
 	var initOutputDetails = function() {
-		var addOutputButton = document.querySelector('#add-output');
 		addOutputButton.addEventListener('click', function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
-			var key = currentRows.length+1;
-			var fieldset = document.createElement('fieldset');
-			var legend = document.createElement('legend');
-			legend.innerText = 'Output row ' + key;
-			fieldset.appendChild(legend);
+			createInCommandOutputRow(true);
+		});
 
-			// command used
-			var div = document.createElement('div');
-			div.classList.add('control');
-			var label = document.createElement('label');
-			label.innerText = 'The command used (list the keystrokes, or describe the gesture or voice command)';
-			var id = 'output_'+key+'_command';
-			label.setAttribute('for', id);
-			var commandInput = document.createElement('input');
-			commandInput.setAttribute('type', 'text');
-			commandInput.setAttribute('id', id);
-			commandInput.setAttribute('name', id);
-			div.appendChild(label);
-			div.appendChild(commandInput);
-			fieldset.appendChild(div);
+		// Always create the first row so that some input/output is required
+		createInCommandOutputRow(false);
+	};
 
-			// output from AT
-			var div = document.createElement('div');
-			div.classList.add('control');
-			var label = document.createElement('label');
-			label.innerText = 'Output from AT';
-			var id = 'output_'+key+'_output';
-			label.setAttribute('for', id);
-			var input = document.createElement('input');
-			input.setAttribute('type', 'text');
-			input.setAttribute('id', id);
-			input.setAttribute('name', id);
-			div.appendChild(label);
-			div.appendChild(input);
-			fieldset.appendChild(div);
+	var createInCommandOutputRow = function(focus) {
+		var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+		var key = currentRows.length+1;
+		var fieldset = document.createElement('fieldset');
+		var legend = document.createElement('legend');
+		legend.innerText = 'Output row ' + key;
+		fieldset.appendChild(legend);
 
-			// Result
-			var div = document.createElement('div');
-			div.classList.add('control');
-			var label = document.createElement('label');
-			label.innerText = 'result';
-			var id = 'output_'+key+'_result';
-			label.setAttribute('for', id);
-			var select = document.createElement('select');
-			select.setAttribute('id', id);
-			select.setAttribute('name', id);
-			var option = document.createElement('option');
-			option.innerText = 'pass';
-			option.value = 'pass';
-			select.appendChild(option);
-			var option = document.createElement('option');
-			option.innerText = 'fail';
-			option.value = 'fail';
-			select.appendChild(option);
-			var option = document.createElement('option');
-			option.innerText = 'partial';
-			option.value = 'partial';
-			select.appendChild(option);
-			div.appendChild(label);
-			div.appendChild(select);
-			fieldset.appendChild(div);
+		// command used
+		var div = document.createElement('div');
+		div.classList.add('control');
+		var label = document.createElement('label');
+		label.innerText = 'The command used (required)';
+		var span = document.createElement('span');
+		var id = 'output_'+key+'_command';
+		label.setAttribute('for', id);
+		span.innerText = '(list the keystrokes, or describe the gesture or voice command)';
+		span.id = id + '_description';
+		label.setAttribute('aria-describedby', span.id);
+		var commandInput = document.createElement('input');
+		commandInput.setAttribute('type', 'text');
+		commandInput.setAttribute('id', id);
+		commandInput.setAttribute('name', id);
+		div.appendChild(label);
+		div.insertBefore(span, label.nextSibling);
+		div.appendChild(commandInput);
+		fieldset.appendChild(div);
 
+		// command name used
+		var div = document.createElement('div');
+		div.classList.add('control');
+		var label = document.createElement('label');
+		label.innerText = 'The command name (required)';
+		var span = document.createElement('span');
+		var id = 'output_'+key+'_command_name';
+		label.setAttribute('for', id);
+		var input = document.createElement('input');
+		input.setAttribute('type', 'text');
+		input.setAttribute('id', id);
+		input.setAttribute('name', id);
+		div.appendChild(label);
+		div.appendChild(input);
+		fieldset.appendChild(div);
+
+		// output from AT
+		var div = document.createElement('div');
+		div.classList.add('control');
+		var label = document.createElement('label');
+		label.innerText = 'Output from AT (required)';
+		var id = 'output_'+key+'_output';
+		label.setAttribute('for', id);
+		var input = document.createElement('input');
+		input.setAttribute('type', 'text');
+		input.setAttribute('id', id);
+		input.setAttribute('name', id);
+		div.appendChild(label);
+		div.appendChild(input);
+		fieldset.appendChild(div);
+
+		// Result
+		var div = document.createElement('div');
+		div.classList.add('control');
+		var label = document.createElement('label');
+		label.innerText = 'result (required)';
+		var id = 'output_'+key+'_result';
+		label.setAttribute('for', id);
+		var select = document.createElement('select');
+		select.setAttribute('id', id);
+		select.setAttribute('name', id);
+		var option = document.createElement('option');
+		option.innerText = 'pass';
+		option.value = 'pass';
+		select.appendChild(option);
+		var option = document.createElement('option');
+		option.innerText = 'fail';
+		option.value = 'fail';
+		select.appendChild(option);
+		var option = document.createElement('option');
+		option.innerText = 'partial';
+		option.value = 'partial';
+		select.appendChild(option);
+		div.appendChild(label);
+		div.appendChild(select);
+		fieldset.appendChild(div);
+
+		if (currentRows.length > 0) {
+			// Don't allow removing the first row
 			var removeButton = document.createElement('button');
 			removeButton.innerText = 'Remove this row';
 			removeButton.addEventListener('click', function(e) {
@@ -335,12 +393,14 @@ function initFeatureTest() {
 				fieldset.remove();
 				addOutputButton.focus();
 			});
-
 			fieldset.appendChild(removeButton);
+		}
 
-			addOutputButton.parentElement.insertBefore(fieldset, addOutputButton);
+		addOutputButton.parentElement.insertBefore(fieldset, addOutputButton);
+
+		if (focus) {
 			commandInput.focus();
-		});
+		}
 	};
 
 	initOutputDetails();
