@@ -410,7 +410,9 @@ function initFeatureTest() {
 
 		var notes = data.get('notes');
 		if (notes) {
-			body += '\n\n'+notes+'\n';
+			body += '\n== begin notes ==\n';
+			body +=  notes;
+			body += '\n== end notes ==\n';
 		}
 
 		var isCore = false;
