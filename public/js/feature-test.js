@@ -398,7 +398,9 @@ function initFeatureTest() {
 		var title = data.get('title') + ' ' + data.get('at') + '/' + data.get('browser');
 		url += encodeURIComponent(title);
 
-		var body = '| property | value |\n';
+		var body = 'This Support Point submission is for the test ['+test.title+']('+window.location+')\n\n';
+
+		body += '| property | value |\n';
 		body += '| --- | --- |\n';
 
 		for (var element of data) {
