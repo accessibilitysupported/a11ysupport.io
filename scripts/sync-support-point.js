@@ -39,6 +39,12 @@ void async function() {
 		process.exit();
 	}
 
+	if (!test.at[data.at] || !test.at[data.at].browsers) {
+		test.at[data.at] = {
+			browsers: {}
+		};
+	}
+
 	test.at[data.at].browsers[data.browser] = data.supportPoint;
 
 	test.history.push({
