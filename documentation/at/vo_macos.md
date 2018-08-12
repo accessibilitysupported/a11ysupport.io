@@ -28,8 +28,8 @@ VoiceOver is built in to MacOS and can be enabled from the System Preferences ap
 | Turn On | Command + F5 |
 | Turn Off | Command + F5 |
 | Stop Reading | Control |
-| Next Item | VO + Down Arrow |
-| Previous Item | VO + Up Arrow |
+| Next Item | VO + Right Arrow |
+| Previous Item | VO + Left Arrow |
 | Next Focusable | Tab |
 | Previous Focusable | Shift + Tab |
 | Activate Link | Enter |
