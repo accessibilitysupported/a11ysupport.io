@@ -194,7 +194,7 @@ block content
                             td= ATBrowsers.browsers[browser].title
                                 if test.at[at].browsers[browser].browser_version
                                     span= ' ' + test.at[at].browsers[browser].browser_version
-                            td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support
+                            td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support_string
                             td
                                 a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
 
@@ -218,7 +218,7 @@ block content
                             td= ATBrowsers.browsers[browser].title
                                 if test.at[at.id].browsers[browser].browser_version
                                     span= ' ' + test.at[at.id].browsers[browser].browser_version
-                            td= test.at[at.id].browsers[browser].support
+                            td= test.at[at.id].browsers[browser].support_string
                             td
                                 a(href="/tests/" + test.id + "/" + at.id + "/" + browser) More information
             h2(id="history") History

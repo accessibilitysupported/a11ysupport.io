@@ -140,6 +140,7 @@ helper.initalizeTestCase = function (testCase) {
 			testCase.at[at].browsers[browser].testId = testCase.id;
 			testCase.at[at].browsers[browser].ATId = at;
 			testCase.at[at].browsers[browser].test_title = testCase.title;
+			testCase.at[at].browsers[browser].support_string = helper.generateSupportString(testCase.at[at].browsers[browser].support)
 
 			// Set support arrays
 			let support = testCase.at[at].browsers[browser].support;
@@ -220,19 +221,19 @@ helper.generateSupportString = function(support) {
 		let supportString = '';
 		switch(support) {
 			case 'y':
-				supportString = 'full support';
+				supportString = 'full';
 				break;
 			case 'n':
-				supportString = 'no support';
+				supportString = 'none';
 				break;
 			case 'p':
-				supportString = 'partial support';
+				supportString = 'partial';
 				break;
 			case 'na':
 				supportString = 'not applicable';
 				break;
 			case 'u':
-				supportString = 'unknown support';
+				supportString = 'unknown';
 				break;
 			default:
 				supportString = 'unknown support case';
