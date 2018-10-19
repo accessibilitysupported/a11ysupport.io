@@ -1,25 +1,24 @@
 {
   "type": "aam",
-  "title": "HTML LI element in a OL with a sub OL",
-  "description": "This test ensures that the number of items in a list are being computed correctly when there is a sub-list.",
+  "title": "HTML `option` element with a lang attribute",
+  "description": "This test ensures that `option` elements with a `lang` attribute are announced correctly.",
   "supports_sr": true,
   "supports_vc": false,
   "css_target": "#target",
   "expected": {
-    "role": "listitem",
-    "accessible_name": "Target",
+    "role": "option",
+    "accessible_name": "中文 (简体)",
     "accessible_description": "",
     "states_and_properties": [
       {
-        "title": "setsize",
-        "value": "3"
-      },
-      {
-        "title": "posinset",
-        "value": "1"
+        "title": "lang",
+        "value": "zh"
       }
     ]
   },
+  "sr_instructions": [
+    "If the screen reader attempts to read the text in as english or not at all, this test fails regardless of what the other instructions indicate. The screen reader must announce the text of the target element in the correct language."
+  ],
   "history": [
     {
       "date": "2018-10-19",
@@ -38,11 +37,12 @@
           "output": [
             {
               "command": "up/down arrows",
-              "command_name": "Read next/previous item",
-              "output": "List with three items. 1. Target.",
+              "command_name": "Select next/previous item",
+              "output": "中文 (简体)",
               "result": "pass"
             }
-          ]
+          ],
+          "note": "Had to install the Simplified Chinese language in the Windows 10 Language Settings for this to work. If the language is not installed, nothing will be announced."
         }
       }
     },
@@ -56,12 +56,13 @@
           "date": "2018-10-19",
           "output": [
             {
-              "command": "VO + left/right arrows",
+              "command": "up/down arrows",
               "command_name": "Read next/previous item",
-              "output": "Target 1 of 3",
+              "output": "(attempts to speak characters as english ideographs)",
               "result": "pass"
             }
-          ]
+          ],
+          "note": "Had the Chinese language installed in VO settings."
         }
       }
     }
