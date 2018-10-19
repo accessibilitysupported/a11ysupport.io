@@ -97,8 +97,9 @@ block content
                             th(scope="row") Accessible Description
                             td= test.expected.accessible_description || '(none)'
                         each state_or_property in test.expected.states_and_properties
-                            th(scope="row")= state_or_property.title
-                            td= state_or_property.value
+                            tr
+                                th(scope="row")= (state_or_property.optional===true?'(optional) ':'') + state_or_property.title
+                                td= state_or_property.value
 
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
