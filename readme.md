@@ -6,10 +6,18 @@ accessibilitysupported.com
 
 ## Install and run
 
-1. Install required node packages: `npm install`
+1. Install required node packages: `npm ci`
 2. Build data: `npm run build`
 3. Run tests: `npm run test`
 4. Serve: `npm run start`
+
+While working and making changes to the project, you can do all of this in one command:
+
+```
+npm run build && npm run test && npm run start
+```
+
+Once the project is running, it should be available at 'http://localhost:3000'
 
 ## Structure
 
