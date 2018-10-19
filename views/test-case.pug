@@ -69,7 +69,7 @@ block content
                                 each instruction in test.sr_instructions
                                     li= instruction
                             else
-                            li The test passes if the screen reader output includes the expected name, role, and properties (the exact order and vocabulary will differ between screen readers). The expected name, role, and properties can be found after the instructions. If some commands work and others do not, the test should be marked as 'partial support'.
+                            li The test passes if the screen reader output includes the expected name, role, and properties. The exact order and vocabulary will differ between screen readers. The expected name, role, and properties can be found after the instructions. If some commands work and others do not, the test should be marked as 'partial support'.
                             li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
 
                     if (test.supports_vc)
@@ -86,6 +86,7 @@ block content
                                 li Use the form to create an issue for the given browser/voice command software combination.
 
                     h3 Expected name, role, and properties
+                    p Optional states and properties will be marked as "optional". This information is not required for understanding. Some screen readers might choose to announce this information, while other may not. The test still passes if optional information is not announced.
                     table
                         tr
                             th(scope="row") Role
@@ -97,8 +98,9 @@ block content
                             th(scope="row") Accessible Description
                             td= test.expected.accessible_description || '(none)'
                         each state_or_property in test.expected.states_and_properties
-                            th(scope="row")= state_or_property.title
-                            td= state_or_property.value
+                            tr
+                                th(scope="row")= (state_or_property.optional===true?'(optional) ':'') + state_or_property.title
+                                td= state_or_property.value
 
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
