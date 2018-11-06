@@ -23,17 +23,3 @@ This information is still in development. Feel free to contribute. The following
 ## Guides, Documentation, and resources
 
 * [Nuance documentation](http://support.nuance.com/usersguides/?UsersGuidesProduct=naturallyspeaking)
-
-## Basic Commands
-
-| Task | Speak | Notes |
-|---|---|---|
-| Next actionable item | "Press Tab" | |
-| Activate actionable item | "Click <text>" | If there are multiple choices with the same text, they will be labeled by numbers. Say "Choose <number>" to finish. |
-| Choose drop down option | "Choose {option text}" | |
-| Show drop down choices | "Show choices" | |
-| Hide drop down choices | "Hide choices" | |
-| Undo entered text | "Scratch that" | |
-
-You can also say "Click <type>" where type is "link", "button", "text field", "image", "Check box", "Radio Button", etc. Dragon will then flag each matching element with a number. Say "choose <number>" to finish.
-

@@ -22,7 +22,46 @@
       "core_browsers": ["ie"],
       "extended_browsers": ["firefox", "edge", "chrome"],
       "url": "https://www.nuance.com/dragon.html",
-      "description": "http://www.nuance.com/support/dragon-naturallyspeaking/index.htm?link_name=technical_support#dr_support_contact"
+      "description": "http://www.nuance.com/support/dragon-naturallyspeaking/index.htm?link_name=technical_support#dr_support_contact",
+      "commands": {
+        "next_actionable_item": {
+          "name": "Next actionable item",
+          "command": "\"Press Tab\"",
+          "tags": ["general"]
+        },
+        "activate_actionable_item": {
+          "name": "Activate actionable item",
+          "command": "\"Click <text>\"",
+          "note": "If there are multiple choices with the same text, they will be labeled by numbers. Say \"Choose <number>\" to finish.",
+          "tags": ["general"]
+        },
+        "show_dropdown_choices": {
+          "name": "Show drop down choices",
+          "command": "\"Show choices\"",
+          "tags": ["general"]
+        },
+        "choose_dropdown_option": {
+          "name": "Choose drop down option",
+          "command": "\"Choose <option text>\"",
+          "tags": ["general"]
+        },
+        "hide_dropdown_choices": {
+          "name": "Hide drop down choices",
+          "command": "\"Hide choices\"",
+          "tags": ["general"]
+        },
+        "undo_text": {
+          "name": "Undo entered text",
+          "command": "\"Scratch that\"",
+          "tags": ["general"]
+        },
+        "click_type": {
+          "name": "Click Type",
+          "command": "Click <type>",
+          "note": "where type is \"link\", \"button\", \"text field\", \"image\", \"Check box\", \"Radio Button\", etc. Dragon will then flag each matching element with a number. Say \"choose <number>\" to finish.",
+          "tags": ["general"]
+        }
+      }
     },
     "jaws": {
       "id": "jaws",
@@ -34,7 +73,139 @@
       "extended_browsers": ["chrome", "firefox"],
       "url": "https://www.freedomscientific.com/Products/Blindness/JAWS",
       "description": "",
-      "bugs": "https://github.com/FreedomScientific/VFO-standards-support/issues"
+      "bugs": "https://github.com/FreedomScientific/VFO-standards-support/issues",
+      "commands": {
+        "turn_on": {
+          "name": "Turn On",
+          "command": "(none)",
+          "tags": [
+            "general"
+          ]
+        },
+        "turn_off": {
+          "name": "Turn Off",
+          "command": "Insert + F4",
+          "tags": [
+            "general"
+          ]
+        },
+        "enter_forms_mode": {
+          "name": "Enter forms mode",
+          "command": "Enter",
+          "note": "Automatically activated when entering a form control.",
+          "tags": [
+            "general", "forms"
+          ]
+        },
+        "exit_forms_mode": {
+          "name": "Exit forms mode",
+          "command": "Num pad Plus",
+          "tags": [
+            "general", "forms"
+          ]
+        },
+        "stop_reading": {
+          "name": "Stop reading",
+          "command": "Control",
+          "tags": [
+            "reading"
+          ]
+        },
+        "read_next_item": {
+          "name": "Read next item",
+          "command": "Down arrow",
+          "tags": [
+            "reading"
+          ]
+        },
+        "read_previous_item": {
+          "name": "Read previous item",
+          "command": "Up arrow",
+          "tags": [
+            "reading"
+          ]
+        },
+        "read_next_focusable_item": {
+          "command": "Tab",
+          "name": "Read next focusable item",
+          "tags": [
+            "reading",
+            "forms"
+          ]
+        },
+        "read_previous_focusable_item": {
+          "command": "Shift + Tab",
+          "name": "Read previous focusable item",
+          "tags": [
+            "reading",
+            "forms"
+          ]
+        },
+        "activate_button": {
+          "name": "Activate Button",
+          "command": "Enter or Space",
+          "tags": [
+            "forms",
+            "general"
+          ]
+        },
+        "activate_link": {
+          "name": "Activate Link",
+          "command": "Enter",
+          "tags": [
+            "general"
+          ]
+        },
+        "activate_form_control": {
+          "name": "Activate Form Control",
+          "command": "Space",
+          "tags": [
+            "forms"
+          ]
+        },
+        "start_reading_from_current_position": {
+          "name": "Start reading from current position",
+          "command": "Insert + down arrow",
+          "tags": [
+            "reading"
+          ]
+        },
+        "open_element_list": {
+          "name": "Open element list",
+          "command": "Insert + F3",
+          "tags": [
+            "reading"
+          ]
+        },
+        "table_move_to_previous_column": {
+          "name": "Move to previous column",
+          "command": "Control + Alt + Left arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_move_to_next_column": {
+          "name": "Move to next column",
+          "command": "Control + Alt + Right arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_move_to_previous_row": {
+          "name": "Move to previous row",
+          "command": "Control + Alt + down arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_move_to_next_row": {
+          "name": "Move to next row",
+          "command": "Control + Alt + up arrow",
+          "tags": [
+            "tables"
+          ]
+        }
+      }
     },
     "narrator": {
       "id": "narrator",
@@ -46,7 +217,152 @@
       "extended_browsers": ["firefox", "chrome", "ie"],
       "url": "https://support.microsoft.com/en-us/help/22798/windows-10-narrator-get-started",
       "description": "",
-      "bugs": ""
+      "bugs": "",
+      "modifier_key": {
+        "name": "Narrator",
+        "key": "Caps Lock or Insert"
+      },
+      "commands": {
+        "turn_on": {
+          "name": "Turn On",
+          "command": "Windows + Enter",
+          "tags": [
+            "general"
+          ]
+        },
+        "turn_off": {
+          "name": "Turn Off",
+          "command": "Windows + Enter",
+          "tags": [
+            "general"
+          ]
+        },
+        "stop_reading": {
+          "name": "Stop reading",
+          "command": "Control",
+          "tags": [
+            "reading"
+          ]
+        },
+        "toggle_scan_mode": {
+          "name": "Toggle Scan Mode",
+          "command": "Narrator + Spacebar",
+          "note": "Enabled automatically when you use Microsoft Edge.",
+          "tags": [
+            "general"
+          ]
+        },
+        "cycle_view": {
+          "name": "Cycle view",
+          "command": "Narrator + Page Up or Narrator + Page Down",
+          "note": "Cycles the type of item to be read when using the Read next item and Read previous item commands.",
+          "tags": [
+            "reading"
+          ]
+        },
+        "read_next_item": {
+          "name": "Read next item",
+          "command": "Down arrow",
+          "note": "Required scan mode",
+          "tags": [
+            "reading",
+            "scan_mode"
+          ]
+        },
+        "read_previous_item": {
+          "name": "Read previous item",
+          "command": "Up arrow",
+          "note": "Required scan mode",
+          "tags": [
+            "reading",
+            "scan_mode"
+          ]
+        },
+        "read_next_focusable_item": {
+          "command": "Tab",
+          "name": "Read next focusable item",
+          "tags": [
+            "reading",
+            "forms"
+          ]
+        },
+        "read_previous_focusable_item": {
+          "command": "Shift + Tab",
+          "name": "Read previous focusable item",
+          "tags": [
+            "reading",
+            "forms"
+          ]
+        },
+        "activate_button": {
+          "name": "Activate Item (primary action)",
+          "command": "Enter or Space Bar",
+          "note": "Required scan mode",
+          "tags": [
+            "forms",
+            "general",
+            "scan_mode"
+          ]
+        },
+        "activate_link": {
+          "name": "Activate Item (secondary action)",
+          "command": "Shift + enter or Shift + Spacebar",
+          "note": "Required scan mode",
+          "tags": [
+            "general",
+            "scan_mode"
+          ]
+        },
+        "start_reading_from_current_position": {
+          "name": "Start reading from current position",
+          "command": "Narrator + M",
+          "tags": [
+            "reading"
+          ]
+        },
+        "table_move_to_previous_column": {
+          "name": "Move to previous column",
+          "command": "Control + Alt + Left arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_move_to_next_column": {
+          "name": "Move to next column",
+          "command": "Control + Alt + Right arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_move_to_previous_row": {
+          "name": "Move to previous row",
+          "command": "Control + Alt + down arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_move_to_next_row": {
+          "name": "Move to next row",
+          "command": "Control + Alt + up arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_read_row_header": {
+          "name": "Read row header",
+          "command": "Control + Shift + Alt + Left arrow",
+          "tags": [
+            "tables"
+          ]
+        },
+        "table_read_column_header": {
+          "name": "Read Column Header",
+          "command": "Control + Shift + Alt + Up arrow",
+          "tags": [
+            "tables"
+          ]
+        }
+      }
     },
     "nvda": {
       "id": "nvda",
@@ -58,7 +374,263 @@
       "extended_browsers": ["ie", "edge", "chrome"],
       "url": "https://www.nvaccess.org/",
       "description": "",
-      "bugs": "https://github.com/nvaccess/nvda"
+      "bugs": "https://github.com/nvaccess/nvda",
+      "modifier_key": {
+        "name": "NVDA",
+        "key": "Insert"
+      },
+      "commands": {
+        "turn_on": {
+          "name": "Turn On",
+          "command": "Control + Alt + N",
+          "tags": ["general"]
+        },
+        "turn_off": {
+          "name": "Turn Off",
+          "command": "NVDA + Q",
+          "tags": ["general"]
+        },
+        "toggle_mode": {
+          "name": "Toggle between browse and focus modes",
+          "command": "NVDA + Spacebar",
+          "tags": ["general", "forms", "reading"]
+        },
+        "exit_focus_mode": {
+          "name": "Exit focus mode",
+          "command": "escape",
+          "tags": ["general", "forms"]
+        },
+        "open_long_description": {
+          "name": "Open Long Description",
+          "command": "NVDA+d",
+          "tags": ["reading"]
+        },
+        "stop_speech": {
+          "name": "Stop speech",
+          "command": "Control",
+          "tags": ["reading"]
+        },
+        "next_heading": {
+          "name": "",
+          "command": "h",
+          "tags": ["elements"]
+        },
+        "next_list": {
+          "name": "Next list",
+          "command": "l",
+          "tags": ["elements"]
+        },
+        "next_list_item": {
+          "name": "Next list item",
+          "command": "i",
+          "tags": ["elements"]
+        },
+        "next_table": {
+          "name": "Next table",
+          "command": "t",
+          "tags": ["elements"]
+        },
+        "next_link": {
+          "name": "Next link",
+          "command": "k",
+          "tags": ["elements"]
+        },
+        "next_non_link_text": {
+          "name": "Next non-link text",
+          "command": "n",
+          "tags": ["elements"]
+        },
+        "next_form_field": {
+          "name": "Next form field",
+          "command": "f",
+          "tags": ["elements"]
+        },
+        "next_unvisited_link": {
+          "name": "Next unvisited link",
+          "command": "u",
+          "tags": ["elements"]
+        },
+        "next_visited_link": {
+          "name": "Next visited link",
+          "command": "v",
+          "tags": ["elements"]
+        },
+        "next_edit_field": {
+          "name": "Next edit field",
+          "command": "e",
+          "tags": ["elements"]
+        },
+        "next_button": {
+          "name": "Next button",
+          "command": "b",
+          "tags": ["elements"]
+        },
+        "next_checkbox": {
+          "name": "Next checkbox",
+          "command": "x",
+          "tags": ["elements"]
+        },
+        "next_combo_box": {
+          "name": "Next combo box (select)",
+          "command": "c",
+          "tags": ["elements"]
+        },
+        "next_radio_button": {
+          "name": "Next radio button",
+          "command": "r",
+          "tags": ["elements"]
+        },
+        "next_block_quote": {
+          "name": "Next block quote",
+          "command": "q",
+          "tags": ["elements"]
+        },
+        "next_separator": {
+          "name": "Next separator",
+          "command": "s",
+          "tags": ["elements"]
+        },
+        "next_frame": {
+          "name": "Next frame",
+          "command": "m",
+          "tags": ["elements"]
+        },
+        "next_graphic": {
+          "name": "Next graphic",
+          "command": "g",
+          "tags": ["elements"]
+        },
+        "next_landmark": {
+          "name": "Next landmark",
+          "command": "d",
+          "tags": ["elements"]
+        },
+        "next_embedded_object": {
+          "name": "Next embedded object",
+          "command": "o",
+          "tags": ["elements"]
+        },
+        "next h1": {
+          "name": "Next h1",
+          "command": "1",
+          "tags": ["elements"]
+        },
+        "next h2": {
+          "name": "Next h2",
+          "command": "2",
+          "tags": ["elements"]
+        },
+        "next h3": {
+          "name": "Next h3",
+          "command": "3",
+          "tags": ["elements"]
+        },
+        "next_h4": {
+          "name": "Next h4",
+          "command": "4",
+          "tags": ["elements"]
+        },
+        "next_h5": {
+          "name": "Next h5",
+          "command": "5",
+          "tags": ["elements"]
+        },
+        "next_h6": {
+          "name": "Next h6",
+          "command": "6",
+          "tags": ["elements"]
+        },
+        "next_spelling_error": {
+          "name": "Next spelling error",
+          "command": "w",
+          "tags": ["general"]
+        },
+        "pause_speech": {
+          "name": "Pause speech",
+          "command": "Shift",
+          "tags": ["reading", "general"]
+        },
+        "nvda_menu": {
+          "name": "NVDA Menu",
+          "command": "NVDA + n",
+          "tags": ["general"]
+        },
+        "report_title": {
+          "name": "Report Title",
+          "command": "NVDA + t",
+          "tags": ["general"]
+        },
+        "report_active_window": {
+          "name": "Read active window",
+          "command": "NVDA + b",
+          "tags": ["general"]
+        },
+        "table_move_to_previous_column": {
+          "name": "Move to previous column",
+          "command": "Control + Alt + Left arrow",
+          "tags": ["tables"]
+        },
+        "table_move_to_next_column": {
+          "name": "Move to next column",
+          "command": "Control + Alt + Right arrow",
+          "tags": ["tables"]
+        },
+        "table_move_to_previous_row": {
+          "name": "Move to previous row",
+          "command": "Control + Alt + down arrow",
+          "tags": ["tables"]
+        },
+        "table_move_to_next_row": {
+          "name": "Move to next row",
+          "command": "Control + Alt + up arrow",
+          "tags": ["tables"]
+        },
+        "elements_list": {
+          "name": "Open Elements List",
+          "command": "NVDA + F7",
+          "tags": ["elements", "general"]
+        },
+        "read_next_item": {
+          "command": "down arrow",
+          "name": "Read next item",
+          "tags": ["reading"]
+        },
+        "read_previous_item": {
+          "command": "up arrow",
+          "name": "Read previous item",
+          "tags": ["reading"]
+        },
+        "start_reading": {
+          "name": "start reading from current position",
+          "command": "NVDA + down arrow",
+          "tags": ["reading"]
+        },
+        "read_next_focusable_item": {
+          "command": "Tab",
+          "name": "Read next focusable item",
+          "tags": ["reading", "forms"]
+        },
+        "read_previous_focusable_item": {
+          "command": "Shift + Tab",
+          "name": "Read previous focusable item",
+          "tags": ["reading", "forms"]
+        },
+        "activate_button": {
+          "name": "Activate Button",
+          "command": "Enter or Space",
+          "tags": ["forms", "general"]
+        },
+        "activate_link": {
+          "name": "Activate Link",
+          "command": "Enter",
+          "tags": ["general"]
+        },
+        "activate_form_control": {
+          "name": "Activate Form Control",
+          "command": "Space",
+          "tags": ["forms"]
+        }
+      }
     },
     "talkback": {
       "id": "talkback",
@@ -70,7 +642,109 @@
       "extended_browsers": ["firefox"],
       "url": "https://support.google.com/accessibility/android/answer/6283677?hl=en",
       "description": "",
-      "bugs": "https://www.google.com/accessibility/get-in-touch.html"
+      "bugs": "https://www.google.com/accessibility/get-in-touch.html",
+      "commands": {
+        "turn_on": {
+          "name": "Turn On",
+          "command": "Power button, then hold two fingers",
+          "note": "when setting is enabled",
+          "tags": [
+            "general"
+          ]
+        },
+        "turn_off": {
+          "name": "Turn Off",
+          "command": "In settings (no shortcut)",
+          "tags": [
+            "general"
+          ]
+        },
+        "global_context_menu": {
+          "name": "Global context menu",
+          "command": "Swipe down, then right",
+          "tags": [
+            "general"
+          ]
+        },
+        "local_context_menu": {
+          "name": "Turn Off",
+          "command": "Swipe up, then right",
+          "tags": [
+            "general"
+          ]
+        },
+        "stop_reading": {
+          "name": "Stop reading",
+          "command": "Single tap",
+          "tags": [
+            "reading"
+          ]
+        },
+        "next_item": {
+          "name": "Read next item",
+          "command": "Swipe right",
+          "tags": [
+            "reading"
+          ]
+        },
+        "previous_item": {
+          "name": "Read previous item",
+          "command": "Swipe left",
+          "tags": [
+            "reading"
+          ]
+        },
+        "activate_link": {
+          "name": "Activate link",
+          "command": "double tap",
+          "tags": [
+            "general"
+          ]
+        },
+        "activate_button": {
+          "name": "Activate button",
+          "command": "double tap",
+          "tags": [
+            "general",
+            "forms"
+          ]
+        },
+        "activate_form_control": {
+          "name": "Activate form control",
+          "command": "double tap",
+          "tags": [
+            "forms"
+          ]
+        },
+        "read_from_current_position": {
+          "name": "Read from current position",
+          "command": "GCM, Read from next item",
+          "tags": [
+            "reading"
+          ]
+        },
+        "open_element_list": {
+          "name": "Open element list",
+          "command": "GCM, Quick navigation",
+          "tags": [
+            "general"
+          ]
+        },
+        "home_screen": {
+          "name": "Go to home screen",
+          "command": "Swipe up, then left",
+          "tags": [
+            "general"
+          ]
+        },
+        "go_back": {
+          "name": "Go back",
+          "command": "Swipe down, then left",
+          "tags": [
+            "general"
+          ]
+        }
+      }
     },
     "vo_ios": {
       "id": "vo_ios",
@@ -81,7 +755,93 @@
       "core_browsers": ["ios_saf"],
       "extended_browsers": [],
       "url": "https://www.apple.com/accessibility/iphone/vision/",
-      "description": ""
+      "description": "",
+      "commands": {
+        "turn_on": {
+          "name": "Turn On",
+          "command": "Triple press home (if setting is enabled)",
+          "tags": [
+            "general"
+          ]
+        },
+        "turn_off": {
+          "name": "Turn Off",
+          "command": "Triple press home (if setting is enabled)",
+          "tags": [
+            "general"
+          ]
+        },
+        "open_rotor": {
+          "name": "Activate Form Control",
+          "command": "two-finger + twist",
+          "tags": ["general"]
+        },
+        "next_item": {
+          "name": "Next item",
+          "command": "Swipe Right",
+          "tags": "reading"
+        },
+        "previous_item": {
+          "name": "Previous item",
+          "command": "Swipe Left",
+          "tags": "reading"
+        },
+        "next_rotor_item": {
+          "name": "Next item (as set by the rotor)",
+          "command": "Swipe down",
+          "tags": "reading"
+        },
+        "previous_rotor_item": {
+          "name": "Previous item (as set by the rotor)",
+          "command": "Swipe up",
+          "tags": "reading"
+        },
+        "activate_button": {
+          "name": "Activate Button",
+          "command": "Double tap",
+          "tags": ["forms", "general"]
+        },
+        "activate_link": {
+          "name": "Activate Link",
+          "command": "Double tap",
+          "tags": ["general"]
+        },
+        "activate_form_control": {
+          "name": "Activate Form Control",
+          "command": "Double tap",
+          "tags": ["forms"]
+        },
+        "start_reading": {
+          "name": "Start reading from current position",
+          "command": "two-finger + swipe down",
+          "tags": ["reading"]
+        },
+        "read_all": {
+          "name": "Read all from the top of the screen",
+          "command": "two-finger + swipe up",
+          "tags": ["reading"]
+        },
+        "pause_or_start_reading": {
+          "name": "Pause or stop reading",
+          "command": "two-finger tap",
+          "tags": ["reading"]
+        },
+        "dismiss_return": {
+          "name": "Dismisses an alert or returns to the previous screen.",
+          "command": "Two-finger scrub (move two fingers back and forth three times quickly, making a “z”)",
+          "tags": ["reading"]
+        },
+        "additional_information": {
+          "name": "Read additional information about the current position",
+          "command": "three-finger tap",
+          "tags": ["reading"]
+        },
+        "double_tap": {
+          "name": "Double tap the current item",
+          "command": "triple tap",
+          "tags": ["general"]
+        }
+      }
     },
     "vo_macos": {
       "id": "vo_macos",
@@ -92,7 +852,143 @@
       "core_browsers": ["safari"],
       "extended_browsers": ["chrome", "firefox"],
       "url": "https://www.apple.com/accessibility/mac/vision/",
-      "description": ""
+      "description": "",
+      "modifier_key": {
+        "name": "NVDA",
+        "key": "Control + Option"
+      },
+      "commands": {
+        "turn_on": {
+          "name": "Turn On",
+          "command": "Command + F5",
+          "tags": ["general"]
+        },
+        "turn_off": {
+          "name": "Turn Off",
+          "command": "Command + F5",
+          "tags": ["general"]
+        },
+        "read_next_item": {
+          "command": "VO + Right arrow",
+          "name": "Read next item",
+          "tags": ["reading"]
+        },
+        "read_previous_item": {
+          "command": "VO + Left Arrow",
+          "name": "Read previous item",
+          "tags": ["reading"]
+        },
+        "start_reading": {
+          "name": "start reading from current position",
+          "command": "VO + A",
+          "tags": ["reading"]
+        },
+        "stop_reading": {
+          "name": "start reading from current position",
+          "command": "Control",
+          "tags": ["reading"]
+        },
+        "read_next_focusable_item": {
+          "command": "Tab",
+          "name": "Read next focusable item",
+          "tags": ["reading", "forms"]
+        },
+        "read_previous_focusable_item": {
+          "command": "Shift + Tab",
+          "name": "Read previous focusable item",
+          "tags": ["reading", "forms"]
+        },
+        "open_rotor": {
+          "command": "VO + U",
+          "name": "Open Rotor",
+          "tags": ["general"]
+        },
+        "activate_button": {
+          "name": "Activate Button",
+          "command": "Enter or Space",
+          "tags": ["forms", "general"]
+        },
+        "activate_link": {
+          "name": "Activate Link",
+          "command": "Enter",
+          "tags": ["general"]
+        },
+        "activate_form_control": {
+          "name": "Activate Form Control",
+          "command": "Space",
+          "tags": ["forms"]
+        },
+        "next_heading": {
+          "name": "Next Heading",
+          "command": "VO + Command + H",
+          "tags": ["elements"]
+        },
+        "next_table": {
+          "name": "Next Table",
+          "command": "VO + Command + T",
+          "tags": ["elements"]
+        },
+        "next_link": {
+          "name": "Next Link",
+          "command": "VO + Command + L",
+          "tags": ["elements"]
+        },
+        "next_visited_link": {
+          "name": "Next Visited Link",
+          "command": "VO + Command + V",
+          "tags": ["elements"]
+        },
+        "next_form_control": {
+          "name": "Next Form Control",
+          "command": "VO + Command + J",
+          "tags": ["elements", "forms"]
+        },
+        "next_list": {
+          "name": "Next Table",
+          "command": "VO + Command + X",
+          "tags": ["elements"]
+        },
+        "next_graphic": {
+          "name": "Next Graphic",
+          "command": "VO + Command + G",
+          "tags": ["elements"]
+        },
+        "enter_object": {
+          "name": "Enter an object (such as an iframe)",
+          "command": "VO + Shift + Down Arrow",
+          "tags": ["objects"]
+        },
+        "exit_object": {
+          "name": "Exit an object (such as an iframe)",
+          "command": "VO + Shift + Up Arrow",
+          "tags": ["objects"]
+        },
+        "table_read_column_header": {
+          "name": "Read Column Header",
+          "command": "VO + C",
+          "tags": ["tables"]
+        },
+        "table_move_to_previous_column": {
+          "name": "Move to Previous Column",
+          "command": "VO + Left Arrow",
+          "tags": ["tables"]
+        },
+        "table_move_to_next_column": {
+          "name": "Move to Next Column",
+          "command": "VO + Right Arrow",
+          "tags": ["tables"]
+        },
+        "table_move_to_previous_row": {
+          "name": "Move to Previous Row",
+          "command": "VO + Up Arrow",
+          "tags": ["tables"]
+        },
+        "table_move_to_next_row": {
+          "name": "Move to Next Row",
+          "command": "VO + Down Arrow",
+          "tags": ["tables"]
+        }
+      }
     }
   },
   "browsers": {

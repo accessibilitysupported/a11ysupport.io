@@ -21,27 +21,8 @@ This information is still in development. Feel free to contribute. The following
 * [NVDA User Guide](https://www.nvaccess.org/files/nvda/documentation/userGuide.html)
 * [Deque guide](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
-## Basic Commands
-
-| Task | Command |
-|---|---|
-| Modifier | NV = Insert (can be modified) |
-| Turn On | Control + Alt + N |
-| Turn Off | NV + Q |
-| Stop Reading | Control |
-| Next Item | Down Arrow |
-| Previous Item | Up Arrow |
-| Next Focusable | Tab |
-| Previous Focusable | Shift + Tab |
-| Activate Link | Enter |
-| Activate Button | Enter or Space |
-| Activate Form Control | Space |
-| Start reading from current position | NV + Down Arrow |
-| Open Element List | NV + F7 |
-| Navigate between items | left arrow, right arrow, up arrow, or down arrow |
-
 ## Modes
 
-* Brows/Focus mode: NV + Space Bar
-* Forms Mode: NV + Space Bar (when in a form control)
+* Browse mode: This is the default mode when using a browser.
+* Focus mode: This mode is automatically turned on when using an interactive element, but can also be manually turned on.
 
