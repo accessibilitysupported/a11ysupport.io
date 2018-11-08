@@ -1,0 +1,17 @@
+mixin command-table(ATBrowsers, at_id, command_tag, show_notes)
+    if ATBrowsers.at[at_id].commands
+        table
+            thead
+                tr
+                    th Task
+                    th Command
+                    if (show_notes)
+                        th Notes
+            tbody
+                each command in ATBrowsers.at[at_id].commands
+                    if (command.tags.includes(command_tag))
+                        tr
+                            td #{command.name}
+                            td #{command.command}
+                            if (show_notes)
+                                td #{command.note}

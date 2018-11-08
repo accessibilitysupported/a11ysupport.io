@@ -66,9 +66,27 @@ router.get('/learn/at/:id', function(req, res, next) {
 	let MarkdownIt = require('markdown-it');
 	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 	let result = md.render(markdown);
-	res.render('static-page', {
+	let at_id = req.params.id;
+
+	if (at_id === 'dragon') {
+		at_id = 'dragon_win';
+	}
+
+	res.render('learn-at', {
 		title: req.params.id + ' | Learn | Accessibility Support',
-		result: result
+		markdown: result,
+        ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		at_id: at_id,
+		command_list_has_notes: function(command_list, tag) {
+			return !!Object.values(command_list).find(function(command) {
+				return command.tags.includes(tag) && command.note;
+			});
+		},
+		command_list_contains_tag: function(command_list, tag) {
+            return !!Object.values(command_list).find(function(command) {
+                return command.tags.includes(tag);
+            });
+        },
 	});
 });
 
