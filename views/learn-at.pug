@@ -13,18 +13,7 @@ block content
             if ATBrowsers.at[at_id].modifier_key
                 p The default #{ATBrowsers.at[at_id].modifier_key.name} modifier key is set to: #{ATBrowsers.at[at_id].modifier_key.key}
 
-            if (command_list_contains_tag(ATBrowsers.at[at_id].commands, 'general'))
-                h3 General
-                +command-table(ATBrowsers, at_id, 'general', command_list_has_notes(ATBrowsers.at[at_id].commands, 'general'))
-
-            if (command_list_contains_tag(ATBrowsers.at[at_id].commands, 'reading'))
-                h3 Reading
-                +command-table(ATBrowsers, at_id, 'reading', command_list_has_notes(ATBrowsers.at[at_id].commands, 'reading'))
-
-            if (command_list_contains_tag(ATBrowsers.at[at_id].commands, 'forms'))
-                h3 Forms
-                +command-table(ATBrowsers, at_id, 'forms', command_list_has_notes(ATBrowsers.at[at_id].commands, 'forms'))
-
-            if (command_list_contains_tag(ATBrowsers.at[at_id].commands, 'tables'))
-                h3 Tables
-                +command-table(ATBrowsers, at_id, 'tables', command_list_has_notes(ATBrowsers.at[at_id].commands, 'tables'))
+            each command_tag in ATBrowsers.command_tags
+                if (command_list_contains_tag(ATBrowsers.at[at_id].commands, command_tag.id))
+                    h3 #{command_tag.name}
+                    +command-table(ATBrowsers, at_id, command_tag.id, command_list_has_notes(ATBrowsers.at[at_id].commands, command_tag.id))
