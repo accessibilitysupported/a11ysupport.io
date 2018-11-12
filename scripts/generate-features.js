@@ -77,7 +77,7 @@ fetch('https://raw.githubusercontent.com/jamiebuilds/aria-data/master/data.json'
 
 		// Temporary whitelist to keep things at a minimum during prototyping
 		let whitelist_roles = ['alert'];
-		let whitelist_attributes = ['aria-hidden', 'aria-disabled'];
+		let whitelist_attributes = ['aria-hidden', 'aria-disabled', 'aria-roledescription'];
 
 		for (let key in json.roles) {
 			let role = json.roles[key];

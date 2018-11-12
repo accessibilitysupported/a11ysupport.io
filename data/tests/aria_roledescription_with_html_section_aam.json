@@ -1,0 +1,100 @@
+{
+  "type": "aam",
+  "title": "aria-roledescription attribute with HTML section",
+  "description": "This test ensures that the value of aria-roledescription is announced by screen readers",
+  "supports_sr": true,
+  "supports_vc": false,
+  "css_target": "#target",
+  "expected": {
+    "role": "custom section role"
+  },
+  "history": [
+    {
+      "date": "2018-11-12",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "jaws": {
+      "browsers": {
+        "edge": {
+          "at_version": "2018.1808.10",
+          "browser_version": "44.17763.1.0",
+          "os_version": "17763",
+          "date": "2018-11-12",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Target",
+              "result": "fail"
+            }
+          ]
+        },
+        "ie": {
+          "at_version": "2018.1808.10",
+          "browser_version": "11.55",
+          "os_version": "17763",
+          "date": "2018-11-12",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Target",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "17763",
+          "browser_version": "44.17763.1.0",
+          "os_version": "17763",
+          "date": "2018-11-12",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Target",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.3.2",
+          "browser_version": "63.0.1",
+          "os_version": "17763",
+          "date": "2018-11-12",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Section name custom section role. Target.",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.1",
+          "browser_version": "12.0.1",
+          "os_version": "10.14.1",
+          "date": "2018-10-19",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Section name, custom section role",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
