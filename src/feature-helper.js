@@ -135,6 +135,16 @@ helper.initalizeTestCase = function (testCase) {
 				};
 			}
 
+            if (!testCase.supports_sr && ATBrowsers.at[at].type === "sr") {
+            	// This test case does not support this type of AT
+                testCase.at[at].browsers[browser].support = "na";
+            }
+
+            if (!testCase.supports_vc && ATBrowsers.at[at].type === "vc") {
+                // This test case does not support this type of AT
+                testCase.at[at].browsers[browser].support = "na";
+            }
+
 			if (testCase.at[at].browsers[browser].output) {
 				// Set the support property based on the result of the output.
 				var results = [];
