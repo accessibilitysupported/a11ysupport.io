@@ -20,7 +20,6 @@ let spMdToObject = function(body) {
 			at_version: null,
 			browser_version: null,
 			os_version: null,
-			support: null,
 			date: currentDateString,
 			output: [],
 			notes: ''
