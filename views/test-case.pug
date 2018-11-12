@@ -28,7 +28,7 @@ block content
             button(aria-expanded="false" aria-controls="run-test-container").toggle-run-test-container Toggle test instructions
 
             div(id="run-test-container")
-                h3 What are you testing with?
+                h3(id="at-browser-combo") What are you testing with?
                 form.testing-pref
                     label(for="combination") Select your testing combination
                     select(id="combination")
@@ -139,8 +139,16 @@ block content
                 p Your findings can be submitted via a GitHub issue with this form. Some selections will be saved to speed up future submissions.
                 form.submit-test-result.stacked-form
                     input(type="hidden" name="title" value=test.id)
+                    input(type="hidden" name="at" id="at")
+                    input(type="hidden" name="browser" id="browser")
 
                     div(id="error_container")
+
+                    div.control.at-browser-combo
+                        p
+                            strong="The selected AT/Browser combo is: "
+                            span.selected-at-browser-combo
+                        p Use the #[a(href="#at-browser-combo") "what are you testing with?"] form to change your combination.
 
                     div.control
                         label(for="support") Test result (required)
@@ -149,21 +157,11 @@ block content
                             option(value="p") Partial (please explain in notes)
                             option(value="n") Failed
                     div.control
-                        label(for="at") AT used (required)
-                        select(name="at" id="at" aria-required="true")
-                            each at, at_id in ATBrowsers.at
-                                option(value=at_id)=at.title
-                    div.control
                         label(for="at_version") AT Version (required)
                         input(type="text" name="at_version" id="at_version" aria-required="true")
                     div.control
                         label(for="os_version") OS Version (required)
                         input(type="text" name="os_version" id="os_version" aria-required="true")
-                    div.control
-                        label(for="browser") Browser used (required)
-                        select(name="browser" id="browser" aria-required="true")
-                            each browser, browser_id in ATBrowsers.browsers
-                                option(value=browser_id)=browser.title
                     div.control
                         label(for="browser_version") Browser Version (required)
                         input(type="text" name="browser_version" id="browser_version" aria-required="true")

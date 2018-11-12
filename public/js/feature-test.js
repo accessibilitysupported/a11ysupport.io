@@ -135,13 +135,15 @@ function displayTestingPrefs(focusResults)
 	}
 
 	// Now set form inputs
-	var atOption = document.querySelector('#at option[value="'+at_value+'"]');
-	atOption.setAttribute('selected', '');
-	var browserOption = document.querySelector('#browser option[value="'+browser_value+'"]');
-	browserOption.setAttribute('selected', '');
+	var atOption = document.querySelector('input[name="at"');
+	atOption.value = at_value;
+	var browserOption = document.querySelector('input[name="browser"');
+	browserOption.value = browser_value;
 	dom_at_version.value = sessionStorage.getItem('at_version');
 	dom_browser_version.value = sessionStorage.getItem('browser_version');
 	dom_os_version.value = sessionStorage.getItem('os_version');
+	var span = document.querySelector('.selected-at-browser-combo');
+	span.innerText = ATBrowsers.at[at_value].title + ' and ' + ATBrowsers.browsers[browser_value].title;
 }
 
 var removeAllCommandOutputRows = function() {
@@ -199,7 +201,7 @@ var createCommandOutputRow = function(outputObject, focus) {
             option.innerText += ' ('+command.command+')';
             option.setAttribute('value', keys[ii]);
 
-            if (outputObject && outputObject.command_name === keys[ii]) {
+            if (outputObject && outputObject.command === keys[ii]) {
             	option.setAttribute('selected', 'selected');
             }
 
@@ -209,10 +211,6 @@ var createCommandOutputRow = function(outputObject, focus) {
 
     div.appendChild(command_select);
     fieldset.appendChild(div);
-
-	if (outputObject) {
-		input.value = outputObject.command_name;
-	}
 
 	// output from AT
 	var div = document.createElement('div');
