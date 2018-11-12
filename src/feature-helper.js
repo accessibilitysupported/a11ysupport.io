@@ -135,6 +135,28 @@ helper.initalizeTestCase = function (testCase) {
 				};
 			}
 
+			if (testCase.at[at].browsers[browser].output) {
+				// Set the support property based on the result of the output.
+				var results = [];
+                testCase.at[at].browsers[browser].output.forEach(function(output) {
+                	results.push(output.result);
+				});
+
+                // Reduce it to unique values
+                results.unique();
+
+                if (results[0] === 'pass') {
+                    // yes, it is supported
+                    testCase.at[at].browsers[browser].support = 'y';
+                } else if (results[0] === 'fail') {
+					// no, it is not supported
+					testCase.at[at].browsers[browser].support = 'n';
+				} else {
+                    // partial support (some pass, some fail)
+                    testCase.at[at].browsers[browser].support = 'p';
+                }
+			}
+
 			// Set associated IDs to help define the support point
 			testCase.at[at].browsers[browser].id = browser;
 			testCase.at[at].browsers[browser].testId = testCase.id;
