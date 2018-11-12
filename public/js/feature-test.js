@@ -210,10 +210,6 @@ var createCommandOutputRow = function(outputObject, focus) {
     div.appendChild(command_select);
     fieldset.appendChild(div);
 
-	if (outputObject) {
-		input.value = outputObject.command_name;
-	}
-
 	// output from AT
 	var div = document.createElement('div');
 	div.classList.add('control');
