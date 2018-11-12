@@ -192,7 +192,12 @@
           }
         }
       },
-      "required": ["role", "accessible_name", "accessible_description", "states_and_properties"]
+      "anyOf": [
+        {"required": ["role"]},
+        {"required": ["accessible_name"]},
+        {"required": ["accessible_description"]},
+        {"required": ["states_and_properties"]}
+      ]
     },
     "history": {
       "type": "array",

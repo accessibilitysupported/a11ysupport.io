@@ -80,8 +80,11 @@ block content
                             if test.vc_instructions
                                 each instruction in test.vc_instructions
                                     li= instruction
-                            else
+                            else if test.expected.accessible_name
                                 li= "Say \"click "+ test.expected.accessible_name +"\""
+                                li The test passes if the Voice Command software is able to locate and activate the target element.
+                                li Use the form to create an issue for the given browser/voice command software combination.
+                            else
                                 li The test passes if the Voice Command software is able to locate and activate the target element.
                                 li Use the form to create an issue for the given browser/voice command software combination.
 
@@ -90,17 +93,18 @@ block content
                     table
                         tr
                             th(scope="row") Role
-                            td= test.expected.role
+                            td= test.expected.role || '(not tested)'
                         tr
                             th(scope="row") Accessible Name
-                            td= test.expected.accessible_name
+                            td= test.expected.accessible_name || '(not tested)'
                         tr
                             th(scope="row") Accessible Description
-                            td= test.expected.accessible_description || '(none)'
-                        each state_or_property in test.expected.states_and_properties
-                            tr
-                                th(scope="row")= (state_or_property.optional===true?'(optional) ':'') + state_or_property.title
-                                td= state_or_property.value
+                            td= test.expected.accessible_description || '(not tested)'
+                        if test.expected.states_and_properties
+                            each state_or_property in test.expected.states_and_properties
+                                tr
+                                    th(scope="row")= (state_or_property.optional===true?'(optional) ':'') + state_or_property.title
+                                    td= state_or_property.value
 
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
