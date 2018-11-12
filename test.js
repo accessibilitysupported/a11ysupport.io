@@ -11,6 +11,7 @@ let ajv = new Ajv({schemas: [
 let buildDir = __dirname+'/build';
 let devDir = __dirname+'/data';
 let tech = require(buildDir+"/tech.json");
+let ATBrowsers = require(devDir+'/ATBrowsers.json');
 
 describe('Development tests', function () {
 	let testFiles = fs.readdirSync(devDir+'/tests');
@@ -20,13 +21,28 @@ describe('Development tests', function () {
 			return;
 		}
 
+        let test = require(devDir + '/tests/' + file);
 		it(file + ' should conform to the dev-test schema', function () {
-			let test = require(devDir + '/tests/' + file);
 			let valid = ajv.validate('http://accessibilitysupported.com/dev-test.json', test);
 			if (!valid) {
 				console.log(ajv.errors);
 			}
 			expect(valid).to.be.equal(true);
+		});
+
+		let at_keys = Object.getOwnPropertyNames(test.at);
+		at_keys.forEach(function(at_id) {
+			let browser_keys = Object.getOwnPropertyNames(test.at[at_id].browsers);
+			browser_keys.forEach(function(browser_key) {
+				if (!test.at[at_id].browsers[browser_key].output) {
+					return;
+				}
+				test.at[at_id].browsers[browser_key].output.forEach(function(output, index) {
+					it(at_id + '.' + browser_key + '.output['+index+'].command should be valid', function() {
+                        expect(ATBrowsers.at[at_id].commands[output.command]).to.be.not.undefined;
+					})
+				});
+			});
 		});
 
 	});

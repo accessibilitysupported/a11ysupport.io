@@ -67,11 +67,7 @@
             "type": "object",
             "properties": {
               "command": {
-                "description": "The keyboard command, touch gesture, or voice command used to access the target element.",
-                "type": "string"
-              },
-              "command_name": {
-                "description": "The command name (purpose of the command)",
+                "description": "The id of the keyboard command. It MUST be a property name in the relevant ATBrowsers.at[at].commands object",
                 "type": "string"
               },
               "output": {
@@ -82,7 +78,7 @@
                 "enum": ["pass", "fail", "partial"]
               }
             },
-            "required": ["command", "command_name", "output", "result"]
+            "required": ["command", "output", "result"]
           }
         },
         "notes": {

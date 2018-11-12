@@ -159,45 +159,56 @@ var createCommandOutputRow = function(outputObject, focus) {
 	legend.innerText = 'Output row ' + key;
 	fieldset.appendChild(legend);
 
-	// command used
-	var div = document.createElement('div');
-	div.classList.add('control');
-	var label = document.createElement('label');
-	label.innerText = 'The command used (required)';
-	var span = document.createElement('span');
-	var id = 'output_'+key+'_command';
-	label.setAttribute('for', id);
-	span.innerText = '(list the keystrokes, or describe the gesture or voice command)';
-	span.id = id + '_description';
-	label.setAttribute('aria-describedby', span.id);
-	var commandInput = document.createElement('input');
-	commandInput.setAttribute('type', 'text');
-	commandInput.setAttribute('id', id);
-	commandInput.setAttribute('name', id);
-	div.appendChild(label);
-	div.insertBefore(span, label.nextSibling);
-	div.appendChild(commandInput);
-	fieldset.appendChild(div);
 
-	if (outputObject) {
-		commandInput.value = outputObject.command;
-	}
+    var div = document.createElement('div');
+    div.classList.add('control');
+    var id = 'output_'+key+'_command';
+    var command_select = document.createElement('select');
+    command_select.setAttribute('id', id);
+    command_select.setAttribute('name', id);
+    var label = document.createElement('label');
+    label.innerText = 'The command used (required)';
+    label.setAttribute('for', id);
+    div.appendChild(label);
 
-	// command name used
-	var div = document.createElement('div');
-	div.classList.add('control');
-	var label = document.createElement('label');
-	label.innerText = 'The command name (required)';
-	var span = document.createElement('span');
-	var id = 'output_'+key+'_command_name';
-	label.setAttribute('for', id);
-	var input = document.createElement('input');
-	input.setAttribute('type', 'text');
-	input.setAttribute('id', id);
-	input.setAttribute('name', id);
-	div.appendChild(label);
-	div.appendChild(input);
-	fieldset.appendChild(div);
+    // Default null state
+	var option = document.createElement('option');
+	option.innerText = '-- select an option --';
+	option.setAttribute('value', '');
+	command_select.appendChild(option);
+
+    var at_value = sessionStorage.getItem('at');
+	var keys = Object.getOwnPropertyNames(ATBrowsers.at[at_value].commands);
+    for (var i=0; i<ATBrowsers.command_tags.length; i++) {
+    	var tag = ATBrowsers.command_tags[i];
+    	var optgroup = null;
+        for (var ii=0; ii<keys.length; ii++) {
+        	var command = ATBrowsers.at[at_value].commands[keys[ii]];
+        	if (!command.tags.includes(tag.id)) {
+        		continue;
+			}
+			if (!optgroup) {
+				// Create the optgroup
+				optgroup = document.createElement('optgroup');
+				optgroup.setAttribute('label', tag.name);
+				command_select.appendChild(optgroup);
+			}
+			// Create the option
+            var option = document.createElement('option');
+            option.innerText = command.name;
+            option.innerText += ' ('+command.command+')';
+            option.setAttribute('value', keys[ii]);
+
+            if (outputObject && outputObject.command_name === keys[ii]) {
+            	option.setAttribute('selected', 'selected');
+            }
+
+            optgroup.appendChild(option);
+        }
+    }
+
+    div.appendChild(command_select);
+    fieldset.appendChild(div);
 
 	if (outputObject) {
 		input.value = outputObject.command_name;
@@ -330,7 +341,6 @@ function initFeatureTest() {
 		for (var i=0; i<currentRows.length; i++) {
 			var idPrefix = '#output_'+(i+1);
 			var command = document.querySelector(idPrefix+'_command');
-			var command_name = document.querySelector(idPrefix+'_command_name');
 			var output = document.querySelector(idPrefix+'_command');
 			var result = document.querySelector(idPrefix+'_result');
 
@@ -338,19 +348,14 @@ function initFeatureTest() {
 				errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " command is required"));
 				command.setAttribute('aria-invalid', 'true');
 			}
-			if (!command_name.value) {
-				errors.push(generateErrorLink(idPrefix+'_command_name', "Output row " + (i+1) + " command name is required"));
-				command_name.setAttribute('aria-invalid', 'true');
-			}
 			if (!output.value) {
-				errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " output is required"));
+				errors.push(generateErrorLink(idPrefix+'_output', "Output row " + (i+1) + " output is required"));
 				output.setAttribute('aria-invalid', 'true');
 			}
 			if (!result.value) {
 				errors.push(generateErrorLink(idPrefix+'_result', "Output row " + (i+1) + " result is required"));
 				result.setAttribute('aria-invalid', 'true');
 			}
-
 		}
 
 		if (errors.length) {
@@ -456,6 +461,21 @@ getJson(window.location.pathname+'.json', function(data) {
 	test = data;
 	getJson('/ATBrowsers.json', function(data) {
 		ATBrowsers = data;
+
+        var at_value = sessionStorage.getItem('at');
+        var browser_value = sessionStorage.getItem('browser');
+
+        // IF at_value isn't set, set it to the first option.
+        if (!at_value) {
+            at_value = 'dragon_win';
+            sessionStorage.setItem('at', at_value);
+        }
+
+        // If browser_value isn't set, set it to the first core browser for the current AT
+        if (!browser_value) {
+            browser_value = ATBrowsers.at[at_value].core_browsers[0];
+            sessionStorage.setItem('browser', browser_value);
+        }
 
 		// Now that we have the data, init search
 		initFeatureTest();
