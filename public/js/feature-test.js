@@ -199,7 +199,7 @@ var createCommandOutputRow = function(outputObject, focus) {
             option.innerText += ' ('+command.command+')';
             option.setAttribute('value', keys[ii]);
 
-            if (outputObject && outputObject.command_name === keys[ii]) {
+            if (outputObject && outputObject.command === keys[ii]) {
             	option.setAttribute('selected', 'selected');
             }
 
