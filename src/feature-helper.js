@@ -153,7 +153,7 @@ helper.initalizeTestCase = function (testCase) {
 				});
 
                 // Reduce it to unique values
-                results.unique();
+                results = results.unique();
 
                 if (results.length === 1 && results[0] === 'pass') {
                     // yes, it is supported
