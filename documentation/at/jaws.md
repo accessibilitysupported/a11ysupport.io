@@ -18,6 +18,7 @@ You can [download and install JAWS from Freedom Scientific](https://www.freedoms
 ## Guides, Documentation, and resources
 
 * [JAWS documentation from Freedom Scientific](https://www.freedomscientific.com/products/blindness/jawsdocumentation)
+* [JAWS open bug tracker: "VFO Standards Support"](https://github.com/FreedomScientific/VFO-standards-support)  
 * [Deque JAWS guide](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
 ## Modes

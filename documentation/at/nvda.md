@@ -1,6 +1,6 @@
 # NVDA
 
-Non Visual Desktop Access (NVDA) is a popular free (and open source) screen reader for windows based computers.
+Non Visual Desktop Access (NVDA) is a popular free (and open source) screen reader for Windows based computers.
 
 ## TODO
 
@@ -19,10 +19,11 @@ This information is still in development. Feel free to contribute. The following
 ## Guides, Documentation, and resources
 
 * [NVDA User Guide](https://www.nvaccess.org/files/nvda/documentation/userGuide.html)
+* [NVDA issue tracker](https://github.com/nvaccess/nvda/issues)
 * [Deque guide](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
 ## Modes
 
 * Browse mode: This is the default mode when using a browser.
-* Focus mode: This mode is automatically turned on when using an interactive element, but can also be manually turned on.
+* Focus mode: With default NVDA settings, this mode will automatically turn on when navigating to certain interactive elements (such as radio buttons or text inputs, etc.). It can be manually turned on or off by use of <kbd>Insert</kbd> + <kbd>Space</kbd> keys.
 
