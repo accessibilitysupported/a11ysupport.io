@@ -155,10 +155,10 @@ helper.initalizeTestCase = function (testCase) {
                 // Reduce it to unique values
                 results.unique();
 
-                if (results[0] === 'pass') {
+                if (results.length === 1 && results[0] === 'pass') {
                     // yes, it is supported
                     testCase.at[at].browsers[browser].support = 'y';
-                } else if (results[0] === 'fail') {
+                } else if (results.length === 1 && results[0] === 'fail') {
 					// no, it is not supported
 					testCase.at[at].browsers[browser].support = 'n';
 				} else {
