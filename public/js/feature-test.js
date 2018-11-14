@@ -406,12 +406,13 @@ function initFeatureTest() {
 		body += '| property | value |\n';
 		body += '| --- | --- |\n';
 
-		for (var element of data) {
-			if (element[0] === 'notes') {
-				continue;
-			}
-			body += '| '+element[0]+' | ' + element[1] + ' |\n';
-		}
+		var entries = Array.from(data.entries());
+        for (var i=0; i<entries.length; i++) {
+            if (entries[i][0] === 'notes') {
+                continue;
+            }
+            body += '| '+entries[i][0]+' | ' + entries[i][1] + ' |\n';
+        }
 
 		var notes = data.get('notes');
 		if (notes) {
