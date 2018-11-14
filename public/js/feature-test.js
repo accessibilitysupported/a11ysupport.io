@@ -276,7 +276,7 @@ var createCommandOutputRow = function(outputObject, focus) {
 	addOutputButton.parentElement.insertBefore(fieldset, addOutputButton);
 
 	if (focus) {
-		commandInput.focus();
+        command_select.focus();
 	}
 };
 
