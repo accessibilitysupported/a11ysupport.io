@@ -55,14 +55,14 @@ Core AT and Browsers are commonly used or widely available. We try to keep the l
 
 For each category of AT that is within the scope:
 1. AT that is built into the operating system if it is used by at least 10% of respondents + the native browser on that operating system. This currently includes:
-    * VoiceOver for Mac + Safari for Mac
-    * VoiceOver for iOS + Safari for iOS
+    * VoiceOver + Safari for Mac 
+    * VoiceOver + Safari for iOS 
     * Windows Narrator + Edge
     * Android Accessibility Suite + Google Chrome
 2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT. This currently includes:
     * NVDA + Firefox
 3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT. This currently includes:
-    * JAWS + IE, Firefox and Edge (IE and Firefox taking precedent, while Edge being tested as users transition away from IE)
+    * JAWS + IE and Firefox (both IE and Firefox should be tested as users transition away from IE)
     * Dragon Naturally Speaking + Google Chrome (voice control software)
 
 The phrase 'widely supported' for core AT means that greater than or equal to 20% of respondents use it as their primary AT.
