@@ -58,7 +58,7 @@ fetch('https://raw.githubusercontent.com/w3c/elements-of-html/master/elements.js
 			}
 
 			// There are a LOT of elements, so lets reduce it to keep it simple for testing purposes
-			let temporary_whitelist = ['canvas', 'dialog', 'input[type="text"]', 'input[type="tel"]', 'th', 'td', 'button', 'section'];
+			let temporary_whitelist = ['canvas', 'dialog', 'input[type="text"]', 'input[type="tel"]', 'input[type="checkbox"]', 'th', 'td', 'button', 'main', 'section', 'aside', 'header', 'footer', 'article'];
 			if (!temporary_whitelist.includes(json[i].element)) {
 				continue;
 			}
@@ -77,7 +77,7 @@ fetch('https://raw.githubusercontent.com/jamiebuilds/aria-data/master/data.json'
 
 		// Temporary whitelist to keep things at a minimum during prototyping
 		let whitelist_roles = ['alert'];
-		let whitelist_attributes = ['aria-hidden', 'aria-disabled', 'aria-roledescription'];
+		let whitelist_attributes = ['aria-hidden', 'aria-disabled', 'aria-roledescription', 'aria-controls', 'aria-details', 'aria-expanded', 'aria-haspopup'];
 
 		for (let key in json.roles) {
 			let role = json.roles[key];
