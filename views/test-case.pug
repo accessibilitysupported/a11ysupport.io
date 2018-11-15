@@ -227,7 +227,7 @@ block content
                             td= ATBrowsers.browsers[browser].title
                                 if test.at[at.id].browsers[browser].browser_version
                                     span= ' ' + test.at[at.id].browsers[browser].browser_version
-                            td= test.at[at.id].browsers[browser].support_string
+                            td(class='support-case '+test.at[at.id].browsers[browser].support)= test.at[at.id].browsers[browser].support_string
                             td
                                 if (test.at[at.id].browsers[browser].output)
                                     ul
