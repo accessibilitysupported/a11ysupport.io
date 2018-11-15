@@ -73,6 +73,7 @@ Use the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1
 * [Accessible Name and Description Computation](https://www.w3.org/TR/accname-1.1/) - general expectations
 * [HTML AAM](https://www.w3.org/TR/html-aam-1.0/) - specific HTML rules
 * [SVG AAM](https://www.w3.org/TR/svg-aam-1.0/) - specific SVG rules
+* [ARIA in HTML](https://w3c.github.io/html-aria/) - guidelines for using ARIA in the host language: HTML.
 
 ## Improve a test case
 
