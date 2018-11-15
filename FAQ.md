@@ -82,7 +82,7 @@ For now, we base our data on the results of the latest
 
 ## Who runs this?
 
-The community both runs and owns this project. The original idea and prototype were developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are opened sourced under the GPL 3.0 license.
+The community both runs and owns this project. The original idea and prototype were developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are opened sourced under the [GPL 3.0 license](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/LICENSE).
 
 ## What are the levels of support?
 
@@ -90,7 +90,7 @@ There are several levels of support.
 
 For a given support point (specific to a test):
 
-* u = unknwon
+* u = unknown
 * n = no support
 * y = full support
 * p = partial support (unusual)
