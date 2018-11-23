@@ -4,7 +4,11 @@ block content
     div.content
         h1= 'Test: ' + test.title + ' ('+ATBrowsers.at[atId].title+'/'+ATBrowsers.browsers[browserId].title+')'
 
-        a(href="/tests/"+test.id class="back") Go back to the test
+        ul
+            li
+                a(href="/tests/"+test.id class="back") Go back to the test
+            li
+                a(href="/tests/" + test.id + "/run") Run this test and and submit your results
 
         table
             caption Details

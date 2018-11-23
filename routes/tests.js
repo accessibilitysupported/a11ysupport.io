@@ -35,6 +35,37 @@ router.get('/:testId', function(req, res, next) {
 	});
 });
 
+/* Run a specific test for a feature. */
+router.get('/:testId/run', function(req, res, next) {
+    let testMap = require(__dirname+'/../build/test_map');
+    let features = testMap[req.params.testId];
+    let test_html, test, test_html_file;
+
+    try {
+        test = require(__dirname+'/../build/tests/'+sanitize(req.params.testId)+'.json');
+    } catch (e) {
+        // Not found
+        next(createError(404));
+        return;
+    }
+
+    test_html_file = __dirname+'/../data/tests/html/'+sanitize(req.params.testId)+'.html';
+
+    if (fs.existsSync(test_html_file)) {
+        test_html = fs.readFileSync(test_html_file, 'utf8');
+    }
+
+    res.render('test-case-run', {
+        title: 'Test: '+test.title + ' | Accessibility Support',
+        techId: req.params.techId,
+        testMap: testMap,
+        testHTML: test_html,
+        test: test,
+        features: features,
+        ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+    });
+});
+
 /* GET a specific test for a feature. */
 router.get('/:testId/:atId/:browserId', function(req, res, next) {
 	let testMap = require(__dirname+'/../build/test_map');

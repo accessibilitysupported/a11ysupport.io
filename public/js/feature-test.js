@@ -9,6 +9,7 @@ var dom_os_version = document.querySelector('#os_version');
 var addOutputButton = document.querySelector('#add-output');
 var testingPrefForm = document.querySelector('form.testing-pref');
 var ATBrowserSelect = testingPrefForm.querySelector('select');
+var testUrl = window.location.pathname.replace(/\/run/, '');
 
 function initTestingPrefForm()
 {
@@ -289,21 +290,6 @@ function initFeatureTest() {
 
 	initTestingPrefForm();
 
-	var button = document.querySelector('.toggle-run-test-container');
-	var testContainer = document.querySelector('#run-test-container');
-
-	button.addEventListener('click', function() {
-		if (button.getAttribute('aria-expanded') === 'true') {
-			// It is open, so close it
-			testContainer.classList.remove('open');
-			button.setAttribute('aria-expanded', 'false');
-		} else {
-			// Open it
-			testContainer.classList.add('open');
-			button.setAttribute('aria-expanded', 'true');
-		}
-	});
-
 	var validate = function(data) {
 		var errors = [];
 
@@ -401,7 +387,7 @@ function initFeatureTest() {
 		var title = data.get('title') + ' ' + data.get('at') + '/' + data.get('browser');
 		url += encodeURIComponent(title);
 
-		var body = 'This Support Point submission is for the test ['+test.title+']('+window.location+')\n\n';
+		var body = 'This Support Point submission is for the test ['+test.title+']('+testUrl+')\n\n';
 
 		body += '| property | value |\n';
 		body += '| --- | --- |\n';
@@ -456,7 +442,7 @@ function initFeatureTest() {
 }
 
 // Fetch all of the required data
-getJson(window.location.pathname+'.json', function(data) {
+getJson(testUrl +'.json', function(data) {
 	test = data;
 	getJson('/ATBrowsers.json', function(data) {
 		ATBrowsers = data;
