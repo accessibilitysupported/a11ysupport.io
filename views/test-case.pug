@@ -7,7 +7,7 @@ block content
             div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
                 p= 'Current support: ' + test.core_support_string
 
-            p= test.description
+            p!= md.renderInline(test.description)
 
             if (test.type === "aam" || test.type === "custom")
                 h2 Test HTML

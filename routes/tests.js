@@ -3,6 +3,9 @@ let router = express.Router();
 let fs = require('fs');
 let sanitize = require("sanitize-filename");
 let createError = require('http-errors');
+let MarkdownIt = require('markdown-it');
+
+let md = new MarkdownIt().use(require('markdown-it-anchor'));
 
 /* GET a specific test for a feature. */
 router.get('/:testId', function(req, res, next) {
@@ -31,7 +34,8 @@ router.get('/:testId', function(req, res, next) {
 		testHTML: test_html,
 		test: test,
 		features: features,
-		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		md: md
 	});
 });
 
@@ -62,7 +66,8 @@ router.get('/:testId/run', function(req, res, next) {
         testHTML: test_html,
         test: test,
         features: features,
-        ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+        ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		md: md
     });
 });
 
@@ -98,9 +103,6 @@ router.get('/:testId/:atId/:browserId', function(req, res, next) {
 	if (fs.existsSync(test_html_file)) {
 		test_html = fs.readFileSync(test_html_file, 'utf8');
 	}
-
-	let MarkdownIt = require('markdown-it');
-	let md = new MarkdownIt().use(require('markdown-it-anchor'));
 
 	res.render('test-case-support-point', {
 		title: req.params.atId + '/' + req.params.browserId + ' | Test: '+test.title + ' | Accessibility Support',
