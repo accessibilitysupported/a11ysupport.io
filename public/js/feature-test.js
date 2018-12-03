@@ -23,8 +23,6 @@ function initTestingPrefForm()
 
 		sessionStorage.setItem('at', choice[0]);
 		sessionStorage.setItem('browser', choice[1]);
-		sessionStorage.removeItem('at_version');
-		sessionStorage.removeItem('browser_version');
 
 		displayTestingPrefs(true);
 	});
@@ -140,9 +138,9 @@ function displayTestingPrefs(focusResults)
 	atOption.value = at_value;
 	var browserOption = document.querySelector('input[name="browser"');
 	browserOption.value = browser_value;
-	dom_at_version.value = sessionStorage.getItem('at_version');
-	dom_browser_version.value = sessionStorage.getItem('browser_version');
-	dom_os_version.value = sessionStorage.getItem('os_version');
+	dom_at_version.value = sessionStorage.getItem('at_version_'+at_value);
+	dom_browser_version.value = sessionStorage.getItem('browser_version_'+browser_value);
+	dom_os_version.value = sessionStorage.getItem('os_version_'+at_value);
 	var span = document.querySelector('.selected-at-browser-combo');
 	span.innerText = ATBrowsers.at[at_value].title + ' and ' + ATBrowsers.browsers[browser_value].title;
 }
@@ -377,11 +375,13 @@ function initFeatureTest() {
 			return;
 		}
 
+		var at_value = data.get('at').toString();
+		var browser_value = data.get('browser').toString();
 		sessionStorage.setItem('at', data.get('at'));
 		sessionStorage.setItem('browser', data.get('browser'));
-		sessionStorage.setItem('browser_version', data.get('browser_version'));
-		sessionStorage.setItem('at_version', data.get('at_version'));
-		sessionStorage.setItem('os_version', data.get('os_version'));
+		sessionStorage.setItem('browser_version_'+browser_value, data.get('browser_version'));
+		sessionStorage.setItem('at_version_'+at_value, data.get('at_version'));
+		sessionStorage.setItem('os_version_'+at_value, data.get('os_version'));
 
 		var url = 'https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=';
 		var title = data.get('title') + ' ' + data.get('at') + '/' + data.get('browser');
