@@ -94,7 +94,7 @@ block content
                 each record in test.history
                     li
                         strong= record.date + ' '
-                        span= record.message
+                        span!= md.renderInline(record.message)
 
         div.sidebar
             h2 Related Features
