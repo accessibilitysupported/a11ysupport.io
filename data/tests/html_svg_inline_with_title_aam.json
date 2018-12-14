@@ -1,0 +1,162 @@
+{
+  "type": "aam",
+  "title": "HTML SVG element with SVG title element",
+  "description": "This tests the accessible name computation for inline SVGs.",
+  "supports_sr": true,
+  "supports_vc": false,
+  "css_target": "#target",
+  "expected": {
+    "role": "graphic",
+    "accessible_name": "red square"
+  },
+  "history": [
+    {
+      "date": "2018-11-14",
+      "message": "Test imported from [Dennis Lembree's work](https://weboverhauls.github.io/demos/svg/). This should be re-tested with the latest versions and include information about weather or not a role was announced."
+    }
+  ],
+  "at": {
+    "jaws": {
+      "browsers": {
+        "ie": {
+          "at_version": "18",
+          "browser_version": "11",
+          "os_version": "17763",
+          "date": "2018-01-01",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "red square",
+              "result": "pass"
+            },
+            {
+              "command": "next_graphic",
+              "output": "(not found)",
+              "result": "fail"
+            }
+          ]
+        },
+        "chrome": {
+          "at_version": "18",
+          "browser_version": "65",
+          "os_version": "17763",
+          "date": "2018-01-01",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "red square",
+              "result": "pass"
+            },
+            {
+              "command": "next_graphic",
+              "output": "red square",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "17763",
+          "browser_version": "41",
+          "os_version": "17763",
+          "date": "2018-01-01",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "red square",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.1.1",
+          "browser_version": "59",
+          "os_version": "17763",
+          "date": "2018-01-01",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "(not announced)",
+              "result": "fail"
+            },
+            {
+              "command": "next_graphic",
+              "output": "(not found)",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.12.6",
+          "browser_version": "11.0.3",
+          "os_version": "10.12.6",
+          "date": "2018-01-01",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "(not announced)",
+              "result": "fail"
+            },
+            {
+              "command": "next_graphic",
+              "output": "(not found)",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.1",
+          "browser_version": "12.1",
+          "os_version": "12.1",
+          "date": "2018-11-14",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "(not announced)",
+              "result": "fail"
+            },
+            {
+              "command": "next_rotor_item",
+              "output": "(not included in list of graphics)",
+              "result": "fail"
+            }
+          ],
+          "notes": ""
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.0",
+          "browser_version": "65",
+          "os_version": "7.0",
+          "date": "2018-01-01",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "not announced",
+              "result": "pass"
+            }
+          ],
+          "notes": ""
+        }
+      }
+    }
+  }
+}
