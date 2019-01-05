@@ -1,5 +1,6 @@
 let fs = require('fs');
 let rimraf = require('rimraf');
+let glob = require('glob');
 
 let helper = require(__dirname+'/src/feature-helper');
 let tech = require(__dirname+"/data/tech.json");
@@ -94,15 +95,21 @@ fs.mkdirSync(buildDir);
 fs.mkdirSync(buildDir+'/tech');
 fs.mkdirSync(buildDir+'/tests');
 
-let testFiles = fs.readdirSync(dataDir+'/tests');
+//let testFiles = fs.readdirSync(dataDir+'/tests');
 let supportPoints = [];
+
+let testFiles = glob.sync(dataDir+'/tests/**/*.json');
 
 testFiles.forEach(function(file) {
 	if (!file.endsWith('.json')) {
 		return;
 	}
 
-	let test = require(dataDir+'/tests/'+file);
+	// make the file name relative to the build dir
+	file = file.replace(dataDir+'/tests/', '');
+
+	// load the test
+    let test = require(dataDir+'/tests/'+file);
 
 	// Set the test ID to the file name minus the extension
 	test.id = file.slice(0, -5);
@@ -117,6 +124,14 @@ testFiles.forEach(function(file) {
 		});
 	}
 
+	// ensure the path exists
+	let path = buildDir+'/tests/'+file;
+	path = path.substring(0, path.lastIndexOf("/"));
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path, { recursive: true });
+    }
+
+    // now write the file
 	fs.writeFileSync(buildDir+'/tests/'+file, JSON.stringify(test, null, 2));
 });
 
