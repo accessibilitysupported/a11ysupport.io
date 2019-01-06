@@ -22,10 +22,7 @@ const TEST_SHELL = {
     "supports_sr": true,
     "supports_vc": false,
     "css_target": "#target",
-    "expected": {
-        "role": "todo",
-        "accessible_name": "todo"
-    },
+    "expected": {},
     "history": [
         {
             "date": currentDateString,
@@ -47,14 +44,41 @@ let loadTestCase = function(url, suite_name) {
 
             let parsed = esprima.parseScript(script.get()[0].children[0].data);
             let steps = parsed.body[1].declarations[0].init.arguments[0].properties[0].value;
-            let test = escodegen.generate(steps, {
+            let steps_json = escodegen.generate(steps, {
                 format: {
                     json: true
                 }
             });
+            steps_json = JSON.parse(steps_json);
 
-            // TODO: Map these expected results to the TEST_SHELL
-            console.log(JSON.parse(test));
+            // Figure out what to name this test
+            let target = $$('#test');
+            let title = target[0].name;
+            let skip_attributes = ['id'];
+            let all_attributes = Object.entries(target[0].attribs);
+
+            if (all_attributes.length > 0) {
+                // attributes
+                let attributes = [];
+                all_attributes.forEach(entry => {
+                    if (skip_attributes.includes(entry[0])) {
+                        return;
+                    }
+
+                    attributes.push(entry[0] + '="'+entry[1]+'"');
+                });
+
+                title += "["+attributes.join(' ')+']';
+            }
+
+            if (suite_name === 'accname') {
+                // innertext could be important for accname computations
+                if (target.text().trim() !== "") {
+                    title += ' with innerText';
+                }
+
+                // TODO: css text could also be important for name computations. Is it possible to detect that here?
+            }
 
             let file_html = url.replace('http://www.w3c-test.org/', '');
             let file_json = file_html.replace('.html', '.json');
@@ -67,9 +91,42 @@ let loadTestCase = function(url, suite_name) {
                     fs.mkdirSync(path, { recursive: true });
                 }
 
+                let json = TEST_SHELL;
+
+                json.title = title;
+                json.description = "This is an imported test imported from [WPT " + suite_name + "]("+'http://w3c.github.io/test-results/'+suite_name+'/all.html'+")\r\n";
+                json.description += "[View the external text]("+url+")\r\n";
+
+                if (suite_name === 'accname') {
+                    steps_json[0].test.ATK.forEach(assertion => {
+                        if (assertion[0] !== 'property') {
+                            return;
+                        }
+
+                        if (assertion[2] !== 'is') {
+                            // we only care about positive assertions
+                            return;
+                        }
+
+                        if (assertion[3] === '') {
+                            // Make it obvious that we expect nothing (is there a better way to make this obvious?)
+                            assertion[3] = '""';
+                        }
+
+                        if (assertion[1] === 'name') {
+                            json.expected.accessible_name = assertion[3];
+                        } else if (assertion[1] === 'description') {
+                            json.expected.accessible_description = assertion[3];
+                        }
+                    });
+                } else if (suite_name === 'wai-aria') {
+                    //TODO: do we have to depend on steps_json for this? Would it be better to map the html tag+attributes directly to ARIA properties?
+                }
+
                 // now write the file
                 fs.writeFileSync(path_json, JSON.stringify(TEST_SHELL, null, 2));
             }
+
 
             let path_html = dataDir+'/tests/html/wpt/'+file_html;
             if (!fs.existsSync(path_html)) {
