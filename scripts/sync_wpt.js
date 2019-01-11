@@ -43,116 +43,172 @@ const ARIA_ATTRIBUTE_MAP = {
     "aria-describedby": "accessible_description"
 };
 
+let linkTestToFeature = function(test_id, feature_id) {
+    //load the feature by feature_id
+    let path_json = dataDir + '/tech/'+feature_id;
+    let feature = require(path_json+'.json');
+
+    if (!feature) {
+        console.log('could not load feature at: ' + path_json);
+        return;
+    }
+
+    if (feature.tests.includes(test_id)) {
+        // already exists, escape early
+        return;
+    }
+
+    feature.tests.push(test_id);
+
+    fs.writeFileSync(path_json+'.json', JSON.stringify(feature, null, 2));
+};
+
+let assertionToFileName = function(assertion) {
+    if (assertion.states_and_properties) {
+        return Object.keys(assertion.states_and_properties)[0];
+    }
+
+    return Object.keys(assertion)[0];
+};
+
 let loadTestCase = function(url, suite_name) {
-    console.log(url);
+    //console.log(url);
     fetch(url)
         .then(res => res.text())
         .then(function(html) {
             let $$ = cheerio.load(html);
 
             let file_html = url.replace('http://www.w3c-test.org/', '');
-            let file_json = file_html.replace('.html', '.json');
+            let file_json = file_html.replace('.html', '');
+            let target = $$('#test');
+            let all_attributes = Object.entries(target[0].attribs);
 
-            // ensure the json exists
-            // TODO: a lot of this could be generalized to generate a json file for any given HTML.
-            let path_json = dataDir+'/tests/wpt/'+file_json;
-            if (!fs.existsSync(path_json)) {
-                let path = path_json.substring(0, path_json.lastIndexOf("/"));
-                if (!fs.existsSync(path)) {
-                    fs.mkdirSync(path, { recursive: true });
-                }
+            // Figure out what tests we need to create (one test for each assertion)
 
-                // Figure out what to name this test
-                let target = $$('#test');
-                let title = target[0].name;
-                let skip_attributes = ['id'];
-                let all_attributes = Object.entries(target[0].attribs);
+            let assertions = [];
+            if (suite_name === 'wai-aria') {
+                // wai-aria
+                all_attributes.forEach(attribute => {
+                    if (attribute[0] === 'role') {
+                        assertions.push({
+                            role: attribute[1]
+                        });
+                    } else if (ARIA_ATTRIBUTE_MAP[attribute[0]]) {
+                        // this is a custom mapping to the accessible name or description
+                        let assertion = {};
+                        assertion[ARIA_ATTRIBUTE_MAP[attribute[0]]] = attribute[1];
+                        assertions.push(assertion);
+                    } else if (attribute[0].startsWith('aria-')) {
+                        let assertion = {states_and_properties: {}};
+                        assertion.states_and_properties[attribute[0].replace('aria-', '')] = attribute[1];
+                        assertions.push(assertion);
+                    } else if (!['id', 'tabindex', 'class', 'src', 'alt', 'style', 'type', 'value', 'contenteditable'].includes(attribute[0])) {
+                        // Likely testing to make sure native HTML attribute overrides ARIA... Need to verify in every case.
+                        console.log("unknown attribute: " + url+"\t"+attribute[0]);
+                    }
+                });
+            } else if (suite_name === 'accname') {
+                // accname
+                // the expected accessible name/description are already in the steps data. Extract it.
+                let script = $$('head script:last-of-type');
+                let parsed = esprima.parseScript(script.get()[0].children[0].data);
+                let steps = parsed.body[1].declarations[0].init.arguments[0].properties[0].value;
+                let steps_json = escodegen.generate(steps, {
+                    format: {
+                        json: true
+                    }
+                });
+                steps_json = JSON.parse(steps_json);
 
-                if (all_attributes.length > 0) {
-                    // attributes
-                    let attributes = [];
-                    all_attributes.forEach(entry => {
-                        if (skip_attributes.includes(entry[0])) {
-                            return;
-                        }
-
-                        attributes.push(entry[0] + '="'+entry[1]+'"');
-                    });
-
-                    title += "["+attributes.join(' ')+']';
-                }
-
-                if (suite_name === 'accname') {
-                    // innertext could be important for accname computations
-                    if (target.text().trim() !== "") {
-                        title += ' with innerText';
+                // now map the steps data
+                steps_json[0].test.ATK.forEach(assertion => {
+                    if (assertion[0] !== 'property') {
+                        return;
                     }
 
-                    // TODO: css text could also be important for name computations. Is it possible to detect that here?
-                }
+                    if (assertion[2] !== 'is') {
+                        // we only care about positive assertions
+                        return;
+                    }
 
-                let json = TEST_SHELL;
+                    if (assertion[3] === '') {
+                        // Make it obvious that we expect nothing (is there a better way to make this obvious?)
+                        assertion[3] = '""';
+                    }
 
-                json.title = title;
-                json.description = "This is an imported test imported from [WPT " + suite_name + "]("+'http://w3c.github.io/test-results/'+suite_name+'/all.html'+")\r\n";
-                json.description += "[View the external text]("+url+")\r\n";
+                    if (assertion[1] === 'name') {
+                        assertions.push({
+                            accessible_name: assertion[3]
+                        });
+                    } else if (assertion[1] === 'description') {
+                        assertions.push({
+                            accessible_description: assertion[3]
+                        });
+                    }
+                });
+            }
 
-                if (suite_name === 'accname') {
-                    // the expected accessible name/description are already in the steps data. Extract it.
-                    let script = $$('head script:last-of-type');
-                    let parsed = esprima.parseScript(script.get()[0].children[0].data);
-                    let steps = parsed.body[1].declarations[0].init.arguments[0].properties[0].value;
-                    let steps_json = escodegen.generate(steps, {
-                        format: {
-                            json: true
-                        }
-                    });
-                    steps_json = JSON.parse(steps_json);
+            assertions.forEach(assertion => {
+                // ensure the json exists
+                // TODO: a lot of this could be generalized to generate a json file for any given HTML.
+                let key = assertionToFileName(assertion);
+                let path_json = dataDir+'/tests/wpt/'+file_json+'_'+key+'.json';
+                let test_id = 'wpt/'+file_json+'_'+key;
+                if (!fs.existsSync(path_json)) {
+                    let path = path_json.substring(0, path_json.lastIndexOf("/"));
+                    if (!fs.existsSync(path)) {
+                        fs.mkdirSync(path, { recursive: true });
+                    }
 
-                    // now map the steps data
-                    steps_json[0].test.ATK.forEach(assertion => {
-                        if (assertion[0] !== 'property') {
-                            return;
-                        }
+                    // Figure out what to name this test
+                    let title = '('+key+') '+ target[0].name;
+                    let skip_attributes = ['id'];
 
-                        if (assertion[2] !== 'is') {
-                            // we only care about positive assertions
-                            return;
-                        }
-
-                        if (assertion[3] === '') {
-                            // Make it obvious that we expect nothing (is there a better way to make this obvious?)
-                            assertion[3] = '""';
-                        }
-
-                        if (assertion[1] === 'name') {
-                            json.expected.accessible_name = assertion[3];
-                        } else if (assertion[1] === 'description') {
-                            json.expected.accessible_description = assertion[3];
-                        }
-                    });
-                } else if (suite_name === 'wai-aria') {
-                    // map all role and aria-* attributes on the target element
-                    // TODO: what if there are relevant attributes on other elements in the test?
-                    all_attributes.forEach(attribute => {
-                        if (attribute[0] === 'role') {
-                            json.expected.role = attribute[1];
-                        } else if (ARIA_ATTRIBUTE_MAP[attribute[0]]) {
-                            // this is a custom mapping to the accessible name or description
-                            json.expected[ARIA_ATTRIBUTE_MAP[attribute[0]]] = attribute[1];
-                        } else if (attribute[0].startsWith('aria-')) {
-                            if (!json.expected.states_and_properties) {
-                                json.expected.states_and_properties = {};
+                    if (all_attributes.length > 0) {
+                        // attributes
+                        let attributes = [];
+                        all_attributes.forEach(entry => {
+                            if (skip_attributes.includes(entry[0])) {
+                                return;
                             }
 
-                            json.expected.states_and_properties[attribute[0]] = attribute[1];
-                        }
-                    });
-                }
+                            attributes.push(entry[0] + '="'+entry[1]+'"');
+                        });
 
-                // now write the file
-                fs.writeFileSync(path_json, JSON.stringify(TEST_SHELL, null, 2));
-            }
+                        title += "["+attributes.join(' ')+']';
+                    }
+
+                    if (suite_name === 'accname') {
+                        // innertext could be important for accname computations
+                        if (target.text().trim() !== "") {
+                            title += ' with innerText';
+                        }
+                    }
+
+                    // Clone the TEST_SHELL and make a new json object.
+                    let json = JSON.parse(JSON.stringify(TEST_SHELL));
+
+                    json.title = title;
+                    json.description = "This is an imported test imported from [WPT " + suite_name + "]("+'http://w3c.github.io/test-results/'+suite_name+'/all.html'+")\r\n";
+                    json.description += "[View the external text]("+url+")\r\n";
+                    json.expected = assertion;
+                    json.html_file = 'wpt/'+file_html;
+
+                    // now write the test file
+                    fs.writeFileSync(path_json, JSON.stringify(json, null, 2));
+
+                    // now link the test to relevant features
+                    if (json.expected.role) {
+                        linkTestToFeature(test_id, 'aria/'+json.expected.role+'_role');
+                    }
+
+                    if (json.expected.states_and_properties && json.expected.states_and_properties.isArray) {
+                        json.expected.states_and_properties.forEach(function(property) {
+                            linkTestToFeature(test_id, 'aria/aria-'+property+'_attribute.json');
+                        });
+                    }
+                }
+            });
 
             let path_html = dataDir+'/tests/html/wpt/'+file_html;
             if (!fs.existsSync(path_html)) {
@@ -187,10 +243,10 @@ test_suites.forEach(function(suite_name) {
         .then(function(html) {
             let $ = cheerio.load(html);
             $('.test a').each(function(i) {
-                if (i === 0) { // only load one while testing
+                //if (i === 0) { // only load one while testing
                     //Load the test html and parse it.
                     loadTestCase($(this).attr('href'), suite_name);
-                }
+                //}
             });
         });
 });
