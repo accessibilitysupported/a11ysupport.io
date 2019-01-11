@@ -32,7 +32,7 @@ block content
                     ul
                       each test in feature.failing_tests
                         li
-                          a(href="/tests/"+test.id)= test.title
+                          a(href="/tests/"+testIdHelper.makeSafe(test.id))= test.title
 
     if tech.references
       div.sidebar

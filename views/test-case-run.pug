@@ -9,7 +9,7 @@ block content
 
             p!= md.renderInline(test.description)
 
-            a(href='/tests/' + test.id) Go back to the test details page
+            a(href='/tests/' + testIdHelper.makeSafe(test.id)) Go back to the test details page
 
             div(id="run-test-container")
                 h2(id="at-browser-combo") Step 1: What are you testing with?
@@ -46,7 +46,7 @@ block content
                         ol
                             li <span id="review-details">Review the details of the previous results</span>.
                             li Launch the screen reader that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
                             li= "Locate the target element. The CSS selector for the target is: "
                             strong= test.css_target
                             if test.sr_instructions
@@ -60,7 +60,7 @@ block content
                         h2 Follow these Voice Command Instructions
                         ol
                             li Launch the Voice Command software that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
                             if test.vc_instructions
                                 each instruction in test.vc_instructions
                                     li= instruction
@@ -93,7 +93,7 @@ block content
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
                     h3 Test page
-                    iframe(src='/tests/html/' + test.id + '.html' aria-label="the test page")
+                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
 
                 else if (test.type === "custom")
                     if (test.supports_sr)
@@ -104,7 +104,7 @@ block content
                         ol
                             li <span id="review-details">Review the details of the previous results</span>.
                             li Launch the screen reader that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
                             each instruction in test.sr_instructions
                                 li= instruction
 
@@ -112,12 +112,12 @@ block content
                         h3 Voice Command Instructions
                         ol
                             li Launch the Voice Command software that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.id + '.html') open the test page].
+                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
                             each instruction in test.vc_instructions
                                 li= instruction
 
                     h3 Test page
-                    iframe(src='/tests/html/' + test.id + '.html' aria-label="the test page")
+                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
 
                 else if (test.type === "external")
                     p This is an external test.

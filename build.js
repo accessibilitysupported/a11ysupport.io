@@ -114,6 +114,11 @@ testFiles.forEach(function(file) {
 	// Set the test ID to the file name minus the extension
 	test.id = file.slice(0, -5);
 
+	if (!test.html_file) {
+		// html_file property isn't set. Map it to it's ID by default.
+		test.html_file = test.id+'.html';
+	}
+
 	// Set up the test case
 	helper.initalizeTestCase(test);
 

@@ -14,7 +14,7 @@ block content
                 pre.test-html
                     code= testHTML
 
-            a(href="/tests/" + test.id + "/run") Run this test and and submit your results
+            a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
 
             h2 On this page
             ul
@@ -54,7 +54,7 @@ block content
                                 else
                                     span -
                             td
-                                a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
+                                a(href="/tests/"+testIdHelper.makeSafe(test.id)+"/"+at+"/"+browser) More information
 
             h3(id="extended-support") Extended Support
             p These are less common combinations
@@ -88,7 +88,7 @@ block content
                                 else
                                     span -
                             td
-                                a(href="/tests/" + test.id + "/" + at.id + "/" + browser) More information
+                                a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + at.id + "/" + browser) More information
             h2(id="history") History
             ul
                 each record in test.history
