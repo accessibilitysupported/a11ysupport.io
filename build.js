@@ -6,6 +6,7 @@ let helper = require(__dirname+'/src/feature-helper');
 let tech = require(__dirname+"/data/tech.json");
 let ATBrowsers = require(__dirname+"/data/ATBrowsers.json");
 let testMap = {};
+let featureMap = {};
 let allFeatures = [];
 
 /**
@@ -39,6 +40,12 @@ let getFeatures = function(techId, buildDir) {
 		let id = file.slice(0, -5);
 		let failingTests = [];
 
+		// search the test map for tests that include this id.
+		feature.tests = [];
+		if (featureMap[techId+'/'+id]) {
+			feature.tests = featureMap[techId+'/'+id];
+		}
+
 		// Initialize the feature object to add missing data points and generate support strings
 		helper.initalizeFeatureObject(feature);
 		feature.id = techId + '/' + id;
@@ -52,10 +59,14 @@ let getFeatures = function(techId, buildDir) {
 			if (!testMap[feature.tests[testIndex].id]) {
 				testMap[feature.tests[testIndex].id] = [];
 			}
-			testMap[feature.tests[testIndex].id].push({
-				techId: techId,
-				featureId: id,
-				title: feature.title
+
+			// Slow, but it works. Room for optimization
+			testMap[feature.tests[testIndex].id].forEach(function(data, index) {
+				if (data.featureId !== feature.id) {
+					return;
+				}
+				testMap[feature.tests[testIndex].id][index].techId = techId;
+				testMap[feature.tests[testIndex].id][index].title = feature.title;
 			});
 
 			//populate failing tests
@@ -121,6 +132,23 @@ testFiles.forEach(function(file) {
 
 	// Set up the test case
 	helper.initalizeTestCase(test);
+
+	test.features.forEach(feature_id => {
+		if (!testMap[test.id]) {
+			testMap[test.id] = [];
+		}
+		testMap[test.id].push({
+			// link tests with features here
+			featureId: feature_id,
+		});
+
+		// populate the featuremap
+		if (!featureMap[feature_id]) {
+			featureMap[feature_id] = [];
+		}
+
+		featureMap[feature_id].push(test.id);
+	});
 
 	for(let at in ATBrowsers.at) {
 		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);

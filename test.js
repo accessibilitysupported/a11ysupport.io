@@ -30,6 +30,15 @@ describe('Development tests', function () {
 			expect(valid).to.be.equal(true);
 		});
 
+		describe(file + ' features', function() {
+			for (let i=0; i < test.features.length; i++) {
+				it(devDir+'/tech/'+test.features[i] + '.json should exist', function () {
+					let exists = fs.existsSync(devDir+'/tech/'+test.features[i]+'.json');
+					expect(exists).to.be.equal(true);
+				});
+			}
+		});
+
 		let at_keys = Object.getOwnPropertyNames(test.at);
 		at_keys.forEach(function(at_id) {
 			let browser_keys = Object.getOwnPropertyNames(test.at[at_id].browsers);
@@ -66,15 +75,6 @@ describe('Development tech features', function () {
 						console.log(ajv.errors);
 					}
 					expect(valid).to.be.equal(true);
-				});
-
-				describe(file + ' tests', function() {
-					for (let i=0; i < feature.tests.length; i++) {
-						it('tests/'+feature.tests[i] + '.json should exist', function () {
-							let exists = fs.existsSync(devDir+'/tests/'+feature.tests[i]+'.json');
-							expect(exists).to.be.equal(true);
-						});
-					}
 				});
 			});
 		});

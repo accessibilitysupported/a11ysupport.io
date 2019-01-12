@@ -31,7 +31,6 @@ let createFeature = function(id, featureType, techId, title, description, linkTi
 		"type": featureType,
 		"description": "",
 		"references": [],
-		"tests": [],
 		"date_updated": currentDateString
 	};
 

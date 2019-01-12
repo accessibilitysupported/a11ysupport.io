@@ -124,6 +124,13 @@
         "type": "string"
       }
     },
+    "features": {
+      "description": "An array of feature IDs associated with this test. Multiple feature IDs is very rare, but technically supported. It is best to keep one test scoped to one feature.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "html_file": {
       "type": "string",
       "description": "path relative to the /data/tests/html directory. References the file that contains the test html."
@@ -252,6 +259,7 @@
   },
   "required": [
     "title",
+    "features",
     "type",
     "description",
     "supports_sr",
