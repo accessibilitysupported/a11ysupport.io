@@ -10,6 +10,12 @@ let beautify_html = require('js-beautify').html;
 let currentDateString = moment().format('YYYY-MM-DD');
 let dataDir = __dirname+'/../data';
 
+// from https://www.w3.org/TR/wai-aria-1.1/ run: JSON.stringify(Array.from(document.querySelectorAll('.state-name code')).map(node => node.textContent));
+let ariaStates = ["aria-busy", "aria-checked", "aria-current", "aria-disabled", "aria-expanded", "aria-grabbed", "aria-hidden", "aria-invalid", "aria-pressed", "aria-selected"];
+// from https://www.w3.org/TR/wai-aria-1.1/ run: JSON.stringify(Array.from(document.querySelectorAll('.property-name code')).map(node => node.textContent));
+let ariaProperties = ["aria-activedescendant","aria-atomic","aria-autocomplete","aria-colcount","aria-colindex","aria-colspan","aria-controls","aria-describedby","aria-details","aria-dropeffect","aria-errormessage","aria-flowto","aria-haspopup","aria-keyshortcuts","aria-label","aria-labelledby","aria-level","aria-live","aria-modal","aria-multiline","aria-multiselectable","aria-orientation","aria-owns","aria-placeholder","aria-posinset","aria-readonly","aria-relevant","aria-required","aria-roledescription","aria-rowcount","aria-rowindex","aria-rowspan","aria-setsize","aria-sort","aria-valuemax","aria-valuemin","aria-valuenow","aria-valuetext"];
+
+
 //TODO: [done] Scrape and pull both accname and wai-aria suites
 //TODO: [done] Auto fill test_shell json data
 //TODO: [done] create json files in the tests directory
@@ -25,7 +31,7 @@ const TEST_SHELL = {
     "supports_sr": true,
     "supports_vc": false,
     "css_target": "#target",
-    "expected": {},
+    "assertion": {},
     "history": [
         {
             "date": currentDateString,
@@ -37,10 +43,10 @@ const TEST_SHELL = {
 
 
 const ARIA_ATTRIBUTE_MAP = {
-    "aria-label": "accessible_name",
-    "aria-labelledby": "accessible_name",
-    "aria-description": "accessible_description",
-    "aria-describedby": "accessible_description"
+    "aria-label": "name",
+    "aria-labelledby": "name",
+    "aria-description": "description",
+    "aria-describedby": "description"
 };
 
 let linkTestToFeature = function(test_id, feature_id) {
@@ -64,11 +70,11 @@ let linkTestToFeature = function(test_id, feature_id) {
 };
 
 let assertionToFileName = function(assertion) {
-    if (assertion.states_and_properties) {
-        return assertion.states_and_properties[0].title;
+    if (assertion.title) {
+        return assertion.title;
     }
 
-    return Object.keys(assertion)[0];
+    return assertion.value;
 };
 
 let loadTestCase = function(url, suite_name) {
@@ -91,19 +97,26 @@ let loadTestCase = function(url, suite_name) {
                 all_attributes.forEach(attribute => {
                     if (attribute[0] === 'role') {
                         assertions.push({
-                            role: attribute[1]
+                            aspect: 'role',
+                            value: attribute[1]
                         });
                     } else if (ARIA_ATTRIBUTE_MAP[attribute[0]]) {
                         // this is a custom mapping to the accessible name or description
-                        let assertion = {};
-                        assertion[ARIA_ATTRIBUTE_MAP[attribute[0]]] = attribute[1];
+                        let assertion = {
+                            aspect: ARIA_ATTRIBUTE_MAP[attribute[0]],
+                            value: attribute[1]
+                        };
                         assertions.push(assertion);
                     } else if (attribute[0].startsWith('aria-')) {
-                        let assertion = {states_and_properties: []};
-                        assertion.states_and_properties[0] = {
+                        let aspect = 'property';
+                        if (ariaStates.includes(attribute[0])) {
+                            aspect = 'property';
+                        }
+                        let assertion = {
+                            aspect: aspect,
                             title: attribute[0].replace('aria-', ''),
                             value: attribute[1]
-                        }
+                        };
                         assertions.push(assertion);
                     } else if (!['id', 'tabindex', 'class', 'src', 'alt', 'style', 'type', 'value', 'contenteditable'].includes(attribute[0])) {
                         // Likely testing to make sure native HTML attribute overrides ARIA... Need to verify in every case.
@@ -141,11 +154,13 @@ let loadTestCase = function(url, suite_name) {
 
                     if (assertion[1] === 'name') {
                         assertions.push({
-                            accessible_name: assertion[3]
+                            aspect: 'name',
+                            value: assertion[3]
                         });
                     } else if (assertion[1] === 'description') {
                         assertions.push({
-                            accessible_description: assertion[3]
+                            aspect: 'description',
+                            value: assertion[3]
                         });
                     }
                 });
@@ -194,19 +209,17 @@ let loadTestCase = function(url, suite_name) {
                     json.title = title;
                     json.description = "This is an imported test imported from [WPT " + suite_name + "]("+'http://w3c.github.io/test-results/'+suite_name+'/all.html'+")\r\n";
                     json.description += "[View the external text]("+url+")\r\n";
-                    json.expected = assertion;
+                    json.assertion = assertion;
                     json.html_file = 'wpt/'+file_html;
 
                     // now write the test file
                     fs.writeFileSync(path_json, JSON.stringify(json, null, 2));
 
                     // now link the test to relevant features
-                    if (json.expected.role) {
-                        linkTestToFeature(test_id, 'aria/'+json.expected.role+'_role');
-                    }
-
-                    if (json.expected.states_and_properties) {
-                        linkTestToFeature(test_id, 'aria/aria-'+json.expected.states_and_properties[0].title+'_attribute');
+                    if (json.assertion.aspect === 'role') {
+                        linkTestToFeature(test_id, 'aria/'+json.assertion.value+'_role');
+                    } else if (json.assertion.title) {
+                        linkTestToFeature(test_id, 'aria/aria-'+json.assertion.title+'_attribute');
                     }
                 }
             });
