@@ -1,4 +1,5 @@
 extends layout
+include test-case/assertion
 
 block content
     div.content-wrapper
@@ -6,6 +7,9 @@ block content
             h1= 'Test: ' + test.title
             div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
                 p= 'Current support: ' + test.core_support_string
+
+            if (test.assertion)
+                p Assertion: #[+assertion(test.assertion)]
 
             p!= md.renderInline(test.description)
 

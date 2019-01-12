@@ -1,18 +1,16 @@
 {
   "type": "aam",
-  "title": "HTML p[lang] element",
-  "description": "This test ensures that `option` elements with a `lang` attribute are announced correctly.",
+  "title": "HTML LI element in a OL with a sub OL (posinset)",
+  "description": "This test ensures that the number of items in a list are being computed correctly when there is a sub-list.",
+  "html_file": "html_li_element_in_ol_with_sub_ol_aam",
   "supports_sr": true,
   "supports_vc": false,
   "css_target": "#target",
   "assertion": {
     "aspect": "property",
-    "title": "lang",
-    "value": "zh"
+    "title": "posinset",
+    "value": "1"
   },
-  "sr_instructions": [
-    "If the screen reader attempts to read the text in as english or not at all, this test fails regardless of what the other instructions indicate. The screen reader must announce the text of the target element in the correct language."
-  ],
   "history": [
     {
       "date": "2018-10-19",
@@ -30,11 +28,10 @@
           "output": [
             {
               "command": "next_item",
-              "output": "中文 (简体)",
+              "output": "List with three items. 1. Target.",
               "result": "pass"
             }
-          ],
-          "notes": "Had to install the Simplified Chinese language in the Windows 10 Language Settings for this to work. If the language is not installed, nothing will be announced."
+          ]
         }
       }
     },
@@ -48,11 +45,10 @@
           "output": [
             {
               "command": "next_item",
-              "output": "中文 (简体)",
+              "output": "Target 1 of 3",
               "result": "pass"
             }
-          ],
-          "notes": "Had to install the Chinese language in the Language Settings for VoiceOver."
+          ]
         }
       }
     }

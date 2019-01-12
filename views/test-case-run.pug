@@ -1,4 +1,5 @@
 extends layout
+include test-case/assertion
 
 block content
     div.content-wrapper
@@ -6,6 +7,9 @@ block content
             h1= 'Run Test: ' + test.title
             div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
                 p= 'Current support: ' + test.core_support_string
+
+            if (test.assertion)
+                p Assertion: #[+assertion(test.assertion)]
 
             p!= md.renderInline(test.description)
 
@@ -48,13 +52,15 @@ block content
                             li Launch the screen reader that you want to test with.
                             li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
                             li= "Locate the target element. The CSS selector for the target is: "
-                            strong= test.css_target
+                                strong= test.css_target
                             if test.sr_instructions
                                 each instruction in test.sr_instructions
                                     li= instruction
                             else
-                            li The test passes if the screen reader output includes the expected name, role, and properties. The exact order and vocabulary will differ between screen readers. The expected name, role, and properties can be found after the instructions. If some commands work and others do not, the test should be marked as 'partial support'.
+                                li The test passes if this assertion is met: #[+assertion(test.assertion)]
                             li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
+
+                        p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
                     if (test.supports_vc)
                         h2 Follow these Voice Command Instructions
@@ -64,33 +70,13 @@ block content
                             if test.vc_instructions
                                 each instruction in test.vc_instructions
                                     li= instruction
-                            else if test.expected.accessible_name
-                                li= "Say \"click "+ test.expected.accessible_name +"\""
+                            else if test.assertion.aspect === 'name'
+                                li= "Say \"click "+ test.assertion.value +"\""
                                 li The test passes if the Voice Command software is able to locate and activate the target element.
                                 li Use the form to create an issue for the given browser/voice command software combination.
                             else
                                 li The test passes if the Voice Command software is able to locate and activate the target element.
                                 li Use the form to create an issue for the given browser/voice command software combination.
-
-                    h3 Expected name, role, and properties
-                    p Optional states and properties will be marked as "optional". This information is not required for understanding. Some screen readers might choose to announce this information, while other may not. The test still passes if optional information is not announced.
-                    table
-                        tr
-                            th(scope="row") Role
-                            td= test.expected.role || '(not tested)'
-                        tr
-                            th(scope="row") Accessible Name
-                            td= test.expected.accessible_name || '(not tested)'
-                        tr
-                            th(scope="row") Accessible Description
-                            td= test.expected.accessible_description || '(not tested)'
-                        if test.expected.states_and_properties
-                            each state_or_property in test.expected.states_and_properties
-                                tr
-                                    th(scope="row")= (state_or_property.optional===true?'(optional) ':'') + state_or_property.title
-                                    td= state_or_property.value
-
-                    p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
                     h3 Test page
                     iframe(src='/tests/html/' + test.html_file aria-label="the test page")

@@ -107,18 +107,6 @@
         }
       },
       "required": ["date", "message"]
-    },
-    "state_or_property": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": ["title", "value"]
     }
   },
   "properties": {
@@ -137,6 +125,42 @@
       "items": {
         "type": "string"
       }
+    },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "aspect": {
+          "enum": [
+            "role",
+            "name",
+            "description",
+            "property",
+            "state",
+            "other"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Only needed for property, state, or other"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "aspect": { "enum": ["state", "property", "other"] }
+          },
+          "required": ["aspect", "title", "value"]
+        },
+        {
+          "properties": {
+            "aspect": { "enum": ["role", "name", "description"] }
+          },
+          "required": ["aspect", "value"]
+        }
+      ]
     },
     "html_file": {
       "type": "string",
@@ -175,33 +199,6 @@
     },
     "css_target": {
       "type": "string"
-    },
-    "expected": {
-      "type": "object",
-      "properties": {
-        "role": {
-          "type": "string"
-        },
-        "accessible_name": {
-          "type": "string"
-        },
-        "accessible_description": {
-          "type": "string"
-        },
-        "states_and_properties": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/state_or_property"
-          }
-        }
-      },
-      "anyOf": [
-        {"required": ["role"]},
-        {"required": ["accessible_name"]},
-        {"required": ["accessible_description"]},
-        {"required": ["states_and_properties"]}
-      ]
     },
     "history": {
       "type": "array",
@@ -273,7 +270,7 @@
       "properties": {
         "type": { "enum": ["aam"] }
       },
-      "required": ["expected", "css_target"]
+      "required": ["assertion", "css_target"]
     },
     {
       "properties": {
