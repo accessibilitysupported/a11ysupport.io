@@ -65,7 +65,7 @@ let linkTestToFeature = function(test_id, feature_id) {
 
 let assertionToFileName = function(assertion) {
     if (assertion.states_and_properties) {
-        return Object.keys(assertion.states_and_properties)[0];
+        return assertion.states_and_properties[0].title;
     }
 
     return Object.keys(assertion)[0];
@@ -99,8 +99,11 @@ let loadTestCase = function(url, suite_name) {
                         assertion[ARIA_ATTRIBUTE_MAP[attribute[0]]] = attribute[1];
                         assertions.push(assertion);
                     } else if (attribute[0].startsWith('aria-')) {
-                        let assertion = {states_and_properties: {}};
-                        assertion.states_and_properties[attribute[0].replace('aria-', '')] = attribute[1];
+                        let assertion = {states_and_properties: []};
+                        assertion.states_and_properties[0] = {
+                            title: attribute[0].replace('aria-', ''),
+                            value: attribute[1]
+                        }
                         assertions.push(assertion);
                     } else if (!['id', 'tabindex', 'class', 'src', 'alt', 'style', 'type', 'value', 'contenteditable'].includes(attribute[0])) {
                         // Likely testing to make sure native HTML attribute overrides ARIA... Need to verify in every case.
@@ -202,10 +205,8 @@ let loadTestCase = function(url, suite_name) {
                         linkTestToFeature(test_id, 'aria/'+json.expected.role+'_role');
                     }
 
-                    if (json.expected.states_and_properties && json.expected.states_and_properties.isArray) {
-                        json.expected.states_and_properties.forEach(function(property) {
-                            linkTestToFeature(test_id, 'aria/aria-'+property+'_attribute.json');
-                        });
+                    if (json.expected.states_and_properties) {
+                        linkTestToFeature(test_id, 'aria/aria-'+json.expected.states_and_properties[0].title+'_attribute');
                     }
                 }
             });
