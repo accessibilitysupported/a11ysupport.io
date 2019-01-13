@@ -1,0 +1,57 @@
+{
+  "type": "assertion",
+  "title": "HTML LI element in a OL with a sub OL (setsize)",
+  "description": "This test ensures that the number of items in a list are being computed correctly when there is a sub-list.",
+  "html_file": "html_li_element_in_ol_with_sub_ol",
+  "supports_sr": true,
+  "supports_vc": false,
+  "css_target": "#target",
+  "assertion": {
+    "aspect": "property",
+    "title": "setsize",
+    "value": "3"
+  },
+  "features": ["html/li_element"],
+  "history": [
+    {
+      "date": "2018-10-19",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.3.2",
+          "browser_version": "62",
+          "os_version": "17763",
+          "date": "2018-10-19",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "List with three items. 1. Target.",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14",
+          "browser_version": "12",
+          "os_version": "10.14",
+          "date": "2018-10-19",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Target 1 of 3",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

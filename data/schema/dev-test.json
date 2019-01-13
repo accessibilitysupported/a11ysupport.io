@@ -108,8 +108,8 @@
     },
     "type": {
       "type": "string",
-      "enum": ["aam", "external", "custom"],
-      "description": "The type indicates the kind of test. An AAM test checks for proper accessibility api mappings according to the AAM standards. An external test brings in the results from a test published on another site. A custom test describes the exact expectations and steps."
+      "enum": ["assertion", "external", "custom"],
+      "description": "The type indicates the kind of test. An assertion test provides an assertion for a single aspect of the html example. All tests should be assertions. The other types are experimental."
     },
     "title": {
       "type": "string"
@@ -270,7 +270,7 @@
   "anyOf": [
     {
       "properties": {
-        "type": { "enum": ["aam"] }
+        "type": { "enum": ["assertion"] }
       },
       "required": ["assertion", "css_target"]
     },

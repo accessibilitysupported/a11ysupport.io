@@ -1,0 +1,57 @@
+{
+  "type": "assertion",
+  "title": "ARIA gridcell role",
+  "description": "This test ensures that grid cells are announced.",
+  "supports_sr": true,
+  "supports_vc": true,
+  "css_target": "#target",
+  "assertion": {
+    "aspect": "role",
+    "value": "gridcell"
+  },
+  "features": ["aria/gridcell_role"],
+  "history": [
+    {
+      "date": "2018-10-26",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.3.2",
+          "browser_version": "63",
+          "os_version": "17763",
+          "date": "2018-10-26",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "target Row 2 Name Column 2",
+              "result": "pass"
+            }
+          ],
+          "notes": ""
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14",
+          "browser_version": "12",
+          "os_version": "10.14",
+          "date": "2018-10-26",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "target, table 2 columns, 3 rows",
+              "result": "fail"
+            }
+          ],
+          "notes": "The fact that a specific gridcell is focused was not announced. No header information or information about location in the grid."
+        }
+      }
+    }
+  }
+}
