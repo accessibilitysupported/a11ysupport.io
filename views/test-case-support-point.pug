@@ -1,14 +1,18 @@
 extends layout
+include test-case/assertion
 
 block content
     div.content
         h1= 'Test: ' + test.title + ' ('+ATBrowsers.at[atId].title+'/'+ATBrowsers.browsers[browserId].title+')'
 
+        if (test.assertion)
+            p Assertion: #[+assertion(test.assertion)]
+
         ul
             li
-                a(href="/tests/"+test.id class="back") Go back to the test
+                a(href="/tests/"+testIdHelper.makeSafe(test.id) class="back") Go back to the test
             li
-                a(href="/tests/" + test.id + "/run") Run this test and and submit your results
+                a(href="/tests/"+testIdHelper.makeSafe(test.id)+"/run") Run this test and and submit your results
 
         table
             caption Details

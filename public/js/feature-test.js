@@ -10,6 +10,7 @@ var addOutputButton = document.querySelector('#add-output');
 var testingPrefForm = document.querySelector('form.testing-pref');
 var ATBrowserSelect = testingPrefForm.querySelector('select');
 var testUrl = window.location.pathname.replace(/\/run/, '');
+var testJsonURL = testUrl.replace(/__/g, '/');
 
 function initTestingPrefForm()
 {
@@ -442,7 +443,8 @@ function initFeatureTest() {
 }
 
 // Fetch all of the required data
-getJson(testUrl +'.json', function(data) {
+var test_id =
+getJson(testJsonURL +'.json', function(data) {
 	test = data;
 	getJson('/ATBrowsers.json', function(data) {
 		ATBrowsers = data;

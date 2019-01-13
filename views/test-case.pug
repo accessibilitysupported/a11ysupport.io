@@ -1,4 +1,5 @@
 extends layout
+include test-case/assertion
 
 block content
     div.content-wrapper
@@ -7,6 +8,9 @@ block content
             div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
                 p= 'Current support: ' + test.core_support_string
 
+            if (test.assertion)
+                p Assertion: #[+assertion(test.assertion)]
+
             p!= md.renderInline(test.description)
 
             if (test.type === "aam" || test.type === "custom")
@@ -14,7 +18,7 @@ block content
                 pre.test-html
                     code= testHTML
 
-            a(href="/tests/" + test.id + "/run") Run this test and and submit your results
+            a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
 
             h2 On this page
             ul
@@ -54,7 +58,7 @@ block content
                                 else
                                     span -
                             td
-                                a(href="/tests/"+test.id+"/"+at+"/"+browser) More information
+                                a(href="/tests/"+testIdHelper.makeSafe(test.id)+"/"+at+"/"+browser) More information
 
             h3(id="extended-support") Extended Support
             p These are less common combinations
@@ -88,7 +92,7 @@ block content
                                 else
                                     span -
                             td
-                                a(href="/tests/" + test.id + "/" + at.id + "/" + browser) More information
+                                a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + at.id + "/" + browser) More information
             h2(id="history") History
             ul
                 each record in test.history
@@ -102,7 +106,7 @@ block content
             ul
                 each featureInfo in features
                     li
-                        a(href="/tech/" + featureInfo.techId + '/' + featureInfo.featureId) #{featureInfo.title}
+                        a(href="/tech/" + featureInfo.featureId) #{featureInfo.title}
 
             h2 Is something not right?
             p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.

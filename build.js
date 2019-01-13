@@ -1,10 +1,12 @@
 let fs = require('fs');
 let rimraf = require('rimraf');
+let glob = require('glob');
 
 let helper = require(__dirname+'/src/feature-helper');
 let tech = require(__dirname+"/data/tech.json");
 let ATBrowsers = require(__dirname+"/data/ATBrowsers.json");
 let testMap = {};
+let featureMap = {};
 let allFeatures = [];
 
 /**
@@ -38,6 +40,12 @@ let getFeatures = function(techId, buildDir) {
 		let id = file.slice(0, -5);
 		let failingTests = [];
 
+		// search the test map for tests that include this id.
+		feature.tests = [];
+		if (featureMap[techId+'/'+id]) {
+			feature.tests = featureMap[techId+'/'+id];
+		}
+
 		// Initialize the feature object to add missing data points and generate support strings
 		helper.initalizeFeatureObject(feature);
 		feature.id = techId + '/' + id;
@@ -51,10 +59,14 @@ let getFeatures = function(techId, buildDir) {
 			if (!testMap[feature.tests[testIndex].id]) {
 				testMap[feature.tests[testIndex].id] = [];
 			}
-			testMap[feature.tests[testIndex].id].push({
-				techId: techId,
-				featureId: id,
-				title: feature.title
+
+			// Slow, but it works. Room for optimization
+			testMap[feature.tests[testIndex].id].forEach(function(data, index) {
+				if (data.featureId !== feature.id) {
+					return;
+				}
+				testMap[feature.tests[testIndex].id][index].techId = techId;
+				testMap[feature.tests[testIndex].id][index].title = feature.title;
 			});
 
 			//populate failing tests
@@ -94,21 +106,49 @@ fs.mkdirSync(buildDir);
 fs.mkdirSync(buildDir+'/tech');
 fs.mkdirSync(buildDir+'/tests');
 
-let testFiles = fs.readdirSync(dataDir+'/tests');
+//let testFiles = fs.readdirSync(dataDir+'/tests');
 let supportPoints = [];
+
+let testFiles = glob.sync(dataDir+'/tests/**/*.json');
 
 testFiles.forEach(function(file) {
 	if (!file.endsWith('.json')) {
 		return;
 	}
 
-	let test = require(dataDir+'/tests/'+file);
+	// make the file name relative to the build dir
+	file = file.replace(dataDir+'/tests/', '');
+
+	// load the test
+    let test = require(dataDir+'/tests/'+file);
 
 	// Set the test ID to the file name minus the extension
 	test.id = file.slice(0, -5);
 
+	if (!test.html_file) {
+		// html_file property isn't set. Map it to it's ID by default.
+		test.html_file = test.id+'.html';
+	}
+
 	// Set up the test case
 	helper.initalizeTestCase(test);
+
+	test.features.forEach(feature_id => {
+		if (!testMap[test.id]) {
+			testMap[test.id] = [];
+		}
+		testMap[test.id].push({
+			// link tests with features here
+			featureId: feature_id,
+		});
+
+		// populate the featuremap
+		if (!featureMap[feature_id]) {
+			featureMap[feature_id] = [];
+		}
+
+		featureMap[feature_id].push(test.id);
+	});
 
 	for(let at in ATBrowsers.at) {
 		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
@@ -117,6 +157,14 @@ testFiles.forEach(function(file) {
 		});
 	}
 
+	// ensure the path exists
+	let path = buildDir+'/tests/'+file;
+	path = path.substring(0, path.lastIndexOf("/"));
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path, { recursive: true });
+    }
+
+    // now write the file
 	fs.writeFileSync(buildDir+'/tests/'+file, JSON.stringify(test, null, 2));
 });
 

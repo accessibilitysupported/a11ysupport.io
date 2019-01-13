@@ -1,4 +1,5 @@
 extends layout
+include test-case/assertion
 
 block content
   div.content-wrapper
@@ -16,17 +17,28 @@ block content
           caption Test Overview
           tr
             th Test
+            th Assertion
             th Support
           each test, index in data.tests
               tr
                 td
-                  a(href='/tests/'+test.id) #{test.title}
+                  a(href='/tests/'+testIdHelper.makeSafe(test.id)) #{test.title}
+                td
+                  if (test.assertion)
+                    | #[+assertion(test.assertion)]
+                  else
+                    | custom test
                 td= test.core_support_string
 
         h2 Summary of tests
         each test, index in data.tests
-          a(href='/tests/' + test.id)
+          a(href='/tests/' + testIdHelper.makeSafe(test.id))
             h3(id='support-table-'+test.id)= 'Support for ' + test.title
+          p Assertion:
+            if (test.assertion)
+              | #[+assertion(test.assertion)]
+            else
+              | custom test
           table(aria-labelledby='support-table-'+test.id)
             tr
               th AT
