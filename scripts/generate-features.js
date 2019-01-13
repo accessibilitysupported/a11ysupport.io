@@ -73,17 +73,8 @@ fetch('https://raw.githubusercontent.com/w3c/elements-of-html/master/elements.js
 fetch('https://raw.githubusercontent.com/jamiebuilds/aria-data/master/data.json')
 	.then(res => res.json())
 	.then(function(json) {
-
-		// Temporary whitelist to keep things at a minimum during prototyping
-		let whitelist_roles = ['alert'];
-		let whitelist_attributes = ['aria-hidden', 'aria-disabled', 'aria-roledescription', 'aria-controls', 'aria-details', 'aria-expanded', 'aria-haspopup'];
-
 		for (let key in json.roles) {
 			let role = json.roles[key];
-
-			if (!whitelist_roles.includes(role.name)) {
-				continue;
-			}
 
 			let id = role.name + '_role';
 			let title = role.name + ' role';
@@ -94,10 +85,6 @@ fetch('https://raw.githubusercontent.com/jamiebuilds/aria-data/master/data.json'
 
 		for (let key in json.attributes) {
 			let attribute = json.attributes[key];
-
-			if (!whitelist_attributes.includes(attribute.name)) {
-				continue;
-			}
 
 			let id = attribute.name + '_attribute';
 			let title = attribute.name + ' attribute';
