@@ -5,6 +5,7 @@ let sanitize = require("sanitize-filename");
 let createError = require('http-errors');
 let MarkdownIt = require('markdown-it');
 let md = new MarkdownIt().use(require('markdown-it-anchor'));
+let testIdHelper = require('../src/test-id-helper.js');
 
 /* GET feature listing. */
 router.get('/', function(req, res, next) {
@@ -30,7 +31,8 @@ router.get('/:techId', function(req, res, next) {
 		title: req.params.techId + ' | Accessibility Support',
 		techId: req.params.techId,
 		tech: tech[req.params.techId],
-		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		testIdHelper: testIdHelper
 	});
 });
 
@@ -51,7 +53,8 @@ router.get('/:techId/:featureId', function(req, res, next) {
 		featureId: req.params.featureId,
 		data: feature_object,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
-		md: md
+		md: md,
+		testIdHelper: testIdHelper
 	});
 });
 

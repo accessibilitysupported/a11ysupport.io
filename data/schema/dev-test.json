@@ -100,21 +100,6 @@
         }
       },
       "required": ["date", "message"]
-    },
-    "state_or_property": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        },
-        "optional": {
-          "type": "boolean"
-        }
-      },
-      "required": ["title", "value"]
     }
   },
   "properties": {
@@ -123,8 +108,8 @@
     },
     "type": {
       "type": "string",
-      "enum": ["aam", "external", "custom"],
-      "description": "The type indicates the kind of test. An AAM test checks for proper accessibility api mappings according to the AAM standards. An external test brings in the results from a test published on another site. A custom test describes the exact expectations and steps."
+      "enum": ["assertion", "external", "custom"],
+      "description": "The type indicates the kind of test. An assertion test provides an assertion for a single aspect of the html example. All tests should be assertions. The other types are experimental."
     },
     "title": {
       "type": "string"
@@ -138,6 +123,17 @@
       "items": {
         "type": "string"
       }
+    },
+    "features": {
+      "description": "An array of feature IDs associated with this test. Multiple feature IDs is very rare, but technically supported. It is best to keep one test scoped to one feature.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "html_file": {
+      "type": "string",
+      "description": "path relative to the /data/tests/html directory. References the file that contains the test html."
     },
     "url": {
       "type": "object",
@@ -173,31 +169,40 @@
     "css_target": {
       "type": "string"
     },
-    "expected": {
+    "assertion": {
       "type": "object",
       "properties": {
-        "role": {
-          "type": "string"
+        "aspect": {
+          "enum": [
+            "role",
+            "name",
+            "description",
+            "property",
+            "state",
+            "other"
+          ]
         },
-        "accessible_name": {
-          "type": "string"
+        "title": {
+          "type": "string",
+          "description": "Only needed for property, state, or other"
         },
-        "accessible_description": {
+        "value": {
           "type": "string"
-        },
-        "states_and_properties": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/state_or_property"
-          }
         }
       },
       "anyOf": [
-        {"required": ["role"]},
-        {"required": ["accessible_name"]},
-        {"required": ["accessible_description"]},
-        {"required": ["states_and_properties"]}
+        {
+          "properties": {
+            "aspect": { "enum": ["state", "property", "other"] }
+          },
+          "required": ["aspect", "title", "value"]
+        },
+        {
+          "properties": {
+            "aspect": { "enum": ["role", "name", "description"] }
+          },
+          "required": ["aspect", "value"]
+        }
       ]
     },
     "history": {
@@ -254,6 +259,7 @@
   },
   "required": [
     "title",
+    "features",
     "type",
     "description",
     "supports_sr",
@@ -264,9 +270,9 @@
   "anyOf": [
     {
       "properties": {
-        "type": { "enum": ["aam"] }
+        "type": { "enum": ["assertion"] }
       },
-      "required": ["expected", "css_target"]
+      "required": ["assertion", "css_target"]
     },
     {
       "properties": {

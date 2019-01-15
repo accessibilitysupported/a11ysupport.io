@@ -60,9 +60,9 @@ Details for the test case should include:
 
 We support three kinds of test cases:
 
-1. AAM test - usually used to verify proper mapping of the accessible name, description, states, and properties. Can include custom instructions for tests that depend on specific interactions.
-2. External test - Used to include the rests of an external test. These tests should include details on methodology, as well as detailed information about AT, Browser, and OS versions.
-3. Custom test - these tests check for functionality not covered by an AAM test. This might include dynamic functionality such as aria-live and always requires custom instructions to be developed.
+1. Assertion test - usually used to verify proper mapping of the accessible name, description, states, and properties. Can include custom instructions for tests that depend on specific interactions.
+2. External test - (experimental) Used to include the rests of an external test. These tests should include details on methodology, as well as detailed information about AT, Browser, and OS versions.
+3. Custom test - (experimental) these tests check for functionality not covered by an AAM test. This might include dynamic functionality such as aria-live and always requires custom instructions to be developed.
 
 All new test cases must be approved by at least one other person.
 

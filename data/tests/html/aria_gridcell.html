@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aria gridcell</title>
+</head>
+<body>
+<p>Use the screen reader to announce the target element.</p>
+<p><strong>Note:</strong> Most JavaScript functionality has not been implemented for this ARIA pattern. Using arrow keys will not navigate the grid. Only the target cell will receive focus.</p>
+
+<div role="grid" aria-readonly="true">
+
+    <div role="row">
+        <div role="columnheader">
+            Date
+        </div>
+        <div role="columnheader">
+            Name
+        </div>
+    </div>
+
+
+    <div role="row">
+        <div role="gridcell" tabindex="-1">
+            2018-01-01
+        </div>
+        <div role="gridcell" id="target" tabindex="0">
+            target
+        </div>
+    </div>
+    <div role="row">
+        <div role="gridcell" tabindex="-1">
+            2018-01-02
+        </div>
+        <div role="gridcell" tabindex="-1">
+            Alex
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
