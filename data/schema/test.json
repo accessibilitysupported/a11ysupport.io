@@ -150,7 +150,7 @@
       "anyOf": [
         {
           "properties": {
-            "aspect": { "enum": ["state", "property", "other"] }
+            "aspect": { "enum": ["state", "property"] }
           },
           "required": ["aspect", "title", "value"]
         },
@@ -159,6 +159,12 @@
             "aspect": { "enum": ["role", "name", "description"] }
           },
           "required": ["aspect", "value"]
+        },
+        {
+          "properties": {
+            "aspect": { "enum": ["other"] }
+          },
+          "required": ["value"]
         }
       ]
     },

@@ -1,0 +1,120 @@
+{
+  "type": "assertion",
+  "title": "ARIA dialog role must use document mode",
+  "description": "This test ensures the dialog role does not invoke application mode in screen readers. The default mode (document) must be used. [ARIA 1.0 had language for the dialog role](https://www.w3.org/TR/wai-aria-1.0/roles#dialog) that could suggest that application mode must be invoked. However, that language was [clarified in aria 1.1](https://www.w3.org/TR/wai-aria-1.1/#dialog).",
+  "supports_sr": true,
+  "supports_vc": false,
+  "css_target": "#target",
+  "assertion": {
+    "aspect": "other",
+    "value": "The dialog role must use document mode"
+  },
+  "features": ["aria/dialog_role"],
+  "history": [
+    {
+      "date": "2019-01-18",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.4.1",
+          "browser_version": "64.0.2",
+          "os_version": "1809",
+          "date": "2019-01-19",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "target",
+              "result": "pass"
+            }
+          ],
+          "notes": "An element in the dialog had to receive focus before the contents of the dialog would be read by NVDA."
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "ie": {
+          "at_version": "2018.1811.2",
+          "browser_version": "11.253",
+          "os_version": "1809",
+          "date": "2019-01-19",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "target",
+              "result": "pass"
+            }
+          ]
+        },
+        "firefox": {
+          "at_version": "2018.1811.2",
+          "browser_version": "64.0.2",
+          "os_version": "1809",
+          "date": "2019-01-19",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "target target",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.2",
+          "browser_version": "12.0.2",
+          "os_version": "10.14.2",
+          "date": "2018-10-26",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "target",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1809",
+          "browser_version": "44.17763",
+          "os_version": "1809",
+          "date": "2018-01-18",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "target",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.1.2",
+          "browser_version": "12.1.2",
+          "os_version": "12.1.2",
+          "date": "2018-01-18",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "target",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
