@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ARIA alertdialog role document mode test</title>
+</head>
+<body>
+<button>Go to Dialog</button>
+<div role="alertdialog" aria-label="test">
+    <h1 tabindex="-1">Test Dialog</h1>
+    <p>paragraph before</p>
+    <p id="target">target</p>
+    <p>paragraph after</p>
+</div>
+
+<script>
+    /** It is necessary to send focus to an element inside of the dialog in order for some screen readers (NVDA) to read its contents. **/
+    document.querySelector('button').addEventListener("click", function(){
+        document.querySelector('h1').focus();
+    });
+</script>
+</body>
+</html>
