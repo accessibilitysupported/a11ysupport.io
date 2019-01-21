@@ -1,5 +1,7 @@
 mixin assertion(assertion)
-    if assertion.title
+    if ['state', 'property'].includes(assertion.aspect)
         span #[strong #{assertion.title}] #[strong #{assertion.aspect}] is conveyed as #[strong "#{assertion.value}"]
-    else
+    else if ['role', 'name', 'description'].includes(assertion.aspect)
         span #[strong #{assertion.aspect}] is conveyed as #[strong "#{assertion.value}"]
+    else
+        span #[strong "#{assertion.value}]"
