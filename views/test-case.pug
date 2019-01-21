@@ -13,19 +13,22 @@ block content
 
             p!= md.renderInline(test.description)
 
-            if (test.type === "assertion" || test.type === "custom")
-                h2 Test HTML
-                pre.test-html
-                    code= testHTML
-
             a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
 
             h2 On this page
             ul
+                if (test.type === "assertion" || test.type === "custom")
+                    li
+                        a(href="#test-html") Test HTML
                 li
                     a(href="#support-tables") Support tables
                 li
                     a(href="#history") History
+
+            if (test.type === "assertion" || test.type === "custom")
+                h2(id="test-html") Test HTML
+                pre.test-html
+                    code= testHTML
 
             h2(id="support-tables") Support tables
 
