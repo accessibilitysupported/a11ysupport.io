@@ -1,0 +1,44 @@
+{
+  "type": "assertion",
+  "title": "ARIA button name from aria-label",
+  "description": "This test ensures that the accessible name is derived from the aria-label attribute.",
+  "supports_sr": true,
+  "supports_vc": true,
+  "html_file": "aria/aria_button_examples.html",
+  "css_target": "#target_1",
+  "assertion": {
+    "aspect": "name",
+    "value": "target 1"
+  },
+  "features": ["aria/button_role"],
+  "history": [
+    {
+      "date": "2019-02-08",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "dragon_win": {
+      "browsers": {
+        "ie": {
+          "at_version": "15.30",
+          "browser_version": "11.253",
+          "os_version": "1809",
+          "date": "2018-11-15",
+          "output": [
+            {
+              "command": "activate_actionable_item",
+              "output": "(target was clicked)",
+              "result": "pass"
+            },
+            {
+              "command": "click_type",
+              "output": "(all elements of type were flagged)",
+              "result": "pass"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
