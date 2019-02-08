@@ -42,9 +42,9 @@ block content
                 p Please be sure to read the full instructions before completing the test.
 
                 if (test.type === "assertion")
+                    h2 Step 2: Follow these instructions
+                    h3 Step 2.1: If testing screen reader software
                     if (test.supports_sr)
-                        h2 Step 2: Follow these Screen Reader Instructions
-
                         include test-case/locate-note.pug
 
                         ol
@@ -61,9 +61,10 @@ block content
                             li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
 
                         p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
-
+                    else
+                        p This test does not support screen reader software
+                    h3 Step 2.2: If testing voice command software
                     if (test.supports_vc)
-                        h2 Follow these Voice Command Instructions
                         ol
                             li Launch the Voice Command software that you want to test with.
                             li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
@@ -77,6 +78,8 @@ block content
                             else
                                 li The test passes if the Voice Command software is able to locate and activate the target element.
                                 li Use the form to create an issue for the given browser/voice command software combination.
+                    else
+                        p This test does not support voice control software
 
                     h3 Test page
                     iframe(src='/tests/html/' + test.html_file aria-label="the test page")
