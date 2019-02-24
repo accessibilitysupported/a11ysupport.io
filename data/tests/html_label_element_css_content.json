@@ -9,7 +9,10 @@
     "aspect": "name",
     "value": "This is generated content"
   },
-  "features": ["css/generated_content", "html/label_element"],
+  "features": [
+    "css/generated_content",
+    "html/label_element"
+  ],
   "history": [
     {
       "date": "2018-07-06",
@@ -30,6 +33,10 @@
     {
       "date": "2018-12-17",
       "message": "Removed the passing 'next focusable item' commands because we are testing CSS generated content, not the HTML input element."
+    },
+    {
+      "date": "2019-02-24",
+      "message": "jaws/firefox support updated"
     }
   ],
   "at": {
@@ -48,6 +55,25 @@
           "os_version": "17134",
           "support": "y",
           "date": "2018-07-21"
+        },
+        "firefox": {
+          "at_version": "2019",
+          "browser_version": "65.0.1",
+          "os_version": "1809",
+          "date": "2019-02-24",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "\"This is generated content, clickable\"",
+              "result": "pass"
+            },
+            {
+              "command": "next_focusable_item",
+              "output": "\"This is generated content, edit\"",
+              "result": "pass"
+            }
+          ],
+          "notes": "all content from the label (whether generated or not) becomes part of the input's accessible name and is announced by JAWS 2019 with Firefox 65.0.1 in both browse and forms mode."
         }
       }
     },
