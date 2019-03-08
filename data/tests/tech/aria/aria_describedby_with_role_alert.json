@@ -1,0 +1,146 @@
+{
+  "type": "assertion",
+  "title": "aria-describedby attribute that references role=\"alert\"",
+  "description": "This test ensures that the accessible description is computed correctly when `aria-describedby` references an element with `role=\"alert\"`.",
+  "supports_sr": true,
+  "supports_vc": false,
+  "html_file": "aria/aria_describedby_with_role_alert.html",
+  "css_target": "#target",
+  "assertion": {
+    "aspect": "description",
+    "value": "error"
+  },
+  "features": ["aria/aria-describedby_attribute"],
+  "history": [
+    {
+      "date": "2019-02-08",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "jaws": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.1811.2",
+          "browser_version": "60",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "Example label, edit, error",
+              "result": "pass"
+            }
+          ],
+          "date": "2019-03-08"
+        },
+        "chrome": {
+          "at_version": "2018.1811.2",
+          "browser_version": "72",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "Example label, edit, error",
+              "result": "pass"
+            }
+          ],
+          "date": "2019-03-08"
+        },
+        "ie": {
+          "at_version": "2018.1811.2",
+          "browser_version": "11",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "Example label, edit, error",
+              "result": "pass"
+            }
+          ],
+          "date": "2019-03-08"
+        },
+        "edge": {
+          "at_version": "2018.1811.2",
+          "browser_version": "44",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "Example label, edit",
+              "result": "fail"
+            }
+          ],
+          "date": "2019-03-08"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1809",
+          "browser_version": "44.17763",
+          "os_version": "1809",
+          "date": "2019-03-08",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "Example label, editing",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.4.1",
+          "browser_version": "65.0.2",
+          "os_version": "1804",
+          "date": "2019-03-08",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "Example label edit has auto complete",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.1.4",
+          "browser_version": "12.1.4",
+          "os_version": "12.1.4",
+          "date": "2019-03-08",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Example label, edit text",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.3",
+          "browser_version": "12.0.3",
+          "os_version": "10.14.3",
+          "date": "2019-03-08",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "Example label, edit text",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
