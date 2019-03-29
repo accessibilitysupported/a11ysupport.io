@@ -17,11 +17,10 @@ block content
         each test, index in data.tests
           a(href='/tests/' + testIdHelper.makeSafe(test.id))
             h3(id='support-table-'+test.id)= 'Support for ' + test.title
-          p Assertion:
-            if (test.assertion)
-              | #[+assertion(test.assertion)]
-            else
-              | custom test
+          if (test.assertion)
+            p Assertion: #[+assertion(test.assertion)]
+          else
+            p Assertion:custom test
           table(aria-labelledby='support-table-'+test.id)
             tr
               th AT
