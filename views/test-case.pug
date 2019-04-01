@@ -27,8 +27,11 @@ block content
 
             if (test.type === "assertion" || test.type === "custom")
                 h2(id="test-html") Test HTML
-                pre.test-html
-                    code= testHTML
+                if (testHTML.split(/\r\n|\r|\n/).length < 30)
+                    pre.test-html
+                        code= testHTML
+                else
+                    p HTML source is too long to display here.
 
             h2(id="support-tables") Support tables
 

@@ -148,8 +148,11 @@ block content
                 if (test.type === "assertion" || test.type === "custom")
                     h2 For reference: Test HTML
                     p This is just for reference. You likely won't need to use this.
-                    pre.test-html
-                        code= testHTML
+                    if (testHTML.split(/\r\n|\r|\n/).length < 30)
+                        pre.test-html
+                            code= testHTML
+                    else
+                        p HTML source is too long to display here.
 
         div.sidebar
             h2 Related Features
