@@ -40,6 +40,13 @@ block content
         p Sorry, this feature does not have any tests. Please feel free to propose one on GitHub.
     if data.references
       div.sidebar
+        if data.related_issues && data.related_issues.length
+          h2 Related AT or browser issues
+          ul
+            each link in data.related_issues
+              li
+                a(href=link.url) #{link.title}
+
         h2 Is something not right?
         p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
         a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature

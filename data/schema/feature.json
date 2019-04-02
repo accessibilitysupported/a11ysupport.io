@@ -3,7 +3,18 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "definitions": {
-
+    "url": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "url"]
+    }
   },
   "properties": {
     "id": {
@@ -15,6 +26,13 @@
     "description": {
       "type": "string",
       "title": "The Description Schema"
+    },
+    "related_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/url"
+      }
     },
     "keywords": {
       "description": "Key words that are used to help find features in a search",
