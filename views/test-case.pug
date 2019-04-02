@@ -59,7 +59,10 @@ block content
                                     ul
                                         each output in test.at[at].browsers[browser].output
                                             li
-                                                strong= "("+output.result+") " + output.command + ': '
+                                                if (ATBrowsers.at[at].commands[output.command])
+                                                    strong= "(" + output.result + ") command: " + ATBrowsers.at[at].commands[output.command].command + ": "
+                                                else
+                                                    strong= "(" + output.result + ") " + output.command + ": "
                                                 span= output.output
                                 else
                                     span -
@@ -93,7 +96,10 @@ block content
                                     ul
                                         each output in test.at[at.id].browsers[browser].output
                                             li
-                                                strong= "("+output.result+") " + output.command
+                                                if (ATBrowsers.at[at.id].commands[output.command])
+                                                    strong= "("+output.result+") command: " + ATBrowsers.at[at.id].commands[output.command].command + ": "
+                                                else
+                                                    strong= "("+output.result+") " + output.command + ": "
                                                 span= output.output
                                 else
                                     span -
