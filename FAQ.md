@@ -1,10 +1,11 @@
 # FAQ
 
 1. [What is this?](#what-is-this%3F)
-1. [Can't this be automated?](#cant-this-be-automated%3F)
-2. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
-3. [Who runs this?](#who-runs-this%3F)
-4. [What are the levels of support?](#what-are-the-levels-of-support%3F)
+1. [What is the status of this project?](#what-is-the-status-of-this-project%3F)
+2. [Can't this be automated?](#cant-this-be-automated%3F)
+3. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
+4. [Who runs this?](#who-runs-this%3F)
+5. [What are the levels of support?](#what-are-the-levels-of-support%3F)
 
 ## What is this?
 
@@ -20,6 +21,10 @@ There are some other projects that are similar to this, however, most of them:
 * Do not disclose exactly how tests are performed
 * Only tests a specific technology (or a subset of that technology)
 * Only tests the accessibility API layer, not the end result of the AT
+
+## What is the status of this project?
+
+This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project as this but with more community support and detailed assertions and methodology. The ARIA-AT group is still in the planning phases and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
 
 ## Can't this be automated?
 
