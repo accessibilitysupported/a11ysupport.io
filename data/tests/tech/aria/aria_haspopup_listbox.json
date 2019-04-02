@@ -1,0 +1,186 @@
+{
+  "type": "assertion",
+  "title": "aria-haspopup=\"listbox\" attribute",
+  "description": "Tests the aria-haspopup=\"listbox\" attribute.",
+  "supports_sr": true,
+  "supports_vc": false,
+  "html_file": "aria/aria-haspopup_examples.html",
+  "css_target": "button[aria-haspopup=\"listbox\"]",
+  "assertion": {
+    "aspect": "property",
+    "title": "aria-haspopup",
+    "value": "listbox"
+  },
+  "features": ["aria/aria-haspopup_attribute"],
+  "history": [
+    {
+      "date": "2019-04-02",
+      "message": "Test created"
+    }
+  ],
+  "at": {
+    "jaws": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2018.1811.2",
+          "browser_version": "66",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button menu",
+              "result": "fail"
+            }
+          ],
+          "date": "2019-04-02"
+        },
+        "chrome": {
+          "at_version": "2018.1811.2",
+          "browser_version": "73",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button menu",
+              "result": "fail"
+            }
+          ],
+          "date": "2019-04-02"
+        },
+        "ie": {
+          "at_version": "2018.1811.2",
+          "browser_version": "11",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button menu",
+              "result": "fail"
+            }
+          ],
+          "date": "2019-04-02"
+        },
+        "edge": {
+          "at_version": "2018.1811.2",
+          "browser_version": "44",
+          "os_version": "1809",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button",
+              "result": "fail"
+            }
+          ],
+          "date": "2019-04-02"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1809",
+          "browser_version": "44.17763",
+          "os_version": "1809",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "firefox": {
+          "at_version": "2019.0.1",
+          "browser_version": "66",
+          "os_version": "1809",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button subMenu",
+              "result": "fail"
+            }
+          ]
+        },
+        "chrome": {
+          "at_version": "2019.0.1",
+          "browser_version": "73",
+          "os_version": "1809",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button subMenu",
+              "result": "fail"
+            }
+          ]
+        },
+        "edge": {
+          "at_version": "2019.0.1",
+          "browser_version": "44.17763",
+          "os_version": "1809",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button",
+              "result": "fail"
+            }
+          ]
+        },
+        "ie": {
+          "at_version": "2019.0.1",
+          "browser_version": "11",
+          "os_version": "1809",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button subMenu",
+              "result": "fail"
+            }
+          ]
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.2",
+          "browser_version": "12.2",
+          "os_version": "12.2",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_item",
+              "output": "action button has popup",
+              "result": "partial"
+            }
+          ]
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.4",
+          "browser_version": "12.1",
+          "os_version": "10.14.4",
+          "date": "2019-04-02",
+          "output": [
+            {
+              "command": "next_focusable_item",
+              "output": "action button has popup",
+              "result": "partial"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -2,12 +2,22 @@
   "id": "aria-haspopup_attribute",
   "title": "aria-haspopup attribute",
   "type": "attribute",
-  "description": "Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.",
+  "description": "This attribute indicates the availability and type of interactive popup element, such as menu or dialog.\n Aria 1.0 values are well supported, such as `true`, `false`, and `menu` (which is the same as `true`). New values such as `dialog`, `grid`, `listbox`, and `tree` are not supported. This lack of support might cause significant issues for screen reader users. For example, `aria-haspopup=\"listbox\"` being announced as `aria-haspopup=\"menu\"` could be very misleading and lead users to think that a `listbox` is a `menu`.",
+  "related_issues": [
+    {
+      "title": "NVDA issue for ARIA 1.1 values",
+      "url": "https://github.com/nvaccess/nvda/issues/8235"
+    },
+    {
+      "title": "JAWS issue for ARIA 1.1 values",
+      "url": "https://github.com/FreedomScientific/VFO-standards-support/issues/33"
+    }
+  ],
   "references": [
     {
       "title": "ARIA spec for aria-haspopup",
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup"
     }
   ],
-  "date_updated": "2019-01-06"
+  "date_updated": "2019-04-02"
 }
