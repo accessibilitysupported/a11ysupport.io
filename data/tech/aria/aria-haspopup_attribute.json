@@ -2,7 +2,7 @@
   "id": "aria-haspopup_attribute",
   "title": "aria-haspopup attribute",
   "type": "attribute",
-  "description": "This attribute indicates the availability and type of interactive popup element, such as menu or dialog.\n Aria 1.0 values are well supported, such as `true`, `false`, and `menu` (which is the same as `true`). New values such as `dialog`, `grid`, `listbox`, and `tree` are not supported. This lack of support might cause significant issues for screen reader users. For example, `aria-haspopup=\"listbox\"` being announced as `aria-haspopup=\"menu\"` could lead users to think that something the behaves like a native `<select>` (`listbox`) is a `menu`.",
+  "description": "This attribute indicates the availability and type of interactive popup element, such as menu or dialog.\n\n Aria 1.0 values are well supported, such as `true`, `false`, and `menu` (which is the same as `true`). New values such as `dialog`, `grid`, `listbox`, and `tree` are not supported. This lack of support might cause significant issues for screen reader users. For example, `aria-haspopup=\"listbox\"` being announced as `aria-haspopup=\"menu\"` could lead users to think that something the behaves like a native `<select>` (`listbox`) is a `menu`. \n\n VoiceOver support is marked as partial because it always announces the property as either 'popup button' or 'shows popup', and does not try to convey what type of popup will be displayed. This is less misleading than screen readers that announce everything as `menu`, but does not provide full support.",
   "related_issues": [
     {
       "title": "NVDA issue for ARIA 1.1 values",

@@ -7,7 +7,7 @@ block content
       h1= data.title + ' (' + data.techId + ')'
       div(class="current-support-container "+data.core_support_string.replace(" ", "-"))
         p= 'Support level: ' + data.core_support_string
-      p!= md.renderInline(data.description)
+      p!= md.render(data.description)
 
       if data.recommendation
         p= "Recommendation: " + data.recommendation
