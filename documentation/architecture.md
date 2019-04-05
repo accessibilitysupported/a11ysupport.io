@@ -101,9 +101,9 @@ Each `browser` object then contains
 
 The `output` object contains:
 
-* `command` (string|required): 
-* `output` (string|required):
-* `result` (string|required):
+* `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATVBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
+* `output` (string|required): the output of the result.
+* `result` (enum|required): One of `pass`, `fail`, or `partial`.
 
 ## Build process
 
