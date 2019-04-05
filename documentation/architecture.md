@@ -39,7 +39,21 @@ Within the `/data/tech` directory are subfolders for each tech ID found in `/dat
 
 #### Tech features
 
-TODO: describe a technology feature.
+Taking `aria-haspopup` as an example, the associated technology object is located at [/data/tech/aria/aria-has-popup_attribute.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/tech/aria/aria-haspopup_attribute.json). The trailing '_attribute' part of the name is not necessary, but helps track the type of feature when browsing the folder.
+
+Within the JSON object we have the following properties
+
+* `id` (optional): this is not required and must match the file name. If it is not defined here, the build process will define it using the file name.
+* `title` (required): a human readable title for the feature.
+* `type` (optional): the type of feature. Usually one of `element`, `role`, or `attribute`.
+* `description` (required): a human readable description of the feature in markdown format.
+* `related_issues` (optional): an array of url objects that point to related issues in browsers or assistvie technologies.
+* `references` (optional): an array of url objects that point to specifications or other resources.
+* `reccomendation` (optional): a markdown string that descibes any reccomendations for authors.
+* `date_updated` (required): the date that this feature object was last updated.
+* `keywords` (optional): array of strings used to help surface search results
+* `keywords_string` (built): a string that is created during the build process by imploding the `keywords` array.
+* `tests` (built): this process will be created during the build process and contains an array of associated test objects. This makes it easier to build the front end.
 
 ### Test data model
 
