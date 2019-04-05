@@ -47,20 +47,24 @@
     "recommendation": {
       "type": "string"
     },
+    "type": {
+      "type": "string"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/url"
+      }
+    },
     "tests": {
       "type": "array",
       "items": {
         "$ref": "test.json"
       }
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
     }
   },
   "required": [
-    "title", "description", "tests"
+    "id", "title", "description", "tests"
   ]
 }
