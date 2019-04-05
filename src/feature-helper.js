@@ -48,7 +48,7 @@ helper.initalizeFeatureObject = function(featureObject) {
 			let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
 			validBrowsers.forEach(function(browser) {
 				//Set support arrays
-				let support = featureObject.tests[testIndex].at[at].browsers[browser].support;
+				let support = featureObject.tests[testIndex].results[at].browsers[browser].support;
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 					if (ATBrowsers.core_at.includes(at)) {
 						if (!featureObject.core_support_by_at[at]) {
@@ -107,29 +107,29 @@ helper.initalizeTestCase = function (testCase) {
 	//Add missing AT
 	for(let at in ATBrowsers.at){
 		//Add an empty versions array if we don't have any info on versions
-		if (!testCase.at.hasOwnProperty(at)) {
-			testCase.at[at] = {
+		if (!testCase.results.hasOwnProperty(at)) {
+			testCase.results[at] = {
 				"browsers": {},
 			}
 		}
 
 		//Set this ID so we can use it later with a `this` scope where `this` is the AT object
-		testCase.at[at].id = at;
-		testCase.at[at].core_support = [];
-		testCase.at[at].core_support_string = 'unknown';
-		testCase.at[at].extended_support = [];
-		testCase.at[at].extended_support_string = 'unknown';
+		testCase.results[at].id = at;
+		testCase.results[at].core_support = [];
+		testCase.results[at].core_support_string = 'unknown';
+		testCase.results[at].extended_support = [];
+		testCase.results[at].extended_support_string = 'unknown';
 
 		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
 		validBrowsers.forEach(function(browser) {
-			if (!testCase.at[at].browsers) {
+			if (!testCase.results[at].browsers) {
 				//Add the missing browser property
-				testCase.at[at].browsers = {};
+				testCase.results[at].browsers = {};
 			}
 
-			if (!testCase.at[at].browsers[browser]) {
+			if (!testCase.results[at].browsers[browser]) {
 				//Add an empty array to make future operations easier
-				testCase.at[at].browsers[browser] = {
+				testCase.results[at].browsers[browser] = {
 					"support": "u", //unknown support
 					"id": browser
 				};
@@ -137,18 +137,18 @@ helper.initalizeTestCase = function (testCase) {
 
             if (!testCase.supports_sr && ATBrowsers.at[at].type === "sr") {
             	// This test case does not support this type of AT
-                testCase.at[at].browsers[browser].support = "na";
+                testCase.results[at].browsers[browser].support = "na";
             }
 
             if (!testCase.supports_vc && ATBrowsers.at[at].type === "vc") {
                 // This test case does not support this type of AT
-                testCase.at[at].browsers[browser].support = "na";
+                testCase.results[at].browsers[browser].support = "na";
             }
 
-			if (testCase.at[at].browsers[browser].output) {
+			if (testCase.results[at].browsers[browser].output) {
 				// Set the support property based on the result of the output.
 				var results = [];
-                testCase.at[at].browsers[browser].output.forEach(function(output) {
+                testCase.results[at].browsers[browser].output.forEach(function(output) {
                 	results.push(output.result);
 				});
 
@@ -157,81 +157,81 @@ helper.initalizeTestCase = function (testCase) {
 
                 if (results.length === 1 && results[0] === 'pass') {
                     // yes, it is supported
-                    testCase.at[at].browsers[browser].support = 'y';
+                    testCase.results[at].browsers[browser].support = 'y';
                 } else if (results.length === 1 && results[0] === 'fail') {
 					// no, it is not supported
-					testCase.at[at].browsers[browser].support = 'n';
+					testCase.results[at].browsers[browser].support = 'n';
 				} else {
                     // partial support (some pass, some fail)
-                    testCase.at[at].browsers[browser].support = 'p';
+                    testCase.results[at].browsers[browser].support = 'p';
                 }
 			}
 
 			// Set associated IDs to help define the support point
-			testCase.at[at].browsers[browser].id = browser;
-			testCase.at[at].browsers[browser].testId = testCase.id;
-			testCase.at[at].browsers[browser].ATId = at;
-			testCase.at[at].browsers[browser].test_title = testCase.title;
-			testCase.at[at].browsers[browser].support_string = helper.generateSupportString(testCase.at[at].browsers[browser].support)
+			testCase.results[at].browsers[browser].id = browser;
+			testCase.results[at].browsers[browser].testId = testCase.id;
+			testCase.results[at].browsers[browser].ATId = at;
+			testCase.results[at].browsers[browser].test_title = testCase.title;
+			testCase.results[at].browsers[browser].support_string = helper.generateSupportString(testCase.results[at].browsers[browser].support)
 
 			// Set support arrays
-			let support = testCase.at[at].browsers[browser].support;
+			let support = testCase.results[at].browsers[browser].support;
 			if (ATBrowsers.at[at].core_browsers.includes(browser)) {
-				testCase.at[at].core_support.push(support);
+				testCase.results[at].core_support.push(support);
 				if (ATBrowsers.core_at.includes(at)) {
 					testCase.core_support.push(support);
 				} else {
 					testCase.extended_support.push(support);
 				}
 			} else if (ATBrowsers.at[at].extended_browsers.includes(browser)) {
-				testCase.at[at].extended_support.push(support);
+				testCase.results[at].extended_support.push(support);
 				testCase.extended_support.push(support);
 			}
 
 			// Set the priority for manual testing
 			if (testCase.type === 'external') {
 				// External test, low or no priority. (no priority for now)
-				testCase.at[at].browsers[browser].priority = null;
+				testCase.results[at].browsers[browser].priority = null;
 			} else {
 				// Internal tests, higher priority
 				if (ATBrowsers.core_at.includes(at) && ATBrowsers.at[at].core_browsers.includes(browser)) {
 					// core support
 					if (support === 'u') {
 						// Unknown core support is always top priority
-						testCase.at[at].browsers[browser].priority = 0;
+						testCase.results[at].browsers[browser].priority = 0;
 					} else if (['n', 'p'].includes(support)) {
-						let date = moment(testCase.at[at].browsers[browser].date);
+						let date = moment(testCase.results[at].browsers[browser].date);
 						let diff = now.diff(date, 'days');
 						if (diff >= 6) {
 							// Older tests should have a higher priority
-							testCase.at[at].browsers[browser].priority = 1;
+							testCase.results[at].browsers[browser].priority = 1;
 						} else {
-							testCase.at[at].browsers[browser].priority = 2;
+							testCase.results[at].browsers[browser].priority = 2;
 						}
 					} else if (support === 'y') {
-						let date = moment(testCase.at[at].browsers[browser].date);
+						let date = moment(testCase.results[at].browsers[browser].date);
 						let diff = now.diff(date, 'days');
 						if (diff >= 12) {
 							// Older tests should have a higher priority
-							testCase.at[at].browsers[browser].priority = 3;
+							testCase.results[at].browsers[browser].priority = 3;
 						} else {
-							testCase.at[at].browsers[browser].priority = 4;
+							testCase.results[at].browsers[browser].priority = 4;
 						}
 					} else {
 						// na (no need to test)
-						testCase.at[at].browsers[browser].priority = null;
+						testCase.results[at].browsers[browser].priority = null;
 					}
 				} else {
 					// extended support
 					if (support === 'u') {
-						testCase.at[at].browsers[browser].priority = 5;
+						testCase.results[at].browsers[browser].priority = 5;
 					} else if (['n', 'p'].includes(support)) {
-						testCase.at[at].browsers[browser].priority = 6;
+						testCase.results[at].browsers[browser].priority = 6;
 					} else if (support === 'y') {
-						testCase.at[at].browsers[browser].priority = 7;
+						testCase.results[at].browsers[browser].priority = 7;
 					} else {
 						// na (no need to test)
-						testCase.at[at].browsers[browser].priority = null;
+						testCase.results[at].browsers[browser].priority = null;
 					}
 				}
 			}
@@ -239,8 +239,8 @@ helper.initalizeTestCase = function (testCase) {
 		});
 
 		//Set support strings
-		testCase.at[at].core_support_string = helper.generateSupportString(testCase.at[at].core_support);
-		testCase.at[at].extended_support_string = helper.generateSupportString(testCase.at[at].extended_support);
+		testCase.results[at].core_support_string = helper.generateSupportString(testCase.results[at].core_support);
+		testCase.results[at].extended_support_string = helper.generateSupportString(testCase.results[at].extended_support);
 	}
 
 	//Set support strings

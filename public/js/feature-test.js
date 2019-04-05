@@ -56,7 +56,7 @@ function displayTestingPrefs(focusResults)
 	dl.appendChild(dt);
 	dl.appendChild(dd);
 
-	var supportPoint = test.at[at_value].browsers[browser_value];
+	var supportPoint = test.results[at_value].browsers[browser_value];
 
 	var dt = document.createElement('dt');
 	dt.innerText = 'Current support';

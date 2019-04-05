@@ -72,7 +72,7 @@ Within the test JSON object we have the following properties
 * `assertion` (object|required): an object that describes the assertion that must be met for the test to pass.
 * `features` (array|required): an array of strings, where each string is an ID that matches a technology feature.
 * `history` (array|required): an array of history objects that describe how the test and results have changed over time.
-* `at` (array|required|built): an array of objects that scribe support findings for various combinations of AT/Browsers.
+* `results` (object|required|built): an object that describes the results.
 
 #### `assertion` object
 
@@ -82,13 +82,23 @@ Within the test JSON object we have the following properties
 
 A test must have a single assertion if the `type` property of the test object is set to `assertion`. 
 
-### `at/browser` object
+### `results` object
 
-The `at/browser` object (located at `test.at`) can contain a property for each of the at `at` objects listed in [/data/ATVBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). For example, support data for `nvda` would live under `test.at.nvda`.
+The `results` object (located at `test.results`) can contain a property for each of the at `at` objects listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). For example, support data for `nvda` would live under `test.results.nvda`.
 
-Each property under the `at/browser` object is an `at` object. Each `at` object chan contain a property for each of the browsers listed in [/data/ATVBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). For example, support data for `nvda` and `firefox` would live under `test.at.nvda.firefox`. These objects are known as `browser` objects.
+Each `results` object chan contain a property for each of the browsers listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). These property names map to the ids of AT defined in `ATBrowsers.json`. For example, support data for `nvda` and `firefox` would live under `test.results.nvda.browsers.firefox`. These objects are known as `browser` objects.
 
-TODO: change the name of the `at/browser` object to `results`. 
+#### the `at` object
+
+* `id` (string|built): the ID of the AT as found in `ATBrowsers.json`
+* `core_support` (array|built): an array of unique support values of core testing combinations from its children
+* `core_support_string` (string|built): an string that describes `core_support`
+* `extended_support`: (array|built): an array of unique support values of extended testing combinations from its children
+* `core_support_string` (string|built): an string that describes `extended_support`
+* `browsers` (object|required): an object with properties that map to each supported browser for the AT
+
+
+#### the `browser` object
 
 Each `browser` object then contains
 
@@ -98,15 +108,43 @@ Each `browser` object then contains
 * `output` (array|required): an array of output objects that describes the specific output and results for different interactions.
 * `date` (string|required): the date that this at/browser combination was last tested.
 * `notes` (string|optional): any notes that describe findings or jusitfy the result.
+* `support`: (string|optional) the combination of support values for the output array y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.
+
+#### the `output` object
 
 The `output` object contains:
 
-* `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATVBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
+* `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
 * `output` (string|required): the output of the result.
 * `result` (enum|required): One of `pass`, `fail`, or `partial`.
 
 ## Build process
 
+The build process:
+
+* loops over each feature and test, combining them and adding empty at/browser combinations where none have been defined
+* bubbles support data from the the `output` object all the way to the `feature` object, creating matching support strings along the way
+* outputs all of this generated data to the `/build/` directory.
+
+This built data makes coding the frontend easy. The frontend itself does not contain any logic around filling in gaps of support data or bubbling information.
+
 ## Front end
 
+The frontend is built with NodeJS, Express.js, Pug templating, JavaScript, and CSS.
+
 ## Workflow to update data
+
+1. User searches for feature
+2. User selects a test
+3. user selects 'run test'
+4. User selects their testing combination from a select list
+5. User sees testing instructions and previous results
+6. User performs the tests
+7. User logs findings to the form (pre-filled with previous data)
+8. User submits the form and is taken to github with an issue body already filled out. The issue body contains a table that describes their results.
+9. User submits github issue
+10. Discussions happen if necessary. Findings are verified.
+11. admin uses the script at `/scripts/sync-support-point.js` by giving it a GitHub issue ID. The script finds the table in the issue and updates the JSON file accordingly.
+12. admin commits changes and pushes.
+13. results are eventually deployed to production
+

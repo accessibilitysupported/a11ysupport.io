@@ -39,13 +39,13 @@ void async function() {
 		process.exit();
 	}
 
-	if (!test.at[data.at] || !test.at[data.at].browsers) {
-		test.at[data.at] = {
+	if (!test.results[data.at] || !test.results[data.at].browsers) {
+		test.results[data.at] = {
 			browsers: {}
 		};
 	}
 
-	test.at[data.at].browsers[data.browser] = data.supportPoint;
+	test.results[data.at].browsers[data.browser] = data.supportPoint;
 
 	test.history.push({
 		date: currentDateString,

@@ -153,7 +153,7 @@ testFiles.forEach(function(file) {
 	for(let at in ATBrowsers.at) {
 		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
 		validBrowsers.forEach(function(browser) {
-			supportPoints.push(test.at[at].browsers[browser]);
+			supportPoints.push(test.results[at].browsers[browser]);
 		});
 	}
 

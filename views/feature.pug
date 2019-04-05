@@ -30,12 +30,12 @@ block content
               each browser in ATBrowsers.at[at].core_browsers
                 tr
                   td= ATBrowsers.at[at].title
-                    if test.at[at].browsers[browser].at_version
-                        span= ' ' + test.at[at].browsers[browser].at_version
+                    if test.results[at].browsers[browser].at_version
+                        span= ' ' + test.results[at].browsers[browser].at_version
                   td= ATBrowsers.browsers[browser].title
-                    if (test.at[at].browsers[browser].browser_version)
-                        span= ' ' + test.at[at].browsers[browser].browser_version
-                  td(class='support-case '+test.at[at].browsers[browser].support)= test.at[at].browsers[browser].support_string
+                    if (test.results[at].browsers[browser].browser_version)
+                        span= ' ' + test.results[at].browsers[browser].browser_version
+                  td(class='support-case '+test.results[at].browsers[browser].support)= test.results[at].browsers[browser].support_string
       else
         p Sorry, this feature does not have any tests. Please feel free to propose one on GitHub.
     if data.references

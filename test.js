@@ -1,7 +1,9 @@
 let expect = require('chai').expect;
 let fs = require('fs');
 const Ajv = require('ajv');
-let ajv = new Ajv({schemas: [
+let ajv = new Ajv({
+	useDefaults: true,
+	schemas: [
 		require('./data/schema/test.json'),
 		require('./data/schema/dev-test.json'),
 		require('./data/schema/feature.json'),
@@ -17,6 +19,7 @@ describe('Development tests', function () {
 	let testFiles = fs.readdirSync(devDir+'/tests');
 
 	testFiles.forEach(function (file) {
+
 		if (!file.endsWith('.json')) {
 			return;
 		}
@@ -39,14 +42,14 @@ describe('Development tests', function () {
 			}
 		});
 
-		let at_keys = Object.getOwnPropertyNames(test.at);
+		let at_keys = Object.getOwnPropertyNames(test.results);
 		at_keys.forEach(function(at_id) {
-			let browser_keys = Object.getOwnPropertyNames(test.at[at_id].browsers);
+			let browser_keys = Object.getOwnPropertyNames(test.results[at_id].browsers);
 			browser_keys.forEach(function(browser_key) {
-				if (!test.at[at_id].browsers[browser_key].output) {
+				if (!test.results[at_id].browsers[browser_key].output) {
 					return;
 				}
-				test.at[at_id].browsers[browser_key].output.forEach(function(output, index) {
+				test.results[at_id].browsers[browser_key].output.forEach(function(output, index) {
 					it(at_id + '.' + browser_key + '.output['+index+'].command should be valid', function() {
                         expect(ATBrowsers.at[at_id].commands[output.command]).to.be.not.undefined;
 					})
