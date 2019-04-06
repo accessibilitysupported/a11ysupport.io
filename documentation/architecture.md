@@ -13,6 +13,7 @@ This document contains details of the architecture of a11ysupport.io, including
 
 From the root directory of the project
 
+* `/build/` contains the JSON files that are generated during the build process and used by the front end
 * `/data/` contains the JSON data that drives the project
   * `/data/schema/` contains JSON files that describe other JSON files (used to validate JSON files)
   * `/data/tech/` contains JSON files that describe different technology features
@@ -43,17 +44,23 @@ Taking `aria-haspopup` as an example, the associated technology object is locate
 
 Within the feature JSON object we have the following properties
 
-* `id` (optional): this is not required and must match the file name. If it is not defined here, the build process will define it using the file name. The ID is prefixed with the tech. `aria-haspopup` would be `aria/aria-haspopup_attribute`.
-* `title` (required): a human readable title for the feature.
-* `type` (optional): the type of feature. Usually one of `element`, `role`, or `attribute`.
-* `description` (required): a human readable description of the feature in markdown format.
-* `related_issues` (optional): an array of url objects that point to related issues in browsers or assistvie technologies.
-* `references` (optional): an array of url objects that point to specifications or other resources.
-* `reccomendation` (optional): a markdown string that descibes any reccomendations for authors.
-* `date_updated` (required): the date that this feature object was last updated.
-* `keywords` (optional): array of strings used to help surface search results
-* `keywords_string` (built): a string that is created during the build process by imploding the `keywords` array.
-* `tests` (built): this process will be created during the build process and contains an array of associated test objects. This makes it easier to build the front end.
+* `id` (string|built): this is not required and must match the file name. If it is not defined here, the build process will define it using the file name. The ID is prefixed with the tech. `aria-haspopup` would be `aria/aria-haspopup_attribute`.
+* `title` (string|required): a human readable title for the feature.
+* `type` (string|optional): the type of feature. Usually one of `element`, `role`, or `attribute`.
+* `description` (string|required): a human readable description of the feature in markdown format.
+* `related_issues` (array|optional): an array of url objects that point to related issues in browsers or assistvie technologies.
+* `references` (array|optional): an array of url objects that point to specifications or other resources.
+* `reccomendation` (string|optional): a markdown string that descibes any reccomendations for authors.
+* `date_updated` (string|required): the date that this feature object was last updated.
+* `keywords` (array|optional): array of strings used to help surface search results
+* `keywords_string` (string|built): a string that is created during the build process by imploding the `keywords` array.
+* `tests` (array|built): the build process will be created during the build process and contains an array of associated test objects. This makes it easier to build the front end.
+* `core_support` (array|built): an array of strings that describe unique support values found in tests
+* `core_support_string` (string|built): an human readable string that describes the support based on the values found in `core_support`
+* `core_support_by_at` (object|built): an object that describes the core support for each AT. Just another way to describe support.
+* `extended_support` (array|built): an array of strings that describe unique support values found in tests
+* `extended_support_string` (string|built): an human readable string that describes the support based on the values found in `extended_support`
+* `extended_support_by_at` (object|built): an object that describes the core support for each AT. Just another way to describe support.
 
 ### Test data model
 
@@ -73,6 +80,11 @@ Within the test JSON object we have the following properties
 * `features` (array|required): an array of strings, where each string is an ID that matches a technology feature.
 * `history` (array|required): an array of history objects that describe how the test and results have changed over time.
 * `results` (object|required|built): an object that describes the results.
+* `core_support` (array|built): an array of strings that describe unique support values found in tests
+* `core_support_string` (string|built): an human readable string that describes the support based on the values found in `core_support`
+* `extended_support` (array|built): an array of strings that describe unique support values found in the `results` object
+* `extended_support_string` (string|built): an human readable string that describes the support based on the values found in `extended_support`
+
 
 #### `assertion` object
 
@@ -108,7 +120,7 @@ Each `browser` object then contains
 * `output` (array|required): an array of output objects that describes the specific output and results for different interactions.
 * `date` (string|required): the date that this at/browser combination was last tested.
 * `notes` (string|optional): any notes that describe findings or jusitfy the result.
-* `support`: (string|optional) the combination of support values for the output array y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.
+* `support`: (string|built) the combination of support values for the output array y=yes, p=partial, n=no, na=not-applicable.
 
 #### the `output` object
 
