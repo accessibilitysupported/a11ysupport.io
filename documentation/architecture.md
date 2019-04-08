@@ -1,15 +1,41 @@
-# Architecutre of the project
+# Architecture of the project
 
 This document contains details of the architecture of a11ysupport.io, including
 
+* grading method
 * file structure
 * data model
 * build process
 * front end
 * workflow to update data
 
+## Grading method and high level overview
 
-## High level summary of file structure
+Note: I'm not entirely happy with this grading method and structure. Issues include:
+
+* Quality of support is not indicated (for example, if a feature is minimally supported, potentially misleading, or goes above and beyond).
+* Bubbling support to the feature level can obfuscate important issues with support.
+* Support terminology isn't always consistent (a result of my rapid prototyping).
+* JSON structure was optimized for making it easy to build a front end, not necessarily for maintenance or editing by contributors. For example, an array (instead of an object) for results might make more sense and would be easier to add AT in the future. I see this as a minor issue.
+
+Details of the grading method and a high level overview of the project include:
+
+* AT/browser combinations are divided into `core` and `extended` categories and support is tracked independently for each category.
+    * Core combinations are kept to a minimum and include the most common combinations as found by surveys and other research.
+    * Extended combinations include any combination of AT/browser that might exist on a given OS.
+* Support values are defined in an `output.result` by a contributor (either by editing the JSON directly or by filling out a form in the front end). Possible values of `output.result` include `pass`, `fail`, or `partial`.
+* `output.result` indicates the result of an assertion of a specific test applied to a specific input command for a specific AT/browser combination. It is the most specific result in the project. For example, the following might reference the result of a test against NVDA/Firefox: `test.results.nvda.browsers.firefox.output[0].result`
+* A single AT/browser combination can have many output results.
+* During the build process, output results are bubbled to:
+    * The browser object `test.results.nvda.browsers.firefox.support`. Values are mapped to one of `y` (support='yes'), `n` (support='no'), or `p` (support='partial').
+        * If all output results were `pass`, then output maps to `y`.
+        * If all output results were `partial`, then output maps to `p`.
+        * If no output results passed, then output maps to `n`.
+        * If there was a mix of values, map to `parital`.
+    * The AT object `test.results.nvda.core_support` and `test.results.nvda.extended_support` (which includes unique support values for all browsers)
+    * The test object `test.core_support` and `test.extended_support` which include unique support values for all at
+
+## file structure
 
 From the root directory of the project
 
@@ -42,9 +68,8 @@ Within the `/data/tech` directory are subfolders for each tech ID found in `/dat
 
 Taking `aria-haspopup` as an example, the associated technology object is located at [/data/tech/aria/aria-has-popup_attribute.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/tech/aria/aria-haspopup_attribute.json). The trailing '_attribute' part of the name is not necessary, but helps track the type of feature when browsing the folder.
 
-Within the feature JSON object we have the following properties
+The following properties can be provided by a contributor:
 
-* `id` (string|built): this is not required and must match the file name. If it is not defined here, the build process will define it using the file name. The ID is prefixed with the tech. `aria-haspopup` would be `aria/aria-haspopup_attribute`.
 * `title` (string|required): a human readable title for the feature.
 * `type` (string|optional): the type of feature. Usually one of `element`, `role`, or `attribute`.
 * `description` (string|required): a human readable description of the feature in markdown format.
@@ -53,6 +78,10 @@ Within the feature JSON object we have the following properties
 * `reccomendation` (string|optional): a markdown string that descibes any reccomendations for authors.
 * `date_updated` (string|required): the date that this feature object was last updated.
 * `keywords` (array|optional): array of strings used to help surface search results
+
+Properties that are generated during the build process include:
+
+* `id` (string|built): this is not required and must match the file name. If it is not defined here, the build process will define it using the file name. The ID is prefixed with the tech. `aria-haspopup` would be `aria/aria-haspopup_attribute`.
 * `keywords_string` (string|built): a string that is created during the build process by imploding the `keywords` array.
 * `tests` (array|built): the build process will be created during the build process and contains an array of associated test objects. This makes it easier to build the front end.
 * `core_support` (array|built): an array of strings that describe unique support values found in tests
@@ -66,9 +95,8 @@ Within the feature JSON object we have the following properties
 
 Continuing with the `aria-haspopup` example, a single feature might have many tests. A test for `aria/aria-haspopup_attribute` is the file [/data/tests/tech/aria/aria-haspopup_listbox.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/tests/tech/aria/aria_haspopup_listbox.json). There are other tests for other attribute values. The support result of all of these tests bubbles to a single value of support for the feature itself.
 
-Within the test JSON object we have the following properties
+The following properties can be provided by a contributor:
 
-* `id` (string|built): the ID of the test, based on the file name.
 * `type` (enum|required): the type of test (`custom` or `assertion`)
 * `title` (string|required): the title of the test.
 * `description` (string|required): a longer markdown formatted description of the test.
@@ -79,14 +107,19 @@ Within the test JSON object we have the following properties
 * `assertion` (object|required): an object that describes the assertion that must be met for the test to pass.
 * `features` (array|required): an array of strings, where each string is an ID that matches a technology feature.
 * `history` (array|required): an array of history objects that describe how the test and results have changed over time.
-* `results` (object|required|built): an object that describes the results.
+* `results` (object|required): an object that describes the results.
+
+Properties that are generated during the build process include:
+
+* `id` (string|built): the ID of the test, based on the file name.
 * `core_support` (array|built): an array of strings that describe unique support values found in tests
 * `core_support_string` (string|built): an human readable string that describes the support based on the values found in `core_support`
 * `extended_support` (array|built): an array of strings that describe unique support values found in the `results` object
 * `extended_support_string` (string|built): an human readable string that describes the support based on the values found in `extended_support`
 
-
 #### `assertion` object
+
+The following properties can be provided by a contributor:
 
 * `aspect` (enum|required): the aspect of the feature to be tested. One of `role`, `name`, `description`, `property`, `state`, `other`.
 * `title` (string|conditionally required): The name of the `property`, `state`, or `other` values to be tested.
@@ -100,19 +133,25 @@ The `results` object (located at `test.results`) can contain a property for each
 
 Each `results` object chan contain a property for each of the browsers listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). These property names map to the ids of AT defined in `ATBrowsers.json`. For example, support data for `nvda` and `firefox` would live under `test.results.nvda.browsers.firefox`. These objects are known as `browser` objects.
 
+All `at` and `browser` combinations are optional, and any gaps will be filled in by the build process with empty data (unknown results). This makes iterating over the built data easy.
+
 #### the `at` object
+
+The following properties can be provided by a contributor:
+
+* `browsers` (object|required): an object with properties that map to each supported browser for the AT
+
+Properties that are generated during the build process include:
 
 * `id` (string|built): the ID of the AT as found in `ATBrowsers.json`
 * `core_support` (array|built): an array of unique support values of core testing combinations from its children
 * `core_support_string` (string|built): an string that describes `core_support`
 * `extended_support`: (array|built): an array of unique support values of extended testing combinations from its children
 * `core_support_string` (string|built): an string that describes `extended_support`
-* `browsers` (object|required): an object with properties that map to each supported browser for the AT
-
 
 #### the `browser` object
 
-Each `browser` object then contains
+Each `browser` object then contains the following properties which can be provided by the contributor.
 
 * `at_version` (string|required): the version of the AT used during the test
 * `browser_version` (string|required): the version of the browser used during the test
@@ -120,11 +159,14 @@ Each `browser` object then contains
 * `output` (array|required): an array of output objects that describes the specific output and results for different interactions.
 * `date` (string|required): the date that this at/browser combination was last tested.
 * `notes` (string|optional): any notes that describe findings or jusitfy the result.
+
+Properties that are generated during the build process include:
+
 * `support`: (string|built) the combination of support values for the output array y=yes, p=partial, n=no, na=not-applicable.
 
 #### the `output` object
 
-The `output` object contains:
+The `output` object contains the following properties which can be provided by the contributor:
 
 * `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
 * `output` (string|required): the output of the result.
