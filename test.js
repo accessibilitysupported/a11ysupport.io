@@ -20,6 +20,10 @@ describe('Development tests', function () {
 
 	testFiles.forEach(function (file) {
 
+		if (!file.endsWith('aria-haspopup_attribute.json')) {
+			return;
+		}
+
 		if (!file.endsWith('.json')) {
 			return;
 		}
