@@ -120,7 +120,7 @@ testFiles.forEach(function(file) {
 		return;
 	}
 
-	if (!file.endsWith('aria-haspopup_attribute.json')) {
+	if (!file.endsWith('aria_haspopup_attribute.json')) {
 		return;
 	}
 
@@ -141,29 +141,31 @@ testFiles.forEach(function(file) {
 	// Set up the test case
 	helper.initalizeTestCase(test);
 
-	test.features.forEach(feature_id => {
+	test.assertions.forEach(assertion => {
 		if (!testMap[test.id]) {
 			testMap[test.id] = [];
 		}
 		testMap[test.id].push({
 			// link tests with features here
-			featureId: feature_id,
+			featureId: assertion.feature_id,
 		});
 
 		// populate the featuremap
-		if (!featureMap[feature_id]) {
-			featureMap[feature_id] = [];
+		if (!featureMap[assertion.feature_id]) {
+			featureMap[assertion.feature_id] = [];
 		}
 
-		featureMap[feature_id].push(test.id);
+		featureMap[assertion.feature_id].push(test.id);
 	});
 
-	for(let at in ATBrowsers.at) {
-		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
-		validBrowsers.forEach(function(browser) {
-			supportPoints.push(test.results[at].browsers[browser]);
-		});
-	}
+	test.assertions.forEach(assertion => {
+		for(let at in ATBrowsers.at) {
+			let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+			validBrowsers.forEach(function(browser) {
+				supportPoints.push(assertion.results[at].browsers[browser]);
+			});
+		}
+	});
 
 	// ensure the path exists
 	let path = buildDir+'/tests/'+file;
