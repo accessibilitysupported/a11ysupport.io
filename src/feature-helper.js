@@ -107,6 +107,23 @@ helper.initalizeTestCase = function (testCase) {
 	testCase.extended_support_string = 'unknown';
 
 	testCase.assertions.forEach(function(assertion, assertion_key) {
+		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)
+		let feature = require('../data/tech/'+assertion.feature_id+".json");
+		let ref_assertion = feature.assertions.find(obj => obj.id === assertion.feature_assertion_id);
+
+		// Look at what operations modes the assertion supports and set some helpful flags
+		let supports_sr = false;
+		let supports_vc = false;
+
+		if (ref_assertion.operation_modes.includes('sr/reading')
+		|| ref_assertion.operation_modes.includes('sr/interaction')) {
+			supports_sr = true;
+		}
+
+		if (ref_assertion.operation_modes.includes('vc')) {
+			supports_vc = true;
+		}
+
 		//Add missing AT
 		for(let at in ATBrowsers.at){
 			//Add an empty versions array if we don't have any info on versions
@@ -138,12 +155,12 @@ helper.initalizeTestCase = function (testCase) {
 					};
 				}
 
-				if (!testCase.supports_sr && ATBrowsers.at[at].type === "sr") {
+				if (!supports_sr && ATBrowsers.at[at].type === "sr") {
 					// This test case does not support this type of AT
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
 
-				if (!testCase.supports_vc && ATBrowsers.at[at].type === "vc") {
+				if (!supports_vc && ATBrowsers.at[at].type === "vc") {
 					// This test case does not support this type of AT
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
