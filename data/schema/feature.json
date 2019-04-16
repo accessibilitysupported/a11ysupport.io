@@ -14,6 +14,30 @@
         }
       },
       "required": ["title", "url"]
+    },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operation_modes": {
+          "type": "array",
+          "items": {
+            "enum": ["sr/reading", "sr/interaction", "vc"]
+          }
+        }
+      },
+      "required": ["id", "title", "operation_modes"]
     }
   },
   "properties": {
@@ -55,6 +79,13 @@
       "items": {
         "type": "object",
         "$ref": "#/definitions/url"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/assertion"
       }
     },
     "tests": {
