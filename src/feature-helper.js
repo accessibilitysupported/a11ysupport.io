@@ -124,6 +124,9 @@ helper.initalizeTestCase = function (testCase) {
 			supports_vc = true;
 		}
 
+		testCase.assertions[assertion_key].core_support = [];
+        testCase.assertions[assertion_key].extended_support = "unknown";
+
 		//Add missing AT
 		for(let at in ATBrowsers.at){
 			//Add an empty versions array if we don't have any info on versions
@@ -199,8 +202,10 @@ helper.initalizeTestCase = function (testCase) {
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 					testCase.assertions[assertion_key].results[at].core_support.push(support);
 					if (ATBrowsers.core_at.includes(at)) {
+                        testCase.assertions[assertion_key].core_support.push(support);
 						testCase.core_support.push(support);
 					} else {
+                        testCase.assertions[assertion_key].extended_support.push(support);
 						testCase.extended_support.push(support);
 					}
 				} else if (ATBrowsers.at[at].extended_browsers.includes(browser)) {
@@ -264,8 +269,8 @@ helper.initalizeTestCase = function (testCase) {
 		}
 
 		//Set support strings for the assertion
-		testCase.core_support_string = helper.generateSupportString(testCase.core_support);
-		testCase.extended_support_string = helper.generateSupportString(testCase.extended_support)
+		testCase.assertions[assertion_key].core_support_string = helper.generateSupportString(testCase.assertions[assertion_key].core_support);
+		testCase.assertions[assertion_key].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].extended_support)
 	});
 
 	//Set support strings for the test
