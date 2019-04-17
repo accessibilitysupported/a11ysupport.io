@@ -61,6 +61,24 @@ helper.initalizeFeatureObject = function(featureObject) {
 
 							featureObject.core_support_by_at[at].values.push(support);
 							featureObject.core_support.push(support);
+
+							if (!featureObject.core_support_by_at_browser) {
+								featureObject.core_support_by_at_browser = {};
+							}
+
+							if (!featureObject.core_support_by_at_browser[at]) {
+								featureObject.core_support_by_at_browser[at] = {};
+							}
+
+							if (!featureObject.core_support_by_at_browser[at][browser]) {
+								featureObject.core_support_by_at_browser[at][browser] = {
+									'string': null,
+									'values': []
+								};
+							}
+
+							featureObject.core_support_by_at_browser[at][browser].values.push(support);
+							featureObject.core_support.push(support);
 						} else {
 							featureObject.extended_support.push(support);
 						}
@@ -89,6 +107,10 @@ helper.initalizeFeatureObject = function(featureObject) {
 	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
 		let at = ATBrowsers.core_at[i];
 		featureObject.core_support_by_at[at].string = helper.generateSupportString(featureObject.core_support_by_at[at].values);
+
+		ATBrowsers.at[at].core_browsers.forEach(browser => {
+			featureObject.core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.core_support_by_at_browser[at][browser].values);
+		});
 	}
 
 	// Define the keywords_string

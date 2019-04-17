@@ -91,6 +91,7 @@ let getFeatures = function(techId, buildDir) {
 			core_support: feature.core_support,
 			core_support_string: feature.core_support_string,
 			core_support_by_at: feature.core_support_by_at,
+			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length
 		});
