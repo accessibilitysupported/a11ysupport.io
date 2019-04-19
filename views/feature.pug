@@ -17,23 +17,36 @@ block content
         each assertion, index in data.assertions
           h3(id='support-table-'+index) #{assertion.title}
 
-          //TODO: add assertions.tests mapping and check to verify that the there are tests for the assertion before rendering the table.s
+          if assertion.tests.length > 0
+            table(aria-labelledby='support-table-' + index)
+              tr
+                th AT
+                th Browser
+                th Support
+              each at in ATBrowsers.core_at
+                each browser in ATBrowsers.at[at].core_browsers
+                  tr
+                    td= ATBrowsers.at[at].title
+                    td= ATBrowsers.browsers[browser].title
+                    td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.replace(" ", "-"))= assertion.core_support_by_at_browser[at][browser].string
 
-          p This assertion is referenced by {x} tests.
-
-          table(aria-labelledby='support-table-' + index)
-            tr
-              th AT
-              th Browser
-              th Support
-            each at in ATBrowsers.core_at
-              each browser in ATBrowsers.at[at].core_browsers
+            p This assertion is referenced by #{assertion.tests.length} tests.
+            details
+              summary Tests that reference this assertion
+              table
                 tr
-                  td= ATBrowsers.at[at].title
-                  td= ATBrowsers.browsers[browser].title
-                  td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.replace(" ", "-"))= assertion.core_support_by_at_browser[at][browser].string
+                  th test name
+                  th support
+                each test in assertion.tests
+                  tr
+                    td
+                      a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
+                    td(class='support-case ' + test.core_support_string.replace(" ", "-")) #{test.core_support_string}
+
+          else
+            p No tests reference this assertion yet.
       else
-        p No assertions have been created for this feature yet
+        p No assertions have been created for this feature yet.
 
     if data.references
       div.sidebar

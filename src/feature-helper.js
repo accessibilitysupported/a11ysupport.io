@@ -35,6 +35,10 @@ helper.initalizeFeatureObject = function(featureObject) {
 
 	featureObject.keywords.push(featureObject.title);
 
+	featureObject.assertions.forEach((assertion, assertion_key) => {
+		featureObject.assertions[assertion_key].tests = [];
+	});
+
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
 		featureObject.tests[testIndex] = require('../build/tests/'+featureObject.tests[testIndex]);
 
@@ -47,6 +51,14 @@ helper.initalizeFeatureObject = function(featureObject) {
 		// Detect support
 		featureObject.tests[testIndex].assertions.forEach(assertion => {
 			let assertion_key = featureObject.assertions.findIndex(obj => obj.id === assertion.feature_assertion_id);
+
+			if (!featureObject.assertions[assertion_key].tests.some(e => e.id  === featureObject.tests[testIndex].id)) {
+				featureObject.assertions[assertion_key].tests.push({
+					id: featureObject.tests[testIndex].id,
+					title: featureObject.tests[testIndex].title,
+					core_support_string: featureObject.tests[testIndex].core_support_string
+				});
+			}
 
 			// Set up the feature assertion properties
 			if (featureObject.assertions[assertion_key].core_support === undefined) {
