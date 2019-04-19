@@ -195,6 +195,8 @@ helper.initalizeTestCase = function (testCase) {
 			supports_vc = true;
 		}
 
+		testCase.assertions[assertion_key].feature_title = feature.title;
+		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
 		testCase.assertions[assertion_key].core_support = [];
         testCase.assertions[assertion_key].extended_support = "unknown";
 
