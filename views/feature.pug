@@ -12,16 +12,16 @@ block content
       if data.recommendation
         p= "Recommendation: " + data.recommendation
 
-      if data.tests.length > 0
-        h2 Summary of tests
-        each test, index in data.tests
-          a(href='/tests/' + testIdHelper.makeSafe(test.id))
-            h3(id='support-table-'+test.id)= 'Support for ' + test.title
-          if (test.assertion)
-            p Assertion: #[+assertion(test.assertion)]
-          else
-            p Assertion:custom test
-          table(aria-labelledby='support-table-'+test.id)
+      h2 Assertions
+      if data.assertions.length > 0
+        each assertion, index in data.assertions
+          h3(id='support-table-'+index) #{assertion.title}
+
+          //TODO: add assertions.tests mapping and check to verify that the there are tests for the assertion before rendering the table.s
+
+          p This assertion is referenced by {x} tests.
+
+          table(aria-labelledby='support-table-' + index)
             tr
               th AT
               th Browser
@@ -30,14 +30,11 @@ block content
               each browser in ATBrowsers.at[at].core_browsers
                 tr
                   td= ATBrowsers.at[at].title
-                    if test.results[at].browsers[browser].at_version
-                        span= ' ' + test.results[at].browsers[browser].at_version
                   td= ATBrowsers.browsers[browser].title
-                    if (test.results[at].browsers[browser].browser_version)
-                        span= ' ' + test.results[at].browsers[browser].browser_version
-                  td(class='support-case '+test.results[at].browsers[browser].support)= test.results[at].browsers[browser].support_string
+                  td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.replace(" ", "-"))= assertion.core_support_by_at_browser[at][browser].string
       else
-        p Sorry, this feature does not have any tests. Please feel free to propose one on GitHub.
+        p No assertions have been created for this feature yet
+
     if data.references
       div.sidebar
         if data.related_issues && data.related_issues.length

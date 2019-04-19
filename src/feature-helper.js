@@ -43,8 +43,18 @@ helper.initalizeFeatureObject = function(featureObject) {
 			featureObject.keywords = featureObject.keywords.concat(featureObject.tests[testIndex].keywords);
 		}
 
+		// Note: tests are be built before a feature is built so that bubbling works correctly
 		// Detect support
 		featureObject.tests[testIndex].assertions.forEach(assertion => {
+			let assertion_key = featureObject.assertions.findIndex(obj => obj.id === assertion.feature_assertion_id);
+
+			// Set up the feature assertion properties
+			if (featureObject.assertions[assertion_key].core_support === undefined) {
+				featureObject.assertions[assertion_key].core_support = [];
+				featureObject.assertions[assertion_key].extended_support = [];
+				featureObject.assertions[assertion_key].core_support_by_at_browser = {};
+			}
+
 			for(let at in ATBrowsers.at){
 				let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
 				validBrowsers.forEach(function(browser) {
@@ -77,13 +87,34 @@ helper.initalizeFeatureObject = function(featureObject) {
 								};
 							}
 
-							featureObject.core_support_by_at_browser[at][browser].values.push(support);
-							featureObject.core_support.push(support);
+							if (!featureObject.assertions[assertion_key].core_support_by_at_browser[at]) {
+								featureObject.assertions[assertion_key].core_support_by_at_browser[at] = {};
+							}
+
+							if (!featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser]) {
+								featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser] = {
+									'string': null,
+									'values': []
+								};
+							}
+
+							if (assertion.type === "MUST") {
+								// Only include "must" assertions in core support at the feature level
+								featureObject.core_support_by_at_browser[at][browser].values.push(support);
+								featureObject.core_support.push(support);
+							} else {
+								featureObject.extended_support.push(support);
+							}
+
+							featureObject.assertions[assertion_key].core_support.push(support);
+							featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values.push(support);
 						} else {
 							featureObject.extended_support.push(support);
+							featureObject.assertions[assertion_key].extended_support.push(support);
 						}
 					} else if (ATBrowsers.at[at].extended_browsers.includes(browser)) {
 						featureObject.extended_support.push(support);
+						featureObject.assertions[assertion_key].extended_support.push(support);
 					}
 				});
 			}
@@ -110,6 +141,12 @@ helper.initalizeFeatureObject = function(featureObject) {
 
 		ATBrowsers.at[at].core_browsers.forEach(browser => {
 			featureObject.core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.core_support_by_at_browser[at][browser].values);
+		});
+
+		featureObject.assertions.forEach((assertion, assertion_key) => {
+			ATBrowsers.at[at].core_browsers.forEach(browser => {
+				featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values);
+			});
 		});
 	}
 
