@@ -6,6 +6,7 @@ var dom_browser = document.querySelector('#browser');
 var dom_at_version = document.querySelector('#at_version');
 var dom_browser_version = document.querySelector('#browser_version');
 var dom_os_version = document.querySelector('#os_version');
+var assertions_container = document.querySelector('#assertions');
 var addOutputButton = document.querySelector('#add-output');
 var testingPrefForm = document.querySelector('form.testing-pref');
 var ATBrowserSelect = testingPrefForm.querySelector('select');
@@ -35,7 +36,8 @@ function displayTestingPrefs(focusResults)
 	var browser_value = sessionStorage.getItem('browser');
 
 	// Always remove command output that is already in place.
-	removeAllCommandOutputRows();
+	// TODO
+	//removeAllCommandOutputRows();
 
 	if (!at_value || !browser_value) {
 		// Settings haven't been saved yet. But we still need a placeholder for output.
@@ -56,49 +58,10 @@ function displayTestingPrefs(focusResults)
 	dl.appendChild(dt);
 	dl.appendChild(dd);
 
-	var supportPoint = test.results[at_value].browsers[browser_value];
-
-	var dt = document.createElement('dt');
-	dt.innerText = 'Current support';
-	var dd = document.createElement('dd');
-	dd.innerText = supportPoint.support;
-	dl.appendChild(dt);
-	dl.appendChild(dd);
-
 	var dt = document.createElement('dt');
 	dt.innerText = 'Helpful Links';
 	var dd = document.createElement('dd');
 	var ul = document.createElement('ul');
-
-	var support_point_url = '/tests/'+test.id+'/'+at_value+'/'+browser_value;
-	if (ATBrowsers.at[at_value].support != 'u') {
-		var a = document.createElement('a');
-		a.setAttribute('href', support_point_url);
-		a.innerText = 'View details about the current support point (including versions used)';
-		var li = document.createElement('li');
-		li.appendChild(a);
-		ul.appendChild(li);
-	}
-
-	var reviewDetails = document.querySelector('#review-details');
-	if (reviewDetails) {
-		if (supportPoint.notes || supportPoint.output) {
-			var a = document.createElement('a');
-			a.href = support_point_url;
-			a.innerText = reviewDetails.innerText;
-			reviewDetails.innerHTML = '';
-			reviewDetails.appendChild(a);
-
-			var span = document.createElement('span');
-			span.innerText = ' There are notes that might describe commands that were used.';
-			reviewDetails.parentElement.appendChild(span);
-			reviewDetails.parentElement.hidden = false;
-		} else {
-			// There is nothing available to help understand
-			reviewDetails.parentElement.hidden = true;
-		}
-	}
-
 	var a = document.createElement('a');
 	a.setAttribute('href', '/learn/at/'+at_value);
 	a.innerText = 'Learn how to use ' + ATBrowsers.at[at_value].short_title;
@@ -120,15 +83,13 @@ function displayTestingPrefs(focusResults)
 	resultsContainer.appendChild(dl);
 	resultsContainer.classList.add('call-out');
 
-	// Pre-fill output rows
-	if (supportPoint.output && supportPoint.output.length > 0) {
-		for (var i=0; i<supportPoint.output.length; i++) {
-			createCommandOutputRow(supportPoint.output[i], false);
-		}
-	} else {
-		// Still require at least one row
-		createCommandOutputRow(null, false);
-	}
+	console.log('create form here', at_value, browser_value);
+
+	// Remove all existing assertion fieldsets
+	removeAllAssertionFieldsets();
+
+	// Build new assertion fieldsets
+	buildAssertionFieldsets(at_value, browser_value);
 
 	if (focusResults) {
 		heading.focus();
@@ -146,17 +107,65 @@ function displayTestingPrefs(focusResults)
 	span.innerText = ATBrowsers.at[at_value].title + ' and ' + ATBrowsers.browsers[browser_value].title;
 }
 
-var removeAllCommandOutputRows = function() {
-	var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+var removeAllAssertionFieldsets = function() {
+	var assertions = document.querySelectorAll('fieldset.assertion');
+	for (var i=0; i < assertions.length; i++) {
+		assertions[i].remove();
+	}
+};
+
+var buildAssertionFieldsets = function(at_value, browser_value) {
+	test.assertions.forEach(function(assertion, assertion_key) {
+		var fieldset = document.createElement('fieldset');
+		fieldset.classList.add('assertion');
+		var name = assertion.feature_id+'.'+assertion.feature_assertion_id;
+		// The feature ID might contain a /, which isn't a valid HTML id. Convert it to a dash.
+		fieldset.setAttribute('id', name.replace('/', '-').replace('.', '--'));
+		fieldset.setAttribute('data-name', name);
+		var legend = document.createElement('legend');
+		legend.innerText = assertion.feature_title + ' / ' + assertion.assertion_title;
+		fieldset.append(legend);
+		var addOutputButton = document.createElement('button');
+		addOutputButton.classList.add('add-output-row');
+		addOutputButton.innerText = 'add an output row';
+		fieldset.append(addOutputButton);
+
+		addOutputButton.addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			createCommandOutputRow(e.target.parentNode, null, true);
+		});
+
+		// TODO: add details (such as selector)
+
+		// TODO: Add output rows
+
+		var supportPoint = assertion.results[at_value].browsers[browser_value];
+		if (supportPoint.output) {
+			supportPoint.output.forEach(function(row, row_key) {
+				createCommandOutputRow(fieldset, row, false);
+			});
+		} else {
+			createCommandOutputRow(fieldset, null, false);
+		}
+
+		assertions_container.append(fieldset);
+	});
+};
+
+var removeAllCommandOutputRows = function(assertion_fieldset) {
+	var currentRows = assertion_fieldset.querySelectorAll('fieldset.output-row');
 	for (var i=0; i < currentRows.length; i++) {
 		currentRows[i].remove();
 	}
 };
 
-var createCommandOutputRow = function(outputObject, focus) {
-	var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
+var createCommandOutputRow = function(assertion_fieldset, output_row, focus) {
+	var addOutputButton = assertion_fieldset.querySelector('button.add-output-row');
+	var currentRows = assertion_fieldset.querySelectorAll('fieldset.output-row');
 	var key = currentRows.length+1;
 	var fieldset = document.createElement('fieldset');
+	fieldset.classList.add('output-row');
 	var legend = document.createElement('legend');
 	legend.innerText = 'Output row ' + key;
 	fieldset.appendChild(legend);
@@ -164,10 +173,10 @@ var createCommandOutputRow = function(outputObject, focus) {
 
     var div = document.createElement('div');
     div.classList.add('control');
-    var id = 'output_'+key+'_command';
+    var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_command';
     var command_select = document.createElement('select');
     command_select.setAttribute('id', id);
-    command_select.setAttribute('name', id);
+    command_select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_command');
     var label = document.createElement('label');
     label.innerText = 'The command used (required)';
     label.setAttribute('for', id);
@@ -201,7 +210,7 @@ var createCommandOutputRow = function(outputObject, focus) {
             option.innerText += ' ('+command.command+')';
             option.setAttribute('value', keys[ii]);
 
-            if (outputObject && outputObject.command === keys[ii]) {
+            if (output_row && output_row.command === keys[ii]) {
             	option.setAttribute('selected', 'selected');
             }
 
@@ -217,18 +226,18 @@ var createCommandOutputRow = function(outputObject, focus) {
 	div.classList.add('control');
 	var label = document.createElement('label');
 	label.innerText = 'Output from AT (required)';
-	var id = 'output_'+key+'_output';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_output'; //TODO add the assertion_id
 	label.setAttribute('for', id);
 	var input = document.createElement('input');
 	input.setAttribute('type', 'text');
 	input.setAttribute('id', id);
-	input.setAttribute('name', id);
+	input.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_output');
 	div.appendChild(label);
 	div.appendChild(input);
 	fieldset.appendChild(div);
 
-	if (outputObject) {
-		input.value = outputObject.output;
+	if (output_row) {
+		input.value = output_row.output;
 	}
 
 	// Result
@@ -236,11 +245,11 @@ var createCommandOutputRow = function(outputObject, focus) {
 	div.classList.add('control');
 	var label = document.createElement('label');
 	label.innerText = 'result (required)';
-	var id = 'output_'+key+'_result';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_result';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
 	select.setAttribute('id', id);
-	select.setAttribute('name', id);
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_result');
 	var option = document.createElement('option');
 	option.innerText = 'pass';
 	option.value = 'pass';
@@ -257,8 +266,8 @@ var createCommandOutputRow = function(outputObject, focus) {
 	div.appendChild(select);
 	fieldset.appendChild(div);
 
-	if (outputObject) {
-		select.value = outputObject.result;
+	if (output_row) {
+		select.value = output_row.result;
 	}
 
 	if (currentRows.length > 0) {
@@ -320,26 +329,32 @@ function initFeatureTest() {
 			dom_os_version.setAttribute('aria-invalid', 'true');
 		}
 
-		var currentRows = addOutputButton.parentElement.querySelectorAll('fieldset');
-		for (var i=0; i<currentRows.length; i++) {
-			var idPrefix = '#output_'+(i+1);
-			var command = document.querySelector(idPrefix+'_command');
-			var output = document.querySelector(idPrefix+'_command');
-			var result = document.querySelector(idPrefix+'_result');
+		var assertion_fieldsets = document.querySelectorAll('fieldset.assertion');
+		assertion_fieldsets.forEach(function(assertion_fieldset) {
+			var currentRows = assertion_fieldset.querySelectorAll('fieldset.output-row');
+			for (var i=0; i<currentRows.length; i++) {
+				var assertion_fieldset = currentRows[i].closest('fieldset.assertion');
+				var id = assertion_fieldset.getAttribute('id');
+				var idPrefix = '#'+id+'--'+'output_'+(i+1);
+				var command = document.querySelector(idPrefix+'_command');
+				var output = document.querySelector(idPrefix+'_command');
+				var result = document.querySelector(idPrefix+'_result');
 
-			if (!command.value) {
-				errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " command is required"));
-				command.setAttribute('aria-invalid', 'true');
+				if (!command.value) {
+					errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " command is required"));
+					command.setAttribute('aria-invalid', 'true');
+				}
+				if (!output.value) {
+					errors.push(generateErrorLink(idPrefix+'_output', "Output row " + (i+1) + " output is required"));
+					output.setAttribute('aria-invalid', 'true');
+				}
+				if (!result.value) {
+					errors.push(generateErrorLink(idPrefix+'_result', "Output row " + (i+1) + " result is required"));
+					result.setAttribute('aria-invalid', 'true');
+				}
 			}
-			if (!output.value) {
-				errors.push(generateErrorLink(idPrefix+'_output', "Output row " + (i+1) + " output is required"));
-				output.setAttribute('aria-invalid', 'true');
-			}
-			if (!result.value) {
-				errors.push(generateErrorLink(idPrefix+'_result', "Output row " + (i+1) + " result is required"));
-				result.setAttribute('aria-invalid', 'true');
-			}
-		}
+		});
+
 
 		if (errors.length) {
 			var ul = document.createElement('ul');
@@ -428,18 +443,8 @@ function initFeatureTest() {
 		window.location = url;
 	});
 
-	var initOutputDetails = function() {
-		addOutputButton.addEventListener('click', function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			createCommandOutputRow(null, true);
-		});
-
-		// Always create the first row so that some input/output is required
-		createCommandOutputRow(null, false);
-	};
-
-	initOutputDetails();
+	// TODO: fix output rows
+	// initOutputDetails();
 }
 
 // Fetch all of the required data

@@ -8,8 +8,6 @@ block content
             div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
                 p= 'Current support: ' + test.core_support_string
 
-            if (test.assertion)
-                p Assertion: #[+assertion(test.assertion)]
 
             p!= md.renderInline(test.description)
 
@@ -84,33 +82,6 @@ block content
                     h3 Test page
                     iframe(src='/tests/html/' + test.html_file aria-label="the test page")
 
-                else if (test.type === "custom")
-                    if (test.supports_sr)
-                        h3 Screen Reader Instructions
-
-                        include test-case/locate-note.pug
-
-                        ol
-                            li <span id="review-details">Review the details of the previous results</span>.
-                            li Launch the screen reader that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
-                            each instruction in test.sr_instructions
-                                li= instruction
-
-                    if (test.supports_vc)
-                        h3 Voice Command Instructions
-                        ol
-                            li Launch the Voice Command software that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
-                            each instruction in test.vc_instructions
-                                li= instruction
-
-                    h3 Test page
-                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
-
-                else if (test.type === "external")
-                    p This is an external test.
-                    a(href=test.url.url)= test.url.title
 
                 h3 Step 3: Submit your findings
                 p Your findings can be submitted via a GitHub issue with this form. Some selections will be saved to speed up future submissions.
@@ -121,38 +92,30 @@ block content
 
                     div(id="error_container")
 
-                    div.control.at-browser-combo
-                        p
-                            strong="The selected AT/Browser combo is: "
-                            span.selected-at-browser-combo
-                        p Use the #[a(href="#at-browser-combo") "what are you testing with?"] form to change your combination.
-
-                    div.control
-                        label(for="at_version") AT Version (required)
-                        input(type="text" name="at_version" id="at_version" aria-required="true")
-                    div.control
-                        label(for="os_version") OS Version (required)
-                        input(type="text" name="os_version" id="os_version" aria-required="true")
-                    div.control
-                        label(for="browser_version") Browser Version (required)
-                        input(type="text" name="browser_version" id="browser_version" aria-required="true")
                     div.control
                         fieldset
-                            legend Output details (required)
-                            button#add-output Add a command+output row
-                    div.control
-                        label(for="notes") Any extra info
-                        textarea(id="notes" name="notes")
+                            legend Technology information
+
+                            div.control.at-browser-combo
+                                p
+                                    strong="The selected AT/Browser combo is: "
+                                    span.selected-at-browser-combo
+                                p Use the #[a(href="#at-browser-combo") "what are you testing with?"] form to change your combination.
+
+                            div.control
+                                label(for="at_version") AT Version (required)
+                                input(type="text" name="at_version" id="at_version" aria-required="true")
+                            div.control
+                                label(for="os_version") OS Version (required)
+                                input(type="text" name="os_version" id="os_version" aria-required="true")
+                            div.control
+                                label(for="browser_version") Browser Version (required)
+                                input(type="text" name="browser_version" id="browser_version" aria-required="true")
+
+                    div(id="assertions").control
+
                     div.control
                         button Create GitHub Issue
-                if (test.type === "assertion" || test.type === "custom")
-                    h2 For reference: Test HTML
-                    p This is just for reference. You likely won't need to use this.
-                    if (testHTML.split(/\r\n|\r|\n/).length < 30)
-                        pre.test-html
-                            code= testHTML
-                    else
-                        p HTML source is too long to display here.
 
         div.sidebar
             h2 Related Features
