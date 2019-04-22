@@ -118,6 +118,8 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 	test.assertions.forEach(function(assertion, assertion_key) {
 		var fieldset = document.createElement('fieldset');
 		fieldset.classList.add('assertion');
+		fieldset.setAttribute('data-feature-assertion-id', assertion.feature_assertion_id);
+		fieldset.setAttribute('data-feature-id', assertion.feature_id);
 		var name = assertion.feature_id+'.'+assertion.feature_assertion_id;
 		// The feature ID might contain a /, which isn't a valid HTML id. Convert it to a dash.
 		fieldset.setAttribute('id', name.replace('/', '-').replace('.', '--'));
@@ -135,6 +137,14 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 			e.stopPropagation();
 			createCommandOutputRow(e.target.parentNode, null, true);
 		});
+
+		var noteLabel = document.createElement('label');
+		noteLabel.innerText = 'Notes';
+		var noteTextarea = document.createElement('textarea');
+        noteTextarea.setAttribute('id', fieldset.getAttribute('id')+'--note');
+        noteTextarea.setAttribute('name', fieldset.getAttribute('data-name')+'.note');
+        fieldset.append(noteLabel);
+        fieldset.append(noteTextarea);
 
 		// TODO: add details (such as selector)
 
@@ -402,26 +412,46 @@ function initFeatureTest() {
 		var url = 'https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=';
 		var title = data.get('title') + ' ' + data.get('at') + '/' + data.get('browser');
 		url += encodeURIComponent(title);
+		var dom_title = document.querySelector('input[name="title"]');
 
 		var body = 'This Support Point submission is for the test ['+test.title+']('+testUrl+')\n\n';
 
+		body += 'meta info\n\n';
+
 		body += '| property | value |\n';
 		body += '| --- | --- |\n';
+        body += '| title | ' + dom_title.value + ' |\n';
+		body += '| at | ' + dom_at.value + ' |\n';
+        body += '| at_version | ' + dom_at_version.value + ' |\n';
+        body += '| browser | ' + dom_browser.value + ' |\n';
+        body += '| browser_version | ' + dom_browser_version.value + ' |\n';
+        body += '| os_version | ' + dom_os_version.value + ' |\n';
 
-		var entries = Array.from(data.entries());
-        for (var i=0; i<entries.length; i++) {
-            if (entries[i][0] === 'notes') {
-                continue;
+        var assertion_fieldsets = document.querySelectorAll('fieldset.assertion');
+
+        assertion_fieldsets.forEach(function(fieldset) {
+            var legend = fieldset.querySelector('legend');
+            var controls = fieldset.querySelectorAll('input, select');
+            var note = fieldset.querySelector('textarea');
+
+            body += '\n\n';
+            body += legend.innerText+'\n\n';
+
+            body += '| property | value |\n';
+            body += '| --- | --- |\n';
+            body += '| feature_id | ' + fieldset.getAttribute('data-feature-id') + ' |\n';
+            body += '| feature_assertion_id | ' + fieldset.getAttribute('data-feature-assertion-id') + ' |\n';
+
+            controls.forEach(function(control) {
+                body += '| ' + control.getAttribute('name') + ' | ' + control.value + ' |\n';
+            });
+
+            if (note.value) {
+                body += '\n== begin notes ==\n';
+                body +=  note.value;
+                body += '\n== end notes ==\n';
             }
-            body += '| '+entries[i][0]+' | ' + entries[i][1] + ' |\n';
-        }
-
-		var notes = data.get('notes');
-		if (notes) {
-			body += '\n== begin notes ==\n';
-			body +=  notes;
-			body += '\n== end notes ==\n';
-		}
+        });
 
 		var isCore = false;
 		if (ATBrowsers.core_at.includes(data.get('at')) && ATBrowsers.at[data.get('at')].core_browsers.includes(data.get('browser'))) {
@@ -442,9 +472,6 @@ function initFeatureTest() {
 
 		window.location = url;
 	});
-
-	// TODO: fix output rows
-	// initOutputDetails();
 }
 
 // Fetch all of the required data
