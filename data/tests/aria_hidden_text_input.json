@@ -1,16 +1,61 @@
 {
-  "type": "assertion",
   "title": "aria-hidden on a text input",
   "description": "This test uses `aria-hidden='true'` on a div containing a text input",
-  "features": ["aria/aria-hidden_attribute"],
-  "supports_sr": true,
-  "supports_vc": true,
-  "css_target": "#target",
-  "assertion": {
-    "aspect": "property",
-    "title": "hidden",
-    "value": "true"
-  },
+  "assertions": [
+    {
+      "feature_id": "aria/aria-hidden_attribute",
+      "feature_assertion_id": "value_true",
+      "css_target": "#target",
+      "results": {
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
+              "os_version": "17134.165",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(target not read)",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "output": "Your name edit has auto complete",
+                  "result": "pass"
+                }
+              ],
+              "date": "2018-08-02",
+              "notes": "When using focus mode (tab key) the control is still read. This is because the `aria-hidden=\"true\"` does not make elements in the sub tree inert. It is the author's responsibility to make controls inert. See [nvaccess/nvda #5014](https://github.com/nvaccess/nvda/issues/5014) for more information."
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.13.6",
+              "browser_version": "11.1.2",
+              "os_version": "10.13.6",
+              "date": "2018-08-19",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(nothing)",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "output": "(nothing)",
+                  "result": "pass"
+                }
+              ],
+              "notes": "When pressing tab, the hidden input does receive focus but is not announced in the traditional sense. Depending on the exact order of key-presses, VoiceOver will either announce the page title or that 'you are currently on a text field' (no label is announced). This is accurate because aria-hidden will not remove an element from the tab index."
+            }
+          }
+        }
+      }
+    }
+  ],
   "sr_instructions": [
     "Use the screen reader to navigate through the page",
     "The test passes if the target input and associated label were not announced"
@@ -32,53 +77,5 @@
       "date": "2018-08-19",
       "message": "vo_macos/safari support updated"
     }
-  ],
-  "results": {
-    "nvda": {
-      "browsers": {
-        "firefox": {
-          "at_version": "2018.2.1",
-          "browser_version": "61.0.1",
-          "os_version": "17134.165",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(target not read)",
-              "result": "pass"
-            },
-            {
-              "command": "next_focusable_item",
-              "output": "Your name edit has auto complete",
-              "result": "pass"
-            }
-          ],
-          "date": "2018-08-02",
-          "notes": "When using focus mode (tab key) the control is still read. This is because the `aria-hidden=\"true\"` does not make elements in the sub tree inert. It is the author's responsibility to make controls inert. See [nvaccess/nvda #5014](https://github.com/nvaccess/nvda/issues/5014) for more information."
-        }
-      }
-    },
-    "vo_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.13.6",
-          "browser_version": "11.1.2",
-          "os_version": "10.13.6",
-          "date": "2018-08-19",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(nothing)",
-              "result": "pass"
-            },
-            {
-              "command": "next_focusable_item",
-              "output": "(nothing)",
-              "result": "pass"
-            }
-          ],
-          "notes": "When pressing tab, the hidden input does receive focus but is not announced in the traditional sense. Depending on the exact order of key-presses, VoiceOver will either announce the page title or that 'you are currently on a text field' (no label is announced). This is accurate because aria-hidden will not remove an element from the tab index."
-        }
-      }
-    }
-  }
+  ]
 }

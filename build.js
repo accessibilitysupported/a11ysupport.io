@@ -40,10 +40,6 @@ let getFeatures = function(techId, buildDir) {
 		let id = file.slice(0, -5);
 		let failingTests = [];
 
-		if (!file.endsWith('aria-haspopup_attribute.json')) {
-			return;
-		}
-
 		// search the test map for tests that include this id.
 		feature.tests = [];
 		if (featureMap[techId+'/'+id]) {
@@ -118,10 +114,6 @@ let testFiles = glob.sync(dataDir+'/tests/**/*.json');
 
 testFiles.forEach(function(file) {
 	if (!file.endsWith('.json')) {
-		return;
-	}
-
-	if (!file.endsWith('aria_haspopup_attribute.json')) {
 		return;
 	}
 

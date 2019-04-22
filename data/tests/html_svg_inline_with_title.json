@@ -1,15 +1,180 @@
 {
-  "type": "assertion",
   "title": "HTML SVG element with SVG title element",
   "description": "This tests the accessible name computation for inline SVGs.",
-  "supports_sr": true,
-  "supports_vc": false,
-  "css_target": "#target",
-  "assertion": {
-    "aspect": "name",
-    "value": "read square"
-  },
-  "features": ["svg/title_element"],
+  "assertions": [
+    {
+      "feature_id": "svg/title_element",
+      "feature_assertion_id": "convey_accessible_name",
+      "css_target": "#target",
+      "expected_value": "red square",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "18",
+              "browser_version": "11",
+              "os_version": "17763",
+              "date": "2018-01-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "red square",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_graphic",
+                  "output": "(not found)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "18",
+              "browser_version": "65",
+              "os_version": "17763",
+              "date": "2018-01-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "red square",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_graphic",
+                  "output": "red square",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2018.1808.10",
+              "browser_version": "64",
+              "os_version": "1809",
+              "date": "2018-12-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(target not announced)",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_graphic",
+                  "output": "(target not found)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44",
+              "os_version": "1809",
+              "date": "2018-12-17",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(target not announced)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "64",
+              "os_version": "1809",
+              "date": "2018-12-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(not announced)",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_graphic",
+                  "output": "(not found)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.2",
+              "browser_version": "12.0.2",
+              "os_version": "10.14.2",
+              "date": "2018-12-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(not announced)",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_graphic",
+                  "output": "(not found)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.1",
+              "browser_version": "12.1",
+              "os_version": "12.1",
+              "date": "2018-12-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(not announced)",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_rotor_item",
+                  "output": "(not included in list of graphics)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "at_version": "7.0",
+              "browser_version": "65",
+              "os_version": "7.0",
+              "date": "2018-01-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "not announced",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    }
+  ],
   "history": [
     {
       "date": "2018-12-14",
@@ -23,171 +188,5 @@
       "date": "2018-12-17",
       "message": "narrator/edge support updated"
     }
-  ],
-  "results": {
-    "jaws": {
-      "browsers": {
-        "ie": {
-          "at_version": "18",
-          "browser_version": "11",
-          "os_version": "17763",
-          "date": "2018-01-01",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "red square",
-              "result": "pass"
-            },
-            {
-              "command": "next_graphic",
-              "output": "(not found)",
-              "result": "fail"
-            }
-          ]
-        },
-        "chrome": {
-          "at_version": "18",
-          "browser_version": "65",
-          "os_version": "17763",
-          "date": "2018-01-01",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "red square",
-              "result": "pass"
-            },
-            {
-              "command": "next_graphic",
-              "output": "red square",
-              "result": "pass"
-            }
-          ]
-        },
-        "firefox": {
-          "at_version": "2018.1808.10",
-          "browser_version": "64",
-          "os_version": "1809",
-          "date": "2018-12-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(target not announced)",
-              "result": "fail"
-            },
-            {
-              "command": "next_graphic",
-              "output": "(target not found)",
-              "result": "fail"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    },
-    "narrator": {
-      "browsers": {
-        "edge": {
-          "at_version": "1809",
-          "browser_version": "44",
-          "os_version": "1809",
-          "date": "2018-12-17",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(target not announced)",
-              "result": "fail"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    },
-    "nvda": {
-      "browsers": {
-        "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "64",
-          "os_version": "1809",
-          "date": "2018-12-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(not announced)",
-              "result": "fail"
-            },
-            {
-              "command": "next_graphic",
-              "output": "(not found)",
-              "result": "fail"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    },
-    "vo_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.14.2",
-          "browser_version": "12.0.2",
-          "os_version": "10.14.2",
-          "date": "2018-12-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(not announced)",
-              "result": "fail"
-            },
-            {
-              "command": "next_graphic",
-              "output": "(not found)",
-              "result": "fail"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    },
-    "vo_ios": {
-      "browsers": {
-        "ios_saf": {
-          "at_version": "12.1",
-          "browser_version": "12.1",
-          "os_version": "12.1",
-          "date": "2018-12-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(not announced)",
-              "result": "fail"
-            },
-            {
-              "command": "next_rotor_item",
-              "output": "(not included in list of graphics)",
-              "result": "fail"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    },
-    "talkback": {
-      "browsers": {
-        "and_chr": {
-          "at_version": "7.0",
-          "browser_version": "65",
-          "os_version": "7.0",
-          "date": "2018-01-01",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "not announced",
-              "result": "pass"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    }
-  }
+  ]
 }

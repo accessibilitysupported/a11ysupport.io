@@ -17,5 +17,31 @@
       "url": "https://www.w3.org/TR/html-aam-1.0/#section-elements-and-grouping-content-elements-not-listed-elsewhere"
     }
   ],
+  "assertions": [
+    {
+      "id": "convey_role_if_named",
+      "title": "The screen reader MUST convey a region role if it is named via aria-label",
+      "type": "MUST",
+      "css_target": "section[aria-label]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ],
+      "reference": "See HTML AAM 5.15.1 Section and Grouping Element Accessible Name Computation"
+    },
+    {
+      "id": "no_role_if_not_named",
+      "title": "The screen reader MUST not convey a region role if it is not named via aria-label",
+      "type": "MUST",
+      "css_target": "section:note([aria-label])",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ],
+      "reference": "HTML AAM 5.15.1 Section and Grouping Element Accessible Name Computation"
+    }
+  ],
   "date_updated": "2018-11-14"
 }

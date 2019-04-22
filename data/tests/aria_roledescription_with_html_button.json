@@ -1,120 +1,118 @@
 {
-  "type": "assertion",
   "title": "aria-roledescription attribute with HTML button",
   "description": "This test ensures that the value of aria-roledescription is announced by screen readers",
-  "supports_sr": true,
-  "supports_vc": false,
-  "css_target": "#target",
-  "assertion": {
-    "aspect": "role",
-    "value": "custom button"
-  },
-  "features": ["aria/aria-roledescription_attribute"],
+  "assertions": [
+    {
+      "feature_id": "aria/aria-roledescription_attribute",
+      "feature_assertion_id": "convey_value",
+      "css_target": "#target",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "edge": {
+              "at_version": "2018.1808.10",
+              "browser_version": "44.17763.1.0",
+              "os_version": "17763",
+              "date": "2018-11-12",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "Target",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "at_version": "17763",
+              "browser_version": "44.17763.1.0",
+              "os_version": "17763",
+              "date": "2018-11-12",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "Target. Custom button.",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "17763",
+              "browser_version": "44.17763.1.0",
+              "os_version": "17763",
+              "date": "2018-11-12",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "Target. Custom button.",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "63.0.1",
+              "os_version": "17763",
+              "date": "2018-11-12",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "Custom button. Target.",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.1",
+              "browser_version": "12.0.1",
+              "os_version": "10.14.1",
+              "date": "2018-11-12",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "Target, custom button",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.1",
+              "browser_version": "12.1",
+              "os_version": "12.1",
+              "date": "2018-11-12",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Target, custom button",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    }
+  ],
   "history": [
     {
       "date": "2018-11-12",
       "message": "Test created"
     }
-  ],
-  "results": {
-    "jaws": {
-      "browsers": {
-        "edge": {
-          "at_version": "2018.1808.10",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-12",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "Target",
-              "result": "fail"
-            }
-          ]
-        },
-        "ie": {
-          "at_version": "17763",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-12",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "Target. Custom button.",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "narrator": {
-      "browsers": {
-        "edge": {
-          "at_version": "17763",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-12",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "Target. Custom button.",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "nvda": {
-      "browsers": {
-        "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "63.0.1",
-          "os_version": "17763",
-          "date": "2018-11-12",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "Custom button. Target.",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "vo_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.14.1",
-          "browser_version": "12.0.1",
-          "os_version": "10.14.1",
-          "date": "2018-11-12",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "Target, custom button",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "vo_ios": {
-      "browsers": {
-        "ios_saf": {
-          "at_version": "12.1",
-          "browser_version": "12.1",
-          "os_version": "12.1",
-          "date": "2018-11-12",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "Target, custom button",
-              "result": "pass"
-            }
-          ],
-          "notes": ""
-        }
-      }
-    }
-  }
+  ]
 }

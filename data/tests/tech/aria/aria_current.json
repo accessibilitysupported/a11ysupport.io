@@ -1,17 +1,11 @@
 {
-  "title": "aria-haspopup attribute",
-  "description": "Tests the aria-haspopup attribute.",
-  "html_file": "aria/aria-haspopup_examples.html",
-  "history": [
-    {
-      "date": "2019-04-02",
-      "message": "Test created"
-    }
-  ],
+  "title": "aria-current attribute",
+  "description": "Tests the aria-current attribute. Originally sourced from [Léonie Watson's aria-current tests](http://design-patterns.tink.uk/aria-current/).",
+  "html_file": "aria/aria-current.html",
   "assertions": [
     {
-      "feature_id": "aria/aria-haspopup_attribute",
-      "feature_assertion_id": "convey_value_false",
+      "feature_id": "aria/aria-current_attribute",
+      "feature_assertion_id": "convey_value_date",
       "results": {
         "jaws": {
           "browsers": {
@@ -19,183 +13,14 @@
               "at_version": "2018.1811.2",
               "browser_version": "66",
               "os_version": "1809",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ],
-              "date": "2019-04-02"
-            },
-            "chrome": {
-              "at_version": "2018.1811.2",
-              "browser_version": "73",
-              "os_version": "1809",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ],
-              "date": "2019-04-02"
-            },
-            "ie": {
-              "at_version": "2018.1811.2",
-              "browser_version": "11",
-              "os_version": "1809",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ],
-              "date": "2019-04-02"
-            },
-            "edge": {
-              "at_version": "2018.1811.2",
-              "browser_version": "44",
-              "os_version": "1809",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ],
-              "date": "2019-04-02"
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "at_version": "1809",
-              "browser_version": "44.17763",
-              "os_version": "1809",
-              "date": "2019-04-02",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "at_version": "2019.0.1",
-              "browser_version": "66",
-              "os_version": "1809",
-              "date": "2019-04-02",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "at_version": "2019.0.1",
-              "browser_version": "73",
-              "os_version": "1809",
-              "date": "2019-04-02",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ]
-            },
-            "edge": {
-              "at_version": "2019.0.1",
-              "browser_version": "44.17763",
-              "os_version": "1809",
-              "date": "2019-04-02",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "at_version": "2019.0.1",
-              "browser_version": "11",
-              "os_version": "1809",
-              "date": "2019-04-02",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "at_version": "12.2",
-              "browser_version": "12.2",
-              "os_version": "12.2",
-              "date": "2019-04-02",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action button",
+                  "output": "current date",
                   "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "at_version": "10.14.4",
-              "browser_version": "12.1",
-              "os_version": "10.14.4",
-              "date": "2019-04-02",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "feature_id": "aria/aria-haspopup_attribute",
-      "feature_assertion_id": "convey_value_dialog",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "at_version": "2018.1811.2",
-              "browser_version": "66",
-              "os_version": "1809",
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "chrome": {
               "at_version": "2018.1811.2",
@@ -203,12 +28,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "ie": {
               "at_version": "2018.1811.2",
@@ -216,12 +41,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "edge": {
               "at_version": "2018.1811.2",
@@ -229,12 +54,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             }
           }
         },
@@ -244,11 +69,11 @@
               "at_version": "1809",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ]
@@ -261,12 +86,12 @@
               "at_version": "2019.0.1",
               "browser_version": "66",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
                 }
               ]
             },
@@ -274,12 +99,12 @@
               "at_version": "2019.0.1",
               "browser_version": "73",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
                 }
               ]
             },
@@ -287,12 +112,12 @@
               "at_version": "2019.0.1",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
                 }
               ]
             },
@@ -300,12 +125,29 @@
               "at_version": "2019.0.1",
               "browser_version": "11",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "firefox": {
+              "at_version": "unknown",
+              "browser_version": "unknown",
+              "os_version": "unknown",
+              "date": "2018-02-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(unknown)",
+                  "result": "pass"
                 }
               ]
             }
@@ -317,12 +159,12 @@
               "at_version": "12.2",
               "browser_version": "12.2",
               "os_version": "12.2",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action button shows popup",
-                  "result": "partial"
+                  "output": "current date",
+                  "result": "pass"
                 }
               ]
             }
@@ -334,12 +176,12 @@
               "at_version": "10.14.4",
               "browser_version": "12.1",
               "os_version": "10.14.4",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action popup button",
-                  "result": "partial"
+                  "command": "next_item",
+                  "output": "current date",
+                  "result": "pass"
                 }
               ]
             }
@@ -348,8 +190,8 @@
       }
     },
     {
-      "feature_id": "aria/aria-haspopup_attribute",
-      "feature_assertion_id": "convey_value_grid",
+      "feature_id": "aria/aria-current_attribute",
+      "feature_assertion_id": "convey_value_location",
       "results": {
         "jaws": {
           "browsers": {
@@ -359,12 +201,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "chrome": {
               "at_version": "2018.1811.2",
@@ -372,12 +214,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "ie": {
               "at_version": "2018.1811.2",
@@ -385,12 +227,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "edge": {
               "at_version": "2018.1811.2",
@@ -398,12 +240,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             }
           }
         },
@@ -413,11 +255,11 @@
               "at_version": "1809",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ]
@@ -430,12 +272,12 @@
               "at_version": "2019.0.1",
               "browser_version": "66",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ]
             },
@@ -443,12 +285,12 @@
               "at_version": "2019.0.1",
               "browser_version": "73",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ]
             },
@@ -456,12 +298,12 @@
               "at_version": "2019.0.1",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ]
             },
@@ -469,12 +311,29 @@
               "at_version": "2019.0.1",
               "browser_version": "11",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "firefox": {
+              "at_version": "unknown",
+              "browser_version": "unknown",
+              "os_version": "unknown",
+              "date": "2018-02-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(unknown)",
+                  "result": "pass"
                 }
               ]
             }
@@ -486,12 +345,12 @@
               "at_version": "12.2",
               "browser_version": "12.2",
               "os_version": "12.2",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action button shows popup",
-                  "result": "partial"
+                  "output": "current location",
+                  "result": "pass"
                 }
               ]
             }
@@ -503,12 +362,12 @@
               "at_version": "10.14.4",
               "browser_version": "12.1",
               "os_version": "10.14.4",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button has popup",
-                  "result": "partial"
+                  "command": "next_item",
+                  "output": "current location",
+                  "result": "pass"
                 }
               ]
             }
@@ -517,8 +376,8 @@
       }
     },
     {
-      "feature_id": "aria/aria-haspopup_attribute",
-      "feature_assertion_id": "convey_value_listbox",
+      "feature_id": "aria/aria-current_attribute",
+      "feature_assertion_id": "convey_value_page",
       "results": {
         "jaws": {
           "browsers": {
@@ -528,12 +387,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "chrome": {
               "at_version": "2018.1811.2",
@@ -541,12 +400,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "ie": {
               "at_version": "2018.1811.2",
@@ -554,12 +413,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "edge": {
               "at_version": "2018.1811.2",
@@ -567,12 +426,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             }
           }
         },
@@ -582,11 +441,11 @@
               "at_version": "1809",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ]
@@ -599,12 +458,12 @@
               "at_version": "2019.0.1",
               "browser_version": "66",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ]
             },
@@ -612,12 +471,12 @@
               "at_version": "2019.0.1",
               "browser_version": "73",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ]
             },
@@ -625,12 +484,12 @@
               "at_version": "2019.0.1",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ]
             },
@@ -638,12 +497,29 @@
               "at_version": "2019.0.1",
               "browser_version": "11",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "firefox": {
+              "at_version": "unknown",
+              "browser_version": "unknown",
+              "os_version": "unknown",
+              "date": "2018-02-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(unknown)",
+                  "result": "pass"
                 }
               ]
             }
@@ -655,12 +531,12 @@
               "at_version": "12.2",
               "browser_version": "12.2",
               "os_version": "12.2",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action popup button",
-                  "result": "partial"
+                  "output": "current page",
+                  "result": "pass"
                 }
               ]
             }
@@ -672,12 +548,12 @@
               "at_version": "10.14.4",
               "browser_version": "12.1",
               "os_version": "10.14.4",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button has popup",
-                  "result": "partial"
+                  "command": "next_item",
+                  "output": "current page",
+                  "result": "pass"
                 }
               ]
             }
@@ -686,8 +562,8 @@
       }
     },
     {
-      "feature_id": "aria/aria-haspopup_attribute",
-      "feature_assertion_id": "convey_value_menu",
+      "feature_id": "aria/aria-current_attribute",
+      "feature_assertion_id": "convey_value_step",
       "results": {
         "jaws": {
           "browsers": {
@@ -697,12 +573,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
+                  "command": "next_item",
+                  "output": "current step",
                   "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "chrome": {
               "at_version": "2018.1811.2",
@@ -710,12 +586,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
+                  "command": "next_item",
+                  "output": "current step",
                   "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "ie": {
               "at_version": "2018.1811.2",
@@ -723,12 +599,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
+                  "command": "next_item",
+                  "output": "current step",
                   "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "edge": {
               "at_version": "2018.1811.2",
@@ -736,12 +612,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             }
           }
         },
@@ -751,11 +627,11 @@
               "at_version": "1809",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ]
@@ -768,11 +644,11 @@
               "at_version": "2019.0.1",
               "browser_version": "66",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
+                  "command": "next_item",
+                  "output": "current step",
                   "result": "pass"
                 }
               ]
@@ -781,11 +657,11 @@
               "at_version": "2019.0.1",
               "browser_version": "73",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
+                  "command": "next_item",
+                  "output": "current step",
                   "result": "pass"
                 }
               ]
@@ -794,12 +670,12 @@
               "at_version": "2019.0.1",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current step",
+                  "result": "pass"
                 }
               ]
             },
@@ -807,11 +683,28 @@
               "at_version": "2019.0.1",
               "browser_version": "11",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
+                  "command": "next_item",
+                  "output": "current step",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "firefox": {
+              "at_version": "unknown",
+              "browser_version": "unknown",
+              "os_version": "unknown",
+              "date": "2018-02-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(unknown)",
                   "result": "pass"
                 }
               ]
@@ -824,12 +717,12 @@
               "at_version": "12.2",
               "browser_version": "12.2",
               "os_version": "12.2",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action button shows popup",
-                  "result": "partial"
+                  "output": "current step",
+                  "result": "pass"
                 }
               ]
             }
@@ -841,12 +734,12 @@
               "at_version": "10.14.4",
               "browser_version": "12.1",
               "os_version": "10.14.4",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action popup button",
-                  "result": "partial"
+                  "command": "next_item",
+                  "output": "current step",
+                  "result": "pass"
                 }
               ]
             }
@@ -855,8 +748,8 @@
       }
     },
     {
-      "feature_id": "aria/aria-haspopup_attribute",
-      "feature_assertion_id": "convey_value_tree",
+      "feature_id": "aria/aria-current_attribute",
+      "feature_assertion_id": "convey_value_time",
       "results": {
         "jaws": {
           "browsers": {
@@ -866,12 +759,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "chrome": {
               "at_version": "2018.1811.2",
@@ -879,12 +772,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "ie": {
               "at_version": "2018.1811.2",
@@ -892,12 +785,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "edge": {
               "at_version": "2018.1811.2",
@@ -905,12 +798,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             }
           }
         },
@@ -920,11 +813,11 @@
               "at_version": "1809",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ]
@@ -937,12 +830,12 @@
               "at_version": "2019.0.1",
               "browser_version": "66",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ]
             },
@@ -950,12 +843,12 @@
               "at_version": "2019.0.1",
               "browser_version": "73",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ]
             },
@@ -963,12 +856,12 @@
               "at_version": "2019.0.1",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ]
             },
@@ -976,12 +869,29 @@
               "at_version": "2019.0.1",
               "browser_version": "11",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button subMenu",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "firefox": {
+              "at_version": "unknown",
+              "browser_version": "unknown",
+              "os_version": "unknown",
+              "date": "2018-02-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(unknown)",
+                  "result": "pass"
                 }
               ]
             }
@@ -993,12 +903,12 @@
               "at_version": "12.2",
               "browser_version": "12.2",
               "os_version": "12.2",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action popup button",
-                  "result": "partial"
+                  "output": "current time",
+                  "result": "pass"
                 }
               ]
             }
@@ -1010,12 +920,12 @@
               "at_version": "10.14.4",
               "browser_version": "12.1",
               "os_version": "10.14.4",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button has popup",
-                  "result": "partial"
+                  "command": "next_item",
+                  "output": "current time",
+                  "result": "pass"
                 }
               ]
             }
@@ -1024,7 +934,7 @@
       }
     },
     {
-      "feature_id": "aria/aria-haspopup_attribute",
+      "feature_id": "aria/aria-current_attribute",
       "feature_assertion_id": "convey_value_true",
       "results": {
         "jaws": {
@@ -1035,12 +945,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
+                  "command": "next_item",
+                  "output": "current",
                   "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "chrome": {
               "at_version": "2018.1811.2",
@@ -1048,12 +958,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
+                  "command": "next_item",
+                  "output": "current",
                   "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "ie": {
               "at_version": "2018.1811.2",
@@ -1061,12 +971,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button menu",
+                  "command": "next_item",
+                  "output": "current",
                   "result": "pass"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             },
             "edge": {
               "at_version": "2018.1811.2",
@@ -1074,12 +984,12 @@
               "os_version": "1809",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ],
-              "date": "2019-04-02"
+              "date": "2019-03-29"
             }
           }
         },
@@ -1089,11 +999,11 @@
               "at_version": "1809",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
+                  "command": "next_item",
+                  "output": "(not announced)",
                   "result": "fail"
                 }
               ]
@@ -1106,11 +1016,11 @@
               "at_version": "2019.0.1",
               "browser_version": "66",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action menu button subMenu",
+                  "command": "next_item",
+                  "output": "current",
                   "result": "pass"
                 }
               ]
@@ -1119,11 +1029,11 @@
               "at_version": "2019.0.1",
               "browser_version": "73",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action menu button subMenu",
+                  "command": "next_item",
+                  "output": "current",
                   "result": "pass"
                 }
               ]
@@ -1132,12 +1042,12 @@
               "at_version": "2019.0.1",
               "browser_version": "44.17763",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action button",
-                  "result": "fail"
+                  "command": "next_item",
+                  "output": "current",
+                  "result": "pass"
                 }
               ]
             },
@@ -1145,11 +1055,28 @@
               "at_version": "2019.0.1",
               "browser_version": "11",
               "os_version": "1809",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action menu button subMenu",
+                  "command": "next_item",
+                  "output": "current",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "firefox": {
+              "at_version": "unknown",
+              "browser_version": "unknown",
+              "os_version": "unknown",
+              "date": "2018-02-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(unknown)",
                   "result": "pass"
                 }
               ]
@@ -1162,12 +1089,12 @@
               "at_version": "12.2",
               "browser_version": "12.2",
               "os_version": "12.2",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "action button shows popup",
-                  "result": "partial"
+                  "output": "current",
+                  "result": "pass"
                 }
               ]
             }
@@ -1179,12 +1106,12 @@
               "at_version": "10.14.4",
               "browser_version": "12.1",
               "os_version": "10.14.4",
-              "date": "2019-04-02",
+              "date": "2019-03-29",
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "action popup button",
-                  "result": "partial"
+                  "command": "next_item",
+                  "output": "current",
+                  "result": "pass"
                 }
               ]
             }
@@ -1192,6 +1119,11 @@
         }
       }
     }
-
+  ],
+  "history": [
+    {
+      "date": "2019-03-29",
+      "message": "Test created"
+    }
   ]
 }

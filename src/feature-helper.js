@@ -25,6 +25,7 @@ helper.initalizeFeatureObject = function(featureObject) {
 	//Set up support properties
 	featureObject.core_support = [];
 	featureObject.core_support_by_at = {};
+	featureObject.core_support_by_at_browser = {};
 	featureObject.core_support_string = 'unknown';
 	featureObject.extended_support = [];
 	featureObject.extended_support_string = 'unknown';
@@ -151,12 +152,38 @@ helper.initalizeFeatureObject = function(featureObject) {
 		let at = ATBrowsers.core_at[i];
 		featureObject.core_support_by_at[at].string = helper.generateSupportString(featureObject.core_support_by_at[at].values);
 
+		if (!featureObject.core_support_by_at_browser[at]) {
+			featureObject.core_support_by_at_browser[at] = {};
+		}
+
 		ATBrowsers.at[at].core_browsers.forEach(browser => {
+			if (!featureObject.core_support_by_at_browser[at][browser]) {
+				featureObject.core_support_by_at_browser[at][browser] = {
+					"values": [],
+					"string": ""
+				};
+			}
+
 			featureObject.core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.core_support_by_at_browser[at][browser].values);
 		});
 
 		featureObject.assertions.forEach((assertion, assertion_key) => {
 			ATBrowsers.at[at].core_browsers.forEach(browser => {
+				if (!featureObject.assertions[assertion_key].core_support_by_at_browser) {
+					featureObject.assertions[assertion_key].core_support_by_at_browser = {};
+				}
+
+				if (!featureObject.assertions[assertion_key].core_support_by_at_browser[at]) {
+					featureObject.assertions[assertion_key].core_support_by_at_browser[at] = {};
+				}
+
+				if (!featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser]) {
+					featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser] = {
+						"values": [],
+						"string": ""
+					};
+				}
+
 				featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values);
 			});
 		});

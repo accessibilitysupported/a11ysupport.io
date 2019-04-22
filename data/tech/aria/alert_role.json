@@ -9,5 +9,28 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#alert"
     }
   ],
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "The screen reader MUST convey the alert role",
+      "type": "MUST",
+      "css_target": "*[role=\"alert\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "stay_in_reading_mode",
+      "title": "The screen reader MUST NOT automatically switch away from reading mode",
+      "type": "MUST",
+      "css_target": "*[role=\"alert\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
   "date_updated": "2018-07-21"
 }
