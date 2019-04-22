@@ -146,10 +146,14 @@ testFiles.forEach(function(file) {
 		if (!testMap[test.id]) {
 			testMap[test.id] = [];
 		}
-		testMap[test.id].push({
-			// link tests with features here
-			featureId: assertion.feature_id,
-		});
+
+		let found = testMap[test.id].find(o => o.featureId === assertion.feature_id);
+		if (!found) {
+			testMap[test.id].push({
+				// link tests with features here
+				featureId: assertion.feature_id,
+			});
+		}
 
 		// populate the featuremap
 		if (!featureMap[assertion.feature_id]) {
