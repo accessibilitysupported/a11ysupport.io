@@ -39,48 +39,47 @@ block content
 
                 p Please be sure to read the full instructions before completing the test.
 
-                if (test.type === "assertion")
-                    h2 Step 2: Follow these instructions
-                    h3 Step 2.1: If testing screen reader software
-                    if (test.supports_sr)
-                        include test-case/locate-note.pug
+                h2 Step 2: Follow these instructions
+                h3 Step 2.1: If testing screen reader software
+                if (test.supports_sr)
+                    include test-case/locate-note.pug
 
-                        ol
-                            li <span id="review-details">Review the details of the previous results</span>.
-                            li Launch the screen reader that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
-                            li= "Locate the target element. The CSS selector for the target is: "
-                                strong= test.css_target
-                            if test.sr_instructions
-                                each instruction in test.sr_instructions
-                                    li= instruction
-                            else
-                                li The test passes if this assertion is met: #[+assertion(test.assertion)]
-                            li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
+                    ol
+                        li <span id="review-details">Review the details of the previous results</span>.
+                        li Launch the screen reader that you want to test with.
+                        li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
+                        li= "Locate the target element. The CSS selector for the target is: "
+                            strong= test.css_target
+                        if test.sr_instructions
+                            each instruction in test.sr_instructions
+                                li= instruction
+                        else
+                            li The test passes if this assertion is met: #[+assertion(test.assertion)]
+                        li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
 
-                        p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
-                    else
-                        p This test does not support screen reader software
-                    h3 Step 2.2: If testing voice command software
-                    if (test.supports_vc)
-                        ol
-                            li Launch the Voice Command software that you want to test with.
-                            li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
-                            if test.vc_instructions
-                                each instruction in test.vc_instructions
-                                    li= instruction
-                            else if test.assertion.aspect === 'name'
-                                li= "Say \"click "+ test.assertion.value +"\""
-                                li The test passes if the Voice Command software is able to locate and activate the target element.
-                                li Use the form to create an issue for the given browser/voice command software combination.
-                            else
-                                li The test passes if the Voice Command software is able to locate and activate the target element.
-                                li Use the form to create an issue for the given browser/voice command software combination.
-                    else
-                        p This test does not support voice control software
+                    p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
+                else
+                    p This test does not support screen reader software
+                h3 Step 2.2: If testing voice command software
+                if (test.supports_vc)
+                    ol
+                        li Launch the Voice Command software that you want to test with.
+                        li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
+                        if test.vc_instructions
+                            each instruction in test.vc_instructions
+                                li= instruction
+                        else if test.assertion.aspect === 'name'
+                            li= "Say \"click "+ test.assertion.value +"\""
+                            li The test passes if the Voice Command software is able to locate and activate the target element.
+                            li Use the form to create an issue for the given browser/voice command software combination.
+                        else
+                            li The test passes if the Voice Command software is able to locate and activate the target element.
+                            li Use the form to create an issue for the given browser/voice command software combination.
+                else
+                    p This test does not support voice control software
 
-                    h3 Test page
-                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
+                h3 Test page
+                iframe(src='/tests/html/' + test.html_file aria-label="the test page")
 
 
                 h3 Step 3: Submit your findings
