@@ -17,6 +17,7 @@ Note: I'm not entirely happy with this grading method and structure. Issues incl
 * Bubbling support to the feature level can obfuscate important issues with support.
 * Support terminology isn't always consistent (a result of my rapid prototyping).
 * JSON structure was optimized for making it easy to build a front end, not necessarily for maintenance or editing by contributors. For example, an array (instead of an object) for results might make more sense and would be easier to add AT in the future. I see this as a minor issue.
+* We don't track the screen reader mode (but it is implied)
 
 Details of the grading method and a high level overview of the project include:
 
