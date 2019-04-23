@@ -65,7 +65,7 @@ block content
                                     else
                                         span -
                                 td
-                                    a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + at + "/" + browser) More information
+                                    a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + testIdHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
 
                 details.indent
                     summary
@@ -105,7 +105,7 @@ block content
                                         else
                                             span -
                                     td
-                                        a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + at.id + "/" + browser) More information
+                                        a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + testIdHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
             h2(id="history") History
             ul
                 each record in test.history

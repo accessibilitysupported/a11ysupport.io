@@ -96,8 +96,9 @@ router.get('/:testId/run', function(req, res, next) {
 });
 
 /* GET a specific test for a feature. */
-router.get('/:testId/:atId/:browserId', function(req, res, next) {
+router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(req, res, next) {
     let testId = testIdHelper.undoMakeSafe(req.params.testId);
+    let featureId = testIdHelper.undoMakeSafe(req.params.featureId);
 	let testMap = require(__dirname+'/../build/test_map');
 	let features = testMap[testId];
 	let test_html, test, test_html_file;
@@ -117,13 +118,25 @@ router.get('/:testId/:atId/:browserId', function(req, res, next) {
 		return;
 	}
 
-	if (!test.at[req.params.atId]) {
+	let assertion = test.assertions.find(
+		o =>
+			o.feature_id === featureId
+			&& o.feature_assertion_id === req.params.featureAssertionId
+	);
+
+	if (!assertion) {
 		// Not found
 		next(createError(404));
 		return;
 	}
 
-	if (!test.at[req.params.atId].browsers[req.params.browserId]) {
+	if (!assertion.results[req.params.atId]) {
+		// Not found
+		next(createError(404));
+		return;
+	}
+
+	if (!assertion.results[req.params.atId].browsers[req.params.browserId]) {
 		// Not found
 		next(createError(404));
 		return;
@@ -150,6 +163,7 @@ router.get('/:testId/:atId/:browserId', function(req, res, next) {
 		features: features,
 		ATBrowsers: ATBrowsers,
 		md: md,
+		assertion: assertion,
         testIdHelper: testIdHelper
 	});
 });

@@ -23,28 +23,28 @@ block content
             tbody
                 tr
                     th(scope="row") Support
-                    td= test.results[atId].browsers[browserId].support_string
+                    td= assertion.results[atId].browsers[browserId].support_string
                 tr
                     th(scope="row") AT Name
                     td
                         a(href="/learn/at/"+atId)=ATBrowsers.at[atId].title
                 tr
                     th(scope="row") AT Version
-                    td= test.results[atId].browsers[browserId].at_version
+                    td= assertion.results[atId].browsers[browserId].at_version
                 tr
                     th(scope="row") Browser Name
                     td= ATBrowsers.browsers[browserId].title
                 tr
                     th(scope="row") Browser Version
-                    td= test.results[atId].browsers[browserId].browser_version
+                    td= assertion.results[atId].browsers[browserId].browser_version
                 tr
                     th(scope="row") OS version
-                    td= test.results[atId].browsers[browserId].os_version
+                    td= assertion.results[atId].browsers[browserId].os_version
                 tr
                     th(scope="row") Notes
-                    td!= test.results[atId].browsers[browserId].notes ? md.render(test.results[atId].browsers[browserId].notes) : ''
+                    td!= assertion.results[atId].browsers[browserId].notes ? md.render(assertion.results[atId].browsers[browserId].notes) : ''
 
-        if test.results[atId].browsers[browserId].output
+        if assertion.results[atId].browsers[browserId].output
             h2 Commands and Output
             p These are specific commands used to access the target element in the test, along with the resulting output.
             table
@@ -54,7 +54,7 @@ block content
                         th Result
                         th Output
                 tbody
-                    each output in test.results[atId].browsers[browserId].output
+                    each output in assertion.results[atId].browsers[browserId].output
                         tr
                             td=output.command + " (" + ATBrowsers.at[atId].commands[output.command].command + ")"
                             td=output.result
