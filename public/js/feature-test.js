@@ -127,6 +127,17 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		var legend = document.createElement('legend');
 		legend.innerText = assertion.feature_title + ' / ' + assertion.assertion_title;
 		fieldset.append(legend);
+
+		var meta_dl = document.createElement('dl');
+		meta_dl.classList.add('inline');
+		var css_target_dt = document.createElement('dt');
+		var css_target_dd = document.createElement('dd');
+		css_target_dt.innerText = 'CSS Target: ';
+		css_target_dd.innerText = assertion.css_target;
+		meta_dl.appendChild(css_target_dt);
+		meta_dl.appendChild(css_target_dd);
+		fieldset.prepend(meta_dl);
+
 		var addOutputButton = document.createElement('button');
 		addOutputButton.classList.add('add-output-row');
 		addOutputButton.innerText = 'add an output row';

@@ -35,9 +35,13 @@
           "items": {
             "enum": ["sr/reading", "sr/interaction", "vc"]
           }
+        },
+        "css_target": {
+          "type": "string",
+          "description": "A css selector that determines which elements in the example need to be tested. This should be a generic selector, and can be overridden by tests that reference this assertion."
         }
       },
-      "required": ["id", "title", "operation_modes"]
+      "required": ["id", "title", "operation_modes", "css_target"]
     }
   },
   "properties": {

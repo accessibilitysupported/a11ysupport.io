@@ -227,6 +227,11 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].core_support = [];
         testCase.assertions[assertion_key].extended_support = "unknown";
 
+        if (!testCase.assertions[assertion_key].css_target) {
+        	// Use the referenced assertion's css target if it isn't overridden by the assertion link
+			testCase.assertions[assertion_key].css_target = ref_assertion.css_target;
+		}
+
 		//Add missing AT
 		for(let at in ATBrowsers.at){
 			//Add an empty versions array if we don't have any info on versions

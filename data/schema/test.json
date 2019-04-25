@@ -104,6 +104,14 @@
         "feature_assertion_id": {
           "type": "number"
         },
+        "css_target": {
+          "type": "string",
+          "description": "A css selector that determines which elements in the example need to be tested."
+        },
+        "expected_output": {
+          "type": "string",
+          "description": "an example of expected output; does not need to be exact. This can be helpful especially for things like computed accessible names and descriptions."
+        },
         "results": {
           "type": "object",
           "properties": {
@@ -137,7 +145,7 @@
           }
         }
       },
-      "required": ["feature_id", "feature_assertion_id", "results"]
+      "required": ["feature_id", "feature_assertion_id", "css_target", "results"]
     },
     "assertions": {
       "type": "array",
