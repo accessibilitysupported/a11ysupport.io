@@ -38,6 +38,18 @@ helper.initalizeFeatureObject = function(featureObject) {
 
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		featureObject.assertions[assertion_key].tests = [];
+
+		// Now set a flag for what types of AT this assertion applies to
+		featureObject.assertions[assertion_key].supports_at = [];
+
+		if (assertion.operation_modes.includes('sr/reading')
+			|| assertion.operation_modes.includes('sr/interaction')) {
+			featureObject.assertions[assertion_key].supports_at.push('sr');
+		}
+
+		if (assertion.operation_modes.includes('vc')) {
+			featureObject.assertions[assertion_key].supports_at.push('vc');
+		}
 	});
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
@@ -210,6 +222,7 @@ helper.initalizeTestCase = function (testCase) {
 		let ref_assertion = feature.assertions.find(obj => obj.id === assertion.feature_assertion_id);
 
 		// Look at what operations modes the assertion supports and set some helpful flags
+		// We have to do this here because tests are built before features.
 		let supports_sr = false;
 		let supports_vc = false;
 
