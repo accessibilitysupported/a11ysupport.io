@@ -225,14 +225,17 @@ helper.initalizeTestCase = function (testCase) {
 		// We have to do this here because tests are built before features.
 		let supports_sr = false;
 		let supports_vc = false;
+		testCase.assertions[assertion_key].supports_at = [];
 
 		if (ref_assertion.operation_modes.includes('sr/reading')
 		|| ref_assertion.operation_modes.includes('sr/interaction')) {
 			supports_sr = true;
+			testCase.assertions[assertion_key].supports_at.push('sr');
 		}
 
 		if (ref_assertion.operation_modes.includes('vc')) {
 			supports_vc = true;
+			testCase.assertions[assertion_key].supports_at.push('vc')
 		}
 
 		testCase.assertions[assertion_key].feature_title = feature.title;

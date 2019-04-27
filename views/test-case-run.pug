@@ -16,21 +16,23 @@ block content
             div(id="run-test-container")
                 h2(id="at-browser-combo") Step 1: What are you testing with?
                 form.testing-pref
-                    label(for="combination") Select your testing combination
-                    select(id="combination")
-                        optgroup(label="Core combinations")
-                            each at in ATBrowsers.core_at
-                                each browser_id in ATBrowsers.at[at].core_browsers
-                                    option(value=at + '/' + browser_id)= ATBrowsers.at[at].short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (core)'
+                    label(for="combination") Select your testing combination.
+                    div
+                        select(id="combination")
+                            optgroup(label="Core combinations")
+                                each at in ATBrowsers.core_at
+                                    each browser_id in ATBrowsers.at[at].core_browsers
+                                        option(value=at + '/' + browser_id)= ATBrowsers.at[at].short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (core)'
 
-                        optgroup(label="Extended combinations")
-                            each at, at_id in ATBrowsers.at
-                                each browser_id in ATBrowsers.at[at_id].core_browsers
-                                    if (ATBrowsers.extended_at.includes(at_id))
+                            optgroup(label="Extended combinations")
+                                each at, at_id in ATBrowsers.at
+                                    each browser_id in ATBrowsers.at[at_id].core_browsers
+                                        if (ATBrowsers.extended_at.includes(at_id))
+                                            option(value=at_id + '/' + browser_id)= at.short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (extended)'
+                                    each browser_id in ATBrowsers.at[at_id].extended_browsers
                                         option(value=at_id + '/' + browser_id)= at.short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (extended)'
-                                each browser_id in ATBrowsers.at[at_id].extended_browsers
-                                    option(value=at_id + '/' + browser_id)= at.short_title + ' / ' + ATBrowsers.browsers[browser_id].title + ' (extended)'
-                    button set
+                    p Note: your selection will be saved until you change it or clear your browser cache.
+                    button save my testing combination
                 div(id="testing-pref-results")
 
                 div.call-out
@@ -39,82 +41,53 @@ block content
 
                 p Please be sure to read the full instructions before completing the test.
 
-                h2 Step 2: Follow these instructions
-                h3 Step 2.1: If testing screen reader software
-                if (test.supports_sr)
-                    include test-case/locate-note.pug
+                div(id="step2" hidden)
+                    h2 Step 2: Test the assertions and submit your findings
 
                     ol
-                        li <span id="review-details">Review the details of the previous results</span>.
-                        li Launch the screen reader that you want to test with.
+                        li Launch the chosen assistive technology that you want to test with.
                         li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
-                        li= "Locate the target element. The CSS selector for the target is: "
-                            strong= test.css_target
-                        if test.sr_instructions
-                            each instruction in test.sr_instructions
-                                li= instruction
-                        else
-                            li The test passes if this assertion is met: #[+assertion(test.assertion)]
-                        li Use the form to create an issue for the given browser/screen reader combination. Please include detailed notes about what commands were used.
+                        li For each assertion, locate the target element(s) and test whether or not the assertion is met
+                        li The assistive technology might provide many commands that apply to the assertion. Try to test as many as possible.
+                        li Record your findings. Please include detailed notes about what commands were used.
 
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
-                else
-                    p This test does not support screen reader software
-                h3 Step 2.2: If testing voice command software
-                if (test.supports_vc)
-                    ol
-                        li Launch the Voice Command software that you want to test with.
-                        li Navigate to the test page iframe (after these instructions) or #[a(href='/tests/html/' + test.html_file) open the test page].
-                        if test.vc_instructions
-                            each instruction in test.vc_instructions
-                                li= instruction
-                        else if test.assertion.aspect === 'name'
-                            li= "Say \"click "+ test.assertion.value +"\""
-                            li The test passes if the Voice Command software is able to locate and activate the target element.
-                            li Use the form to create an issue for the given browser/voice command software combination.
-                        else
-                            li The test passes if the Voice Command software is able to locate and activate the target element.
-                            li Use the form to create an issue for the given browser/voice command software combination.
-                else
-                    p This test does not support voice control software
 
-                h3 Test page
-                iframe(src='/tests/html/' + test.html_file aria-label="the test page")
+                    div
+                        a(href="/tests/html/"+test.html_file target="_blank") open the test page in a new tab
+                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
 
+                    form.submit-test-result.stacked-form
+                        input(type="hidden" name="title" value=test.id)
+                        input(type="hidden" name="at" id="at")
+                        input(type="hidden" name="browser" id="browser")
 
-                h3 Step 3: Submit your findings
-                p Your findings can be submitted via a GitHub issue with this form. Some selections will be saved to speed up future submissions.
-                form.submit-test-result.stacked-form
-                    input(type="hidden" name="title" value=test.id)
-                    input(type="hidden" name="at" id="at")
-                    input(type="hidden" name="browser" id="browser")
+                        div(id="error_container")
 
-                    div(id="error_container")
+                        div.control
+                            fieldset
+                                legend Technology information
 
-                    div.control
-                        fieldset
-                            legend Technology information
+                                div.control.at-browser-combo
+                                    p
+                                        strong="The selected AT/Browser combo is: "
+                                        span.selected-at-browser-combo
+                                    p Use the #[a(href="#at-browser-combo") "what are you testing with?"] form to change your combination.
 
-                            div.control.at-browser-combo
-                                p
-                                    strong="The selected AT/Browser combo is: "
-                                    span.selected-at-browser-combo
-                                p Use the #[a(href="#at-browser-combo") "what are you testing with?"] form to change your combination.
+                                div.control
+                                    label(for="at_version") AT Version (required)
+                                    input(type="text" name="at_version" id="at_version" aria-required="true")
+                                div.control
+                                    label(for="os_version") OS Version (required)
+                                    input(type="text" name="os_version" id="os_version" aria-required="true")
+                                div.control
+                                    label(for="browser_version") Browser Version (required)
+                                    input(type="text" name="browser_version" id="browser_version" aria-required="true")
 
-                            div.control
-                                label(for="at_version") AT Version (required)
-                                input(type="text" name="at_version" id="at_version" aria-required="true")
-                            div.control
-                                label(for="os_version") OS Version (required)
-                                input(type="text" name="os_version" id="os_version" aria-required="true")
-                            div.control
-                                label(for="browser_version") Browser Version (required)
-                                input(type="text" name="browser_version" id="browser_version" aria-required="true")
+                        div(id="assertions").control
 
-                    div(id="assertions").control
-
-                    div.control
-                        button Create GitHub Issue
+                        div.control
+                            button Create GitHub Issue
 
         div.sidebar
             h2 Related Features

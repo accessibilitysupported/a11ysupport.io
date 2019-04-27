@@ -35,15 +35,13 @@ function displayTestingPrefs(focusResults)
 	var at_value = sessionStorage.getItem('at');
 	var browser_value = sessionStorage.getItem('browser');
 
-	// Always remove command output that is already in place.
-	// TODO
-	//removeAllCommandOutputRows();
-
 	if (!at_value || !browser_value) {
-		// Settings haven't been saved yet. But we still need a placeholder for output.
-		createCommandOutputRow(null, false);
+		// Settings haven't been saved yet. fail early.
 		return;
 	}
+
+	var step_2 = document.querySelector('#step2');
+	step_2.removeAttribute('hidden');
 
 	// Set the ATBrowser selector to the currently selected value
 	ATBrowserSelect.value = at_value+'/'+browser_value;
@@ -115,7 +113,16 @@ var removeAllAssertionFieldsets = function() {
 };
 
 var buildAssertionFieldsets = function(at_value, browser_value) {
+
+	var num_fieldsets = 0;
 	test.assertions.forEach(function(assertion, assertion_key) {
+
+		if (-1 === assertion.supports_at.indexOf(ATBrowsers.at[at_value].type)) {
+			return;
+		}
+
+		num_fieldsets++;
+
 		var fieldset = document.createElement('fieldset');
 		fieldset.classList.add('assertion');
 		fieldset.setAttribute('data-feature-assertion-id', assertion.feature_assertion_id);
@@ -172,6 +179,12 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 
 		assertions_container.append(fieldset);
 	});
+
+	if (num_fieldsets === 0) {
+		var message = document.createElement('p');
+		message.innerText = "Sorry, no assertions apply to the chosen testing combination.";
+		assertions_container.append(message);
+	}
 };
 
 var removeAllCommandOutputRows = function(assertion_fieldset) {
@@ -486,26 +499,10 @@ function initFeatureTest() {
 }
 
 // Fetch all of the required data
-var test_id =
 getJson(testJsonURL +'.json', function(data) {
 	test = data;
 	getJson('/ATBrowsers.json', function(data) {
 		ATBrowsers = data;
-
-        var at_value = sessionStorage.getItem('at');
-        var browser_value = sessionStorage.getItem('browser');
-
-        // IF at_value isn't set, set it to the first option.
-        if (!at_value) {
-            at_value = 'dragon_win';
-            sessionStorage.setItem('at', at_value);
-        }
-
-        // If browser_value isn't set, set it to the first core browser for the current AT
-        if (!browser_value) {
-            browser_value = ATBrowsers.at[at_value].core_browsers[0];
-            sessionStorage.setItem('browser', browser_value);
-        }
 
 		// Now that we have the data, init search
 		initFeatureTest();
