@@ -242,6 +242,7 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
 		testCase.assertions[assertion_key].core_support = [];
         testCase.assertions[assertion_key].extended_support = "unknown";
+		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
 
         if (!testCase.assertions[assertion_key].css_target) {
         	// Use the referenced assertion's css target if it isn't overridden by the assertion link

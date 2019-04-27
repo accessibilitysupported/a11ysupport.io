@@ -163,7 +163,7 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		addOutputButton.addEventListener('click', function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			createCommandOutputRow(e.target.parentNode, null, true);
+			createCommandOutputRow(assertion, e.target.parentNode, null, true);
 		});
 
 		var noteLabel = document.createElement('label');
@@ -181,10 +181,10 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		var supportPoint = assertion.results[at_value].browsers[browser_value];
 		if (supportPoint.output) {
 			supportPoint.output.forEach(function(row, row_key) {
-				createCommandOutputRow(fieldset, row, false);
+				createCommandOutputRow(assertion, fieldset, row, false);
 			});
 		} else {
-			createCommandOutputRow(fieldset, null, false);
+			createCommandOutputRow(assertion, fieldset, null, false);
 		}
 
 		assertions_container.append(fieldset);
@@ -204,7 +204,7 @@ var removeAllCommandOutputRows = function(assertion_fieldset) {
 	}
 };
 
-var createCommandOutputRow = function(assertion_fieldset, output_row, focus) {
+var createCommandOutputRow = function(assertion, assertion_fieldset, output_row, focus) {
 	var addOutputButton = assertion_fieldset.querySelector('button.add-output-row');
 	var currentRows = assertion_fieldset.querySelectorAll('fieldset.output-row');
 	var key = currentRows.length+1;
@@ -242,6 +242,18 @@ var createCommandOutputRow = function(assertion_fieldset, output_row, focus) {
         	if (!command.tags.includes(tag.id)) {
         		continue;
 			}
+
+        	var include = false;
+			assertion.operation_modes.forEach(function(tag) {
+				if (command.tags.includes(tag)) {
+					include = true;
+				}
+			});
+
+			if (!include) {
+				continue;
+			}
+
 			if (!optgroup) {
 				// Create the optgroup
 				optgroup = document.createElement('optgroup');
