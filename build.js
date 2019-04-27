@@ -152,7 +152,9 @@ testFiles.forEach(function(file) {
 			featureMap[assertion.feature_id] = [];
 		}
 
-		featureMap[assertion.feature_id].push(test.id);
+		if (-1 === featureMap[assertion.feature_id].indexOf(test.id)) {
+			featureMap[assertion.feature_id].push(test.id);
+		}
 	});
 
 	test.assertions.forEach(assertion => {

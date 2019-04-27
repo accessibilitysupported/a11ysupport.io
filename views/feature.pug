@@ -48,19 +48,27 @@ block content
       else
         p No assertions have been created for this feature yet.
 
-    if data.references
-      div.sidebar
-        if data.related_issues && data.related_issues.length
-          h2 Related AT or browser issues
-          ul
-            each link in data.related_issues
-              li
-                a(href=link.url) #{link.title}
 
-        h2 Is something not right?
-        p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
-        a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
+    div.sidebar
+      h2 related tests
+      ul
+        each test in data.tests
+          li
+            a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
 
+
+      if data.related_issues && data.related_issues.length
+        h2 Related AT or browser issues
+        ul
+          each link in data.related_issues
+            li
+              a(href=link.url) #{link.title}
+
+      h2 Is something not right?
+      p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
+      a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
+
+      if data.references
         h2 References
         ul
           each reference in data.references
