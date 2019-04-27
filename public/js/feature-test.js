@@ -139,10 +139,20 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		meta_dl.classList.add('inline');
 		var css_target_dt = document.createElement('dt');
 		var css_target_dd = document.createElement('dd');
-		css_target_dt.innerText = 'CSS Target: ';
+		css_target_dt.innerText = 'Target: ';
 		css_target_dd.innerText = assertion.css_target;
 		meta_dl.appendChild(css_target_dt);
 		meta_dl.appendChild(css_target_dd);
+
+		if (assertion.expected_value) {
+			var exp_dt = document.createElement('dt');
+			exp_dt.innerText = 'Expected value: ';
+			var exp_dd = document.createElement('dd');
+			exp_dd.innerText = assertion.expected_value;
+			meta_dl.append(exp_dt);
+			meta_dl.append(exp_dd);
+		}
+
 		fieldset.prepend(meta_dl);
 
 		var addOutputButton = document.createElement('button');
