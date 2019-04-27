@@ -368,6 +368,7 @@ function initFeatureTest() {
 			var currentRows = assertion_fieldset.querySelectorAll('fieldset.output-row');
 			for (var i=0; i<currentRows.length; i++) {
 				var assertion_fieldset = currentRows[i].closest('fieldset.assertion');
+				var assertion_legend = assertion_fieldset.querySelector('legend');
 				var id = assertion_fieldset.getAttribute('id');
 				var idPrefix = '#'+id+'--'+'output_'+(i+1);
 				var command = document.querySelector(idPrefix+'_command');
@@ -375,15 +376,15 @@ function initFeatureTest() {
 				var result = document.querySelector(idPrefix+'_result');
 
 				if (!command.value) {
-					errors.push(generateErrorLink(idPrefix+'_command', "Output row " + (i+1) + " command is required"));
+					errors.push(generateErrorLink(idPrefix+'_command', assertion_legend.innerText+ " - Output row " + (i+1) + " command is required"));
 					command.setAttribute('aria-invalid', 'true');
 				}
 				if (!output.value) {
-					errors.push(generateErrorLink(idPrefix+'_output', "Output row " + (i+1) + " output is required"));
+					errors.push(generateErrorLink(idPrefix+'_output', assertion_legend.innerText+ " - Output row " + (i+1) + " output is required"));
 					output.setAttribute('aria-invalid', 'true');
 				}
 				if (!result.value) {
-					errors.push(generateErrorLink(idPrefix+'_result', "Output row " + (i+1) + " result is required"));
+					errors.push(generateErrorLink(idPrefix+'_result', assertion_legend.innerText+ " - Output row " + (i+1) + " result is required"));
 					result.setAttribute('aria-invalid', 'true');
 				}
 			}
