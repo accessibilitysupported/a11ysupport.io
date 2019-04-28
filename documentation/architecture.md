@@ -17,7 +17,7 @@ Note: I'm not entirely happy with this grading method and structure. Issues incl
 * Bubbling support to the feature level can obfuscate important issues with support.
 * Support terminology isn't always consistent (a result of my rapid prototyping).
 * JSON structure was optimized for making it easy to build a front end, not necessarily for maintenance, outside consumption, or editing by contributors. For example, an array (instead of an object) for results might make more sense and would be easier to add AT in the future. I see this as a minor issue.
-* We don't track the screen reader mode (but it is implied)
+* We don't track the screen reader mode (but it is implied via the commands)
 
 Details of the grading method and a high level overview of the project include:
 
@@ -26,7 +26,7 @@ Details of the grading method and a high level overview of the project include:
     * Extended combinations include any combination of AT/browser that might exist on a given OS.
 * Only assertions where `assertion.type === "MUST"` contribute to `core` support.
 * Support values are defined in an `output.result` by a contributor (either by editing the JSON directly or by filling out a form in the front end). Possible values of `output.result` include `pass`, `fail`, or `partial`.
-* `output.result` indicates the result of an assertion of a specific test applied to a specific input command for a specific AT/browser combination. It is the most specific result in the project. For example, the following might reference the result of a test against NVDA/Firefox: `test.assertions[0].results.nvda.browsers.firefox.output[0].result`
+* `output.result` indicates the result of an assertion of a specific feature applied to a specific test, applied to a specific input command for a specific AT/browser combination. It is the most specific result in the project. For example, the following might reference the result of a test against NVDA/Firefox: `test.assertions[0].results.nvda.browsers.firefox.output[0].result`
 * A single AT/browser combination can have many output results.
 * During the build process, output results are bubbled to:
     * The browser object `test.assertions[0].results.nvda.browsers.firefox.support`. Values are mapped to one of `y` (support='yes'), `n` (support='no'), or `p` (support='partial').
@@ -104,7 +104,7 @@ The following properties can be provided by a contributor:
 
 * `id` (string|required): this is a human readable ID for the assertion. Spaces are not allowed, just alphanumeric with underscores.
 * `title` (string|required): the assertion text itself. This MUST contain one of "MUST", "SHOULD" or "MAY", and may be written to be conditional.
-* `type` (enum|required): one of "MUST", "SHOULD", or "MAY"
+* `type` (enum|required): one of "MUST", "SHOULD", or "MAY". "MUST" assertions are considered the baseline for minimal support and are the only type of assertion that contributes to 'core' support.
 * `css_target` (string|required): the css selector for elements to test this assertion against. May be overridden by a test.
 * `preconditions` (array of string|optional): an array of strings that describe the preconditions for this assertion to be applicable
 * `operation_modes` (array of strings|required): contains command tags. Usually one of `sr/interaction`, `sr/reading`, or `vc`. These tags control which commands are shown to users while testing and to determine which types of AT the assertion applies to.
