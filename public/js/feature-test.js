@@ -81,8 +81,6 @@ function displayTestingPrefs(focusResults)
 	resultsContainer.appendChild(dl);
 	resultsContainer.classList.add('call-out');
 
-	console.log('create form here', at_value, browser_value);
-
 	// Remove all existing assertion fieldsets
 	removeAllAssertionFieldsets();
 
@@ -171,6 +169,10 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		var noteTextarea = document.createElement('textarea');
         noteTextarea.setAttribute('id', fieldset.getAttribute('id')+'--note');
         noteTextarea.setAttribute('name', fieldset.getAttribute('data-name')+'.note');
+
+        if (assertion.results[at_value].browsers[browser_value].notes) {
+            noteTextarea.innerText = assertion.results[at_value].browsers[browser_value].notes;
+        }
         fieldset.append(noteLabel);
         fieldset.append(noteTextarea);
 
