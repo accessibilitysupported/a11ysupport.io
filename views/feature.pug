@@ -13,6 +13,7 @@ block content
         p= "Recommendation: " + data.recommendation
 
       h2 Assertions
+      p Assertions are conditions that must be met for the feature to be considered as "supported". Only "MUST" assertions need to be met for minimal "support". "SHOULD" and "MAY" assertions indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these assertions, and as such, they are likely opinionated. The assertions are written to follow RFC 2119.
       if data.assertions.length > 0
         each assertion, index in data.assertions
           h3(id='support-table-'+index) #{assertion.title}
