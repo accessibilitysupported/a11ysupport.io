@@ -8,5 +8,29 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-selected"
     }
   ],
+  "assertions": [
+    {
+      "id": "convey_value_false",
+      "title": "The screen reader MUST convey false value by indicating that the element can be selected",
+      "type": "MUST",
+      "css_target": "*[ara-selected=\"false\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_true",
+      "title": "The screen reader MUST convey true value by indicating that the element is currently selected",
+      "type": "MUST",
+      "css_target": "*[ara-selected=\"true\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
   "date_updated": "2018-10-26"
 }

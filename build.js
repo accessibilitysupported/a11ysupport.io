@@ -87,6 +87,7 @@ let getFeatures = function(techId, buildDir) {
 			core_support: feature.core_support,
 			core_support_string: feature.core_support_string,
 			core_support_by_at: feature.core_support_by_at,
+			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length
 		});
@@ -133,29 +134,37 @@ testFiles.forEach(function(file) {
 	// Set up the test case
 	helper.initalizeTestCase(test);
 
-	test.features.forEach(feature_id => {
+	test.assertions.forEach(assertion => {
 		if (!testMap[test.id]) {
 			testMap[test.id] = [];
 		}
-		testMap[test.id].push({
-			// link tests with features here
-			featureId: feature_id,
-		});
 
-		// populate the featuremap
-		if (!featureMap[feature_id]) {
-			featureMap[feature_id] = [];
+		let found = testMap[test.id].find(o => o.featureId === assertion.feature_id);
+		if (!found) {
+			testMap[test.id].push({
+				// link tests with features here
+				featureId: assertion.feature_id,
+			});
 		}
 
-		featureMap[feature_id].push(test.id);
+		// populate the featuremap
+		if (!featureMap[assertion.feature_id]) {
+			featureMap[assertion.feature_id] = [];
+		}
+
+		if (-1 === featureMap[assertion.feature_id].indexOf(test.id)) {
+			featureMap[assertion.feature_id].push(test.id);
+		}
 	});
 
-	for(let at in ATBrowsers.at) {
-		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
-		validBrowsers.forEach(function(browser) {
-			supportPoints.push(test.results[at].browsers[browser]);
-		});
-	}
+	test.assertions.forEach(assertion => {
+		for(let at in ATBrowsers.at) {
+			let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+			validBrowsers.forEach(function(browser) {
+				supportPoints.push(assertion.results[at].browsers[browser]);
+			});
+		}
+	});
 
 	// ensure the path exists
 	let path = buildDir+'/tests/'+file;

@@ -15,14 +15,14 @@ td.support-case {
   text-align: center;
 }
 
-td.support-case.n {
+td.support-case.n, td.support-case.none {
   background-color: #b94a48;
   color: #fff;
 }
-td.support-case.y {
+td.support-case.y, td.support-case.full {
   background-color: #03A678;
 }
-td.support-case.p {
+td.support-case.p, td.support-case.some {
   background-color: #e9c906;
 }
 
@@ -345,7 +345,41 @@ dt {
   font-weight: bold;
 }
 
-pre.test-html {
-  max-width: 65vw;
-  overflow-x: scroll;
+dl.inline dt:before {
+  content: "";
+  display: block;
+}
+dl.inline dt, dl.inline dd {
+  display: inline;
+}
+dl.inline dd {
+  margin-left: 0;
+}
+
+summary h2,
+summary h3,
+summary h4,
+summary h5,
+summary h6 {
+  display: inline-block;
+}
+
+details.indent {
+  border-left: 1px solid black;
+  margin-top: .5em;
+  margin-left: .5em;
+  padding-left: .5em;
+}
+
+form.testing-pref {
+  margin-left: .5em;
+  margin-bottom: 1em;
+  border-left: 1px solid #ccc;
+  padding-left: .5em;
+
+}
+
+form.testing-pref p {
+  margin-top: .25em;
+  margin-bottom: .25em;
 }

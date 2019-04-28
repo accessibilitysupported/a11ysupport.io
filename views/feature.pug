@@ -12,45 +12,64 @@ block content
       if data.recommendation
         p= "Recommendation: " + data.recommendation
 
-      if data.tests.length > 0
-        h2 Summary of tests
-        each test, index in data.tests
-          a(href='/tests/' + testIdHelper.makeSafe(test.id))
-            h3(id='support-table-'+test.id)= 'Support for ' + test.title
-          if (test.assertion)
-            p Assertion: #[+assertion(test.assertion)]
-          else
-            p Assertion:custom test
-          table(aria-labelledby='support-table-'+test.id)
-            tr
-              th AT
-              th Browser
-              th Support
-            each at in ATBrowsers.core_at
-              each browser in ATBrowsers.at[at].core_browsers
+      h2 Assertions
+      p Assertions are conditions that must be met for the feature to be considered as "supported". Only "MUST" assertions need to be met for minimal "support". "SHOULD" and "MAY" assertions indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these assertions, and as such, they are likely opinionated. The assertions are written to follow RFC 2119.
+      if data.assertions.length > 0
+        each assertion, index in data.assertions
+          h3(id='support-table-'+index) #{assertion.title}
+
+          if assertion.tests.length > 0
+            table(aria-labelledby='support-table-' + index)
+              tr
+                th AT
+                th Browser
+                th Support
+              each at in ATBrowsers.core_at
+                each browser in ATBrowsers.at[at].core_browsers
+                  tr
+                    td= ATBrowsers.at[at].title
+                    td= ATBrowsers.browsers[browser].title
+                    td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.replace(" ", "-"))= assertion.core_support_by_at_browser[at][browser].string
+
+            p This assertion is referenced by #{assertion.tests.length} tests.
+            details
+              summary Tests that reference this assertion
+              table
                 tr
-                  td= ATBrowsers.at[at].title
-                    if test.results[at].browsers[browser].at_version
-                        span= ' ' + test.results[at].browsers[browser].at_version
-                  td= ATBrowsers.browsers[browser].title
-                    if (test.results[at].browsers[browser].browser_version)
-                        span= ' ' + test.results[at].browsers[browser].browser_version
-                  td(class='support-case '+test.results[at].browsers[browser].support)= test.results[at].browsers[browser].support_string
+                  th test name
+                  th support
+                each test in assertion.tests
+                  tr
+                    td
+                      a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
+                    td(class='support-case ' + test.core_support_string.replace(" ", "-")) #{test.core_support_string}
+
+          else
+            p No tests reference this assertion yet.
       else
-        p Sorry, this feature does not have any tests. Please feel free to propose one on GitHub.
-    if data.references
-      div.sidebar
-        if data.related_issues && data.related_issues.length
-          h2 Related AT or browser issues
-          ul
-            each link in data.related_issues
-              li
-                a(href=link.url) #{link.title}
+        p No assertions have been created for this feature yet.
 
-        h2 Is something not right?
-        p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
-        a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
 
+    div.sidebar
+      h2 related tests
+      ul
+        each test in data.tests
+          li
+            a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
+
+
+      if data.related_issues && data.related_issues.length
+        h2 Related AT or browser issues
+        ul
+          each link in data.related_issues
+            li
+              a(href=link.url) #{link.title}
+
+      h2 Is something not right?
+      p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
+      a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
+
+      if data.references
         h2 References
         ul
           each reference in data.references

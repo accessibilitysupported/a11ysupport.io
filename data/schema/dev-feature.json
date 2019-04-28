@@ -14,6 +14,41 @@
         }
       },
       "required": ["title", "url"]
+    },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "items": {
+            "enum": ["MUST", "SHOULD", "MAY"]
+          },
+          "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operation_modes": {
+          "type": "array",
+          "items": {
+            "enum": ["sr/reading", "sr/interaction", "vc"]
+          }
+        },
+        "css_target": {
+          "type": "string",
+          "description": "A css selector that determines which elements in the example need to be tested. This should be a generic selector, and can be overridden by tests that reference this assertion."
+        }
+      },
+      "required": ["id", "title", "type", "operation_modes", "css_target"]
     }
   },
   "properties": {
@@ -44,14 +79,18 @@
     "recommendation": {
       "type": "string"
     },
-    "type": {
-      "type": "string"
-    },
     "references": {
       "type": "array",
       "items": {
         "type": "object",
         "$ref": "#/definitions/url"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/assertion"
       }
     },
     "date_updated": {

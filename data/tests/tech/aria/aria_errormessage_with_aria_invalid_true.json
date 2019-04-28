@@ -1,186 +1,182 @@
 {
-  "type": "assertion",
   "title": "aria-errormessage attribute with aria-invalid=\"true\"",
   "description": "Tests the aria-errormessage attribute with aria-invalid=\"true\". The error message must be conveyed.",
-  "supports_sr": true,
-  "supports_vc": false,
   "html_file": "aria/aria-errormessage.html",
-  "css_target": "#invalid-true",
-  "assertion": {
-    "aspect": "property",
-    "title": "aria-errormessage",
-    "value": "example error text"
-  },
-  "features": ["aria/aria-errormessage_attribute"],
+  "assertions": [
+    {
+      "feature_id": "aria/aria-errormessage_attribute",
+      "feature_assertion_id": "convey_referenced_accessible_names",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ],
+              "date": "2019-04-02"
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "73",
+              "os_version": "1809",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ],
+              "date": "2019-04-02"
+            },
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11",
+              "os_version": "1809",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ],
+              "date": "2019-04-02"
+            },
+            "edge": {
+              "at_version": "2018.1811.2",
+              "browser_version": "44",
+              "os_version": "1809",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ],
+              "date": "2019-04-02"
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.0.1",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.0.1",
+              "browser_version": "73",
+              "os_version": "1809",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "edge": {
+              "at_version": "2019.0.1",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "at_version": "2019.0.1",
+              "browser_version": "11",
+              "os_version": "1809",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-04-02",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(error message not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
   "history": [
     {
       "date": "2019-04-09",
       "message": "Test created"
     }
-  ],
-  "results": {
-    "jaws": {
-      "browsers": {
-        "firefox": {
-          "at_version": "2018.1811.2",
-          "browser_version": "66",
-          "os_version": "1809",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ],
-          "date": "2019-04-02"
-        },
-        "chrome": {
-          "at_version": "2018.1811.2",
-          "browser_version": "73",
-          "os_version": "1809",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ],
-          "date": "2019-04-02"
-        },
-        "ie": {
-          "at_version": "2018.1811.2",
-          "browser_version": "11",
-          "os_version": "1809",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ],
-          "date": "2019-04-02"
-        },
-        "edge": {
-          "at_version": "2018.1811.2",
-          "browser_version": "44",
-          "os_version": "1809",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ],
-          "date": "2019-04-02"
-        }
-      }
-    },
-    "narrator": {
-      "browsers": {
-        "edge": {
-          "at_version": "1809",
-          "browser_version": "44.17763",
-          "os_version": "1809",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        }
-      }
-    },
-    "nvda": {
-      "browsers": {
-        "firefox": {
-          "at_version": "2019.0.1",
-          "browser_version": "66",
-          "os_version": "1809",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        },
-        "chrome": {
-          "at_version": "2019.0.1",
-          "browser_version": "73",
-          "os_version": "1809",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        },
-        "edge": {
-          "at_version": "2019.0.1",
-          "browser_version": "44.17763",
-          "os_version": "1809",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        },
-        "ie": {
-          "at_version": "2019.0.1",
-          "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        }
-      }
-    },
-    "vo_ios": {
-      "browsers": {
-        "ios_saf": {
-          "at_version": "12.2",
-          "browser_version": "12.2",
-          "os_version": "12.2",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        }
-      }
-    },
-    "vo_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.14.4",
-          "browser_version": "12.1",
-          "os_version": "10.14.4",
-          "date": "2019-04-02",
-          "output": [
-            {
-              "command": "next_focusable_item",
-              "output": "(error message not conveyed)",
-              "result": "fail"
-            }
-          ]
-        }
-      }
-    }
-  }
+  ]
 }

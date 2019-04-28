@@ -88,6 +88,65 @@
       },
       "required": ["at_version", "browser_version", "os_version", "date"]
     },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "feature_id": {
+          "type": "string"
+        },
+        "feature_assertion_id": {
+          "type": "number"
+        },
+        "css_target": {
+          "type": "string",
+          "description": "A css selector that determines which elements in the example need to be tested."
+        },
+        "expected_value": {
+          "type": "string",
+          "description": "an example of expected output; does not need to be exact. This can be helpful especially for things like computed accessible names and descriptions."
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "jaws": {
+              "$ref": "#/definitions/at"
+            },
+            "nvda": {
+              "$ref": "#/definitions/at"
+            },
+            "vo_ios": {
+              "$ref": "#/definitions/at"
+            },
+            "vo_macos": {
+              "$ref": "#/definitions/at"
+            },
+            "windoweyes": {
+              "$ref": "#/definitions/at"
+            },
+            "narrator": {
+              "$ref": "#/definitions/at"
+            },
+            "android": {
+              "$ref": "#/definitions/at"
+            },
+            "dragon_win": {
+              "$ref": "#/definitions/at"
+            },
+            "dragon_mac": {
+              "$ref": "#/definitions/at"
+            }
+          }
+        }
+      },
+      "required": ["feature_id", "feature_assertion_id", "results"]
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/assertion"
+      }
+    },
     "history": {
       "type": "object",
       "properties": {
@@ -103,14 +162,6 @@
     }
   },
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string",
-      "enum": ["assertion", "external", "custom"],
-      "description": "The type indicates the kind of test. An assertion test provides an assertion for a single aspect of the html example. All tests should be assertions. The other types are experimental."
-    },
     "title": {
       "type": "string"
     },
@@ -124,142 +175,15 @@
         "type": "string"
       }
     },
-    "features": {
-      "description": "An array of feature IDs associated with this test. Multiple feature IDs is very rare, but technically supported. It is best to keep one test scoped to one feature.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "html_file": {
       "type": "string",
       "description": "path relative to the /data/tests/html directory. References the file that contains the test html."
-    },
-    "url": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "required": ["title", "url"]
-    },
-    "supports_sr": {
-      "type": "boolean"
-    },
-    "supports_vc": {
-      "type": "boolean",
-      "description": "A test will usually only support VC if the target element is interactive."
-    },
-    "sr_instructions": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "vc_instructions": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "css_target": {
-      "type": "string"
-    },
-    "assertion": {
-      "type": "object",
-      "properties": {
-        "aspect": {
-          "enum": [
-            "role",
-            "name",
-            "description",
-            "property",
-            "state",
-            "other"
-          ]
-        },
-        "title": {
-          "type": "string",
-          "description": "Only needed for property, state, or other"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "anyOf": [
-        {
-          "properties": {
-            "aspect": { "enum": ["state", "property"] }
-          },
-          "required": ["aspect", "title", "value"]
-        },
-        {
-          "properties": {
-            "aspect": { "enum": ["role", "name", "description"] }
-          },
-          "required": ["aspect", "value"]
-        },
-        {
-          "properties": {
-            "aspect": { "enum": ["other"] }
-          },
-          "required": ["value"]
-        }
-      ]
     },
     "history": {
       "type": "array",
       "items": {
         "type": "object",
         "$ref": "#/definitions/history"
-      }
-    },
-    "core_support": {
-      "type": "array"
-    },
-    "extended_support": {
-      "type": "array"
-    },
-    "core_support_string": {
-      "type": "string"
-    },
-    "extended_support_string": {
-      "type": "string"
-    },
-    "results": {
-      "type": "object",
-      "properties": {
-        "jaws": {
-          "$ref": "#/definitions/at"
-        },
-        "nvda": {
-          "$ref": "#/definitions/at"
-        },
-        "vo_ios": {
-          "$ref": "#/definitions/at"
-        },
-        "vo_macos": {
-          "$ref": "#/definitions/at"
-        },
-        "windoweyes": {
-          "$ref": "#/definitions/at"
-        },
-        "narrator": {
-          "$ref": "#/definitions/at"
-        },
-        "android": {
-          "$ref": "#/definitions/at"
-        },
-        "dragon_win": {
-          "$ref": "#/definitions/at"
-        },
-        "dragon_mac": {
-          "$ref": "#/definitions/at"
-        }
       }
     }
   },
@@ -268,29 +192,8 @@
     "features",
     "type",
     "description",
-    "supports_sr",
-    "supports_vc",
     "history",
-    "results"
-  ],
-  "anyOf": [
-    {
-      "properties": {
-        "type": { "enum": ["assertion"] }
-      },
-      "required": ["assertion", "css_target"]
-    },
-    {
-      "properties": {
-        "type": { "enum": ["external"] }
-      },
-      "required": ["url"]
-    },
-    {
-      "properties": {
-        "type": { "enum": ["custom"] }
-      },
-      "required": ["css_target", "sr_instructions", "vc_instructions"]
-    }
+    "html_file",
+    "assertions"
   ]
 }

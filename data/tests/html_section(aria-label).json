@@ -1,139 +1,137 @@
 {
-  "type": "assertion",
   "title": "HTML section element with an accessible name (aria-label)",
   "description": "This section has an accessible name per HTML AAM 5.15.1 Section and Grouping Element Accessible Name Computation. It will will be mapped to a role and should not be considered presentational.",
-  "supports_sr": true,
-  "supports_vc": false,
-  "css_target": "#target",
-  "assertion": {
-    "aspect": "role",
-    "value": "region"
-  },
-  "features": ["html/section_element"],
+  "assertions": [
+    {
+      "feature_id": "html/section_element",
+      "feature_assertion_id": "convey_role_if_named",
+      "css_target": "#target",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "edge": {
+              "at_version": "2018.1808.10",
+              "browser_version": "44.17763.1.0",
+              "os_version": "17763",
+              "date": "2018-11-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Sample text",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_region",
+                  "output": "Sample text",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "(not listed)",
+                  "result": "fail"
+                }
+              ],
+              "notes": "The next region command took the user to the text within the region, but did not announce the region name."
+            },
+            "ie": {
+              "at_version": "2018.1808.10",
+              "browser_version": "11.134",
+              "os_version": "17763",
+              "date": "2018-11-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Sample Text",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_region",
+                  "output": "Sample text, target region",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "target region",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "17763",
+              "browser_version": "44.17763.1.0",
+              "os_version": "17763",
+              "date": "2018-11-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Sample text",
+                  "result": "fail"
+                },
+                {
+                  "command": "list_landmarks",
+                  "output": "target section",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "63.0.1",
+              "os_version": "17763",
+              "date": "2018-11-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Target region. Sample text",
+                  "result": "pass"
+                },
+                {
+                  "command": "elements_list",
+                  "output": "Target; region",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.1",
+              "browser_version": "12.0.1",
+              "os_version": "10.14.1",
+              "date": "2018-11-14",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Sample text",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_rotor",
+                  "output": "target region",
+                  "result": "pass"
+                }
+              ],
+              "notes": "Included in the landmarks list when the Web Rotor is used."
+            }
+          }
+        }
+      }
+    }
+  ],
   "history": [
     {
       "date": "2018-11-14",
       "message": "Test created"
     }
-  ],
-  "results": {
-    "jaws": {
-      "browsers": {
-        "edge": {
-          "at_version": "2018.1808.10",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "Sample text",
-              "result": "fail"
-            },
-            {
-              "command": "next_region",
-              "output": "Sample text",
-              "result": "fail"
-            },
-            {
-              "command": "open_element_list",
-              "output": "(not listed)",
-              "result": "fail"
-            }
-          ],
-          "notes": "The next region command took the user to the text within the region, but did not announce the region name."
-        },
-        "ie": {
-          "at_version": "2018.1808.10",
-          "browser_version": "11.134",
-          "os_version": "17763",
-          "date": "2018-11-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "Sample Text",
-              "result": "fail"
-            },
-            {
-              "command": "next_region",
-              "output": "Sample text, target region",
-              "result": "pass"
-            },
-            {
-              "command": "open_element_list",
-              "output": "target region",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "narrator": {
-      "browsers": {
-        "edge": {
-          "at_version": "17763",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "Sample text",
-              "result": "fail"
-            },
-            {
-              "command": "list_landmarks",
-              "output": "target section",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "nvda": {
-      "browsers": {
-        "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "63.0.1",
-          "os_version": "17763",
-          "date": "2018-11-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "Target region. Sample text",
-              "result": "pass"
-            },
-            {
-              "command": "elements_list",
-              "output": "Target; region",
-              "result": "pass"
-            }
-          ]
-        }
-      }
-    },
-    "vo_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.14.1",
-          "browser_version": "12.0.1",
-          "os_version": "10.14.1",
-          "date": "2018-11-14",
-          "output": [
-            {
-              "command": "next_item",
-              "output": "Sample text",
-              "result": "fail"
-            },
-            {
-              "command": "open_rotor",
-              "output": "target region",
-              "result": "pass"
-            }
-          ],
-          "notes": "Included in the landmarks list when the Web Rotor is used."
-        }
-      }
-    }
-  }
+  ]
 }
