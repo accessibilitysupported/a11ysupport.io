@@ -9,6 +9,40 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-checked"
     }
   ],
-  "assertions": [],
+  "assertions": [
+    {
+      "id": "convey_value_false",
+      "title": "The screen reader MUST convey the \"false\" value",
+      "type": "MUST",
+      "css_target": "*[ara-checked=\"false\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_true",
+      "title": "The screen reader MUST convey the \"true\" value",
+      "type": "MUST",
+      "css_target": "*[ara-checked=\"true\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_mixed",
+      "title": "The screen reader MUST convey the \"mixed\" value",
+      "type": "MUST",
+      "css_target": "*[ara-checked=\"mixed\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
   "date_updated": "2019-01-06"
 }
