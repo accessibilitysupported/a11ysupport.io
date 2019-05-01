@@ -47,9 +47,7 @@ let getFeatures = function(techId, buildDir) {
 		}
 
 		// Initialize the feature object to add missing data points and generate support strings
-		helper.initalizeFeatureObject(feature);
-		feature.id = techId + '/' + id;
-		feature.techId = techId;
+		helper.initalizeFeatureObject(feature, techId, techId + '/' + id);
 
 		// Save initialized JSON in the build dir
 		fs.writeFileSync(techDir+'/'+file, JSON.stringify(feature, null, 2));

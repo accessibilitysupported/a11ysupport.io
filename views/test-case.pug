@@ -21,18 +21,22 @@ block content
                 li
                     a(href="#history") History
 
-            if (test.type === "assertion" || test.type === "custom")
-                h2(id="test-html") Test HTML
-                if (testHTML.split(/\r\n|\r|\n/).length < 30)
-                    pre.test-html
-                        code= testHTML
-                else
-                    p HTML source is too long to display here.
+            h2(id="test-html") Test HTML
+            if (test.html_file.startsWith('http'))
+                a(href=test.html_file) view the external text
+            else if (testHTML && testHTML.split(/\r\n|\r|\n/).length < 30)
+                a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
+                pre.test-html
+                    code= testHTML.split
+            else
+                a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
+                p HTML source is too long to display here.
+
 
             h2(id="support-tables") Support tables
 
             each assertion in test.assertions
-                h3 #{assertion.assertion_title}
+                h3 #{assertion.feature_title}: #{assertion.assertion_title}
                 p This assertion is from the #[a(href="/#{assertion.feature_id}") #{assertion.feature_title} feature].
                 
                 table(aria-labelledby="core-support")
@@ -69,7 +73,7 @@ block content
 
                 details.indent
                     summary
-                        h4(id="extended-support") Extended Support for: #{assertion.assertion_title}
+                        h4(id="extended-support") Extended Support for: #{assertion.feature_title}: #{assertion.assertion_title}
 
                     p These are less common combinations
                     table(aria-labelledby="extended-support")

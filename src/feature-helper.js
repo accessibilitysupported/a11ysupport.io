@@ -18,9 +18,12 @@ Array.prototype.occurenceCount = function (what) {
 	return count;
 };
 
-helper.initalizeFeatureObject = function(featureObject) {
+helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	//Grab the ATBrowsers data
 	let ATBrowsers = require('./../data/ATBrowsers');
+
+	featureObject.id = id;
+	featureObject.techId = techId;
 
 	//Set up support properties
 	featureObject.core_support = [];
@@ -63,6 +66,10 @@ helper.initalizeFeatureObject = function(featureObject) {
 		// Note: tests are be built before a feature is built so that bubbling works correctly
 		// Detect support
 		featureObject.tests[testIndex].assertions.forEach(assertion => {
+			if (featureObject.id !== assertion.feature_id) {
+				return;
+			}
+
 			let assertion_key = featureObject.assertions.findIndex(obj => obj.id === assertion.feature_assertion_id);
 
 			if (!featureObject.assertions[assertion_key].tests.some(e => e.id  === featureObject.tests[testIndex].id)) {

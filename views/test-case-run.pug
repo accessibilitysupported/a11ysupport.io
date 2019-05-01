@@ -54,8 +54,12 @@ block content
                     p(class="note") Note: Screen readers will usually announce an element in the format: <span class='inline-quote'>"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and properties&gt;, &lt;accessible description&gt;"</span>. The order in which the name, role, and properties are announced might differ between screen readers. The exact vocabulary used will also differ.
 
                     div
-                        a(href="/tests/html/"+test.html_file target="_blank") open the test page in a new tab
-                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
+                        if test.html_file.startsWith('http')
+                            a(href=test.html_file + test.html_file target="_blank") open the external test page in a new tab
+                        else
+                            a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
+                                div
+                                    iframe(src='/tests/html/' + test.html_file aria-label="the test page")
 
                     form.submit-test-result.stacked-form
                         input(type="hidden" name="title" value=test.id)
