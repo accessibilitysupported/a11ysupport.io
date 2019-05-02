@@ -18,6 +18,13 @@ block content
                     a(href="#test-html") Test HTML
                 li
                     a(href="#support-tables") Support tables
+                    if test.assertions
+                        ul
+                            li
+                                a(href="#support-tables") Support summary by assertion type
+                            each assertion in test.assertions
+                                li
+                                    a(href="#assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
                 li
                     a(href="#history") History
 
@@ -49,7 +56,7 @@ block content
                             td(class="current-support-container " + test.core_may_support_string.replace(" ", "-")) #{test.core_may_support_string}
 
             each assertion in test.assertions
-                h3 #{assertion.feature_title}: #{assertion.assertion_title}
+                h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
                 p This assertion is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
                 
                 table(aria-labelledby="core-support")

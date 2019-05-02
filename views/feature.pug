@@ -8,6 +8,18 @@ block content
       div(class="current-support-container " + data.core_support_string.replace(" ", "-"))
         p= 'Support level: ' + data.core_support_string
 
+      if data.assertions.length
+        h2 On this page
+        ul
+          li
+            a(href="#test-html") Assertions
+            ul
+              li
+                a(href="#assertion-summary-table") Support summary by assertion type
+              each assertion, index in data.assertions
+                li
+                  a(href="#support-table-"+ index) #{assertion.title}
+
       p!= md.render(data.description)
 
       if data.recommendation
