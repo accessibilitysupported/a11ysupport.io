@@ -27,7 +27,7 @@ block content
             else if (testHTML && testHTML.split(/\r\n|\r|\n/).length < 30)
                 a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
                 pre.test-html
-                    code= testHTML.split
+                    code= testHTML
             else
                 a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
                 p HTML source is too long to display here.
@@ -37,7 +37,7 @@ block content
 
             each assertion in test.assertions
                 h3 #{assertion.feature_title}: #{assertion.assertion_title}
-                p This assertion is from the #[a(href="/#{assertion.feature_id}") #{assertion.feature_title} feature].
+                p This assertion is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
                 
                 table(aria-labelledby="core-support")
                     tr
