@@ -32,6 +32,12 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	featureObject.core_support_string = 'unknown';
 	featureObject.extended_support = [];
 	featureObject.extended_support_string = 'unknown';
+	featureObject.core_must_support = [];
+	featureObject.core_must_support_string = 'na';
+	featureObject.core_should_support = [];
+	featureObject.core_should_support_string = 'na';
+	featureObject.core_may_support = [];
+	featureObject.core_may_support_string = 'na';
 
 	if (!featureObject.keywords) {
 		featureObject.keywords = [];
@@ -205,6 +211,24 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 
 				featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values);
 			});
+
+			// aggregate must/should/may core support
+			if (assertion.type === "MUST") {
+				if (assertion.core_support && assertion.core_support.length) {
+					featureObject.core_must_support = featureObject.core_must_support.concat(assertion.core_support);
+				}
+				featureObject.core_must_support_string = helper.generateSupportString(featureObject.core_must_support);
+			} else if (assertion.type === "SHOULD") {
+				if (assertion.core_support && assertion.core_support.length) {
+					featureObject.core_should_support = featureObject.core_should_support.concat(assertion.core_support);
+				}
+				featureObject.core_should_support_string = helper.generateSupportString(featureObject.core_should_support);
+			} else {
+				if (assertion.core_support && assertion.core_support.length) {
+					featureObject.core_may_support = featureObject.core_may_support.concat(assertion.core_support);
+				}
+				featureObject.core_may_support_string = helper.generateSupportString(featureObject.core_may_support);
+			}
 		});
 	}
 
@@ -222,6 +246,12 @@ helper.initalizeTestCase = function (testCase) {
 	testCase.core_support_string = 'unknown';
 	testCase.extended_support = [];
 	testCase.extended_support_string = 'unknown';
+	testCase.core_must_support = [];
+	testCase.core_must_support_string = 'na';
+	testCase.core_should_support = [];
+	testCase.core_should_support_string = 'na';
+	testCase.core_may_support = [];
+	testCase.core_may_support_string = 'na';
 
 	testCase.assertions.forEach(function(assertion, assertion_key) {
 		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)
@@ -400,6 +430,24 @@ helper.initalizeTestCase = function (testCase) {
 		//Set support strings for the assertion
 		testCase.assertions[assertion_key].core_support_string = helper.generateSupportString(testCase.assertions[assertion_key].core_support);
 		testCase.assertions[assertion_key].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].extended_support)
+
+		// aggregate must/should/may core support
+		if (ref_assertion.type === "MUST") {
+			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
+				testCase.core_must_support = testCase.core_must_support.concat(testCase.assertions[assertion_key].core_support);
+			}
+			testCase.core_must_support_string = helper.generateSupportString(testCase.core_must_support);
+		} else if (ref_assertion.type === "SHOULD") {
+			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
+				testCase.core_should_support = testCase.core_should_support.concat(testCase.assertions[assertion_key].core_support);
+			}
+			testCase.core_should_support_string = helper.generateSupportString(testCase.core_should_support);
+		} else {
+			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
+				testCase.core_may_support = testCase.core_may_support.concat(testCase.assertions[assertion_key].core_support);
+			}
+			testCase.core_may_support_string =  helper.generateSupportString(testCase.core_may_support);
+		}
 	});
 
 	//Set support strings for the test

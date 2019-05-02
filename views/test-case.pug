@@ -35,6 +35,19 @@ block content
 
             h2(id="support-tables") Support tables
 
+            h3(id="assertion-summary-table") Assertion support summary by type
+                table.support-table
+                    thead
+                        tr
+                            th MUST
+                            th SHOULD
+                            th MAY
+                    tbody
+                        tr
+                            td(class="current-support-container " + test.core_must_support_string.replace(" ", "-")) #{test.core_must_support_string}
+                            td(class="current-support-container " + test.core_should_support_string.replace(" ", "-")) #{test.core_should_support_string}
+                            td(class="current-support-container " + test.core_may_support_string.replace(" ", "-")) #{test.core_may_support_string}
+
             each assertion in test.assertions
                 h3 #{assertion.feature_title}: #{assertion.assertion_title}
                 p This assertion is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
