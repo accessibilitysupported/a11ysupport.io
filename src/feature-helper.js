@@ -452,6 +452,10 @@ helper.generateSupportString = function(support) {
 		return 'some support';
 	}
 
+	if (support.includes('n')) {
+		return 'no known support';
+	}
+
 	return 'unknown support';
 };
 
