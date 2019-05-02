@@ -1,0 +1,39 @@
+{
+  "id": "dl_element",
+  "title": "dl element (description list)",
+  "type": "element",
+  "description": "",
+  "references": [
+    {
+      "title": "W3C HTML5 spec for description lists",
+      "url": "https://w3c.github.io/html/grouping-content.html#the-dl-element"
+    },
+    {
+      "title": "WHATWG HTML5 spec for description lists",
+      "url": "https://html.spec.whatwg.org/#the-dl-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "The screen reader MUST convey the description list role",
+      "type": "MUST",
+      "css_target": "dl",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_setsize",
+      "title": "The screen reader MUST convey the number of term/description groupings in the list",
+      "type": "MUST",
+      "css_target": "dl",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2018-07-21"
+}

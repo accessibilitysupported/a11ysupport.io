@@ -1,0 +1,39 @@
+{
+  "id": "dd_element",
+  "title": "dd element (description list - description)",
+  "type": "element",
+  "description": "",
+  "references": [
+    {
+      "title": "W3C HTML5 spec for the dd element",
+      "url": "https://w3c.github.io/html/grouping-content.html#the-dd-element"
+    },
+    {
+      "title": "WHATWG HTML5 spec for the dd element",
+      "url": "https://html.spec.whatwg.org/#the-dd-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_posinset",
+      "title": "The screen reader MUST convey the position of either 1. the group of term/description pairs OR 2. the description in the list",
+      "type": "MUST",
+      "css_target": "dd",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "title": "The screen reader SHOULD convey the description role",
+      "type": "SHOULD",
+      "css_target": "dd",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2018-07-21"
+}
