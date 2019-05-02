@@ -1,0 +1,902 @@
+{
+  "title": "HTML basic description list test",
+  "description": "A sample description list",
+  "html_file": "html/dl-basic.html",
+  "assertions": [
+    {
+      "feature_id": "html/dl_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "name",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item_advanced",
+                  "output": "1 of 6, level 1",
+                  "result": "partial"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "list with 6 items. name",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Conveyed as a list, but not a description list."
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "list with 6 items. name",
+                  "result": "fail"
+                }
+              ],
+              "notes": "Conveyed as a list, but not a description list."
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "definition list of 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "definition list of 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "definition list of 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "description list, 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "description list, 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/dl_element",
+      "feature_assertion_id": "convey_setsize",
+      "expected_value": "3",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "name",
+                  "result": "pass"
+                },
+                {
+                  "command": "read_item_advanced",
+                  "output": "1 of 6, level 1",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "list with 6 items. name",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "list with 6 items. name",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "definition list of 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "definition list of 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "definition list of 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "description list, 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "description list, 3 items",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/dt_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type 3 of 6",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "type list item, read only",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "list item, read only, 2 of 3",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type 3 of 6",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/dt_element",
+      "feature_assertion_id": "convey_posinset",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item_advanced",
+                  "output": "3 of 6, level 1",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "type list item, read only",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "list item, read only, 2 of 3",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type 3 of 6",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "type 3 of 6",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/dd_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "CD paragraph",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "CD paragraph",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD 4 of 6",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD 4 of 6",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/dd_element",
+      "feature_assertion_id": "convey_posinset",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item_advanced",
+                  "output": "4 of 6, level 1",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "CD, paragraph",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_item",
+                  "output": "CD, paragraph",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD 4 of 6",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "CD 4 of 6",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-05-01",
+      "message": "Test created"
+    }
+  ]
+}
