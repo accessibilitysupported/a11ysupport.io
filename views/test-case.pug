@@ -58,6 +58,10 @@ block content
             each assertion in test.assertions
                 div.assertion-container
                     h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
+
+                    if (assertion.assertion_rationale)
+                        p Rationale: #{assertion.assertion_rationale}
+
                     p This assertion is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
                     table(aria-labelledby="core-support")

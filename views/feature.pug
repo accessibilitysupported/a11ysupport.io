@@ -31,6 +31,7 @@ block content
       if data.assertions.length > 0
 
         h3(id="assertion-summary-table") Assertion support summary by type
+
         table.support-table
           thead
             tr
@@ -45,6 +46,9 @@ block content
 
         each assertion, index in data.assertions
           h3(id='support-table-'+index) #{assertion.title}
+
+          if (assertion.rationale)
+            p Rationale: #{assertion.rationale}
 
           if assertion.tests.length > 0
             table(aria-labelledby='support-table-' + index)

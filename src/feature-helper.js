@@ -50,6 +50,9 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 
 		// Now set a flag for what types of AT this assertion applies to
 		featureObject.assertions[assertion_key].supports_at = [];
+		if (!featureObject.assertions[assertion_key].rationale) {
+			featureObject.assertions[assertion_key].rationale = "";
+		}
 
 		if (assertion.operation_modes.includes('sr/reading')
 			|| assertion.operation_modes.includes('sr/interaction')) {
@@ -280,6 +283,11 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].core_support = [];
         testCase.assertions[assertion_key].extended_support = "unknown";
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
+
+		testCase.assertions[assertion_key].rationale = "";
+		if (ref_assertion.rationale) {
+			testCase.assertions[assertion_key].assertion_rationale = ref_assertion.rationale;
+		}
 
         if (!testCase.assertions[assertion_key].css_target) {
         	// Use the referenced assertion's css target if it isn't overridden by the assertion link
