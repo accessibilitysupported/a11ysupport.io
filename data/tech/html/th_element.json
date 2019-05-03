@@ -9,6 +9,31 @@
       "url": "https://w3c.github.io/html/tabular-data.html#the-th-element"
     }
   ],
-  "assertions": [],
-  "date_updated": "2018-07-29"
+  "assertions": [
+    {
+      "id": "convey_position",
+      "title": "The screen reader MUST convey the position of the header (row/column)",
+      "rationale": "A user needs to be able to determine where they are while navigating a table.",
+      "type": "MUST",
+      "css_target": "th",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "title": "The screen reader MUST convey that the cell is a header",
+      "rationale": "A user needs to be able to determine what headers apply to a given cell.",
+      "type": "MAY",
+      "css_target": "th",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-05-03"
 }

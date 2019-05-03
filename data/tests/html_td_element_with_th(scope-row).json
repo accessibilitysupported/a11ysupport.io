@@ -4,53 +4,875 @@
   "keywords": ["scope=\"row\""],
   "assertions": [
     {
-      "feature_id": "html/scope_attribute",
-      "feature_assertion_id": "convey_value_row",
-      "css_target": "#target",
+      "feature_id": "html/table_element",
+      "feature_assertion_id": "convey_role",
       "results": {
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "at_version": "10.13.6",
-              "browser_version": "11.1.2",
-              "os_version": "10.13.6",
-              "date": "2018-07-29",
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "target, column 2 of 2",
-                  "result": "fail"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "Row 1 of 2 Row one header, target",
-                  "result": "fail"
-                }
-              ],
-              "notes": "When the table is first announced by VO, it states that you can \"navigate the cells within this table by pressing Control-Option, and then Up Arrow, Down Arrow, Left Arrow, or Right Arrow\". When navigating by Control+Option + Left/Right Arrows, the test fails. The test passes when navigating by Control+Option Up/Down Arrows."
-            }
-          }
-        },
         "narrator": {
           "browsers": {
             "edge": {
-              "at_version": "1803",
-              "browser_version": "42.17134.1.0",
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "Greg, non-selected, row header Name, row 1 of 2 column 2 of 2",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "Greg, non-selected, row header Name, row 1 of 2 column 2 of 2",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_row_header",
+                  "output": "name, row header",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
               "os_version": "1803",
               "date": "2018-07-30",
               "output": [
                 {
+                  "command": "next_item",
+                  "output": "table  with 2 rows and 2 columns, row 1  column 1, Name",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table  with 2 rows and 2 columns, row 1  column 1, Name",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table with 2 columns and 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table with 2 columns and 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table with 2 columns and 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table, 2 columns, 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "end of table",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "name, row 1 column 1, table start 2 rows, 2 columns",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "output": "car, column 2, table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/table_element",
+      "feature_assertion_id": "convey_boundary",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table exit, text after the table",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table exit, text before the table",
+                  "result": "pass"
+                },
+                {
                   "command": "table_move_to_next_column",
-                  "output": "target, non-selected, row 1 of 2 column 2 of 2",
-                  "result": "fail"
+                  "output": "no next cell in column",
+                  "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_row",
-                  "output": "target, non-selected, row 1 of 2 column 2 of 2",
+                  "output": "no next cell in row",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "no previous cell in column",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "no previous cell in row",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
+              "os_version": "1803",
+              "date": "2018-07-30",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table  with 2 rows and 2 columns, row 1  column 1, Name",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "output": "out of table, text after the table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "edge of table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "edge of table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "edge of table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "edge of table",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table  with 2 rows and 2 columns, row 1  column 1, Name",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "output": "out of table, text after the table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "edge of table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "edge of table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "edge of table",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "edge of table",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table with 2 columns and 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table with 2 columns and 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table with 2 columns and 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "table, 2 columns, 2 rows",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "end of table",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "name, row 1 column 1, table start 2 rows, 2 columns",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "car, column 2, table end",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/scope_attribute",
+      "feature_assertion_id": "convey_value_row",
+      "css_target": "#target",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "Greg, non-selected, row header Name, row 1 of 2 column 2 of 2",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "Greg, non-selected, row header Name, row 1 of 2 column 2 of 2",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_row_header",
+                  "output": "name, row header",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
+              "os_version": "1803",
+              "date": "2018-07-30",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "name row 1 greg",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "name row 1 column 2 greg",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "name row 1 greg",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "name row 1 column 2 greg",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "name, greg, row 1",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_current_cell",
+                  "output": "column 2, row 1, name, Greg",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "name, greg, row 1",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_current_cell",
+                  "output": "column 2, row 1, name, Greg",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "name, greg, row 1",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_current_cell",
+                  "output": "column 2, row 1, name, Greg",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "Row 1 of 2 Name, greg",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_row_header",
+                  "output": "Name",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Greg, column 2",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "Greg, row 1 column 2",
+                  "result": "fail"
+                },
+                {
+                  "command": "additional_information",
+                  "output": "row 1 column 1",
+                  "result": "fail"
+                },
+                {
+                  "command": "additional_information",
+                  "output": "row 1 column 2",
                   "result": "fail"
                 }
               ],
-              "notes": "Navigating forwards and backwards through the table via Caps Lock + Right/Left Arrows made no difference in output.\nNavigating with table specific commands improves the experience, however the target element fails the test. No header is found when Caps Lock + F10 (read row header) is pressed while on the target element. However, the correct row header is announced for row 2 column 2. While the target element fails, it appears that the scope=row attribute is sometimes supported."
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/th_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
+              "os_version": "1803",
+              "date": "2018-07-30",
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between rows)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "Row 1 of 2 Name, greg",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_read_row_header",
+                  "output": "Name",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Greg, column 2",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "Greg, row 1 column 2",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_additional_information",
+                  "output": "row 1 column 1",
+                  "result": "fail"
+                },
+                {
+                  "command": "read_additional_information",
+                  "output": "row 1 column 2",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/th_element",
+      "feature_assertion_id": "convey_position",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
             }
           }
         },
@@ -64,27 +886,678 @@
               "output": [
                 {
                   "command": "table_move_to_next_column",
-                  "output": "Row 1 column 2 target",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_row",
-                  "output": "Row one header column 2 target",
-                  "result": "fail"
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
                 }
               ],
-              "notes": "The row header was not announced while moving forward through the table (using down arrow). However if reading backwards through the table (up arrow) the row header was read."
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/td_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
+              "os_version": "1803",
+              "date": "2018-07-30",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/td_element",
+      "feature_assertion_id": "convey_position",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.2.1",
+              "browser_version": "61.0.1",
+              "os_version": "1803",
+              "date": "2018-07-30",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-03",
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-01",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
             }
           }
         }
       }
     }
   ],
-  "sr_instructions": [
-    "Use the screen reader to navigate to the target cell. The target cell contains the text \"target\"",
-    "The test passes if the row header \"row one header\" was announced with the target cell. If some commands work and others do not, the test should be marked as 'partial support'."
-  ],
   "history": [
+    {
+      "date": "2019-05-03",
+      "message": "Sample html was updated to better reflect a real word example, and data was updated as well."
+    },
     {
       "date": "2018-07-29",
       "message": "Sample data has been added. This data has not been verified."

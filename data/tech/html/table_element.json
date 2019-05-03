@@ -1,0 +1,39 @@
+{
+  "id": "table_element",
+  "title": "table element",
+  "type": "element",
+  "description": "",
+  "references": [
+    {
+      "title": "HTML5 spec for td",
+      "url": "https://w3c.github.io/html/tabular-data.html#the-table-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "The screen reader MUST convey the table role",
+      "rationale": "A user needs to be aware that they are navigating a table.",
+      "type": "MUST",
+      "css_target": "table",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_boundary",
+      "title": "The screen reader MUST convey the boundaries of the table",
+      "rationale": "A user needs to be aware when they are entering and exiting a table.",
+      "type": "MUST",
+      "css_target": "table",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-05-03"
+}
