@@ -9,6 +9,51 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-flowto"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_presence_to",
+      "title": "The screen reader MUST convey the presence of the flowto attribute",
+      "rationale": "A user needs to understand that the current element flows to another element so that they can invoke the functionality.",
+      "type": "MUST",
+      "css_target": "*[aria-flowto]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_presence_from",
+      "title": "The screen reader MAY convey that another element flows to the current element",
+      "rationale": "A user might find it helpful to know that elements flow to the current element.",
+      "type": "MAY",
+      "css_target": "*",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "allow_navigation_to",
+      "title": "The screen reader MUST let a user navigate to referenced element(s). If the there are multiple targets, the user MUST be able to choose which one to navigate to.",
+      "rationale": "A user needs to be able to follow the alternate reading order.",
+      "type": "MUST",
+      "css_target": "*[aria-flowto]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "allow_navigation_from",
+      "title": "The screen reader MAY let a user navigate to elements that target the current element. If this functionality is provided and the there are multiple targeting elements, the user must be able to choose which one to navigate to.",
+      "rationale": "A user might find it helpful to navigate to elements that flow to the current element.",
+      "type": "MAY",
+      "css_target": "*",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2019-01-08"
 }

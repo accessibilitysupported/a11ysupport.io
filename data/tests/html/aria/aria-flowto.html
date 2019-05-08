@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-flowto examples</title>
+</head>
+<body>
+    <h1>aria-flowto examples</h1>
+
+    <ul>
+        <li>'apple' flows to 'banana', 'orange', and 'strawberry'</li>
+        <li>'banana' does not flow to anything</li>
+        <li>'orange' flows to 'apple'</li>
+        <li>'strawberry' does not flow to anything, but has an aria-label attribute.</li>
+    </ul>
+
+    <div id="content_1" aria-flowto="content_2 content_3 content_4">apple</div>
+
+    <div id="content_2">banana</div>
+
+    <div id="content_3" aria-flowto="content_1">orange</div>
+
+    <div id="content_4" aria-label="strawberry">strawberry</div>
+</body>
+</html>
