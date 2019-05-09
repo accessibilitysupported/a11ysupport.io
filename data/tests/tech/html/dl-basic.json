@@ -17,12 +17,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "name",
+                  "output": "(role not conveyed)",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "1 of 6, level 1",
+                  "output": "\"1 of 6, level 1\" (a list was implied)",
                   "result": "partial"
                 }
               ],
@@ -40,7 +40,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "list with 6 items. name",
+                  "output": "\"list with 6 items. Green\"",
                   "result": "partial"
                 }
               ],
@@ -54,7 +54,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "list with 6 items. name",
+                  "output": "\"list with 6 items. Green\"",
                   "result": "fail"
                 }
               ],
@@ -72,7 +72,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "definition list of 3 items",
+                  "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -86,7 +86,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "definition list of 3 items",
+                  "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -100,7 +100,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "definition list of 3 items",
+                  "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -118,7 +118,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "description list, 3 items",
+                  "output": "\"description list, 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -136,7 +136,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -161,12 +161,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "name",
-                  "result": "pass"
+                  "output": "\"Green\"",
+                  "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "1 of 6, level 1",
+                  "output": "\"1 of 6, level 1\"",
                   "result": "pass"
                 }
               ],
@@ -184,7 +184,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "list with 6 items. name",
+                  "output": "\"list with 6 items. Green\"",
                   "result": "pass"
                 }
               ],
@@ -198,7 +198,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "list with 6 items. name",
+                  "output": "\"list with 6 items. Green\"",
                   "result": "pass"
                 }
               ],
@@ -216,7 +216,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "definition list of 3 items",
+                  "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -230,7 +230,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "definition list of 3 items",
+                  "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -244,7 +244,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "definition list of 3 items",
+                  "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -262,7 +262,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "description list, 3 items",
+                  "output": "\"description list, 3 items\"",
                   "result": "pass"
                 }
               ],
@@ -280,7 +280,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -304,32 +304,32 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) name",
+                  "output": "(enter list from start) \"Green\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "(enter list from start) 1 of 6, level 1",
+                  "output": "(enter list from start) \"1 of 6, level 1\"",
                   "result": "pass"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "(exit list from end) Some other content",
+                  "output": "(exit list from end) (did not convey boundary)",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) Note that the cost might vary.",
+                  "output": "(enter list from end) (did not convey boundary)",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "(enter list from start) 6 of 6, level 1",
+                  "output": "(enter list from start) \"6 of 6, level 1\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) HTML Basic description list test",
+                  "output": "(exit list from start) (did not convey boundary)",
                   "result": "fail"
                 }
               ],
@@ -347,22 +347,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) list with 6 items. name",
+                  "output": "(enter list from start) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) out of list. Some other content",
+                  "output": "(exit list from end) \"out of list\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) list with 6 items. Note that the cost might vary",
+                  "output": "(enter list from end) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) out of list",
+                  "output": "(exit list from start) \"out of list\"",
                   "result": "pass"
                 }
               ],
@@ -376,22 +376,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) list with 6 items. name",
+                  "output": "(enter list from start) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) out of list. Some other content.",
+                  "output": "(exit list from end) \"out of list\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) list with 6 items. Note that the cost might vary",
+                  "output": "(enter list from end) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) out of list.",
+                  "output": "(exit list from start) \"out of list\"",
                   "result": "pass"
                 }
               ],
@@ -409,22 +409,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) definition list of 3 items",
+                  "output": "(enter list from start) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) list end",
+                  "output": "(exit list from end) \"list end\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) definition list of 3 items",
+                  "output": "(enter list from end) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) list end",
+                  "output": "(exit list from start) \"list end\"",
                   "result": "pass"
                 }
               ],
@@ -438,22 +438,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) definition list of 3 items",
+                  "output": "(enter list from start) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) list end",
+                  "output": "(exit list from end) \"list end\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) definition list of 3 items",
+                  "output": "(enter list from end) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) list end",
+                  "output": "(exit list from start) \"list end\"",
                   "result": "pass"
                 }
               ],
@@ -467,22 +467,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) definition list of 3 items",
+                  "output": "(enter list from start) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) list end",
+                  "output": "(exit list from end) \"list end\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) definition list of 3 items",
+                  "output": "(enter list from end) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) list end",
+                  "output": "(exit list from start) \"list end\"",
                   "result": "pass"
                 }
               ],
@@ -500,22 +500,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) description list, 3 items",
+                  "output": "(enter list from start) \"description list, 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) end of description list",
+                  "output": "(exit list from end) \"end of description list\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) description list, 3 items",
+                  "output": "(enter list from end) \"description list, 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) end of description list",
+                  "output": "(exit list from start) \"end of description list\"",
                   "result": "pass"
                 }
               ],
@@ -533,22 +533,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(enter list from start) type",
+                  "output": "(enter list from start) Orange",
                   "result": "fail"
                 },
                 {
                   "command": "next_item",
-                  "output": "(exit list from end) some other content",
+                  "output": "(exit list from end) \"some other content\"",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(enter list from end) Note that the cost might vary",
+                  "output": "(enter list from end) \"And possibly white\"",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
-                  "output": "(exit list from start) HTML Basic description list test",
+                  "output": "(exit list from start) \"These colors match well together\"",
                   "result": "fail"
                 }
               ],
@@ -572,7 +572,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type 3 of 6",
+                  "output": "\"Orange 3 of 6\"",
                   "result": "fail"
                 }
               ],
@@ -590,12 +590,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "type list item, read only",
+                  "output": "\"Orange list item, read only\"",
                   "result": "fail"
                 }
               ],
@@ -609,12 +609,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "list item, read only, 2 of 3",
+                  "output": "\"list item, read only, 2 of 3\"",
                   "result": "fail"
                 }
               ],
@@ -632,7 +632,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -646,7 +646,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -660,7 +660,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -678,7 +678,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -696,7 +696,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -720,12 +720,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "3 of 6, level 1",
+                  "output": "\"3 of 6, level 1\"",
                   "result": "pass"
                 }
               ],
@@ -743,12 +743,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "type list item, read only",
+                  "output": "\"Orange list item, read only\"",
                   "result": "fail"
                 }
               ],
@@ -762,12 +762,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "list item, read only, 2 of 3",
+                  "output": "\"list item, read only, 2 of 3\"",
                   "result": "pass"
                 }
               ],
@@ -785,7 +785,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -799,7 +799,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -813,7 +813,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -831,7 +831,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type 3 of 6",
+                  "output": "\"Orange 3 of 6\"",
                   "result": "pass"
                 }
               ],
@@ -849,7 +849,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "type",
+                  "output": "\"Orange\"",
                   "result": "fail"
                 }
               ],
@@ -873,7 +873,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -891,12 +891,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "CD paragraph",
+                  "output": "\"Gray paragraph\"",
                   "result": "fail"
                 }
               ],
@@ -910,12 +910,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "CD paragraph",
+                  "output": "\"Gray paragraph\"",
                   "result": "fail"
                 }
               ],
@@ -933,7 +933,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -947,7 +947,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -961,7 +961,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -979,7 +979,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD 4 of 6",
+                  "output": "\"Gray 4 of 6\"",
                   "result": "fail"
                 }
               ],
@@ -997,7 +997,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -1021,12 +1021,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "4 of 6, level 1",
+                  "output": "\"4 of 6, level 1\"",
                   "result": "pass"
                 }
               ],
@@ -1044,12 +1044,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "CD, paragraph",
+                  "output": "\"Gray, paragraph\"",
                   "result": "fail"
                 }
               ],
@@ -1063,12 +1063,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item",
-                  "output": "CD, paragraph",
+                  "output": "\"Gray, paragraph\"",
                   "result": "pass"
                 }
               ],
@@ -1086,7 +1086,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -1100,7 +1100,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -1114,7 +1114,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
@@ -1132,7 +1132,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD 4 of 6",
+                  "output": "\"Gray 4 of 6\"",
                   "result": "pass"
                 }
               ],
@@ -1150,7 +1150,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "CD",
+                  "output": "\"Gray\"",
                   "result": "fail"
                 }
               ],
