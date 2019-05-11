@@ -1,7 +1,7 @@
 {
-  "title": "HTML td element with a row header (th[scope=\"row\"])",
-  "description": "This test verifies that the row header is announced for associated td elements when the scope=\"row\" attribute is used.",
-  "keywords": ["scope=\"row\""],
+  "title": "Example 1: Table with header cells in the top row only",
+  "description": "A simple table with header cells and no scope attributes",
+  "html_file": "html/table-1.html",
   "assertions": [
     {
       "feature_id": "html/table_element",
@@ -16,18 +16,8 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_next_column",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_row_header",
-                  "output": "\"name, row header\"",
+                  "command": "next_item",
+                  "output": "\"table, has 4 rows, 3 columns, header item, column header, row 1 of 4 column 1 of 3, date\"",
                   "result": "pass"
                 }
               ]
@@ -44,7 +34,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
+                  "output": "\"table  with 4 rows and 3 columns, row 1  column 1, Date\"",
                   "result": "pass"
                 }
               ]
@@ -57,7 +47,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
+                  "output": "\"table  with 4 rows and 3 columns, row 1  column 1, Date\"",
                   "result": "pass"
                 }
               ]
@@ -74,7 +64,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
+                  "output": "\"table with 3 columns and 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -93,7 +83,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
+                  "output": "\"table with 3 columns and 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -112,7 +102,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
+                  "output": "\"table with 3 columns and 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -135,7 +125,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table, 2 columns, 2 rows\"",
+                  "output": "\"table, 3 columns, 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -157,12 +147,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"name, row 1 column 1, table start 2 rows, 2 columns\"",
+                  "output": "\"date, row 1 column 1, table start 4 rows, 3 columns\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "\"car, column 2, table end\"",
+                  "output": "\"venue, main hall, row 4, column 3, table end\"",
                   "result": "pass"
                 }
               ],
@@ -228,12 +218,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
+                  "output": "\"table  with 4 rows and 3 columns, row 1  column 1, Date\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
-                  "output": "\"out of table, text after the table\"",
+                  "output": "\"out of table, text after the tabl\"e",
                   "result": "pass"
                 },
                 {
@@ -243,7 +233,7 @@
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "\"edge of table\"",
+                  "output": "vedge of table\"",
                   "result": "pass"
                 },
                 {
@@ -266,7 +256,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
+                  "output": "\"table  with 4 rows and 3 columns, row 1  column 1, Date\"",
                   "result": "pass"
                 },
                 {
@@ -308,7 +298,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
+                  "output": "\"table with 3 columns and 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -327,7 +317,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
+                  "output": "\"table with 3 columns and 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -346,7 +336,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
+                  "output": "\"table with 3 columns and 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -369,7 +359,7 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"table, 2 columns, 2 rows\"",
+                  "output": "\"table, 3 columns, 4 rows\"",
                   "result": "pass"
                 },
                 {
@@ -391,12 +381,12 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"name, row 1 column 1, table start 2 rows, 2 columns\"",
+                  "output": "\"date, row 1 column 1, table start 4 rows, 3 columns\"",
                   "result": "pass"
                 },
                 {
-                  "command": "previous_item",
-                  "output": "\"car, column 2, table end\"",
+                  "command": "next_item",
+                  "output": "\"venue, main hall, row 4, column 3, table end\"",
                   "result": "pass"
                 }
               ],
@@ -408,7 +398,7 @@
     },
     {
       "feature_id": "html/scope_attribute",
-      "feature_assertion_id": "convey_value_row",
+      "feature_assertion_id": "convey_value_auto",
       "css_target": "#target",
       "results": {
         "narrator": {
@@ -421,17 +411,12 @@
               "output": [
                 {
                   "command": "table_move_to_next_column",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
+                  "output": "\"Waltz with Strauss, non-selected, column header Event, column 2 of 3\"",
                   "result": "pass"
                 },
                 {
-                  "command": "table_move_to_next_row",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_row_header",
-                  "output": "\"name, row header\"",
+                  "command": "table_read_column_header",
+                  "output": "\"event, column header\"",
                   "result": "pass"
                 }
               ]
@@ -447,13 +432,13 @@
               "date": "2018-07-30",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name row 1 greg\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event  column 2, Waltz with Strauss\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "\"name row 1 column 2 greg\"",
+                  "output": "\"row 2  Venue  column 3, Main Hall\"",
                   "result": "pass"
                 }
               ]
@@ -465,13 +450,13 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name row 1 greg\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event  column 2, Waltz with Strauss\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
-                  "output": "\"name row 1 column 2 greg\"",
+                  "output": "\"row 2  Venue  column 3, Main Hall\"",
                   "result": "pass"
                 }
               ]
@@ -487,13 +472,13 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name, greg, row 1\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event,  Waltz with Strauss, column 2\"",
                   "result": "pass"
                 },
                 {
                   "command": "table_read_current_cell",
-                  "output": "\"column 2, row 1, name, Greg\"",
+                  "output": "\"column 3, row 2, venue, main hall\"",
                   "result": "pass"
                 }
               ],
@@ -506,13 +491,13 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name, greg, row 1\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event,  Waltz with Strauss, column 2\"",
                   "result": "pass"
                 },
                 {
                   "command": "table_read_current_cell",
-                  "output": "\"column 2, row 1, name, Greg\"",
+                  "output": "\"column 3, row 2, venue, main hall\"",
                   "result": "pass"
                 }
               ],
@@ -525,13 +510,13 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "n\"ame, greg, row 1\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event,  Waltz with Strauss, column 2\"",
                   "result": "pass"
                 },
                 {
                   "command": "table_read_current_cell",
-                  "output": "\"column 2, row 1, name, Greg\"",
+                  "output": "\"column 3, row 2, venue, main hall\"",
                   "result": "pass"
                 }
               ],
@@ -548,14 +533,14 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"Row 1 of 2 Name, greg\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event, Waltz with Strauss. column 2 of 3\"",
                   "result": "pass"
                 },
                 {
-                  "command": "table_read_row_header",
-                  "output": "\"Name\"",
-                  "result": "pass"
+                  "command": "table_read_column_header",
+                  "output": "(nothing)",
+                  "result": "fail"
                 }
               ]
             }
@@ -571,22 +556,22 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"Greg, column 2\"",
+                  "output": "\"event, column 2\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "output": "(starting from position 3,0 'venu') \"February 12, row 2 column 1\"",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
-                  "output": "\"Greg, row 1 column 2\"",
-                  "result": "fail"
+                  "output": "(starting from position 1,1 'waltz with strauss') \"Date, February 12, row 2 column 1\"",
+                  "result": "pass"
                 },
                 {
                   "command": "additional_information",
-                  "output": "\"row 1 column 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "additional_information",
-                  "output": "\"row 1 column 2\"",
+                  "output": "\"row 2 column 1\"",
                   "result": "fail"
                 }
               ],
@@ -792,14 +777,14 @@
               "date": "2019-05-03",
               "output": [
                 {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"Row 1 of 2 Name, greg\"",
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event, column 2 of 3\"",
                   "result": "pass"
                 },
                 {
-                  "command": "table_read_row_header",
-                  "output": "\"Name\"",
-                  "result": "pass"
+                  "command": "table_read_column_header",
+                  "output": "(nothing)",
+                  "result": "fail"
                 }
               ]
             }
@@ -815,23 +800,13 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "\"Greg, column 2\"",
+                  "output": "\"event, column 2\"",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
-                  "output": "\"Greg, row 1 column 2\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_additional_information",
-                  "output": "\"row 1 column 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_additional_information",
-                  "output": "\"row 1 column 2\"",
-                  "result": "fail"
+                  "output": "\"event, waltz with strauss, column 2\"",
+                  "result": "pass"
                 }
               ],
               "notes": ""
@@ -1555,12 +1530,8 @@
   ],
   "history": [
     {
-      "date": "2019-05-03",
-      "message": "Sample html was updated to better reflect a real word example, and data was updated as well."
-    },
-    {
-      "date": "2018-07-29",
-      "message": "Sample data has been added. This data has not been verified."
+      "date": "2019-05-10",
+      "message": "Test created"
     }
   ]
 }
