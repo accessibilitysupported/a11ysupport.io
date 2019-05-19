@@ -3,12 +3,61 @@
   "title": "aria-details attribute",
   "type": "attribute",
   "description": "Identifies the element that provides a detailed, extended description for the object. See related aria-describedby.",
+  "recommendation": "There is poor support for `aria-details`, so it should not be used as the only means of conveying the relationship between an object and its detailed description. Since `aria-details` can only reference an element that is elsewhere on the same page, the details will likely sill be discoverable by screen reader users. Until support is more robust, it might be worth while to consider an additional indication that the object has a detailed description on the same page by way of the `alt` attribute or similar method.",
   "references": [
     {
       "title": "ARIA spec for aria-details",
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-details"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_presence",
+      "title": "The screen reader MUST convey the presence of aria-details",
+      "type": "MUST",
+      "css_target": "*[aria-details]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "allow_jump_to",
+      "title": "The screen reader SHOULD allow the user to jump to the referenced element",
+      "rationale": "If the details are not adjacent to the element with aria-details, they might find it helpful to jump directly to the details.",
+      "type": "SHOULD",
+      "css_target": "*[aria-details]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "allow_jump_back",
+      "title": "The screen reader SHOULD allow the user to jump back to the referencing element",
+      "rationale": "If the details are not adjacent to the element with aria-details, they might find it helpful to jump back so that they can continue reading the page.",
+      "type": "SHOULD",
+      "css_target": "*[aria-details]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_details_boundaries",
+      "title": "The screen reader MAY convey the boundaries of the details",
+      "rationale": "A screen reader user may find it helpful to know exactly where the details start and end.",
+      "type": "MAY",
+      "css_target": "*",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-05-19"
 }
