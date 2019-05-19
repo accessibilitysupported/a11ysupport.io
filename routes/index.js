@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let fs = require('fs');
 let createError = require('http-errors');
+let testIdHelper = require('../src/test-id-helper.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,7 +29,8 @@ router.get('/run-tests', function(req, res, next) {
 	res.render('run-tests', {
 		title: 'Run Tests | Accessibility Support',
 		supportPoints: supportPoints,
-		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		testIdHelper: testIdHelper
 	});
 });
 
