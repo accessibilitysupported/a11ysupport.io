@@ -63,12 +63,15 @@ For each category of AT that is within the scope:
     * VoiceOver + Safari for Mac 
     * VoiceOver + Safari for iOS 
     * Windows Narrator + Edge
-    * Android Accessibility Suite + Google Chrome
+    * Talkback + Google Chrome
 2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT. This currently includes:
     * NVDA + Firefox
 3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT. This currently includes:
     * JAWS + IE and Firefox (both IE and Firefox should be tested as users transition away from IE)
     * Dragon Naturally Speaking + Google Chrome (voice control software)
+4. AT that has published documentation of supported combinations
+    * JAWS + Chrome and Firefox
+    * NVDA + Firefox
 
 The phrase 'widely supported' for core AT means that greater than or equal to 20% of respondents use it as their primary AT.
 
