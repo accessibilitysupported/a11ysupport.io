@@ -1,0 +1,571 @@
+{
+  "title": "aria-details test",
+  "description": "A sample of aria-details functionality",
+  "html_file": "aria/aria-details.html",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-details_attribute",
+      "feature_assertion_id": "convey_presence",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Image, Pythagorean Theorem\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Pythagorean Theorem\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Graphic, Pythagorean Theorem\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Graphic, unavailable, Pythagorean Theorem, has details.\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Pythagorean Theorem, has details.\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Graphic, unavailable, Pythagorean Theorem, has details.\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Pythagorean Theorem, image\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Pythagorean Theorem, image\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-details_attribute",
+      "feature_assertion_id": "allow_jump_to",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "follow_flowto",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "follow_flowto",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-details_attribute",
+      "feature_assertion_id": "allow_jump_back",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "follow_flowto",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "follow_flowto",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not let user navigate to the referenced element)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-details_attribute",
+      "feature_assertion_id": "convey_details_boundaries",
+      "css_target": "#details",
+      "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not convey boundaries)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2018.3.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-09-04",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not convey boundaries)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not convey boundaries)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Entering details\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "output": "\"Leaving\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Entering details\"",
+                  "result": "pass"
+                }
+              ,
+                {
+                  "command": "next_item",
+                  "output": "\"Leaving\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-02",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Entering details\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "output": "\"Leaving\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.4",
+              "browser_version": "12.1",
+              "os_version": "10.14.4",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not convey boundaries)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-08",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(does not convey boundaries)",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-05-08",
+      "message": "Test created"
+    }
+  ]
+}
