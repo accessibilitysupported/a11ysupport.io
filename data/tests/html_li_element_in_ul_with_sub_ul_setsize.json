@@ -1,7 +1,7 @@
 {
   "title": "HTML LI element in a UL with a sub UL (setsize)",
   "description": "This test ensures that the number of items in a list are being computed correctly when there is a sub-list.",
-  "html_file": "html_li_element_in_ul_with_sub_ul",
+  "html_file": "html_li_element_in_ul_with_sub_ul.html",
   "assertions": [
     {
       "feature_id": "html/ul_element",
@@ -9,20 +9,97 @@
       "css_target": "#target",
       "expected_value": "3",
       "results": {
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1809",
+              "browser_version": "44.17763",
+              "os_version": "1809",
+              "date": "2019-05-20",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Enter list. Bullet. Target. 1 of 3 level 1.\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        },
         "nvda": {
           "browsers": {
             "firefox": {
               "at_version": "2018.3.2",
               "browser_version": "62",
               "os_version": "17763",
-              "date": "2018-10-19",
+              "date": "2018-10-20",
               "output": [
                 {
                   "command": "next_item",
-                  "output": "List with three items. Bullet Target.",
+                  "output": "\"List with three items. Bullet Target.\"",
                   "result": "pass"
                 }
               ]
+            },
+            "chrome": {
+              "at_version": "2018.1808.10",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-20",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"List with 3 items. Bullet Target.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2018.1811.2",
+              "browser_version": "11.134",
+              "os_version": "1809",
+              "date": "2019-05-20",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"List of 3 items\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "firefox": {
+              "at_version": "2018.1811.2",
+              "browser_version": "66",
+              "os_version": "1809",
+              "date": "2019-05-20",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"List of 3 items\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            },
+            "chrome": {
+              "at_version": "2018.1811.2",
+              "browser_version": "74",
+              "os_version": "1809",
+              "date": "2019-05-20",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"List of 3 items\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
             }
           }
         },
@@ -36,10 +113,28 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Target 1 of 3",
+                  "output": "\"Target 1 of 3\"",
                   "result": "pass"
                 }
               ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.2",
+              "browser_version": "12.2",
+              "os_version": "12.2",
+              "date": "2019-05-20",
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "Target. List Start",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
             }
           }
         }
