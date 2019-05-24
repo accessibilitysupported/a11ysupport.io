@@ -88,11 +88,28 @@ block content
                                             ul
                                                 each output in assertion.results[at].browsers[browser].output
                                                     li
-                                                        if (ATBrowsers.at[at].commands[output.command])
-                                                            strong= "(" + output.result + ") command: " + ATBrowsers.at[at].commands[output.command].command + ": "
-                                                        else
-                                                            strong= "(" + output.result + ") " + output.command + ": "
-                                                        span= output.output
+                                                        strong Result:
+                                                        span= " (" + output.result + ")"
+                                                        ul
+                                                            li
+                                                                strong= "command: "
+                                                                if (ATBrowsers.at[at].commands[output.command])
+                                                                    span=  ATBrowsers.at[at].commands[output.command].command
+                                                                else
+                                                                    strong= ", " + output.command
+
+                                                            if (output.from && output.from !== "na")
+                                                                li
+                                                                    strong= "from: "
+                                                                    span= output.from
+
+                                                            if (output.to && output.to !== "na")
+                                                                li
+                                                                    strong= "to: "
+                                                                    span= output.to
+                                                            li
+                                                                strong Output:
+                                                                span= " " + output.output
                                         else
                                             span -
                                     td
@@ -128,11 +145,28 @@ block content
                                                 ul
                                                     each output in assertion.results[at.id].browsers[browser].output
                                                         li
-                                                            if (ATBrowsers.at[at.id].commands[output.command])
-                                                                strong= "(" + output.result + ") command: " + ATBrowsers.at[at.id].commands[output.command].command + ": "
-                                                            else
-                                                                strong= "(" + output.result + ") " + output.command + ": "
-                                                            span= output.output
+                                                            strong Result:
+                                                            span= " (" + output.result + ")"
+                                                            ul
+                                                                li
+                                                                    strong= "command: "
+                                                                    if (ATBrowsers.at[at.id].commands[output.command])
+                                                                        span=  ATBrowsers.at[at.id].commands[output.command].command
+                                                                    else
+                                                                        strong= ", " + output.command
+
+                                                                if (output.from && output.from !== "na")
+                                                                    li
+                                                                        strong= "from: "
+                                                                        span= output.from
+
+                                                                if (output.to && output.to !== "na")
+                                                                    li
+                                                                        strong= "to: "
+                                                                        span= output.to
+                                                                li
+                                                                    strong Output:
+                                                                    span= " " + output.output
                                             else
                                                 span -
                                         td

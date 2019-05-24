@@ -12,7 +12,32 @@
   "assertions": [
     {
       "id": "convey_role",
-      "title": "The assistive technology MUST convey the group role",
+      "title": "The screen reader MUST convey the group role in reading mode",
+      "rationale": "A screen reader user needs to be aware that elements are within a group",
+      "type": "MUST",
+      "css_target": "*[role=\"group\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "title": "The screen reader MUST convey the group name if it has a group name",
+      "rationale": "A screen reader user needs to be aware of the name of group",
+      "type": "MUST",
+      "css_target": "*[role=\"group\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "The screen reader MUST convey the boundaries of the group",
+      "rationale": "A screen reader user needs to be aware when they enter and exit a group",
       "type": "MUST",
       "css_target": "*[role=\"group\"]",
       "preconditions": [],

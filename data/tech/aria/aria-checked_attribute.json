@@ -13,6 +13,7 @@
     {
       "id": "convey_value_false",
       "title": "The screen reader MUST convey the \"false\" value",
+      "rationale": "The user needs to be able to tell that the element is not checked",
       "type": "MUST",
       "css_target": "*[ara-checked=\"false\"]",
       "preconditions": [],
@@ -24,6 +25,7 @@
     {
       "id": "convey_value_true",
       "title": "The screen reader MUST convey the \"true\" value",
+      "rationale": "The user needs to be able to tell that the element is checked",
       "type": "MUST",
       "css_target": "*[ara-checked=\"true\"]",
       "preconditions": [],
@@ -35,8 +37,21 @@
     {
       "id": "convey_value_mixed",
       "title": "The screen reader MUST convey the \"mixed\" value",
+      "rationale": "The user needs to be able to tell that the element is mixed",
       "type": "MUST",
       "css_target": "*[ara-checked=\"mixed\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_change_in_value",
+      "title": "The screen reader MUST convey a change in value when changed by the user",
+      "rationale": "The user needs to know what the new value is and that the change was successful",
+      "type": "MUST",
+      "css_target": "*[ara-checked=\"true\"]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",

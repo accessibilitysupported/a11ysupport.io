@@ -1,37 +1,2713 @@
 {
-  "title": "APG 1.2 Checkbox Example (Two State)",
+  "title": "APG 1.1 Checkbox Example (Two State)",
   "description": "This example implements the Checkbox Design Pattern for a two state checkbox using div elements.",
-  "html_file": "https://www.w3.org/TR/wai-aria-practices-1.2/examples/checkbox/checkbox-1/checkbox-1.html",
+  "html_file": "https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-1/checkbox-1.html",
   "assertions": [
     {
       "feature_id": "aria/group_role",
       "feature_assertion_id": "convey_role",
-      "results": {}
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Pressing the TAB or SHIFT+TAB keys to focus the first (or last) checkbox in the group caused the group label to be announced, but not the group role."
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Pressing the TAB or SHIFT+TAB keys to focus the first (or last) checkbox in the group caused the group label to be announced, but not the group role."
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Pressing the TAB or SHIFT+TAB keys to focus the first (or last) checkbox in the group caused the group label to be announced, but not the group role."
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Unchecked checkbox. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Unchecked checkbox. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked lettuce checkbox\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked Sprouts checkbox\"",
+                  "result": "partial"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"end of Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sprouts, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/group_role",
+      "feature_assertion_id": "convey_name",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Unchecked checkbox. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Unchecked checkbox. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked lettuce checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked Sprouts checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"end of Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sprouts, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/group_role",
+      "feature_assertion_id": "convey_boundaries",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"Group end\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Unchecked checkbox. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"heading level 2. keyboard support\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Unchecked checkbox. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "\"heading level 3 Sandwich Condiments\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked lettuce checkbox\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked Sprouts checkbox\"",
+                  "result": "partial"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"lout of list. heading  level 2. Keyboard Support\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "\"out of list. heading  level 3. Sandwich Condiments\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"lout of list. heading  level 2. Keyboard Support\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"list  with 4 items. check box  not checked. Sprouts\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "\"out of list. heading  level 3. Sandwich Condiments\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"end of Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"end of Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sprouts, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
     },
     {
       "feature_id": "aria/aria-labelledby_attribute",
       "feature_assertion_id": "contribute_to_accessible_name",
-      "results": {}
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Pressing the TAB or SHIFT+TAB keys to focus the first (or last) checkbox in the group caused the group label to be announced"
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Pressing the TAB or SHIFT+TAB keys to focus the first (or last) checkbox in the group caused the group label to be announced"
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Group Start, Sandwich Condiments\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Lettuce checkbox not checked\"",
+                  "result": "partial"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments, Sprouts checkbox not checked\"",
+                  "result": "partial"
+                }
+              ],
+              "notes": "Pressing the TAB or SHIFT+TAB keys to focus the first (or last) checkbox in the group caused the group label to be announced"
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked lettuce checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments. Unchecked Sprouts checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Lettuce. check box  not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sandwich Condiments grouping. list  with 4 items. Sprouts. check box  not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"end of Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"end of Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Sprouts, unchecked, checkbox, Sandwich Condiments, group\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "fail"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
     },
     {
       "feature_id": "aria/checkbox_role",
       "feature_assertion_id": "convey_role",
-      "results": {}
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"unchecked checkbox. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"unchecked checkbox. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Sandwich Condiments. unchecked Lettuce checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"unchecked Lettuce checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/checkbox_role",
+      "feature_assertion_id": "convey_name",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"unchecked checkbox. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"unchecked checkbox. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Sandwich Condiments. unchecked Lettuce checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"unchecked Lettuce checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
     },
     {
       "feature_id": "aria/aria-checked_attribute",
       "feature_assertion_id": "convey_value_false",
-      "results": {}
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"unchecked checkbox. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"unchecked checkbox. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Sandwich Condiments. unchecked Lettuce checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"unchecked Lettuce checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"list  with 4 items. check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  not checked. Lettuce\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce checkbox not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox, Sandwich Condiments group\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, unchecked, checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Lettuce, checkbox, unchecked\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
     },
     {
       "feature_id": "aria/aria-checked_attribute",
       "feature_assertion_id": "convey_value_true",
-      "results": {}
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"checked checkbox. Tomato\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"checked checkbox. Tomato\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"checked Tomato checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"checked Tomato checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"check box  checked. Tomato.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  checked. Tomato.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"check box  checked. Tomato.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"check box  checked. Tomato.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato checkbox checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato, checked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato, checked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato, checked, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato, checked, checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Tomato, checkbox, checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Tomato, checkbox, checked\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-checked_attribute",
+      "feature_assertion_id": "convey_change_in_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "ie": {
+              "at_version": "2019.1904.60",
+              "browser_version": "11.134",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "at_version": "2019.1904.60",
+              "browser_version": "66",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1904.60",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-23",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "at_version": "1904",
+              "browser_version": "44.17763.1.0",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"unchecked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "at_version": "2019.1.1",
+              "browser_version": "67",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"not checked\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "at_version": "2019.1.1",
+              "browser_version": "74",
+              "os_version": "1904",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"not checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "at_version": "10.14.5",
+              "browser_version": "12.1.1",
+              "os_version": "10.14.5",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked, Lettuce, checkbox\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"unchecked, Lettuce, checkbox\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "at_version": "12.3",
+              "browser_version": "12.3",
+              "os_version": "12.3",
+              "date": "2019-05-24",
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"checked\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"unchecked\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": ""
+            }
+          }
+        }
+      }
     }
   ],
   "history": [
     {
-      "date": "2019-05-01",
+      "date": "2019-05-24",
       "message": "Test created"
     }
   ]
