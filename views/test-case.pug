@@ -88,8 +88,8 @@ block content
                                             ul
                                                 each output in assertion.results[at].browsers[browser].output
                                                     li
-                                                        strong Result:
-                                                        span= " (" + output.result + ")"
+                                                        strong= "Result: "
+                                                        span(class="output-result "+output.result)= " (" + output.result + ")"
                                                         ul
                                                             li
                                                                 strong= "command: "
