@@ -11,8 +11,33 @@
   ],
   "assertions": [
     {
+      "id": "convey_role",
+      "title": "The screen reader MUST convey the list role",
+      "rationale": "A screen reader user needs to know that content is contained in a list.",
+      "type": "MUST",
+      "css_target": "ol",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "The screen reader MUST convey the list boundaries",
+      "rationale": "A screen reader user needs to know when they enter and exit a list.",
+      "type": "MUST",
+      "css_target": "ol",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
       "id": "convey_setsize",
       "title": "The screen reader MUST convey the number of items in the list",
+      "rationale": "A screen reader user needs know how many items are in the list.",
       "type": "MUST",
       "css_target": "ol",
       "preconditions": [],
@@ -22,5 +47,5 @@
       ]
     }
   ],
-  "date_updated": "2018-10-19"
+  "date_updated": "2019-05-27"
 }
