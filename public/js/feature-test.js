@@ -279,6 +279,113 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
     div.appendChild(command_select);
     fieldset.appendChild(div);
 
+
+    // target before
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'Target of focus or virtual cursor before command';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_from';
+	label.setAttribute('for', id);
+	var select = document.createElement('select');
+	select.setAttribute('id', id);
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_from');
+	var options = [
+		{
+			label: 'unknown',
+			value: ''
+		},
+		{
+			label: 'before target',
+			value: 'before target'
+		},
+		{
+			label: 'after target',
+			value: 'after target'
+		},
+		{
+			label: 'target',
+			value: 'target'
+		},
+		{
+			label: 'within target',
+			value: 'within target'
+		},
+		{
+			label: 'n/a',
+			value: 'na'
+		}
+	];
+
+	options.forEach(function(data) {
+		var option = document.createElement('option');
+		option.innerText = data.label;
+		option.value = data.value;
+
+		if (output_row && output_row.from === data.value) {
+			option.setAttribute('selected', 'selected');
+		}
+
+		select.appendChild(option);
+	});
+	div.appendChild(label);
+	div.appendChild(select);
+	fieldset.appendChild(div);
+
+
+	// target after command
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'Target of focus or virtual cursor after command';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_to';
+	label.setAttribute('for', id);
+	var select = document.createElement('select');
+	select.setAttribute('id', id);
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_to');
+	var options = [
+		{
+			label: 'unknown',
+			value: ''
+		},
+		{
+			label: 'target',
+			value: 'target'
+		},
+		{
+			label: 'start of target',
+			value: 'start of target'
+		},
+		{
+			label: 'end of target',
+			value: 'end of target'
+		},
+		{
+			label: 'past target',
+			value: 'past target'
+		},
+		{
+			label: 'n/a',
+			value: 'na'
+		}
+	];
+
+	options.forEach(function(data) {
+		var option = document.createElement('option');
+		option.innerText = data.label;
+		option.value = data.value;
+
+		if (output_row && output_row.to === data.value) {
+			option.setAttribute('selected', 'selected');
+		}
+
+		select.appendChild(option);
+	});
+	div.appendChild(label);
+	div.appendChild(select);
+	fieldset.appendChild(div);
+
+
 	// output from AT
 	var div = document.createElement('div');
 	div.classList.add('control');
@@ -492,7 +599,10 @@ function initFeatureTest() {
             body += '| feature_assertion_id | ' + fieldset.getAttribute('data-feature-assertion-id') + ' |\n';
 
             controls.forEach(function(control) {
-                body += '| ' + control.getAttribute('name') + ' | ' + control.value + ' |\n';
+            	var name = control.getAttribute('name');
+            	name = name.split('.');
+            	name = name[name.length -1]; // the name is namespaced, and we already provide that namespace info, so just send the last bit.
+                body += '| ' + name + ' | ' + control.value + ' |\n';
             });
 
             if (note.value) {
