@@ -42,7 +42,7 @@ function buildResult(feature) {
 	for(var at in feature.core_support_by_at) {
 		var th = document.createElement("TH");
 		var td = document.createElement("TD");
-		var supportClass = feature.core_support_by_at[at].string.replace(" ", "-");
+		var supportClass = feature.core_support_by_at[at].string.substring(0, 2);
 		th.textContent = ATBrowsers.at[at].short_title;
 		th.classList.add(supportClass);
 		td.textContent = feature.core_support_by_at[at].string;

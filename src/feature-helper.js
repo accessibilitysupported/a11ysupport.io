@@ -348,15 +348,15 @@ helper.initalizeTestCase = function (testCase) {
 					// Reduce it to unique values
 					results = results.unique();
 
-					if (results.length === 1 && results[0] === 'pass') {
-						// yes, it is supported
+					// No support by default
+					testCase.assertions[assertion_key].results[at].browsers[browser].support = 'unknown';
+
+					if (results.includes('pass')) {
 						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'y';
-					} else if (results.length === 1 && results[0] === 'fail') {
-						// no, it is not supported
-						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
-					} else {
-						// partial support (some pass, some fail)
+					} else if (results.includes('partial')) {
 						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
+					} else if (results.includes('fail')) {
+						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
 					}
 				}
 
@@ -471,7 +471,7 @@ helper.generateSupportString = function(support) {
 		let supportString = '';
 		switch(support) {
 			case 'y':
-				supportString = 'full';
+				supportString = 'yes';
 				break;
 			case 'n':
 				supportString = 'none';
@@ -495,20 +495,20 @@ helper.generateSupportString = function(support) {
 	//Get the unique values to make it easier to compare
 	let uniqueSupport = support.unique();
 
+	// filter out "na" values
+	let filteredSupport = support.filter(function(element) {
+		return element !== "na";
+	});
+
 	if (uniqueSupport.length === 1) {
 		return helper.generateSupportString(uniqueSupport[0]);
 	}
 
-	if (support.occurenceCount('y') / support.length > .75) {
-		return 'mostly supported';
-	}
+	let numPassing = filteredSupport.occurenceCount('y');
 
-	if (support.includes('y')) {
-		return 'some support';
-	}
-
-	if (support.includes('p')) {
-		return 'some support';
+	if (numPassing) {
+		// At least one thing is passing
+		return 'partial ('+numPassing+'/'+filteredSupport.length+')';
 	}
 
 	if (support.includes('n')) {

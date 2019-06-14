@@ -5,7 +5,7 @@ block content
     div.content-wrapper
         div.content
             h1= 'Test: ' + test.title
-            div(class="current-support-container "+test.core_support_string.replace(" ", "-"))
+            div(class="current-support-container "+test.core_support_string.substring(0,2))
                 p= 'Current support: ' + test.core_support_string
 
             p!= md.renderInline(test.description)
@@ -53,9 +53,9 @@ block content
                             th MAY
                     tbody
                         tr
-                            td(class="current-support-container " + test.core_must_support_string.replace(" ", "-")) #{test.core_must_support_string}
-                            td(class="current-support-container " + test.core_should_support_string.replace(" ", "-")) #{test.core_should_support_string}
-                            td(class="current-support-container " + test.core_may_support_string.replace(" ", "-")) #{test.core_may_support_string}
+                            td(class="current-support-container " + test.core_must_support_string.substring(0,2)) #{test.core_must_support_string}
+                            td(class="current-support-container " + test.core_should_support_string.substring(0,2)) #{test.core_should_support_string}
+                            td(class="current-support-container " + test.core_may_support_string.substring(0,2)) #{test.core_may_support_string}
 
             each assertion in test.assertions
                 div.assertion-container
@@ -77,7 +77,7 @@ block content
                         tr
                             th AT
                             th Browser
-                            th Support
+                            th Has Support
                             th Output
                             th Action
                         each at in ATBrowsers.core_at
@@ -135,7 +135,7 @@ block content
                             tr
                                 th AT
                                 th Browser
-                                th Support
+                                th Has Support
                                 th Output
                                 th Action
                             each at in ATBrowsers.at

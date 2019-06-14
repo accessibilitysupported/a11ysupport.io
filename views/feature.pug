@@ -5,7 +5,7 @@ block content
   div.content-wrapper
     div.content
       h1= data.title + ' (' + data.techId + ')'
-      div(class="current-support-container " + data.core_support_string.replace(" ", "-"))
+      div(class="current-support-container " + data.core_support_string.substring(0,2))
         p= 'Support level: ' + data.core_support_string
 
       if data.assertions.length
@@ -40,9 +40,9 @@ block content
               th MAY
           tbody
             tr
-              td(class="current-support-container " + data.core_must_support_string.replace(" ", "-")) #{data.core_must_support_string}
-              td(class="current-support-container " + data.core_should_support_string.replace(" ", "-")) #{data.core_should_support_string}
-              td(class="current-support-container " + data.core_may_support_string.replace(" ", "-")) #{data.core_may_support_string}
+              td(class="current-support-container " + data.core_must_support_string.substring(0,2)) #{data.core_must_support_string}
+              td(class="current-support-container " + data.core_should_support_string.substring(0,2)) #{data.core_should_support_string}
+              td(class="current-support-container " + data.core_may_support_string.substring(0,2)) #{data.core_may_support_string}
 
         each assertion, index in data.assertions
           h3(id='support-table-'+index) #{assertion.title}
@@ -55,13 +55,13 @@ block content
               tr
                 th AT
                 th Browser
-                th Support
+                th Has Support
               each at in ATBrowsers.core_at
                 each browser in ATBrowsers.at[at].core_browsers
                   tr
                     td= ATBrowsers.at[at].title
                     td= ATBrowsers.browsers[browser].title
-                    td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.replace(" ", "-"))= assertion.core_support_by_at_browser[at][browser].string
+                    td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.substring(0,2))= assertion.core_support_by_at_browser[at][browser].string
 
             p This assertion is referenced by #{assertion.tests.length} tests.
             details
@@ -69,12 +69,12 @@ block content
               table
                 tr
                   th test name
-                  th support
+                  th has support
                 each test in assertion.tests
                   tr
                     td
                       a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
-                    td(class='support-case ' + test.core_support_string.replace(" ", "-")) #{test.core_support_string}
+                    td(class='support-case ' + test.core_support_string.substring(0,2)) #{test.core_support_string}
 
           else
             p No tests reference this assertion yet.
