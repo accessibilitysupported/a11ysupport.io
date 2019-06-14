@@ -18,13 +18,6 @@ block content
                     a(href="#test-html") Test HTML
                 li
                     a(href="#support-tables") Support tables
-                    if test.assertions
-                        ul
-                            li
-                                a(href="#support-tables") Support summary by assertion type
-                            each assertion in test.assertions
-                                li
-                                    a(href="#assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
                 li
                     a(href="#history") History
 
@@ -44,7 +37,7 @@ block content
 
             p Assertions are conditions that must be met for the feature to be considered as "supported". Only "MUST" assertions need to be met for minimal "support". "SHOULD" and "MAY" assertions indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these assertions, and as such, they are likely opinionated. Minimal support reflects that the structure, relationships, and functionality of the feature are conveyed and operable by assistive technology rather than minimal conformance to any specific WCAG SC. As such, a feature might not meet all "MUST" assertions but still be usable (potentially frustratingly so).
 
-            h3(id="assertion-summary-table") Assertion support summary by type
+            h3(id="assertion-summary-table") Assertion support summary by type of assertion
                 table.support-table
                     thead
                         tr
@@ -56,6 +49,32 @@ block content
                             td(class="current-support-container " + test.core_must_support_string.substring(0,2)) #{test.core_must_support_string}
                             td(class="current-support-container " + test.core_should_support_string.substring(0,2)) #{test.core_should_support_string}
                             td(class="current-support-container " + test.core_may_support_string.substring(0,2)) #{test.core_may_support_string}
+
+            if test.assertions
+                h3(id="assertion-support-table") Assertion support summary by assertion
+                table.support-table.assertion-container
+                    thead
+                        tr
+                            th Feature
+                            th Assertion
+                            th Support
+                            th Has failing tests
+                    tbody
+                        each assertion in test.assertions
+                            tr
+                                td #{assertion.feature_title}
+                                td
+                                    a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.assertion_title}
+                                td(class="support-case " + assertion.core_support_string.substring(0, 2)) #{assertion.core_support_string}
+                                - var numfailing = assertion.core_support.filter(x => x === "n").length
+                                - var tdclass = "support-case";
+                                if (numfailing)
+                                    - var tdclass = "support-case n";
+                                td(class=tdclass)
+                                    if numfailing
+                                        span Yes
+                                    else
+                                        span No
 
             each assertion in test.assertions
                 div.assertion-container
