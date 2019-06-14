@@ -14,6 +14,10 @@
       "id": "convey_role",
       "title": "The screen reader MUST convey the group role",
       "rationale": "A screen reader user needs to be aware that elements are within a group",
+      "examples": [
+        "The role name is announced when entering the group.",
+        "If focus is outside of the group, then the accessible name of the group is announced when focus jumps to a control within the group."
+      ],
       "type": "MUST",
       "css_target": "*[role=\"group\"]",
       "preconditions": [],
@@ -26,6 +30,9 @@
       "id": "convey_name",
       "title": "The screen reader MUST convey the group name if it has a group name",
       "rationale": "A screen reader user needs to be aware of the name of group",
+      "examples": [
+        "The accessible name of the group is announced when entering the group."
+      ],
       "type": "MUST",
       "css_target": "*[role=\"group\"]",
       "preconditions": [],
@@ -38,6 +45,11 @@
       "id": "convey_boundaries",
       "title": "The screen reader MUST convey the boundaries of the group",
       "rationale": "A screen reader user needs to be aware when they enter and exit a group",
+      "examples": [
+        "In reading mode, there might be a stop for both the start end end of the group. When entering the group, something like \"group name, group\" might be announced. When leaving the group, something like \"end of group\" might be announced.",
+        "In reading mode, there might not be a stop for the start and end of the group. In this case, the screen reader might announce the group name when the user navigates to the first child and announce that the user is leaving the group when the user navigates out of the group.",
+        "In interaction mode, there will not be a stop for the start and end of the group. In this case, the screen reader might announce the group name when the user jumps to an interactive child and announce that the user is leaving the group when the user jumps out of the group."
+      ],
       "type": "MUST",
       "css_target": "*[role=\"group\"]",
       "preconditions": [],

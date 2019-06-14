@@ -288,6 +288,9 @@ helper.initalizeTestCase = function (testCase) {
 		if (ref_assertion.rationale) {
 			testCase.assertions[assertion_key].assertion_rationale = ref_assertion.rationale;
 		}
+		if (ref_assertion.examples) {
+			testCase.assertions[assertion_key].assertion_examples = ref_assertion.examples;
+		}
 
         if (!testCase.assertions[assertion_key].css_target) {
         	// Use the referenced assertion's css target if it isn't overridden by the assertion link

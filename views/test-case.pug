@@ -64,6 +64,13 @@ block content
                     if (assertion.assertion_rationale)
                         p Rationale: #{assertion.assertion_rationale}
 
+                    if (assertion.assertion_examples)
+                        p Examples of assistive technologies support this assertion:
+
+                        ul
+                            for example in assertion.assertion_examples
+                                li #{example}
+
                     p This assertion is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
                     table(aria-labelledby="core-support")

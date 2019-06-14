@@ -12,8 +12,11 @@
   "assertions": [
     {
       "id": "convey_role",
-      "title": "The screen reader MUST convey the list role",
-      "rationale": "A screen reader user needs to know that content is contained in a list.",
+      "title": "The screen reader MUST convey the unordered list role",
+      "rationale": "A screen reader user needs to know that content is contained in an unordered list.",
+      "examples": [
+        "Typically, the word \"list\" is announced when entering the list, then the word \"bullet\" is announced when entering a list item. Together, these two pieces of information convey the unordered list role."
+      ],
       "type": "MUST",
       "css_target": "ol",
       "preconditions": [],
@@ -26,6 +29,11 @@
       "id": "convey_boundaries",
       "title": "The screen reader MUST convey the list boundaries",
       "rationale": "A screen reader user needs to know when they enter and exit a list.",
+      "examples": [
+        "In reading mode, there might be a stop for both the start end end of the list. When entering the list, something like \"list of x items\" is announced. When leaving the list, something like \"end of list\" is announced.",
+        "In reading mode, there might not be a stop for the start or end of the list. In this case, the screen reader might announce the first item as something like 1 of x, and the last item as x of x, or otherwise announce the boundaries when entering or exiting the list.",
+        "In interaction mode, there will not be a stop for the start or end of the list. In this case, the screen reader might announce the first item as something like \"list of x items\", and the last item as \"x of x\", or \"end of list\", or otherwise announce the the boundaries when entering or exiting the list."
+      ],
       "type": "MUST",
       "css_target": "ol",
       "preconditions": [],
