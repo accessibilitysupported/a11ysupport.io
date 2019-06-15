@@ -214,26 +214,28 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 
 				featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].string = helper.generateSupportString(featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values);
 			});
-
-			// aggregate must/should/may core support
-			if (assertion.type === "MUST") {
-				if (assertion.core_support && assertion.core_support.length) {
-					featureObject.core_must_support = featureObject.core_must_support.concat(assertion.core_support);
-				}
-				featureObject.core_must_support_string = helper.generateSupportString(featureObject.core_must_support);
-			} else if (assertion.type === "SHOULD") {
-				if (assertion.core_support && assertion.core_support.length) {
-					featureObject.core_should_support = featureObject.core_should_support.concat(assertion.core_support);
-				}
-				featureObject.core_should_support_string = helper.generateSupportString(featureObject.core_should_support);
-			} else {
-				if (assertion.core_support && assertion.core_support.length) {
-					featureObject.core_may_support = featureObject.core_may_support.concat(assertion.core_support);
-				}
-				featureObject.core_may_support_string = helper.generateSupportString(featureObject.core_may_support);
-			}
 		});
 	}
+
+	featureObject.assertions.forEach((assertion, assertion_key) => {
+		// aggregate must/should/may core support
+		if (assertion.type === "MUST") {
+			if (assertion.core_support && assertion.core_support.length) {
+				featureObject.core_must_support = featureObject.core_must_support.concat(assertion.core_support);
+			}
+			featureObject.core_must_support_string = helper.generateSupportString(featureObject.core_must_support);
+		} else if (assertion.type === "SHOULD") {
+			if (assertion.core_support && assertion.core_support.length) {
+				featureObject.core_should_support = featureObject.core_should_support.concat(assertion.core_support);
+			}
+			featureObject.core_should_support_string = helper.generateSupportString(featureObject.core_should_support);
+		} else {
+			if (assertion.core_support && assertion.core_support.length) {
+				featureObject.core_may_support = featureObject.core_may_support.concat(assertion.core_support);
+			}
+			featureObject.core_may_support_string = helper.generateSupportString(featureObject.core_may_support);
+		}
+	});
 
 	// Define the keywords_string
 	featureObject.keywords_string = featureObject.keywords.join(' ');
