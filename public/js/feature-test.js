@@ -284,7 +284,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	var div = document.createElement('div');
 	div.classList.add('control');
 	var label = document.createElement('label');
-	label.innerText = 'Target of focus or virtual cursor before command';
+	label.innerText = 'Location of focus or virtual cursor before command';
 	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_from';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
@@ -337,7 +337,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	var div = document.createElement('div');
 	div.classList.add('control');
 	var label = document.createElement('label');
-	label.innerText = 'Target of focus or virtual cursor after command';
+	label.innerText = 'Location of focus or virtual cursor after command';
 	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_to';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
