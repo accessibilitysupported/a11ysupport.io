@@ -165,7 +165,7 @@ describe('spMdToObject()', function() {
 		"== end notes ==";
 
 	let spMdToObject = require(__dirname+'/src/sp-md-to-obj.js');
-console.log(body);
+
 	let result = spMdToObject(body);
 	let moment = require('moment');
 	let currentDateString = moment().format('YYYY-MM-DD');
