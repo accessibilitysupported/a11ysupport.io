@@ -698,12 +698,12 @@
                   "result": "fail"
                 },
                 {
-                  "command": "read_additional_information",
+                  "command": "additional_information",
                   "output": "\"row 1 column 1\"",
                   "result": "fail"
                 },
                 {
-                  "command": "read_additional_information",
+                  "command": "additional_information",
                   "output": "\"row 1 column 2\"",
                   "result": "fail"
                 }
@@ -910,22 +910,12 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "table_move_to_next_column",
+                  "command": "next_item",
                   "output": "(position information is announced as column and rows are changed)",
                   "result": "pass"
                 },
                 {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
+                  "command": "previous_item",
                   "output": "(position information is announced as column and rows are changed)",
                   "result": "pass"
                 }
@@ -1097,17 +1087,12 @@
             "ios_saf": {
               "output": [
                 {
+                  "command": "next_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
                   "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
                   "output": "(no header semantics surfaced, which implies that this is a cell)",
                   "result": "pass"
                 }
