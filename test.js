@@ -1,5 +1,6 @@
 let expect = require('chai').expect;
 let fs = require('fs');
+let glob = require('glob');
 const Ajv = require('ajv');
 let ajv = new Ajv({
 	useDefaults: true,
@@ -16,19 +17,16 @@ let tech = require(buildDir+"/tech.json");
 let ATBrowsers = require(devDir+'/ATBrowsers.json');
 
 describe('Development tests', function () {
-	let testFiles = fs.readdirSync(devDir+'/tests');
+	let testFiles = glob.sync(devDir+'/tests/**/*.json');
 
-	testFiles.forEach(function (file) {
-
-		if (!file.endsWith('aria-haspopup_attribute.json')) {
-			return;
-		}
-
+	testFiles.forEach(function(file) {
 		if (!file.endsWith('.json')) {
 			return;
 		}
 
-        let test = require(devDir + '/tests/' + file);
+		// load the test
+		let test = require(file);
+
 		it(file + ' should conform to the dev-test schema', function () {
 			let valid = ajv.validate('http://accessibilitysupported.com/dev-test.json', test);
 			if (!valid) {
@@ -37,30 +35,35 @@ describe('Development tests', function () {
 			expect(valid).to.be.equal(true);
 		});
 
-		describe(file + ' features', function() {
-			for (let i=0; i < test.features.length; i++) {
-				it(devDir+'/tech/'+test.features[i] + '.json should exist', function () {
-					let exists = fs.existsSync(devDir+'/tech/'+test.features[i]+'.json');
-					expect(exists).to.be.equal(true);
-				});
-			}
-		});
+		test.assertions.forEach(assertion => {
+			it(devDir+'/tech/'+assertion.feature_id + '.json should exist', function () {
+				let exists = fs.existsSync(devDir+'/tech/'+assertion.feature_id+'.json');
+				expect(exists).to.be.equal(true);
+			});
 
-		let at_keys = Object.getOwnPropertyNames(test.results);
-		at_keys.forEach(function(at_id) {
-			let browser_keys = Object.getOwnPropertyNames(test.results[at_id].browsers);
-			browser_keys.forEach(function(browser_key) {
-				if (!test.results[at_id].browsers[browser_key].output) {
-					return;
-				}
-				test.results[at_id].browsers[browser_key].output.forEach(function(output, index) {
-					it(at_id + '.' + browser_key + '.output['+index+'].command should be valid', function() {
-                        expect(ATBrowsers.at[at_id].commands[output.command]).to.be.not.undefined;
-					})
+			if (!assertion.results) {
+				return;
+			}
+
+			let at_keys = Object.getOwnPropertyNames(assertion.results);
+			at_keys.forEach(function(at_id) {
+				let browser_keys = Object.getOwnPropertyNames(assertion.results[at_id].browsers);
+				browser_keys.forEach(function(browser_key) {
+					if (!assertion.results[at_id].browsers[browser_key].output) {
+						return;
+					}
+					assertion.results[at_id].browsers[browser_key].output.forEach(function(output, index) {
+						it(at_id + '.' + browser_key + '.output['+index+'].command should be valid: ' + output.command, function() {
+							expect(ATBrowsers.at[at_id].commands[output.command]).to.be.not.undefined;
+						})
+
+						it(at_id + '.browsers.' + browser_key + ' must have a version object defined: ' + file, function() {
+							expect(test.versions[at_id].browsers[browser_key]).to.be.not.undefined;
+						})
+					});
 				});
 			});
 		});
-
 	});
 });
 
@@ -162,7 +165,7 @@ describe('spMdToObject()', function() {
 		"== end notes ==";
 
 	let spMdToObject = require(__dirname+'/src/sp-md-to-obj.js');
-console.log(body);
+
 	let result = spMdToObject(body);
 	let moment = require('moment');
 	let currentDateString = moment().format('YYYY-MM-DD');

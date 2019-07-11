@@ -103,11 +103,11 @@ block content
                             each browser in ATBrowsers.at[at].core_browsers
                                 tr
                                     td= ATBrowsers.at[at].title
-                                        if assertion.results[at].browsers[browser].at_version
-                                            span= ' ' + assertion.results[at].browsers[browser].at_version
+                                        if test.versions[at] && test.versions[at].browsers[browser] && test.versions[at].browsers[browser].at_version
+                                            span= ' ' + test.versions[at].browsers[browser].at_version
                                     td= ATBrowsers.browsers[browser].title
-                                        if assertion.results[at].browsers[browser].browser_version
-                                            span= ' ' + assertion.results[at].browsers[browser].browser_version
+                                        if test.versions[at] && test.versions[at].browsers[browser] && test.versions[at].browsers[browser].browser_version
+                                            span= ' ' + test.versions[at].browsers[browser].browser_version
                                     td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string
                                     td
                                         if (assertion.results[at].browsers[browser].output)
@@ -164,11 +164,11 @@ block content
                                 each browser in browsers
                                     tr
                                         td= at.title
-                                            if assertion.results[at.id].browsers[browser].at_version
-                                                span= ' ' + assertion.results[at.id].browsers[browser].at_version
+                                            if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].at_version
+                                                span= ' ' + test.versions[at.id].browsers[browser].at_version
                                         td= ATBrowsers.browsers[browser].title
-                                            if assertion.results[at.id].browsers[browser].browser_version
-                                                span= ' ' + assertion.results[at.id].browsers[browser].browser_version
+                                            if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].browser_version
+                                                span= ' ' + test.versions[at.id].browsers[browser].browser_version
                                         td(class='support-case ' + assertion.results[at.id].browsers[browser].support)= assertion.results[at.id].browsers[browser].support_string
                                         td
                                             if (assertion.results[at.id].browsers[browser].output)

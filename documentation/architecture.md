@@ -30,10 +30,9 @@ Details of the grading method and a high level overview of the project include:
 * A single AT/browser combination can have many output results.
 * During the build process, output results are bubbled to:
     * The browser object `test.assertions[0].results.nvda.browsers.firefox.support`. Values are mapped to one of `y` (support='yes'), `n` (support='no'), or `p` (support='partial').
-        * If all output results were `pass`, then output maps to `y`.
-        * If all output results were `partial`, then output maps to `p`.
-        * If no output results passed, then output maps to `n`.
-        * If there was a mix of values, map to `parital`.
+        * If one output results were `pass`, then support maps to `y`.
+        * If some output results were `partial`, then support maps to `p`.
+        * If no output results passed, then support maps to `n`.
     * The AT object `test.assertions[0].results.nvda.core_support` and `test.assertions[0].results.nvda.extended_support` (which includes unique support values for all browsers)
     * The test assertion `test.assertions[0].core_support` and `test.assertions[0].extended_support`, 
     * The test object `test.core_support` and `test.extended_support` which include unique support values for all at
@@ -207,6 +206,15 @@ The `output` object contains the following properties which can be provided by t
 * `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
 * `output` (string|required): the output of the result.
 * `result` (enum|required): One of `pass`, `fail`, or `partial`.
+
+#### the `versions` object (`at_version` and `browser_version`)
+
+The `versions` object defines the AT, browser, os and date values used while testing. The structure of the object replicates the general structure of the `results` object to simplify programmatic access. For example, the version information for NVDA/Firefox can be found at `test.versions.nvda.browsers.firefox`. Every time a test is tested, all assertions for the at/browser combination must be tested and updated.
+
+* `at_version` (string|required): the version of the AT used during the test
+* `browser_version` (string|required): the version of the browser used during the test
+* `os_version` (string|required): the version of the OS used during the test. The OS name can be inferred.
+* `date` (string|required): the date that this at/browser combination was last tested.
 
 ## Build process
 

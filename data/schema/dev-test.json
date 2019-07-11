@@ -3,6 +3,62 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "definitions": {
+    "at_version": {
+      "type": "object",
+      "properties": {
+        "browsers": {
+          "type": "object",
+          "properties": {
+            "chrome": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "and_chr": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "edge": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "firefox": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "and_ff": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "ie": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "ios_saf": {
+              "$ref": "#/definitions/browser_version"
+            },
+            "safari": {
+              "$ref": "#/definitions/browser_version"
+            }
+          }
+        }
+      },
+      "required": ["browsers"]
+    },
+    "browser_version": {
+      "type": "object",
+      "properties": {
+        "at_version": {
+          "type": "string"
+        },
+        "browser_version": {
+          "type": "string"
+        },
+        "os_version": {
+          "type": "string",
+          "description": "The OS version indicates what accessibility APIs are in use"
+        },
+        "date": {
+          "description": "The date is required to help us determine which support points have priority for testing.",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": ["at_version", "browser_version", "os_version", "date"]
+    },
     "at": {
       "type": "object",
       "properties": {
@@ -41,25 +97,10 @@
     "browser": {
       "type": "object",
       "properties": {
-        "at_version": {
-          "type": "string"
-        },
-        "browser_version": {
-          "type": "string"
-        },
-        "os_version": {
-          "type": "string",
-          "description": "The OS version indicates what accessibility APIs are in use"
-        },
         "support": {
           "description": "Is the combination supported? y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.",
           "type": "string",
           "enum": ["y", "p", "n", "na", "u"]
-        },
-        "date": {
-          "description": "The date is required to help us determine which support points have priority for testing.",
-          "type": "string",
-          "format": "date"
         },
         "output": {
           "type": "array",
@@ -77,7 +118,7 @@
               },
               "to": {
                 "type": "string",
-                "enum": ["target", "start of target", "end of target", "past target", "na"],
+                "enum": ["target", "start of target", "end of target", "past target", "before target", "within target", "after target", "na"],
                 "description": "Describes the focus/cursor destination after the command."
               },
               "output": {
@@ -96,7 +137,7 @@
           "type": "string"
         }
       },
-      "required": ["at_version", "browser_version", "os_version", "date"]
+      "required": ["output"]
     },
     "assertion": {
       "type": "object",
@@ -105,7 +146,7 @@
           "type": "string"
         },
         "feature_assertion_id": {
-          "type": "number"
+          "type": "string"
         },
         "css_target": {
           "type": "string",
@@ -130,9 +171,6 @@
             "vo_macos": {
               "$ref": "#/definitions/at"
             },
-            "windoweyes": {
-              "$ref": "#/definitions/at"
-            },
             "narrator": {
               "$ref": "#/definitions/at"
             },
@@ -141,21 +179,11 @@
             },
             "dragon_win": {
               "$ref": "#/definitions/at"
-            },
-            "dragon_mac": {
-              "$ref": "#/definitions/at"
             }
           }
         }
       },
       "required": ["feature_id", "feature_assertion_id", "results"]
-    },
-    "assertions": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "$ref": "#/definitions/assertion"
-      }
     },
     "history": {
       "type": "object",
@@ -189,21 +217,50 @@
       "type": "string",
       "description": "path relative to the /data/tests/html directory. References the file that contains the test html."
     },
+    "versions": {
+      "type": "object",
+      "properties": {
+        "jaws": {
+          "$ref": "#/definitions/at_version"
+        },
+        "nvda": {
+          "$ref": "#/definitions/at_version"
+        },
+        "vo_ios": {
+          "$ref": "#/definitions/at_version"
+        },
+        "vo_macos": {
+          "$ref": "#/definitions/at_version"
+        },
+        "narrator": {
+          "$ref": "#/definitions/at_version"
+        },
+        "android": {
+          "$ref": "#/definitions/at_version"
+        },
+        "dragon_win": {
+          "$ref": "#/definitions/at_version"
+        }
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/assertion"
+      }
+    },
     "history": {
       "type": "array",
       "items": {
-        "type": "object",
         "$ref": "#/definitions/history"
       }
     }
   },
   "required": [
     "title",
-    "features",
-    "type",
     "description",
     "history",
-    "html_file",
+    "versions",
     "assertions"
   ]
 }

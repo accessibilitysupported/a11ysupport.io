@@ -30,16 +30,19 @@ block content
                         a(href="/learn/at/"+atId)=ATBrowsers.at[atId].title
                 tr
                     th(scope="row") AT Version
-                    td= assertion.results[atId].browsers[browserId].at_version
+                    td= test.versions[atId].browsers[browserId].at_version
                 tr
                     th(scope="row") Browser Name
                     td= ATBrowsers.browsers[browserId].title
                 tr
                     th(scope="row") Browser Version
-                    td= assertion.results[atId].browsers[browserId].browser_version
+                    td= test.versions[atId].browsers[browserId].browser_version
                 tr
                     th(scope="row") OS version
-                    td= assertion.results[atId].browsers[browserId].os_version
+                    td= test.versions[atId].browsers[browserId].os_version
+                tr
+                    th(scope="row") Date
+                    td= test.versions[atId].browsers[browserId].date
                 tr
                     th(scope="row") Notes
                     td!= assertion.results[atId].browsers[browserId].notes ? md.render(assertion.results[atId].browsers[browserId].notes) : ''

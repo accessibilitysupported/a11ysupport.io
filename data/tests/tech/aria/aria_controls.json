@@ -3,180 +3,224 @@
   "description": "Tests the aria-controls attribute. This test just asserts that a screen reader conveys that the target element controls something. Screen readers might convey this differently. They may announce that the element controls something, or/and announce the keyboard shortcut to jump to the target. This test does not assert that a screen reader supports jumping to the target.",
   "html_file": "aria/aria-controls.html",
   "assertions": [
-      {
-        "feature_id": "aria/aria-controls_attribute",
-        "feature_assertion_id": "convey_presence_if_not_empty_and_valid",
-        "results": {
-          "jaws": {
-            "browsers": {
-              "firefox": {
-                "at_version": "2018.1811.2",
-                "browser_version": "66",
-                "os_version": "1809",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "target button, use jaws key + alt + M to move to controlled element",
-                    "result": "pass"
-                  }
-                ],
-                "date": "2019-04-09"
-              },
-              "chrome": {
-                "at_version": "2018.1811.2",
-                "browser_version": "73",
-                "os_version": "1809",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "target button, use jaws key + alt + M to move to controlled element",
-                    "result": "pass"
-                  }
-                ],
-                "date": "2019-04-09"
-              },
-              "ie": {
-                "at_version": "2018.1811.2",
-                "browser_version": "11",
-                "os_version": "1809",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "target button, use jaws key + alt + M to move to controlled element",
-                    "result": "pass"
-                  }
-                ],
-                "date": "2019-04-09"
-              },
-              "edge": {
-                "at_version": "2018.1811.2",
-                "browser_version": "44",
-                "os_version": "1809",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "target button",
-                    "result": "fail"
-                  }
-                ],
-                "date": "2019-04-09"
-              }
+    {
+      "feature_id": "aria/aria-controls_attribute",
+      "feature_assertion_id": "convey_presence_if_not_empty_and_valid",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "target button, use jaws key + alt + M to move to controlled element",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "target button, use jaws key + alt + M to move to controlled element",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "target button, use jaws key + alt + M to move to controlled element",
+                  "result": "pass"
+                }
+              ]
+            },
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "target button",
+                  "result": "fail"
+                }
+              ]
             }
-          },
-          "narrator": {
-            "browsers": {
-              "edge": {
-                "at_version": "1809",
-                "browser_version": "44.17763",
-                "os_version": "1809",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
             }
-          },
-          "nvda": {
-            "browsers": {
-              "firefox": {
-                "at_version": "2019.0.1",
-                "browser_version": "66",
-                "os_version": "1809",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              },
-              "chrome": {
-                "at_version": "2019.0.1",
-                "browser_version": "73",
-                "os_version": "1809",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              },
-              "edge": {
-                "at_version": "2019.0.1",
-                "browser_version": "44.17763",
-                "os_version": "1809",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              },
-              "ie": {
-                "at_version": "2019.0.1",
-                "browser_version": "11",
-                "os_version": "1809",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
             }
-          },
-          "vo_ios": {
-            "browsers": {
-              "ios_saf": {
-                "at_version": "12.2",
-                "browser_version": "12.2",
-                "os_version": "12.2",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
             }
-          },
-          "vo_macos": {
-            "browsers": {
-              "safari": {
-                "at_version": "10.14.4",
-                "browser_version": "12.1",
-                "os_version": "10.14.4",
-                "date": "2019-04-09",
-                "output": [
-                  {
-                    "command": "next_focusable_item",
-                    "output": "(property was not conveyed)",
-                    "result": "fail"
-                  }
-                ]
-              }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "output": "(property was not conveyed)",
+                  "result": "fail"
+                }
+              ]
             }
           }
         }
       }
+    }
   ],
   "history": [
-      {
-        "date": "2019-04-09",
-        "message": "Test created"
+    {
+      "date": "2019-04-09",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2018.1811.2",
+          "browser_version": "73",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        },
+        "ie": {
+          "at_version": "2018.1811.2",
+          "browser_version": "11",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        },
+        "firefox": {
+          "at_version": "2018.1811.2",
+          "browser_version": "66",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        },
+        "edge": {
+          "at_version": "2018.1811.2",
+          "browser_version": "44",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        }
       }
-  ]
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1809",
+          "browser_version": "44.17763",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.0.1",
+          "browser_version": "73",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        },
+        "firefox": {
+          "at_version": "2019.0.1",
+          "browser_version": "66",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        },
+        "ie": {
+          "at_version": "2019.0.1",
+          "browser_version": "11",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        },
+        "edge": {
+          "at_version": "2019.0.1",
+          "browser_version": "44.17763",
+          "os_version": "1809",
+          "date": "2019-04-09"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.2",
+          "browser_version": "12.2",
+          "os_version": "12.2",
+          "date": "2019-04-09"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.4",
+          "browser_version": "12.1",
+          "os_version": "10.14.4",
+          "date": "2019-04-09"
+        }
+      }
+    }
+  }
 }
