@@ -1,24 +1,24 @@
 {
-  "id": "heading_role",
-  "title": "heading role",
-  "type": "role",
-  "description": "A heading for a section of the page.",
+  "id": "h1-6_elements",
+  "title": "h1, h2, h3, h4, h5, and h6 elements",
+  "type": "element",
+  "description": "",
   "references": [
     {
-      "title": "ARIA spec for heading",
-      "url": "https://www.w3.org/TR/wai-aria-1.1/#heading"
+      "title": "WHATWG spec for heading elements",
+      "url": "https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements"
     }
   ],
   "assertions": [
     {
       "id": "convey_role",
-      "title": "The screen reader MUST convey the heading role",
-      "rationale": "The user needs to know that the element describes the following content.",
+      "title": "The screen reader MUST convey the heading role and level",
+      "rationale": "The user needs to know that the element describes the following content and the heading level of the heading in the document outline.",
       "examples": [
         "When applied to a heading, the heading might be announced as something like \"<accessible name> heading level 2\""
       ],
       "type": "MUST",
-      "css_target": "*[role=\"heading\"]",
+      "css_target": "h1, h2, h3, h4, h5, h6",
       "preconditions": [],
       "operation_modes": [
         "sr/reading"
@@ -32,7 +32,7 @@
         "When applied to a heading, the heading might be announced as something like \"<accessible name> heading level 2\""
       ],
       "type": "MUST",
-      "css_target": "*[role=\"heading\"]",
+      "css_target": "h1, h2, h3, h4, h5, h6",
       "preconditions": [],
       "operation_modes": [
         "sr/reading"
@@ -41,14 +41,14 @@
     {
       "id": "include_in_list_of_headings",
       "title": "The screen reader MUST include the heading in the list of headings and let users jump to a chosen heading",
-      "rationale": "Headings provide an outline of the page and users need to be able to quickly navigate to different sections of the page.",
+      "rationale": "Headings prov ide an outline of the page and users need to be able to quickly navigate to different sections of the page.",
       "type": "MUST",
-      "css_target": "*[role=\"heading\"]",
+      "css_target": "h1, h2, h3, h4, h5, h6",
       "preconditions": [],
       "operation_modes": [
         "sr/reading"
       ]
     }
   ],
-  "date_updated": "2019-07-12"
+  "date_updated": "2019-07-11"
 }

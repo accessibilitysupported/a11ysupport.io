@@ -359,6 +359,8 @@ helper.initalizeTestCase = function (testCase) {
 						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
 					} else if (results.includes('fail')) {
 						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
+					} else if (results.includes('unknown')) {
+						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'u';
 					}
 				}
 
