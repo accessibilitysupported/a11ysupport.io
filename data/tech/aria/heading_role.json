@@ -11,25 +11,11 @@
   ],
   "assertions": [
     {
-      "id": "convey_role",
-      "title": "The screen reader MUST convey the heading role",
-      "rationale": "The user needs to know that the element describes the following content.",
+      "id": "convey_role_and_name",
+      "title": "The screen reader MUST convey the heading role and name",
+      "rationale": "The user needs to know that the element describes the following content and the name of the heading.",
       "examples": [
-        "When applied to a heading, the heading might be announced as something like \"<accessible name> heading level 2\""
-      ],
-      "type": "MUST",
-      "css_target": "*[role=\"heading\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading"
-      ]
-    },
-    {
-      "id": "convey_name",
-      "title": "The screen reader MUST convey the accessible name of the heading",
-      "rationale": "The user needs to know the content of the heading.",
-      "examples": [
-        "When applied to a heading, the heading might be announced as something like \"<accessible name> heading level 2\""
+        "When applied to a heading, the heading might be announced as something like \"<name> heading level <level>\""
       ],
       "type": "MUST",
       "css_target": "*[role=\"heading\"]",
