@@ -473,40 +473,53 @@ helper.initalizeTestCase = function (testCase) {
 helper.generateSupportString = function(support) {
 	if (typeof support === "string") {
 		let supportString = '';
+		let supportClass = '';
 		switch(support) {
 			case 'y':
 				supportString = 'yes';
+				supportClass = 'ye';
 				break;
 			case 'n':
 				supportString = 'none';
+				supportClass = 'no';
 				break;
 			case 'p':
 				supportString = 'partial';
+				supportClass = 'pa';
 				break;
 			case 'na':
 				supportString = 'not applicable';
+				supportClass = 'na';
 				break;
 			case 'u':
 				supportString = 'unknown';
+				supportClass = 'un';
 				break;
 			default:
 				supportString = 'unknown support case';
+				supportClass = 'un';
 		}
 
-		return supportString;
+		return {
+			class: supportClass,
+			string: supportString
+		}
 	}
 
 	// filter out "na" values
 	let filteredSupport = support.filter(function(element) {
-		return element !== "na";
+		return element !== "na"
 	});
 
 	//Get the unique values to make it easier to compare
 	let uniqueSupport = filteredSupport.unique();
 
 	if (uniqueSupport.length === 1) {
-		if (uniqueSupport[0]) {
-			//return "known support";
+		if (uniqueSupport[0] === 'y') {
+			return {
+				class: "ye",
+				string: "supported"
+			};
 		}
 
 		return helper.generateSupportString(uniqueSupport[0]);
@@ -515,24 +528,39 @@ helper.generateSupportString = function(support) {
 	if (uniqueSupport.length === 2 && uniqueSupport.includes('y') && uniqueSupport.includes('u')) {
 		let numUnknown = filteredSupport.occurenceCount('u');
 		if (numUnknown === 1) {
-			return 'known support with '+numUnknown+' unknown result';
+			return {
+				class: 'pa',
+				string: 'supported with '+numUnknown+' unknown result'
+			}
 		}
 
-		return 'known support with '+numUnknown+' unknown results';
+		return {
+			class: 'pa',
+			string: 'supported with '+numUnknown+' unknown results',
+		}
 	}
 
 	let numPassing = filteredSupport.occurenceCount('y');
 
 	if (numPassing) {
 		// At least one thing is passing
-		return 'partial ('+numPassing+'/'+filteredSupport.length+')';
+		return {
+			class: 'pa',
+			string: 'partial ('+numPassing+'/'+filteredSupport.length+')',
+		}
 	}
 
 	if (support.includes('n')) {
-		return 'no known support';
+		return {
+			class: 'no',
+			string: 'no known support',
+		}
 	}
 
-	return 'unknown support';
+	return {
+		class: 'un',
+		string: 'unknown support',
+	}
 };
 
 module.exports = helper;

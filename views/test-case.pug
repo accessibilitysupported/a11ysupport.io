@@ -5,8 +5,8 @@ block content
     div.content-wrapper
         div.content
             h1= 'Test: ' + test.title
-            div(class="current-support-container "+test.core_support_string.substring(0,2))
-                p= 'Current support: ' + test.core_support_string
+            div(class="current-support-container "+test.core_support_string.class)
+                p= 'Current support: ' + test.core_support_string.string
 
             p!= md.renderInline(test.description)
 
@@ -38,17 +38,17 @@ block content
             p Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
 
             h3(id="assertion-summary-table") Expectation support summary by type of expectation
-                table.support-table
-                    thead
-                        tr
-                            th MUST
-                            th SHOULD
-                            th MAY
-                    tbody
-                        tr
-                            td(class="current-support-container " + test.core_must_support_string.substring(0,2)) #{test.core_must_support_string}
-                            td(class="current-support-container " + test.core_should_support_string.substring(0,2)) #{test.core_should_support_string}
-                            td(class="current-support-container " + test.core_may_support_string.substring(0,2)) #{test.core_may_support_string}
+            table.support-table
+                thead
+                    tr
+                        th MUST
+                        th SHOULD
+                        th MAY
+                tbody
+                    tr
+                        td(class="current-support-container " + test.core_must_support_string.class) #{test.core_must_support_string.string}
+                        td(class="current-support-container " + test.core_should_support_string.class) #{test.core_should_support_string.string}
+                        td(class="current-support-container " + test.core_may_support_string.class) #{test.core_may_support_string.string}
 
             if test.assertions
                 h3(id="assertion-support-table") Expectation support summary by expectation
@@ -65,7 +65,7 @@ block content
                                 td #{assertion.feature_title}
                                 td
                                     a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.assertion_title}
-                                td(class="support-case " + assertion.core_support_string.substring(0, 2)) #{assertion.core_support_string}
+                                td(class="support-case " + assertion.core_support_string.class) #{assertion.core_support_string.string}
                                 - var numfailing = assertion.core_support.filter(x => x === "n").length
                                 - var tdclass = "support-case";
                                 if (numfailing)
@@ -108,7 +108,7 @@ block content
                                     td= ATBrowsers.browsers[browser].title
                                         if test.versions[at] && test.versions[at].browsers[browser] && test.versions[at].browsers[browser].browser_version
                                             span= ' ' + test.versions[at].browsers[browser].browser_version
-                                    td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string
+                                    td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string.string
                                     td
                                         if (assertion.results[at].browsers[browser].output)
                                             ul
@@ -169,7 +169,7 @@ block content
                                         td= ATBrowsers.browsers[browser].title
                                             if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].browser_version
                                                 span= ' ' + test.versions[at.id].browsers[browser].browser_version
-                                        td(class='support-case ' + assertion.results[at.id].browsers[browser].support)= assertion.results[at.id].browsers[browser].support_string
+                                        td(class='support-case ' + assertion.results[at.id].browsers[browser].support)= assertion.results[at.id].browsers[browser].support_string.string
                                         td
                                             if (assertion.results[at.id].browsers[browser].output)
                                                 ul

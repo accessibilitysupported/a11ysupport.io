@@ -5,8 +5,8 @@ block content
   div.content-wrapper
     div.content
       h1= data.title + ' (' + data.techId + ')'
-      div(class="current-support-container " + data.core_support_string.substring(0,2))
-        p= 'Support level: ' + data.core_support_string
+      div(class="current-support-container " + data.core_support_string.class)
+        p= 'Support level: ' + data.core_support_string.string
 
       if data.assertions.length
         h2 On this page
@@ -40,9 +40,9 @@ block content
               th MAY
           tbody
             tr
-              td(class="current-support-container " + data.core_must_support_string.substring(0,2)) #{data.core_must_support_string}
-              td(class="current-support-container " + data.core_should_support_string.substring(0,2)) #{data.core_should_support_string}
-              td(class="current-support-container " + data.core_may_support_string.substring(0,2)) #{data.core_may_support_string}
+              td(class="current-support-container " + data.core_must_support_string.class) #{data.core_must_support_string.string}
+              td(class="current-support-container " + data.core_should_support_string.class) #{data.core_should_support_string.string}
+              td(class="current-support-container " + data.core_may_support_string.class) #{data.core_may_support_string.string}
 
         each assertion, index in data.assertions
           h3(id='support-table-'+index) #{assertion.title}
@@ -61,7 +61,7 @@ block content
                   tr
                     td= ATBrowsers.at[at].title
                     td= ATBrowsers.browsers[browser].title
-                    td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.substring(0,2))= assertion.core_support_by_at_browser[at][browser].string
+                    td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.class)= assertion.core_support_by_at_browser[at][browser].string.string
 
             p This expectation is referenced by #{assertion.tests.length} tests.
             details
@@ -74,7 +74,7 @@ block content
                   tr
                     td
                       a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
-                    td(class='support-case ' + test.core_support_string.substring(0,2)) #{test.core_support_string}
+                    td(class='support-case ' + test.core_support_string.class) #{test.core_support_string.string}
 
           else
             p No tests reference this expectation yet.
