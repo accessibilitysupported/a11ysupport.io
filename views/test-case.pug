@@ -35,9 +35,9 @@ block content
 
             h2(id="support-tables") Support tables
 
-            p Assertions are conditions that must be met for the feature to be considered as "supported". Only "MUST" assertions need to be met for minimal "support". "SHOULD" and "MAY" assertions indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these assertions, and as such, they are likely opinionated. Minimal support reflects that the structure, relationships, and functionality of the feature are conveyed and operable by assistive technology rather than minimal conformance to any specific WCAG SC. As such, a feature might not meet all "MUST" assertions but still be usable (potentially frustratingly so).
+            p Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
 
-            h3(id="assertion-summary-table") Assertion support summary by type of assertion
+            h3(id="assertion-summary-table") Expectation support summary by type of expectation
                 table.support-table
                     thead
                         tr
@@ -51,12 +51,12 @@ block content
                             td(class="current-support-container " + test.core_may_support_string.substring(0,2)) #{test.core_may_support_string}
 
             if test.assertions
-                h3(id="assertion-support-table") Assertion support summary by assertion
+                h3(id="assertion-support-table") Expectation support summary by expectation
                 table.support-table.assertion-container
                     thead
                         tr
                             th Feature
-                            th Assertion
+                            th Expectation
                             th Support
                             th Has failing tests
                     tbody
@@ -84,13 +84,13 @@ block content
                         p Rationale: #{assertion.assertion_rationale}
 
                     if (assertion.assertion_examples)
-                        p Examples of assistive technologies support this assertion:
+                        p Examples of assistive technologies support this expectation:
 
                         ul
                             for example in assertion.assertion_examples
                                 li #{example}
 
-                    p This assertion is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
+                    p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
                     table
                         tr

@@ -12,10 +12,10 @@ block content
         h2 On this page
         ul
           li
-            a(href="#test-html") Assertions
+            a(href="#test-html") Expectations
             ul
               li
-                a(href="#assertion-summary-table") Support summary by assertion type
+                a(href="#assertion-summary-table") Support summary by expectation type
               each assertion, index in data.assertions
                 li
                   a(href="#support-table-"+ index) #{assertion.title}
@@ -25,12 +25,12 @@ block content
       if data.recommendation
         p!= md.render(data.recommendation)
 
-      h2 Assertions
-      p Assertions are conditions that must be met for the feature to be considered as "supported". Only "MUST" assertions need to be met for minimal "support". "SHOULD" and "MAY" assertions indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these assertions, and as such, they are likely opinionated. Minimal support reflects that the structure, relationships, and functionality of the feature are conveyed and operable by assistive technology rather than minimal conformance to any specific WCAG SC. As such, a feature might not meet all "MUST" assertions but still be usable (potentially frustratingly so).
+      h2 Expectations
+      p Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
 
       if data.assertions.length > 0
 
-        h3(id="assertion-summary-table") Assertion support summary by type
+        h3(id="assertion-summary-table") Expectation support summary by type
 
         table.support-table
           thead
@@ -63,9 +63,9 @@ block content
                     td= ATBrowsers.browsers[browser].title
                     td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.substring(0,2))= assertion.core_support_by_at_browser[at][browser].string
 
-            p This assertion is referenced by #{assertion.tests.length} tests.
+            p This expectation is referenced by #{assertion.tests.length} tests.
             details
-              summary Tests that reference this assertion
+              summary Tests that reference this expectation
               table
                 tr
                   th test name
@@ -77,9 +77,9 @@ block content
                     td(class='support-case ' + test.core_support_string.substring(0,2)) #{test.core_support_string}
 
           else
-            p No tests reference this assertion yet.
+            p No tests reference this expectation yet.
       else
-        p No assertions have been created for this feature yet.
+        p No expectations have been created for this feature yet.
 
 
     div.sidebar
