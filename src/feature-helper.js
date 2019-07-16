@@ -511,6 +511,10 @@ helper.generateSupportString = function(support) {
 		return element !== "na"
 	});
 
+	if (filteredSupport.length === 0) {
+		return helper.generateSupportString("na");
+	}
+
 	//Get the unique values to make it easier to compare
 	let uniqueSupport = filteredSupport.unique();
 
