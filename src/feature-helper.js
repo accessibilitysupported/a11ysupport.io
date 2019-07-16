@@ -496,16 +496,29 @@ helper.generateSupportString = function(support) {
 		return supportString;
 	}
 
-	//Get the unique values to make it easier to compare
-	let uniqueSupport = support.unique();
-
 	// filter out "na" values
 	let filteredSupport = support.filter(function(element) {
 		return element !== "na";
 	});
 
+	//Get the unique values to make it easier to compare
+	let uniqueSupport = filteredSupport.unique();
+
 	if (uniqueSupport.length === 1) {
+		if (uniqueSupport[0]) {
+			//return "known support";
+		}
+
 		return helper.generateSupportString(uniqueSupport[0]);
+	}
+
+	if (uniqueSupport.length === 2 && uniqueSupport.includes('y') && uniqueSupport.includes('u')) {
+		let numUnknown = filteredSupport.occurenceCount('u');
+		if (numUnknown === 1) {
+			return 'known support with '+numUnknown+' unknown result';
+		}
+
+		return 'known support with '+numUnknown+' unknown results';
 	}
 
 	let numPassing = filteredSupport.occurenceCount('y');
