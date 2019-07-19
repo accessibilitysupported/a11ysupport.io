@@ -1,0 +1,51 @@
+{
+  "id": "select_element",
+  "title": "select element",
+  "type": "element",
+  "description": "",
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for select",
+      "url": "https://html.spec.whatwg.org/#the-select-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_name",
+      "title": "The assistive technology MUST convey the accessible name of the select",
+      "rationale": "The user needs to know the purpose of the select.",
+      "type": "MUST",
+      "css_target": "select",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "title": "The assistive technology MUST convey the select role",
+      "rationale": "The user needs to know that the element has select behavior.",
+      "type": "MUST",
+      "css_target": "select",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value",
+      "title": "The assistive technology MUST convey the current value of the select",
+      "rationale": "The user needs to know that the current value is.",
+      "type": "MUST",
+      "css_target": "select",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-07-19"
+}

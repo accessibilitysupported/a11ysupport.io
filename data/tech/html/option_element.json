@@ -5,14 +5,39 @@
   "description": "",
   "references": [
     {
-      "title": "HTML5 spec for option",
-      "url": "https://w3c.github.io/html/sec-forms.html#the-option-element"
+      "title": "WHATWG HTML5 spec for option",
+      "url": "https://html.spec.whatwg.org/#the-option-element"
     },
     {
       "title": "HTML AAM rules for the option element",
       "url": "https://www.w3.org/TR/html-aam-1.0/#details-id-103"
     }
   ],
-  "assertions": [],
-  "date_updated": "2018-10-19"
+  "assertions": [
+    {
+      "id": "convey_name",
+      "title": "The assistive technology MUST convey the name of the option",
+      "rationale": "The user needs to know the purpose of the option.",
+      "type": "MUST",
+      "css_target": "option",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "title": "The assistive technology MUST convey the option role",
+      "rationale": "The user needs to know that the element has option behavior.",
+      "type": "MUST",
+      "css_target": "option",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-07-19"
 }

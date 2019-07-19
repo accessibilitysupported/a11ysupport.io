@@ -1,0 +1,39 @@
+{
+  "id": "datalist_element",
+  "title": "datalist element",
+  "type": "element",
+  "description": "",
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for datalist",
+      "url": "https://html.spec.whatwg.org/#the-datalist-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "The assistive technology MUST convey the datalist role (listbox)",
+      "rationale": "The user needs to know that the element has datalist behavior.",
+      "type": "MUST",
+      "css_target": "datalist",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_suggestions",
+      "title": "The assistive technology MUST convey that suggestions are available",
+      "rationale": "The user needs to know that the current value is.",
+      "type": "MUST",
+      "css_target": "datalist",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-07-19"
+}
