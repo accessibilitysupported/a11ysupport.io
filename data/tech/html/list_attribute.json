@@ -1,0 +1,29 @@
+{
+  "id": "list_attribute",
+  "title": "list attribute",
+  "type": "attribute",
+  "description": "The list attribute is used to identify an element that lists predefined options suggested to the user.",
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for the list attribute",
+      "url": "https://html.spec.whatwg.org/multipage/input.html#the-list-attribute"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_presence",
+      "title": "The screen reader MUST convey the presence of the list attribute",
+      "rationale": "The user needs to know that the input will provide suggestions.",
+      "examples": [
+        "The screen reader might announce that suggestions are available when the input receives focus"
+      ],
+      "type": "MUST",
+      "css_target": "input[list]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-07-19"
+}
