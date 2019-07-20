@@ -59,7 +59,7 @@ test.assertions.forEach(function(assertionLink) {
                         command: "next_item",
                         from: "before target",
                         to: "target",
-                        output: "",
+                        output: "\"\"",
                         result: "unknown"
                     });
                     next_item_created = true;
@@ -72,7 +72,7 @@ test.assertions.forEach(function(assertionLink) {
                             command: "next_focusable_item",
                             from: "before target",
                             to: "target",
-                            output: "",
+                            output: "\"\"",
                             result: "unknown"
                         });
                     } else if (!next_item_created) {
@@ -80,7 +80,7 @@ test.assertions.forEach(function(assertionLink) {
                             command: "next_item",
                             from: "before target",
                             to: "target",
-                            output: "",
+                            output: "\"\"",
                             result: "unknown"
                         });
                     }
@@ -89,7 +89,7 @@ test.assertions.forEach(function(assertionLink) {
                 if (assertion.id === "convey_name") {
                     assertionLink.results[at].browsers[browser].output.push({
                         command: "activate_actionable_item",
-                        output: "",
+                        output: "\"\"",
                         result: "unknown"
                     });
                 }
@@ -97,7 +97,7 @@ test.assertions.forEach(function(assertionLink) {
                 if (assertion.id === "convey_role") {
                     assertionLink.results[at].browsers[browser].output.push({
                         command: "click_type",
-                        output: "",
+                        output: "\"\"",
                         result: "unknown"
                     });
                 }
