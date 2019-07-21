@@ -28,15 +28,15 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Edit combo\"",
+                  "result": "fail"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit combo, to set the value use the arrow keys or type the value.\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -46,15 +46,15 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"edit\"",
+                  "result": "fail"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit, type in text\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -64,15 +64,15 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank, Edit, has popup\"",
+                  "result": "fail"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit has popup, type in text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -219,17 +219,18 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Edit combo\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit combo, to set the value use the arrow keys or type the value.\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
             },
             "ie": {
               "output": [
@@ -237,17 +238,18 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"edit\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit, type in text\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "When paired with IE, JAWS does not alter the role to convey the datalist functionality."
             },
             "firefox": {
               "output": [
@@ -255,17 +257,18 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank, Edit, has popup\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit has popup, type in text\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
             }
           }
         },
@@ -397,15 +400,15 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function, Edit combo\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit combo, function, to set the value use the arrow keys or type the value.\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -415,15 +418,15 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"edit, function\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Function, Edit, type in text\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -433,15 +436,15 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function, edit, has popup\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit has popup, function, type in text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -564,6 +567,165 @@
       }
     },
     {
+      "feature_id": "html/input(type-text)_element",
+      "feature_assertion_id": "provide_shortcuts",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "Shown in list of form controls with name and \"edit combo\" role",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your favorite animal? Edit combo, to set the value use the arrow keys or type the value.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "Shown in list of form controls with name and \"edit\" role",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your favorite animal? Edit, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "Shown in list of elements with name and \"edit\" role",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your favorite animal? Edit has popup, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                },
+                {
+                  "command": "next_form_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "\"\"",
+                  "result": "unknown"
+                },
+                {
+                  "command": "next_form_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_rotor_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "open_rotor",
+                  "output": "Shown in list of form controls with name and \"edit text\" role",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_control",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your favorite animal?, edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
       "feature_id": "html/list_attribute",
       "feature_assertion_id": "convey_presence",
       "results": {
@@ -575,17 +737,18 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Edit combo\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit combo, to set the value use the arrow keys or type the value.\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
             },
             "ie": {
               "output": [
@@ -593,17 +756,18 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"edit\"",
+                  "result": "fail"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit, type in text\"",
+                  "result": "fail"
                 }
-              ]
+              ],
+              "notes": "When paired with IE, JAWS does not alter the role to convey the datalist functionality."
             },
             "firefox": {
               "output": [
@@ -611,17 +775,18 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank, Edit, has popup\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"What is your favorite animal? Edit has popup, type in text\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
             }
           }
         },
@@ -750,54 +915,34 @@
             "chrome": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Menu, Function, To move through items press up or down arrow\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The datalist is conveyed as a menu as opposed to a listbox."
             },
             "ie": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             },
             "firefox": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             }
@@ -808,14 +953,7 @@
             "edge": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
                   "output": "\"\"",
@@ -830,14 +968,7 @@
             "chrome": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
                   "output": "\"\"",
@@ -848,14 +979,7 @@
             "firefox": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
                   "output": "\"\"",
@@ -900,14 +1024,7 @@
             "safari": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not possible to navigate to datalist and suggestions are not announced",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
                   "output": "not possible to navigate to datalist and suggestions are not announced",
@@ -928,54 +1045,33 @@
             "chrome": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "When the end of the list is reached, down arrow loops back to the start, but no announcement was provided for start or end of list.",
+                  "result": "partial"
                 }
               ]
             },
             "ie": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             },
             "firefox": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             }
@@ -1078,14 +1174,7 @@
             "safari": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not possible to navigate to datalist and suggestions are not announced",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
+                  "command": "next_option",
                   "from": "before target",
                   "to": "target",
                   "output": "not possible to navigate to datalist and suggestions are not announced",
@@ -1107,8 +1196,8 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "The entered character was announced, but no information about changes to the suggestions",
+                  "result": "fail"
                 }
               ]
             },
@@ -1116,8 +1205,8 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "The entered character was announced, but no information about changes to the suggestions",
+                  "result": "fail"
                 }
               ]
             },
@@ -1125,8 +1214,8 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "The entered character was announced, but no information about changes to the suggestions",
+                  "result": "fail"
                 }
               ]
             }
@@ -1233,8 +1322,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "Name and value are announced when provided.",
+                  "result": "pass"
                 }
               ]
             },
@@ -1244,8 +1333,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             },
@@ -1255,8 +1344,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             }
@@ -1375,8 +1464,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "Menu context is conveyed when entering the list, which implies that every item in the list is an option.",
+                  "result": "pass"
                 }
               ]
             },
@@ -1386,8 +1475,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             },
@@ -1397,8 +1486,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             }
@@ -1496,6 +1585,19 @@
       "feature_id": "html/option_element",
       "feature_assertion_id": "convey_value",
       "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_actionable_item",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "chrome": {
@@ -1504,8 +1606,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "Name and value are announced when available",
+                  "result": "pass"
                 }
               ]
             },
@@ -1515,8 +1617,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             },
@@ -1526,8 +1628,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+                  "result": "fail"
                 }
               ]
             }
