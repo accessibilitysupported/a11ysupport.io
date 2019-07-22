@@ -91,24 +91,22 @@ block content
                                         else
                                             span No
 
-                details
+                details(open)
                     summary
                         h3(id="support-summary-by-at") Summary of support by expectation and assistive technology
-                    - var i = 0;
-                    each assertion in test.assertions
-                        - i++;
-                        h4(id="assertion-support-by-at-"+i).support-summary-by-at Summary of support for #{assertion.feature_title} - #{assertion.assertion_title}
-                        a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id).jump Jump for detailed support information about #{assertion.assertion_title}
-                        table(aria-labelledby="assertion-support-by-at-"+i).support-table.assertion-container
-                            thead
-                                tr
-                                    th Assistive technology
-                                    th Support
-                            tbody
-                            each result, at in assertion.results
-                                tr
-                                    th #{ATBrowsers.at[at].title}
-                                    td(class="support-case " + result.core_support_string.class) #{result.core_support_string.string}
+
+                    table(aria-labelledby="assertion-support-by-at-"+i).support-table.assertion-container
+                        tr
+                            th Expectation
+                            each at in ATBrowsers.at
+                                th #{at.title}
+
+                        each assertion in test.assertions
+                            tr
+                                th
+                                    a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #[span.feature-title #{assertion.feature_title} -] #[span.assertion-title #{assertion.assertion_title}]
+                                each at, at_key in ATBrowsers.at
+                                    td(class="support-case " + assertion.results[at_key].core_support_string.class) #{assertion.results[at_key].core_support_string.string}
 
             h3(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
