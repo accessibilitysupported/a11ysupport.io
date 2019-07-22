@@ -16,10 +16,21 @@ block content
             ul
                 li
                     a(href="#test-html") Test HTML
-                li
-                    a(href="#support-tables") Support tables
+                if test.assertions
+                    li
+                        a(href="#assertion-type-summary-table") Summary of support by expectation type
+                    li
+                        a(href="#assertion-support-table") Summary of support by expectation
+                    li
+                        a(href="#support-summary-by-at") Summary of support by expectation and assistive technology
+                    li
+                        a(href="#support-tables") Detailed support tables
                 li
                     a(href="#history") History
+                li
+                    a(href="#related-features") Related features
+                li
+                    a(href="#contribute") Contribute and Feedback
 
             h2(id="test-html") Test HTML
             if (test.html_file.startsWith('http'))
@@ -37,48 +48,72 @@ block content
 
             p Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
 
-            h3(id="assertion-summary-table") Expectation support summary by type of expectation
-            table.support-table
-                thead
-                    tr
-                        th MUST
-                        th SHOULD
-                        th MAY
-                tbody
-                    tr
-                        td(class="current-support-container " + test.core_must_support_string.class) #{test.core_must_support_string.string}
-                        td(class="current-support-container " + test.core_should_support_string.class) #{test.core_should_support_string.string}
-                        td(class="current-support-container " + test.core_may_support_string.class) #{test.core_may_support_string.string}
-
-            if test.assertions
-                h3(id="assertion-support-table") Expectation support summary by expectation
-                table.support-table.assertion-container
+            details
+                summary
+                    h3(id="assertion-type-summary-table") Summary of support by expectation type
+                table(aria-labelledby="assertion-type-summary-table").support-table
                     thead
                         tr
-                            th Feature
-                            th Expectation
-                            th Support
-                            th Has failing tests
+                            th MUST
+                            th SHOULD
+                            th MAY
                     tbody
-                        each assertion in test.assertions
-                            tr
-                                td #{assertion.feature_title}
-                                td
-                                    a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.assertion_title}
-                                td(class="support-case " + assertion.core_support_string.class) #{assertion.core_support_string.string}
-                                - var numfailing = assertion.core_support.filter(x => x === "n").length
-                                - var tdclass = "support-case";
-                                if (numfailing)
-                                    - var tdclass = "support-case n";
-                                td(class=tdclass)
-                                    if numfailing
-                                        span Yes
-                                    else
-                                        span No
+                        tr
+                            td(class="current-support-container " + test.core_must_support_string.class) #{test.core_must_support_string.string}
+                            td(class="current-support-container " + test.core_should_support_string.class) #{test.core_should_support_string.string}
+                            td(class="current-support-container " + test.core_may_support_string.class) #{test.core_may_support_string.string}
 
+            if test.assertions
+                details
+                    summary
+                        h3(id="assertion-support-table") Summary of support by expectation
+                    table(aria-labelledby="assertion-support-table").support-table.assertion-container
+                        thead
+                            tr
+                                th Feature
+                                th Expectation
+                                th Support
+                                th Has failing tests
+                        tbody
+                            each assertion in test.assertions
+                                tr
+                                    td #{assertion.feature_title}
+                                    td
+                                        a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.assertion_title}
+                                    td(class="support-case " + assertion.core_support_string.class) #{assertion.core_support_string.string}
+                                    - var numfailing = assertion.core_support.filter(x => x === "n").length
+                                    - var tdclass = "support-case";
+                                    if (numfailing)
+                                        - var tdclass = "support-case n";
+                                    td(class=tdclass)
+                                        if numfailing
+                                            span Yes
+                                        else
+                                            span No
+
+                details
+                    summary
+                        h3(id="support-summary-by-at") Summary of support by expectation and assistive technology
+                    - var i = 0;
+                    each assertion in test.assertions
+                        - i++;
+                        h4(id="assertion-support-by-at-"+i).support-summary-by-at Summary of support for #{assertion.feature_title} - #{assertion.assertion_title}
+                        a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id).jump Jump for detailed support information about #{assertion.assertion_title}
+                        table(aria-labelledby="assertion-support-by-at-"+i).support-table.assertion-container
+                            thead
+                                tr
+                                    th Assistive technology
+                                    th Support
+                            tbody
+                            each result, at in assertion.results
+                                tr
+                                    th #{ATBrowsers.at[at].title}
+                                    td(class="support-case " + result.core_support_string.class) #{result.core_support_string.string}
+
+            h3(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
                 div.assertion-container
-                    h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
+                    h4(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
 
                     if (assertion.assertion_rationale)
                         p Rationale: #{assertion.assertion_rationale}
@@ -92,7 +127,7 @@ block content
 
                     p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
-                    table
+                    table(aria-labelledby="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
                         tr
                             th AT
                             th Browser
@@ -209,14 +244,14 @@ block content
                         span!= md.renderInline(record.message)
 
         div.sidebar
-            h2 Related Features
+            h2(id="related-features") Related Features
             p This test is found in the following features:
             ul
                 each featureInfo in features
                     li
                         a(href="/tech/" + featureInfo.featureId) #{featureInfo.title}
 
-            h2 Is something not right?
+            h2(id="contribute") Feedback and Contribute
             p We use our #[a(href="https://github.com/accessibilitysupported/accessibilitysupported") GitHub repository] to manage our issue tracking. Please provide as much information as you can for issues, and please leave the id in the issue title intact.
 
             ul
