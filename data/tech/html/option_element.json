@@ -19,8 +19,8 @@
       "title": "The assistive technology MUST convey the name of the option",
       "rationale": "The user needs to know the purpose of the option.",
       "examples":  [
-        "a screen reader will announce the name",
-        "voice control software will let the user say something like \"click <name>\" to activate the control"
+        "A screen reader will announce the name of the option (if present)  in addition to the value.",
+        "Voice control software will let the user say something like \"choose <name>\" to pick the option."
       ],
       "type": "MUST",
       "css_target": "option",
@@ -35,10 +35,10 @@
       "title": "The assistive technology MUST convey the option role",
       "rationale": "The user needs to know that the element has option behavior.",
       "examples": [
-        "A screen reader might announce \"option\" as the role",
-        "A screen reader might not announce a role because the role is implied by the role of a select element, combo box, or listbox",
-        "A screen reader might not announce a role because the role is implied by the announcement of auto complete or suggestions",
-        "Voice control software will let the user say something like \"choose <name>\" to pick an option"
+        "A screen reader might announce \"option\" as the role.",
+        "A screen reader might not announce a role because the role is implied by the role of a select element, combo box, or listbox.",
+        "A screen reader might not announce a role because the role is implied by the announcement of auto complete or suggestions.",
+        "Voice control software will let the user say something like \"click option\" to flag options to click."
       ],
       "type": "MUST",
       "css_target": "option",
@@ -52,6 +52,10 @@
       "id": "convey_value",
       "title": "The assistive technology MUST convey the value of the option when used in a datalist context",
       "rationale": "When in a datalist context, both the name and value are displayed, so the user needs to be aware of both.",
+      "examples": [
+        "A screen reader will announce the value of the option in addition to the name.",
+        "Voice control software will let the user say something like \"choose <value>\" to pick an option."
+      ],
       "type": "MUST",
       "css_target": "datalist option",
       "preconditions": [],
