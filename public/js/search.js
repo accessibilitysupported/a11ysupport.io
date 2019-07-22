@@ -16,6 +16,10 @@ getJson('/features.json', function(data) {
  * Array filters items based on search criteria (query)
  */
 function filterFeatures(query) {
+	if (!query) {
+		return features;
+	}
+
 	return features.filter(function(feature) {
 		return feature.keywords_string.toLowerCase().indexOf(query.toLowerCase()) > -1;
 	});
@@ -112,15 +116,14 @@ function initSearch() {
 		}, 750);
 	}
 
-	function showSearchResults(query) {
+	function showSearchResults(query, disableLiveAnnouncements) {
 		//Empty the current results
 		resultsContainer.innerHTML = '';
 		summary.innerHTML = '';
 
-		if (query.length === 0) {
+		if (query.length === 0 && !disableLiveAnnouncements) {
 			//No query was selected
-			setLiveResultNotification('results cleared');
-			return;
+			setLiveResultNotification('Showing all features');
 		}
 
 		var results = filterFeatures(query);
@@ -128,13 +131,19 @@ function initSearch() {
 		if (!results.length) {
 			var string = 'Sorry, no results could be found.';
 			summary.innerHTML = string;
-			setLiveResultNotification(string);
+			if (!disableLiveAnnouncements) {
+				setLiveResultNotification(string);
+			}
+
 			return;
 		}
 
 		var string = results.length + ' results found';
 		summary.innerHTML = string;
-		setLiveResultNotification(string);
+
+		if (!disableLiveAnnouncements) {
+			setLiveResultNotification(string);
+		}
 
 		//Repopulate
 		for (var i = 0; i < results.length; i++) {
@@ -145,4 +154,7 @@ function initSearch() {
 	input.addEventListener('input', function() {
 		showSearchResults(this.value);
 	});
+
+	// Show everything by default
+	showSearchResults('', true);
 }
