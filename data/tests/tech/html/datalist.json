@@ -163,8 +163,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function type, text field, double tap to edit.\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -359,8 +359,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function type, text field, double tap to edit.\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -537,8 +537,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function type, function text field, double tap to edit.\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -696,8 +696,8 @@
                   "command": "next_rotor_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function type, text field, double tap to edit.\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -877,8 +877,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function type, text field, double tap to edit.\"",
+                  "result": "fail"
                 }
               ]
             }
@@ -1014,13 +1014,12 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "command": "touch_type",
+                  "output": "\"function, prediction\"",
+                  "result": "fail"
                 }
-              ]
+              ],
+              "notes": "Suggestions are listed in the normal virtual keyboard predictions. However, there is no indication that these predictions are suggestions from the website, and may be confused with the normal virtual keyboard predictions."
             }
           }
         },
@@ -1153,10 +1152,16 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Function, prediction\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "touch_type",
+                  "output": "\"Function, prediction\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "Boundaries can be implied by the role of \"prediction\" being announced for each available prediction. In other words, when the user hears a different role announced, they can assume they left the predictions."
             }
           }
         },
@@ -1266,8 +1271,8 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "The entered character was announced, but no information about changes to the suggestions",
+                  "result": "fail"
                 }
               ]
             }
@@ -1403,13 +1408,12 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "command": "touch_type",
+                  "output": "\"function*\"",
+                  "result": "fail"
                 }
-              ]
+              ],
+              "notes": "Only the option value is listed as predictions, not the name."
             }
           }
         },
@@ -1545,11 +1549,9 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "command": "touch_type",
+                  "output": "\"function, prediction\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -1688,11 +1690,9 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "command": "touch_type",
+                  "output": "\"function*\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -1718,7 +1718,7 @@
   ],
   "history": [
     {
-      "date": "2019-05-01",
+      "date": "2019-07-20",
       "message": "Test created"
     }
   ],
