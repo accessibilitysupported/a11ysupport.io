@@ -93,6 +93,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 			if (featureObject.assertions[assertion_key].core_support === undefined) {
 				featureObject.assertions[assertion_key].core_support = [];
 				featureObject.assertions[assertion_key].extended_support = [];
+				featureObject.assertions[assertion_key].core_support_by_at = {};
 				featureObject.assertions[assertion_key].core_support_by_at_browser = {};
 			}
 
@@ -128,6 +129,13 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 								};
 							}
 
+							if (!featureObject.assertions[assertion_key].core_support_by_at[at]) {
+								featureObject.assertions[assertion_key].core_support_by_at[at] = {
+									'string': null,
+									'values': []
+								};
+							}
+
 							if (!featureObject.assertions[assertion_key].core_support_by_at_browser[at]) {
 								featureObject.assertions[assertion_key].core_support_by_at_browser[at] = {};
 							}
@@ -147,6 +155,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 								featureObject.extended_support.push(support);
 							}
 
+							featureObject.assertions[assertion_key].core_support_by_at[at].values.push(support);
 							featureObject.assertions[assertion_key].core_support.push(support);
 							featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values.push(support);
 						} else {
@@ -196,7 +205,21 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 		});
 
 		featureObject.assertions.forEach((assertion, assertion_key) => {
+			if (!featureObject.assertions[assertion_key].core_support_by_at) {
+				featureObject.assertions[assertion_key].core_support_by_at = {};
+			}
+
+			if (!featureObject.assertions[assertion_key].core_support_by_at[at]) {
+				featureObject.assertions[assertion_key].core_support_by_at[at] = {
+					"values": [],
+					"string": ""
+				};
+			}
+			featureObject.assertions[assertion_key].core_support_by_at[at].string = helper.generateSupportString(featureObject.assertions[assertion_key].core_support_by_at[at].values);
+
+			// Loop over browsers and set values
 			ATBrowsers.at[at].core_browsers.forEach(browser => {
+
 				if (!featureObject.assertions[assertion_key].core_support_by_at_browser) {
 					featureObject.assertions[assertion_key].core_support_by_at_browser = {};
 				}
@@ -491,12 +514,8 @@ helper.generateSupportString = function(support) {
 				supportString = 'not applicable';
 				supportClass = 'na';
 				break;
-			case 'u':
-				supportString = 'unknown';
-				supportClass = 'un';
-				break;
 			default:
-				supportString = 'unknown support case';
+				supportString = 'unknown';
 				supportClass = 'un';
 		}
 
@@ -504,6 +523,10 @@ helper.generateSupportString = function(support) {
 			class: supportClass,
 			string: supportString
 		}
+	}
+
+	if (support.length === 0) {
+		return helper.generateSupportString("un");
 	}
 
 	// filter out "na" values
