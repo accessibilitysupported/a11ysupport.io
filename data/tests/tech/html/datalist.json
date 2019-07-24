@@ -1727,9 +1727,141 @@
           }
         }
       }
+    },
+    {
+      "feature_id": "html/option_element",
+      "feature_assertion_id": "convey_posinset",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function, 1 of 6, selected\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ],
+              "notes": "the first item was announced as \"row 1\", however other items did not convey their position."
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "touch_type",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "position information was not conveyed",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
     }
   ],
   "history": [
+    {
+      "date": "2019-07-24",
+      "message": "Add assertion for position in set information for the option element"
+    },
     {
       "date": "2019-07-20",
       "message": "Test created"
@@ -1742,7 +1874,7 @@
           "at_version": "15.30",
           "browser_version": "75",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     },
@@ -1752,19 +1884,19 @@
           "at_version": "2019.1906.10",
           "browser_version": "75",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         },
         "ie": {
           "at_version": "2019.1906.10",
           "browser_version": "11",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         },
         "firefox": {
           "at_version": "2019.1906.10",
           "browser_version": "68",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     },
@@ -1774,7 +1906,7 @@
           "at_version": "1903",
           "browser_version": "44",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     },
@@ -1784,13 +1916,13 @@
           "at_version": "2019.1.1",
           "browser_version": "75",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         },
         "firefox": {
           "at_version": "2019.1.1",
           "browser_version": "68",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     },
@@ -1800,7 +1932,7 @@
           "at_version": "",
           "browser_version": "",
           "os_version": "",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     },
@@ -1810,7 +1942,7 @@
           "at_version": "12.3.1",
           "browser_version": "12.3.1",
           "os_version": "12.3.1",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     },
@@ -1820,7 +1952,7 @@
           "at_version": "10.14.5",
           "browser_version": "12.1.1",
           "os_version": "10.14.5",
-          "date": "2019-07-20"
+          "date": "2019-07-24"
         }
       }
     }
