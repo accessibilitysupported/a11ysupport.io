@@ -73,7 +73,7 @@ block content
                 each test in assertion.tests
                   tr
                     td
-                      a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
+                      a(href="/tests/"+testHelper.makeSafe(test.id)) #{test.title}
                     td(class='support-case ' + test.core_support_string.class) #{test.core_support_string.string}
 
           else
@@ -87,7 +87,7 @@ block content
       ul
         each test in data.tests
           li
-            a(href="/tests/"+testIdHelper.makeSafe(test.id)) #{test.title}
+            a(href="/tests/"+testHelper.makeSafe(test.id)) #{test.title}
 
 
       if data.related_issues && data.related_issues.length

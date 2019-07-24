@@ -5,11 +5,11 @@ let sanitize = require("sanitize-filename");
 let createError = require('http-errors');
 let MarkdownIt = require('markdown-it');
 let md = new MarkdownIt().use(require('markdown-it-anchor'));
-let testIdHelper = require('../src/test-id-helper.js');
+let testHelper = require('../src/test-id-helper.js');
 
 /* GET a specific test for a feature. */
 router.get('/:testId', function(req, res, next) {
-    let testId = testIdHelper.undoMakeSafe(req.params.testId);
+    let testId = testHelper.undoMakeSafe(req.params.testId);
 	let testMap = require(__dirname+'/../build/test_map');
 	let features = testMap[testId];
 	let test_html, test, test_html_file;
@@ -47,13 +47,13 @@ router.get('/:testId', function(req, res, next) {
 		features: features,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-        testIdHelper: testIdHelper
+        testHelper: testHelper
 	});
 });
 
 /* Run a specific test for a feature. */
 router.get('/:testId/run', function(req, res, next) {
-    let testId = testIdHelper.undoMakeSafe(req.params.testId);
+    let testId = testHelper.undoMakeSafe(req.params.testId);
     let testMap = require(__dirname+'/../build/test_map');
     let features = testMap[testId];
     let test_html, test, test_html_file;
@@ -91,14 +91,14 @@ router.get('/:testId/run', function(req, res, next) {
         features: features,
         ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-        testIdHelper: testIdHelper
+        testHelper: testHelper
     });
 });
 
 /* GET a specific test for a feature. */
 router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(req, res, next) {
-    let testId = testIdHelper.undoMakeSafe(req.params.testId);
-    let featureId = testIdHelper.undoMakeSafe(req.params.featureId);
+    let testId = testHelper.undoMakeSafe(req.params.testId);
+    let featureId = testHelper.undoMakeSafe(req.params.featureId);
 	let testMap = require(__dirname+'/../build/test_map');
 	let features = testMap[testId];
 	let test_html, test, test_html_file;
@@ -164,7 +164,7 @@ router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(
 		ATBrowsers: ATBrowsers,
 		md: md,
 		assertion: assertion,
-        testIdHelper: testIdHelper
+        testHelper: testHelper
 	});
 });
 

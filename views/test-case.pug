@@ -10,7 +10,7 @@ block content
 
             p!= md.renderInline(test.description)
 
-            a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
+            a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
 
             h2 On this page
             ul
@@ -19,8 +19,6 @@ block content
                 if test.assertions
                     li
                         a(href="#assertion-type-summary-table") Summary of support by expectation type
-                    li
-                        a(href="#assertion-support-table") Summary of support by expectation
                     li
                         a(href="#support-summary-by-at") Summary of support by expectation and assistive technology
                     li
@@ -64,49 +62,30 @@ block content
                             td(class="current-support-container " + test.core_may_support_string.class) #{test.core_may_support_string.string}
 
             if test.assertions
-                details
-                    summary
-                        h3(id="assertion-support-table") Summary of support by expectation
-                    table(aria-labelledby="assertion-support-table").support-table.assertion-container
-                        thead
-                            tr
-                                th Feature
-                                th Expectation
-                                th Support
-                                th Has failing tests
-                        tbody
-                            each assertion in test.assertions
-                                tr
-                                    td #{assertion.feature_title}
-                                    td
-                                        a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.assertion_title}
-                                    td(class="support-case " + assertion.core_support_string.class) #{assertion.core_support_string.string}
-                                    - var numfailing = assertion.core_support.filter(x => x === "n").length
-                                    - var tdclass = "support-case";
-                                    if (numfailing)
-                                        - var tdclass = "support-case n";
-                                    td(class=tdclass)
-                                        if numfailing
-                                            span Yes
-                                        else
-                                            span No
-
                 details(open)
                     summary
                         h3(id="support-summary-by-at") Summary of support by expectation and assistive technology
 
-                    table(aria-labelledby="assertion-support-by-at-"+i).support-table.assertion-container
+                    table(aria-labelledby="assertion-support-by-at").support-table.assertion-container.summary-matrix
                         tr
                             th Expectation
                             each at in ATBrowsers.at
-                                th #{at.title}
+                                th(id="h-at-"+at.id) #{at.title}
+                        - var lastFeature = false
+                        - var currentFeatureIndex = false;
+                        each feature in testMap[test.id]
+                            th(colspan=Object.keys(ATBrowsers.at).length+1 id="h-feature-"+currentFeatureIndex scope="colgroup").feature #{feature.title}
 
-                        each assertion in test.assertions
-                            tr
-                                th
-                                    a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #[span.feature-title #{assertion.feature_title} -] #[span.assertion-title #{assertion.assertion_title}]
-                                each at, at_key in ATBrowsers.at
-                                    td(class="support-case " + assertion.results[at_key].core_support_string.class) #{assertion.results[at_key].core_support_string.string}
+                            each assertion, assertionIndex in test.assertions
+                                if (feature.featureId === assertion.feature_id)
+                                    - currentFeatureIndex = assertionIndex
+                                    tr
+                                        th(id="h-assertion-"+assertionIndex).assertion
+                                            a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
+                                                span #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
+                                        each at, at_key in ATBrowsers.at
+                                            td(class="support-case " + assertion.results[at_key].core_support_string.class headers="h-feature-"+currentFeatureIndex+" h-assertion-"+assertionIndex + " h-at-"+at.id)
+                                                span #{assertion.results[at_key].core_support_string.string}
 
             h3(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
@@ -176,7 +155,7 @@ block content
                                         else
                                             span -
                                     td
-                                        a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + testIdHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
+                                        a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
 
                     details.indent
                         summary
@@ -233,7 +212,7 @@ block content
                                             else
                                                 span -
                                         td
-                                            a(href="/tests/" + testIdHelper.makeSafe(test.id) + "/" + testIdHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
+                                            a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
             h2(id="history") History
             ul
                 each record in test.history
