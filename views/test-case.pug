@@ -66,19 +66,17 @@ block content
                     summary
                         h3(id="support-summary-by-at") Summary of support by expectation and assistive technology
 
-                    table(aria-labelledby="assertion-support-by-at").support-table.assertion-container.summary-matrix
+                    table(aria-labelledby="support-summary-by-at").support-table.assertion-container.summary-matrix
                         tr
                             th Expectation
                             each at in ATBrowsers.at
                                 th(id="h-at-"+at.id) #{at.title}
-                        - var lastFeature = false
-                        - var currentFeatureIndex = 0;
-                        each feature in testMap[test.id]
+                        each feature, currentFeatureIndex in testMap[test.id]
                             th(colspan=Object.keys(ATBrowsers.at).length+1 id="h-feature-"+currentFeatureIndex scope="colgroup").feature #{feature.title}
 
                             each assertion, assertionIndex in test.assertions
                                 if (feature.featureId === assertion.feature_id)
-                                    - currentFeatureIndex = assertionIndex
+
                                     tr
                                         th(id="h-assertion-"+assertionIndex).assertion
                                             a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
