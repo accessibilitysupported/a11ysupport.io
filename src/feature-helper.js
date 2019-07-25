@@ -63,15 +63,14 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 			featureObject.assertions[assertion_key].supports_at.push('vc');
 		}
 
-		if (featureObject.assertions[assertion_key].supports_at.length > 1) {
-			featureObject.assertions[assertion_key].title = "The assistive technology " + featureObject.assertions[assertion_key].title;
-		} else if (featureObject.assertions[assertion_key].supports_at[0] === 'sr') {
-			featureObject.assertions[assertion_key].title = "The screen reader " + featureObject.assertions[assertion_key].title;
+		let titleModifier = "The assistive technology ";
+		if (featureObject.assertions[assertion_key].supports_at[0] === 'sr') {
+			titleModifier = "The screen reader ";
 		} else if (featureObject.assertions[assertion_key].supports_at[0] === 'vc') {
-			featureObject.assertions[assertion_key].title = "The voice control software " + featureObject.assertions[assertion_key].title;
-		} else {
-			featureObject.assertions[assertion_key].title = "The assistive technology " + featureObject.assertions[assertion_key].title;
+			titleModifier = "The voice control software ";
 		}
+
+		featureObject.assertions[assertion_key].title = titleModifier + featureObject.assertions[assertion_key].type.toUpperCase() + " " + featureObject.assertions[assertion_key].title;
 	});
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
@@ -321,7 +320,7 @@ helper.initalizeTestCase = function (testCase) {
 		}
 
 		testCase.assertions[assertion_key].feature_title = feature.title;
-		testCase.assertions[assertion_key].assertion_title = titleModifier + ref_assertion.title;
+		testCase.assertions[assertion_key].assertion_title = titleModifier + ref_assertion.type.toUpperCase() + " " + ref_assertion.title;
 		testCase.assertions[assertion_key].core_support = [];
         testCase.assertions[assertion_key].extended_support = "unknown";
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
