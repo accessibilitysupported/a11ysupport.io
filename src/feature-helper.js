@@ -577,6 +577,16 @@ helper.generateSupportString = function(support) {
 		}
 	}
 
+	let numPartial = filteredSupport.occurenceCount('p');
+
+	if (numPartial) {
+		// At least one thing is passing
+		return {
+			class: 'pa',
+			string: 'some partial support',
+		}
+	}
+
 	if (support.includes('n')) {
 		return {
 			class: 'no',
