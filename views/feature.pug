@@ -18,7 +18,7 @@ block content
                 a(href="#assertion-summary-table") Support summary by expectation type
               each assertion, index in data.assertions
                 li
-                  a(href="#support-table-"+ index) #{assertion.title}
+                  a(href="#support-table-"+ index) #{testHelper.trimTechFromAssertion(assertion.title)}
           li
             a(href="#related-tests") Related tests
           li
@@ -61,7 +61,7 @@ block content
             if assertion.tests.length > 0
                 tr
                   th
-                    a(href="#support-table-" + index) #{assertion.title}
+                    a(href="#support-table-" + index) #{testHelper.trimTechFromAssertion(assertion.title)}
                   each at in ATBrowsers.core_at
                     td(class='support-case ' + assertion.core_support_by_at[at].string.class)= assertion.core_support_by_at[at].string.string
 
