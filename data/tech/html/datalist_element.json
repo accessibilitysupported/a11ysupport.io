@@ -7,15 +7,19 @@
     {
       "title": "WHATWG HTML5 spec for datalist",
       "url": "https://html.spec.whatwg.org/#the-datalist-element"
+    },
+    {
+      "title": "HTML AAM for the datalist element",
+      "url": "https://www.w3.org/TR/html-aam-1.0/#details-id-25"
     }
   ],
   "assertions": [
     {
       "id": "convey_role",
       "title": "The assistive technology MUST convey the datalist role (listbox)",
-      "rationale": "The user needs to know that the element has datalist behavior.",
+      "rationale": "The user needs to know that the element has listbox behavior.",
       "examples": [
-        "A screen reader might announce something like the \"datalist\", \"listbox\", or \"menu\" role when entering the datalist.",
+        "A screen reader might announce something like the \"datalist\", \"listbox\" role when entering the datalist. Note that it should not be conveyed as a menu per the AAM mappings.",
         "A screen reader might not announce the datalist role because it is implied by the presence of suggestions or auto complete functionality via the list attribute.",
         "Voice control software might let the user say something like \"show choices\" to open the datalist."
       ],
