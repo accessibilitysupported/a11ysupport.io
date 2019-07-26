@@ -92,9 +92,9 @@ function displayTestingPrefs(focusResults)
 	}
 
 	// Now set form inputs
-	var atOption = document.querySelector('input[name="at"');
+	var atOption = document.querySelector('input[name="at"]');
 	atOption.value = at_value;
-	var browserOption = document.querySelector('input[name="browser"');
+	var browserOption = document.querySelector('input[name="browser"]');
 	browserOption.value = browser_value;
 	dom_at_version.value = sessionStorage.getItem('at_version_'+at_value);
 	dom_browser_version.value = sessionStorage.getItem('browser_version_'+browser_value);
@@ -127,7 +127,12 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		fieldset.setAttribute('data-feature-id', assertion.feature_id);
 		var name = assertion.feature_id+'.'+assertion.feature_assertion_id;
 		// The feature ID might contain a /, which isn't a valid HTML id. Convert it to a dash.
-		fieldset.setAttribute('id', name.replace('/', '-').replace('.', '--'));
+		fieldset.setAttribute('id', name
+			.replace('/', '-')
+			.replace('.', '--')
+			.replace('(', '-')
+			.replace(')', '-')
+		);
 		fieldset.setAttribute('data-name', name);
 		var legend = document.createElement('legend');
 		legend.innerText = assertion.feature_title + ' / ' + assertion.assertion_title;
