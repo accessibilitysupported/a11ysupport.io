@@ -56,6 +56,14 @@ router.get('/learn', function(req, res, next) {
 	});
 });
 
+router.get('/learn/commands', function(req, res, next) {
+	res.render('commands', {
+		title: 'All AT commands | Accessibility Support',
+		commands: require(__dirname+'/../build/command_matrix.json'),
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+	});
+});
+
 router.get('/learn/at/:id', function(req, res, next) {
 	let allowed = ['dragon', 'jaws', 'narrator', 'nvda', 'talkback', 'vo_ios', 'vo_macos'];
 

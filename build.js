@@ -21,6 +21,14 @@ let sortByProperty = function (property) {
 	};
 };
 
+let sortByKeys = function(unordered) {
+	let ordered = {};
+	Object.keys(unordered).sort().forEach(function(key) {
+		ordered[key] = unordered[key];
+	});
+	return ordered;
+};
+
 let getFeatures = function(techId, buildDir) {
 	let dir_feature = __dirname + '/data/tech/'+techId;
 	if (!fs.existsSync(dir_feature)) {
@@ -183,6 +191,24 @@ for (let techId in tech) {
 	}
 }
 
+let commands = {};
+commands.sr = {};
+commands.vc = {};
+
+for(let at in ATBrowsers.at) {
+	let type = ATBrowsers.at[at].type;
+	for(let key in ATBrowsers.at[at].commands) {
+		if (!commands[type][key]) {
+			commands[type][key] = [];
+		}
+		commands[type][key].push(at);
+	}
+}
+
+commands.sr = sortByKeys(commands.sr);
+commands.vc = sortByKeys(commands.vc);
+
+
 allFeatures.sort(sortByProperty('title'));
 supportPoints.sort(sortByProperty('priority'));
 
@@ -190,3 +216,4 @@ fs.writeFileSync(buildDir+'/tech.json', JSON.stringify(tech, null, 2));
 fs.writeFileSync(buildDir+'/test_map.json', JSON.stringify(testMap, null, 2));
 fs.writeFileSync(buildDir+'/features.json', JSON.stringify(allFeatures, null, 2));
 fs.writeFileSync(buildDir+'/support_points.json', JSON.stringify(supportPoints, null, 2));
+fs.writeFileSync(buildDir+'/command_matrix.json', JSON.stringify(commands, null, 2));

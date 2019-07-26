@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1 All commands
+
+    each at_type, type_key in commands
+        h2 #{type_key}
+        table
+            tr
+                th Command
+                each at in ATBrowsers.at
+                    if (at.type === type_key)
+                        th #{at.title}
+            each command, command_key in commands[type_key]
+                tr
+                    th #{command_key}
+                    each at in ATBrowsers.at
+                        if (at.type === type_key)
+                            td
+                                if (command.includes(at.id))
+                                    span yes
+

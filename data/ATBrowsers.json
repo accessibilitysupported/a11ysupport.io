@@ -110,7 +110,7 @@
             "sr/interaction"
           ]
         },
-        "enter_forms_mode": {
+        "enter_interaction_mode": {
           "command": "Num pad Plus",
           "name": "Enter forms mode",
           "note": "Automatically activated when entering a form control.",
@@ -118,6 +118,16 @@
             "forms",
             "general",
             "sr/reading"
+          ]
+        },
+        "exit_interaction_mode": {
+          "command": "Num pad Plus",
+          "name": "exit forms mode (go to PC cursor)",
+          "tags": [
+            "forms",
+            "general",
+            "sr/reading",
+            "sr/interaction"
           ]
         },
         "enter_text": {
@@ -162,15 +172,6 @@
           "tags": [
             "elements",
             "sr/reading"
-          ]
-        },
-        "exit_forms_mode": {
-          "command": "Num pad Plus",
-          "name": "Exit forms mode",
-          "tags": [
-            "forms",
-            "general",
-            "sr/interaction"
           ]
         },
         "read_item": {
@@ -469,9 +470,19 @@
             "sr/interaction"
           ]
         },
-        "cycle_view": {
-          "command": "Narrator + Page Up or Narrator + Page Down",
-          "name": "Cycle view",
+        "next_navigation_type": {
+          "command": "Narrator + Page Down",
+          "name": "Cycle view backward",
+          "note": "Cycles the type of item to be read when using the Read next item and Read previous item commands.",
+          "tags": [
+            "reading",
+            "sr/reading",
+            "view_mode"
+          ]
+        },
+        "previous_navigation_type": {
+          "command": "Narrator + Page Down",
+          "name": "Cycle view forward",
           "note": "Cycles the type of item to be read when using the Read next item and Read previous item commands.",
           "tags": [
             "reading",
@@ -525,7 +536,7 @@
             "scan_mode"
           ]
         },
-        "next_item_with_views_by_item": {
+        "next_item_of_type": {
           "command": "Narrator + right arrow",
           "name": "Read next item (item view, scan mode off)",
           "note": "Requires scan mode off",
@@ -558,7 +569,7 @@
             "scan_mode"
           ]
         },
-        "previous_item_with_views_by_item": {
+        "previous_item_of_type": {
           "command": "Narrator + left arrow",
           "name": "Read previous item (item view, scan mode off)",
           "note": "Requires scan mode off",
@@ -677,12 +688,30 @@
             "sr/reading"
           ]
         },
-        "toggle_scan_mode": {
-          "command": "Narrator + Spacebar",
-          "name": "Toggle Scan Mode",
+        "toggle_reading_mode": {
+          "command": "Narrator + space",
+          "name": "Toggle Scan Mode on and off",
           "note": "Enabled automatically when you use Microsoft Edge.",
           "tags": [
             "general"
+          ]
+        },
+        "enter_interaction_mode": {
+          "command": "Narrator + space",
+          "name": "Leave scan mode",
+          "tags": [
+            "forms",
+            "general",
+            "sr/reading"
+          ]
+        },
+        "exit_interaction_mode": {
+          "command": "Narrator + space",
+          "name": "Enter scan mode",
+          "tags": [
+            "forms",
+            "general",
+            "sr/interaction"
           ]
         },
         "turn_off": {
@@ -763,12 +792,22 @@
             "general"
           ]
         },
-        "exit_focus_mode": {
-          "command": "escape",
+        "enter_interaction_mode": {
+          "command": "NVDA + space",
           "name": "Exit focus mode",
           "tags": [
             "forms",
-            "general"
+            "general",
+            "sr/reading"
+          ]
+        },
+        "exit_interaction_mode": {
+          "command": "NVDA + space",
+          "name": "Exit focus mode",
+          "tags": [
+            "forms",
+            "general",
+            "sr/interaction"
           ]
         },
         "read_item": {
@@ -1151,7 +1190,7 @@
             "sr/reading"
           ]
         },
-        "toggle_mode": {
+        "toggle_reading_mode": {
           "command": "NVDA + Spacebar",
           "name": "Toggle between browse and focus modes",
           "tags": [
@@ -1215,7 +1254,7 @@
             "sr/interaction"
           ]
         },
-        "from_current_position": {
+        "start_reading_from_current_position": {
           "command": "GCM, Read from next item",
           "name": "Read from current position",
           "tags": [
@@ -1311,6 +1350,108 @@
             "forms",
             "sr/interaction"
           ]
+        },
+        "previous_navigation_type": {
+          "command": "Swipe up",
+          "name": "previous navigation setting",
+          "note": "Cycle through types of elements, affects what happens when you swipe right or left",
+          "tags": [
+            "common",
+            "general",
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_navigation_type": {
+          "command": "Swipe down",
+          "name": "next navigation setting",
+          "note": "Cycle through types of elements, affects what happens when you swipe right or left",
+          "tags": [
+            "common",
+            "general",
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "focus_first": {
+          "command": "Swipe up then down",
+          "name": "focus first item on screen",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "focus_last": {
+          "command": "Swipe down then up",
+          "name": "focus last item on screen",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "scroll_back": {
+          "command": "Swipe left then right",
+          "name": "scroll back",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "scroll_forward": {
+          "command": "Swipe right then left",
+          "name": "scroll forward",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_heading": {
+          "command": "Swipe right",
+          "name": "next heading (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_heading": {
+          "command": "Swipe left",
+          "name": "previous heading (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_link": {
+          "command": "Swipe right",
+          "name": "next link (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_link": {
+          "command": "Swipe left",
+          "name": "previous link (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_form_field": {
+          "command": "Swipe right",
+          "name": "next control (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_form_field": {
+          "command": "Swipe left",
+          "name": "previous control (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
         }
       }
     },
@@ -1387,7 +1528,16 @@
             "sr/reading"
           ]
         },
-        "next_rotor_item": {
+        "previous_item_of_type": {
+          "command": "Swipe up",
+          "name": "Previous item (as set by the rotor)",
+          "tags": [
+            "common",
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_item_of_type": {
           "command": "Swipe down",
           "name": "Next item (as set by the rotor)",
           "tags": [
@@ -1414,15 +1564,6 @@
         "previous_item": {
           "command": "Swipe Left",
           "name": "Previous item",
-          "tags": [
-            "common",
-            "reading",
-            "sr/reading"
-          ]
-        },
-        "previous_rotor_item": {
-          "command": "Swipe up",
-          "name": "Previous item (as set by the rotor)",
           "tags": [
             "common",
             "reading",
@@ -1475,6 +1616,182 @@
           "tags": [
             "forms",
             "sr/interaction"
+          ]
+        },
+        "next_container": {
+          "command": "Swipe down",
+          "name": "next container (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_container": {
+          "command": "Swipe up",
+          "name": "previous container (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_heading": {
+          "command": "Swipe down",
+          "name": "next heading (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_heading": {
+          "command": "Swipe up",
+          "name": "previous heading (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_landmark": {
+          "command": "Swipe down",
+          "name": "next landmark (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_landmark": {
+          "command": "Swipe up",
+          "name": "previous landmark (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_link": {
+          "command": "Swipe down",
+          "name": "next link (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_link": {
+          "command": "Swipe up",
+          "name": "previous link (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_table": {
+          "command": "Swipe down",
+          "name": "next table (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_table": {
+          "command": "Swipe up",
+          "name": "previous table (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_list": {
+          "command": "Swipe down",
+          "name": "next list (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_list": {
+          "command": "Swipe up",
+          "name": "previous list (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_button": {
+          "command": "Swipe down",
+          "name": "next button (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_button": {
+          "command": "Swipe up",
+          "name": "previous button (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_form_field": {
+          "command": "Swipe down",
+          "name": "next form control (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_form_field": {
+          "command": "Swipe up",
+          "name": "previous form control (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_edit_field": {
+          "command": "Swipe down",
+          "name": "next text field (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_edit_field": {
+          "command": "Swipe up",
+          "name": "previous text field (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_search": {
+          "command": "Swipe down",
+          "name": "next search (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_search": {
+          "command": "Swipe up",
+          "name": "previous search (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_graphic": {
+          "command": "Swipe down",
+          "name": "next image (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "previous_graphic": {
+          "command": "Swipe up",
+          "name": "previous image (correct item type must be selected)",
+          "tags": [
+            "reading",
+            "sr/reading"
           ]
         }
       }
