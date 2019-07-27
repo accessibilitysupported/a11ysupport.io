@@ -148,8 +148,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"edit box, function type, double-tap to enter text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -344,8 +344,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"edit box, function type, double-tap to enter text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -522,8 +522,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"function, edit box, function type, double-tap to enter text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -680,9 +680,9 @@
             "and_chr": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "command": "next_form_field",
+                  "output": "\"edit box, function type, double-tap to enter text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -862,8 +862,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "(after entering text) \"showing autofill popup\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -1015,8 +1015,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"autofill, menu\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -1150,8 +1150,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "indicates end of list but not start when going back up",
+                  "result": "partial"
                 }
               ]
             }
@@ -1271,8 +1271,8 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "nothing output when options update from input tex",
+                  "result": "fail"
                 }
               ]
             }
@@ -1409,8 +1409,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "function* generator function, double tap to activate, double tap and hold to long press",
+                  "result": "pass"
                 }
               ]
             }
@@ -1551,10 +1551,11 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"function, in list, showing autofill popup\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "option role was implied by the announcement of \"autofill menu\" and \"in list\" when entering the list of options"
             }
           }
         },
@@ -1692,8 +1693,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "function* generator function, double tap to activate, double tap and hold to long press",
+                  "result": "pass"
                 }
               ]
             }
@@ -1820,8 +1821,8 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "(outputs number of items when first entering list of options)",
+                  "result": "fail"
                 }
               ]
             }
@@ -1859,6 +1860,10 @@
     }
   ],
   "history": [
+    {
+      "date": "2019-07-26",
+      "message": "Talkback results added. Thank you @dennisl"
+    },
     {
       "date": "2019-07-24",
       "message": "Add assertion for position in set information for the option element"
@@ -1930,10 +1935,10 @@
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "",
-          "browser_version": "",
-          "os_version": "",
-          "date": "2019-07-24"
+          "at_version": "9",
+          "browser_version": "75",
+          "os_version": "9",
+          "date": "2019-07-26"
         }
       }
     },
