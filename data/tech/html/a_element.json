@@ -1,0 +1,58 @@
+{
+  "id": "a_element",
+  "title": "placeholder link element",
+  "type": "element",
+  "description": "If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant, consisting of just the element's contents.",
+  "references": [
+    {
+      "title": "HTML5 spec for the a element",
+      "url": "https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "convey no role or as a placeholder link",
+      "rationale": "Since the link does not go anywhere, user needs to know that the link is not functional.",
+      "examples": [
+        "A screen reader might convey not convey any role for the link.",
+        "Voice control software will not suggest that the link is actionable."
+      ],
+      "type": "MUST",
+      "css_target": "a:not([href])",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "vc"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "title": "convey the name of the placeholder link",
+      "rationale": "A placeholder link should be conveyed as static text.",
+      "examples": [
+        "A screen reader will convey the text of the placeholder link",
+        "Voice control software will not consider the text as clickable."
+      ],
+      "type": "MUST",
+      "css_target": "a:not([href])",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "vc"
+      ]
+    },
+    {
+      "id": "provide_shortcuts",
+      "title": "provide shortcuts to jump to placeholder links",
+      "rationale": "Since a placeholder link is not actionable, it will not be included in shortcuts to jump to links",
+      "type": "MUST NOT",
+      "css_target": "a:not([href])",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2019-07-28"
+}
