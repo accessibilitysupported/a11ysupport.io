@@ -48,6 +48,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		featureObject.assertions[assertion_key].tests = [];
 
+		if (!assertion.pass_strategy) {
+			featureObject.assertions[assertion_key].pass_strategy = 'all';
+		}
+
 		// Now set a flag for what types of AT this assertion applies to
 		featureObject.assertions[assertion_key].supports_at = [];
 		if (!featureObject.assertions[assertion_key].rationale) {
@@ -332,6 +336,9 @@ helper.initalizeTestCase = function (testCase) {
 		if (ref_assertion.examples) {
 			testCase.assertions[assertion_key].assertion_examples = ref_assertion.examples;
 		}
+		if (ref_assertion.pass_strategy) {
+			testCase.assertions[assertion_key].pass_strategy = ref_assertion.pass_strategy;
+		}
 
         if (!testCase.assertions[assertion_key].css_target) {
         	// Use the referenced assertion's css target if it isn't overridden by the assertion link
@@ -392,14 +399,35 @@ helper.initalizeTestCase = function (testCase) {
 					// No support by default
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = 'unknown';
 
-					if (results.includes('pass')) {
-						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'y';
-					} else if (results.includes('partial')) {
-						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
-					} else if (results.includes('fail')) {
-						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
-					} else if (results.includes('unknown')) {
-						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'u';
+					var pass_strategy = 'any';
+					if (ref_assertion.pass_strategy) {
+						pass_strategy = ref_assertion.pass_strategy;
+					}
+
+					if (pass_strategy === 'all') {
+						// 'any' strategy, a single pass for a command counts a pass for the assertion
+						if (results.length === 1 && results.includes('pass')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'y';
+						} else if (results.includes('pass')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
+						} else if (results.includes('partial')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
+						} else if (results.includes('fail')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
+						} else if (results.includes('unknown')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'u';
+						}
+					} else {
+						// 'any' strategy, a single pass for a command counts a pass for the assertion
+						if (results.includes('pass')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'y';
+						} else if (results.includes('partial')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
+						} else if (results.includes('fail')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
+						} else if (results.includes('unknown')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'u';
+						}
 					}
 				}
 
@@ -408,7 +436,7 @@ helper.initalizeTestCase = function (testCase) {
 				testCase.assertions[assertion_key].results[at].browsers[browser].testId = testCase.id;
 				testCase.assertions[assertion_key].results[at].browsers[browser].ATId = at;
 				testCase.assertions[assertion_key].results[at].browsers[browser].test_title = testCase.title;
-				testCase.assertions[assertion_key].results[at].browsers[browser].support_string = helper.generateSupportString(testCase.assertions[assertion_key].results[at].browsers[browser].support)
+				testCase.assertions[assertion_key].results[at].browsers[browser].support_string = helper.generateSupportString(testCase.assertions[assertion_key].results[at].browsers[browser].support);
 
 				// Set support arrays
 				let support = testCase.assertions[assertion_key].results[at].browsers[browser].support;
@@ -483,7 +511,7 @@ helper.initalizeTestCase = function (testCase) {
 
 		//Set support strings for the assertion
 		testCase.assertions[assertion_key].core_support_string = helper.generateSupportString(testCase.assertions[assertion_key].core_support);
-		testCase.assertions[assertion_key].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].extended_support)
+		testCase.assertions[assertion_key].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].extended_support);
 
 		// aggregate must/should/may core support
 		if (ref_assertion.type === "MUST") {

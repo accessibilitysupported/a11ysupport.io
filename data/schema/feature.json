@@ -31,6 +31,13 @@
           },
           "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
         },
+        "pass_strategy": {
+          "type": "string",
+          "items": {
+            "enum": ["any", "all"]
+          },
+          "description": "The strategy for determining if output rows pass. Defaults to 'any' which means that only one output row needs to pass. 'all' means that all output rows must pass. "
+        },
         "preconditions": {
           "type": "array",
           "items": {
@@ -54,7 +61,7 @@
           "description": "A css selector that determines which elements in the example need to be tested. This should be a generic selector, and can be overridden by tests that reference this assertion."
         }
       },
-      "required": ["id", "title", "type", "operation_modes", "css_target"]
+      "required": ["id", "title", "type", "operation_modes", "css_target", "pass_strategy"]
     }
   },
   "properties": {

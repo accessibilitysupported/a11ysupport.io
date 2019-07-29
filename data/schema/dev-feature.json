@@ -31,6 +31,13 @@
           },
           "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
         },
+        "pass_strategy": {
+          "type": "string",
+          "items": {
+            "enum": ["any", "all"]
+          },
+          "description": "The strategy for determining if output rows pass. Defaults to 'any' which means that only one output row needs to pass. 'all' means that all output rows must pass. "
+        },
         "preconditions": {
           "type": "array",
           "items": {

@@ -100,6 +100,11 @@ block content
                             for example in assertion.assertion_examples
                                 li #{example}
 
+                    if (assertion.pass_strategy === 'all')
+                        p Grading method: All of the listed commands must pass for the expectation to pass.
+                    else
+                        p Grading method: Just one of the listed commands must pass for the expectation to pass.
+
                     p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
                     table(aria-labelledby="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
