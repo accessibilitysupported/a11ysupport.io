@@ -123,8 +123,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "conveyed as static text",
+                  "result": "pass"
                 }
               ]
             }
@@ -138,8 +138,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "conveyed as static text, NOT followed by \"clickable\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -266,8 +266,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "conveyed as static text",
+                  "result": "pass"
                 }
               ]
             }
@@ -281,8 +281,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "conveyed as static text, NOT followed by \"clickable\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -399,11 +399,11 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_link",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "Not included in list of links",
+                  "result": "pass"
                 }
               ]
             }
@@ -414,11 +414,18 @@
             "safari": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_link",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "not found as a link",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "not included in the list of links",
+                  "result": "pass"
                 }
               ]
             }
