@@ -66,10 +66,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"text, readonly, <name>\"",
+                  "result": "fail"
                 }
-              ]
+              ],
+              "notes": "The text role was conveyed along with the readonly state. No semantics should be conveyed."
             }
           }
         },
@@ -209,8 +210,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"text, readonly, <name>\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -346,11 +347,11 @@
             "edge": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_link",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "Not found as a link",
+                  "result": "pass"
                 }
               ]
             }
