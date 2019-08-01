@@ -392,6 +392,171 @@
     },
     {
       "feature_id": "html/input(type-text)_element",
+      "feature_assertion_id": "convey_change_in_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"Function, type Edit combo\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "Focus was sent back to the input and the input was announced"
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"edit, function\"",
+                  "result": "unknown"
+                }
+              ],
+              "notes": "unknown because it was not possible to navigate to a suggestion to activate"
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"Function, edit, has popup\"",
+                  "result": "unknown"
+                }
+              ],
+              "notes": "Unknown because it was not possible to navigate to a suggestion to activate"
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"Function\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "The value was announced after a suggestion was activated and focus was returned to the text input"
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"Function type combo box, has auto complete, editable, function\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "Focus was returned to the text input"
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"function\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "Focus was returned to the text input but only the value was announced"
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"function, close features\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "value was announced and focus was returned to the text input."
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"Function\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "The activated suggestion was announced, and focus was moved to a new suggestion"
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "(the entered character was announced)",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "output": "\"Function\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "Focus was returned to the text input"
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-text)_element",
       "feature_assertion_id": "convey_value",
       "results": {
         "jaws": {
