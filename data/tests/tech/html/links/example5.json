@@ -14,8 +14,8 @@
               "output": [
                 {
                   "command": "click_type",
-                  "output": "",
-                  "result": "unknown"
+                  "output": "flagged as a link to choose from",
+                  "result": "pass"
                 }
               ]
             }
@@ -149,10 +149,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
             }
           }
         },
@@ -195,7 +196,7 @@
           }
         }
       }
-    },
+    },  
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_name",
@@ -207,8 +208,8 @@
               "output": [
                 {
                   "command": "activate_actionable_item",
-                  "output": "",
-                  "result": "unknown"
+                  "output": "successfully activated",
+                  "result": "pass"
                 }
               ]
             }
@@ -342,10 +343,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
             }
           }
         },
@@ -394,19 +396,6 @@
       "feature_assertion_id": "convey_boundaries",
       "css_target": "#example-5 a[href]",
       "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "click_type",
-                  "output": "",
-                  "result": "unknown"
-                }
-              ]
-            }
-          }
-        },
         "jaws": {
           "browsers": {
             "chrome": {
@@ -540,10 +529,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "Boundaries implied by navigation. The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
             }
           }
         },
@@ -556,10 +546,9 @@
                   "from": "before target",
                   "to": "target",
                   "output": "Each line is conveyed as its own link",
-                  "result": "partial"
+                  "result": "pass"
                 }
-              ],
-              "notes": "Boundary is not clear"
+              ]
             }
           }
         },
@@ -593,19 +582,6 @@
       "feature_assertion_id": "provide_shortcuts",
       "css_target": "#example-5 a[href]",
       "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "click_type",
-                  "output": "",
-                  "result": "unknown"
-                }
-              ]
-            }
-          }
-        },
         "jaws": {
           "browsers": {
             "chrome": {
@@ -714,13 +690,14 @@
             "and_chr": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_link",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
             }
           }
         },

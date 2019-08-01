@@ -14,8 +14,8 @@
               "output": [
                 {
                   "command": "click_type",
-                  "output": "",
-                  "result": "unknown"
+                  "output": "flagged as a link to choose from",
+                  "result": "fail"
                 }
               ]
             }
@@ -29,7 +29,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -40,7 +40,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -51,7 +51,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -82,7 +82,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -93,7 +93,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -108,8 +108,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "link role was not conveyed",
+                  "result": "pass"
                 }
               ]
             }
@@ -123,7 +123,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -138,7 +138,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text, followed by \"clickable\"",
+                  "output": "link role was not conveyed, followed by \"clickable\"",
                   "result": "partial"
                 }
               ],
@@ -159,8 +159,8 @@
               "output": [
                 {
                   "command": "activate_actionable_item",
-                  "output": "",
-                  "result": "unknown"
+                  "output": "successfully activated",
+                  "result": "fail"
                 }
               ]
             }
@@ -174,7 +174,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -185,7 +185,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -196,7 +196,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -226,7 +226,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -237,7 +237,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -252,8 +252,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"link role was not conveyed\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -267,7 +267,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text",
+                  "output": "link role was not conveyed",
                   "result": "pass"
                 }
               ]
@@ -282,7 +282,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "conveyed as static text, followed by \"clickable\"",
+                  "output": "link role was not conveyed, followed by \"clickable\"",
                   "result": "pass"
                 }
               ]
@@ -296,19 +296,6 @@
       "feature_assertion_id": "provide_shortcuts",
       "css_target": "#example-8 a[href]",
       "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "click_type",
-                  "output": "",
-                  "result": "unknown"
-                }
-              ]
-            }
-          }
-        },
         "jaws": {
           "browsers": {
             "chrome": {
@@ -385,11 +372,11 @@
             "and_chr": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "next_link",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "not included in link navigation",
+                  "result": "pass"
                 }
               ]
             }
@@ -403,7 +390,7 @@
                   "command": "next_link",
                   "from": "before target",
                   "to": "target",
-                  "output": "Not included in list of links",
+                  "output": "Not included in link navigation",
                   "result": "pass"
                 }
               ]
