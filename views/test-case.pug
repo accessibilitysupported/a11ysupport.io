@@ -149,6 +149,10 @@ block content
                                                             li
                                                                 strong Output:
                                                                 span= " " + output.output
+                                                            if (output.behind_setting)
+                                                                li
+                                                                    strong Must change default settings to enable support:
+                                                                    span= " " + output.behind_setting
 
                                             if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
                                                 strong Notes:
@@ -211,6 +215,10 @@ block content
                                                                 li
                                                                     strong Output:
                                                                     span= " " + output.output
+                                                                if (output.behind_setting)
+                                                                    li
+                                                                        strong Must change default settings to enable support:
+                                                                        span= " " + output.behind_setting
                                             else
                                                 span -
                                         td

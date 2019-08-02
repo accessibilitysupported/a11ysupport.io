@@ -11,8 +11,20 @@
   ],
   "assertions": [
     {
-      "id": "convey_presence_if_not_empty_and_valid",
-      "title": "convey the presence of the aria-controls attribute if its value is not empty and is valid",
+      "id": "convey_presence",
+      "title": "convey the presence of the aria-controls attribute",
+      "type": "MUST",
+      "css_target": "*[aria-controls]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "allow_jump_to_controlled",
+      "title": "allow the user to jump to the controlled element",
+      "rationale": "The controlled element might not be close to the element with aria-controls and the user might find it convenient to jump directly to the controlled element.",
       "type": "MUST",
       "css_target": "*[aria-controls]",
       "preconditions": [],
