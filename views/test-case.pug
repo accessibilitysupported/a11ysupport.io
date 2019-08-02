@@ -24,6 +24,8 @@ block content
                     li
                         a(href="#support-tables") Detailed support tables
                 li
+                    a(href="#versions") Dates and versions
+                li
                     a(href="#history") History
                 li
                     a(href="#related-features") Related features
@@ -40,7 +42,6 @@ block content
             else
                 a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
                 p HTML source is too long to display here.
-
 
             h2(id="support-tables") Support tables
 
@@ -118,11 +119,7 @@ block content
                             each browser in ATBrowsers.at[at].core_browsers
                                 tr
                                     td= ATBrowsers.at[at].title
-                                        if test.versions[at] && test.versions[at].browsers[browser] && test.versions[at].browsers[browser].at_version
-                                            span= ' ' + test.versions[at].browsers[browser].at_version
                                     td= ATBrowsers.browsers[browser].title
-                                        if test.versions[at] && test.versions[at].browsers[browser] && test.versions[at].browsers[browser].browser_version
-                                            span= ' ' + test.versions[at].browsers[browser].browser_version
                                     td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string.string
                                     td
                                         if (assertion.results[at].browsers[browser].output)
@@ -218,6 +215,29 @@ block content
                                                 span -
                                         td
                                             a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
+
+            details(open)
+                summary
+                    h2(id="versions") Dates and Versions
+                table
+                    tr
+                        th AT
+                        th AT Version
+                        th Browser
+                        th Browser version
+                        th OS version
+                        th Date tested
+                    each at in ATBrowsers.core_at
+                        each browser in ATBrowsers.at[at].core_browsers
+                            if (test.versions[at] && test.versions[at].browsers[browser])
+                                tr
+                                    td #{ATBrowsers.at[at].title}
+                                    td #{test.versions[at].browsers[browser].at_version}
+                                    td #{ATBrowsers.browsers[browser].title}
+                                    td #{test.versions[at].browsers[browser].browser_version}
+                                    td #{test.versions[at].browsers[browser].os_version}
+                                    td #{test.versions[at].browsers[browser].date}
+
             h2(id="history") History
             ul
                 each record in test.history

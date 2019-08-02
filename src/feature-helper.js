@@ -2,6 +2,18 @@ let helper = {};
 const moment = require('moment');
 let now = new moment();
 
+/**
+ * Generic array sorting
+ *
+ * @param property
+ * @returns {Function}
+ */
+let sortByProperty = function (property) {
+	return function (x, y) {
+		return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
+	};
+};
+
 Array.prototype.unique = function() {
 	return this.filter(function(elem, pos, self) {
 		return self.indexOf(elem) === pos;
@@ -293,6 +305,8 @@ helper.initalizeTestCase = function (testCase) {
 	testCase.core_should_support_string = 'na';
 	testCase.core_may_support = [];
 	testCase.core_may_support_string = 'na';
+
+	testCase.history = testCase.history.sort(sortByProperty('date'));
 
 	testCase.assertions.forEach(function(assertion, assertion_key) {
 		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)

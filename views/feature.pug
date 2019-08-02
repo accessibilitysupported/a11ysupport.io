@@ -97,21 +97,18 @@ block content
                     td
                       a(href="/tests/"+testHelper.makeSafe(test.id)) #{test.title}
                     td(class='support-case ' + test.core_support_string.class) #{test.core_support_string.string}
-
           else
             p No tests reference this expectation yet.
       else
         p No expectations have been created for this feature yet.
 
-
-    div.sidebar
-      h2(id="related-tests") Related tests
+      h2(id="related-tests") Tests
       ul
         each test in data.tests
           li
-            a(href="/tests/"+testHelper.makeSafe(test.id)) #{test.title}
+            a(href="/tests/" + testHelper.makeSafe(test.id)) #{test.title} - last updated #{test.history[test.history.length-1].date}
 
-
+    div.sidebar
       if data.related_issues && data.related_issues.length
         h2(id="at-browser-issues") Related AT or browser issues
         ul
