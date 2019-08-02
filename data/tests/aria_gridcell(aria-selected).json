@@ -1,0 +1,615 @@
+{
+  "title": "ARIA gridcell role with aria-selected",
+  "description": "This test ensures that grid cells are announced as selectable.",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-selected_attribute",
+      "feature_assertion_id": "convey_value_undefined",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Grid, date, column 1, row 2, 2018-01-01, selected\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"column 0, row 1, 2018-01-01\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, column 1, row 2, grid, 2018-01-01, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Table, has 3 rows, 2 columns, January 1st, 2018, editable, column header date, row 2 of 3, column 1 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, 2018-01-01, selected\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, editable, not selected\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"January 1 2018, table, 2 columns, 2 rows\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-selected_attribute",
+      "feature_assertion_id": "convey_value_false",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target 1\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 1\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 1, type in text\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 1, editable, column header name, column 2 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 1, not selected, row 2 name, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"not selected, row 2 name, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 1, you are currently on a cell\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-selected_attribute",
+      "feature_assertion_id": "convey_value_true",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 2, selected\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 2\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 2, type in text\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 2, selected, editable, column header name, column 2 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 2, row 3, column 2\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"not selected, row 3 name, column 2\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target 2, you are currently on a cell\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-selected_attribute",
+      "feature_assertion_id": "convey_change_in_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"enter\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"enter\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"enter\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"non-selected\"",
+                  "result": "pass"
+                }
+              ],
+              "notes": "Narrator appears to intercept the enter key when aria-selected is set to false"
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"not selected\" or \"selected\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "no announcement was made",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "no announcement was made",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-08-02",
+      "message": "Updated to test more values"
+    },
+    {
+      "date": "2018-10-26",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1906.10",
+          "browser_version": "75",
+          "os_version": "1903",
+          "date": "2019-07-20"
+        },
+        "ie": {
+          "at_version": "2019.1906.10",
+          "browser_version": "11",
+          "os_version": "1903",
+          "date": "2019-07-20"
+        },
+        "firefox": {
+          "at_version": "2019.1906.10",
+          "browser_version": "68",
+          "os_version": "1903",
+          "date": "2019-07-20"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-07-20"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1.1",
+          "browser_version": "75",
+          "os_version": "1903",
+          "date": "2019-07-20"
+        },
+        "firefox": {
+          "at_version": "2019.1.1",
+          "browser_version": "68",
+          "os_version": "1903",
+          "date": "2019-07-20"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "and_chr": {
+            "at_version": "7.3.0",
+            "browser_version": "75",
+            "os_version": "9",
+            "date": "2019-07-27"
+          }
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.3.1",
+          "browser_version": "12.3.1",
+          "os_version": "12.3.1",
+          "date": "2019-07-20"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.5",
+          "browser_version": "12.1.1",
+          "os_version": "10.14.5",
+          "date": "2019-07-20"
+        }
+      }
+    }
+  }
+}

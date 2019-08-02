@@ -10,10 +10,21 @@
   ],
   "assertions": [
     {
+      "id": "convey_value_undefined",
+      "title": "convey undefined value by indicating that the element is not selectable",
+      "type": "MUST",
+      "css_target": "*:not(['aria-selected'])",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
       "id": "convey_value_false",
       "title": "convey false value by indicating that the element can be selected",
       "type": "MUST",
-      "css_target": "*[ara-selected=\"false\"]",
+      "css_target": "*[aria-selected=\"false\"]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
@@ -24,7 +35,18 @@
       "id": "convey_value_true",
       "title": "convey true value by indicating that the element is currently selected",
       "type": "MUST",
-      "css_target": "*[ara-selected=\"true\"]",
+      "css_target": "*[aria-selected=\"true\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_change_in_value",
+      "title": "convey changes to aria-selected value",
+      "type": "MUST",
+      "css_target": "*[aria-selected]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
@@ -32,5 +54,5 @@
       ]
     }
   ],
-  "date_updated": "2018-10-26"
+  "date_updated": "2019-08-02"
 }

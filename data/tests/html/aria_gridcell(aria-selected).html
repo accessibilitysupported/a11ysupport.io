@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aria gridcell with aria-selected</title>
+
+    <style>
+        td[aria-selected="true"] {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <p>Use the screen reader to announce the target element.</p>
+    <p><strong>Note:</strong> Most JavaScript functionality has not been implemented for this ARIA pattern. Using arrow keys will not navigate the grid. Only the target cell will receive focus, and the aria-selected attribute will toggle.</p>
+
+    <table role="grid">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Name
+            </th>
+        </tr>
+        <tr>
+            <td tabindex="0">
+                2018-01-01
+            </td>
+            <td aria-selected="false" tabindex="0">
+                target 1
+            </td>
+        </tr>
+        <tr>
+            <td tabindex="0">
+                2018-01-02
+            </td>
+            <td aria-selected="true" tabindex="0">
+                target 2
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var document = document.querySelector('document');
+
+        function toggleSelected(target)
+        {
+            if (!target.hasAttribute('aria-selected')) {
+                return;
+            }
+
+            if (target.getAttribute('aria-selected') === 'true') {
+                target.setAttribute('aria-selected', 'false');
+            } else {
+                target.setAttribute('aria-selected', 'true');
+            }
+        }
+
+        document.addEventListener('keyup', function(e) {
+            if (e.key === " " || e.key === "Enter") {
+                toggleSelected(e.target)
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            toggleSelected(e.target)
+        });
+    </script>
+</body>
+</html>
