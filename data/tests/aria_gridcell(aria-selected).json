@@ -92,8 +92,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"2018-01-01, row 2, Date, double tap to activate\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -107,8 +107,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"2018-01-01, row 2, column 1\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -221,8 +221,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"target 1, name, double tap to activate\"",
+                  "result": "fail"
                 }
               ]
             }
@@ -236,8 +236,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"target 1, column 2\"",
+                  "result": "fail"
                 }
               ]
             }
@@ -350,8 +350,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"selected, target 2, name, double tap to activate\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -365,8 +365,8 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"target 2, column 2, table end\"",
+                  "result": "fail"
                 }
               ]
             }
@@ -477,11 +477,11 @@
             "and_chr": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "activate_button",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "\"selected\", but does not announce the transition to the unselected state",
+                  "result": "partial"
                 }
               ]
             }
@@ -492,11 +492,11 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item",
+                  "command": "activate_button",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "change of state not conveyed",
+                  "result": "fail"
                 }
               ]
             }
