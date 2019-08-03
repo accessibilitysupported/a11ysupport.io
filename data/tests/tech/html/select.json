@@ -13,8 +13,8 @@
               "output": [
                 {
                   "command": "activate_actionable_item",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "element was focused",
+                  "result": "pass"
                 }
               ]
             }
@@ -204,10 +204,11 @@
               "output": [
                 {
                   "command": "click_type",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "element was focused",
+                  "result": "pass"
                 }
-              ]
+              ],
+              "notes": "said \"click list box\""
             }
           }
         },
@@ -813,10 +814,10 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"collapsed, banana, popup button, what food do you want?\"",
-                  "result": "pass"
+                  "result": "partial"
                 }
               ],
-              "notes": "I was unable to activate an option after double tapping the pop up button. The list was displayed and I could swipe right to navigate options, but double tapping just closed the list and didn't change the value. Work around: swipe right through the entire page until you reach the open options at the end of the page, then you can navigate and make your selection."
+              "notes": "Partial support due to the work around needed to activate an option. I was unable to activate an option after double tapping the pop up button. The list was displayed and I could swipe right to navigate options, but double tapping just closed the list and didn't change the value. Work around: swipe right through the entire page until you reach the open options at the end of the page, then you can navigate and make your selection."
             }
           }
         },
@@ -1601,10 +1602,11 @@
               "output": [
                 {
                   "command": "choose_dropdown_option",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "command registered but selection was not made",
+                  "result": "fail"
                 }
-              ]
+              ],
+              "notes": "to show the choices, first say 'show choices'. I said 'click listbox', 'show choices', 'choose banana', and the option was not activated."
             }
           }
         },
@@ -1742,11 +1744,11 @@
             "chrome": {
               "output": [
                 {
-                  "command": "click_type",
+                  "command": "move_down",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"\"",
-                  "result": "unknown"
+                  "output": "value was changed to the next option",
+                  "result": "pass"
                 }
               ]
             }
@@ -2082,12 +2084,10 @@
     "talkback": {
       "browsers": {
         "and_chr": {
-          "and_chr": {
-            "at_version": "7.3.0",
-            "browser_version": "75",
-            "os_version": "9",
-            "date": "2019-07-27"
-          }
+          "at_version": "7.3.0",
+          "browser_version": "75",
+          "os_version": "9",
+          "date": "2019-07-27"
         }
       }
     },
