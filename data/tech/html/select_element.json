@@ -14,6 +14,9 @@
       "id": "convey_name",
       "title": "convey the accessible name of the select",
       "rationale": "The user needs to know the purpose of the select.",
+      "examples": [
+        "A screen reader might convey the name as \"<role>, <name>, <value>\""
+      ],
       "type": "MUST",
       "css_target": "select",
       "preconditions": [],
@@ -27,6 +30,9 @@
       "id": "convey_role",
       "title": "convey the select role",
       "rationale": "The user needs to know that the element has select behavior.",
+      "examples": [
+        "A screen reader might convey the select as a select or a combo box"
+      ],
       "type": "MUST",
       "css_target": "select",
       "preconditions": [],
@@ -40,6 +46,9 @@
       "id": "convey_change_in_value",
       "title": "convey changes to the value after making a selection",
       "rationale": "The user needs to know that the value was successfully changed.",
+      "examples": [
+        "A screen reader might announce the new value after it has been changed"
+      ],
       "type": "MUST",
       "css_target": "select",
       "preconditions": [],
@@ -51,12 +60,59 @@
       "id": "convey_value",
       "title": "convey the current value of the select",
       "rationale": "The user needs to know that the current value is when they navigate to the control.",
+      "examples": [
+        "A screen reader might convey the name as \"<role>, <name>, <value>\""
+      ],
       "type": "MUST",
       "css_target": "select",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_option_boundaries",
+      "title": "convey the boundaries of the options within the select",
+      "rationale": "The user needs to know that when they enter and leave the options.",
+      "examples": [
+        "A screen reader might convey the option name when enter thing select, and \"out of select\" when exiting",
+        "A screen reader might convey information about the position in the options, such as \"4 of 4\" to indicate the start and end of the options"
+      ],
+      "type": "SHOULD",
+      "css_target": "select",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_collapsed_state",
+      "title": "convey the expanded and collapsed states",
+      "rationale": "The user might find it helpful to know if the select is open or closed.",
+      "examples": [
+        "A screen reader might convey the collapsed state as \"4 of 4\" and the expanded state as ",
+        "A screen reader will usually imply the expanded state by sending focus to the option list. When the user leaves the option list, the select becomes collapsed."
+      ],
+      "type": "SHOULD",
+      "css_target": "select",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "provide_shortcuts",
+      "title": "provide shortcuts to jump to text inputs",
+      "rationale": "Screen reader users might want to quickly navigate to different text inputs on the page.",
+      "examples": [
+        "A screen reader might provide a keyboard shortcut to jump to the next form control or provide a list of all form controls"
+      ],
+      "type": "SHOULD",
+      "css_target": "select",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
       ]
     }
   ],
