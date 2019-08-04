@@ -127,12 +127,14 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				validBrowsers.forEach(function(browser) {
 					//Set support arrays
 					let support = assertion.results[at].browsers[browser].support;
+					let some_support_behind_settings = assertion.results[at].browsers[browser].some_support_behind_settings;
 					if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 						if (ATBrowsers.core_at.includes(at)) {
 							if (!featureObject.core_support_by_at[at]) {
 								featureObject.core_support_by_at[at] = {
 									'string': null,
-									'values': []
+									'values': [],
+									'some_support_behind_settings': false
 								};
 							}
 
@@ -150,14 +152,16 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 							if (!featureObject.core_support_by_at_browser[at][browser]) {
 								featureObject.core_support_by_at_browser[at][browser] = {
 									'string': null,
-									'values': []
+									'values': [],
+									'some_support_behind_settings': false
 								};
 							}
 
 							if (!featureObject.assertions[assertion_key].core_support_by_at[at]) {
 								featureObject.assertions[assertion_key].core_support_by_at[at] = {
 									'string': null,
-									'values': []
+									'values': [],
+									'some_support_behind_settings': false
 								};
 							}
 
@@ -168,21 +172,33 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 							if (!featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser]) {
 								featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser] = {
 									'string': null,
-									'values': []
+									'values': [],
+									'some_support_behind_settings': false
 								};
 							}
 
 							if (assertion.type === "MUST") {
 								// Only include "must" assertions in core support at the feature level
 								featureObject.core_support_by_at_browser[at][browser].values.push(support);
+								if (some_support_behind_settings) {
+									featureObject.core_support_by_at_browser[at][browser].some_support_behind_settings = some_support_behind_settings;
+								}
+
 								featureObject.core_support.push(support);
 							} else {
 								featureObject.extended_support.push(support);
 							}
 
 							featureObject.assertions[assertion_key].core_support_by_at[at].values.push(support);
+							if (some_support_behind_settings) {
+								featureObject.assertions[assertion_key].core_support_by_at[at].some_support_behind_settings = some_support_behind_settings;
+							}
+
 							featureObject.assertions[assertion_key].core_support.push(support);
 							featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values.push(support);
+							if (some_support_behind_settings) {
+								featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].some_support_behind_settings = some_support_behind_settings;
+							}
 						} else {
 							featureObject.extended_support.push(support);
 							featureObject.assertions[assertion_key].extended_support.push(support);
@@ -403,7 +419,11 @@ helper.initalizeTestCase = function (testCase) {
 				if (testCase.assertions[assertion_key].results[at].browsers[browser].output) {
 					// Set the support property based on the result of the output.
 					var results = [];
+					testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings = false;
 					testCase.assertions[assertion_key].results[at].browsers[browser].output.forEach(function(output) {
+						if (output.behind_setting) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings = true;
+						}
 						results.push(output.result);
 					});
 
@@ -456,9 +476,18 @@ helper.initalizeTestCase = function (testCase) {
 				let support = testCase.assertions[assertion_key].results[at].browsers[browser].support;
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 					testCase.assertions[assertion_key].results[at].core_support.push(support);
+
+					if (testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings) {
+						testCase.assertions[assertion_key].results[at].some_support_behind_settings = testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings;
+					}
+
 					if (ATBrowsers.core_at.includes(at)) {
                         testCase.assertions[assertion_key].core_support.push(support);
 						testCase.core_support.push(support);
+
+						if (testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings) {
+							testCase.assertions[assertion_key].some_support_behind_settings = testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings;
+						}
 					} else {
                         testCase.assertions[assertion_key].extended_support.push(support);
 						testCase.extended_support.push(support);

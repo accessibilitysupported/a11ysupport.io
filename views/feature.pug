@@ -52,6 +52,7 @@ block content
               td(class="current-support-container " + data.core_may_support_string.class) #{data.core_may_support_string.string}
 
         h3(id='support-table-by-assertion-and-at') Summary of support by expectation and assistive technology
+        - var some_support_behind_settings = false
         table(aria-labelledby='support-table-' + index)
           tr
             th Expectation
@@ -64,6 +65,11 @@ block content
                     a(href="#support-table-" + index) #{testHelper.trimTechFromAssertion(assertion.title)}
                   each at in ATBrowsers.core_at
                     td(class='support-case ' + assertion.core_support_by_at[at].string.class)= assertion.core_support_by_at[at].string.string
+                      if (assertion.core_support_by_at[at].some_support_behind_settings)
+                        - some_support_behind_settings = true
+                        span *
+        if (some_support_behind_settings)
+          p * means that some support is hidden behind settings
 
 
         each assertion, index in data.assertions
@@ -73,6 +79,7 @@ block content
             p Rationale: #{assertion.rationale}
 
           if assertion.tests.length > 0
+            - var some_support_behind_settings = false
             table(aria-labelledby='support-table-' + index)
               tr
                 th AT
@@ -84,6 +91,11 @@ block content
                     td= ATBrowsers.at[at].title
                     td= ATBrowsers.browsers[browser].title
                     td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.class)= assertion.core_support_by_at_browser[at][browser].string.string
+                      if (assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
+                        - some_support_behind_settings = true
+                        span *
+            if (some_support_behind_settings)
+              p * means that some support is hidden behind settings
 
             p This expectation is referenced by #{assertion.tests.length} tests.
             details

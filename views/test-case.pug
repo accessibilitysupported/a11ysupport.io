@@ -66,7 +66,7 @@ block content
                 details(open)
                     summary
                         h3(id="support-summary-by-at") Summary of support by expectation and assistive technology
-
+                    - var some_support_behind_settings = false;
                     table(aria-labelledby="support-summary-by-at").support-table.assertion-container.summary-matrix
                         tr
                             th Expectation
@@ -85,6 +85,10 @@ block content
                                         each at, at_key in ATBrowsers.at
                                             td(class="support-case " + assertion.results[at_key].core_support_string.class headers="h-feature-"+currentFeatureIndex+" h-assertion-"+assertionIndex + " h-at-"+at.id)
                                                 span #{assertion.results[at_key].core_support_string.string}
+                                                if (assertion.results[at_key].some_support_behind_settings)
+                                                    - some_support_behind_settings = true;
+                                                    span *
+                    p * means that some support is hidden behind settings
 
             h3(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
