@@ -12,7 +12,7 @@ block content
 
             a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
 
-            h2 On this page
+            h2(id="top") On this page
             ul
                 li
                     a(href="#test-html") Test HTML
@@ -227,7 +227,7 @@ block content
                                                 span -
                                         td
                                             a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
-
+                    a(href="#top").back-to-top Back to top
             details(open)
                 summary
                     h2(id="versions") Dates and Versions
