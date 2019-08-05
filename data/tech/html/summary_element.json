@@ -1,0 +1,78 @@
+{
+  "id": "summary_element",
+  "title": "summary element",
+  "type": "element",
+  "description": "The details element represents a disclosure widget from which the user can obtain additional information or controls.",
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for the summary element",
+      "url": "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-summary-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_name",
+      "title": "convey the name of the summary button",
+      "rationale": "A user needs to know the name of the content that can be expanded or collapsed.",
+      "examples": [
+        "A screen reader might announce something like \"<role>, <name>\"",
+        "Voice control software might allow the user to say something like \"click <name>\""
+      ],
+      "type": "MUST",
+      "css_target": "summary",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "title": "convey the button role",
+      "rationale": "A user needs to be aware that they are entering grouped content.",
+      "type": "MUST",
+      "examples": [
+        "A screen reader might announce something like \"button\", \"details\", or \"summary\"",
+        "Voice control software might allow the user to say something like \"click button\""
+      ],
+      "css_target": "summary",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ]
+    },
+    {
+      "id": "convey_expanded_state",
+      "title": "convey the expanded state",
+      "rationale": "A user needs to know when they enter and exist the details.",
+      "examples": [
+        "A screen reader might announce either \"expanded\" or \"collapsed\""
+      ],
+      "type": "MUST",
+      "css_target": "summary",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_change_in_expanded_state",
+      "title": "convey when the expanded state is changed",
+      "rationale": "A user needs to know when the state changes and that their action was successful.",
+      "examples": [
+        "A screen reader might announce the new new state value, either \"expanded\" or \"collapsed\""
+      ],
+      "type": "MUST",
+      "css_target": "summary",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-08-05"
+}

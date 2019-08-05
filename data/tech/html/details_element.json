@@ -1,0 +1,46 @@
+{
+  "id": "details_element",
+  "title": "details element",
+  "type": "element",
+  "description": "The details element represents a disclosure widget from which the user can obtain additional information or controls.",
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for the details element",
+      "url": "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "convey the group role or convey the group as presentational",
+      "rationale": "A user needs to be aware that they are entering grouped content.",
+      "examples": [
+        "A screen reader might announce the role as \"group\" or \"details\"",
+        "A screen reader might consider the group as presentational and not convey a group role"
+      ],
+      "type": "MUST",
+      "css_target": "details",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "convey the boundaries of the details element if the group role is conveyed",
+      "rationale": "A user needs to know when they enter and exist the details.",
+      "examples": [
+        "A screen reader might imply the start of the group by announcing the group role when entering the group",
+        "A screen reader might announce \"leaving group\" when exiting the group",
+        "A screen reader might consider the group to be presentational and not convey any group semantics"
+      ],
+      "type": "SHOULD",
+      "css_target": "details",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2019-08-05"
+}
