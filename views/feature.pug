@@ -114,13 +114,13 @@ block content
       else
         p No expectations have been created for this feature yet.
 
+    div.sidebar
       h2(id="related-tests") Tests
       ul
         each test in data.tests
           li
-            a(href="/tests/" + testHelper.makeSafe(test.id)) #{test.title} - last updated #{test.history[test.history.length-1].date}
+            a(href="/tests/" + testHelper.makeSafe(test.id)) #{test.title} - last updated #{test.history[test.history.length - 1].date}
 
-    div.sidebar
       if data.related_issues && data.related_issues.length
         h2(id="at-browser-issues") Related issues, discussions, and bugs
         ul
