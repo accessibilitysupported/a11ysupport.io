@@ -448,6 +448,8 @@ helper.initalizeTestCase = function (testCase) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
 						} else if (results.includes('fail')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
+						} else if (results.includes('na')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'na';
 						} else if (results.includes('unknown')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'u';
 						}
@@ -459,6 +461,8 @@ helper.initalizeTestCase = function (testCase) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
 						} else if (results.includes('fail')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'n';
+						} else if (results.includes('na')) {
+							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'na';
 						} else if (results.includes('unknown')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'u';
 						}
@@ -616,6 +620,12 @@ helper.generateSupportString = function(support) {
 		return helper.generateSupportString("un");
 	}
 
+	// test for full na support before filtering na support
+	let uniqueSupport = support.unique();
+	if (uniqueSupport.length === 1 && uniqueSupport[0] === "na") {
+		return helper.generateSupportString("na");
+	}
+
 	// filter out "na" values
 	let filteredSupport = support.filter(function(element) {
 		return element !== "na"
@@ -626,7 +636,7 @@ helper.generateSupportString = function(support) {
 	}
 
 	//Get the unique values to make it easier to compare
-	let uniqueSupport = filteredSupport.unique();
+	uniqueSupport = filteredSupport.unique();
 
 	if (uniqueSupport.length === 1) {
 		if (uniqueSupport[0] === 'y') {
