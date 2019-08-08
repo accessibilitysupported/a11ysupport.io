@@ -895,14 +895,14 @@
                   "command": "previous_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"1 of 5, apple\"",
+                  "output": "\"1 of 8, apple\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"5 of 5, everything\"",
+                  "output": "\"5 of 8, everything\"",
                   "result": "pass"
                 }
               ]
@@ -917,14 +917,14 @@
                   "command": "previous_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "when expanded: \"apple, 1 of 5\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
+                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
                   "result": "pass"
                 },
                 {
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "when expanded: \"apple, 1 of 5\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
+                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
                   "result": "pass"
                 }
               ]
@@ -935,14 +935,14 @@
                   "command": "previous_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "when expanded: \"apple, 1 of 5\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
+                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
                   "result": "pass"
                 },
                 {
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "when expanded: \"apple, 1 of 5\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
+                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
                   "result": "pass"
                 }
               ]
@@ -1655,7 +1655,7 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"3 of 5, chicken\"",
+                  "output": "\"3 of 8, chicken\"",
                   "result": "pass"
                 }
               ]
@@ -1928,7 +1928,7 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"3 of 5, steak\"",
+                  "output": "\"3 of 8, steak\"",
                   "result": "pass"
                 }
               ]
@@ -1943,7 +1943,7 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"apple 1 of 5\"",
+                  "output": "\"apple 1 of 8\"",
                   "result": "partial"
                 }
               ],
@@ -1955,7 +1955,7 @@
                   "command": "next_option",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"apple 1 of 5\"",
+                  "output": "\"apple 1 of 8\"",
                   "result": "partial"
                 }
               ],
@@ -2014,9 +2014,175 @@
           }
         }
       }
+    },
+    {
+      "feature_id": "html/disabled_attribute",
+      "feature_assertion_id": "convey_disabled",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "disabled options were skipped",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "disabled options were skipped",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "disabled options were skipped",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "options are skipped when scan mode is off",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Broccoli, Lettuce, 3 of 5, disabled\" (when scan mode is on)",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Broccoli, 1 of 2, disabled\" (when scan mode is on)",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Nothing, 5 of 5, disabled\" (when scan mode is on)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "disabled options were skipped",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "disabled options were skipped",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                },
+                {
+                  "command": "select_and_speak",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"veggies, dimmed\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"nothing, dimmed\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
     }
   ],
   "history": [
+    {
+      "date": "2019-08-08",
+      "message": "Added and tested disabled optgroups and options"
+    },
     {
       "date": "2019-08-02",
       "message": "Test created"
@@ -2029,7 +2195,7 @@
           "at_version": "15.30",
           "browser_version": "75",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         }
       }
     },
@@ -2039,19 +2205,19 @@
           "at_version": "2019.1906.10",
           "browser_version": "75",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         },
         "ie": {
           "at_version": "2019.1906.10",
           "browser_version": "11",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         },
         "firefox": {
           "at_version": "2019.1906.10",
           "browser_version": "68",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         }
       }
     },
@@ -2061,7 +2227,7 @@
           "at_version": "1903",
           "browser_version": "44",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         }
       }
     },
@@ -2071,13 +2237,13 @@
           "at_version": "2019.1.1",
           "browser_version": "75",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         },
         "firefox": {
           "at_version": "2019.1.1",
           "browser_version": "68",
           "os_version": "1903",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         }
       }
     },
@@ -2097,7 +2263,7 @@
           "at_version": "12.3.1",
           "browser_version": "12.3.1",
           "os_version": "12.3.1",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         }
       }
     },
@@ -2107,7 +2273,7 @@
           "at_version": "10.14.5",
           "browser_version": "12.1.1",
           "os_version": "10.14.5",
-          "date": "2019-07-20"
+          "date": "2019-08-08"
         }
       }
     }
