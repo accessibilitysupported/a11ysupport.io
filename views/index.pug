@@ -14,5 +14,23 @@ block content
           div.submit
             button Search
       div.summary-container(tabindex="-1")
+          span #{features.length} results found
       div.search-results
+          each feature in features
+            div(data-keywords=feature.keywords_string).result
+              h2
+                a(href='/tech/'+feature.techId + '/' + feature.id) #{feature.title} (#{feature.techId})
+              div.responsive-table
+                table
+                  thead
+                    tr
+                      each at, at_id in ATBrowsers.at
+                        th #{at.short_title}
+                  tbody
+                    tr
+                      each at, at_id in ATBrowsers.at
+                        td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
+              p Supported by #{feature.total_test_count} tests.
+              if feature.core_support.includes('u')
+                p We are missing data on some combinations.
       script(src="/js/search.js")

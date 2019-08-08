@@ -302,7 +302,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	});
 
 	// Define the keywords_string
-	featureObject.keywords_string = featureObject.keywords.join(' ');
+	featureObject.keywords_string = featureObject.keywords.join(' ').replace(/\"/g, '');
 };
 
 

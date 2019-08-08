@@ -1,78 +1,26 @@
-var features;
-var ATBrowsers;
-
 // Fetch all of the required data
-getJson('/features.json', function(data) {
-	features = data;
-	getJson('/ATBrowsers.json', function(data) {
-		ATBrowsers = data;
-
-		// Now that we have the data, init search
-		initSearch();
-	});
-});
+initSearch();
+var allResults = document.querySelectorAll('.search-results .result');
 
 /**
  * Array filters items based on search criteria (query)
  */
 function filterFeatures(query) {
 	if (!query) {
-		return features;
+		// Show everything
+		for (var i = 0; i < allResults.length; i++) {
+			allResults[i].removeAttribute('hidden');
+		}
+		return;
 	}
 
-	return features.filter(function(feature) {
-		return feature.keywords_string.toLowerCase().indexOf(query.toLowerCase()) > -1;
-	});
-}
-
-function buildResult(feature) {
-	var container = document.createElement("DIV");
-	container.classList.add('result');
-	var link = document.createElement("A");
-	var title = document.createElement("H2");
-	link.href = '/tech/'+feature.techId + '/' + feature.id;
-	link.textContent = feature.title + ' (' + feature.techId + ')';
-	title.appendChild(link);
-
-
-	var tableContainer = document.createElement("DIV");
-	tableContainer.classList.add('responsive-table');
-	var table = document.createElement("TABLE");
-	var thead = document.createElement("THEAD");
-	var tbody = document.createElement("TBODY");
-
-	var headerRow = document.createElement("TR");
-	var row = document.createElement("TR");
-	for(var at in feature.core_support_by_at) {
-		var th = document.createElement("TH");
-		var td = document.createElement("TD");
-		var supportClass = feature.core_support_by_at[at].string.class;
-		th.textContent = ATBrowsers.at[at].short_title;
-		th.classList.add(supportClass);
-		td.textContent = feature.core_support_by_at[at].string.string;
-		td.classList.add(supportClass);
-		headerRow.appendChild(th);
-		row.appendChild(td);
+	for (var i = 0; i < allResults.length; i++) {
+		if (allResults[i].getAttribute('data-keywords').indexOf(query.toLowerCase()) === -1) {
+			allResults[i].setAttribute('hidden', '');
+		} else {
+			allResults[i].removeAttribute('hidden');
+		}
 	}
-
-	thead.appendChild(headerRow);
-	tbody.appendChild(row);
-	table.appendChild(thead);
-	table.appendChild(tbody);
-	tableContainer.appendChild(table);
-
-	var details = document.createElement('P');
-	details.appendChild(document.createTextNode('Supported by ' + feature.total_test_count + ' tests. '));
-	if (feature.core_support.includes('u')) {
-		details.appendChild(document.createTextNode('We are missing data on some combinations.'));
-	}
-
-	container.appendChild(title);
-	container.appendChild(tableContainer);
-	container.appendChild(details);
-
-
-	return container;
 }
 
 function initSearch() {
@@ -83,7 +31,6 @@ function initSearch() {
 	var form = searchContainer.querySelector('form');
 	var input = searchContainer.querySelector('input.search');
 	var summary = searchContainer.querySelector('.summary-container');
-	var resultsContainer = searchContainer.querySelector('.search-results');
 	var liveAnnouncements = searchContainer.querySelector('.live-announcements');
 	var liveTimeoutId;
 
@@ -118,7 +65,6 @@ function initSearch() {
 
 	function showSearchResults(query, disableLiveAnnouncements) {
 		//Empty the current results
-		resultsContainer.innerHTML = '';
 		summary.innerHTML = '';
 
 		if (query.length === 0 && !disableLiveAnnouncements) {
@@ -126,7 +72,9 @@ function initSearch() {
 			setLiveResultNotification('Showing all features');
 		}
 
-		var results = filterFeatures(query);
+		filterFeatures(query);
+
+		var results = document.querySelectorAll('.search-results .result:not([hidden])');
 
 		if (!results.length) {
 			var string = 'Sorry, no results could be found.';
@@ -144,11 +92,6 @@ function initSearch() {
 		if (!disableLiveAnnouncements) {
 			setLiveResultNotification(string);
 		}
-
-		//Repopulate
-		for (var i = 0; i < results.length; i++) {
-			resultsContainer.appendChild(buildResult(results[i]));
-		}
 	}
 
 	input.addEventListener('input', function() {
@@ -156,5 +99,5 @@ function initSearch() {
 	});
 
 	// Show everything by default
-	showSearchResults('', true);
+	//showSearchResults('', true);
 }

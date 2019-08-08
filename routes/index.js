@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 	let tech = require(__dirname+'/../build/tech.json');
 	res.render('index', {
 		title: 'Accessibility Support',
-		tech: tech
+		features: require(__dirname+'/../build/features.json'),
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
 	});
 });
 
