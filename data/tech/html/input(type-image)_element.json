@@ -2,7 +2,7 @@
   "id": "input[type=image]_element",
   "title": "input[type=\"image\"] element",
   "type": "element",
-  "description": "",
+  "description": "The input element represents either an image from which a user can select a coordinate and submit the form, or alternatively a button from which the user can submit the form.",
   "references": [
     {
       "title": "HTML5 spec for input[type=\"image\"]",
@@ -12,14 +12,14 @@
   "assertions": [
     {
       "id": "convey_name",
-      "title": "convey the name of the text input",
-      "rationale": "A screen reader user needs to know what to enter.",
+      "title": "convey the name of the button",
+      "rationale": "A screen reader user needs to what the button does.",
       "examples":  [
-        "A screen reader will announce the name (label).",
+        "A screen reader might announce the button as something like \"<name>, button\".",
         "Voice control software will let the user say something like \"click <name>\" to activate the control."
       ],
       "type": "MUST",
-      "css_target": "input[type=\"image\"]",
+      "css_target": "input[type=\"button\"]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
@@ -29,14 +29,14 @@
     },
     {
       "id": "convey_role",
-      "title": "convey the text input role",
-      "rationale": "A screen reader user needs to know that they can enter text.",
+      "title": "convey the button role",
+      "rationale": "A screen reader user needs to know that the element performs an action.",
       "examples": [
-        "A screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
-        "Voice control software will let the user say something like \"click text box\" to focus a the input."
+        "A screen reader might be announce the role as something like \"button\".",
+        "Voice control software will let the user say something like \"click button\"."
       ],
       "type": "MUST",
-      "css_target": "input[type=\"image\"]",
+      "css_target": "input[type=\"button\"]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
@@ -45,38 +45,11 @@
       ]
     },
     {
-      "id": "convey_value",
-      "title": "convey the value of the text input",
-      "rationale": "A screen reader user needs to know the current value of the input.",
-      "type": "MUST",
-      "css_target": "input[type=\"image\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading",
-        "sr/interaction"
-      ]
-    },
-    {
-      "id": "convey_change_in_value",
-      "title": "convey changes to the value",
-      "rationale": "The user needs to know that the value was successfully changed.",
-      "examples": [
-        "When the user enter tests, the screen reader will announce it back to them."
-      ],
-      "type": "MUST",
-      "pass_strategy": "all",
-      "css_target": "input[type=\"image\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/interaction"
-      ]
-    },
-    {
       "id": "provide_shortcuts",
-      "title": "provide shortcuts to jump to text inputs",
-      "rationale": "Screen reader users might want to quickly navigate to different text inputs on the page.",
+      "title": "provide shortcuts to jump to buttons",
+      "rationale": "Screen reader users might want to quickly navigate to different buttons on the page.",
       "type": "SHOULD",
-      "css_target": "input[type=\"image\"]",
+      "css_target": "input[type=\"button\"]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading"

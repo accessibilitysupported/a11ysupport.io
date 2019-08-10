@@ -2,13 +2,59 @@
   "id": "button_element",
   "title": "button element",
   "type": "element",
-  "description": "",
+  "description": "The button element represents a button labeled by its contents.",
   "references": [
     {
       "title": "HTML5 spec for button",
-      "url": "https://w3c.github.io/html/sec-forms.html#the-button-element"
+      "url": "https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element"
     }
   ],
-  "assertions": [],
-  "date_updated": "2018-11-08"
+  "assertions": [
+    {
+      "id": "convey_name",
+      "title": "convey the name of the button",
+      "rationale": "A screen reader user needs to what the button does.",
+      "examples":  [
+        "A screen reader might announce the button as something like \"<name>, button\".",
+        "Voice control software will let the user say something like \"click <name>\" to activate the control."
+      ],
+      "type": "MUST",
+      "css_target": "input[type=\"button\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "title": "convey the button role",
+      "rationale": "A screen reader user needs to know that the element performs an action.",
+      "examples": [
+        "A screen reader might be announce the role as something like \"button\".",
+        "Voice control software will let the user say something like \"click button\"."
+      ],
+      "type": "MUST",
+      "css_target": "input[type=\"button\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ]
+    },
+    {
+      "id": "provide_shortcuts",
+      "title": "provide shortcuts to jump to buttons",
+      "rationale": "Screen reader users might want to quickly navigate to different buttons on the page.",
+      "type": "SHOULD",
+      "css_target": "input[type=\"button\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2019-08-10"
 }
