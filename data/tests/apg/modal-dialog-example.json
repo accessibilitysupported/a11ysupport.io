@@ -1,0 +1,710 @@
+{
+  "title": "APG 1.1 modal dialog example",
+  "description": "This example implements a modal dialog.",
+  "html_file": "https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html",
+  "assertions": [
+    {
+      "feature_id": "aria/dialog_role",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"edit box, street\"",
+                  "result": "fail",
+                  "notes": "not conveyed when first entering the dialog"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "start of target",
+                  "to": "within target",
+                  "output": "\"edit box, street\"",
+                  "result": "fail",
+                  "notes": "not conveyed when navigating to the boundary of the dialog"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "start of target",
+                  "to": "within target",
+                  "output": "\"add delivery address, web dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"street, edit text\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "exit_object",
+                  "from": "within target",
+                  "to": "target",
+                  "output": "\"Out of add delivery address, web dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/dialog_role",
+      "feature_assertion_id": "convey_name",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"edit box, street\"",
+                  "result": "fail",
+                  "notes": "not conveyed when first entering the dialog"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "start of target",
+                  "to": "within target",
+                  "output": "\"edit box, street\"",
+                  "result": "fail",
+                  "notes": "not conveyed when navigating to the boundary of the dialog"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "start of target",
+                  "to": "within target",
+                  "output": "\"add delivery address, web dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"street, edit text\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "exit_object",
+                  "from": "within target",
+                  "to": "target",
+                  "output": "\"Out of add delivery address, web dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-modal_attribute",
+      "feature_assertion_id": "limit_reading_to_children",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "unable to reach outside content",
+                  "result": "pass",
+                  "notes": "The title of the window was announced"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "unable to reach outside content",
+                  "result": "pass",
+                  "notes": "The title of the window was announced"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "unable to reach outside content",
+                  "result": "pass",
+                  "notes": "The title of the window was announced"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "content outside of the modal was announced",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "unable to reach outside content",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "unable to reach outside content",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "content outside of the modal was announced",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "\"opening double quotation mark\" and \"closing double quotation mark\"",
+                  "result": "partial",
+                  "notes": "quotation marks were found and announced but no other content was conveyed"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "target",
+                  "to": "before target",
+                  "output": "unable to navigate to outside content",
+                  "result": "pass",
+                  "notes": "unable to navigate to outside content even after navigating out of the dialog via VO+shift+up arrow"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-modal_attribute",
+      "feature_assertion_id": "remove_outside_content_from_shortcuts",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "outside content was displayed in content lists, such as the of links, etc.",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_unvisited_link",
+                  "output": "no links were found",
+                  "result": "pass",
+                  "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "outside content was displayed in content lists, such as the of links, etc.",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_unvisited_link",
+                  "output": "no links were found",
+                  "result": "pass",
+                  "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "outside content was displayed in content lists, such as the of links, etc.",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_unvisited_link",
+                  "output": "no links were found",
+                  "result": "pass",
+                  "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "previous_link",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "links were found outside of the modal",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "previous_form_field",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "no outside form fields were found",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_link",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "no outside links were found",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "only content within the modal was included in the lists",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_form_field",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "no outside form fields were found",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_link",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "no outside links were found",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "only content within the modal was included in the lists",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "previous_link",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "content outside of the modal was announced",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "previous_link",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not found",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_form_field",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not found",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "previous_heading",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "previous headings in outside content were found",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "headings, links, and other content was listed and could be navigated to",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-08-13",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1906.10",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        },
+        "ie": {
+          "at_version": "2019.1906.10",
+          "browser_version": "11",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        },
+        "firefox": {
+          "at_version": "2019.1906.10",
+          "browser_version": "68",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1.1",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        },
+        "firefox": {
+          "at_version": "2019.1.1",
+          "browser_version": "68",
+          "os_version": "1903",
+          "date": "2019-08-13"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-08-13"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.3.1",
+          "browser_version": "12.3.1",
+          "os_version": "12.3.1",
+          "date": "2019-08-13"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.5",
+          "date": "2019-08-13"
+        }
+      }
+    }
+  }
+}

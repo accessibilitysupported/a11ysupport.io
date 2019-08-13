@@ -2,13 +2,50 @@
   "id": "aria-modal_attribute",
   "title": "aria-modal attribute",
   "type": "attribute",
-  "description": "Indicates whether an element is modal when displayed.",
+  "description": "Indicates whether an element is modal when displayed. For more robust support, consider making the rest of the document [inert](https://github.com/WICG/inert) when an element has aria-modal=true.",
   "references": [
     {
       "title": "ARIA spec for aria-modal",
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-modal"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "limit_reading_to_children",
+      "title": "limit reading to children of aria-modal=true",
+      "type": "MUST",
+      "css_target": "*[aria-modal=true]",
+      "pass_strategy": "all",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "remove_outside_content_from_shortcuts",
+      "title": "remove outside content from navigational shortcuts when aria-modal=true",
+      "type": "MUST",
+      "examples": [
+        "Screen readers must not allow allow users to jump to the next element type if that element is outside of the modal",
+        "Screen readers must not include outside content in the list of elements"
+      ],
+      "css_target": "*[aria-modal=true]",
+      "pass_strategy": "all",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "value_false",
+      "title": "convey the aria-modal attribute or limit navigation when aria-modal=false",
+      "type": "MUST NOT",
+      "css_target": "*[aria-modal=false]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2019-08-13"
 }
