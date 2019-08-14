@@ -17,9 +17,25 @@
   ],
   "assertions": [
     {
+      "id": "convey_presence",
+      "title": "convey the presence of aria-model=true",
+      "type": "MUST",
+      "rationale": "Users need to be aware that other content is obscured by the modal.",
+      "examples": [
+        "Screen readers might convey the modal state when entering the modal",
+        "Screen readers might imply the modal state by restricting reading and navigation to the modal content"
+      ],
+      "css_target": "*[aria-modal=true]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
       "id": "limit_reading_to_children",
       "title": "limit reading to children of aria-modal=true",
-      "type": "MUST",
+      "type": "SHOULD",
+      "rationale": "Users should not be able to access content outside of the modal. However, AT are not required to implement this functionality per the ARIA spec, and authors may implement this on their own.",
       "css_target": "*[aria-modal=true]",
       "pass_strategy": "all",
       "preconditions": [],
@@ -30,7 +46,8 @@
     {
       "id": "remove_outside_content_from_shortcuts",
       "title": "remove outside content from navigational shortcuts when aria-modal=true",
-      "type": "MUST",
+      "type": "SHOULD",
+      "rationale": "Users should not be able to access content outside of the modal. However, AT are not required to implement this functionality per the ARIA spec, and authors may implement this on their own.",
       "examples": [
         "Screen readers must not allow allow users to jump to the next element type if that element is outside of the modal",
         "Screen readers must not include outside content in the list of elements"

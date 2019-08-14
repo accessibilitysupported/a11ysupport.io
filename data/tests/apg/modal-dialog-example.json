@@ -301,6 +301,144 @@
     },
     {
       "feature_id": "aria/aria-modal_attribute",
+      "feature_assertion_id": "convey_presence",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The modal state was explicitly conveyed."
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The modal state was explicitly conveyed."
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, modal dialog...\"",
+                  "result": "pass",
+                  "notes": "The modal state was explicitly conveyed."
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "fail",
+                  "notes": "Modal state was not conveyed and non-modal content was not obscured. See other expectations for details."
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass",
+                  "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass",
+                  "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"edit box, street\"",
+                  "result": "fail",
+                  "notes": "Modal state was not conveyed but non-modal content was not obscured. See other expectations for details."
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "start of target",
+                  "to": "within target",
+                  "output": "\"add delivery address, web dialog...\"",
+                  "result": "partial",
+                  "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"street, edit text\"",
+                  "result": "partial",
+                  "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-modal_attribute",
       "feature_assertion_id": "limit_reading_to_children",
       "results": {
         "jaws": {
