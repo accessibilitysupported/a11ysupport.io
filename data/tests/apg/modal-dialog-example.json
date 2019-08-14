@@ -300,6 +300,163 @@
       }
     },
     {
+      "feature_id": "aria/dialog_role",
+      "feature_assertion_id": "convey_boundaries",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not able to move outside of the modal",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not able to move outside of the modal",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not able to move outside of the modal",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"Dialog, heading level 2, add delivery address\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "\"Link, modal dialog design pattern in aria authoring practices 1.1\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not able to move outside of the modal",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "not able to move outside of the modal",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "dialog boundary not conveyed",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "start of target",
+                  "to": "before target",
+                  "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"add delivery address, web dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "target",
+                  "to": "before target",
+                  "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
       "feature_id": "aria/aria-modal_attribute",
       "feature_assertion_id": "convey_presence",
       "results": {
