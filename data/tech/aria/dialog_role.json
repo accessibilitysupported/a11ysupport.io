@@ -9,6 +9,44 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#dialog"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "convey the dialog role",
+      "type": "MUST",
+      "rationale": "Users must be made aware of the dialog context.",
+      "css_target": "*[aria-role=\"dialog\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "title": "convey the name of the dialog",
+      "type": "MUST",
+      "rationale": "Users need to know the purpose of the dialog.",
+      "css_target": "*[aria-role=\"dialog\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "convey the boundaries of the dialog",
+      "type": "MUST",
+      "rationale": "Users need to know when they enter and exit a dialog.",
+      "examples": [
+        "Screen readers might announce something like \"entering dialog\" or \"leaving dialog\".",
+        "Screen readers might imply the boundary by obscuring outside content when aria-modal=true is also present."
+      ],
+      "css_target": "*[aria-role=\"dialog\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2019-08-13"
 }
