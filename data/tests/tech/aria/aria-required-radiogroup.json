@@ -6,7 +6,7 @@
     {
       "feature_id": "aria/aria-required_attribute",
       "feature_assertion_id": "convey_value_true",
-      "target": "input[type=\"radio\"]",
+      "target": "input[type=\"radio\"], *[aria-required=\"true\"]",
       "results": {
         "jaws": {
           "browsers": {
@@ -81,6 +81,30 @@
                   "to": "target",
                   "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 2.\"",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
+                  "result": "fail",
+                  "notes": "Not conveyed when any of the radio buttons are focused"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Animal, heading 3\"",
+                  "result": "fail",
+                  "notes": "Group semantics were not conveyed"
                 }
               ]
             }
@@ -285,6 +309,30 @@
             }
           }
         },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
+                  "result": "fail",
+                  "notes": "Not conveyed when any of the radio buttons are focused"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Animal, heading 3\"",
+                  "result": "fail",
+                  "notes": "Group semantics were not conveyed"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -464,6 +512,30 @@
                   "to": "within target",
                   "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 2.\"",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
+                  "result": "fail",
+                  "notes": "Not conveyed when any of the radio buttons are focused"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Animal, heading 3\"",
+                  "result": "fail",
+                  "notes": "Group semantics were not conveyed"
                 }
               ]
             }
@@ -710,6 +782,30 @@
             }
           }
         },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
+                  "result": "fail",
+                  "notes": "Not conveyed when any of the radio buttons are focused"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Animal, heading 3\"",
+                  "result": "fail",
+                  "notes": "Group semantics were not conveyed"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -773,6 +869,10 @@
   ],
   "history": [
     {
+      "date": "2019-08-16",
+      "message": "Chrome results added."
+    },
+    {
       "date": "2019-07-01",
       "message": "Test created"
     }
@@ -823,6 +923,16 @@
           "browser_version": "67",
           "os_version": "1903",
           "date": "2019-07-01"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-07-27"
         }
       }
     },
