@@ -135,28 +135,35 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		);
 		fieldset.setAttribute('data-name', name);
 		var legend = document.createElement('legend');
-		legend.innerText = assertion.feature_title + ' / ' + assertion.assertion_title;
+		var short_title = assertion.assertion_title;
+		short_title = short_title.replace('The assistive technology ', '');
+		short_title = short_title.replace('The screen reader', '');
+		legend.innerText = assertion.feature_title + ': ' + short_title;
 		fieldset.append(legend);
 
-		var meta_dl = document.createElement('dl');
-		meta_dl.classList.add('inline');
-		var css_target_dt = document.createElement('dt');
-		var css_target_dd = document.createElement('dd');
-		css_target_dt.innerText = 'Target: ';
-		css_target_dd.innerText = assertion.css_target;
-		meta_dl.appendChild(css_target_dt);
-		meta_dl.appendChild(css_target_dd);
+		var instructions_ol = document.createElement('ol');
+		var li = document.createElement('li');
+		li.innerText = 'Find all elements in the example that match this selector: ';
+		var strong = document.createElement('strong');
+		strong.innerText = assertion.css_target;
+		li.appendChild(strong);
+		instructions_ol.appendChild(li);
+
+		var li = document.createElement('li');
+		li.innerText = 'Navigate to each matching element and interact with it. Record your findings below for every command that you used.';
+		instructions_ol.appendChild(li);
+
+		var li = document.createElement('li');
+		li.innerText = 'Does the output meet the expectation? Record your findings below for every command that you used.';
+		instructions_ol.appendChild(li);
 
 		if (assertion.expected_value) {
-			var exp_dt = document.createElement('dt');
-			exp_dt.innerText = 'Expected value: ';
-			var exp_dd = document.createElement('dd');
-			exp_dd.innerText = assertion.expected_value;
-			meta_dl.append(exp_dt);
-			meta_dl.append(exp_dd);
+			var li = document.createElement('li');
+			li.innerText = 'Expected value: ' + assertion.css_target;
+			instructions_ol.appendChild(li);
 		}
 
-		fieldset.prepend(meta_dl);
+		fieldset.append(instructions_ol);
 
 		var addOutputButton = document.createElement('button');
 		addOutputButton.classList.add('add-output-row');
@@ -171,6 +178,7 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 
 		var noteLabel = document.createElement('label');
 		noteLabel.innerText = 'Notes';
+		noteLabel.setAttribute('for', fieldset.getAttribute('id')+'--note');
 		var noteTextarea = document.createElement('textarea');
         noteTextarea.setAttribute('id', fieldset.getAttribute('id')+'--note');
         noteTextarea.setAttribute('name', fieldset.getAttribute('data-name')+'.note');
@@ -194,7 +202,10 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 			createCommandOutputRow(assertion, fieldset, null, false);
 		}
 
-		assertions_container.append(fieldset);
+		var assertion_container = document.createElement('div');
+		assertion_container.classList.add('assertion-container');
+		assertion_container.append(fieldset);
+		assertions_container.append(assertion_container);
 	});
 
 	if (num_fieldsets === 0) {
@@ -309,12 +320,20 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 			value: 'after target'
 		},
 		{
+			label: 'start of target',
+			value: 'start of target'
+		},
+		{
 			label: 'target',
 			value: 'target'
 		},
 		{
 			label: 'within target',
 			value: 'within target'
+		},
+		{
+			label: 'end of target',
+			value: 'end of target'
 		},
 		{
 			label: 'n/a',
@@ -368,6 +387,18 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 		{
 			label: 'past target',
 			value: 'past target'
+		},
+		{
+			label: 'before target',
+			value: 'before target'
+		},
+		{
+			label: 'within target',
+			value: 'within target'
+		},
+		{
+			label: 'after target',
+			value: 'after target'
 		},
 		{
 			label: 'n/a',
@@ -438,6 +469,44 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 
 	if (output_row) {
 		select.value = output_row.result;
+	}
+
+	// support is locked behind settings
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'If support is hidden behind non-default settings, briefly describe that setting';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_behind_setting';
+	label.setAttribute('for', id);
+	var input = document.createElement('input');
+	input.setAttribute('type', 'text');
+	input.setAttribute('id', id);
+	input.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_behind_setting');
+	div.appendChild(label);
+	div.appendChild(input);
+	fieldset.appendChild(div);
+
+	if (output_row && output_row.behind_setting) {
+		input.value = output_row.behind_setting;
+	}
+
+	// output notes
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'Brief notes';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_notes';
+	label.setAttribute('for', id);
+	var input = document.createElement('input');
+	input.setAttribute('type', 'text');
+	input.setAttribute('id', id);
+	input.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_notes');
+	div.appendChild(label);
+	div.appendChild(input);
+	fieldset.appendChild(div);
+
+	if (output_row && output_row.notes) {
+		input.value = output_row.notes;
 	}
 
 	if (currentRows.length > 0) {
