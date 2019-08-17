@@ -238,6 +238,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
     var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_command';
     var command_select = document.createElement('select');
     command_select.setAttribute('id', id);
+	command_select.setAttribute('data-property', 'command');
     command_select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_command');
     var label = document.createElement('label');
     label.innerText = 'The command used (required)';
@@ -305,6 +306,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
 	select.setAttribute('id', id);
+	select.setAttribute('data-property', 'from');
 	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_from');
 	var options = [
 		{
@@ -365,6 +367,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_to';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
+	select.setAttribute('data-property', 'to');
 	select.setAttribute('id', id);
 	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_to');
 	var options = [
@@ -427,9 +430,10 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	div.classList.add('control');
 	var label = document.createElement('label');
 	label.innerText = 'Output from AT (required)';
-	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_output'; //TODO add the assertion_id
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_output';
 	label.setAttribute('for', id);
 	var input = document.createElement('input');
+	input.setAttribute('data-property', 'output');
 	input.setAttribute('type', 'text');
 	input.setAttribute('id', id);
 	input.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_output');
@@ -449,6 +453,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_result';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
+	select.setAttribute('data-property', 'result');
 	select.setAttribute('id', id);
 	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_result');
 	var option = document.createElement('option');
@@ -479,6 +484,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_behind_setting';
 	label.setAttribute('for', id);
 	var input = document.createElement('input');
+	input.setAttribute('data-property', 'behind_setting');
 	input.setAttribute('type', 'text');
 	input.setAttribute('id', id);
 	input.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_behind_setting');
@@ -498,6 +504,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_notes';
 	label.setAttribute('for', id);
 	var input = document.createElement('input');
+	input.setAttribute('data-property', 'notes');
 	input.setAttribute('type', 'text');
 	input.setAttribute('id', id);
 	input.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_notes');
@@ -659,31 +666,53 @@ function initFeatureTest() {
 
         var assertion_fieldsets = document.querySelectorAll('fieldset.assertion');
 
-        assertion_fieldsets.forEach(function(fieldset) {
+        assertion_fieldsets.forEach(function(fieldset, assertion_key) {
             var legend = fieldset.querySelector('legend');
-            var controls = fieldset.querySelectorAll('input, select');
-            var note = fieldset.querySelector('textarea');
+            var output_rows = fieldset.querySelectorAll('fieldset.output-row');
+			var output_body = '';
 
-            body += '\n\n';
-            body += legend.innerText+'\n\n';
+			output_rows.forEach(function(output_row, output_row_index) {
+				var controls = output_row.querySelectorAll('input, select');
+				var current = test.assertions[assertion_key].results[at_value].browsers[browser_value].output[output_row_index];
 
-            body += '| property | value |\n';
-            body += '| --- | --- |\n';
-            body += '| feature_id | ' + fieldset.getAttribute('data-feature-id') + ' |\n';
-            body += '| feature_assertion_id | ' + fieldset.getAttribute('data-feature-assertion-id') + ' |\n';
+				controls.forEach(function(control) {
+					var name = control.getAttribute('name');
+					name = name.split('.');
+					name = name[name.length -1]; // the name is namespaced, and we already provide that namespace info, so just send the last bit.
+					var property = control.getAttribute('data-property');
 
-            controls.forEach(function(control) {
-            	var name = control.getAttribute('name');
-            	name = name.split('.');
-            	name = name[name.length -1]; // the name is namespaced, and we already provide that namespace info, so just send the last bit.
-                body += '| ' + name + ' | ' + control.value + ' |\n';
-            });
+					if (current[property] === control.value
+						|| (current[property] === undefined && control.value === '')) {
+						// Only send over changes in data.
+						return;
+					}
 
-            if (note.value) {
-                body += '\n== begin notes ==\n';
-                body +=  note.value;
-                body += '\n== end notes ==\n';
-            }
+					var old_value = '';
+					if (current[property]) {
+						old_value = current[property];
+					}
+
+					output_body += '| ' + name + ' | ' + control.value + ' | ' + old_value + ' |\n';
+				});
+			});
+
+			var note = fieldset.querySelector('textarea');
+
+			if (note.value && note.value !== test.assertions[assertion_key].results[at_value].browsers[browser_value].notes) {
+				output_body += '\n== begin notes ==\n';
+				output_body +=  note.value;
+				output_body += '\n== end notes ==\n';
+			}
+
+			if (output_body) {
+				body += '\n\n';
+				body += legend.innerText+'\n\n';
+				body += '| property | new value | old value |\n';
+				body += '| --- | --- | --- |\n';
+				body += '| feature_id | ' + fieldset.getAttribute('data-feature-id') + ' | - |\n';
+				body += '| feature_assertion_id | ' + fieldset.getAttribute('data-feature-assertion-id') + ' | - |\n';
+				body += output_body;
+			}
         });
 
 		var isCore = false;
