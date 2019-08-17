@@ -93,6 +93,12 @@ block content
                         div.control
                             button Create GitHub Issue
 
+                        div(id="output" hidden)
+                            h2(tabindex="-1" id="output-heading") Copy/paste this into a github issue
+                            label(for="issue-body") We generated an issue for you. Just copy paste this text into a github issue.
+                            textarea(id="issue-body" readonly rows="12")
+                            a(href="" target="_new" id="issue-link") Create a github issue now
+
         div.sidebar
             h2 Related Features
             p This test is found in the following features:

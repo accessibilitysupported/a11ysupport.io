@@ -720,7 +720,7 @@ function initFeatureTest() {
 			isCore = true;
 		}
 
-		url += '&body='+encodeURIComponent(body);
+		//url += '&body='+encodeURIComponent(body);
 
 		let labels = [encodeURIComponent('needs verification'), encodeURIComponent('support point')];
 
@@ -730,9 +730,17 @@ function initFeatureTest() {
 			labels.push(encodeURIComponent('extended support'));
 		}
 
-		url += '&labels='+labels.join(',');
+		// url += '&labels='+labels.join(',');
 
-		window.location = url;
+		var outputDiv = document.getElementById('output');
+		var outputHeading = document.getElementById('output-heading');
+		var issueBody = document.getElementById('issue-body');
+		var issueLink = document.getElementById('issue-link');
+
+		issueBody.value = body;
+		issueLink.setAttribute('href', url);
+		outputDiv.removeAttribute('hidden');
+		outputHeading.focus();
 	});
 }
 
