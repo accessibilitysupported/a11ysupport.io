@@ -12,7 +12,7 @@
   "assertions": [
     {
       "id": "convey_name",
-      "title": "convey the name of the text input",
+      "title": "convey the name of the color input",
       "rationale": "A screen reader user needs to know what to enter.",
       "examples":  [
         "A screen reader will announce the name (label).",
@@ -29,11 +29,30 @@
     },
     {
       "id": "convey_role",
-      "title": "convey the text input role",
-      "rationale": "A screen reader user needs to know that they can enter text.",
+      "title": "convey the color input role",
+      "rationale": "A screen reader user needs to know that they can enter a color.",
       "examples": [
-        "A screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
+        "If implemented as a text field, the screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
+        "If implemented as a color picker, the screen reader might be announce the role as \"button\", \"color chooser\", \"color well\", etc.",
         "Voice control software will let the user say something like \"click text box\" to focus a the input."
+      ],
+      "type": "MUST",
+      "css_target": "input[type=\"color\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ]
+    },
+    {
+      "id": "widget_is_accessible",
+      "title": "operate the color picker widget",
+      "rationale": "A screen reader user needs to be able to operate the color picker widget.",
+      "examples": [
+        "If implemented as a text field, this is not applicable",
+        "If implemented as a color picker, the screen reader must convey appropriate semantics",
+        "Voice control software will let the user activate appropriate items"
       ],
       "type": "MUST",
       "css_target": "input[type=\"color\"]",
