@@ -1,0 +1,923 @@
+{
+  "title": "Basic html text input test",
+  "description": "A basic html text input test.",
+  "html_file": "html/inputs.html",
+  "assertions": [
+    {
+      "feature_id": "html/input(type-email)_element",
+      "feature_assertion_id": "convey_name",
+      "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_actionable_item",
+                  "output": "input was focused",
+                  "result": "pass",
+                  "notes": "said \"click email\""
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, example@example.org\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Email. example@example.org. example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Email. example@example.org. example@example.org selected\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, Selected example@example.org\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, has auto complete. example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, has auto complete. Selected example@example.org\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit box, what is your email?\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? example@example.org, text field, double tap to edit\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, contents selected, what is your email? edit text.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org. to open the autofill menu ... you are currently on a text field\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-email)_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "click_type",
+                  "output": "input was flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"click text\""
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Email. example@example.org. example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Email. example@example.org. example@example.org selected\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, Selected example@example.org\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, has auto complete. example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, has auto complete. Selected example@example.org\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit box, what is your email?\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? example@example.org, text field, double tap to edit\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, contents selected, what is your email? edit text.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org. to open the autofill menu ... you are currently on a text field\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-email)_element",
+      "feature_assertion_id": "convey_change_in_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "The character that was entered was announced.",
+                  "result": "pass",
+                  "notes": "AWS announced \"invalid entry\" after the first character was entered, along with that character"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "The character that was entered was announced.",
+                  "result": "pass",
+                  "notes": "AWS announced \"invalid entry\" after the first character was entered, along with that character"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "The character that was entered was announced.",
+                  "result": "pass",
+                  "notes": "AWS announced \"invalid entry\" after the first character was entered, along with that character"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character announced after entering",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character announced as it is entered",
+                  "result": "pass",
+                  "notes": "invalid entry announced after the first character was entered"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character announced as it is entered",
+                  "result": "pass",
+                  "notes": "invalid entry announced after the first character was entered"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced after entering",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced after entering",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced after entering",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-email)_element",
+      "feature_assertion_id": "convey_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? edit, example@example.org, Type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Email. example@example.org. example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Email. example@example.org. example@example.org selected\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, Selected example@example.org\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, has auto complete. example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"What is your email? Edit, has auto complete. Selected example@example.org\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, edit box, what is your email?\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"what is your email? example@example.org, text field, double tap to edit\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org, contents selected, what is your email? edit text.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"example@example.org. to open the autofill menu ... you are currently on a text field\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-email)_element",
+      "feature_assertion_id": "provide_shortcuts",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? email. example@example.org.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? edit, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? edit, has auto complete, selected, example@example.org\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"example@example.org, edit box, what is your email?\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"what is your email? example@example.org, text field. double tap to edit.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"example@example.org, selected. you are currently on a text field...\"",
+                  "result": "partial",
+                  "notes": "label was not announced."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-08-19",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1906.10",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        },
+        "ie": {
+          "at_version": "2019.1906.10",
+          "browser_version": "11",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        },
+        "firefox": {
+          "at_version": "2019.1906.10",
+          "browser_version": "68",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.2",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        },
+        "firefox": {
+          "at_version": "2019.2",
+          "browser_version": "68",
+          "os_version": "1903",
+          "date": "2019-08-19"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-08-19"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.3.1",
+          "browser_version": "12.3.1",
+          "os_version": "12.3.1",
+          "date": "2019-08-19"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.5",
+          "date": "2019-08-19"
+        }
+      }
+    }
+  }
+}
