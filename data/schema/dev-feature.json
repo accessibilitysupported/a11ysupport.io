@@ -55,7 +55,17 @@
           "description": "A css selector that determines which elements in the example need to be tested. This should be a generic selector, and can be overridden by tests that reference this assertion."
         }
       },
-      "required": ["id", "title", "type", "operation_modes", "css_target"]
+      "if": {
+        "properties": {
+          "id": { "enum": ["convey_name", "convey_role", "convey_value", "convey_change_in_value", "convey_boundaries", "provide_shortcuts"] }
+        }
+      },
+      "then": {
+        "required": ["id", "css_target"]
+      },
+      "else": {
+        "required": ["id", "title", "type", "operation_modes", "css_target"]
+      }
     }
   },
   "properties": {

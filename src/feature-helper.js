@@ -57,6 +57,93 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 
 	featureObject.keywords.push(featureObject.title);
 
+	// Set defaults for assertions
+	featureObject.assertions.forEach((assertion, assertion_key) => {
+		switch (assertion.id) {
+			case 'convey_name':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey an appropriate name",
+					rationale: "A screen reader user needs to know what to enter.",
+					type: "MUST",
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction",
+						"vc"
+					]
+				}, assertion);
+				break;
+			case 'convey_role':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey an appropriate role",
+					rationale: "A screen reader user needs to know how they can interact with the element.",
+					type: "MUST",
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction",
+						"vc"
+					]
+				}, assertion);
+				break;
+			case 'convey_value':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey the current value",
+					rationale: "A screen reader user needs to know the current value of the input.",
+					type: "MUST",
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
+			case 'convey_change_in_value':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey the current value",
+					rationale: "The user needs to know that the value was successfully changed.",
+					type: "MUST",
+					pass_strategy: "all",
+					operation_modes: [
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
+			case 'convey_boundaries':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey the boundaries of the element",
+					rationale: "A user needs to know when they enter and exit an element",
+					type: "MUST",
+					examples: [
+						"A screen reader might announce the role of the element when entering and say something like \"leaving\" when exiting.",
+						"A screen reader might not explicitly announce entering and existing the element, but instead imply that the is in the containing object by conveying the roles of required children (options in a listbox for example).",
+						"A screen reader might announce position in set information such as \"1 of 6\"."
+					],
+					pass_strategy: "all",
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
+			case 'provide_shortcuts':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "provide shortcuts to jump to text inputs",
+					rationale: "Screen reader users might want to quickly navigate to elements of this type.",
+					type: "SHOULD",
+					operation_modes: [
+						"sr/reading"
+					]
+				}, assertion);
+				break;
+		}
+	});
+
+	// Define the keywords_string
+	featureObject.keywords_string = featureObject.keywords.join(' ').replace(/\"/g, '');
+};
+
+helper.bubbleFeatureSupport = function(featureObject) {
+	//Grab the ATBrowsers data
+	let ATBrowsers = require('./../data/ATBrowsers');
+
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		featureObject.assertions[assertion_key].tests = [];
 
@@ -300,9 +387,6 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 			featureObject.core_may_support_string = helper.generateSupportString(featureObject.core_may_support);
 		}
 	});
-
-	// Define the keywords_string
-	featureObject.keywords_string = featureObject.keywords.join(' ').replace(/\"/g, '');
 };
 
 

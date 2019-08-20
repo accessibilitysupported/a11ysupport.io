@@ -29,8 +29,34 @@ let sortByKeys = function(unordered) {
 	return ordered;
 };
 
-let getFeatures = function(techId, buildDir) {
+
+let initalizeFeatures = function(techId, buildDir) {
 	let dir_feature = __dirname + '/data/tech/'+techId;
+	if (!fs.existsSync(dir_feature)) {
+		// Directory doesn't exist, so there are not features yet
+		return;
+	}
+	let files = fs.readdirSync(dir_feature);
+	let techDir = buildDir+'/tech/'+techId;
+
+	if (!fs.existsSync(techDir)) {
+		fs.mkdirSync(techDir);
+	}
+
+	files.forEach(function(file) {
+		let feature = require(dir_feature + '/' + file);
+		let id = file.slice(0, -5);
+
+		// Initialize the feature object to add missing data points and generate support strings
+		helper.initalizeFeatureObject(feature, techId, techId + '/' + id);
+
+		// Save initialized JSON in the build dir
+		fs.writeFileSync(techDir + '/' + file, JSON.stringify(feature, null, 2));
+	});
+};
+
+let getFeatures = function(techId, buildDir) {
+	let dir_feature = __dirname + '/build/tech/'+techId;
 	if (!fs.existsSync(dir_feature)) {
 		// Directory doesn't exist, so there are not features yet
 		return;
@@ -39,9 +65,6 @@ let getFeatures = function(techId, buildDir) {
 	let features = [];
 	let techDir = buildDir+'/tech/'+techId;
 
-	if (!fs.existsSync(techDir)) {
-		fs.mkdirSync(techDir);
-	}
 
 	files.forEach(function(file) {
 		let feature = require(dir_feature+'/'+file);
@@ -55,7 +78,7 @@ let getFeatures = function(techId, buildDir) {
 		}
 
 		// Initialize the feature object to add missing data points and generate support strings
-		helper.initalizeFeatureObject(feature, techId, techId + '/' + id);
+		helper.bubbleFeatureSupport(feature);
 
 		// Save initialized JSON in the build dir
 		fs.writeFileSync(techDir+'/'+file, JSON.stringify(feature, null, 2));
@@ -115,6 +138,10 @@ fs.mkdirSync(buildDir+'/tests');
 
 //let testFiles = fs.readdirSync(dataDir+'/tests');
 let supportPoints = [];
+
+for (let techId in tech) {
+	initalizeFeatures(techId, buildDir);
+}
 
 let testFiles = glob.sync(dataDir+'/tests/**/*.json');
 
