@@ -12,51 +12,32 @@
   "assertions": [
     {
       "id": "convey_name",
-      "title": "convey the name of the color input",
-      "rationale": "A screen reader user needs to know what to enter.",
-      "examples":  [
+      "examples": [
         "A screen reader will announce the name (label).",
         "Voice control software will let the user say something like \"click <name>\" to activate the control."
       ],
-      "type": "MUST",
-      "css_target": "input[type=\"color\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading",
-        "sr/interaction",
-        "vc"
-      ]
+      "css_target": "input[type=\"color\"]"
     },
     {
       "id": "convey_role",
-      "title": "convey the color input role",
-      "rationale": "A screen reader user needs to know that they can enter a color.",
       "examples": [
         "If implemented as a text field, the screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
         "If implemented as a color picker, the screen reader might be announce the role as \"button\", \"color chooser\", \"color well\", etc.",
         "Voice control software will let the user say something like \"click text box\" to focus a the input."
       ],
-      "type": "MUST",
-      "css_target": "input[type=\"color\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading",
-        "sr/interaction",
-        "vc"
-      ]
+      "css_target": "input[type=\"color\"]"
     },
     {
       "id": "widget_is_accessible",
       "title": "operate the color picker widget",
       "rationale": "A screen reader user needs to be able to operate the color picker widget.",
+      "type": "MUST",
       "examples": [
         "If implemented as a text field, this is not applicable",
         "If implemented as a color picker, the screen reader must convey appropriate semantics",
         "Voice control software will let the user activate appropriate items"
       ],
-      "type": "MUST",
       "css_target": "input[type=\"color\"]",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction",
@@ -65,41 +46,18 @@
     },
     {
       "id": "convey_value",
-      "title": "convey the value of the text input",
-      "rationale": "A screen reader user needs to know the current value of the input.",
-      "type": "MUST",
-      "css_target": "input[type=\"color\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading",
-        "sr/interaction"
-      ]
+      "css_target": "input[type=\"color\"]"
     },
     {
       "id": "convey_change_in_value",
-      "title": "convey changes to the value",
-      "rationale": "The user needs to know that the value was successfully changed.",
       "examples": [
         "When the user enter tests, the screen reader will announce it back to them."
       ],
-      "type": "MUST",
-      "pass_strategy": "all",
-      "css_target": "input[type=\"color\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/interaction"
-      ]
+      "css_target": "input[type=\"color\"]"
     },
     {
       "id": "provide_shortcuts",
-      "title": "provide shortcuts to jump to text inputs",
-      "rationale": "Screen reader users might want to quickly navigate to different text inputs on the page.",
-      "type": "SHOULD",
-      "css_target": "input[type=\"color\"]",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading"
-      ]
+      "css_target": "input[type=\"color\"]"
     }
   ],
   "date_updated": "2018-07-21"

@@ -16,39 +16,16 @@
   "assertions": [
     {
       "id": "convey_role",
-      "title": "convey the datalist role (listbox)",
-      "rationale": "The user needs to know that the element has listbox behavior.",
       "examples": [
         "A screen reader might announce something like the \"datalist\", \"listbox\" role when entering the datalist. Note that it should not be conveyed as a menu per the AAM mappings.",
         "A screen reader might not announce the datalist role because it is implied by the presence of suggestions or auto complete functionality via the list attribute.",
         "Voice control software might let the user say something like \"show choices\" to open the datalist."
       ],
-      "type": "MUST",
-      "css_target": "datalist",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading",
-        "sr/interaction",
-        "vc"
-      ]
+      "css_target": "datalist"
     },
     {
       "id": "convey_boundaries",
-      "title": "convey the boundaries of the datalist",
-      "rationale": "The user needs to know when they enter and exit a datalist",
-      "examples": [
-        "A screen reader might announce the datalist role when entering the datalist and say something like \"leaving datalist\" when exiting.",
-        "A screen reader might not explicitly announce entering and existing the datalist, but instead imply that the user is in a data list by conveying suggestion or option roles.",
-        "A screen reader might announce position in set information such as \"1 of 6\"."
-      ],
-      "pass_strategy": "all",
-      "type": "MUST",
-      "css_target": "datalist",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading",
-        "sr/interaction"
-      ]
+      "css_target": "datalist"
     },
     {
       "id": "convey_change_in_suggestions",
