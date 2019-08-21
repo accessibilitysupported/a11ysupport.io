@@ -123,6 +123,20 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					]
 				}, assertion);
 				break;
+			case 'convey_posinset':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey the position in set information",
+					rationale: "A user needs to where the position is in the list",
+					type: "MUST",
+					examples: [
+						"A screen reader might something like \"1 of 6\".",
+					],
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
 			case 'provide_shortcuts':
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "provide shortcuts to jump to text inputs",
