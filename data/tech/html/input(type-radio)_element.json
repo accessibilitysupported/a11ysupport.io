@@ -1,0 +1,63 @@
+{
+  "id": "input[type=radio]_element",
+  "title": "input[type=\"radio\"] element",
+  "type": "element",
+  "description": "The html radio input",
+  "references": [
+    {
+      "title": "HTML5 spec for input[type=\"radio\"]",
+      "url": "https://html.spec.whatwg.org/multipage/input.html#radio-button-state-(type=radio)"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_name",
+      "examples":  [
+        "A screen reader will announce the name (label).",
+        "Voice control software will let the user say something like \"click <name>\" to activate the control."
+      ],
+      "css_target": "input[type=\"radio\"]"
+    },
+    {
+      "id": "convey_role",
+      "examples": [
+        "A screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
+        "Voice control software will let the user say something like \"click text box\" to focus a the input."
+      ],
+      "css_target": "input[type=\"radio\"]"
+    },
+    {
+      "id": "convey_state_checked",
+      "title": "convey the checked state",
+      "rationale": "A screen reader user needs to know if the checkbox is checked",
+      "examples": [
+        "A screen reader might announce \"checked\""
+      ],
+      "type": "MUST",
+      "css_target": "input[type=\"radio\" checked]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_state_unchecked",
+      "title": "convey the unchecked state",
+      "rationale": "A screen reader user needs to know if the checkbox is checked",
+      "examples": [
+        "A screen reader might announce \"unchecked\" or imply that the element is not checked by not announcing the checked state at all."
+      ],
+      "type": "MUST",
+      "css_target": "input[type=\"radio\"]:not(checked)",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "provide_shortcuts",
+      "css_target": "input[type=\"radio\"]"
+    }
+  ],
+  "date_updated": "2019-08-21"
+}
