@@ -419,6 +419,10 @@ helper.initalizeTestCase = function (testCase) {
 		let supports_vc = false;
 		testCase.assertions[assertion_key].supports_at = [];
 
+		if (!ref_assertion.operation_modes) {
+			console.log(feature, ref_assertion);
+		}
+
 		if (ref_assertion.operation_modes.includes('sr/reading')
 		|| ref_assertion.operation_modes.includes('sr/interaction')) {
 			supports_sr = true;
