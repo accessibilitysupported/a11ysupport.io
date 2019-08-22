@@ -137,6 +137,21 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					]
 				}, assertion);
 				break;
+			case 'convey_boolean_property':
+				featureObject.assertions[assertion_key] = Object.assign({
+					id: "convey_boolean_property",
+					title: "convey the property",
+					rationale: "The user needs to know that property is set",
+					type: "MUST",
+					examples: [
+						"A screen reader might announce the property along with the elements name, role, and value"
+					],
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
 			case 'provide_shortcuts':
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "provide shortcuts to jump to text inputs",
@@ -239,9 +254,6 @@ helper.bubbleFeatureSupport = function(featureObject) {
 								};
 							}
 
-							featureObject.core_support_by_at[at].values.push(support);
-							featureObject.core_support.push(support);
-
 							if (!featureObject.core_support_by_at_browser) {
 								featureObject.core_support_by_at_browser = {};
 							}
@@ -278,13 +290,14 @@ helper.bubbleFeatureSupport = function(featureObject) {
 								};
 							}
 
-							if (assertion.type === "MUST") {
+							if (featureObject.assertions[assertion_key].type === "MUST") {
 								// Only include "must" assertions in core support at the feature level
 								featureObject.core_support_by_at_browser[at][browser].values.push(support);
 								if (some_support_behind_settings) {
 									featureObject.core_support_by_at_browser[at][browser].some_support_behind_settings = some_support_behind_settings;
 								}
 
+								featureObject.core_support_by_at[at].values.push(support);
 								featureObject.core_support.push(support);
 							} else {
 								featureObject.extended_support.push(support);
@@ -426,6 +439,10 @@ helper.initalizeTestCase = function (testCase) {
 		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)
 		let feature = require('../data/tech/'+assertion.feature_id+".json");
 		let ref_assertion = feature.assertions.find(obj => obj.id === assertion.feature_assertion_id);
+
+		if (!ref_assertion) {
+			console.log(testCase.id, assertion.feature_assertion_id);
+		}
 
 		// Look at what operations modes the assertion supports and set some helpful flags
 		// We have to do this here because tests are built before features.
@@ -589,7 +606,10 @@ helper.initalizeTestCase = function (testCase) {
 
 					if (ATBrowsers.core_at.includes(at)) {
                         testCase.assertions[assertion_key].core_support.push(support);
-						testCase.core_support.push(support);
+
+                        if (ref_assertion.type === "MUST") {
+							testCase.core_support.push(support);
+						}
 
 						if (testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings) {
 							testCase.assertions[assertion_key].some_support_behind_settings = testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings;
