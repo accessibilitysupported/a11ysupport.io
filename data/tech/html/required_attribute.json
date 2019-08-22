@@ -1,0 +1,31 @@
+{
+  "id": "required_attribute",
+  "title": "required attribute",
+  "type": "attribute",
+  "description": "The required attribute is a boolean attribute. When specified, the element is required.",
+  "references": [
+    {
+      "title": "HTML5 spec for the required attribute",
+      "url": "https://html.spec.whatwg.org/multipage/input.html#the-required-attribute"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_boolean_property",
+      "rationale": "The user needs to know that input is required",
+      "css_target": "*[required]"
+    },
+    {
+      "id": "convey_invalid_state",
+      "title": "convey the invalid state when empty",
+      "rationale": "The user might want to confirm that the input is invalid when empty",
+      "css_target": "*[required]",
+      "type": "MAY",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-08-21"
+}
