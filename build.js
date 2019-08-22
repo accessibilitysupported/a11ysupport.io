@@ -247,6 +247,7 @@ testFiles.forEach(function(file) {
 		keywords_string: test.title,
 		core_support: test.core_support,
 		core_support_string: test.core_support_string,
+		last_update: test.history.pop(),
 		assertions: []
 	};
 
@@ -271,7 +272,6 @@ testFiles.forEach(function(file) {
 
 	simplifiedTest.keywords_string = simplifiedTest.keywords_string + " " + feature_titles;
 	allTests.push(simplifiedTest);
-
 });
 
 allTests.forEach(function(test, test_key) {
