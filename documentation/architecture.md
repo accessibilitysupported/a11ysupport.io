@@ -108,6 +108,8 @@ The following properties can be provided by a contributor:
 * `preconditions` (array of string|optional): an array of strings that describe the preconditions for this assertion to be applicable
 * `operation_modes` (array of strings|required): contains command tags. Usually one of `sr/interaction`, `sr/reading`, or `vc`. These tags control which commands are shown to users while testing and to determine which types of AT the assertion applies to.
 
+**Note**: Many assertions are shared across features. These are defined in the build process. If the id of an assertion matches one of these common assertions, defaults are provided for required properties during the build process. Example ids include: "convey_name", "convey_role", "convey_value", "convey_change_in_value", "convey_boundaries", "convey_posinset", "convey_boolean_property", and "provide_shortcuts".
+
 Properties that are generated during the build process include:
 
 * `tests` (array|built): an array of test objects that reference this assertion
@@ -206,6 +208,10 @@ The `output` object contains the following properties which can be provided by t
 * `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
 * `output` (string|required): the output of the result.
 * `result` (enum|required): One of `pass`, `fail`, or `partial`.
+* `from` (string|optional): the location of focus or virtual cursor before the command was issued. Useful to reproduce results and identify execution path.
+* `to` (string|optional): the location of focus or virtual cursor after the command was issued. Useful to reproduce results and identify execution path.
+* `notes` (string|optional): notes about the output
+* `behind_setting`: (string|optional): Describes the setting that must be changed in order for the assertion to be supported. Some support is hidden behind default settings (see aria-controls for an example). Leave `undefined` if not applicable.
 
 #### the `versions` object (`at_version` and `browser_version`)
 
