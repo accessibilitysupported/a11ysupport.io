@@ -6,6 +6,7 @@ let helper = require(__dirname+'/src/feature-helper');
 let tech = require(__dirname+"/data/tech.json");
 let ATBrowsers = require(__dirname+"/data/ATBrowsers.json");
 let testMap = {};
+let allTests = [];
 let featureMap = {};
 let allFeatures = [];
 
@@ -107,8 +108,7 @@ let getFeatures = function(techId, buildDir) {
 			}
 		}
 
-		// Push to the list of features
-		features.push({
+		let simplifiedFeature = {
 			id: id,
 			techId: feature.techId,
 			title: feature.title,
@@ -118,8 +118,22 @@ let getFeatures = function(techId, buildDir) {
 			core_support_by_at: feature.core_support_by_at,
 			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
-			total_test_count: feature.tests.length
+			total_test_count: feature.tests.length,
+			assertions: []
+		};
+
+		feature.assertions.forEach(function(assertion, assertion_key) {
+			simplifiedFeature.assertions[assertion_key] = {
+				id: assertion.id,
+				title: assertion.title,
+				core_support: assertion.core_support,
+				core_support_string: assertion.core_support_string,
+				core_support_by_at: assertion.core_support_by_at
+			}
 		});
+
+		// Push to the list of features
+		features.push(simplifiedFeature);
 	});
 
 	return features;
@@ -218,6 +232,53 @@ for (let techId in tech) {
 	}
 }
 
+let builtTestFiles = glob.sync(buildDir+'/tests/**/*.json');
+
+testFiles.forEach(function(file) {
+	if (!file.endsWith('.json')) {
+		return;
+	}
+
+	let test = require(file);
+
+	let simplifiedTest = {
+		id: test.id,
+		title: test.title,
+		keywords_string: test.title,
+		core_support: test.core_support,
+		core_support_string: test.core_support_string,
+		assertions: []
+	};
+
+	var feature_titles = [];
+	test.assertions.forEach(function(assertion, assertion_key) {
+		let tech_id = assertion.feature_id.split('/')[0];
+		let feature_id = assertion.feature_id.split('/')[1];
+		let ref_feature = allFeatures.find(o => o.techId === tech_id && o.id === feature_id);
+		let ref_assertion = ref_feature.assertions.find(o => o.id === assertion.feature_assertion_id);
+
+		simplifiedTest.assertions[assertion_key] = {
+			feature_id: ref_feature.techId+'/'+ref_feature.id,
+			feature_assertion_id: assertion.feature_assertion_id,
+			feature_title: ref_feature.title,
+			assertion_title: ref_assertion.title,
+			core_support: assertion.core_support,
+			core_support_string: assertion.core_support_string,
+		};
+
+		feature_titles.push(ref_feature.title);
+	});
+
+	simplifiedTest.keywords_string = simplifiedTest.keywords_string + " " + feature_titles;
+	allTests.push(simplifiedTest);
+
+});
+
+allTests.forEach(function(test, test_key) {
+
+});
+
+
 let commands = {};
 commands.sr = {};
 commands.vc = {};
@@ -235,12 +296,13 @@ for(let at in ATBrowsers.at) {
 commands.sr = sortByKeys(commands.sr);
 commands.vc = sortByKeys(commands.vc);
 
-
+allTests.sort(sortByProperty('title'));
 allFeatures.sort(sortByProperty('title'));
 supportPoints.sort(sortByProperty('priority'));
 
 fs.writeFileSync(buildDir+'/tech.json', JSON.stringify(tech, null, 2));
 fs.writeFileSync(buildDir+'/test_map.json', JSON.stringify(testMap, null, 2));
 fs.writeFileSync(buildDir+'/features.json', JSON.stringify(allFeatures, null, 2));
+fs.writeFileSync(buildDir+'/tests.json', JSON.stringify(allTests, null, 2));
 fs.writeFileSync(buildDir+'/support_points.json', JSON.stringify(supportPoints, null, 2));
 fs.writeFileSync(buildDir+'/command_matrix.json', JSON.stringify(commands, null, 2));

@@ -8,6 +8,27 @@ let md = new MarkdownIt().use(require('markdown-it-anchor'));
 let testHelper = require('../src/test-id-helper.js');
 
 /* GET a specific test for a feature. */
+router.get('/', function(req, res, next) {
+	let tests = require(__dirname+'/../build/tests');
+	let testMap = require(__dirname+'/../build/test_map');
+
+	if (!tests || !tests.length) {
+		// Not found in the tests.
+		next(createError(404));
+		return;
+	}
+
+	res.render('tests', {
+		title: 'All tests | Accessibility Support',
+		tests: tests,
+		testMap: testMap,
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		md: md,
+		testHelper: testHelper
+	});
+});
+
+/* GET a specific test for a feature. */
 router.get('/:testId', function(req, res, next) {
     let testId = testHelper.undoMakeSafe(req.params.testId);
 	let testMap = require(__dirname+'/../build/test_map');

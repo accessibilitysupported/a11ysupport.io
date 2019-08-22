@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    div.content
+        div.search-container
+            div.live-announcements(aria-live="polite" aria-atomic="true").visually-hidden
+            div.search-controls
+                form
+                    div.input
+                        label(for="feature-search") Find a test (search by test title or feature title, for example &quot;aria&quot;)
+                        input(id="feature-search" type="text").search
+                    div.submit
+                        button Search
+            div.summary-container(tabindex="-1")
+                span #{tests.length} results found
+            div.search-results
+                each test, currentTestIndex in tests
+                    div(data-keywords=test.keywords_string).result
+                        h2
+                            a(href='/tests/'+testHelper.makeSafe(test.id)) #{test.title}
+                        div.responsive-table.summary-matrix
+                            table
+                                caption Support summary
+                                thead
+                                    tr
+                                        th(id="t-"+currentTestIndex+"-expectation") Expectation
+                                        th(id="t-"+currentTestIndex+"-support") Support
+                                each feature, currentFeatureIndex in testMap[test.id]
+                                    tr
+                                        th(colspan="2" id="h-feature-" + currentTestIndex + "-" + currentFeatureIndex).feature #{feature.title}
+
+                                    each assertion, assertionIndex in test.assertions
+                                        if (feature.featureId === assertion.feature_id)
+                                            tr
+                                                th(id="h-assertion-" + currentTestIndex + "-" + assertionIndex headers="h-feature-" + currentTestIndex + "-" + currentFeatureIndex+" t-"+currentTestIndex+"-expectation").assertion
+                                                    a(href=testHelper.makeSafe(test.id)+"#assertion-"+ assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
+                                                        span #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
+                                                td(class="support-case " + assertion.core_support_string.class headers="t-"+currentTestIndex+"-support h-feature-" + currentTestIndex + "-" + currentFeatureIndex + " h-assertion-" + currentTestIndex + "-" + assertionIndex)
+                                                        span #{assertion.core_support_string.string}
+
+
+            script(src="/js/search.js")
