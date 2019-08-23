@@ -8,7 +8,7 @@ block content
             div(class="current-support-container "+test.core_support_string.class)
                 p= 'Current support: ' + test.core_support_string.string
 
-            p!= md.renderInline(test.description)
+            div!= md.render(test.description)
 
             a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
 

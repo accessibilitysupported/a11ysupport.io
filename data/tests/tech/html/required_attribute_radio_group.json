@@ -1,6 +1,6 @@
 {
   "title": "The html required attribute on each HTML radio button in a fieldset",
-  "description": "This test checks the html required attribute as applied to each HTML radio button in a fieldset.",
+  "description": "This test checks the html required attribute as applied to each HTML radio button in a fieldset. Some general notes: \n\n* The HTML spec suggests that it is okay to place the required attribute on only one of the radio buttons, however, only that radio button will be conveyed as required. Other radio buttons in the group will not be conveyed as required, and if screen reader user jumps to a radio button that doesn't have a required attribute then the requiredness might of the group might be missed.\n* Currently, the most robust solution to mark a group of radio buttons as required is to place the text 'required' in the group label.",
   "html_file": "aria/aria-required-on-html-radio-buttons.html",
   "assertions": [
     {
@@ -40,7 +40,8 @@
                   "output": "\"Animal, CatDog radio button, not checked, required, invalid entry, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             },
             "ie": {
               "output": [
@@ -72,7 +73,8 @@
                   "output": "\"Animal, CatDog radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             },
             "firefox": {
               "output": [
@@ -104,7 +106,8 @@
                   "output": "\"Animal, CatDog radio button, not checked, required, invalid entry, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -140,7 +143,8 @@
                   "output": "\"CatDog, radio button, non-selected, required, invalid,  3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -176,7 +180,8 @@
                   "output": "\"Animal grouping, cat, radio button, not checked, required, invalid entry, 1 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             },
             "firefox": {
               "output": [
@@ -208,7 +213,8 @@
                   "output": "\"Animal grouping, CatDog, radio button, not checked, required, invalid entry, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -252,7 +258,8 @@
                   "output": "\"CatDog, radio button, unchecked, 3 of 3, required\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -288,7 +295,8 @@
                   "output": "\"CatDog, required, radio button, 3 of 3, animal, animal group\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         }

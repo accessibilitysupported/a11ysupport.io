@@ -1,6 +1,6 @@
 {
   "title": "aria-required attribute on each HTML radio button in a fieldset",
-  "description": "This test checks the aria-required attribute as applied to each HTML radio button in a fieldset.",
+  "description": "This test checks the aria-required attribute as applied to each HTML radio button in a fieldset. Notes: \n\n* Currently, the most robust solution to mark a group of radio buttons as required is to place the text 'required' in the group label.",
   "html_file": "aria/aria-required-on-html-radio-buttons.html",
   "assertions": [
     {
@@ -37,10 +37,11 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"Animal, CatDog radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             },
             "ie": {
               "output": [
@@ -69,10 +70,11 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"Animal, CatDog radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             },
             "firefox": {
               "output": [
@@ -101,10 +103,11 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"Animal, CatDog radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -130,17 +133,18 @@
                   "command": "previous_item",
                   "from": "after target",
                   "to": "end of target",
-                  "output": "\"CatDog, radio button, non-selected, required, 2 of 3\"",
+                  "output": "\"CatDog, radio button, non-selected, required, 3 of 3\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, radio button, non-selected, required, 2 of 3\"",
+                  "output": "\"CatDog, radio button, non-selected, required, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -176,7 +180,8 @@
                   "output": "\"Animal grouping, cat, radio button, not checked, required, 1 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             },
             "firefox": {
               "output": [
@@ -205,10 +210,11 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"Animal grouping, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal grouping, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -249,10 +255,11 @@
                   "command": "previous_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"CatDog, radio button, unchecked, 2 of 3, required\"",
+                  "output": "\"CatDog, radio button, unchecked, 3 of 3, required\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         },
@@ -278,17 +285,18 @@
                   "command": "previous_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"CatDog, required, radio button, 2 of 3\"",
+                  "output": "\"CatDog, required, radio button, 3 of 3\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "target",
-                  "output": "\"CatDog, required, radio button, 2 of 3, animal, animal group\"",
+                  "output": "\"CatDog, required, radio button, 3 of 3, animal, animal group\"",
                   "result": "pass"
                 }
-              ]
+              ],
+              "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
             }
           }
         }
@@ -327,7 +335,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -391,7 +399,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -427,7 +435,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, radio button, non-selected, required, 2 of 3\"",
+                  "output": "\"CatDog, radio button, non-selected, required, 3 of 3\"",
                   "result": "fail"
                 }
               ]
@@ -539,7 +547,7 @@
                   "command": "previous_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"animal, CatDog, radio button, unchecked, 2 of 3, required\"",
+                  "output": "\"animal, CatDog, radio button, unchecked, 3 of 3, required\"",
                   "result": "pass"
                 }
               ]
@@ -575,7 +583,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, required, radio button, 2 of 3, animal, animal group\"",
+                  "output": "\"CatDog, required, radio button, 3 of 3, animal, animal group\"",
                   "result": "pass"
                 }
               ]
@@ -617,7 +625,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -681,7 +689,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -717,7 +725,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, radio button, non-selected, required, 2 of 3\"",
+                  "output": "\"CatDog, radio button, non-selected, required, 3 of 3\"",
                   "result": "fail"
                 }
               ]
@@ -829,7 +837,7 @@
                   "command": "previous_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"animal, CatDog, radio button, unchecked, 2 of 3, required\"",
+                  "output": "\"animal, CatDog, radio button, unchecked, 3 of 3, required\"",
                   "result": "pass"
                 }
               ]
@@ -865,7 +873,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, required, radio button, 2 of 3, animal, animal group\"",
+                  "output": "\"CatDog, required, radio button, 3 of 3, animal, animal group\"",
                   "result": "pass"
                 }
               ]
@@ -907,7 +915,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -971,7 +979,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -1007,7 +1015,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, radio button, non-selected, required, 2 of 3\"",
+                  "output": "\"CatDog, radio button, non-selected, required, 3 of 3\"",
                   "result": "fail"
                 }
               ]
@@ -1119,7 +1127,7 @@
                   "command": "previous_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"animal, CatDog, radio button, unchecked, 2 of 3, required\"",
+                  "output": "\"animal, CatDog, radio button, unchecked, 3 of 3, required\"",
                   "result": "pass"
                 },
                 {
@@ -1162,7 +1170,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, required, radio button, 2 of 3, animal, animal group\"",
+                  "output": "\"CatDog, required, radio button, 3 of 3, animal, animal group\"",
                   "result": "pass"
                 }
               ]
@@ -1204,7 +1212,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -1268,7 +1276,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"Animal, CatDog, radio button, not checked, required, 2 of 3\"",
+                  "output": "\"Animal, CatDog, radio button, not checked, required, 3 of 3\"",
                   "result": "pass"
                 }
               ]
@@ -1304,7 +1312,7 @@
                   "command": "previous_focusable_item",
                   "from": "after target",
                   "to": "within target",
-                  "output": "\"CatDog, radio button, non-selected, required, 2 of 3\"",
+                  "output": "\"CatDog, radio button, non-selected, required, 3 of 3\"",
                   "result": "fail"
                 }
               ]
