@@ -290,7 +290,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 								};
 							}
 
-							if (featureObject.assertions[assertion_key].type === "MUST") {
+							if (featureObject.assertions[assertion_key].type === "MUST" || featureObject.assertions[assertion_key].type === "MUST NOT") {
 								// Only include "must" assertions in core support at the feature level
 								featureObject.core_support_by_at_browser[at][browser].values.push(support);
 								if (some_support_behind_settings) {
@@ -397,7 +397,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		// aggregate must/should/may core support
-		if (assertion.type === "MUST") {
+		if (assertion.type === "MUST" || assertion.type === "MUST NOT") {
 			if (assertion.core_support && assertion.core_support.length) {
 				featureObject.core_must_support = featureObject.core_must_support.concat(assertion.core_support);
 			}
@@ -607,7 +607,7 @@ helper.initalizeTestCase = function (testCase) {
 					if (ATBrowsers.core_at.includes(at)) {
                         testCase.assertions[assertion_key].core_support.push(support);
 
-                        if (ref_assertion.type === "MUST") {
+                        if (ref_assertion.type === "MUST" || ref_assertion.type === "MUST NOT") {
 							testCase.core_support.push(support);
 						}
 
@@ -683,7 +683,7 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].extended_support);
 
 		// aggregate must/should/may core support
-		if (ref_assertion.type === "MUST") {
+		if (ref_assertion.type === "MUST" || ref_assertion.type === "MUST NOT") {
 			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
 				testCase.core_must_support = testCase.core_must_support.concat(testCase.assertions[assertion_key].core_support);
 			}
