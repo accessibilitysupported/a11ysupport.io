@@ -31,8 +31,7 @@
       "title": "convey the error when the error message is NOT pertinent",
       "rationale": "Users should not be made aware of the error message when the input is not in an error state",
       "examples": [
-        "screen readers might convey the accessible name of the referenced ID",
-        "screen readers might announce that an error message is present and provide a shortcut to jump to the error message"
+        "when an input has an error message but also has aria-invalid=\"false\", the error message will not be conveyed because it is not pertinent",
       ],
       "type": "MUST NOT",
       "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
