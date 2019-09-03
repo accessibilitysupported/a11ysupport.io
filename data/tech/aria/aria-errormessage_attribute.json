@@ -11,10 +11,31 @@
   ],
   "assertions": [
     {
-      "id": "convey_referenced_accessible_names",
-      "title": "convey the accessible name of the referenced ID(s)",
+      "id": "convey_pertinent",
+      "title": "convey that the referenced error message is pertinent",
+      "rationale": "Users need to know that the error message exists when the input is in an aria-invalid=\"true\" state",
+      "examples": [
+        "screen readers might convey the accessible name of the referenced ID",
+        "screen readers might announce that an error message is present and provide a shortcut to jump to the error message"
+      ],
       "type": "MUST",
-      "css_target": "*[ara-errormessage]",
+      "css_target": "*[aria-errormessage][aria-invalid=true]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_not_pertinent",
+      "title": "convey the error when the error message is NOT pertinent",
+      "rationale": "Users should not be made aware of the error message when the input is not in an error state",
+      "examples": [
+        "screen readers might convey the accessible name of the referenced ID",
+        "screen readers might announce that an error message is present and provide a shortcut to jump to the error message"
+      ],
+      "type": "MUST NOT",
+      "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
@@ -22,5 +43,5 @@
       ]
     }
   ],
-  "date_updated": "2019-01-06"
+  "date_updated": "2019-09-02"
 }

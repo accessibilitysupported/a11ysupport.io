@@ -5,43 +5,62 @@
   "assertions": [
     {
       "feature_id": "aria/aria-errormessage_attribute",
-      "feature_assertion_id": "convey_referenced_accessible_names",
+      "feature_assertion_id": "convey_pertinent",
       "results": {
         "jaws": {
           "browsers": {
             "firefox": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, invalid entry\"",
+                  "result": "fail",
+                  "notes": "not conveyed when either the target or its label are read"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+                  "result": "pass"
                 }
               ]
             },
             "chrome": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"blank, edit, Input with aria-invalid=\"true\", invalid entry, has error, example error text, type in text\"",
+                  "result": "pass"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+                  "result": "pass"
                 }
               ]
             },
             "ie": {
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "edge": {
-              "output": [
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"blank, edit, Input with aria-invalid=\"true\", invalid entry, has error, example error text, type in text\"",
+                  "result": "pass"
+                },
                 {
                   "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -52,8 +71,17 @@
             "edge": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid, scan off\"",
+                  "result": "fail"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid\"",
                   "result": "fail"
                 }
               ]
@@ -65,8 +93,17 @@
             "firefox": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry  has auto complete\"",
+                  "result": "fail"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry  has auto complete, blank\"",
                   "result": "fail"
                 }
               ]
@@ -74,27 +111,34 @@
             "chrome": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry\"",
+                  "result": "fail"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, blank\"",
                   "result": "fail"
                 }
               ]
-            },
-            "edge": {
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
-                  "result": "fail"
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Edit box, error: Invalid entry, input with aria-invalid=\"true\"\"",
+                  "result": "fail",
+                  "notes": "the text \"error: invalid entry\" conveys the aria-invalid state, note the aria-errormessage property."
                 }
               ]
             }
@@ -106,7 +150,9 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(error message not conveyed)",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", text field, invalid data, double tap to edit\"",
                   "result": "fail"
                 }
               ]
@@ -118,9 +164,196 @@
             "safari": {
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "(error message not conveyed)",
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", invalid data, edit text\"",
                   "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", invalid data, edit text\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-errormessage_attribute",
+      "feature_assertion_id": "convey_not_pertinent",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"blank, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"blank, edit, Input with aria-invalid=\"false\", edit, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, Input with aria-invalid=\"false\", edit, has error, example error text, type in text\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit, has error, example error text, type in text\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit, scan off\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit, has auto complete\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit, has auto complete, blank\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit, blank\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Edit box, input with aria-invalid=\"false\"\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", text field, double tap to edit\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"false\", edit text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -131,6 +364,10 @@
   ],
   "history": [
     {
+      "date": "2019-08-02",
+      "message": "Updated results"
+    },
+    {
       "date": "2019-04-09",
       "message": "Test created"
     }
@@ -139,38 +376,38 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1811.2",
-          "browser_version": "73",
-          "os_version": "1809",
-          "date": "2019-04-02"
+          "at_version": "2019.1907.42",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-02"
         },
         "ie": {
-          "at_version": "2018.1811.2",
+          "at_version": "2019.1907.42",
           "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-04-02"
+          "os_version": "1903",
+          "date": "2019-09-02"
         },
         "firefox": {
-          "at_version": "2018.1811.2",
+          "at_version": "2019.1907.42",
           "browser_version": "66",
-          "os_version": "1809",
-          "date": "2019-04-02"
+          "os_version": "1903",
+          "date": "2019-09-02"
         },
         "edge": {
-          "at_version": "2018.1811.2",
+          "at_version": "2019.1907.42",
           "browser_version": "44",
-          "os_version": "1809",
-          "date": "2019-04-02"
+          "os_version": "1903",
+          "date": "2019-09-02"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1809",
+          "at_version": "1903",
           "browser_version": "44.17763",
-          "os_version": "1809",
-          "date": "2019-04-02"
+          "os_version": "1903",
+          "date": "2019-09-02"
         }
       }
     },
@@ -178,47 +415,45 @@
       "browsers": {
         "chrome": {
           "at_version": "2019.0.1",
-          "browser_version": "73",
-          "os_version": "1809",
-          "date": "2019-04-02"
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-02"
         },
         "firefox": {
           "at_version": "2019.0.1",
-          "browser_version": "66",
-          "os_version": "1809",
+          "browser_version": "68",
+          "os_version": "1903",
           "date": "2019-04-02"
-        },
-        "ie": {
-          "at_version": "2019.0.1",
-          "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-04-02"
-        },
-        "edge": {
-          "at_version": "2019.0.1",
-          "browser_version": "44.17763",
-          "os_version": "1809",
-          "date": "2019-04-02"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "7",
+          "date": "2019-09-02"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.2",
-          "browser_version": "12.2",
-          "os_version": "12.2",
-          "date": "2019-04-02"
+          "at_version": "12.4.1",
+          "browser_version": "12.4.1",
+          "os_version": "12.4.1",
+          "date": "2019-09-02"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.4",
-          "browser_version": "12.1",
-          "os_version": "10.14.4",
-          "date": "2019-04-02"
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.6",
+          "date": "2019-09-02"
         }
       }
     }
