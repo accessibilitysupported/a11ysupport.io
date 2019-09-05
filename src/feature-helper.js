@@ -162,6 +162,20 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					]
 				}, assertion);
 				break;
+			case 'convey_setsize':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey the number of items in the list",
+					rationale: "A user needs to be able to understand how many items are in the list",
+					type: "MUST",
+					examples: [
+						"A screen reader might convey the position of each item in the list as something like \"x of y\" where y is the number of items in the list.",
+						"A screen reader might convey the number of items in the list when first entering the list."
+					],
+					operation_modes: [
+						"sr/reading"
+					]
+				}, assertion);
+				break;
 		}
 	});
 
