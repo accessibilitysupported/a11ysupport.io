@@ -6,6 +6,7 @@
 3. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
 4. [Who runs this?](#who-runs-this%3F)
 5. [What are the levels of support?](#what-are-the-levels-of-support%3F)
+6. [What are expectations?](#what-are-expectations%3F)
 
 ## What is this?
 
@@ -110,3 +111,8 @@ For a test or feature:
 * Some support (some core support points are fully supported across all tests)
 * No support (no core support points are fully supported across all tests)
 * Unknown (all core support points are unknown)
+
+## What are expectations?
+
+Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
+
