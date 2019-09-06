@@ -18,13 +18,11 @@ block content
                     a(href="#test-html") Test HTML
                 if test.assertions
                     li
-                        a(href="#assertion-type-summary-table") Summary of support by expectation type
+                        a(href="#versions") Dates and Versions of tested combinations
                     li
                         a(href="#support-summary-by-at") Summary of support by expectation and assistive technology
                     li
                         a(href="#support-tables") Detailed support tables
-                li
-                    a(href="#versions") Dates and versions
                 li
                     a(href="#history") History
                 li
@@ -43,30 +41,32 @@ block content
                 a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
                 p HTML source is too long to display here.
 
-            h2(id="support-tables") Support tables
-
-            p
-                a(href="/faq#what-are-expectations%3F") What are expectations?
-
-            details
+            details(open)
                 summary
-                    h3(id="assertion-type-summary-table") Summary of support by expectation type
-                table(aria-labelledby="assertion-type-summary-table").support-table
-                    thead
-                        tr
-                            th MUST
-                            th SHOULD
-                            th MAY
-                    tbody
-                        tr
-                            td(class="current-support-container " + test.core_must_support_string.class) #{test.core_must_support_string.string}
-                            td(class="current-support-container " + test.core_should_support_string.class) #{test.core_should_support_string.string}
-                            td(class="current-support-container " + test.core_may_support_string.class) #{test.core_may_support_string.string}
+                    h2(id="versions") Dates and Versions of tested combinations
+                table
+                    tr
+                        th AT
+                        th AT Version
+                        th Browser
+                        th Browser version
+                        th OS version
+                        th Date tested
+                    each at in ATBrowsers.core_at
+                        each browser in ATBrowsers.at[at].core_browsers
+                            if (test.versions[at] && test.versions[at].browsers[browser])
+                                tr
+                                    td #{ATBrowsers.at[at].title}
+                                    td #{test.versions[at].browsers[browser].at_version}
+                                    td #{ATBrowsers.browsers[browser].title}
+                                    td #{test.versions[at].browsers[browser].browser_version}
+                                    td #{test.versions[at].browsers[browser].os_version}
+                                    td #{test.versions[at].browsers[browser].date}
 
             if test.assertions
                 details(open)
                     summary
-                        h3(id="support-summary-by-at") Summary of support by expectation and assistive technology
+                        h2(id="support-summary-by-at") Summary of support by expectation and assistive technology
                     - var some_support_behind_settings = false;
                     table(aria-labelledby="support-summary-by-at").support-table.assertion-container.summary-matrix
                         tr
@@ -91,10 +91,10 @@ block content
                                                     span *
                     p * means that some support is hidden behind settings
 
-            h3(id="detailed-results") Detailed support results by expectation
+            h2(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
                 div.assertion-container
-                    h4(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
+                    h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
 
                     if (assertion.assertion_rationale)
                         p Rationale: #{assertion.assertion_rationale}
@@ -237,27 +237,6 @@ block content
                                         td
                                             a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
                     a(href="#top").back-to-top Back to top
-            details(open)
-                summary
-                    h2(id="versions") Dates and Versions
-                table
-                    tr
-                        th AT
-                        th AT Version
-                        th Browser
-                        th Browser version
-                        th OS version
-                        th Date tested
-                    each at in ATBrowsers.core_at
-                        each browser in ATBrowsers.at[at].core_browsers
-                            if (test.versions[at] && test.versions[at].browsers[browser])
-                                tr
-                                    td #{ATBrowsers.at[at].title}
-                                    td #{test.versions[at].browsers[browser].at_version}
-                                    td #{ATBrowsers.browsers[browser].title}
-                                    td #{test.versions[at].browsers[browser].browser_version}
-                                    td #{test.versions[at].browsers[browser].os_version}
-                                    td #{test.versions[at].browsers[browser].date}
 
             h2(id="history") History
             ul
@@ -282,5 +261,9 @@ block content
                     a(href='https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title='+test.id+'&labels=test%20case') There is a problem with this test case (the test file, procedure, expected results, etc)
                 li
                     p Use the support tables to view details and report issues or changes.
+
+            h2 Other
+            p
+                a(href="/faq#what-are-expectations%3F") What are expectations and how are they determined?
 
     script(src="/js/feature-test.js")
