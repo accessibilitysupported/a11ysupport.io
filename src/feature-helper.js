@@ -489,7 +489,7 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].feature_title = feature.title;
 		testCase.assertions[assertion_key].assertion_title = titleModifier + ref_assertion.type.toUpperCase() + " " + ref_assertion.title;
 		testCase.assertions[assertion_key].core_support = [];
-        testCase.assertions[assertion_key].extended_support = "unknown";
+        testCase.assertions[assertion_key].extended_support = [];
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
 
 		testCase.assertions[assertion_key].rationale = "";

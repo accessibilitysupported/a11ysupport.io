@@ -57,8 +57,8 @@ block content
         table(aria-labelledby='support-table-' + index)
           tr
             th Expectation
-            each at in ATBrowsers.at
-              th #{at.title}
+            each at_id in ATBrowsers.core_at
+              th #{ATBrowsers.at[at_id].title}
           each assertion, index in data.assertions
             if assertion.tests.length > 0
                 tr
