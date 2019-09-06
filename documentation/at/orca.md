@@ -1,6 +1,6 @@
 # Orca
 
-Orca free (and open source) screen reader for Linux based computers.
+Orca is a free (and open source) screen reader for Linux based computers.
 
 ## TODO
 
