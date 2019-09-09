@@ -9,20 +9,56 @@
       "results": {
         "jaws": {
           "browsers": {
-            "edge": {
+            "chrome": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button\"",
+                  "result": "pass"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "Target",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button. To activate press space bar.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button. To activate press space bar.\"",
+                  "result": "pass"
                 }
               ]
             },
             "ie": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button.\"",
+                  "result": "pass"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "Target. Custom button.",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Target, custom button. To activate press space bar.\"",
                   "result": "pass"
                 }
               ]
@@ -34,8 +70,17 @@
             "edge": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"custom button, target\"",
+                  "result": "pass"
+                },
+                {
                   "command": "next_focusable_item",
-                  "output": "Target. Custom button.",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Target. Custom button.\"",
                   "result": "pass"
                 }
               ]
@@ -44,12 +89,76 @@
         },
         "nvda": {
           "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"custom button, target\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"custom button, target\"",
+                  "result": "pass"
+                }
+              ]
+            },
             "firefox": {
               "output": [
                 {
-                  "command": "next_focusable_item",
-                  "output": "Custom button. Target.",
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"custom button, target\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Target, custom button.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, custom button\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, button, double tap to activate\"",
+                  "result": "fail"
                 }
               ]
             }
@@ -60,7 +169,16 @@
             "safari": {
               "output": [
                 {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Target, custom button\"",
+                  "result": "pass"
+                },
+                {
                   "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
                   "output": "Target, custom button",
                   "result": "pass"
                 }
@@ -74,11 +192,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
                   "output": "Target, custom button",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -87,6 +206,10 @@
   ],
   "history": [
     {
+      "date": "2019-09-09",
+      "message": "Updated support info and added data for talkback and orca"
+    },
+    {
       "date": "2018-11-12",
       "message": "Test created"
     }
@@ -94,57 +217,89 @@
   "versions": {
     "jaws": {
       "browsers": {
-        "ie": {
-          "at_version": "17763",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-12"
+        "chrome": {
+          "at_version": "2019.1907.42",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-09"
         },
-        "edge": {
-          "at_version": "2018.1808.10",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-12"
+        "firefox": {
+          "at_version": "2019.1907.42",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-09"
+        },
+        "ie": {
+          "at_version": "2019.1907.42",
+          "browser_version": "11",
+          "os_version": "1903",
+          "date": "2019-09-09"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "17763",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-12"
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-09-09"
         }
       }
     },
     "nvda": {
       "browsers": {
+        "chrome": {
+          "at_version": "2019.2",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-09"
+        },
         "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "63.0.1",
-          "os_version": "17763",
-          "date": "2018-11-12"
+          "at_version": "2019.2",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-09"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-09"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-09"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.1",
-          "browser_version": "12.1",
-          "os_version": "12.1",
-          "date": "2018-11-12"
+          "at_version": "12.4.1",
+          "browser_version": "12.4.1",
+          "os_version": "12.4.1",
+          "date": "2019-09-09"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.1",
-          "browser_version": "12.0.1",
-          "os_version": "10.14.1",
-          "date": "2018-11-12"
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.6",
+          "date": "2019-09-09"
         }
       }
     }

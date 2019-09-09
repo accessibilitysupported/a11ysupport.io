@@ -19,6 +19,10 @@ Orca is bundled with Gnome based distributions, such as Ubuntu
 
 * [Orca User Guide](https://help.gnome.org/users/orca/stable/)
 
+## How to find version
+
+From command line, run `orca --version`
+
 ## Modes
 
 * Browse mode: This is the default mode when using a browser.
