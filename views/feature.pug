@@ -10,7 +10,7 @@ block content
 
       if data.assertions.length
         h2 On this page
-        ul
+        ul.link-list
           li
             a(href="#test-html") Expectations
             ul
@@ -33,7 +33,8 @@ block content
         p!= md.render(data.recommendation)
 
       h2 Expectations
-      p Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
+      p
+        a(href="/faq#what-are-expectations%3F") What are expectations?
 
       if data.assertions.length > 0
 
@@ -56,8 +57,8 @@ block content
         table(aria-labelledby='support-table-' + index)
           tr
             th Expectation
-            each at in ATBrowsers.at
-              th #{at.title}
+            each at_id in ATBrowsers.core_at
+              th #{ATBrowsers.at[at_id].title}
           each assertion, index in data.assertions
             if assertion.tests.length > 0
                 tr

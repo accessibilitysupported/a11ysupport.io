@@ -27,38 +27,31 @@
   "assertions": [
     {
       "id": "convey_role",
-      "title": "convey the description list role",
-      "rationale": "A user needs to be able to understand that they are reading a description list.",
-      "type": "MUST",
       "css_target": "dl",
-      "preconditions": [],
+      "examples": [
+        "A screen reader might convey the role as \"description list\" when first entering the list."
+      ],
       "operation_modes": [
         "sr/reading"
       ]
     },
     {
       "id": "convey_setsize",
-      "title": "convey the number of term/description groupings in the list",
       "rationale": "A user needs to be able to understand how many pairs or items are in the list.",
-      "type": "MUST",
       "css_target": "dl",
-      "preconditions": [],
-      "operation_modes": [
-        "sr/reading"
+      "examples": [
+        "A screen reader might convey the position of each item in the list as something like \"x of y\" where y is the number of items in the list.",
+        "A screen reader might convey each term and description pair as a single item, or as separate items. For example, a screen reader might convey the size of a list of 3 pairs as either 3 or 6.",
+        "A screen reader might convey the number of items in the list when first entering the list."
       ]
     },
     {
-      "id": "convey_boundary",
-      "title": "convey the boundary of the list (start and end)",
-      "rationale": "A user must be able to determine when they enter or leave the list so that they are that content belongs or does not belong to the list.",
-      "type": "MUST",
-      "pass_strategy": "all",
+      "id": "convey_boundaries",
       "css_target": "dl",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading"
       ]
     }
   ],
-  "date_updated": "2018-07-21"
+  "date_updated": "2018-09-05"
 }

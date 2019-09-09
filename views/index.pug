@@ -24,11 +24,11 @@ block content
                 table
                   thead
                     tr
-                      each at, at_id in ATBrowsers.at
-                        th #{at.short_title}
+                      each at_id in ATBrowsers.core_at
+                        th #{ATBrowsers.at[at_id].short_title}
                   tbody
                     tr
-                      each at, at_id in ATBrowsers.at
+                      each at_id in ATBrowsers.core_at
                         td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
               p Supported by #{feature.total_test_count} tests.
               if feature.core_support.includes('u')

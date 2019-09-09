@@ -30,19 +30,31 @@ block content
                         a(href="/learn/at/"+atId)=ATBrowsers.at[atId].title
                 tr
                     th(scope="row") AT Version
-                    td= test.versions[atId].browsers[browserId].at_version
+                    if test.versions[atId] && test.versions[atId].browsers[browserId]
+                        td= test.versions[atId].browsers[browserId].at_version
+                    else
+                        td unknown
                 tr
                     th(scope="row") Browser Name
                     td= ATBrowsers.browsers[browserId].title
                 tr
                     th(scope="row") Browser Version
-                    td= test.versions[atId].browsers[browserId].browser_version
+                    if test.versions[atId] && test.versions[atId].browsers[browserId]
+                        td= test.versions[atId].browsers[browserId].browser_version
+                    else
+                        td unknown
                 tr
                     th(scope="row") OS version
-                    td= test.versions[atId].browsers[browserId].os_version
+                    if test.versions[atId] && test.versions[atId].browsers[browserId]
+                        td= test.versions[atId].browsers[browserId].os_version
+                    else
+                        td unknown
                 tr
                     th(scope="row") Date
-                    td= test.versions[atId].browsers[browserId].date
+                    if test.versions[atId] && test.versions[atId].browsers[browserId]
+                        td= test.versions[atId].browsers[browserId].date
+                    else
+                        td unknown
                 tr
                     th(scope="row") Notes
                     td!= assertion.results[atId].browsers[browserId].notes ? md.render(assertion.results[atId].browsers[browserId].notes) : ''

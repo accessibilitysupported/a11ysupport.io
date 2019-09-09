@@ -1,6 +1,6 @@
 {
   "core_at": ["dragon_win", "jaws", "narrator", "nvda", "talkback", "vo_ios", "vo_macos" ],
-  "extended_at": ["dragon_mac"],
+  "extended_at": ["dragon_mac", "orca"],
   "at": {
     "dragon_win": {
       "id": "dragon_win",
@@ -2299,6 +2299,594 @@
         "turn_on": {
           "command": "Command + F5",
           "name": "Turn On",
+          "tags": [
+            "general"
+          ]
+        }
+      }
+    },
+    "orca": {
+      "id": "orca",
+      "type": "sr",
+      "title": "Orca",
+      "short_title": "Orca",
+      "os": "Linux",
+      "core_browsers": ["firefox"],
+      "extended_browsers": ["chrome"],
+      "url": "https://help.gnome.org/users/orca/stable/",
+      "description": "",
+      "bugs": "",
+      "modifier_key": {
+        "name": "Orca",
+        "key": "Insert"
+      },
+      "commands": {
+        "activate_button": {
+          "command": "Enter or Space",
+          "name": "Activate Button",
+          "tags": [
+            "forms",
+            "general",
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "activate_form_control": {
+          "command": "Space",
+          "name": "Activate Form Control",
+          "tags": [
+            "forms",
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "activate_link": {
+          "command": "Enter",
+          "name": "Activate Link",
+          "tags": [
+            "general",
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "list_headings": {
+          "command": "Alt + shift + H",
+          "name": "List headings",
+          "tags": [
+            "elements",
+            "sr/reading",
+            "general"
+          ]
+        },
+        "enter_interaction_mode": {
+          "command": "Orca + a",
+          "name": "Exit focus mode",
+          "tags": [
+            "forms",
+            "general",
+            "sr/reading"
+          ]
+        },
+        "exit_interaction_mode": {
+          "command": "Orca + a",
+          "name": "Exit focus mode",
+          "tags": [
+            "forms",
+            "general",
+            "sr/interaction"
+          ]
+        },
+        "read_item": {
+          "command": "Keypad + enter",
+          "name": "Read current item",
+          "tags": [
+            "general",
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "enter_text": {
+          "command": "<enter text>",
+          "name": "enter text",
+          "note": "must be in a form or application context, and this is native browser behavior.",
+          "tags": [
+            "forms",
+            "sr/interaction"
+          ]
+        },
+        "next_option": {
+          "command": "Down arrow",
+          "name": "select next option",
+          "note": "must be in a listbox context, and this is native browser behavior.",
+          "tags": [
+            "forms",
+            "sr/interaction"
+          ]
+        },
+        "previous_option": {
+          "command": "Up arrow",
+          "name": "select previous option",
+          "note": "must be in a listbox context, and this is native browser behavior.",
+          "tags": [
+            "forms",
+            "sr/interaction"
+          ]
+        },
+        "select_option": {
+          "command": "Enter",
+          "name": "select an option",
+          "note": "must be in a listbox context, and this is native browser behavior.",
+          "tags": [
+            "forms",
+            "sr/interaction"
+          ]
+        },
+        "previous_form_field": {
+          "command": "shift + tab",
+          "name": "previous form field",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "move_to_start_of_container": {
+          "command": "shift+comma",
+          "name": "Move to the start of the container",
+          "note": "Will move to the start of the current container (list, table, etc)",
+          "tags": [
+            "elements",
+            "lists",
+            "tables",
+            "sr/reading"
+          ]
+        },
+        "move_to_end_of_container": {
+          "command": "comma",
+          "name": "Past the end of the container",
+          "note": "Will move past the end of the current container (list, table, etc)",
+          "tags": [
+            "elements",
+            "lists",
+            "tables",
+            "sr/reading"
+          ]
+        },
+        "next_block_quote": {
+          "command": "q",
+          "name": "Next block quote",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_block_quote": {
+          "command": "shift + q",
+          "name": "Previous block quote",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_block_quotes": {
+          "command": "alt + shift + q",
+          "name": "Open a list of block quotes",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_button": {
+          "command": "b",
+          "name": "Next button",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_button": {
+          "command": "shfit + b",
+          "name": "previous button",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_buttons": {
+          "command": "alt + shift + b",
+          "name": "Open list of buttons",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_checkbox": {
+          "command": "x",
+          "name": "Next checkbox",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_checkbox": {
+          "command": "shift + x",
+          "name": "Previous checkbox",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_checkboxes": {
+          "command": "alt + shift + x",
+          "name": "Open list of checkboxes",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_combo_box": {
+          "command": "c",
+          "name": "Next combo box (select)",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_combo_box": {
+          "command": "Shift + c",
+          "name": "Previous combo box (select)",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_combo_boxes": {
+          "command": "alt + shift + c",
+          "name": "Open a list of combo boxes (selects)",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_edit_field": {
+          "command": "e",
+          "name": "Next edit field",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_edit_field": {
+          "command": "shift + e",
+          "name": "Previous edit field",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_edit_fields": {
+          "command": "alt + shift + e",
+          "name": "Open list of edit fields",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_focusable_item": {
+          "command": "Tab",
+          "name": "Read next focusable item",
+          "tags": [
+            "common",
+            "forms",
+            "reading",
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "next_form_field": {
+          "command": "Tab",
+          "name": "Next form field",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_form_fields": {
+          "command": "alt + shift + f",
+          "name": "Open list of form fields",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_graphic": {
+          "command": "g",
+          "name": "Next graphic",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_graphics": {
+          "command": "alt + shift + g",
+          "name": "Open list of graphics",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_heading": {
+          "command": "h",
+          "name": "Next heading",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_heading": {
+          "command": "shift + h",
+          "name": "Previous heading",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_heading_of_level": {
+          "command": "1-6",
+          "name": "Next heading of level",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_item": {
+          "command": "down arrow",
+          "name": "Read next item",
+          "tags": [
+            "common",
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "next_landmark": {
+          "command": "m",
+          "name": "Next landmark",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_landmark": {
+          "command": "shift + m",
+          "name": "Previous landmark",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_landmarks": {
+          "command": "alt + shift + m",
+          "name": "Open list of landmarks",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_link": {
+          "command": "k",
+          "name": "Next link",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_link": {
+          "command": "shift+ k",
+          "name": "Previous link",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_links": {
+          "command": "alt + shift+ k",
+          "name": "Open a list of links",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_list": {
+          "command": "l",
+          "name": "Next list",
+          "tags": [
+            "elements",
+            "lists",
+            "sr/reading"
+          ]
+        },
+        "list_lists": {
+          "command": "alt + shift + L",
+          "name": "Open list of lists",
+          "tags": [
+            "elements",
+            "lists",
+            "sr/reading"
+          ]
+        },
+        "next_list_item": {
+          "command": "i",
+          "name": "Next list item",
+          "tags": [
+            "elements",
+            "lists",
+            "sr/reading"
+          ]
+        },
+        "next_paragraph": {
+          "command": "p",
+          "name": "Next paragraph",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_paragraph": {
+          "command": "shift + p",
+          "name": "Previous paragraph",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "list_paragraphs": {
+          "command": "alt + shift + p",
+          "name": "Open a list of paragraphs",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_radio_button": {
+          "command": "r",
+          "name": "Next radio button",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_separator": {
+          "command": "s",
+          "name": "Next separator",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_table": {
+          "command": "t",
+          "name": "Next table",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_unvisited_link": {
+          "command": "u",
+          "name": "Next unvisited link",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "next_visited_link": {
+          "command": "v",
+          "name": "Next visited link",
+          "tags": [
+            "elements",
+            "sr/reading"
+          ]
+        },
+        "previous_focusable_item": {
+          "command": "Shift + Tab",
+          "name": "Read previous focusable item",
+          "tags": [
+            "common",
+            "forms",
+            "reading",
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "previous_item": {
+          "command": "up arrow",
+          "name": "Read previous item",
+          "tags": [
+            "common",
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "report_title": {
+          "command": "Orca + keypad enter",
+          "name": "Report Title",
+          "tags": [
+            "general",
+            "sr/reading"
+          ]
+        },
+        "start_reading": {
+          "command": "Key Pad Plus",
+          "name": "start reading from current position",
+          "tags": [
+            "reading",
+            "sr/reading"
+          ]
+        },
+        "toggle_speech": {
+          "command": "Orca + S",
+          "name": "Toggle speech on and off",
+          "tags": [
+            "general",
+            "sr/reading"
+          ]
+        },
+        "table_move_to_next_column": {
+          "command": "alt + shift + right arrow",
+          "name": "Move to next column",
+          "tags": [
+            "tables",
+            "sr/reading"
+          ]
+        },
+        "table_move_to_next_row": {
+          "command": "alt + shift + down arrow",
+          "name": "Move to next row",
+          "tags": [
+            "tables",
+            "sr/reading"
+          ]
+        },
+        "table_move_to_previous_column": {
+          "command": "alt + shift + left arrow",
+          "name": "Move to previous column",
+          "tags": [
+            "tables",
+            "sr/reading"
+          ]
+        },
+        "table_move_to_previous_row": {
+          "command": "alt + shift + up arrow",
+          "name": "Move to previous row",
+          "tags": [
+            "tables",
+            "sr/reading"
+          ]
+        },
+        "toggle_reading_mode": {
+          "command": "Orca + A",
+          "name": "Toggle between browse and focus modes",
+          "tags": [
+            "forms",
+            "general"
+          ]
+        },
+        "turn_off": {
+          "command": "Super (windows or command key) + Alt + S",
+          "name": "Turn Off",
+          "tags": [
+            "general"
+          ]
+        },
+        "turn_on": {
+          "command": "Super (windows or command key) + Alt + S",
+          "name": "Turn On",
+          "tags": [
+            "general"
+          ]
+        },
+        "open_settings": {
+          "command": "Orca + space",
+          "name": "Open Orca settings",
           "tags": [
             "general"
           ]
