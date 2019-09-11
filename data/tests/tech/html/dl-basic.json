@@ -13,16 +13,19 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "(role not conveyed)",
                   "result": "fail"
                 },
                 {
-                  "command": "read_item_advanced",
+                  "command": "next_item",
+                  "from": "target",
+                  "to": "target",
                   "output": "\"1 of 6, level 1\" (a list was implied)",
                   "result": "partial"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -32,6 +35,8 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"list with 6 items. Green\"",
                   "result": "partial"
                 }
@@ -42,6 +47,8 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"list with 6 items. Green\"",
                   "result": "partial"
                 }
@@ -56,31 +63,65 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"green, description term\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Green, in list, 3 items\"",
+                  "result": "partial",
+                  "notes": "conveyed as a list, but not a description list."
+                }
+              ]
             }
           }
         },
@@ -90,11 +131,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"description list, 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -104,11 +146,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -125,16 +168,19 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Green\"",
                   "result": "fail"
                 },
                 {
-                  "command": "read_item_advanced",
+                  "command": "next_item",
+                  "from": "target",
+                  "to": "target",
                   "output": "\"1 of 6, level 1\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -144,21 +190,23 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"list with 6 items. Green\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"list with 6 items. Green\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -168,31 +216,64 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"definition list of 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"green, description term\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Green, in list, 3 items\"",
+                  "result": "pass"
+                }
+              ]
             }
           }
         },
@@ -202,11 +283,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"description list, 3 items\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -216,11 +298,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -236,36 +319,40 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"Green\"",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
-                  "output": "(enter list from start) \"1 of 6, level 1\"",
+                  "from": "start of target",
+                  "to": "start of target",
+                  "output": "\"1 of 6, level 1\"",
                   "result": "pass"
                 },
                 {
-                  "command": "read_item_advanced",
-                  "output": "(exit list from end) (did not convey boundary)",
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "(did not convey boundary)",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) (did not convey boundary)",
                   "result": "fail"
                 },
                 {
                   "command": "read_item_advanced",
+                  "from": "within target",
+                  "to": "within target",
                   "output": "(enter list from start) \"6 of 6, level 1\"",
                   "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "(exit list from start) (did not convey boundary)",
-                  "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -275,51 +362,65 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"out of list\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"out of list\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"out of list\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"list with 6 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"out of list\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -329,76 +430,169 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"list end\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"list end\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"list end\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"list end\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"list end\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"definition list of 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"list end\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"green, description term\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"some other content\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"and possibly white\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"These colors match well together\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Green, in list, 3 items\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"Some other content, out of list\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"And possibly white. In list, 3 items.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "\"\"",
+                  "result": "These colors match well together. out of list."
+                }
+              ]
             }
           }
         },
@@ -408,26 +602,33 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) \"description list, 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"end of description list\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"description list, 3 items\"",
                   "result": "pass"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"end of description list\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -437,26 +638,33 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
                   "output": "(enter list from start) Orange",
                   "result": "fail"
                 },
                 {
                   "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
                   "output": "(exit list from end) \"some other content\"",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
+                  "from": "after target",
+                  "to": "within target",
                   "output": "(enter list from end) \"And possibly white\"",
                   "result": "fail"
                 },
                 {
                   "command": "previous_item",
+                  "from": "within target",
+                  "to": "before target",
                   "output": "(exit list from start) \"These colors match well together\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -472,11 +680,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange 3 of 6\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -486,6 +695,8 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 },
@@ -494,13 +705,14 @@
                   "output": "\"Orange list item, read only\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 },
@@ -509,8 +721,7 @@
                   "output": "\"list item, read only, 2 of 3\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -520,31 +731,64 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Green, description term\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Orange\"",
+                  "result": "fail"
+                }
+              ]
             }
           }
         },
@@ -554,11 +798,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -568,11 +813,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -588,16 +834,19 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 },
                 {
-                  "command": "read_item_advanced",
+                  "command": "next_item",
+                  "from": "target",
+                  "to": "target",
                   "output": "\"3 of 6, level 1\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -607,6 +856,8 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 },
@@ -615,13 +866,14 @@
                   "output": "\"Orange list item, read only\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 },
@@ -630,8 +882,7 @@
                   "output": "\"list item, read only, 2 of 3\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -641,31 +892,64 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Green, description term\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"orange\"",
+                  "result": "fail"
+                }
+              ]
             }
           }
         },
@@ -675,11 +959,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange 3 of 6\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -689,11 +974,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Orange\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -709,11 +995,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -723,6 +1010,8 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 },
@@ -731,13 +1020,14 @@
                   "output": "\"Gray paragraph\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 },
@@ -746,8 +1036,7 @@
                   "output": "\"Gray paragraph\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -757,31 +1046,65 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Blue\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Gray, definition\"",
+                  "result": "partial",
+                  "notes": "The 'definition' role is not announced if the definition spans multiple lines, such as the definition for 'red' in the example."
+                }
+              ]
             }
           }
         },
@@ -791,11 +1114,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray 4 of 6\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -805,11 +1129,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -825,16 +1150,19 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 },
                 {
-                  "command": "read_item_advanced",
+                  "command": "next_item",
+                  "from": "target",
+                  "to": "target",
                   "output": "\"4 of 6, level 1\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -844,6 +1172,8 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 },
@@ -852,13 +1182,14 @@
                   "output": "\"Gray, paragraph\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 },
@@ -867,8 +1198,7 @@
                   "output": "\"Gray, paragraph\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -878,31 +1208,64 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             },
             "chrome": {
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Blue\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Gray, definition\"",
+                  "result": "fail"
+                }
+              ]
             }
           }
         },
@@ -912,11 +1275,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray 4 of 6\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         },
@@ -926,11 +1290,12 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "after target",
                   "output": "\"Gray\"",
                   "result": "fail"
                 }
-              ],
-              "notes": ""
+              ]
             }
           }
         }
@@ -938,6 +1303,10 @@
     }
   ],
   "history": [
+    {
+      "date": "2019-09-11",
+      "message": "Added Ora and Talkback results"
+    },
     {
       "date": "2019-05-01",
       "message": "Test created"
@@ -989,6 +1358,26 @@
           "browser_version": "66",
           "os_version": "1809",
           "date": "2019-09-04"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-09"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-09"
         }
       }
     },
