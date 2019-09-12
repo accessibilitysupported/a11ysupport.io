@@ -14,11 +14,12 @@ block content
           li
             a(href="#test-html") Expectations
             ul
-              li
-                a(href="#assertion-summary-table") Support summary by expectation type
               each assertion, index in data.assertions
                 li
                   a(href="#support-table-"+ index) #{testHelper.trimTechFromAssertion(assertion.title)}
+          if related_features.length
+            li
+              a(href="#related-features") Related features
           li
             a(href="#related-tests") Related tests
           li
@@ -37,20 +38,6 @@ block content
         a(href="/faq#what-are-expectations%3F") What are expectations?
 
       if data.assertions.length > 0
-
-        h3(id="assertion-summary-table") Summary of support by expectation type
-
-        table.support-table
-          thead
-            tr
-              th MUST
-              th SHOULD
-              th MAY
-          tbody
-            tr
-              td(class="current-support-container " + data.core_must_support_string.class) #{data.core_must_support_string.string}
-              td(class="current-support-container " + data.core_should_support_string.class) #{data.core_should_support_string.string}
-              td(class="current-support-container " + data.core_may_support_string.class) #{data.core_may_support_string.string}
 
         h3(id='support-table-by-assertion-and-at') Summary of support by expectation and assistive technology
         - var some_support_behind_settings = false
@@ -108,12 +95,35 @@ block content
                 each test in assertion.tests
                   tr
                     td
-                      a(href="/tests/"+testHelper.makeSafe(test.id)) #{test.title}
+                      a(href="/tests/" + testHelper.makeSafe(test.id)) #{test.title}
                     td(class='support-case ' + test.core_support_string.class) #{test.core_support_string.string}
           else
             p No tests reference this expectation yet.
       else
         p No expectations have been created for this feature yet.
+
+      if related_features.length
+        div.search-results
+          h2 Related features
+
+          p These are features that are usually used in combination with this feature.
+
+          each feature in related_features
+            div(data-keywords=feature.keywords_string).result
+              h2
+                a(href='/tech/' + feature.techId + '/' + feature.id) #{feature.title} (#{feature.techId})
+              div.responsive-table
+                table
+                  thead
+                    tr
+                      each at_id in ATBrowsers.core_at
+                        th #{ATBrowsers.at[at_id].short_title}
+                  tbody
+                    tr
+                      each at_id in ATBrowsers.core_at
+                        td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
+              if feature.core_support.includes('u')
+                p We are missing data on some combinations.
 
     div.sidebar
       h2(id="related-tests") Tests
@@ -134,7 +144,7 @@ block content
       a(href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title="+data.id+"&labels=tech%20feature") Create an issue for this feature
 
       if data.references
-        h2 References
+        h2(id="related-features") References
         ul
           each reference in data.references
             li

@@ -47,11 +47,25 @@ router.get('/:techId/:featureId', function(req, res, next) {
 		return;
 	}
 
+	let related_features = [];
+	if (feature_object.related_features) {
+		var features = require(__dirname+'/../build/features.json');
+		feature_object.related_features.forEach(function(id) {
+			var tech_id = id.split('/')[0];
+			var feature_id = id.split('/')[1];
+			let found = features.find(obj => obj.techId === tech_id && obj.id === feature_id);
+			if (found) {
+				related_features.push(found);
+			}
+		});
+	}
+
 	res.render('feature', {
 		title: req.params.featureId + ' (' + req.params.techId + ') | Accessibility Support',
 		techId: req.params.techId,
 		featureId: req.params.featureId,
 		data: feature_object,
+		related_features: related_features,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
 		testHelper: testHelper
