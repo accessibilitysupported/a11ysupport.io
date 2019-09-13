@@ -88,6 +88,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+          "firefox": {
+            "output": [
+              {
+                "command": "activate_button",
+                "from": "before target",
+                "to": "target",
+                "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
+                "result": "fail"
+              },
+              {
+                "command": "previous_item",
+                "from": "within target",
+                "to": "start of target",
+                "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\" ",
+                "result": "pass"
+              }
+            ]
+          }
+        }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -230,6 +252,28 @@
                   "from": "before target",
                   "to": "within target",
                   "output": "\"Add delivery address, dialog...\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\" ",
                   "result": "pass"
                 }
               ]
@@ -383,6 +427,22 @@
                   "to": "before target",
                   "output": "not able to move outside of the modal",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
+                  "result": "partial",
+                  "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
                 }
               ]
             }
@@ -544,6 +604,22 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
+                  "result": "partial",
+                  "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -674,6 +750,22 @@
                   "to": "before target",
                   "output": "unable to reach outside content",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "from": "within target",
+                  "to": "start of target",
+                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
+                  "result": "partial",
+                  "notes": "Partial because the link before the modal was announced (but nothing else outside of the modal)."
                 }
               ]
             }
@@ -846,6 +938,34 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_form_field",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "no outside form fields were found",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_link",
+                  "from": "within target",
+                  "to": "before target",
+                  "output": "The link just before the dialog example was announced, but the reading cursor was immediately sent back to the open dialog. Not possible to find other links outside of the dialog.",
+                  "result": "partial"
+                },
+                {
+                  "command": "list_links",
+                  "output": "outside links are listed. When jumping to those links, focus is redirected back to the open dialog.",
+                  "result": "partial",
+                  "notes": "partial because outside links are listed but its not possible to jump to them."
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -968,6 +1088,16 @@
           "browser_version": "68",
           "os_version": "1903",
           "date": "2019-08-13"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-13"
         }
       }
     },
