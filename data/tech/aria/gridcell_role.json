@@ -11,14 +11,24 @@
   "assertions": [
     {
       "id": "convey_role",
-      "title": "convey the gridcell role",
-      "type": "MUST",
       "css_target": "*[role=\"gridcell\"]",
-      "preconditions": [],
+      "examples": [
+        "A screen reader might announce \"grid cell\"",
+        "A screen reader might announce \"cell\"",
+        "A screen reader might imply the role by announcing other table semantics",
+        "A screen reader might imply the role by support table navigation"
+      ],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "css_target": "*[role=\"gridcell\"]",
       "operation_modes": [
         "sr/reading"
       ]
     }
   ],
-  "date_updated": "2018-10-26"
+  "date_updated": "2019-09-13"
 }

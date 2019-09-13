@@ -13,11 +13,39 @@
               "output": [
                 {
                   "command": "next_focusable_item",
-                  "output": "target Row 2 Name Column 2",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "table, target selected",
+                  "result": "pass",
+                  "notes": "implied by the table role"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, selected, name column 2 of 2\"",
                   "result": "pass"
                 }
-              ],
-              "notes": ""
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "table\ntarget  row 2  Name  column 2\n",
+                  "result": "pass",
+                  "notes": "implied by the table role and position info"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Name column 2, target\"",
+                  "result": "pass"
+                }
+              ]
             }
           }
         },
@@ -27,11 +55,372 @@
               "output": [
                 {
                   "command": "next_focusable_item",
-                  "output": "target, table 2 columns, 3 rows",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "target, table 2 columns, 3 rows, you are currently on a cell",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, column 2 of 2\"",
+                  "result": "pass"
                 }
-              ],
-              "notes": "The fact that a specific gridcell is focused was not announced. No header information or information about location in the grid."
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Grid, read only, name, column 2 of 2, target selected, read only",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target selected, read only\"",
+                  "result": "pass",
+                  "notes": "table semantics implies that this is a cell"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"column 2, row 2, target",
+                  "result": "pass",
+                  "notes": "table semantics implies that this is a cell"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, column 2\"",
+                  "result": "pass",
+                  "notes": "table semantics implies that this is a cell"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, column 2, row 2, grid read only, target selected, read only\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target selected, read only, use your reading keys to read the text\"",
+                  "result": "pass",
+                  "notes": "implied by table command"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, has 3 row, 2 columns, target, read only, column header name, row 2 of 3, column 2 of 2\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, read only, column header name, column 2 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, name, double tap to activate\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, row 2, name, double tap to activate\"",
+                  "result": "pass",
+                  "notes": "implied by table semantics"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, column 2\"",
+                  "result": "pass",
+                  "notes": "implied by table semantics"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table with 3 rows 2 columns, name column header, target, focus mode\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, row 2, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/gridcell_role",
+      "feature_assertion_id": "convey_name",
+      "css_target": "#target",
+      "results": {
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "table, target selected",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, selected, name column 2 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "table\ntarget  row 2  Name  column 2\n",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Name column 2, target\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "target, table 2 columns, 3 rows, you are currently on a cell",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, column 2 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Grid, read only, name, column 2 of 2, target selected, read only",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target selected, read only\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"column 2, row 2, target",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, column 2, row 2, grid read only, target selected, read only\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target selected, read only, use your reading keys to read the text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table, has 3 row, 2 columns, target, read only, column header name, row 2 of 3, column 2 of 2\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, read only, column header name, column 2 of 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, name, double tap to activate\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, row 2, name, double tap to activate\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table with 3 rows 2 columns, name column header, target, focus mode\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"name, target, row 2, column 2\"",
+                  "result": "pass"
+                }
+              ]
             }
           }
         }
@@ -40,28 +429,110 @@
   ],
   "history": [
     {
+      "date": "2019-09-13",
+      "message": "Add missing combinations, update all results, and add the name assertion"
+    },
+    {
       "date": "2018-10-26",
       "message": "Test created"
     }
   ],
   "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1907.42",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        },
+        "ie": {
+          "at_version": "2019.1907.42",
+          "browser_version": "11",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        },
+        "firefox": {
+          "at_version": "2019.1907.42",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        }
+      }
+    },
     "nvda": {
       "browsers": {
+        "chrome": {
+          "at_version": "2019.2",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        },
         "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "63",
-          "os_version": "17763",
-          "date": "2018-10-26"
+          "at_version": "2019.2",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-13"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-13"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-13"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.4.1",
+          "browser_version": "12.4.1",
+          "os_version": "12.4.1",
+          "date": "2019-09-13"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14",
-          "browser_version": "12",
-          "os_version": "10.14",
-          "date": "2018-10-26"
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.6",
+          "date": "2019-09-13"
         }
       }
     }
