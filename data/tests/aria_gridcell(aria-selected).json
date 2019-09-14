@@ -84,6 +84,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"table with 3 rows, 2 columns, date column header, 2018-01-01, focus mode\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -207,6 +222,21 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"not selected, row 2 name, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"2018-01-01 target 1, not selected\"",
                   "result": "pass"
                 }
               ]
@@ -342,6 +372,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"2018-01-02, target 2, not selected\"",
+                  "result": "false"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -472,6 +517,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"space\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -521,6 +581,10 @@
     }
   ],
   "history": [
+    {
+      "date": "2019-09-14",
+      "message": "Added Orca results"
+    },
     {
       "date": "2019-08-02",
       "message": "Updated to test more values"
@@ -576,6 +640,16 @@
           "browser_version": "68",
           "os_version": "1903",
           "date": "2019-07-20"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-14"
         }
       }
     },
