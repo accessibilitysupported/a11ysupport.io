@@ -42,6 +42,32 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"table with 4 rows, 3 columns, date column header, event column header, venu column header\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Date, column header, row 1, in grid, 4 rows, 3 columns\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -244,6 +270,66 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"table with 4 rows, 3 columns, date column header, event column header, venu column header\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"leaving table\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "\"end of row\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "\"beginning of row\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "\"bottom of column\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "\"top of column\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Date, column header, row 1, in grid, 4 rows, 3 columns\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "output": "\"out of grid\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -387,6 +473,32 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "\"Event, Waltz with Strauss, row 2, column 2\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Waltz with Strauss, event\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -495,22 +607,22 @@
               "output": [
                 {
                   "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 }
               ]
@@ -523,22 +635,22 @@
               "output": [
                 {
                   "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 }
               ]
@@ -547,22 +659,63 @@
               "output": [
                 {
                   "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(cell is announced as the header as you transition between columns)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(cell is announced as the header as you transition between columns)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(cell is announced as the header as you transition between columns)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(cell is announced as the header as you transition between columns)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"Venue, column header\"",
                   "result": "pass"
                 }
               ]
@@ -575,22 +728,22 @@
               "output": [
                 {
                   "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 }
               ],
@@ -600,22 +753,22 @@
               "output": [
                 {
                   "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 }
               ],
@@ -625,22 +778,22 @@
               "output": [
                 {
                   "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 },
                 {
                   "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
+                  "output": "(cell is announced as the header as you transition between columns)",
                   "result": "pass"
                 }
               ],
@@ -771,6 +924,47 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -968,6 +1162,42 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "previous_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "(no header semantics surfaced, which implies that this is a cell)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -1153,6 +1383,47 @@
                 },
                 {
                   "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "table_move_to_next_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_column",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_next_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                },
+                {
+                  "command": "table_move_to_previous_row",
+                  "output": "(position information is announced as column and rows are changed)",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
                   "output": "(position information is announced as column and rows are changed)",
                   "result": "pass"
                 }
@@ -1293,6 +1564,10 @@
     {
       "date": "2019-05-10",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-14",
+      "message": "Add orca and talkback results"
     }
   ],
   "versions": {
@@ -1341,6 +1616,26 @@
           "browser_version": "61.0.1",
           "os_version": "1803",
           "date": "2018-07-30"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-14"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-14"
         }
       }
     },
