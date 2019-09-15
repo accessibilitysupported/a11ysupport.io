@@ -124,6 +124,17 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					]
 				}, assertion);
 				break;
+			case 'convey_nesting_level':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey the nesting level",
+					rationale: "A screen reader user might find it helpful to know what nesting level they are at",
+					type: "SHOULD",
+					operation_modes: [
+						"sr/reading",
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
 			case 'content_navigable':
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "allow navigating content",
