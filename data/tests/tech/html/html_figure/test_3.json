@@ -1,21 +1,34 @@
 {
-  "title": "Figure test 3",
+  "title": "Figure test 3 - no figcaption",
   "description": "This test was originally imported from the article titled '[how do you figure?'](https://www.scottohara.me/blog/2019/01/21/how-do-you-figure.html)' by Scott O'Hara.",
   "html_file": "html_figure_tests.html",
   "assertions": [
     {
       "feature_id": "html/figure_element",
       "feature_assertion_id": "convey_role",
-      "css_target": "#target_3",
+      "css_target": "#target_1",
       "results": {
         "jaws": {
           "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
             "ie": {
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
                 }
               ]
             },
@@ -23,27 +36,10 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Note: Image \"should\" be ignored.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
-                }
-              ],
-              "notes": "fail (all content ignored!)"
-            },
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
                 }
               ]
             }
@@ -55,93 +51,36 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
                 }
-              ],
-              "notes": "fail (all content ignored!)"
+              ]
             }
           }
         },
         "nvda": {
           "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
             "firefox": {
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "Note: Image \"should\" be ignored.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ios_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
                 }
               ]
             }
@@ -153,17 +92,491 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
                 }
               ]
-            },
-            "and_ff": {
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
               "output": [
                 {
                   "command": "next_item",
-                  "output": "(unknown)",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/figure_element",
+      "feature_assertion_id": "convey_name",
+      "css_target": "#target_1",
+      "expected_value": "none (missing)",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/figure_element",
+      "feature_assertion_id": "convey_boundaries",
+      "css_target": "#target_1",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/figure_element",
+      "feature_assertion_id": "content_navigable",
+      "css_target": "#target_1",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"\"",
+                  "result": "unknown"
                 }
               ]
             }
@@ -176,120 +589,98 @@
     {
       "date": "2019-01-22",
       "message": "Test created. Thank you @scottaohara."
+    },
+    {
+      "date": "2019-09-15",
+      "message": "Add orca and update results with output"
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019",
-          "browser_version": "71",
-          "os_version": "1809",
-          "date": "2019-01-22"
+          "at_version": "2019.1907.42",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-15"
         },
         "ie": {
-          "at_version": "2019",
+          "at_version": "2019.1907.42",
           "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-01-22"
+          "os_version": "1903",
+          "date": "2019-09-15"
         },
         "firefox": {
-          "at_version": "2019",
-          "browser_version": "64.0.2",
-          "os_version": "1809",
-          "date": "2019-01-22"
-        },
-        "edge": {
-          "at_version": "2019",
-          "browser_version": "42",
-          "os_version": "1809",
-          "date": "2019-01-22"
+          "at_version": "2019.1907.42",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-15"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1804",
-          "browser_version": "42",
-          "os_version": "1804",
-          "date": "2019-01-22"
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-09-15"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.4.1",
-          "browser_version": "72",
-          "os_version": "1809",
-          "date": "2019-01-22"
+          "at_version": "2019.2",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-15"
         },
         "firefox": {
-          "at_version": "2018.4.1",
-          "browser_version": "64.0.2",
-          "os_version": "1809",
-          "date": "2019-01-22"
-        },
-        "ie": {
-          "at_version": "2018.4.1",
-          "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-01-22"
-        },
-        "edge": {
-          "at_version": "2018.4.1",
-          "browser_version": "42",
-          "os_version": "1809",
-          "date": "2019-01-22"
+          "at_version": "2019.2",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-15"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-15"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.2",
-          "browser_version": "70",
-          "os_version": "8.1",
-          "date": "2019-01-22"
-        },
-        "and_ff": {
-          "at_version": "7.2",
-          "browser_version": "63.0.2",
-          "os_version": "8.1",
-          "date": "2019-01-22"
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-15"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.1",
-          "browser_version": "12.1.2",
-          "os_version": "12.1",
-          "date": "2019-01-22"
-        },
-        "ios_chr": {
-          "at_version": "12.1",
-          "browser_version": "71",
-          "os_version": "12.1",
-          "date": "2019-01-22"
+          "at_version": "12.4.1",
+          "browser_version": "12.4.1",
+          "os_version": "12.4.1",
+          "date": "2019-09-15"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.2",
-          "browser_version": "12.0.2",
-          "os_version": "10.14.2",
-          "date": "2019-01-22"
-        },
-        "chrome": {
-          "at_version": "10.14.2",
-          "browser_version": "71",
-          "os_version": "10.14.2",
-          "date": "2019-01-22"
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.6",
+          "date": "2019-09-15"
         }
       }
     }

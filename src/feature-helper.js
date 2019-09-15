@@ -114,12 +114,27 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					examples: [
 						"A screen reader might announce the role of the element when entering and say something like \"leaving\" when exiting.",
 						"A screen reader might not explicitly announce entering and existing the element, but instead imply that the is in the containing object by conveying the roles of required children (options in a listbox for example).",
-						"A screen reader might announce position in set information such as \"1 of 6\"."
+						"A screen reader might announce position in set information such as \"1 of 6\".",
+						"A screen reader might not convey boundaries if the content fits on a single line"
 					],
 					pass_strategy: "all",
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction"
+					]
+				}, assertion);
+				break;
+			case 'content_navigable':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "allow navigating content",
+					rationale: "A user needs to be able to navigate the content",
+					type: "MUST",
+					examples: [
+						"A screen reader might allow reading-mode navigation, such as reading line-by-line."
+					],
+					pass_strategy: "all",
+					operation_modes: [
+						"sr/reading"
 					]
 				}, assertion);
 				break;
