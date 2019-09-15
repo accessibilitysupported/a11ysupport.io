@@ -59,6 +59,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"<name>, heading level <level>\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -195,6 +210,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_heading",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"<name>, heading level <level>\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "list_headings",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "all headings and heading levels were listed",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -310,6 +347,21 @@
                 {
                   "command": "next_item",
                   "output": "\"heading level <level>, <name>\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"<name>, heading level <level>\"",
                   "result": "pass"
                 }
               ]
@@ -452,6 +504,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_heading",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"<name>, heading level <level>\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "list_headings",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "all headings and heading levels were listed",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -573,6 +647,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"<name>, heading level <level>\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -636,6 +725,10 @@
     {
       "date": "2019-07-12",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-15",
+      "message": "Add orca results"
     }
   ],
   "versions": {
@@ -684,6 +777,21 @@
           "browser_version": "75",
           "os_version": "1903",
           "date": "2019-07-13"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "output": [
+            {
+              "command": "next_item",
+              "from": "before target",
+              "to": "target",
+              "output": "\"2. dogs\"",
+              "result": "pass"
+            }
+          ]
         }
       }
     },
