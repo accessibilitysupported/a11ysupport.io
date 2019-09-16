@@ -140,6 +140,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry, focus mode\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -336,6 +358,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry, focus mode\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -493,6 +537,28 @@
                 }
               ],
               "notes": "Focus was returned to the text input but only the value was announced"
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "the character is announced",
+                  "result": "pass"
+                },
+                {
+                  "command": "select_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function\"",
+                  "result": "pass"
+                }
+              ]
             }
           }
         },
@@ -679,6 +745,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry, function\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry, function selected, focus mode\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -834,6 +922,28 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_edit_field",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "list_edit_fields",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "in list of text fields",
                   "result": "pass"
                 }
               ]
@@ -1019,6 +1129,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"function type, entry\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "function type, entry, focus mode",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1172,6 +1304,22 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"menu, function, function\"",
+                  "result": "partial",
+                  "notes": "data list is conveyed as a menu instead of a listbox"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1307,6 +1455,29 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"menu, function, function\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_option",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "focus is sent back to the input and the input is announced",
+                  "result": "pass"
+                }
+              ],
+              "notes": "boundaries are implied by the menu and focus being sent back to the input"
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1424,6 +1595,21 @@
                 {
                   "command": "enter_text",
                   "output": "The entered character was announced, but no information about changes to the suggestions",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "no announcements",
                   "result": "fail"
                 }
               ]
@@ -1561,6 +1747,21 @@
                   "to": "target",
                   "output": "\"blank\" was announced for every option",
                   "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"generator function, generator function\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -1708,6 +1909,22 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"generator function, generator function\"",
+                  "result": "partial",
+                  "notes": "the menu role might imply a menuitem role instead of an option role"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1850,6 +2067,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"generator function, generator function\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1978,6 +2210,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_option",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"generator function, generator function\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -2036,6 +2283,10 @@
     {
       "date": "2019-07-20",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-15",
+      "message": "Add orca results"
     }
   ],
   "versions": {
@@ -2094,6 +2345,16 @@
           "browser_version": "68",
           "os_version": "1903",
           "date": "2019-07-24"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-15"
         }
       }
     },
