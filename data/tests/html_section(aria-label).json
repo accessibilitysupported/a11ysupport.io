@@ -4,46 +4,55 @@
   "assertions": [
     {
       "feature_id": "html/section_element",
-      "feature_assertion_id": "convey_role_if_named",
+      "feature_assertion_id": "convey_name_and_role_if_named",
       "css_target": "#target",
       "results": {
         "jaws": {
           "browsers": {
-            "edge": {
+            "chrome": {
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Sample text",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
                   "result": "fail"
                 },
                 {
                   "command": "next_region",
-                  "output": "Sample text",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "(not listed)",
-                  "result": "fail"
+                  "output": "Sample text line 1, target region",
+                  "result": "pass"
                 }
-              ],
-              "notes": "The next region command took the user to the text within the region, but did not announce the region name."
+              ]
             },
             "ie": {
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Sample Text",
+                  "output": "\"sample text line 1\"",
                   "result": "fail"
                 },
                 {
                   "command": "next_region",
-                  "output": "Sample text, target region",
+                  "output": "\"Sample text line 1, target region\"",
                   "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
                 },
                 {
-                  "command": "open_element_list",
-                  "output": "target region",
+                  "command": "next_region",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target region\"",
                   "result": "pass"
                 }
               ]
@@ -56,12 +65,16 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Sample text",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
                   "result": "fail"
                 },
                 {
-                  "command": "list_landmarks",
-                  "output": "target section",
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target section, region landmark\"",
                   "result": "pass"
                 }
               ]
@@ -74,12 +87,34 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Target region. Sample text",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
                   "result": "pass"
                 },
                 {
-                  "command": "open_element_list",
-                  "output": "Target; region",
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
                   "result": "pass"
                 }
               ]
@@ -92,16 +127,707 @@
               "output": [
                 {
                   "command": "next_item",
-                  "output": "Sample text",
-                  "result": "fail"
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"target, region\"",
+                  "result": "pass"
                 },
                 {
                   "command": "open_element_list",
-                  "output": "target region",
+                  "output": "\"target region\"",
                   "result": "pass"
                 }
-              ],
-              "notes": "Included in the landmarks list when the Web Rotor is used."
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target, region, landmark\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target region, sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"region, sample text line 1\"",
+                  "result": "partial",
+                  "notes": "name not announced"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/section_element",
+      "feature_assertion_id": "convey_boundaries",
+      "css_target": "#target",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_region",
+                  "output": "Sample text line 1, target region",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"blank\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_region",
+                  "output": "\"Sample text line 1, target region\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"blank\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_region",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target region\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"blank\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target section, region landmark\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"example end\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"example, end\"",
+                  "result": "fail"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"example, end\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"target, region\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "\"target region\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"target, region\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
+                  "result": "pass",
+                  "notes": "boundaries implied because all contents were announced"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target, region, landmark\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"example end\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target region, sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"region, sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "end of target",
+                  "output": "\"leaving region\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "aria/aria-label_attribute",
+      "feature_assertion_id": "contribute_to_accessible_name",
+      "css_target": "#target",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "na",
+                  "notes": "na because the element was not conveyed"
+                },
+                {
+                  "command": "next_region",
+                  "output": "Sample text line 1, target region",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "output": "\"sample text line 1\"",
+                  "result": "na",
+                  "notes": "na because the element was not conveyed"
+                },
+                {
+                  "command": "next_region",
+                  "output": "\"Sample text line 1, target region\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "na",
+                  "notes": "na because the element was not conveyed"
+                },
+                {
+                  "command": "next_region",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target region\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1\"",
+                  "result": "na",
+                  "notes": "na because the element was not conveyed"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target section, region landmark\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"target, region\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "\"target region\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, line 1\"",
+                  "result": "na",
+                  "notes": "na because the element was not conveyed"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, line 1\"",
+                  "result": "na",
+                  "notes": "na because the element was not conveyed"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target, region, landmark\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target region, sample text line 1\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"region, sample text line 1\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/section_element",
+      "feature_assertion_id": "provide_shortcuts",
+      "css_target": "#target",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_region",
+                  "output": "Sample text line 1, target region",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_region",
+                  "output": "\"Sample text line 1, target region\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target region\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target section, region landmark\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Target region, Sample text line 1\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "open_element_list",
+                  "output": "\"target region\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"sample text line 1, target, region, landmark\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"region, sample text line 1\"",
+                  "result": "pass"
+                }
+              ]
             }
           }
         }
@@ -112,52 +838,108 @@
     {
       "date": "2018-11-14",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-16",
+      "message": "Add more assertions and update results"
     }
   ],
   "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-16"
+        }
+      }
+    },
     "jaws": {
       "browsers": {
-        "ie": {
-          "at_version": "2018.1808.10",
-          "browser_version": "11.134",
-          "os_version": "17763",
-          "date": "2018-11-14"
+        "chrome": {
+          "at_version": "2019.1907.42",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-16"
         },
-        "edge": {
-          "at_version": "2018.1808.10",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-14"
+        "ie": {
+          "at_version": "2019.1907.42",
+          "browser_version": "11",
+          "os_version": "1903",
+          "date": "2019-09-16"
+        },
+        "firefox": {
+          "at_version": "2019.1907.42",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-16"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "17763",
-          "browser_version": "44.17763.1.0",
-          "os_version": "17763",
-          "date": "2018-11-14"
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-09-16"
         }
       }
     },
     "nvda": {
       "browsers": {
+        "chrome": {
+          "at_version": "2019.2",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-09-16"
+        },
         "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "63.0.1",
-          "os_version": "17763",
-          "date": "2018-11-14"
+          "at_version": "2019.2",
+          "browser_version": "69",
+          "os_version": "1903",
+          "date": "2019-09-16"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-16"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-16"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "12.4.1",
+          "browser_version": "12.4.1",
+          "os_version": "12.4.1",
+          "date": "2019-09-16"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.1",
-          "browser_version": "12.0.1",
-          "os_version": "10.14.1",
-          "date": "2018-11-14"
+          "at_version": "10.14.6",
+          "browser_version": "12.1.2",
+          "os_version": "10.14.6",
+          "date": "2019-09-16"
         }
       }
     }

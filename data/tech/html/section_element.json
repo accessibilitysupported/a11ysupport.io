@@ -23,8 +23,8 @@
   ],
   "assertions": [
     {
-      "id": "convey_role_if_named",
-      "title": "convey a region role if it is named via aria-label",
+      "id": "convey_name_and_role_if_named",
+      "title": "convey an appropriate role and name if it is named",
       "type": "MUST",
       "css_target": "section[aria-label]",
       "preconditions": [],
@@ -36,16 +36,36 @@
     },
     {
       "id": "no_role_if_not_named",
-      "title": "not convey a region role if it is not named via aria-label",
+      "title": "not convey a role if it is not named",
       "type": "MUST",
-      "css_target": "section:note([aria-label])",
+      "css_target": "section:not([aria-label])",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
       ],
       "reference": "HTML AAM 5.15.1 Section and Grouping Element Accessible Name Computation"
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "convey boundaries if named",
+      "rationale": "A user might need to differentiate content inside the region from content outside of the region",
+      "type": "MUST",
+      "css_target": "section[aria-label]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ],
+      "reference": "HTML AAM 5.15.1 Section and Grouping Element Accessible Name Computation"
+    },
+    {
+      "id": "provide_shortcuts",
+      "css_target": "section[aria-label]",
+      "operation_modes": [
+        "sr/reading"
+      ]
     }
   ],
-  "date_updated": "2018-11-14"
+  "date_updated": "2019-09-16"
 }
