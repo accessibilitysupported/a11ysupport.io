@@ -85,6 +85,36 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"fruit entry, focus mode\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit box, fruit, double tap to activate\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -199,6 +229,36 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"veggie, entry, required\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit box, veggie, double tap to activate\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -236,6 +296,10 @@
     {
       "date": "2019-07-01",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-15",
+      "message": "add talkback and orca results"
     }
   ],
   "versions": {
@@ -284,6 +348,26 @@
           "browser_version": "67",
           "os_version": "1903",
           "date": "2019-07-01"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-15"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "browser_version": "76",
+          "os_version": "9",
+          "date": "2019-09-15"
         }
       }
     },

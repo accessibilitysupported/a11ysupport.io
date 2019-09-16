@@ -86,6 +86,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -309,6 +324,35 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"animal panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"animal panel. cat, not selected, radio button. dog, not selected, radio button. catdog, not selected, radio button\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -511,6 +555,21 @@
                   "from": "before target",
                   "to": "within target",
                   "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button\"",
                   "result": "pass"
                 }
               ]
@@ -782,6 +841,42 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button\"",
+                  "result": "unknown"
+                },
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"animal panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_item",
+                  "from": "within target",
+                  "to": "after target",
+                  "output": "\"leaving panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"animal panel. cat, not selected, radio button. dog, not selected, radio button. catdog, not selected, radio button\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -875,6 +970,10 @@
     {
       "date": "2019-07-01",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-15",
+      "message": "orca added"
     }
   ],
   "versions": {
@@ -923,6 +1022,16 @@
           "browser_version": "67",
           "os_version": "1903",
           "date": "2019-07-01"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-15"
         }
       }
     },
