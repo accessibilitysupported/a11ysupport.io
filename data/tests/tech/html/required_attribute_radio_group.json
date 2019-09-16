@@ -1,7 +1,7 @@
 {
   "title": "The html required attribute on each HTML radio button in a fieldset",
   "description": "This test checks the html required attribute as applied to each HTML radio button in a fieldset. Some general notes: \n\n* The HTML spec suggests that it is okay to place the required attribute on only one of the radio buttons, however, only that radio button will be conveyed as required. Other radio buttons in the group will not be conveyed as required, and if screen reader user jumps to a radio button that doesn't have a required attribute then the requiredness might of the group might be missed.\n* Currently, the most robust solution to mark a group of radio buttons as required is to place the text 'required' in the group label.",
-  "html_file": "aria/aria-required-on-html-radio-buttons.html",
+  "html_file": "html/required_attribute_radio_group.html",
   "assertions": [
     {
       "feature_id": "html/required_attribute",
@@ -215,6 +215,42 @@
                 }
               ],
               "notes": "The required state is conveyed for each radio in the group. Some users might find this confusing since only one radio can be selected at a time."
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"leaving animal panel, Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Animal panel, catdog, not selected, radio button.\"",
+                  "result": "fail"
+                }
+              ]
             }
           }
         },
@@ -511,6 +547,42 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"leaving animal panel, Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "target",
+                  "output": "\"Animal panel, catdog, not selected, radio button.\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -795,6 +867,42 @@
                   "from": "after target",
                   "to": "within target",
                   "output": "\"Animal grouping, cat, radio button, not checked, required, invalid entry, 1 of 3\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Animal panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"leaving animal panel, Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Animal panel, catdog, not selected, radio button.\"",
                   "result": "pass"
                 }
               ]
@@ -1091,6 +1199,42 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Animal panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"leaving animal panel, Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Animal panel, catdog, not selected, radio button.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1375,6 +1519,42 @@
                   "from": "after target",
                   "to": "within target",
                   "output": "\"Animal grouping, cat, radio button, not checked, required, invalid entry, 1 of 3\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Animal panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"leaving animal panel, Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Animal panel, catdog, not selected, radio button.\"",
                   "result": "pass"
                 }
               ]
@@ -1678,6 +1858,42 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "start of target",
+                  "output": "\"Animal panel\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "within target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_item",
+                  "from": "after target",
+                  "to": "end of target",
+                  "output": "\"leaving animal panel, Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "previous_focusable_item",
+                  "from": "after target",
+                  "to": "within target",
+                  "output": "\"Animal panel, catdog, not selected, radio button.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -1885,6 +2101,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -2077,6 +2315,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -2249,6 +2509,28 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"Animal grouping, cat, radio button, checked, required, 1 of 3\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, selected, radio button.\"",
                   "result": "pass"
                 }
               ]
@@ -2433,6 +2715,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -2563,6 +2867,21 @@
                   "from": "target",
                   "to": "target",
                   "output": "\"checked\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "activate_form_control",
+                  "from": "target",
+                  "to": "target",
+                  "output": "\"selected\"",
                   "result": "pass"
                 }
               ]
@@ -2740,6 +3059,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Cat, not selected, radio button. Dog, not selected, radio button. CatDog, not selected, radio button.\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"animal panel, cat, not selected, radio button.\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -2890,6 +3231,24 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_radio_button",
+                  "output": "\"cat, not selected, radio button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "list_radio_buttons",
+                  "output": "in list of radio buttons",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -2941,6 +3300,10 @@
     {
       "date": "2019-08-21",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-16",
+      "message": "Add orca results"
     }
   ],
   "versions": {
@@ -2999,6 +3362,16 @@
           "browser_version": "68",
           "os_version": "1903",
           "date": "2019-08-21"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-16"
         }
       }
     },
