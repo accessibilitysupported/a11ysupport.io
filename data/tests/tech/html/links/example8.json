@@ -100,6 +100,22 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. Mellblomatic 9000!, heading level 3\"",
+                  "result": "pass",
+                  "notes": "Entire placeholder link was announced, but then each line can be read individually"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -243,6 +259,22 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. Mellblomatic 9000!, heading level 3\"",
+                  "result": "pass",
+                  "notes": "Entire placeholder link was announced, but then each line can be read individually"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -366,6 +398,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_link",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "not found",
+                  "result": "pass"
+                },
+                {
+                  "command": "list_links",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "not found",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -425,6 +479,10 @@
     {
       "date": "2019-07-28",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-16",
+      "message": "Add orca results"
     }
   ],
   "versions": {
@@ -483,6 +541,16 @@
           "browser_version": "68",
           "os_version": "1903",
           "date": "2019-07-24"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-16"
         }
       }
     },
