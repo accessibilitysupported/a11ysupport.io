@@ -128,6 +128,28 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", entry, invalid entry, example error text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Input with aria-invalid=\"true\", entry, invalid entry, example error texte\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
         "talkback": {
           "browsers": {
             "and_chr": {
@@ -275,32 +297,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit, has auto complete\"",
+                  "output": "\"Input with aria-invalid=\"false\", entry\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit, has auto complete, blank\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit, blank\"",
+                  "output": "\"Input with aria-invalid=\"false\", entry\"",
                   "result": "pass"
                 }
               ]
@@ -370,6 +374,10 @@
     {
       "date": "2019-04-09",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-16",
+      "message": "Add orca results"
     }
   ],
   "versions": {
@@ -424,6 +432,16 @@
           "browser_version": "68",
           "os_version": "1903",
           "date": "2019-04-02"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-16"
         }
       }
     },
