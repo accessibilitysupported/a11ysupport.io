@@ -34,11 +34,11 @@ block content
             if (test.html_file.startsWith('http'))
                 a(href=test.html_file) view the external test
             else if (testHTML && testHTML.split(/\r\n|\r|\n/).length < 30)
-                a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
+                a(href="/tests/html/" + test.html_file) open the test page
                 pre.test-html
                     code= testHTML
             else
-                a(href="/tests/html/" + test.html_file target="_blank") open the test page in a new tab
+                a(href="/tests/html/" + test.html_file) open the test page
                 p HTML source is too long to display here.
 
             details(open)
