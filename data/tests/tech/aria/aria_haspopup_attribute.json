@@ -2,16 +2,6 @@
   "title": "aria-haspopup attribute",
   "description": "Tests the aria-haspopup attribute.",
   "html_file": "aria/aria-haspopup_examples.html",
-  "history": [
-    {
-      "date": "2019-07-27",
-      "message": "Talkback results added"
-    },
-    {
-      "date": "2019-06-28",
-      "message": "Test created"
-    }
-  ],
   "assertions": [
     {
       "feature_id": "aria/aria-haspopup_attribute",
@@ -122,6 +112,21 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"action button\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
                   "result": "pass"
                 }
               ]
@@ -290,6 +295,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -446,6 +466,21 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"action button subMenu\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
                   "result": "fail"
                 }
               ]
@@ -614,6 +649,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -776,6 +826,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -932,6 +997,21 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"action button subMenu\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
                   "result": "fail"
                 }
               ]
@@ -1100,6 +1180,21 @@
             }
           }
         },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"action, push button\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -1146,6 +1241,20 @@
           }
         }
       }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-07-27",
+      "message": "Talkback results added"
+    },
+    {
+      "date": "2019-06-28",
+      "message": "Test created"
+    },
+    {
+      "date": "2019-09-16",
+      "message": "add orca results"
     }
   ],
   "versions": {
@@ -1212,6 +1321,16 @@
           "browser_version": "44.17763",
           "os_version": "1903",
           "date": "2019-06-28"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "browser_version": "69",
+          "os_version": "Ubuntu 19.04",
+          "date": "2019-09-16"
         }
       }
     },

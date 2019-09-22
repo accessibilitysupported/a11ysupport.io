@@ -74,6 +74,13 @@
                   "to": "target",
                   "output": "\"Target\"",
                   "result": "fail"
+                },
+                {
+                  "command": "next_landmark",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"section name, custom section role, region landmark\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -126,6 +133,14 @@
               "output": [
                 {
                   "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"section name, region\"",
+                  "result": "fail",
+                  "notes": "Contents of the section could not be announced."
+                },
+                {
+                  "command": "next_landmark",
                   "from": "before target",
                   "to": "target",
                   "output": "\"section name, region\"",
