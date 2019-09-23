@@ -66,7 +66,7 @@ router.get('/learn/commands', function(req, res, next) {
 });
 
 router.get('/learn/at/:id', function(req, res, next) {
-	let allowed = ['dragon', 'jaws', 'narrator', 'nvda', 'talkback', 'vo_ios', 'vo_macos', 'orca'];
+	let allowed = ['dragon', 'jaws', 'narrator', 'nvda', 'talkback', 'vo_ios', 'vo_macos', 'orca', 'vc_ios'];
 
 	if (!allowed.includes(req.params.id)) {
 		next(createError(404));

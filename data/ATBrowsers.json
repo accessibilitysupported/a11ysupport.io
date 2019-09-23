@@ -1,6 +1,6 @@
 {
   "core_at": ["dragon_win", "jaws", "narrator", "nvda", "talkback", "vo_ios", "vo_macos", "orca"],
-  "extended_at": ["dragon_mac"],
+  "extended_at": ["dragon_mac", "vc_ios"],
   "at": {
     "dragon_win": {
       "id": "dragon_win",
@@ -13,10 +13,10 @@
       "url": "https://www.nuance.com/dragon.html",
       "description": "http://www.nuance.com/support/dragon-naturallyspeaking/index.htm?link_name=technical_support#dr_support_contact",
       "commands": {
-        "activate_actionable_item": {
+        "activate_name": {
           "command": "\"Click <text>\"",
-          "name": "Activate actionable item",
-          "note": "If there are multiple choices with the same text, they will be labeled by numbers. Say \"Choose <number>\" to finish.",
+          "name": "Activate item by name",
+          "note": "If there are multiple choices with the same text, they the first one on the screen will be clicked. To disambiguate, use the \"click <role>\" command.",
           "tags": [
             "general",
             "vc"
@@ -30,10 +30,10 @@
             "vc"
           ]
         },
-        "click_type": {
-          "command": "Click <type>",
+        "activate_role": {
+          "command": "Click <role>",
           "name": "Click Type",
-          "note": "where type is \"link\", \"button\", \"text field\", \"image\", \"Check box\", \"Radio Button\", etc. Dragon will then flag each matching element with a number. Say \"choose <number>\" to finish.",
+          "note": "where role is \"link\", \"button\", \"text field\", \"image\", \"Check box\", \"Radio Button\", etc. If there are multiple instances of the role, Dragon will then flag each matching element with a number. Say \"choose <number>\" to finish.",
           "tags": [
             "general",
             "vc"
@@ -2921,6 +2921,93 @@
           "name": "Open Orca settings",
           "tags": [
             "general"
+          ]
+        }
+      }
+    },
+    "vc_ios": {
+      "id": "vc_ios",
+      "type": "vc",
+      "title": "Voice Control for iOS",
+      "short_title": "VC iOS",
+      "os": "iOS",
+      "core_browsers": ["ios_saf"],
+      "extended_browsers": [],
+      "url": "https://support.apple.com/guide/iphone/voice-control-iph2c21a3c88/ios",
+      "description": "",
+      "commands": {
+        "activate_name": {
+          "command": "\"Tap <text>\"",
+          "name": "Activate item by name",
+          "note": "If there are multiple choices with the same text, they will be labeled by numbers. Say \"Choose <number>\" to finish.",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "choose_number": {
+          "command": "\"Choose <number>\"",
+          "name": "Activate item by number",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "show_names": {
+          "command": "\"Show names\"",
+          "name": "Turn on the names overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "hide_names": {
+          "command": "\"Hide names\"",
+          "name": "Hide the names overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "show_numbers": {
+          "command": "\"Show numbers\"",
+          "name": "Turn on the numbers overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "hide_numbers": {
+          "command": "\"Hide numbers\"",
+          "name": "Hide the numbers overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "show_grid": {
+          "command": "\"Show grid\"",
+          "name": "Turn on the grid overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "hide_grid": {
+          "command": "\"Hide grid\"",
+          "name": "Hide the grid overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "show_hints": {
+          "command": "Show hints",
+          "name": "Show hints",
+          "note": "See command suggestions and hints",
+          "tags": [
+            "general",
+            "vc"
           ]
         }
       }
