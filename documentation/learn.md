@@ -2,6 +2,8 @@
 
 There are many different forms of Assistive Technologies (AT). The scope of this website only covers AT that must interface with the code you write as a web developer. This means that AT like screen readers or voice control software are in scope, while AT such as hearing aids and screen magnifiers are not.
 
+For a summary of similar commands across different types of AT, view the [command matrix](/learn/commands).
+
 ## AT Information
 
 There are many different assistive technologies, but it would be impossible for us to test them all. Therefore [we only test the most widely used ones](/faq#what-assistive-technologies-are-in-scope%3F).
