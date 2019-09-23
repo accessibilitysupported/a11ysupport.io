@@ -6,7 +6,10 @@ There are many different forms of Assistive Technologies (AT). The scope of this
 
 There are many different assistive technologies, but it would be impossible for us to test them all. Therefore [we only test the most widely used ones](/faq#what-assistive-technologies-are-in-scope%3F).
 
-* [Dragon Naturally Speaking](/learn/at/dragon)
+### Screen readers
+
+Screen readers announce the content of the screen either by audio or by a braille device. People who are blind or have low vision are likely to use screen reader software to interact with computers or devices.
+
 * [JAWS](/learn/at/jaws)
 * [Narrator](/learn/at/narrator)
 * [NVDA](/learn/at/nvda)
@@ -14,3 +17,10 @@ There are many different assistive technologies, but it would be impossible for 
 * [VoiceOver for iOS](/learn/at/vo_ios)
 * [VoiceOver for macOS](/learn/at/vo_macos)
 * [Orca for Linux](/learn/at/orca)
+
+### Voice Control
+
+Voice Control software allows users to command their computers or devices by voice, bypassing the need for a mouse or keyboard. People with physical or motor disabilities are most likely to use voice control software.
+
+* [Dragon Naturally Speaking](/learn/at/dragon)
+* [Voice Control for iOS](/learn/at/vc_ios)
