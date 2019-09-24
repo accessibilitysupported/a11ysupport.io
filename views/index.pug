@@ -20,15 +20,35 @@ block content
             div(data-keywords=feature.keywords_string).result
               h2
                 a(href='/tech/'+feature.techId + '/' + feature.id) #{feature.title} (#{feature.techId})
-              div.responsive-table
+              div.responsive-table.support-summary-table
                 table
+                  caption Screen Reader support
                   thead
                     tr
                       each at_id in ATBrowsers.core_at
+                        if ATBrowsers.at[at_id].type !== "sr"
+                          - continue
                         th #{ATBrowsers.at[at_id].short_title}
                   tbody
                     tr
                       each at_id in ATBrowsers.core_at
+                        if ATBrowsers.at[at_id].type !== "sr"
+                          - continue
+                        td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
+              div.responsive-table.support-summary-table
+                table
+                  caption Voice Control support
+                  thead
+                    tr
+                      each at_id in ATBrowsers.core_at
+                        if ATBrowsers.at[at_id].type !== "vc"
+                          - continue
+                        th #{ATBrowsers.at[at_id].short_title}
+                  tbody
+                    tr
+                      each at_id in ATBrowsers.core_at
+                        if ATBrowsers.at[at_id].type !== "vc"
+                          - continue
                         td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
               p Supported by #{feature.total_test_count} tests.
               if feature.core_support.includes('u')

@@ -1356,6 +1356,20 @@
       "feature_id": "aria/checkbox_role",
       "feature_assertion_id": "convey_role",
       "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "checkbox was flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"click check box\" "
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -1655,6 +1669,13 @@
               ]
             }
           }
+        },
+        "vc_ios": {
+          "browsers": {
+            "ios_saf": {
+              "support": "na"
+            }
+          }
         }
       }
     },
@@ -1662,6 +1683,20 @@
       "feature_id": "aria/checkbox_role",
       "feature_assertion_id": "convey_name",
       "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "checkbox was checked",
+                  "result": "pass",
+                  "notes": "said \"click lettuce\" "
+                }
+              ]
+            }
+          }
+        },
         "jaws": {
           "browsers": {
             "ie": {
@@ -1957,6 +1992,20 @@
                   "to": "within target",
                   "output": "\"Not checked, Lettuce, checkbox, in list, 4 items\"",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vc_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "checkbox was checked",
+                  "result": "pass",
+                  "notes": "said \"tap lettuce\""
                 }
               ]
             }
@@ -4499,9 +4548,23 @@
     {
       "date": "2019-05-24",
       "message": "Test created"
+    },
+    {
+      "date": "2019-09-23",
+      "message": "Added vc_ios and dragon results"
     }
   ],
   "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "browser_version": "76",
+          "os_version": "1903",
+          "date": "2019-08-21"
+        }
+      }
+    },
     "jaws": {
       "browsers": {
         "chrome": {
@@ -4587,6 +4650,16 @@
           "browser_version": "69",
           "os_version": "Ubuntu 19.04",
           "date": "2019-09-12"
+        }
+      }
+    },
+    "vc_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.0",
+          "browser_version": "13.0",
+          "os_version": "13.0",
+          "date": "2019-09-23"
         }
       }
     }
