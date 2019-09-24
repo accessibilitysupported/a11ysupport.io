@@ -1,21 +1,10 @@
 # Narrator
 
-Narrator is a screen reader that is built in to the Windows operating system.
-
-All commands listed here assume that Scan mode is enabled.
-
-## TODO
-
-This information is still in development. Feel free to contribute. The following still needs to be done:
-
-* Add information on how to capture output for tests (manual, copy/paste, etc)
-* add details on how to find the version of the sr and os
-* Proof read
-* Ensure that the listed commands are accurate and make sense
+Narrator is a screen reader that is bundled with the Windows 10 operating system.
 
 ## Install
 
-Narrator is built in to the Windows 10 operating system.
+Narrator is built in to the Windows 10 operating system. It can be enabled and configured in the Windows settings.
 
 ## Guides, Documentation, and resources
 

@@ -2,16 +2,15 @@
 
 Dragon Naturally Speaking is dictation software from Nuance. It is also a popular Assistive Technology for people with physical disabilities and is used for its voice control capabilities.
 
-We include Dragon Naturally Speaking for windows in our core AT support. Dragon Naturally Speaking for Mac is listed in extended support.
+## Differences between Voice Control for iOS
 
-## TODO
+Both Dragon and Voice Control for iOS perform similar functions and are operated in similar ways. Users can operate the device by speaking commands like "click <name>" or "choose <number>" and dictating text when in an input. Both also offer the concept of a grid overlay to interact with parts of the screen that are missing roles and names. Some differences include:
 
-This information is still in development. Feel free to contribute. The following still needs to be done:
+* Dragon will let users interact with content by role, while Voice Control will not. For example, in Dragon users can say "click button" to flag each element with the button role on the page with a number, and then say "choose <number>".
+* Voice Control will flag each element with the same name for disambiguation while Dragon will not. Dragon will simply click (or otherwise interact with) the first element of that name. 
+* Voice Control offers overlays for names, numbers, and grid, while Dragon only offers an overlay for grid.
 
-* Add information on how to capture output for tests (manual, copy/paste, etc)
-* Add details on how to find the version of this AT and os
-* Proof read
-* Ensure that the listed commands are accurate and make sense
+Because Voice Control only supports names and not roles, all expectations for roles are marked as "not applicable".
 
 ## Install
 
