@@ -915,7 +915,7 @@ helper.generateSupportString = function(support) {
 	}
 
 	if (support.length === 0) {
-		return helper.generateSupportString("un");
+		return helper.generateSupportString("na");
 	}
 
 	// test for full na support before filtering na support
