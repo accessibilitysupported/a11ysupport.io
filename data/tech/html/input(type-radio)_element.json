@@ -33,7 +33,10 @@
       "examples": [
         "A screen reader might announce \"checked\""
       ],
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "input[type=\"radio\" checked]",
       "operation_modes": [
         "sr/reading",
@@ -47,7 +50,10 @@
       "examples": [
         "A screen reader might announce \"unchecked\" or imply that the element is not checked by not announcing the checked state at all."
       ],
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "input[type=\"radio\"]:not(checked)",
       "operation_modes": [
         "sr/reading",
@@ -62,7 +68,10 @@
         "A screen reader might announce \"checked\" or \"not checked\"",
         "A screen reader might announce the entire control again with the new state"
       ],
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "input[type=\"radio\"]",
       "operation_modes": [
         "sr/interaction"
@@ -70,8 +79,7 @@
     },
     {
       "id": "convey_posinset",
-      "css_target": "input[type=\"radio\"]",
-      "type": "SHOULD"
+      "css_target": "input[type=\"radio\"]"
     },
     {
       "id": "provide_shortcuts",

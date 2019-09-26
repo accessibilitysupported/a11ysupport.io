@@ -25,7 +25,10 @@
     {
       "id": "convey_name_and_role_if_named",
       "title": "convey an appropriate role and name if it is named",
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "section[aria-label]",
       "preconditions": [],
       "operation_modes": [
@@ -37,7 +40,10 @@
     {
       "id": "no_role_if_not_named",
       "title": "not convey a role if it is not named",
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "section:not([aria-label])",
       "preconditions": [],
       "operation_modes": [
@@ -50,9 +56,7 @@
       "id": "convey_boundaries",
       "title": "convey boundaries if named",
       "rationale": "A user might need to differentiate content inside the region from content outside of the region",
-      "type": "MUST",
       "css_target": "section[aria-label]",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"

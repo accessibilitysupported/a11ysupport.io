@@ -25,10 +25,11 @@ block content
                                 thead
                                     tr
                                         th(id="t-"+currentTestIndex+"-expectation") Expectation
-                                        th(id="t-"+currentTestIndex+"-support") Support
+                                        th(id="t-"+currentTestIndex+"-sr-support") Screen Reader support
+                                        th(id="t-"+currentTestIndex+"-vc-support") Voice Control support
                                 each feature, currentFeatureIndex in testMap[test.id]
                                     tr
-                                        th(colspan="2" id="h-feature-" + currentTestIndex + "-" + currentFeatureIndex).feature #{feature.title}
+                                        th(colspan="3" id="h-feature-" + currentTestIndex + "-" + currentFeatureIndex).feature #{feature.title}
 
                                     each assertion, assertionIndex in test.assertions
                                         if (feature.featureId === assertion.feature_id)
@@ -36,8 +37,10 @@ block content
                                                 th(id="h-assertion-" + currentTestIndex + "-" + assertionIndex headers="h-feature-" + currentTestIndex + "-" + currentFeatureIndex+" t-"+currentTestIndex+"-expectation").assertion
                                                     a(href=testHelper.makeSafe(test.id)+"#assertion-"+ assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
                                                         span #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
-                                                td(class="support-case " + assertion.core_support_string.class headers="t-"+currentTestIndex+"-support h-feature-" + currentTestIndex + "-" + currentFeatureIndex + " h-assertion-" + currentTestIndex + "-" + assertionIndex)
-                                                        span #{assertion.core_support_string.string}
+                                                td(class="support-case " + assertion.core_support_string.sr.class headers="t-"+currentTestIndex+"-sr-support h-feature-" + currentTestIndex + "-" + currentFeatureIndex + " h-assertion-" + currentTestIndex + "-" + assertionIndex)
+                                                        span #{assertion.core_support_string.sr.string}
+                                                td(class="support-case " + assertion.core_support_string.vc.class headers="t-" + currentTestIndex + "-vc-support h-feature-" + currentTestIndex + "-" + currentFeatureIndex + " h-assertion-" + currentTestIndex + "-" + assertionIndex)
+                                                    span #{assertion.core_support_string.vc.string}
 
 
             script(src="/js/search.js")

@@ -19,7 +19,10 @@
     {
       "id": "convey_presence",
       "title": "convey the presence of aria-model=true",
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "rationale": "Users need to be aware that other content is obscured by the modal.",
       "examples": [
         "Screen readers might convey the modal state when entering the modal",
@@ -34,11 +37,13 @@
     {
       "id": "limit_reading_to_children",
       "title": "limit reading to children of aria-modal=true",
-      "type": "SHOULD",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
       "rationale": "Users should not be able to access content outside of the modal. However, AT are not required to implement this functionality per the ARIA spec, and authors may implement this on their own.",
       "css_target": "*[aria-modal=true]",
       "pass_strategy": "all",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading"
       ]
@@ -46,7 +51,10 @@
     {
       "id": "remove_outside_content_from_shortcuts",
       "title": "remove outside content from navigational shortcuts when aria-modal=true",
-      "type": "SHOULD",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
       "rationale": "Users should not be able to access content outside of the modal. However, AT are not required to implement this functionality per the ARIA spec, and authors may implement this on their own.",
       "examples": [
         "Screen readers must not allow allow users to jump to the next element type if that element is outside of the modal",
@@ -54,7 +62,6 @@
       ],
       "css_target": "*[aria-modal=true]",
       "pass_strategy": "all",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading"
       ]
@@ -62,9 +69,11 @@
     {
       "id": "value_false",
       "title": "convey the aria-modal attribute or limit navigation when aria-modal=false",
-      "type": "MUST NOT",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
       "css_target": "*[aria-modal=false]",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading"
       ]

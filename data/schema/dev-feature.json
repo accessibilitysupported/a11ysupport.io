@@ -24,12 +24,26 @@
         "title": {
           "type": "string"
         },
-        "type": {
-          "type": "string",
-          "items": {
-            "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT"]
+        "strength": {
+          "type": "object",
+          "properties": {
+            "sr": {
+              "type": "string",
+              "items": {
+                "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT", "NA"]
+              },
+              "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+            },
+            "vc": {
+              "type": "string",
+              "items": {
+                "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT", "NA"]
+              },
+              "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+            }
           },
-          "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+          "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values",
+          "required": ["sr", "vc"]
         },
         "pass_strategy": {
           "type": "string",
@@ -64,7 +78,7 @@
         "required": ["id", "css_target"]
       },
       "else": {
-        "required": ["id", "title", "type", "operation_modes", "css_target"]
+        "required": ["id", "title", "strength", "operation_modes", "css_target"]
       }
     }
   },

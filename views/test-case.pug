@@ -44,60 +44,67 @@ block content
             details(open)
                 summary
                     h2(id="versions") Dates and Versions of tested combinations
-                table
-                    tr
-                        th AT
-                        th AT Version
-                        th Browser
-                        th Browser version
-                        th OS version
-                        th Date tested
-                    each at in ATBrowsers.core_at
-                        each browser in ATBrowsers.at[at].core_browsers
-                            if (test.versions[at] && test.versions[at].browsers[browser])
-                                tr
-                                    td #{ATBrowsers.at[at].title}
-                                    td #{test.versions[at].browsers[browser].at_version}
-                                    td #{ATBrowsers.browsers[browser].title}
-                                    td #{test.versions[at].browsers[browser].browser_version}
-                                    td #{test.versions[at].browsers[browser].os_version}
-                                    td #{test.versions[at].browsers[browser].date}
+                div.responsive-table
+                    table
+                        tr
+                            th AT
+                            th AT Version
+                            th Browser
+                            th Browser version
+                            th OS version
+                            th Date tested
+                        each at in ATBrowsers.core_at
+                            each browser in ATBrowsers.at[at].core_browsers
+                                if (test.versions[at] && test.versions[at].browsers[browser])
+                                    tr
+                                        td #{ATBrowsers.at[at].title}
+                                        td #{test.versions[at].browsers[browser].at_version}
+                                        td #{ATBrowsers.browsers[browser].title}
+                                        td #{test.versions[at].browsers[browser].browser_version}
+                                        td #{test.versions[at].browsers[browser].os_version}
+                                        td #{test.versions[at].browsers[browser].date}
 
             if test.assertions
                 details(open)
                     summary
                         h2(id="support-summary-by-at") Summary of support by expectation and assistive technology
                     - var some_support_behind_settings = false;
-                    table(aria-labelledby="support-summary-by-at").support-table.assertion-container.summary-matrix
-                        tr
-                            th Expectation
-                            each at_id in ATBrowsers.core_at
-                                th(id="h-at-"+at_id) #{ATBrowsers.at[at_id].title}
-                        each feature, currentFeatureIndex in testMap[test.id]
-                            th(colspan=Object.keys(ATBrowsers.at).length+1 id="h-feature-"+currentFeatureIndex scope="colgroup").feature #{feature.title}
+                    div.responsive-table
+                        table(aria-labelledby="support-summary-by-at").support-table.assertion-container.summary-matrix
+                            tr
+                                th Expectation
+                                each at_id in ATBrowsers.core_at
+                                    th(id="h-at-"+at_id) #{ATBrowsers.at[at_id].title}
+                            each feature, currentFeatureIndex in testMap[test.id]
+                                th(colspan=Object.keys(ATBrowsers.at).length+1 id="h-feature-"+currentFeatureIndex scope="colgroup").feature #{feature.title}
 
-                            each assertion, assertionIndex in test.assertions
-                                if (feature.featureId === assertion.feature_id)
+                                each assertion, assertionIndex in test.assertions
+                                    if (feature.featureId === assertion.feature_id)
 
-                                    tr
-                                        th(id="h-assertion-"+assertionIndex).assertion
-                                            a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
-                                                span #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
-                                        each at_id in ATBrowsers.core_at
-                                            td(class="support-case " + assertion.results[at_id].core_support_string.class headers="h-feature-"+currentFeatureIndex+" h-assertion-"+assertionIndex + " h-at-"+at_id)
-                                                span #{assertion.results[at_id].core_support_string.string}
-                                                if (assertion.results[at_id].some_support_behind_settings)
-                                                    - some_support_behind_settings = true;
-                                                    span *
+                                        tr
+                                            th(id="h-assertion-"+assertionIndex).assertion
+                                                a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
+                                                    span #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
+                                            each at_id in ATBrowsers.core_at
+                                                td(class="support-case " + assertion.results[at_id].core_support_string.class headers="h-feature-"+currentFeatureIndex+" h-assertion-"+assertionIndex + " h-at-"+at_id)
+                                                    span #{assertion.results[at_id].core_support_string.string}
+                                                    if (assertion.results[at_id].some_support_behind_settings)
+                                                        - some_support_behind_settings = true;
+                                                        span *
                     p * means that some support is hidden behind settings
 
             h2(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
                 div.assertion-container
-                    h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) #{assertion.feature_title}: #{assertion.assertion_title}
+                    h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id) Expectation for the #{assertion.feature_title}: #{assertion.assertion_title}
 
                     if (assertion.assertion_rationale)
                         p Rationale: #{assertion.assertion_rationale}
+
+                    p Strength of these expectations for different types of assistive technologies:
+                        ul
+                            li Screen Readers: #{assertion.assertion_strength.sr}
+                            li Voice Control: #{assertion.assertion_strength.vc}
 
                     if (assertion.assertion_examples)
                         p Examples of assistive technologies support this expectation:
@@ -113,113 +120,44 @@ block content
 
                     p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
-                    table(aria-labelledby="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
-                        tr
-                            th AT
-                            th Browser
-                            th Has Support
-                            th Output
-                            th Action
-                        each at in ATBrowsers.core_at
-                            each browser in ATBrowsers.at[at].core_browsers
-                                tr
-                                    td= ATBrowsers.at[at].title
-                                    td= ATBrowsers.browsers[browser].title
-                                    td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string.string
-                                    td
-                                        if (assertion.results[at].browsers[browser].output)
-                                            ul
-                                                each output in assertion.results[at].browsers[browser].output
-                                                    li
-                                                        strong= "Result: "
-                                                        span(class="output-result "+output.result)= " (" + output.result + ")"
-                                                        ul
-                                                            li
-                                                                strong= "command: "
-                                                                if (ATBrowsers.at[at].commands[output.command])
-                                                                    span=  ATBrowsers.at[at].commands[output.command].command
-                                                                    span= " ("+ATBrowsers.at[at].commands[output.command].name+")"
-                                                                else
-                                                                    strong= ", " + output.command
-
-                                                            if (output.from && output.from !== "na")
-                                                                li
-                                                                    strong= "location before command: "
-                                                                    span= output.from
-
-                                                            if (output.to && output.to !== "na")
-                                                                li
-                                                                    strong= "location after command: "
-                                                                    span= output.to
-                                                            li
-                                                                strong Output:
-                                                                span= " " + output.output
-                                                            if (output.behind_setting)
-                                                                li
-                                                                    strong Must change default settings to enable support:
-                                                                    span= " " + output.behind_setting
-                                                            if (output.notes)
-                                                                li
-                                                                    strong Notes:
-                                                                    span= " " + output.notes
-
-                                            if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
-                                                strong Notes:
-                                                span= " " + assertion.results[at].browsers[browser].notes
-                                        else
-                                            span -
-                                    td
-                                        a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
-
-                    details.indent
-                        summary
-                            h4 Extended Support for: #{assertion.feature_title}: #{assertion.assertion_title}
-
-                        p These are less common combinations
-                        table
+                    div.responsive-table
+                        table(aria-labelledby="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
                             tr
                                 th AT
                                 th Browser
                                 th Has Support
                                 th Output
                                 th Action
-                            each at in ATBrowsers.at
-                                - var browsers = at.extended_browsers
-                                if ATBrowsers.extended_at.includes(at.id)
-                                    - var browsers = browsers.concat(at.core_browsers)
-                                each browser in browsers
+                            each at in ATBrowsers.core_at
+                                each browser in ATBrowsers.at[at].core_browsers
                                     tr
-                                        td= at.title
-                                            if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].at_version
-                                                span= ' ' + test.versions[at.id].browsers[browser].at_version
+                                        td= ATBrowsers.at[at].title
                                         td= ATBrowsers.browsers[browser].title
-                                            if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].browser_version
-                                                span= ' ' + test.versions[at.id].browsers[browser].browser_version
-                                        td(class='support-case ' + assertion.results[at.id].browsers[browser].support)= assertion.results[at.id].browsers[browser].support_string.string
+                                        td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string.string
                                         td
-                                            if (assertion.results[at.id].browsers[browser].output)
+                                            if (assertion.results[at].browsers[browser].output)
                                                 ul
-                                                    each output in assertion.results[at.id].browsers[browser].output
+                                                    each output in assertion.results[at].browsers[browser].output
                                                         li
-                                                            strong Result:
-                                                            span= " (" + output.result + ")"
+                                                            strong= "Result: "
+                                                            span(class="output-result "+output.result)= " (" + output.result + ")"
                                                             ul
                                                                 li
                                                                     strong= "command: "
-                                                                    if (ATBrowsers.at[at.id].commands[output.command])
-                                                                        span=  ATBrowsers.at[at.id].commands[output.command].command
-                                                                        span= " ("+ATBrowsers.at[at.id].commands[output.command].name+")"
+                                                                    if (ATBrowsers.at[at].commands[output.command])
+                                                                        span=  ATBrowsers.at[at].commands[output.command].command
+                                                                        span= " ("+ATBrowsers.at[at].commands[output.command].name+")"
                                                                     else
                                                                         strong= ", " + output.command
 
                                                                 if (output.from && output.from !== "na")
                                                                     li
-                                                                        strong= "from: "
+                                                                        strong= "location before command: "
                                                                         span= output.from
 
                                                                 if (output.to && output.to !== "na")
                                                                     li
-                                                                        strong= "to: "
+                                                                        strong= "location after command: "
                                                                         span= output.to
                                                                 li
                                                                     strong Output:
@@ -232,10 +170,81 @@ block content
                                                                     li
                                                                         strong Notes:
                                                                         span= " " + output.notes
+
+                                                if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
+                                                    strong Notes:
+                                                    span= " " + assertion.results[at].browsers[browser].notes
                                             else
                                                 span -
                                         td
-                                            a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
+                                            a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
+
+                    details.indent
+                        summary
+                            h4 Extended Support for: #{assertion.feature_title}: #{assertion.assertion_title}
+
+                        p These are less common combinations
+                        div.responsive-table
+                            table
+                                tr
+                                    th AT
+                                    th Browser
+                                    th Has Support
+                                    th Output
+                                    th Action
+                                each at in ATBrowsers.at
+                                    - var browsers = at.extended_browsers
+                                    if ATBrowsers.extended_at.includes(at.id)
+                                        - var browsers = browsers.concat(at.core_browsers)
+                                    each browser in browsers
+                                        tr
+                                            td= at.title
+                                                if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].at_version
+                                                    span= ' ' + test.versions[at.id].browsers[browser].at_version
+                                            td= ATBrowsers.browsers[browser].title
+                                                if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].browser_version
+                                                    span= ' ' + test.versions[at.id].browsers[browser].browser_version
+                                            td(class='support-case ' + assertion.results[at.id].browsers[browser].support)= assertion.results[at.id].browsers[browser].support_string.string
+                                            td
+                                                if (assertion.results[at.id].browsers[browser].output)
+                                                    ul
+                                                        each output in assertion.results[at.id].browsers[browser].output
+                                                            li
+                                                                strong Result:
+                                                                span= " (" + output.result + ")"
+                                                                ul
+                                                                    li
+                                                                        strong= "command: "
+                                                                        if (ATBrowsers.at[at.id].commands[output.command])
+                                                                            span=  ATBrowsers.at[at.id].commands[output.command].command
+                                                                            span= " ("+ATBrowsers.at[at.id].commands[output.command].name+")"
+                                                                        else
+                                                                            strong= ", " + output.command
+
+                                                                    if (output.from && output.from !== "na")
+                                                                        li
+                                                                            strong= "from: "
+                                                                            span= output.from
+
+                                                                    if (output.to && output.to !== "na")
+                                                                        li
+                                                                            strong= "to: "
+                                                                            span= output.to
+                                                                    li
+                                                                        strong Output:
+                                                                        span= " " + output.output
+                                                                    if (output.behind_setting)
+                                                                        li
+                                                                            strong Must change default settings to enable support:
+                                                                            span= " " + output.behind_setting
+                                                                    if (output.notes)
+                                                                        li
+                                                                            strong Notes:
+                                                                            span= " " + output.notes
+                                                else
+                                                    span -
+                                            td
+                                                a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
                     a(href="#top").back-to-top Back to top
 
             h2(id="history") History

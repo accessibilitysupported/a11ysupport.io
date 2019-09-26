@@ -81,9 +81,16 @@ thead th {
   grid-area: content;
 }
 
-main {
+
+main, header, footer {
+  max-width: calc(5.62vw * 2 + 1024px);
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 5.62vw;
   padding-right: 5.62vw;
+}
+
+main {
   display: block;
   min-height: 15em;
   background-color: #fff;
@@ -92,13 +99,11 @@ main {
 
 header {
   padding-top: .25em;
-  background-color: #fafafa;
-  border-top: 4px solid #00cc21;
+  background-color: #fff;
 }
 
-.logo-area {
-  padding-left: 5.62vw;
-  padding-right: 5.62vw;
+body {
+  border-top: 4px solid #00cc21;
 }
 
 .site-title {
@@ -106,8 +111,6 @@ header {
 }
 
 nav {
-  padding-left: 5.62vw;
-  padding-right: 5.62vw;
   background-color: #efeded;
   color: #fff;
 }
@@ -147,8 +150,6 @@ nav ul li a {
 
 footer {
   border-top: 2px solid #999999;
-  padding-left: 5.62vw;
-  padding-right: 5.62vw;
 }
 
 .beta-warning {
@@ -240,6 +241,10 @@ p .inline-quote {
 
 .responsive-table {
   overflow-x: auto;
+}
+
+.responsive-table table {
+  width: 100%;
 }
 
 .search-container .search-controls .input {

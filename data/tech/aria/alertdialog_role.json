@@ -12,10 +12,7 @@
   "assertions": [
     {
       "id": "convey_role",
-      "title": "convey the alertdialog role",
-      "type": "MUST",
       "css_target": "*[role=\"alertdialog\"]",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
@@ -24,7 +21,10 @@
     {
       "id": "stay_in_reading_mode",
       "title": "NOT automatically switch away from reading mode",
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "*[role=\"alertdialog\"]",
       "preconditions": [],
       "operation_modes": [

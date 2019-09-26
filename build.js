@@ -100,12 +100,21 @@ let getFeatures = function(techId, buildDir) {
 			});
 
 			//populate failing tests
-			if (feature.tests[testIndex].core_support.includes('n')) {
-				failingTests.push({
-					title: feature.tests[testIndex].title,
-					id: feature.tests[testIndex].id
-				});
-			}
+			let found = false;
+			["sr", "vc"].forEach(type => {
+				if (found) {
+					return;
+				}
+
+				if (feature.tests[testIndex].core_support[type].includes('n')) {
+					failingTests.push({
+						title: feature.tests[testIndex].title,
+						id: feature.tests[testIndex].id
+					});
+
+					found = true;
+				}
+			});
 		}
 
 		let simplifiedFeature = {
@@ -113,8 +122,14 @@ let getFeatures = function(techId, buildDir) {
 			techId: feature.techId,
 			title: feature.title,
 			keywords_string: feature.keywords_string,
-			core_support: feature.core_support,
-			core_support_string: feature.core_support_string,
+			core_support: {
+				sr: feature.core_support.sr,
+				vc: feature.core_support.vc
+			},
+			core_support_string: {
+				sr: feature.core_support_string.sr,
+				vc: feature.core_support_string.vc
+			},
 			core_support_by_at: feature.core_support_by_at,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length,
@@ -125,8 +140,14 @@ let getFeatures = function(techId, buildDir) {
 			simplifiedFeature.assertions[assertion_key] = {
 				id: assertion.id,
 				title: assertion.title,
-				core_support: assertion.core_support,
-				core_support_string: assertion.core_support_string,
+				core_support: {
+					sr: assertion.core_support ? assertion.core_support.sr : [],
+					vc: assertion.core_support ? assertion.core_support.vc : []
+				},
+				core_support_string: {
+					sr: assertion.core_support_string ? assertion.core_support_string.sr : 'unknown',
+					vc: assertion.core_support_string ? assertion.core_support_string.vc : 'unknown'
+				},
 				core_support_by_at: assertion.core_support_by_at
 			}
 		});
@@ -244,8 +265,14 @@ testFiles.forEach(function(file) {
 		id: test.id,
 		title: test.title,
 		keywords_string: test.title,
-		core_support: test.core_support,
-		core_support_string: test.core_support_string,
+		core_support: {
+			sr: test.core_support.sr,
+			vc: test.core_support.vc
+		},
+		core_support_string: {
+			sr: test.core_support_string.sr,
+			vc: test.core_support_string.vc
+		},
 		last_update: test.history.pop(),
 		assertions: []
 	};
@@ -262,8 +289,14 @@ testFiles.forEach(function(file) {
 			feature_assertion_id: assertion.feature_assertion_id,
 			feature_title: ref_feature.title,
 			assertion_title: ref_assertion.title,
-			core_support: assertion.core_support,
-			core_support_string: assertion.core_support_string,
+			core_support: {
+				sr: assertion.core_support.sr,
+				vc: assertion.core_support.vc
+			},
+			core_support_string: {
+				sr: assertion.core_support_string.sr,
+				vc: assertion.core_support_string.vc,
+			},
 		};
 
 		feature_titles.push(ref_feature.title);

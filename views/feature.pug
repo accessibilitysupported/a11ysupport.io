@@ -61,10 +61,15 @@ block content
 
 
         each assertion, index in data.assertions
-          h3(id='support-table-'+index) #{assertion.title}
+          h3(id='support-table-'+index) Expectation: #{assertion.title}
 
           if (assertion.rationale)
             p Rationale: #{assertion.rationale}
+
+          p Strength of these expectations for different types of assistive technologies:
+          ul
+            li Screen Readers: #{assertion.strength.sr}
+            li Voice Control: #{assertion.strength.vc}
 
           if assertion.tests.length > 0
             - var some_support_behind_settings = false

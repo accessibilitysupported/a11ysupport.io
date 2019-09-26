@@ -18,7 +18,10 @@
         "screen readers might convey the accessible name of the referenced ID",
         "screen readers might announce that an error message is present and provide a shortcut to jump to the error message"
       ],
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "*[aria-errormessage][aria-invalid=true]",
       "preconditions": [],
       "operation_modes": [
@@ -33,7 +36,10 @@
       "examples": [
         "when an input has an error message but also has aria-invalid=\"false\", the error message will not be conveyed because it is not pertinent"
       ],
-      "type": "MUST NOT",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
       "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
       "preconditions": [],
       "operation_modes": [

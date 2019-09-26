@@ -20,7 +20,10 @@
     {
       "id": "convey_disabled",
       "title": "convey the disabled state",
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "MAY"
+      },
       "examples": [
         "Screen readers might convey the disabled state by announcing \"disabled\", \"unavailable\", or \"dimmed\"",
         "Screen readers might convey the disabled state of certain embedded controls, such as the option element, by skipping it when navigating embedded controls"
@@ -29,7 +32,8 @@
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
-        "sr/interaction"
+        "sr/interaction",
+        "vc"
       ]
     }
   ],

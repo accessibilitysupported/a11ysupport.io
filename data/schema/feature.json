@@ -24,12 +24,26 @@
         "title": {
           "type": "string"
         },
-        "type": {
-          "type": "string",
-          "items": {
-            "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT"]
+        "strength": {
+          "type": "object",
+          "properties": {
+            "sr": {
+              "type": "string",
+              "items": {
+                "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT", "NA"]
+              },
+              "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+            },
+            "vc": {
+              "type": "string",
+              "items": {
+                "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT", "NA"]
+              },
+              "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+            }
           },
-          "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+          "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values",
+          "required": ["sr", "vc"]
         },
         "pass_strategy": {
           "type": "string",
@@ -61,7 +75,7 @@
           "description": "A css selector that determines which elements in the example need to be tested. This should be a generic selector, and can be overridden by tests that reference this assertion."
         }
       },
-      "required": ["id", "title", "type", "operation_modes", "css_target", "pass_strategy"]
+      "required": ["id", "title", "strength", "operation_modes", "css_target", "pass_strategy"]
     }
   },
   "properties": {

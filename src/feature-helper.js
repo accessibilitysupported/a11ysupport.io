@@ -38,18 +38,48 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	featureObject.techId = techId;
 
 	//Set up support properties
-	featureObject.core_support = [];
+	featureObject.core_support = {
+		sr: [],
+		vc: []
+	};
 	featureObject.core_support_by_at = {};
 	featureObject.core_support_by_at_browser = {};
-	featureObject.core_support_string = 'unknown';
-	featureObject.extended_support = [];
-	featureObject.extended_support_string = 'unknown';
-	featureObject.core_must_support = [];
-	featureObject.core_must_support_string = 'na';
-	featureObject.core_should_support = [];
-	featureObject.core_should_support_string = 'na';
-	featureObject.core_may_support = [];
-	featureObject.core_may_support_string = 'na';
+	featureObject.core_support_string = {
+		sr: 'unknown',
+		vc: 'unknown'
+	};
+	featureObject.extended_support = {
+		sr: [],
+		vc: []
+	};
+	featureObject.extended_support_string = {
+		sr: 'unknown',
+		vc: 'unknown'
+	};
+	featureObject.core_must_support = {
+		sr: [],
+		vc: []
+	};
+	featureObject.core_must_support_string = {
+		sr: 'na',
+		vc: 'na'
+	};
+	featureObject.core_should_support = {
+		sr: [],
+		vc: []
+	};
+	featureObject.core_should_support_string = {
+		sr: 'na',
+		vc: 'na'
+	};
+	featureObject.core_may_support = {
+		sr: [],
+		vc: []
+	};
+	featureObject.core_may_support_string = {
+		sr: 'na',
+		vc: 'na'
+	};
 
 	if (!featureObject.keywords) {
 		featureObject.keywords = [];
@@ -64,7 +94,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey an appropriate name",
 					rationale: "A screen reader user needs to know what to enter.",
-					type: "MUST",
+                    strength: {
+					  sr: "MUST",
+                      vc: "MUST"
+                    },
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction",
@@ -76,7 +109,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey an appropriate role",
 					rationale: "A screen reader user needs to know how they can interact with the element.",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "MAY"
+                    },
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction",
@@ -88,7 +124,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the current value",
 					rationale: "A screen reader user needs to know the current value of the input.",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction"
@@ -99,7 +138,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the current value",
 					rationale: "The user needs to know that the value was successfully changed.",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					pass_strategy: "all",
 					operation_modes: [
 						"sr/interaction"
@@ -110,7 +152,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the boundaries of the element",
 					rationale: "A user needs to know when they enter and exit an element",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					examples: [
 						"A screen reader might announce the role of the element when entering and say something like \"leaving\" when exiting.",
 						"A screen reader might not explicitly announce entering and existing the element, but instead imply that the is in the containing object by conveying the roles of required children (options in a listbox for example).",
@@ -128,7 +173,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the nesting level",
 					rationale: "A screen reader user might find it helpful to know what nesting level they are at",
-					type: "SHOULD",
+                    strength: {
+                        sr: "SHOULD",
+                        vc: "NA"
+                    },
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction"
@@ -139,7 +187,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "allow navigating content",
 					rationale: "A user needs to be able to navigate the content",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					examples: [
 						"A screen reader might allow reading-mode navigation, such as reading line-by-line."
 					],
@@ -153,7 +204,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the position in set information",
 					rationale: "A user needs to where the position is in the list",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					examples: [
 						"A screen reader might something like \"1 of 6\".",
 					],
@@ -168,7 +222,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					id: "convey_boolean_property",
 					title: "convey the property",
 					rationale: "The user needs to know that property is set",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					examples: [
 						"A screen reader might announce the property along with the elements name, role, and value"
 					],
@@ -182,7 +239,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "provide shortcuts to jump to text inputs",
 					rationale: "Screen reader users might want to quickly navigate to elements of this type.",
-					type: "SHOULD",
+                    strength: {
+                        sr: "SHOULD",
+                        vc: "NA"
+                    },
 					operation_modes: [
 						"sr/reading"
 					]
@@ -192,7 +252,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the number of items in the list",
 					rationale: "A user needs to be able to understand how many items are in the list",
-					type: "MUST",
+                    strength: {
+                        sr: "MUST",
+                        vc: "NA"
+                    },
 					examples: [
 						"A screen reader might convey the position of each item in the list as something like \"x of y\" where y is the number of items in the list.",
 						"A screen reader might convey the number of items in the list when first entering the list."
@@ -235,6 +298,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			featureObject.assertions[assertion_key].supports_at.push('vc');
 		}
 
+		/*
 		let titleModifier = "The assistive technology ";
 		if (featureObject.assertions[assertion_key].supports_at[0] === 'sr') {
 			titleModifier = "The screen reader ";
@@ -243,6 +307,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		}
 
 		featureObject.assertions[assertion_key].title = titleModifier + featureObject.assertions[assertion_key].type.toUpperCase() + " " + featureObject.assertions[assertion_key].title;
+	 	*/
 	});
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
@@ -266,14 +331,31 @@ helper.bubbleFeatureSupport = function(featureObject) {
 				featureObject.assertions[assertion_key].tests.push({
 					id: featureObject.tests[testIndex].id,
 					title: featureObject.tests[testIndex].title,
-					core_support_string: featureObject.tests[testIndex].core_support_string
+					core_support_string: {
+						sr: featureObject.tests[testIndex].core_support_string.sr,
+						vc: featureObject.tests[testIndex].core_support_string.vc
+					}
 				});
 			}
 
 			// Set up the feature assertion properties
 			if (featureObject.assertions[assertion_key].core_support === undefined) {
-				featureObject.assertions[assertion_key].core_support = [];
-				featureObject.assertions[assertion_key].extended_support = [];
+				featureObject.assertions[assertion_key].core_support = {
+					sr: [],
+					vc: []
+				};
+				featureObject.assertions[assertion_key].core_support_string = {
+					sr: 'unknown',
+					vc: 'unknown'
+				};
+				featureObject.assertions[assertion_key].extended_support = {
+					sr: [],
+					vc: []
+				};
+				featureObject.assertions[assertion_key].extended_support_string = {
+					sr: 'unknown',
+					vc: 'unknown'
+				};
 				featureObject.assertions[assertion_key].core_support_by_at = {};
 				featureObject.assertions[assertion_key].core_support_by_at_browser = {};
 			}
@@ -330,7 +412,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 								};
 							}
 
-							if (featureObject.assertions[assertion_key].type === "MUST" || featureObject.assertions[assertion_key].type === "MUST NOT") {
+							if (featureObject.assertions[assertion_key].strength[ATBrowsers.at[at].type] === "MUST" || featureObject.assertions[assertion_key].strength[ATBrowsers.at[at].type] === "MUST NOT") {
 								// Only include "must" assertions in core support at the feature level
 								featureObject.core_support_by_at_browser[at][browser].values.push(support);
 								if (some_support_behind_settings) {
@@ -338,9 +420,9 @@ helper.bubbleFeatureSupport = function(featureObject) {
 								}
 
 								featureObject.core_support_by_at[at].values.push(support);
-								featureObject.core_support.push(support);
+								featureObject.core_support[ATBrowsers.at[at].type].push(support);
 							} else {
-								featureObject.extended_support.push(support);
+								featureObject.extended_support[ATBrowsers.at[at].type].push(support);
 							}
 
 							featureObject.assertions[assertion_key].core_support_by_at[at].values.push(support);
@@ -348,18 +430,18 @@ helper.bubbleFeatureSupport = function(featureObject) {
 								featureObject.assertions[assertion_key].core_support_by_at[at].some_support_behind_settings = some_support_behind_settings;
 							}
 
-							featureObject.assertions[assertion_key].core_support.push(support);
+							featureObject.assertions[assertion_key].core_support[ATBrowsers.at[at].type].push(support);
 							featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].values.push(support);
 							if (some_support_behind_settings) {
 								featureObject.assertions[assertion_key].core_support_by_at_browser[at][browser].some_support_behind_settings = some_support_behind_settings;
 							}
 						} else {
-							featureObject.extended_support.push(support);
-							featureObject.assertions[assertion_key].extended_support.push(support);
+							featureObject.extended_support[ATBrowsers.at[at].type].push(support);
+							featureObject.assertions[assertion_key].extended_support[ATBrowsers.at[at].type].push(support);
 						}
 					} else if (ATBrowsers.at[at].extended_browsers.includes(browser)) {
-						featureObject.extended_support.push(support);
-						featureObject.assertions[assertion_key].extended_support.push(support);
+						featureObject.extended_support[ATBrowsers.at[at].type].push(support);
+						featureObject.assertions[assertion_key].extended_support[ATBrowsers.at[at].type].push(support);
 					}
 				});
 			}
@@ -368,7 +450,9 @@ helper.bubbleFeatureSupport = function(featureObject) {
 
 	if (featureObject.tests.length === 0) {
 		// This is just a stub
-		featureObject.core_support.push('u');
+		["sr", "vc"].forEach(type => {
+			featureObject.core_support[type].push('u');
+		});
 		for (let i = 0; i < ATBrowsers.core_at.length; i++) {
 			featureObject.core_support_by_at[ATBrowsers.core_at[i]] = {};
 			featureObject.core_support_by_at[ATBrowsers.core_at[i]].values = ['u'];
@@ -377,8 +461,10 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	}
 
 	//Set support strings
-	featureObject.core_support_string = helper.generateSupportString(featureObject.core_support);
-	featureObject.extended_support_string = helper.generateSupportString(featureObject.extended_support);
+	featureObject.core_support_string.sr = helper.generateSupportString(featureObject.core_support.sr);
+	featureObject.extended_support_string.sr = helper.generateSupportString(featureObject.extended_support.sr);
+	featureObject.core_support_string.vc = helper.generateSupportString(featureObject.core_support.vc);
+	featureObject.extended_support_string.vc = helper.generateSupportString(featureObject.extended_support.vc);
 
 	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
 		let at = ATBrowsers.core_at[i];
@@ -437,22 +523,24 @@ helper.bubbleFeatureSupport = function(featureObject) {
 
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		// aggregate must/should/may core support
-		if (assertion.type === "MUST" || assertion.type === "MUST NOT") {
-			if (assertion.core_support && assertion.core_support.length) {
-				featureObject.core_must_support = featureObject.core_must_support.concat(assertion.core_support);
+		["sr", "vc"].forEach(type => {
+			if (assertion.strength[type] === "MUST" || assertion.strength[type] === "MUST NOT") {
+				if (assertion.core_support && assertion.core_support[type] && assertion.core_support[type].length) {
+					featureObject.core_must_support[type] = featureObject.core_must_support[type].concat(assertion.core_support[type]);
+				}
+				featureObject.core_must_support_string[type] = helper.generateSupportString(featureObject.core_must_support[type]);
+			} else if (assertion.strength[type] === "SHOULD") {
+				if (assertion.core_support && assertion.core_support[type] && assertion.core_support[type].length) {
+					featureObject.core_should_support[type] = featureObject.core_should_support[type].concat(assertion.core_support[type]);
+				}
+				featureObject.core_should_support_string[type] = helper.generateSupportString(featureObject.core_should_support[type]);
+			} else {
+				if (assertion.core_support && assertion.core_support[type] && assertion.core_support[type].length) {
+					featureObject.core_may_support[type] = featureObject.core_may_support[type].concat(assertion.core_support[type]);
+				}
+				featureObject.core_may_support_string[type] = helper.generateSupportString(featureObject.core_may_support[type]);
 			}
-			featureObject.core_must_support_string = helper.generateSupportString(featureObject.core_must_support);
-		} else if (assertion.type === "SHOULD") {
-			if (assertion.core_support && assertion.core_support.length) {
-				featureObject.core_should_support = featureObject.core_should_support.concat(assertion.core_support);
-			}
-			featureObject.core_should_support_string = helper.generateSupportString(featureObject.core_should_support);
-		} else {
-			if (assertion.core_support && assertion.core_support.length) {
-				featureObject.core_may_support = featureObject.core_may_support.concat(assertion.core_support);
-			}
-			featureObject.core_may_support_string = helper.generateSupportString(featureObject.core_may_support);
-		}
+		});
 	});
 };
 
@@ -462,16 +550,46 @@ helper.initalizeTestCase = function (testCase) {
 	let ATBrowsers = require('./../data/ATBrowsers');
 
 	//Set support properties
-	testCase.core_support = [];
-	testCase.core_support_string = 'unknown';
-	testCase.extended_support = [];
-	testCase.extended_support_string = 'unknown';
-	testCase.core_must_support = [];
-	testCase.core_must_support_string = 'na';
-	testCase.core_should_support = [];
-	testCase.core_should_support_string = 'na';
-	testCase.core_may_support = [];
-	testCase.core_may_support_string = 'na';
+	testCase.core_support = {
+		sr: [],
+		vc: []
+	};
+	testCase.core_support_string = {
+		sr: 'unknown',
+		vc: 'unknown'
+	};
+	testCase.extended_support = {
+		sr: [],
+		vc: []
+	};
+	testCase.extended_support_string = {
+		sr: 'unknown',
+		vc: 'unknown'
+	};
+	testCase.core_must_support = {
+		sr: [],
+		vc: []
+	};
+	testCase.core_must_support_string = {
+		sr: 'na',
+		vc: 'na'
+	};
+	testCase.core_should_support = {
+		sr: [],
+		vc: []
+	};
+	testCase.core_should_support_string = {
+		sr: 'na',
+		vc: 'na'
+	};
+	testCase.core_may_support = {
+		sr: [],
+		vc: []
+	};
+	testCase.core_may_support_string = {
+		sr: 'na',
+		vc: 'na'
+	};
 
 	testCase.history = testCase.history.sort(sortByProperty('date'));
 
@@ -513,9 +631,24 @@ helper.initalizeTestCase = function (testCase) {
 		}
 
 		testCase.assertions[assertion_key].feature_title = feature.title;
-		testCase.assertions[assertion_key].assertion_title = titleModifier + ref_assertion.type.toUpperCase() + " " + ref_assertion.title;
-		testCase.assertions[assertion_key].core_support = [];
-        testCase.assertions[assertion_key].extended_support = [];
+		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
+		testCase.assertions[assertion_key].assertion_strength = ref_assertion.strength;
+		testCase.assertions[assertion_key].core_support = {
+			sr: [],
+			vc: []
+		};
+		testCase.assertions[assertion_key].core_support_string = {
+			sr: 'unknown',
+			vc: 'unknown'
+		};
+        testCase.assertions[assertion_key].extended_support = {
+        	sr: [],
+			vc: []
+		};
+		testCase.assertions[assertion_key].extended_support_string = {
+			sr: 'unknown',
+			vc: 'unknown'
+		};
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
 
 		testCase.assertions[assertion_key].rationale = "";
@@ -645,22 +778,21 @@ helper.initalizeTestCase = function (testCase) {
 					}
 
 					if (ATBrowsers.core_at.includes(at)) {
-                        testCase.assertions[assertion_key].core_support.push(support);
-
-                        if (ref_assertion.type === "MUST" || ref_assertion.type === "MUST NOT") {
-							testCase.core_support.push(support);
+                        testCase.assertions[assertion_key].core_support[ATBrowsers.at[at].type].push(support);
+                        if (ref_assertion.strength[ATBrowsers.at[at].type] === "MUST" || ref_assertion.strength[ATBrowsers.at[at].type] === "MUST NOT") {
+							testCase.core_support[ATBrowsers.at[at].type].push(support);
 						}
 
 						if (testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings) {
 							testCase.assertions[assertion_key].some_support_behind_settings = testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings;
 						}
 					} else {
-                        testCase.assertions[assertion_key].extended_support.push(support);
-						testCase.extended_support.push(support);
+                        testCase.assertions[assertion_key].extended_support[ATBrowsers.at[at].type].push(support);
+						testCase.extended_support[ATBrowsers.at[at].type].push(support);
 					}
 				} else if (ATBrowsers.at[at].extended_browsers.includes(browser)) {
 					testCase.assertions[assertion_key].results[at].extended_support.push(support);
-					testCase.extended_support.push(support);
+					testCase.extended_support[ATBrowsers.at[at].type].push(support);
 				}
 
 				// Set the priority for manual testing
@@ -718,32 +850,36 @@ helper.initalizeTestCase = function (testCase) {
 			testCase.assertions[assertion_key].results[at].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].results[at].extended_support);
 		}
 
-		//Set support strings for the assertion
-		testCase.assertions[assertion_key].core_support_string = helper.generateSupportString(testCase.assertions[assertion_key].core_support);
-		testCase.assertions[assertion_key].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].extended_support);
+		["sr", "vc"].forEach(type => {
+			//Set support strings for the assertion
+			testCase.assertions[assertion_key].core_support_string[type] = helper.generateSupportString(testCase.assertions[assertion_key].core_support[type]);
+			testCase.assertions[assertion_key].extended_support_string[type] = helper.generateSupportString(testCase.assertions[assertion_key].extended_support[type]);
 
-		// aggregate must/should/may core support
-		if (ref_assertion.type === "MUST" || ref_assertion.type === "MUST NOT") {
-			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
-				testCase.core_must_support = testCase.core_must_support.concat(testCase.assertions[assertion_key].core_support);
+			// aggregate must/should/may core support
+			if (ref_assertion.strength[type] === "MUST" || ref_assertion.strength[type] === "MUST NOT") {
+				if (testCase.assertions[assertion_key].core_support[type] && testCase.assertions[assertion_key].core_support[type].length) {
+					testCase.core_must_support[type] = testCase.core_must_support[type].concat(testCase.assertions[assertion_key].core_support[type]);
+				}
+				testCase.core_must_support_string[type] = helper.generateSupportString(testCase.core_must_support[type]);
+			} else if (ref_assertion.strength[type] === "SHOULD") {
+				if (testCase.assertions[assertion_key].core_support[type] && testCase.assertions[assertion_key].core_support[type].length) {
+					testCase.core_should_support[type] = testCase.core_should_support[type].concat(testCase.assertions[assertion_key].core_support[type]);
+				}
+				testCase.core_should_support_string[type] = helper.generateSupportString(testCase.core_should_support[type]);
+			} else {
+				if (testCase.assertions[assertion_key].core_support[type] && testCase.assertions[assertion_key].core_support[type].length) {
+					testCase.core_may_support[type] = testCase.core_may_support[type].concat(testCase.assertions[assertion_key].core_support[type]);
+				}
+				testCase.core_may_support_string[type] =  helper.generateSupportString(testCase.core_may_support[type]);
 			}
-			testCase.core_must_support_string = helper.generateSupportString(testCase.core_must_support);
-		} else if (ref_assertion.type === "SHOULD") {
-			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
-				testCase.core_should_support = testCase.core_should_support.concat(testCase.assertions[assertion_key].core_support);
-			}
-			testCase.core_should_support_string = helper.generateSupportString(testCase.core_should_support);
-		} else {
-			if (testCase.assertions[assertion_key].core_support && testCase.assertions[assertion_key].core_support.length) {
-				testCase.core_may_support = testCase.core_may_support.concat(testCase.assertions[assertion_key].core_support);
-			}
-			testCase.core_may_support_string =  helper.generateSupportString(testCase.core_may_support);
-		}
+		});
 	});
 
 	//Set support strings for the test
-	testCase.core_support_string = helper.generateSupportString(testCase.core_support);
-	testCase.extended_support_string = helper.generateSupportString(testCase.extended_support);
+	["sr", "vc"].forEach(type => {
+		testCase.core_support_string[type] = helper.generateSupportString(testCase.core_support[type]);
+		testCase.extended_support_string[type] = helper.generateSupportString(testCase.extended_support[type]);
+	});
 };
 
 helper.generateSupportString = function(support) {

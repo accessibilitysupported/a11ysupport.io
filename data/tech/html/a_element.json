@@ -18,9 +18,7 @@
         "A screen reader might convey not convey any role for the link.",
         "Voice control software will not suggest that the link is actionable."
       ],
-      "type": "MUST",
       "css_target": "a:not([href])",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "vc"
@@ -36,7 +34,10 @@
     },
     {
       "id": "provide_shortcuts",
-      "type": "MUST NOT",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
       "css_target": "a:not([href])"
     }
   ],

@@ -18,9 +18,11 @@
         "The role name is announced when entering the group.",
         "If focus is outside of the group, then the accessible name of the group is announced when focus jumps to a control within the group."
       ],
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "*[role=\"radiogroup\"]",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
@@ -33,7 +35,10 @@
       "examples": [
         "The accessible name of the group is announced when entering the group."
       ],
-      "type": "MUST",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
       "css_target": "*[role=\"radiogroup\"]",
       "preconditions": [],
       "operation_modes": [
@@ -50,10 +55,7 @@
         "In reading mode, there might not be a stop for the start and end of the group. In this case, the screen reader might announce the group name when the user navigates to the first child and announce that the user is leaving the group when the user navigates out of the group.",
         "In interaction mode, there will not be a stop for the start and end of the group. In this case, the screen reader might announce the group name when the user jumps to an interactive child and announce that the user is leaving the group when the user jumps out of the group."
       ],
-      "pass_strategy": "all",
-      "type": "MUST",
       "css_target": "*[role=\"radiogroup\"]",
-      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
