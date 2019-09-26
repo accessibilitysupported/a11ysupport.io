@@ -65,33 +65,50 @@ block content
                                         td #{test.versions[at].browsers[browser].date}
 
             if test.assertions
-                details(open)
-                    summary
-                        h2(id="support-summary-by-at") Summary of support by expectation and assistive technology
-                    - var some_support_behind_settings = false;
-                    div.responsive-table
-                        table(aria-labelledby="support-summary-by-at").support-table.assertion-container.summary-matrix
-                            tr
-                                th Expectation
-                                each at_id in ATBrowsers.core_at
-                                    th(id="h-at-"+at_id) #{ATBrowsers.at[at_id].title}
-                            each feature, currentFeatureIndex in testMap[test.id]
-                                th(colspan=Object.keys(ATBrowsers.at).length+1 id="h-feature-"+currentFeatureIndex scope="colgroup").feature #{feature.title}
 
-                                each assertion, assertionIndex in test.assertions
-                                    if (feature.featureId === assertion.feature_id)
-
-                                        tr
-                                            th(id="h-assertion-"+assertionIndex).assertion
-                                                a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
-                                                    span #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
-                                            each at_id in ATBrowsers.core_at
-                                                td(class="support-case " + assertion.results[at_id].core_support_string.class headers="h-feature-"+currentFeatureIndex+" h-assertion-"+assertionIndex + " h-at-"+at_id)
-                                                    span #{assertion.results[at_id].core_support_string.string}
-                                                    if (assertion.results[at_id].some_support_behind_settings)
-                                                        - some_support_behind_settings = true;
-                                                        span *
-                    p * means that some support is hidden behind settings
+                each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]
+                    details(open)
+                        summary
+                            h2(id="support-summary-by-at-"+at_type.type) Summary of #{at_type.title} support by expectation
+                        - var some_support_behind_settings = false;
+                        - var colspan = 0;
+                        - var assertions_found = 0;
+                        div.responsive-table
+                            table(aria-labelledby="support-summary-by-at-"+at_type.type).support-table.assertion-container.summary-matrix
+                                tr
+                                    th Expectation
+                                    each at_id in ATBrowsers.core_at
+                                        if ATBrowsers.at[at_id].type !== at_type.type
+                                            - continue
+                                        th(id="h-at-" + at_id) #{ATBrowsers.at[at_id].title}
+                                        - colspan++;
+                                each feature, currentFeatureIndex in testMap[test.id]
+                                    - var feature_title_printed = false;
+                                    each assertion, assertionIndex in test.assertions
+                                        if assertion.assertion_strength[at_type.type] === "NA"
+                                            - continue
+                                        if (feature.featureId === assertion.feature_id)
+                                            if !feature_title_printed
+                                                tr
+                                                    th(colspan=colspan + 1 id=at_type.type+"-h-feature-" + currentFeatureIndex scope="colgroup").feature #{feature.title}
+                                                - feature_title_printed = true;
+                                            tr
+                                                th(id=at_type.type+"-h-assertion-" + assertionIndex).assertion
+                                                    a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
+                                                        span #{assertion.assertion_strength[at_type.type]} #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
+                                                each at_id in ATBrowsers.core_at
+                                                    if ATBrowsers.at[at_id].type !== at_type.type
+                                                        - continue
+                                                    - assertions_found++
+                                                    td(class="support-case " + assertion.results[at_id].core_support_string.class headers=at_type.type+"-h-feature-" + currentFeatureIndex + " " + at_type.type+"-h-assertion-" + assertionIndex + " h-at-" + at_id)
+                                                        span #{assertion.results[at_id].core_support_string.string}
+                                                        if (assertion.results[at_id].some_support_behind_settings)
+                                                            - some_support_behind_settings = true;
+                                                            span *
+                                if assertions_found === 0
+                                    tr
+                                        td(colspan=colspan + 1) Not applicable
+                        p * means that some support is hidden behind settings
 
             h2(id="detailed-results") Detailed support results by expectation
             each assertion in test.assertions
