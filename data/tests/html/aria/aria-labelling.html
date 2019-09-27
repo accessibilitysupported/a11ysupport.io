@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria labelling test</title>
+</head>
+<body>
+<h1>aria labelling tests</h1>
+<p>This page contains various HTML buttons with aria based labels.</p>
+
+<h2>simple aria-label test</h2>
+<p>The name should be "target 1"</p>
+<button aria-label="target 1">action</button>
+
+<h2>aria-labelledby with one reference</h2>
+<p>The name should be "target 2"</p>
+<button aria-labelledby="ref-1">action</button>
+<div id="ref-1">target 2</div>
+
+<h2>aria-labelledby with two references</h2>
+<p>The name should be "target 3"</p>
+<button aria-labelledby="ref-2 ref-3">action</button>
+<div id="ref-2">target</div>
+<div id="ref-3">3</div>
+
+</body>
+</html>
