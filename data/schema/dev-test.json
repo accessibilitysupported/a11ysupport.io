@@ -141,7 +141,17 @@
           "type": "string"
         }
       },
-      "required": ["output"]
+      "if": {
+        "properties": {
+          "support": { "enum": ["na"] }
+        }
+      },
+      "then": {
+        "required": []
+      },
+      "else": {
+        "required": ["output"]
+      }
     },
     "assertion": {
       "type": "object",
