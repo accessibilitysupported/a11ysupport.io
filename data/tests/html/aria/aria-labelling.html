@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <title>aria labelling test</title>
+    <style>
+        *[hidden] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <h1>aria labelling tests</h1>
@@ -19,8 +24,8 @@
 <h2>aria-labelledby with two references</h2>
 <p>The name should be "target 3"</p>
 <button aria-labelledby="ref-2 ref-3">action</button>
-<div id="ref-2">target</div>
-<div id="ref-3">3</div>
+<div id="ref-2" hidden>target</div>
+<div id="ref-3" hidden>3</div>
 
 </body>
 </html>
