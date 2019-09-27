@@ -139,11 +139,11 @@ test.assertions.forEach(function(assertionLink) {
                             }
                         }
                     } else if (ATBrowsers.at[at].type === "vc" && assertion.operation_modes.includes('sr/reading')) {
-                        if (assertion.id === "convey_name") {
+                        if (assertion.id === "convey_name" || assertion.id === "contribute_to_accessible_name") {
                             let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_actionable_item");
                             if (-1 === found) {
                                 assertionLink.results[at].browsers[browser].output.push({
-                                    command: "activate_actionable_item",
+                                    command: "activate_name",
                                     output: "\"\"",
                                     result: "unknown"
                                 });
@@ -154,7 +154,7 @@ test.assertions.forEach(function(assertionLink) {
                             let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "click_type");
                             if (-1 === found) {
                                 assertionLink.results[at].browsers[browser].output.push({
-                                    command: "click_type",
+                                    command: "activate_role",
                                     output: "\"\"",
                                     result: "unknown"
                                 });
