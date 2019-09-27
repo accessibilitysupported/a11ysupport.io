@@ -14,18 +14,24 @@
 
 <h2>simple aria-label test</h2>
 <p>The name should be "target 1"</p>
-<button aria-label="target 1">action</button>
+<button aria-label="target 1" onclick="convey(event)">action 1</button>
 
 <h2>aria-labelledby with one reference</h2>
 <p>The name should be "target 2"</p>
-<button aria-labelledby="ref-1">action</button>
+<button aria-labelledby="ref-1" onclick="convey(event)">action 2</button>
 <div id="ref-1" hidden>target 2</div>
 
 <h2>aria-labelledby with two references</h2>
 <p>The name should be "target 3"</p>
-<button aria-labelledby="ref-2 ref-3">action</button>
+<button aria-labelledby="ref-2 ref-3" onclick="convey(event)">action 3</button>
 <div id="ref-2" hidden>target</div>
 <div id="ref-3" hidden>3</div>
+
+<script>
+    var convey = function(e) {
+        alert('button was clicked: ' + e.target.innerText)
+    }
+</script>
 
 </body>
 </html>
