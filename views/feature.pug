@@ -5,8 +5,10 @@ block content
   div.content-wrapper
     div.content
       h1= data.title + ' (' + data.techId + ')'
-      div(class="current-support-container " + data.core_support_string.class)
-        p= 'Support level: ' + data.core_support_string.string
+      div(class="current-support-container " + data.core_support_string.sr.class)
+        p= 'Screen reader support level: ' + data.core_support_string.sr.string
+      div(class="current-support-container " + data.core_support_string.vc.class)
+        p= 'Voice Control support level: ' + data.core_support_string.vc.string
 
       if data.assertions.length
         h2 On this page
@@ -109,13 +111,15 @@ block content
               summary Tests that reference this expectation
               table
                 tr
-                  th test name
-                  th has support
+                  th Test name
+                  th Screen Reader support
+                  th Voice Control support
                 each test in assertion.tests
                   tr
                     td
                       a(href="/tests/" + testHelper.makeSafe(test.id)) #{test.title}
-                    td(class='support-case ' + test.core_support_string.class) #{test.core_support_string.string}
+                    td(class='support-case ' + test.core_support_string.sr.class) #{test.core_support_string.sr.string}
+                    td(class='support-case ' + test.core_support_string.vc.class) #{test.core_support_string.vc.string}
           else
             p No tests reference this expectation yet.
       else

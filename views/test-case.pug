@@ -5,8 +5,10 @@ block content
     div.content-wrapper
         div.content
             h1= 'Test: ' + test.title
-            div(class="current-support-container "+test.core_support_string.class)
-                p= 'Current support: ' + test.core_support_string.string
+            div(class="current-support-container "+test.core_support_string.sr.class)
+                p= 'Screen Reader support level: ' + test.core_support_string.sr.string
+            div(class="current-support-container " + test.core_support_string.vc.class)
+                p= 'Voice Control support level: ' + test.core_support_string.vc.string
 
             div!= md.render(test.description)
 
