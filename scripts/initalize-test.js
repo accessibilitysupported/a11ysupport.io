@@ -169,10 +169,30 @@ test.assertions.forEach(function(assertionLink) {
 
     // Use the latest versions that we have on file.
     var versions = require(__dirname + '/../data/latest_versions.json');
-    test.versions = versions;
+    test.versions = {};
+
+    for(let at in ATBrowsers.at) {
+        if (!test.versions[at]) {
+            test.versions[at] = {
+                browsers: {}
+            }
+        }
+
+        let validBrowsers = ATBrowsers.at[at].core_browsers;
+        validBrowsers.forEach(browser => {
+            if (test.versions[at].browsers[browser]) {
+                return;
+            }
+            test.versions[at].browsers[browser] = {
+                at_version: versions.at[at].at_version,
+                os_version: versions.at[at].os_version,
+                browser_version: versions.browsers[browser].version,
+                date: currentDateString
+            }
+        });
+    }
 
     var string = JSON.stringify(test, null, 2);
-    string = string.replace(/--enter date--/g, currentDateString);
 
     fs.writeFileSync(testFile, string);
 });
