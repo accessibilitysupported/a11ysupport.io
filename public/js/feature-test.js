@@ -12,6 +12,7 @@ var testingPrefForm = document.querySelector('form.testing-pref');
 var ATBrowserSelect = testingPrefForm.querySelector('select');
 var testUrl = window.location.pathname.replace(/\/run/, '');
 var testJsonURL = testUrl.replace(/__/g, '/');
+var versions = {};
 
 function initTestingPrefForm()
 {
@@ -96,9 +97,24 @@ function displayTestingPrefs(focusResults)
 	atOption.value = at_value;
 	var browserOption = document.querySelector('input[name="browser"]');
 	browserOption.value = browser_value;
-	dom_at_version.value = sessionStorage.getItem('at_version_'+at_value);
-	dom_browser_version.value = sessionStorage.getItem('browser_version_'+browser_value);
-	dom_os_version.value = sessionStorage.getItem('os_version_'+at_value);
+	if (sessionStorage.getItem('at_version_'+at_value)) {
+		dom_at_version.value = sessionStorage.getItem('at_version_'+at_value);
+	} else if (versions.at[at_value] && versions.browsers[browser_value]) {
+		dom_at_version.value = versions.at[at_value].at_version;
+	}
+
+	if (sessionStorage.getItem('browser_version_'+browser_value)) {
+		dom_browser_version.value = sessionStorage.getItem('browser_version_'+browser_value);
+	} else if (versions.at[at_value] && versions.browsers[browser_value]) {
+		dom_browser_version.value = versions.browsers[browser_value].version;
+	}
+
+	if (sessionStorage.getItem('os_version_'+at_value)) {
+		dom_os_version.value = sessionStorage.getItem('os_version_'+at_value);
+	} else if (versions.at[at_value] && versions.browsers[browser_value]) {
+		dom_os_version.value = versions.at[at_value].os_version;
+	}
+
 	var span = document.querySelector('.selected-at-browser-combo');
 	span.innerText = ATBrowsers.at[at_value].title + ' and ' + ATBrowsers.browsers[browser_value].title;
 }
@@ -106,7 +122,7 @@ function displayTestingPrefs(focusResults)
 var removeAllAssertionFieldsets = function() {
 	var assertions = document.querySelectorAll('fieldset.assertion');
 	for (var i=0; i < assertions.length; i++) {
-		assertions[i].remove();
+		assertions[i].parentNode.remove();
 	}
 };
 
@@ -116,6 +132,12 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 	test.assertions.forEach(function(assertion, assertion_key) {
 
 		if (-1 === assertion.supports_at.indexOf(ATBrowsers.at[at_value].type)) {
+			return;
+		}
+
+		var supportPoint = assertion.results[at_value].browsers[browser_value];
+		if (supportPoint && supportPoint.support === "na") {
+			// don't render assertions that are not applicable
 			return;
 		}
 
@@ -193,7 +215,6 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 
 		// TODO: Add output rows
 
-		var supportPoint = assertion.results[at_value].browsers[browser_value];
 		if (supportPoint.output) {
 			supportPoint.output.forEach(function(row, row_key) {
 				createCommandOutputRow(assertion, fieldset, row, false);
@@ -749,10 +770,13 @@ getJson(testJsonURL +'.json', function(data) {
 	test = data;
 	getJson('/ATBrowsers.json', function(data) {
 		ATBrowsers = data;
+		getJson('/latest_versions.json', function(data) {
+			versions = data;
 
-		// Now that we have the data, init search
-		initFeatureTest();
-		displayTestingPrefs();
+			// Now that we have the data, init search
+			initFeatureTest();
+			displayTestingPrefs();
+		});
 	});
 });
 
