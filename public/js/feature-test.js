@@ -163,6 +163,9 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		legend.innerText = assertion.feature_title + ': ' + short_title;
 		fieldset.append(legend);
 
+		var p = document.createElement('p');
+		p.innerText = 'The following are instructions for testing this expectation.';
+
 		var instructions_ol = document.createElement('ol');
 		var li = document.createElement('li');
 		li.innerText = 'Find all elements in the example that match this selector: ';
@@ -185,7 +188,24 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 			instructions_ol.appendChild(li);
 		}
 
+		fieldset.append(p);
 		fieldset.append(instructions_ol);
+
+		// Example output
+		if (assertion.assertion_examples && assertion.assertion_examples.length) {
+			var p = document.createElement('p');
+			p.innerText = 'The following are some examples of how assistive technologies might support this expectation.';
+			var examples_ul = document.createElement('ul');
+
+			assertion.assertion_examples.forEach(function(example) {
+				var li = document.createElement('li');
+				li.innerText = example;
+				examples_ul.append(li);
+			});
+
+			fieldset.append(p);
+			fieldset.append(examples_ul);
+		}
 
 		var addOutputButton = document.createElement('button');
 		addOutputButton.classList.add('add-output-row');
