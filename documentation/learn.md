@@ -25,4 +25,6 @@ Screen readers announce the content of the screen either by audio or by a braill
 Voice Control software allows users to command their computers or devices by voice, bypassing the need for a mouse or keyboard. People with physical or motor disabilities are most likely to use voice control software.
 
 * [Dragon Naturally Speaking](/learn/at/dragon)
+* [Voice Access for Android](/learn/at/va_and)
 * [Voice Control for iOS](/learn/at/vc_ios)
+
