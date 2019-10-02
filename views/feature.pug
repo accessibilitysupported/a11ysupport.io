@@ -46,32 +46,33 @@ block content
           - var some_support_behind_settings = false
           - var colspan = 0;
           - var assertions_found = 0;
-          table(aria-labelledby='support-table-by-assertion-and-at-'+at_type.type)
-            tr
-              th Expectation
-              each at_id in ATBrowsers.core_at
-                if ATBrowsers.at[at_id].type !== at_type.type
-                  - continue
-                th #{ATBrowsers.at[at_id].title}
-                - colspan++;
-            each assertion, index in data.assertions
-              if assertion.strength[at_type.type] === "NA"
-                - continue
-              if assertion.tests.length > 0
-                  - assertions_found++;
-                  tr
-                    th
-                      a(href="#support-table-" + index) #{assertion.strength[at_type.type]} #{testHelper.trimTechFromAssertion(assertion.title)}
-                    each at in ATBrowsers.core_at
-                      if ATBrowsers.at[at].type !== at_type.type
-                        - continue
-                      td(class='support-case ' + assertion.core_support_by_at[at].string.class)= assertion.core_support_by_at[at].string.string
-                        if (assertion.core_support_by_at[at].some_support_behind_settings)
-                          - some_support_behind_settings = true
-                          span *
-            if assertions_found === 0
+          div.responsive-table
+            table(aria-labelledby='support-table-by-assertion-and-at-'+at_type.type)
               tr
-                td(colspan=colspan+1) Not applicable
+                th Expectation
+                each at_id in ATBrowsers.core_at
+                  if ATBrowsers.at[at_id].type !== at_type.type
+                    - continue
+                  th #{ATBrowsers.at[at_id].title}
+                  - colspan++;
+              each assertion, index in data.assertions
+                if assertion.strength[at_type.type] === "NA"
+                  - continue
+                if assertion.tests.length > 0
+                    - assertions_found++;
+                    tr
+                      th
+                        a(href="#support-table-" + index) #{assertion.strength[at_type.type]} #{testHelper.trimTechFromAssertion(assertion.title)}
+                      each at in ATBrowsers.core_at
+                        if ATBrowsers.at[at].type !== at_type.type
+                          - continue
+                        td(class='support-case ' + assertion.core_support_by_at[at].string.class)= assertion.core_support_by_at[at].string.string
+                          if (assertion.core_support_by_at[at].some_support_behind_settings)
+                            - some_support_behind_settings = true
+                            span *
+              if assertions_found === 0
+                tr
+                  td(colspan=colspan+1) Not applicable
           if (some_support_behind_settings)
             p * means that some support is hidden behind settings
 
