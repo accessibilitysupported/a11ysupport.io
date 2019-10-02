@@ -31,6 +31,18 @@ test.assertions.forEach(function(assertionLink) {
     }
 
     for(let at in ATBrowsers.at) {
+        if (assertion.exclude_at && assertion.exclude_at.includes(at)) {
+            // This AT is not applicable for some reason. Don't pre-populate commands.
+            // the "na" value is populated at build-time.
+            return;
+        }
+
+        if (assertionLink.exclude_at && assertionLink.exclude_at.includes(at)) {
+            // This AT is not applicable for some reason. Don't pre-populate commands.
+            // the "na" value is populated at build-time.
+            return;
+        }
+
         if (ATBrowsers.at[at].type === "vc" && !assertion.operation_modes.includes("vc")) {
             //console.log('here');
             // We are not on a VC AT and the assertion is just for VC AT, so skip.

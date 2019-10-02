@@ -117,7 +117,8 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 						"sr/reading",
 						"sr/interaction",
 						"vc"
-					]
+					],
+					"exclude_at": ["vc_ios"]
 				}, assertion);
 				break;
 			case 'convey_value':
@@ -697,6 +698,18 @@ helper.initalizeTestCase = function (testCase) {
 						"id": browser
 					};
 				}
+
+				// Auto set this to NA if the assertion link indicates that this AT is not applicable
+				if (ref_assertion.exclude_at
+					&& ref_assertion.exclude_at.includes(at)) {
+					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
+				}
+
+				if (testCase.assertions[assertion_key].exclude_at
+					&& testCase.assertions[assertion_key].exclude_at.includes(at)) {
+					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
+				}
+
 
 				if (!supports_sr && ATBrowsers.at[at].type === "sr") {
 					// This test case does not support this type of AT
