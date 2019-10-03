@@ -108,7 +108,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. Mellblomatic 9000!, heading level 3\"",
+                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. tablet 9000!, heading level 3\"",
                   "result": "pass",
                   "notes": "Entire placeholder link was announced, but then each line can be read individually"
                 }
@@ -126,6 +126,20 @@
                   "to": "target",
                   "output": "\"conveyed as static text\"",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was not flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
                 }
               ]
             }
@@ -176,7 +190,7 @@
                   "command": "activate_name",
                   "output": "links were flagged for disambiguation",
                   "result": "pass",
-                  "notes": "said \"click Mellblomatic 9000!\""
+                  "notes": "said \"click tablet 9000!\""
                 }
               ]
             }
@@ -268,7 +282,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Mellblomatic 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. Mellblomatic 9000!, heading level 3\"",
+                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. tablet 9000!, heading level 3\"",
                   "result": "pass",
                   "notes": "Entire placeholder link was announced, but then each line can be read individually"
                 }
@@ -286,6 +300,20 @@
                   "to": "target",
                   "output": "\"conveyed as static text\"",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "link was not activated",
+                  "result": "pass",
+                  "notes": "said \"tap tablet 9000\""
                 }
               ]
             }
@@ -502,6 +530,10 @@
     {
       "date": "2019-09-23",
       "message": "Added vc_ios results"
+    },
+    {
+      "date": "2019-10-02",
+      "message": "Add va_and results"
     }
   ],
   "versions": {
@@ -576,10 +608,20 @@
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "9",
+          "at_version": "7",
           "browser_version": "75",
-          "os_version": "9",
+          "os_version": "7",
           "date": "2019-07-26"
+        }
+      }
+    },
+    "va_and": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "3.1",
+          "browser_version": "77",
+          "os_version": "7",
+          "date": "2019-10-02"
         }
       }
     },

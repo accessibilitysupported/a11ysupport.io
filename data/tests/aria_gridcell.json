@@ -7,6 +7,20 @@
       "feature_assertion_id": "convey_role",
       "css_target": "#target",
       "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_role",
+                  "output": "cell was not focused",
+                  "result": "fail",
+                  "notes": "said \"click cell\". Dragon does not appear to have a command for this role."
+                }
+              ]
+            }
+          }
+        },
         "nvda": {
           "browsers": {
             "firefox": {
@@ -178,6 +192,20 @@
             }
           }
         },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -223,6 +251,20 @@
       "feature_assertion_id": "convey_name",
       "css_target": "#target",
       "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "cell was not focused",
+                  "result": "fail",
+                  "notes": "said \"click target\""
+                }
+              ]
+            }
+          }
+        },
         "nvda": {
           "browsers": {
             "firefox": {
@@ -387,6 +429,20 @@
             }
           }
         },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "button was activated",
+                  "result": "partial",
+                  "notes": "said \"tap target\". Item was tapped but event was not fired and border was not changed as if an actual tap was triggered."
+                }
+              ]
+            }
+          }
+        },
         "vo_ios": {
           "browsers": {
             "ios_saf": {
@@ -453,6 +509,10 @@
     {
       "date": "2019-09-24",
       "message": "Added vc_ios results"
+    },
+    {
+      "date": "2019-10-02",
+      "message": "Add va_and and Dragon results"
     }
   ],
   "versions": {
@@ -529,8 +589,18 @@
         "and_chr": {
           "at_version": "7.3.0",
           "browser_version": "76",
-          "os_version": "9",
+          "os_version": "7",
           "date": "2019-09-13"
+        }
+      }
+    },
+    "va_and": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "3.1",
+          "browser_version": "77",
+          "os_version": "7",
+          "date": "2019-10-02"
         }
       }
     },
