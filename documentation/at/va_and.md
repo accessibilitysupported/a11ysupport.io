@@ -11,7 +11,7 @@ There are 1 types of overlay that you can turn on.
 
 ## Install
 
-Voice Control is built in to iOS and you can enable it from your Settings app.
+Voice Access can be found on the Play Store.
 
 ## Guides, Documentation, and resources
 
