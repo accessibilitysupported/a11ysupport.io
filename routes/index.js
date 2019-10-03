@@ -57,6 +57,17 @@ router.get('/learn', function(req, res, next) {
 	});
 });
 
+router.get('/learn/vc_differences', function(req, res, next) {
+	let markdown = fs.readFileSync(__dirname+'/../documentation/vc_differences.md', 'utf8');
+	let MarkdownIt = require('markdown-it');
+	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+	let result = md.render(markdown);
+	res.render('static-page', {
+		title: 'Voice Control differences | Accessibility Support',
+		result: result
+	});
+});
+
 router.get('/learn/commands', function(req, res, next) {
 	res.render('commands', {
 		title: 'All AT commands | Accessibility Support',
@@ -66,7 +77,7 @@ router.get('/learn/commands', function(req, res, next) {
 });
 
 router.get('/learn/at/:id', function(req, res, next) {
-	let allowed = ['dragon', 'jaws', 'narrator', 'nvda', 'talkback', 'vo_ios', 'vo_macos', 'orca', 'vc_ios'];
+	let allowed = ['dragon', 'jaws', 'narrator', 'nvda', 'talkback', 'vo_ios', 'vo_macos', 'orca', 'vc_ios', 'va_and'];
 
 	if (!allowed.includes(req.params.id)) {
 		next(createError(404));
