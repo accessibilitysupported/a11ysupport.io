@@ -238,7 +238,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				break;
 			case 'provide_shortcuts':
 				featureObject.assertions[assertion_key] = Object.assign({
-					title: "provide shortcuts to jump to text inputs",
+					title: "provide shortcuts to jump to this role",
 					rationale: "Screen reader users might want to quickly navigate to elements of this type.",
                     strength: {
                         sr: "SHOULD",
