@@ -2,7 +2,7 @@
 
 Dragon Naturally Speaking is dictation software from Nuance. It is also a popular Assistive Technology for people with physical disabilities and is used for its voice control capabilities.
 
-[Differences between Dragon Naturally Speaking, Voice Access for Android, and Voice Control for iOS](/learn/vc_differences)
+[Differences between voice control software](/learn/vc_differences)
 
 ## Install
 

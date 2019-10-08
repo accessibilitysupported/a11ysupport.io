@@ -1,4 +1,4 @@
-# Differences between Voice Control Software
+# Differences between voice control software
 
 | Name                      | Name overlay | Number overlay         | Grid overlay | Activate by name | Disambiguate names | Activate by role | Disambiguate roles |
 |---------------------------|--------------|------------------------|--------------|------------------|--------------------|------------------|--------------------|
