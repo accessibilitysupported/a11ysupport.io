@@ -26,5 +26,6 @@ Voice Control software allows users to command their computers or devices by voi
 
 * [Dragon Naturally Speaking](/learn/at/dragon)
 * [Voice Access for Android](/learn/at/va_and)
+* [Voice Control for MacOS](/learn/at/vc_macos)
 * [Voice Control for iOS](/learn/at/vc_ios)
 
