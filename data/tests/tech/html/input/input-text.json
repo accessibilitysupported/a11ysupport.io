@@ -148,14 +148,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats.\"",
+                  "output": "\"your favorite animal? Entry, cats.\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats selected, focus mode\"",
+                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
                   "result": "pass"
                 }
               ]
@@ -170,7 +170,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit box, what is your favorite animal? double tap to enter text\"",
+                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
                   "result": "pass"
                 }
               ]
@@ -185,7 +185,7 @@
                   "command": "activate_name",
                   "output": "command was not recognized",
                   "result": "fail",
-                  "notes": "said \"tap what is your favorite animal?\""
+                  "notes": "said \"tap your favorite animal?\""
                 }
               ]
             }
@@ -237,6 +237,20 @@
                   "output": "input was focused",
                   "result": "pass",
                   "notes": "said \"tap what is your email?\""
+                }
+              ]
+            }
+          }
+        },
+        "vc_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "input was not focused",
+                  "result": "pass",
+                  "notes": "said \"click your favorite animal?\""
                 }
               ]
             }
@@ -389,14 +403,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats.\"",
+                  "output": "\"your favorite animal? Entry, cats.\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats selected, focus mode\"",
+                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
                   "result": "pass"
                 }
               ]
@@ -411,7 +425,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit box, what is your favorite animal? double tap to enter text\"",
+                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
                   "result": "pass"
                 }
               ]
@@ -425,6 +439,20 @@
                 {
                   "command": "activate_name",
                   "output": "role is flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            }
+          }
+        },
+        "vc_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
                   "result": "pass",
                   "notes": "said \"show numbers\""
                 }
@@ -603,14 +631,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats.\"",
+                  "output": "\"your favorite animal? Entry, cats.\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats selected, focus mode\"",
+                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
                   "result": "pass"
                 }
               ]
@@ -625,7 +653,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit box, what is your favorite animal? double tap to enter text\"",
+                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
                   "result": "pass"
                 }
               ]
@@ -915,7 +943,7 @@
                   "command": "next_edit_field",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"what is your favorite animal? Entry, cats.\"",
+                  "output": "\"your favorite animal? Entry, cats.\"",
                   "result": "pass"
                 }
               ]
@@ -928,7 +956,7 @@
               "output": [
                 {
                   "command": "next_form_field",
-                  "output": "\"cats, edit box, what is your favorite animal? end of field\"",
+                  "output": "\"cats, edit box, your favorite animal? end of field\"",
                   "result": "pass"
                 }
               ]
@@ -989,6 +1017,10 @@
     {
       "date": "2019-10-02",
       "message": "Add va_and results"
+    },
+    {
+      "date": "2019-10-07",
+      "message": "Add vc_macos results"
     }
   ],
   "versions": {
@@ -1107,6 +1139,16 @@
           "browser_version": "13.0",
           "os_version": "13.0",
           "date": "2019-09-23"
+        }
+      }
+    },
+    "vc_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15",
+          "browser_version": "13.0.2",
+          "os_version": "10.15",
+          "date": "2019-10-07"
         }
       }
     }
