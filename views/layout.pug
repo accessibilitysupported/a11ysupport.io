@@ -15,7 +15,7 @@ html(lang='en')
 
   body
     header(role="banner")
-      a(class="skip-nav" href="#main") Skip to main content
+      a(class="skip-nav" href="#main" id="skip-nav") Skip to main content
       div(class='logo-area')
         div(class='site-title')
           a(href='/') Accessibility Support
@@ -38,5 +38,15 @@ html(lang='en')
       p This work was originally created by Michael Fairchild. This is a community-driven and open source project. Text and data is available under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
       p
         a(href='https://github.com/accessibilitysupported/accessibilitysupported/') Find us on GitHub
-
+      script.
+        //
+        var skipnav = document.querySelector('#skip-nav');
+        var main = document.querySelector('main');
+        skipnav.addEventListener('click', function () {
+          main.classList.add('show-focus-outline');
+          main.focus();
+        });
+        main.addEventListener('blur', function () {
+          main.classList.remove('show-focus-outline');
+        });
 
