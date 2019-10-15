@@ -19,7 +19,7 @@ test.assertions.forEach(function(assertionLink) {
     var feature = require(__dirname + '/../build/tech/'+assertionLink.feature_id+'.json');
 
     let assertion_key = feature.assertions.findIndex(obj => obj.id === assertionLink.feature_assertion_id);
-    if (assertion_key === false) {
+    if (assertion_key === -1) {
         console.log(assertionLink.feature_assertion_id + ' not found');
         process.exit();
     }
