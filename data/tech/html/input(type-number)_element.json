@@ -1,5 +1,5 @@
 {
-  "id": "input[type=number]_element",
+  "id": "input(type=number)_element",
   "title": "input[type=\"number\"] element",
   "type": "element",
   "description": "",
@@ -21,8 +21,8 @@
     {
       "id": "convey_role",
       "examples": [
-        "A screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
-        "Voice control software will let the user say something like \"click text box\" to focus a the input."
+        "A screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", \"spinbox\", \"spin button\", \"incrementable\" etc.",
+        "Voice control software will let the user say something like \"click edit\" to focus a the input or flag the role with a number."
       ],
       "css_target": "input[type=\"number\"]"
     },
@@ -40,7 +40,27 @@
     {
       "id": "provide_shortcuts",
       "css_target": "input[type=\"number\"]"
+    },
+    {
+      "id": "increment_decrement",
+      "title": "allow incrementing and decrementing the value",
+      "rationale": "users might want to increment and decrement the value",
+      "strength": {
+        "sr": "MAY",
+        "vc": "MAY"
+      },
+      "examples": [
+        "Desktop screen readers might allow users to adjust the value by pressing up and down arrows",
+        "Mobile screen readers might allow users to adjust the value by swiping up or down",
+        "Voice control software might allow someone to say something like \"increment <name>\""
+      ],
+      "css_target": "input[type=\"number\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/interaction",
+        "vc"
+      ]
     }
   ],
-  "date_updated": "2018-07-21"
+  "date_updated": "2019-10-14"
 }

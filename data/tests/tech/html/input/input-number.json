@@ -1,10 +1,10 @@
 {
-  "title": "Basic html text input test",
-  "description": "A basic html text input test.",
+  "title": "Basic html number input test",
+  "description": "A basic html number input test.",
   "html_file": "html/inputs.html",
   "assertions": [
     {
-      "feature_id": "html/input(type-text)_element",
+      "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "convey_name",
       "results": {
         "dragon_win": {
@@ -13,8 +13,9 @@
               "output": [
                 {
                   "command": "activate_name",
-                  "output": "text input was focused",
-                  "result": "pass"
+                  "output": "input was focused",
+                  "result": "pass",
+                  "notes": "said \"click your favorite number\""
                 }
               ]
             }
@@ -28,14 +29,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "fail"
+                  "output": "\"your favorite number, edit, spinbox 11\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
                   "result": "pass"
                 }
               ]
@@ -46,14 +47,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit\"",
+                  "output": "\"edit, 11\"",
                   "result": "fail"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, type in text\"",
                   "result": "pass"
                 }
               ]
@@ -64,14 +65,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "fail"
+                  "output": "\"your favorite number, edit, spinbox 11\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
                   "result": "pass"
                 }
               ]
@@ -86,14 +87,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? edit, cats, cats, scan off.\"",
+                  "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? edit, cats, cats selected.\"",
+                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
                   "result": "pass"
                 }
               ]
@@ -108,14 +109,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats.\"",
+                  "output": "\"your favorite number, spin button, editable, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, selected cats.\"",
+                  "output": "\"your favorite number, spin button, editable, selected 11\"",
                   "result": "pass"
                 }
               ]
@@ -126,36 +127,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Clickable, What is your favorite animal? Edit, has auto complete. cats.\"",
+                  "output": "\"spin button, edit, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit has auto complete. selected, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
+                  "output": "\"your favorite number, spin button, edit, selected, 11\"",
                   "result": "pass"
                 }
               ]
@@ -170,7 +149,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
+                  "output": "\"11, spin button, your favorite number?\"",
                   "result": "pass"
                 }
               ]
@@ -183,9 +162,9 @@
               "output": [
                 {
                   "command": "activate_name",
-                  "output": "command was not recognized",
+                  "output": "input was not focused",
                   "result": "fail",
-                  "notes": "said \"tap your favorite animal?\""
+                  "notes": "said \"tap your favorite number\" "
                 }
               ]
             }
@@ -199,7 +178,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Cats, text field, double tap to edit\"",
+                  "output": "\"your favorite number? 11, text field, double tap to edit.\"",
                   "result": "pass"
                 }
               ]
@@ -214,14 +193,36 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, contents selected, What is your favorite animal?, edit text\"",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, contents selected, What is your favorite animal?, edit text\"",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number, entry, 11, selected\"",
                   "result": "pass"
                 }
               ]
@@ -236,7 +237,7 @@
                   "command": "activate_name",
                   "output": "input was focused",
                   "result": "pass",
-                  "notes": "said \"tap what is your email?\""
+                  "notes": "said tap your favorite number"
                 }
               ]
             }
@@ -248,9 +249,9 @@
               "output": [
                 {
                   "command": "activate_name",
-                  "output": "input was not focused",
+                  "output": "input was focused",
                   "result": "pass",
-                  "notes": "said \"click your favorite animal?\""
+                  "notes": "said \"click your favorite number\""
                 }
               ]
             }
@@ -259,7 +260,7 @@
       }
     },
     {
-      "feature_id": "html/input(type-text)_element",
+      "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "convey_role",
       "results": {
         "dragon_win": {
@@ -268,8 +269,9 @@
               "output": [
                 {
                   "command": "activate_role",
-                  "output": "text input was focused",
-                  "result": "pass"
+                  "output": "input was flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"click edit\""
                 }
               ]
             }
@@ -283,14 +285,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "fail"
+                  "output": "\"your favorite number, edit, spinbox 11\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
                   "result": "pass"
                 }
               ]
@@ -301,14 +303,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "fail"
+                  "output": "\"edit, 11\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, type in text\"",
                   "result": "pass"
                 }
               ]
@@ -319,14 +321,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "fail"
+                  "output": "\"your favorite number, edit, spinbox 11\"",
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
                   "result": "pass"
                 }
               ]
@@ -341,14 +343,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? edit, cats, cats, scan off.\"",
+                  "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? edit, cats, cats selected.\"",
+                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
                   "result": "pass"
                 }
               ]
@@ -363,14 +365,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats.\"",
+                  "output": "\"your favorite number, spin button, editable, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, selected cats.\"",
+                  "output": "\"your favorite number, spin button, editable, selected 11\"",
                   "result": "pass"
                 }
               ]
@@ -381,36 +383,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Clickable, What is your favorite animal? Edit, has auto complete. cats.\"",
+                  "output": "\"spin button, edit, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit has auto complete. selected, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
+                  "output": "\"your favorite number, spin button, edit, selected, 11\"",
                   "result": "pass"
                 }
               ]
@@ -425,7 +405,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
+                  "output": "\"11, spin button, your favorite number?\"",
                   "result": "pass"
                 }
               ]
@@ -438,9 +418,68 @@
               "output": [
                 {
                   "command": "show_numbers",
-                  "output": "role is flagged with a number",
+                  "output": "\"role is flagged with a number\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number? 11, text field, double tap to edit.\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
                   "result": "pass",
-                  "notes": "said \"show numbers\""
+                  "notes": "number input also conveyed by buttons to increment and decrement"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number, entry, 11, selected\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -452,45 +491,7 @@
               "output": [
                 {
                   "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, What is your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, What is your favorite animal?, edit text\"",
+                  "output": "input was flagged for disambiguation",
                   "result": "pass"
                 }
               ]
@@ -500,7 +501,7 @@
       }
     },
     {
-      "feature_id": "html/input(type-text)_element",
+      "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "convey_value",
       "results": {
         "jaws": {
@@ -511,14 +512,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
+                  "output": "\"your favorite number, edit, spinbox 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
                   "result": "pass"
                 }
               ]
@@ -529,14 +530,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
+                  "output": "\"edit, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, type in text\"",
                   "result": "pass"
                 }
               ]
@@ -547,14 +548,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, Edit\"",
+                  "output": "\"your favorite number, edit, spinbox 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats, type in text\"",
+                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
                   "result": "pass"
                 }
               ]
@@ -569,14 +570,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? edit, cats, cats, scan off.\"",
+                  "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? edit, cats, cats selected.\"",
+                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
                   "result": "pass"
                 }
               ]
@@ -591,14 +592,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats.\"",
+                  "output": "\"your favorite number, spin button, editable, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit, selected cats.\"",
+                  "output": "\"your favorite number, spin button, editable, selected 11\"",
                   "result": "pass"
                 }
               ]
@@ -609,36 +610,14 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Clickable, What is your favorite animal? Edit, has auto complete. cats.\"",
+                  "output": "\"spin button, edit, 11\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Edit has auto complete. selected, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
+                  "output": "\"your favorite number, spin button, edit, selected, 11\"",
                   "result": "pass"
                 }
               ]
@@ -653,7 +632,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
+                  "output": "\"11, spin button, your favorite number?\"",
                   "result": "pass"
                 }
               ]
@@ -668,7 +647,7 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Cats, text field, double tap to edit\"",
+                  "output": "\"your favorite number? 11, text field, double tap to edit.\"",
                   "result": "pass"
                 }
               ]
@@ -683,14 +662,36 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, contents selected, What is your favorite animal?, edit text\"",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
                   "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, contents selected, What is your favorite animal?, edit text\"",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"your favorite number, entry, 11, selected\"",
                   "result": "pass"
                 }
               ]
@@ -700,7 +701,7 @@
       }
     },
     {
-      "feature_id": "html/input(type-text)_element",
+      "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "convey_change_in_value",
       "results": {
         "jaws": {
@@ -709,7 +710,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -718,7 +719,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -727,7 +728,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -740,7 +741,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -753,7 +754,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -762,20 +763,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -788,7 +776,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -801,7 +789,7 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -814,7 +802,20 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "(the entered character was announced)",
+                  "output": "name of key was announced",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "name of key was announced",
                   "result": "pass"
                 }
               ]
@@ -824,7 +825,7 @@
       }
     },
     {
-      "feature_id": "html/input(type-text)_element",
+      "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "provide_shortcuts",
       "results": {
         "jaws": {
@@ -832,15 +833,13 @@
             "chrome": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "in list of form controls",
+                  "command": "next_form_field",
+                  "output": "\"your favorite number, edit, spinbox, 11\"",
                   "result": "pass"
                 },
                 {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats\"",
+                  "command": "open_element_list",
+                  "output": "\"in list of form fields\"",
                   "result": "pass"
                 }
               ]
@@ -848,15 +847,13 @@
             "ie": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "in list of form controls",
+                  "command": "next_form_field",
+                  "output": "\"your favorite number, edit, 11\"",
                   "result": "pass"
                 },
                 {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats\"",
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
                   "result": "pass"
                 }
               ]
@@ -864,15 +861,13 @@
             "firefox": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "in list of form controls",
+                  "command": "next_form_field",
+                  "output": "\"your favorite number, edit, spinbox, 11\"",
                   "result": "pass"
                 },
                 {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats\"",
+                  "command": "open_element_list",
+                  "output": "in list of form fields",
                   "result": "pass"
                 }
               ]
@@ -887,7 +882,7 @@
                   "command": "next_form_field",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"What is your favorite animal? Combo edit, press space to edit\"",
+                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
                   "result": "pass"
                 }
               ]
@@ -899,52 +894,28 @@
             "chrome": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "in list of form controls",
+                  "command": "next_form_field",
+                  "output": "\"your favorite number, spin button, editable, 11\"",
                   "result": "pass"
                 },
                 {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Edit, cats.\"",
-                  "result": "pass"
+                  "command": "open_element_list",
+                  "output": "\"in list of form controls but missing its name\"",
+                  "result": "partial"
                 }
               ]
             },
             "firefox": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "\"in list of form controls\"",
-                  "result": "pass"
-                },
-                {
                   "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Edit subMenu, has auto complete. Blank.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls",
+                  "output": "\"edit 11, your favorite number, spin button\"",
                   "result": "pass"
                 },
                 {
-                  "command": "next_edit_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
+                  "command": "open_element_list",
+                  "output": "\"in list of form controls but missing its name\"",
+                  "result": "partial"
                 }
               ]
             }
@@ -956,7 +927,7 @@
               "output": [
                 {
                   "command": "next_form_field",
-                  "output": "\"cats, edit box, your favorite animal? end of field\"",
+                  "output": "\"11, spin button, your favorite number? end of field\"",
                   "result": "pass"
                 }
               ]
@@ -968,10 +939,8 @@
             "ios_saf": {
               "output": [
                 {
-                  "command": "next_item_of_type",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What is your favorite animal? Cats, text field, double tap to edit\"",
+                  "command": "next_form_field",
+                  "output": "\"Your favorite number? 11, text field, double tab to edit\"",
                   "result": "pass"
                 }
               ]
@@ -983,18 +952,208 @@
             "safari": {
               "output": [
                 {
-                  "command": "open_element_list",
-                  "output": "in list of form controls",
-                  "result": "pass"
-                },
-                {
                   "command": "next_form_field",
                   "from": "before target",
                   "to": "target",
-                  "output": "\"Cats, you are currently in a text field...\"",
+                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls",
                   "result": "pass"
                 }
               ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_edit_field",
+                  "output": "\"entry, 11\"",
+                  "result": "pass",
+                  "notes": "label was not conveyed"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-number)_element",
+      "feature_assertion_id": "increment_decrement",
+      "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "keypress",
+                  "output": "value was incremented and decremented",
+                  "result": "pass",
+                  "notes": "said \"press up arrow\" and \"press down arrow\""
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was incremented and decremented",
+                  "result": "pass",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was not incremented or decremented",
+                  "result": "fail",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was incremented and decremented on first key press, but switched to reading mode on the second keypress",
+                  "result": "partial",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was not incremented and decremented",
+                  "result": "fail",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was incremented and decremented",
+                  "result": "pass",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was incremented and decremented",
+                  "result": "pass",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "support": "na",
+              "notes": "na because talkback does not have a command to increment or decrement"
+            }
+          }
+        },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "support": "na",
+              "notes": "na because va_and does not have a command to increment or decrement"
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "support": "na",
+              "notes": "na because the mobile safari browser treats this as a text field."
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was incremented and decremented",
+                  "result": "pass",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "from": "target",
+                  "to": "target",
+                  "output": "value was incremented and decremented",
+                  "result": "pass",
+                  "notes": "Used up and down arrows."
+                }
+              ]
+            }
+          }
+        },
+        "vc_ios": {
+          "browsers": {
+            "ios_saf": {
+              "support": "na",
+              "notes": "na because the mobile safari browser treats this as a text field."
+            }
+          }
+        },
+        "vc_macos": {
+          "browsers": {
+            "safari": {
+              "support": "na",
+              "notes": "na because vc_macos does not have a command for increment/decrement or up/down arrows"
             }
           }
         }
@@ -1003,24 +1162,8 @@
   ],
   "history": [
     {
-      "date": "2019-09-14",
-      "message": "Added orca"
-    },
-    {
-      "date": "2019-08-12",
-      "message": "Test created"
-    },
-    {
-      "date": "2019-09-23",
-      "message": "Added vc_ios results"
-    },
-    {
-      "date": "2019-10-02",
-      "message": "Add va_and results"
-    },
-    {
-      "date": "2019-10-07",
-      "message": "Add vc_macos results"
+      "date": "2019-10-14",
+      "message": "Add test"
     }
   ],
   "versions": {
@@ -1028,31 +1171,31 @@
       "browsers": {
         "chrome": {
           "at_version": "15.30",
-          "browser_version": "76",
           "os_version": "1903",
-          "date": "2019-08-12"
+          "browser_version": "77",
+          "date": "2019-10-14"
         }
       }
     },
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "76",
+          "at_version": "2019.1909.28",
           "os_version": "1903",
-          "date": "2019-08-12"
+          "browser_version": "77",
+          "date": "2019-10-14"
         },
         "ie": {
-          "at_version": "2019.1906.10",
-          "browser_version": "11",
+          "at_version": "2019.1909.28",
           "os_version": "1903",
-          "date": "2019-08-12"
+          "browser_version": "11",
+          "date": "2019-10-14"
         },
         "firefox": {
-          "at_version": "2019.1906.10",
-          "browser_version": "68",
+          "at_version": "2019.1909.28",
           "os_version": "1903",
-          "date": "2019-08-12"
+          "browser_version": "69",
+          "date": "2019-10-14"
         }
       }
     },
@@ -1060,35 +1203,25 @@
       "browsers": {
         "edge": {
           "at_version": "1903",
-          "browser_version": "44",
           "os_version": "1903",
-          "date": "2019-08-12"
+          "browser_version": "44",
+          "date": "2019-10-14"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "76",
+          "at_version": "2019.2.1",
           "os_version": "1903",
-          "date": "2019-08-12"
+          "browser_version": "77",
+          "date": "2019-10-14"
         },
         "firefox": {
-          "at_version": "2019.1.1",
-          "browser_version": "68",
+          "at_version": "2019.2.1",
           "os_version": "1903",
-          "date": "2019-08-12"
-        }
-      }
-    },
-    "orca": {
-      "browsers": {
-        "firefox": {
-          "at_version": "3.31.4",
           "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-14"
+          "date": "2019-10-14"
         }
       }
     },
@@ -1096,9 +1229,9 @@
       "browsers": {
         "and_chr": {
           "at_version": "7.3.0",
-          "browser_version": "76",
-          "os_version": "7",
-          "date": "2019-08-12"
+          "os_version": "10",
+          "browser_version": "77",
+          "date": "2019-10-14"
         }
       }
     },
@@ -1106,39 +1239,49 @@
       "browsers": {
         "and_chr": {
           "at_version": "3.1",
+          "os_version": "10",
           "browser_version": "77",
-          "os_version": "7",
-          "date": "2019-10-02"
+          "date": "2019-10-14"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.3.1",
-          "browser_version": "12.3.1",
-          "os_version": "12.3.1",
-          "date": "2019-08-12"
+          "at_version": "13.1",
+          "os_version": "13.1",
+          "browser_version": "13.1",
+          "date": "2019-10-14"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.6",
-          "browser_version": "12.1.2",
-          "os_version": "10.14.5",
-          "date": "2019-08-12"
+          "at_version": "10.15",
+          "os_version": "10.15",
+          "browser_version": "13.0.2",
+          "date": "2019-10-14"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "os_version": "Ubuntu 19.04",
+          "browser_version": "69",
+          "date": "2019-10-14"
         }
       }
     },
     "vc_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.0",
-          "browser_version": "13.0",
-          "os_version": "13.0",
-          "date": "2019-09-23"
+          "at_version": "13.1",
+          "os_version": "13.1",
+          "browser_version": "13.1",
+          "date": "2019-10-14"
         }
       }
     },
@@ -1146,9 +1289,9 @@
       "browsers": {
         "safari": {
           "at_version": "10.15",
-          "browser_version": "13.0.2",
           "os_version": "10.15",
-          "date": "2019-10-07"
+          "browser_version": "13.0.2",
+          "date": "2019-10-14"
         }
       }
     }
