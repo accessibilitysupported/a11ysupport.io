@@ -194,7 +194,12 @@ block content
                                                     strong Notes:
                                                     span= " " + assertion.results[at].browsers[browser].notes
                                             else
-                                                span -
+                                                if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
+                                                    strong Notes:
+                                                    span= " " + assertion.results[at].browsers[browser].notes
+                                                else
+                                                    span -
+
                                         td
                                             a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
 
