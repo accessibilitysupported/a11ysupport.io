@@ -108,10 +108,16 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 			case 'convey_role':
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey an appropriate role",
-					rationale: "A screen reader user needs to know how they can interact with the element.",
+					rationale: "A screen reader user needs to know how they can interact with the element. Voice control software might use the role to help users activate controls that do not have a visible name.",
+					examples: [
+						"A screen reader might announce an element as something like \"<name>, <role>\"",
+						"A screen reader might imply the role by the presence of certain context roles",
+						"Voice Control software might let the user say something like \"click, <role>\".",
+						"Voice Control software might let the user say something like \"show numbers\", and interactive roles will be flagged with numbers.",
+					],
                     strength: {
                         sr: "MUST",
-                        vc: "MAY"
+                        vc: "MUST"
                     },
 					operation_modes: [
 						"sr/reading",
