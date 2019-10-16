@@ -152,24 +152,37 @@ test.assertions.forEach(function(assertionLink) {
                         }
                     } else if (ATBrowsers.at[at].type === "vc" && assertion.operation_modes.includes('sr/reading')) {
                         if (assertion.id === "convey_name" || assertion.id === "contribute_to_accessible_name") {
-                            let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_actionable_item");
+                            let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_name");
                             if (-1 === found) {
                                 assertionLink.results[at].browsers[browser].output.push({
                                     command: "activate_name",
                                     output: "\"\"",
-                                    result: "unknown"
+                                    result: "unknown",
+                                    notes: "said \"\""
                                 });
                             }
                         }
 
                         if (assertion.id === "convey_role") {
-                            let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "click_type");
-                            if (-1 === found) {
-                                assertionLink.results[at].browsers[browser].output.push({
-                                    command: "activate_role",
-                                    output: "\"\"",
-                                    result: "unknown"
-                                });
+                            if (at === "dragon_win") {
+                                let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_role");
+                                if (-1 === found) {
+                                    assertionLink.results[at].browsers[browser].output.push({
+                                        command: "activate_role",
+                                        output: "\"\"",
+                                        result: "unknown",
+                                        notes: "said \"\""
+                                    });
+                                }
+                            } else {
+                                let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "show_numbers");
+                                if (-1 === found) {
+                                    assertionLink.results[at].browsers[browser].output.push({
+                                        command: "show_numbers",
+                                        output: "\"\"",
+                                        result: "unknown"
+                                    });
+                                }
                             }
                         }
                     }
