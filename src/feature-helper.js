@@ -143,7 +143,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				break;
 			case 'convey_change_in_value':
 				featureObject.assertions[assertion_key] = Object.assign({
-					title: "convey the current value",
+					title: "convey changes in value",
 					rationale: "The user needs to know that the value was successfully changed.",
                     strength: {
                         sr: "MUST",
