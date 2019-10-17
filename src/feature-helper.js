@@ -744,14 +744,19 @@ helper.initalizeTestCase = function (testCase) {
 					// No support by default
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = 'unknown';
 
-					var pass_strategy = 'any';
+					var pass_strategy = 'all';
 					if (ref_assertion.pass_strategy) {
 						pass_strategy = ref_assertion.pass_strategy;
 					}
 
 					if (pass_strategy === 'all') {
+						// filter out "na" values so that they don't muddle 'y' results
+						let filteredResults = results.filter(function(element) {
+							return element !== "na"
+						});
+
 						// 'any' strategy, a single pass for a command counts a pass for the assertion
-						if (results.length === 1 && results.includes('pass')) {
+						if (filteredResults.length === 1 && filteredResults.includes('pass')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'y';
 						} else if (results.includes('pass')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'p';
