@@ -1074,7 +1074,7 @@
     {
       "feature_id": "aria/aria-labelledby_attribute",
       "feature_assertion_id": "contribute_to_accessible_name",
-      "exclude_at": ["dragon_win", "vc_ios", "va_and", "vc_macos"],
+      "exclude_at": ["dragon_win", "vc_ios", "va_and", "vc_macos", "wsr"],
       "results": {
         "jaws": {
           "browsers": {
@@ -1698,6 +1698,30 @@
               ]
             }
           }
+        },
+        "wsr": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            }
+          }
         }
       }
     },
@@ -2056,6 +2080,30 @@
                   "output": "checkbox was checked",
                   "result": "pass",
                   "notes": "said \"tap lettuce\""
+                }
+              ]
+            }
+          }
+        },
+        "wsr": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "checkmark was unchecked",
+                  "result": "pass",
+                  "notes": "said \"click tomato\""
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "checkmark was unchecked",
+                  "result": "pass",
+                  "notes": "said \"click tomato\""
                 }
               ]
             }
@@ -4610,6 +4658,10 @@
     {
       "date": "2019-10-07",
       "message": "Add vc_macos results"
+    },
+    {
+      "date": "2019-10-18",
+      "message": "Add wsr results"
     }
   ],
   "versions": {
@@ -4738,6 +4790,22 @@
           "browser_version": "13.0",
           "os_version": "13.0",
           "date": "2019-09-23"
+        }
+      }
+    },
+    "wsr": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-10-18"
+        },
+        "chrome": {
+          "at_version": "1903",
+          "browser_version": "77",
+          "os_version": "1903",
+          "date": "2019-10-18"
         }
       }
     }

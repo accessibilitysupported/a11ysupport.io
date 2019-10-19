@@ -259,6 +259,30 @@
               ]
             }
           }
+        },
+        "wsr": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "role was not activated",
+                  "result": "fail",
+                  "notes": "said \"click what is your email\""
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "role was activated",
+                  "result": "pass",
+                  "notes": "said \"click what is your email\""
+                }
+              ]
+            }
+          }
         }
       }
     },
@@ -497,6 +521,30 @@
                   "to": "target",
                   "output": "\"example@example.org. to open the autofill menu ... you are currently on a text field\"",
                   "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "wsr": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
                 }
               ]
             }
@@ -1016,6 +1064,10 @@
     {
       "date": "2019-10-07",
       "message": "Add vc_macos results"
+    },
+    {
+      "date": "2019-10-18",
+      "message": "Add wsr results"
     }
   ],
   "versions": {
@@ -1144,6 +1196,22 @@
           "browser_version": "13.0.2",
           "os_version": "10.15",
           "date": "2019-10-07"
+        }
+      }
+    },
+    "wsr": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-10-18"
+        },
+        "chrome": {
+          "at_version": "1903",
+          "browser_version": "77",
+          "os_version": "1903",
+          "date": "2019-10-18"
         }
       }
     }

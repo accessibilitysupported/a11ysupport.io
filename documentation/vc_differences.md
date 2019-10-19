@@ -1,11 +1,12 @@
 # Differences between voice control software
 
 | Name | Name overlay | Number overlay | Grid overlay | Activate by name | Disambiguate names | Activate by role | Disambiguate roles | Supports label in name | Supports name in label |
-|---------------------------|--------------|------------------------|--------------|------------------|--------------------|------------------|--------------------|------------------------|------------------------|
+|----------------------------|--------------|------------------------|--------------|------------------|--------------------|------------------|--------------------|------------------------|------------------------|
 | Dragon Naturally Speaking | No | No | Yes | Yes | Click first match | Yes | Yes | Yes | Yes |
 | Voice Access for Android | No | Only interactive roles | No | Yes | Flag with numbers | No | NA | Yes | Yes |
 | VC for iOS | Yes | Everything | Yes | Yes | Flag with numbers | No | NA | Yes | No |
 | VC for MacOS | No | Only interactive roles | Yes | Yes | Flag with numbers | No | NA | No | No |
+| Windows Speech Recognition | No | Only interactive roles | Yes | Yes | Flag with numbers | No | NA | Yes | Yes |
 
 
 Notes:

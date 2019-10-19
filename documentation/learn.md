@@ -28,4 +28,5 @@ Voice Control software allows users to command their computers or devices by voi
 * [Voice Access for Android](/learn/at/va_and)
 * [Voice Control for MacOS](/learn/at/vc_macos)
 * [Voice Control for iOS](/learn/at/vc_ios)
+* [Windows Speech Recognition](/learn/at/wsr)
 

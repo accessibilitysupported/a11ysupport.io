@@ -245,6 +245,30 @@
               "notes": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
             }
           }
+        },
+        "wsr": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "role was flagged with a number",
+                  "result": "pass",
+                  "notes": "said \"show numbers\""
+                }
+              ]
+            }
+          }
         }
       }
     },  
@@ -499,6 +523,30 @@
                   "command": "activate_name",
                   "output": "link was clicked",
                   "result": "pass",
+                  "notes": "said \"click tablet 9000\""
+                }
+              ]
+            }
+          }
+        },
+        "wsr": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "role was not activated",
+                  "result": "fail",
+                  "notes": "said \"click tablet 9000\""
+                }
+              ]
+            },
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "role was not activated",
+                  "result": "fail",
                   "notes": "said \"click tablet 9000\""
                 }
               ]
@@ -920,6 +968,10 @@
     {
       "date": "2019-10-07",
       "message": "Add vc_macos results"
+    },
+    {
+      "date": "2019-10-18",
+      "message": "Add wsr results"
     }
   ],
   "versions": {
@@ -1048,6 +1100,22 @@
           "browser_version": "13.0.2",
           "os_version": "10.15",
           "date": "2019-10-07"
+        }
+      }
+    },
+    "wsr": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "browser_version": "44",
+          "os_version": "1903",
+          "date": "2019-10-18"
+        },
+        "chrome": {
+          "at_version": "1903",
+          "browser_version": "77",
+          "os_version": "1903",
+          "date": "2019-10-18"
         }
       }
     }
