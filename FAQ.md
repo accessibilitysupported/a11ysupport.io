@@ -1,12 +1,13 @@
 # FAQ
 
 1. [What is this?](#what-is-this%3F)
-1. [What is the status of this project?](#what-is-the-status-of-this-project%3F)
-2. [Can't this be automated?](#cant-this-be-automated%3F)
-3. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
-4. [Who runs this?](#who-runs-this%3F)
-5. [What are the levels of support?](#what-are-the-levels-of-support%3F)
-6. [What are expectations?](#what-are-expectations%3F)
+2, [How should I interpret results?](#how-should-i-interpret-results%3F)
+3. [What is the status of this project?](#what-is-the-status-of-this-project%3F)
+4. [Can't this be automated?](#cant-this-be-automated%3F)
+5. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
+6. [Who runs this?](#who-runs-this%3F)
+7. [What are the levels of support?](#what-are-the-levels-of-support%3F)
+8. [What are expectations?](#what-are-expectations%3F)
 
 ## What is this?
 
@@ -23,9 +24,20 @@ There are some other projects that are similar to this, however, most of them:
 * Only tests a specific technology (or a subset of that technology)
 * Only tests the accessibility API layer, not the end result of the AT
 
+## How should I interpret results?
+
+Interpreting results can be fairly complex, so here are some general suggestions:
+
+* Just because a feature is marked as supported in this project doesn't mean that it will be supported in all situations. Remember that we are testing against specific implementations. While we try to keep the tests as representative as possible, they might not match your specific implementation, and the context in which a code feature is used can mean the difference between good support and a blocker. Be sure to test your specific implementations.
+* Just because something is marked as not having any known support does not necessarily mean that there will be negative consequences for using it. It might be okay to use a feature that has poor accessibility support if doing so will not result in any barriers, or if a work-around is used.
+* Be careful when using features that are listed as having partial support. Partial support might mean that specific aspects of a feature are not supported or that certain assistive technology commands do not work as expected.
+* Understand that this is a project of user-contributed data. As such it may not always be the most up to date resource and may not always be accurate. We do our best to validate contributions and ensure a high level of quality, but mistakes do happen, and technology rapidly changes.
+* The best way to determine how well your code works for people with disabilities is to test your code with people with disabilities.
+* Be sure that you conform to [WCAG 2.1 level AA](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
+
 ## What is the status of this project?
 
-This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project as this but with more community support and detailed assertions and methodology. The ARIA-AT group is still in the planning phases and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
+This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project but with a slightly different approach and reduced scope. The ARIA-AT group is still in the planning phases and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
 
 ## Can't this be automated?
 
@@ -48,7 +60,7 @@ Unfortunately, it is not yet possible to fully drive AT in an automated way, so 
 We list Assistive Technologies that must interact with code in order to be operable. This boils down to two main categories of AT:
  
  1. Screen reader software
- 2. Voice Control software
+ 2. Voice control software
 
 Testing every possible combination of AT and Browser is simply unrealistic. We organize both AT and Browsers into two categories:
 
@@ -60,21 +72,12 @@ Testing every possible combination of AT and Browser is simply unrealistic. We o
 Core AT and Browsers are commonly used or widely available. We try to keep the list to a minimum in order to make testing easier. The following rules are used to determine what should be considered 'core':
 
 For each category of AT that is within the scope:
-1. AT that is built into the operating system if it is used by at least 10% of respondents + the native browser on that operating system. This currently includes:
-    * VoiceOver + Safari for Mac 
-    * VoiceOver + Safari for iOS 
-    * Windows Narrator + Edge
-    * Talkback + Google Chrome
-2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT. This currently includes:
-    * NVDA + Firefox
-3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT. This currently includes:
-    * JAWS + IE and Firefox (both IE and Firefox should be tested as users transition away from IE)
-    * Dragon Naturally Speaking + Google Chrome (voice control software)
-4. AT that has published documentation of supported combinations
-    * JAWS + Chrome and Firefox
-    * NVDA + Firefox
+1. AT that is built into the operating system if it is used by at least 10% of respondents + the native browser on that operating system.
+2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT.
+3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT.
+4. AT that has published documentation of supported combinations.
 
-The phrase 'widely supported' for core AT means that greater than or equal to 20% of respondents use it as their primary AT.
+The phrase 'widely supported' for core AT means that greater than or equal to 10% of respondents use it as their primary AT.
 
 ### Extended Combinations
 
