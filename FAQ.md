@@ -1,7 +1,7 @@
 # FAQ
 
 1. [What is this?](#what-is-this%3F)
-2, [How should I interpret results?](#how-should-i-interpret-results%3F)
+2. [How should I interpret results?](#how-should-i-interpret-results%3F)
 3. [What is the status of this project?](#what-is-the-status-of-this-project%3F)
 4. [Can't this be automated?](#cant-this-be-automated%3F)
 5. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
