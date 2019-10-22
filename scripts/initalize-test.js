@@ -34,13 +34,13 @@ test.assertions.forEach(function(assertionLink) {
         if (assertion.exclude_at && assertion.exclude_at.includes(at)) {
             // This AT is not applicable for some reason. Don't pre-populate commands.
             // the "na" value is populated at build-time.
-            return;
+            continue;
         }
 
         if (assertionLink.exclude_at && assertionLink.exclude_at.includes(at)) {
             // This AT is not applicable for some reason. Don't pre-populate commands.
             // the "na" value is populated at build-time.
-            return;
+            continue;
         }
 
         if (ATBrowsers.at[at].type === "vc" && !assertion.operation_modes.includes("vc")) {
@@ -73,8 +73,8 @@ test.assertions.forEach(function(assertionLink) {
                         if (-1 === found) {
                             assertionLink.results[at].browsers[browser].output.push({
                                 command: "enter_text",
-                                output: "\"\"",
-                                result: "unknown"
+                                output: "character was announced.",
+                                result: "pass"
                             });
                         }
                     } else {
@@ -150,7 +150,7 @@ test.assertions.forEach(function(assertionLink) {
                                 }
                             }
                         }
-                    } else if (ATBrowsers.at[at].type === "vc" && assertion.operation_modes.includes('sr/reading')) {
+                    } else if (ATBrowsers.at[at].type === "vc" && assertion.operation_modes.includes('vc')) {
                         if (assertion.id === "convey_name" || assertion.id === "contribute_to_accessible_name") {
                             let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_name");
                             if (-1 === found) {
