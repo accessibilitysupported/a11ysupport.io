@@ -9,6 +9,10 @@
       "url": "https://html.spec.whatwg.org/multipage/input.html#range-state-(type=range)"
     }
   ],
+  "related_features": [
+    "html/max_attribute",
+    "html/min_attribute"
+  ],
   "assertions": [
     {
       "id": "convey_name",
@@ -40,6 +44,26 @@
     {
       "id": "provide_shortcuts",
       "css_target": "input[type=\"range\"]"
+    },
+    {
+      "id": "increment_decrement",
+      "title": "allow incrementing and decrementing the value",
+      "rationale": "users might want to increment and decrement the value",
+      "strength": {
+        "sr": "MAY",
+        "vc": "MAY"
+      },
+      "examples": [
+        "Desktop screen readers might allow users to adjust the value by pressing up and down arrows",
+        "Mobile screen readers might allow users to adjust the value by swiping up or down",
+        "Voice control software might allow someone to say something like \"increment <name>\""
+      ],
+      "css_target": "input[type=\"number\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/interaction",
+        "vc"
+      ]
     }
   ],
   "date_updated": "2018-07-21"

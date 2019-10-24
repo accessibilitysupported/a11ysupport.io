@@ -1,0 +1,40 @@
+{
+  "id": "min_attribute",
+  "title": "min attribute",
+  "type": "attribute",
+  "description": "The min and max attributes indicate the allowed range of values for the element.",
+  "related_features": [
+    "html/range_element"
+  ],
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for the min and max attributes",
+      "url": "https://html.spec.whatwg.org/multipage/input.html#the-min-and-max-attributes"
+    },
+    {
+      "title": "HTML AAM for the max attribute applied to an input",
+      "url": "https://www.w3.org/TR/html-aam-1.0/#details-id-213"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_property",
+      "title": "convey the property",
+      "rationale": "The user needs to know how the current value compares to the minimum value",
+      "examples": [
+        "screen readers might announce the actual value of the minimum property.",
+        "screen readers might imply the value by conveying that the minimum has been reached"
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[min]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2019-09-23"
+}
