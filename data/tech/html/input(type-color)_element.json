@@ -2,7 +2,7 @@
   "id": "input[type=color]_element",
   "title": "input[type=\"color\"] element",
   "type": "element",
-  "description": "",
+  "description": "The input element represents a color well control, for setting the element's value to a string representing a simple color.",
   "references": [
     {
       "title": "HTML5 spec for input[type=\"color\"]",
@@ -23,13 +23,28 @@
       "examples": [
         "If implemented as a text field, the screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", etc.",
         "If implemented as a color picker, the screen reader might be announce the role as \"button\", \"color chooser\", \"color well\", etc.",
-        "Voice control software will let the user say something like \"click text box\" to focus a the input or flag the role with a number."
+        "Voice control software will let the user say something like \"click text box\" or \"click button\" or flag the role with a number."
       ],
       "css_target": "input[type=\"color\"]"
     },
     {
-      "id": "widget_is_accessible",
-      "title": "operate the color picker widget",
+      "id": "convey_value",
+      "css_target": "input[type=\"color\"]"
+    },
+    {
+      "id": "convey_change_in_value",
+      "examples": [
+        "When the user enter tests, the screen reader will announce it back to them."
+      ],
+      "css_target": "input[type=\"color\"]"
+    },
+    {
+      "id": "provide_shortcuts",
+      "css_target": "input[type=\"color\"]"
+    },
+    {
+      "id": "widget_is_supported",
+      "title": "support the color picker widget",
       "rationale": "A screen reader user needs to be able to operate the color picker widget.",
       "strength": {
         "sr": "MUST",
@@ -46,22 +61,7 @@
         "sr/interaction",
         "vc"
       ]
-    },
-    {
-      "id": "convey_value",
-      "css_target": "input[type=\"color\"]"
-    },
-    {
-      "id": "convey_change_in_value",
-      "examples": [
-        "When the user enter tests, the screen reader will announce it back to them."
-      ],
-      "css_target": "input[type=\"color\"]"
-    },
-    {
-      "id": "provide_shortcuts",
-      "css_target": "input[type=\"color\"]"
     }
   ],
-  "date_updated": "2018-07-21"
+  "date_updated": "2018-10-29"
 }
