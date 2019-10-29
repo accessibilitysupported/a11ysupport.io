@@ -14,3 +14,5 @@ Notes:
  * VC for MacOS, when saying something like "click \<name\>", \<name\> appears to be limited to 4 words. If the name is longer than 4 words, it will not be recognized.
  * Label in name means that a user can say  "click \<visible label\>" when the programmatic name (via something like aria-label) contains the visible label. This is a term found in [WCAG 2.1 SC 2.5.3](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html).
  * Name in label is the opposite of label in name. In this case programmatic name is shorter than the visible label, but the programmatic name can be found in the visible label. This term is not found in WCAG.
+ 
+ Last updated on 2019-10-29
