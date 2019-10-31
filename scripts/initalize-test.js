@@ -20,7 +20,7 @@ test.assertions.forEach(function(assertionLink) {
 
     let assertion_key = feature.assertions.findIndex(obj => obj.id === assertionLink.feature_assertion_id);
     if (assertion_key === -1) {
-        console.log(assertionLink.feature_assertion_id + ' not found');
+        console.log(assertionLink.feature_assertion_id + ' not found. Try re-building the project and run this command again.');
         process.exit();
     }
 
@@ -104,6 +104,17 @@ test.assertions.forEach(function(assertionLink) {
                         }
                     } else {
                         console.log("expected convey_change_in_value to support sr/reading ");
+                    }
+                    break;
+                case 'widget_is_supported':
+                    let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "multiple_commands");
+                    if (-1 === found) {
+                        assertionLink.results[at].browsers[browser].output.push({
+                            command: "multiple_commands",
+                            output: "",
+                            result: "unknown",
+                            notes: ""
+                        });
                     }
                     break;
                 default:

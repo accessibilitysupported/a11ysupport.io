@@ -1,0 +1,1359 @@
+{
+  "title": "Basic html color input test",
+  "description": "A basic html color input test.",
+  "html_file": "html/inputs.html",
+  "assertions": [
+    {
+      "feature_id": "html/input(type-date)_element",
+      "feature_assertion_id": "convey_name",
+      "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "input was not focused",
+                  "result": "fail",
+                  "notes": "said \"click enter a date\""
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"12, date time, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Enter a date, Date Time Edit, 2012-12-12. Month Enter a date, edit spin box, 12. To set the value use the Arrow keys or type the value.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, 2012-12-12, enter a date, edit, 2012-12-12, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, edit, 2012-12-12, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date (down arrow) 12, date time edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date time edit, month edit spin box, 12, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date, december 12, 2012, december 12, 2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date, december 12, 2012\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"spin button, 12, spin button 12 / spin button 2012\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Enter a date, date edit. Month Enter a date, spin button, 12.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"clickable enter a date, clickable month, spin button, 12 / day, spin button, 12 / year, spin button, 2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date edit, month spin button, 12\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date picker, double tap to change\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "input was flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"click enter a date\""
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, december 12, 2012, popup button, double tap to activate the picker\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"december 12, 2012\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"december 12, 2012, contents selected, enter a date, edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, clickable, 12 spin button, 12 spin button, 2012 spin button, clear push button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"12 spin button, focus mode\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vc_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "input was flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"tap enter a date\""
+                }
+              ]
+            }
+          }
+        },
+        "vc_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "input was flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"click enter a date\""
+                }
+              ]
+            }
+          }
+        },
+        "wsr": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_name",
+                  "output": "Embedded controls were flagged for disambiguation",
+                  "result": "pass",
+                  "notes": "said \"click enter a date\""
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-date)_element",
+      "feature_assertion_id": "convey_role",
+      "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "activate_role",
+                  "output": "input was not flagged with a number",
+                  "result": "fail",
+                  "notes": "said \"click edit\""
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"12, date time, edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Enter a date, Date Time Edit, 2012-12-12. Month Enter a date, edit spin box, 12. To set the value use the Arrow keys or type the value.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, 2012-12-12, enter a date, edit, 2012-12-12, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, edit, 2012-12-12, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date (down arrow) 12, date time edit\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date time edit, month edit spin box, 12, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date, december 12, 2012, december 12, 2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date, december 12, 2012\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"spin button, 12, spin button 12 / spin button 2012\"",
+                  "result": "fail",
+                  "notes": "semantics for embedded controls are conveyed, but not the outer date control"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Enter a date, date edit. Month Enter a date, spin button, 12.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"clickable enter a date, clickable month, spin button, 12 / day, spin button, 12 / year, spin button, 2012\"",
+                  "result": "fail",
+                  "notes": "semantics for embedded controls are conveyed, but not the outer date control"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date edit, month spin button, 12\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date picker, double tap to change\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "input was flagged with a number",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, december 12, 2012, popup button, double tap to activate the picker\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"december 12, 2012\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"december 12, 2012, contents selected, enter a date, edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, clickable, 12 spin button, 12 spin button, 2012 spin button, clear push button\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"12 spin button, focus mode\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vc_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "input was flagged with a number",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "wsr": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "show_numbers",
+                  "output": "Embedded controls were flagged for disambiguation",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-date)_element",
+      "feature_assertion_id": "convey_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"12, date time, edit\"",
+                  "result": "partial",
+                  "notes": "part of the value was conveyed"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Enter a date, Date Time Edit, 2012-12-12. Month Enter a date, edit spin box, 12. To set the value use the Arrow keys or type the value.\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"edit, 2012-12-12, enter a date, edit, 2012-12-12, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, edit, 2012-12-12, type in text\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date (down arrow) 12, date time edit\"",
+                  "result": "partial",
+                  "notes": "full value was not conveyed"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date time edit, month edit spin box, 12, type in text\"",
+                  "result": "partial",
+                  "notes": "full value was not conveyed"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date, december 12, 2012, december 12, 2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date, december 12, 2012\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"spin button, 12, spin button 12 / spin button 2012\"",
+                  "result": "partial",
+                  "notes": "value is split among several controls, but the actual value is not conveyed"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"Enter a date, date edit. Month Enter a date, spin button, 12.\"",
+                  "result": "fail",
+                  "notes": "value is only partially conveyed"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"clickable enter a date, clickable month, spin button, 12 / day, spin button, 12 / year, spin button, 2012\"",
+                  "result": "partial",
+                  "notes": "value is split among several controls, but the actual value is not conveyed"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date edit, month spin button, 12\"",
+                  "result": "pass",
+                  "notes": "value is only partially conveyed"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, date picker, double tap to change\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, december 12, 2012, popup button, double tap to activate the picker\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"december 12, 2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"december 12, 2012, contents selected, enter a date, edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"enter a date, clickable, 12 spin button, 12 spin button, 2012 spin button, clear push button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_focusable_item",
+                  "from": "before target",
+                  "to": "target",
+                  "output": "\"12 spin button, focus mode\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-date)_element",
+      "feature_assertion_id": "convey_change_in_value",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced followed by the announcement of the formatted value.",
+                  "result": "pass",
+                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced.",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced followed by the announcement of the formatted value.",
+                  "result": "pass",
+                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "output": "after changing the date in the date picker widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
+                  "result": "fail"
+                }
+              ],
+              "notes": "unable to change the value without using the date picker widget"
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced followed by the announcement of the formatted value.",
+                  "result": "pass",
+                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced followed by the announcement of the formatted value.",
+                  "result": "pass",
+                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "output": "input was announced without a value",
+                  "result": "fail",
+                  "notes": "changed the date in the date picker and activated the \"set\" button."
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "activate_button",
+                  "output": "",
+                  "result": "unknown",
+                  "notes": "unable to open the date picker to change the value"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced.",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "enter_text",
+                  "output": "character was announced.",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-date)_element",
+      "feature_assertion_id": "provide_shortcuts",
+      "results": {
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter date, date time edit, 12-12-2012, show date picker\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"Enter a date Edit 2012-12-12\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "ie": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date Edit 2012-12-12\"",
+                  "result": "pass"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date time edit, 12-12-2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date Edit\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date, december 12, 2012, suggestions available, 12, 12 of 31, selected\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"show date picker, menu button, sub menu\"",
+                  "result": "partial",
+                  "notes": "the date picker button was found, but not the input. Additionally, hidden buttons were found, such as \"show previous month\", \"show previous month\", \"show month selection panel\" and \"today button\""
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"show date picker, menu button, subMenu\"",
+                  "result": "partial",
+                  "notes": "partial because the name and value was not conveyed"
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"clickable clear button\"",
+                  "result": "fail",
+                  "notes": "fail because the actual form control was not found"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"clear button\"",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date picker, double tap to change\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, december 12, 2012, popup button, double tap to activate the picker\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "\"december 12, 2012\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"2012-12-12 enter a date edit text\"",
+                  "result": "pass"
+                }
+              ]
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "next_form_field",
+                  "output": "input was skipped",
+                  "result": "fail"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "feature_id": "html/input(type-date)_element",
+      "feature_assertion_id": "widget_is_supported",
+      "results": {
+        "dragon_win": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "unable to get to the control",
+                  "result": "fail",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "jaws": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "embedded controls for month, date, and year are conveyed correctly, however controls within the date picker are not conveyed.",
+                  "result": "partial",
+                  "notes": ""
+                }
+              ]
+            },
+            "ie": {
+              "support": "na",
+              "notes": "IE does not support the this widget."
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "embedded controls for month, date, and year are conveyed correctly, however it is not possible to activate or operate the date picker popup",
+                  "result": "partial",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "narrator": {
+          "browsers": {
+            "edge": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "embedded controls for month, date, and year are conveyed correctly and operable",
+                  "result": "pass",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "nvda": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "embedded controls for month, date, and year are conveyed correctly, however controls within the date picker are not conveyed.",
+                  "result": "partial",
+                  "notes": ""
+                }
+              ]
+            },
+            "firefox": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "embedded controls for month, date, and year are conveyed correctly, however it is not possible to activate or operate the date picker popup",
+                  "result": "partial",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "talkback": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "was possible to change the date, however day buttons were missing the role and the selected state was not conveyed for the selected day.",
+                  "result": "partial",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "va_and": {
+          "browsers": {
+            "and_chr": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "was able to open the date picker and set a new date",
+                  "result": "pass",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "vo_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "unable to open the date picker and change the value.",
+                  "result": "fail",
+                  "notes": "double tapped on the control to open, but did not open"
+                }
+              ]
+            }
+          }
+        },
+        "vo_macos": {
+          "browsers": {
+            "safari": {
+              "support": "na",
+              "notes": "Safari does not support the this widget."
+            }
+          }
+        },
+        "orca": {
+          "browsers": {
+            "firefox": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "able to change the date but embedded spin buttons did not convey changes in value",
+                  "result": "partial",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "vc_ios": {
+          "browsers": {
+            "ios_saf": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "Unable to change do a desired date. Was able to change the month, but not day or year. Some controls in the picker were numbered, others were not.",
+                  "result": "fail",
+                  "notes": ""
+                }
+              ]
+            }
+          }
+        },
+        "vc_macos": {
+          "browsers": {
+            "safari": {
+              "support": "na",
+              "notes": "safari does not support the this widget."
+            }
+          }
+        },
+        "wsr": {
+          "browsers": {
+            "chrome": {
+              "output": [
+                {
+                  "command": "multiple_commands",
+                  "output": "was able to open the date picker but not interact with any elements in the date picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
+                  "result": "partial",
+                  "notes": "partial because it was still possible to use some of the controls and enter a date"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "history": [
+    {
+      "date": "2019-10-31",
+      "message": "Added test"
+    }
+  ],
+  "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "os_version": "1903",
+          "browser_version": "77",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1909.28",
+          "os_version": "1903",
+          "browser_version": "77",
+          "date": "2019-10-31"
+        },
+        "ie": {
+          "at_version": "2019.1909.28",
+          "os_version": "1903",
+          "browser_version": "11",
+          "date": "2019-10-31"
+        },
+        "firefox": {
+          "at_version": "2019.1909.28",
+          "os_version": "1903",
+          "browser_version": "69",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1903",
+          "os_version": "1903",
+          "browser_version": "44",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.2.1",
+          "os_version": "1903",
+          "browser_version": "77",
+          "date": "2019-10-31"
+        },
+        "firefox": {
+          "at_version": "2019.2.1",
+          "os_version": "1903",
+          "browser_version": "69",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "7.3.0",
+          "os_version": "10",
+          "browser_version": "77",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "va_and": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "3.1",
+          "os_version": "10",
+          "browser_version": "77",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.2",
+          "os_version": "13.2",
+          "browser_version": "13.1",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15",
+          "os_version": "10.15",
+          "browser_version": "13.0.2",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.31.4",
+          "os_version": "Ubuntu 19.04",
+          "browser_version": "69",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "vc_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.2",
+          "os_version": "13.2",
+          "browser_version": "13.1",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "vc_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15",
+          "os_version": "10.15",
+          "browser_version": "13.0.2",
+          "date": "2019-10-31"
+        }
+      }
+    },
+    "wsr": {
+      "browsers": {
+        "chrome": {
+          "at_version": "1903",
+          "os_version": "1903",
+          "browser_version": "77",
+          "date": "2019-10-31"
+        }
+      }
+    }
+  }
+}
