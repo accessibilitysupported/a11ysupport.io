@@ -41,6 +41,28 @@
     {
       "id": "provide_shortcuts",
       "css_target": "input[type=\"month\"]"
+    },
+    {
+      "id": "widget_is_supported",
+      "title": "support the date picker widget and native controls",
+      "rationale": "Users need to be able to operate the the date picker widget.",
+      "notes": "This expectation covers both the date picker widget and the embedded native controls implemented by some browsers. For example, some browsers include multiple tab stops, one each for the day, month, and year, as well as a date picker popup. Because browsers are not consistent with how these controls are implemented, they are lumped into one expectation. This expectation passes if all controls have a name, role, value, and other appropriate semantics passed. Reality check: a user can use all provided controls and successfully enter a date.",
+      "strength": {
+        "sr": "MUST",
+        "vc": "MUST"
+      },
+      "examples": [
+        "If implemented as a text field, this is not applicable",
+        "If implemented as a date picker, the screen reader must convey appropriate semantics",
+        "If implemented as multiple text inputs (one each for month, day, and year), the screen reader must convey appropriate semantics",
+        "Voice control software will let the user activate and fill the appropriate controls"
+      ],
+      "css_target": "input[type=\"datetime-local\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ]
     }
   ],
   "date_updated": "2018-07-21"
