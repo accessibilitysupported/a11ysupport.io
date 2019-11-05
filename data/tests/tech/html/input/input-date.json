@@ -542,7 +542,7 @@
                   "to": "target",
                   "output": "\"12, date time, edit\"",
                   "result": "partial",
-                  "notes": "part of the value was conveyed"
+                  "notes": "value was only partially conveyed"
                 },
                 {
                   "command": "next_focusable_item",
@@ -579,7 +579,7 @@
                   "to": "target",
                   "output": "\"enter a date (down arrow) 12, date time edit\"",
                   "result": "partial",
-                  "notes": "full value was not conveyed"
+                  "notes": "value was only partially conveyed"
                 },
                 {
                   "command": "next_focusable_item",
@@ -587,7 +587,7 @@
                   "to": "target",
                   "output": "\"enter a date, date time edit, month edit spin box, 12, type in text\"",
                   "result": "partial",
-                  "notes": "full value was not conveyed"
+                  "notes": "value was only partially conveyed"
                 }
               ]
             }
@@ -624,15 +624,14 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"spin button, 12, spin button 12 / spin button 2012\"",
-                  "result": "partial",
-                  "notes": "value is split among several controls, but the actual value is not conveyed"
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
                   "output": "\"Enter a date, date edit. Month Enter a date, spin button, 12.\"",
-                  "result": "fail",
+                  "result": "partial",
                   "notes": "value is only partially conveyed"
                 }
               ]
@@ -644,15 +643,14 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"clickable enter a date, clickable month, spin button, 12 / day, spin button, 12 / year, spin button, 2012\"",
-                  "result": "partial",
-                  "notes": "value is split among several controls, but the actual value is not conveyed"
+                  "result": "pass"
                 },
                 {
                   "command": "next_focusable_item",
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, date edit, month spin button, 12\"",
-                  "result": "pass",
+                  "result": "partial",
                   "notes": "value is only partially conveyed"
                 }
               ]
@@ -779,7 +777,8 @@
                 {
                   "command": "activate_button",
                   "output": "after changing the date in the date picker widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
-                  "result": "fail"
+                  "result": "fail",
+                  "notes": "Scan mode must be manually turned off to interact with widgets"
                 }
               ],
               "notes": "unable to change the value without using the date picker widget"
@@ -857,8 +856,15 @@
               "output": [
                 {
                   "command": "enter_text",
-                  "output": "character was announced.",
-                  "result": "pass"
+                  "output": "new value for embedded spin buttons was announced",
+                  "result": "pass",
+                  "notes": "enter raw value of new text"
+                },
+                {
+                  "command": "forms_mode_keyboard_command",
+                  "output": "new value for embedded spin buttons was not announced",
+                  "result": "fail",
+                  "notes": "used up and down arrow keys to change the value"
                 }
               ]
             }
@@ -1163,7 +1169,7 @@
               "output": [
                 {
                   "command": "multiple_commands",
-                  "output": "able to change the date but embedded spin buttons did not convey changes in value",
+                  "output": "able to change the date but embedded spin buttons are missing names and did not convey changes in value",
                   "result": "partial",
                   "notes": ""
                 }
