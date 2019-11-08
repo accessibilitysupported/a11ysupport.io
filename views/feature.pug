@@ -120,7 +120,7 @@ block content
                           - continue
                         tr
                           td
-                            a(href="/tests/"+ testHelper.makeSafe(linked_test.id)) #{linked_test.title}
+                            a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-') + "-" + test_assertion.feature_assertion_id) #{linked_test.title}
                           each at in ATBrowsers.core_at
                             if ATBrowsers.at[at].type !== at_type.type
                               - continue
