@@ -47,7 +47,7 @@ block content
           - var colspan = 0;
           - var assertions_found = 0;
           div.responsive-table
-            table(aria-labelledby='support-table-by-assertion-and-at-'+at_type.type)
+            table(aria-labelledby='support-table-by-assertion-and-at-'+at_type.type).support-summary-table
               tr
                 th Expectation
                 each at_id in ATBrowsers.core_at
@@ -78,61 +78,62 @@ block content
 
 
         each assertion, index in data.assertions
-          h3(id='support-table-'+index) Expectation: #{assertion.title}
+          div.assertion-container
+              h3(id='support-table-'+index) Expectation: #{assertion.title}
 
-          if (assertion.rationale)
-            p Rationale: #{assertion.rationale}
+              if (assertion.rationale)
+                p Rationale: #{assertion.rationale}
 
-          p Strength of these expectations for different types of assistive technologies:
-          ul
-            li Screen Readers: #{assertion.strength.sr}
-            li Voice Control: #{assertion.strength.vc}
+              p Strength of these expectations for different types of assistive technologies:
+              ul
+                li Screen Readers: #{assertion.strength.sr}
+                li Voice Control: #{assertion.strength.vc}
 
-          if assertion.tests.length > 0
-            each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]
-              if (assertion.strength[at_type.type] === "NA")
-                - continue
-              - var some_support_behind_settings = false
-              div.responsive-table
-                table.support-summary-table
-                  caption #{at_type.title} support for '#{assertion.strength[at_type.type]} #{assertion.title}'
-                  col
-                  each at in ATBrowsers.core_at
-                    if ATBrowsers.at[at].type !== at_type.type
-                      - continue
-                    colgroup(span=ATBrowsers.at[at].core_browsers.length)
-                  tr
-                    th(rowspan="2") Test
-                    each at in ATBrowsers.core_at
-                      if ATBrowsers.at[at].type !== at_type.type
-                        - continue
-                      th(colspan=ATBrowsers.at[at].core_browsers.length scope="colgroup") #{ATBrowsers.at[at].title}
-                  tr
-                    each at in ATBrowsers.core_at
-                      if ATBrowsers.at[at].type !== at_type.type
-                        - continue
-                      each browser in ATBrowsers.at[at].core_browsers
-                        th(scope="col") #{ATBrowsers.browsers[browser].title}
-
-                  each linked_test in data.tests
-                      - let test_assertion = linked_test.assertions.find(obj => obj.feature_id === data.id && obj.feature_assertion_id === assertion.id);
-                        if (!test_assertion)
+              if assertion.tests.length > 0
+                each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]
+                  if (assertion.strength[at_type.type] === "NA")
+                    - continue
+                  - var some_support_behind_settings = false
+                  div.responsive-table
+                    table.support-summary-table
+                      caption #{at_type.title} support for '#{assertion.strength[at_type.type]} #{assertion.title}'
+                      col
+                      each at in ATBrowsers.core_at
+                        if ATBrowsers.at[at].type !== at_type.type
                           - continue
-                        tr
-                          td
-                            a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-') + "-" + test_assertion.feature_assertion_id) #{linked_test.title}
-                          each at in ATBrowsers.core_at
-                            if ATBrowsers.at[at].type !== at_type.type
+                        colgroup(span=ATBrowsers.at[at].core_browsers.length)
+                      tr
+                        th(rowspan="2") Test
+                        each at in ATBrowsers.core_at
+                          if ATBrowsers.at[at].type !== at_type.type
+                            - continue
+                          th(colspan=ATBrowsers.at[at].core_browsers.length scope="colgroup") #{ATBrowsers.at[at].title}
+                      tr
+                        each at in ATBrowsers.core_at
+                          if ATBrowsers.at[at].type !== at_type.type
+                            - continue
+                          each browser in ATBrowsers.at[at].core_browsers
+                            th(scope="col") #{ATBrowsers.browsers[browser].title}
+
+                      each linked_test in data.tests
+                          - let test_assertion = linked_test.assertions.find(obj => obj.feature_id === data.id && obj.feature_assertion_id === assertion.id);
+                            if (!test_assertion)
                               - continue
-                            each browser in ATBrowsers.at[at].core_browsers
-                              td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.class)= assertion.core_support_by_at_browser[at][browser].string.string
-                                if (assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
-                                  - some_support_behind_settings = true
-                                  span *
-                if (some_support_behind_settings)
-                  p * means that some support is hidden behind settings
-          else
-            p No tests reference this expectation yet.
+                            tr
+                              td
+                                a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-') + "-" + test_assertion.feature_assertion_id) #{linked_test.title}
+                              each at in ATBrowsers.core_at
+                                if ATBrowsers.at[at].type !== at_type.type
+                                  - continue
+                                each browser in ATBrowsers.at[at].core_browsers
+                                  td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.class)= assertion.core_support_by_at_browser[at][browser].string.string
+                                    if (assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
+                                      - some_support_behind_settings = true
+                                      span *
+                    if (some_support_behind_settings)
+                      p * means that some support is hidden behind settings
+              else
+                p No tests reference this expectation yet.
       else
         p No expectations have been created for this feature yet.
 
