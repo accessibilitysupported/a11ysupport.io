@@ -155,6 +155,20 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					]
 				}, assertion);
 				break;
+			case 'convey_change_in_state':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "convey changes in state",
+					rationale: "The user needs to know that the state was successfully changed.",
+					strength: {
+						sr: "MUST",
+						vc: "NA"
+					},
+					pass_strategy: "all",
+					operation_modes: [
+						"sr/interaction"
+					]
+				}, assertion);
+				break;
 			case 'convey_boundaries':
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the boundaries of the element",
