@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-pressed examples</title>
+    <style>
+        button[aria-pressed] {
+            position: relative;
+            padding-left: 1.5em;
+        }
+
+        button[aria-pressed]::after {
+            position: absolute;
+            top: 50%;
+            left: 7px;
+            transform: translate(-50%, -50%);
+            content: '';
+        }
+
+        button[aria-pressed="false"]::after {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border: 0.125em solid #000;
+        }
+
+        button[aria-pressed="mixed"]::after {
+            display: block;
+            width: 8px;
+            border-bottom: 0.125em solid #000;
+            transform: translate(-50%, -50%) rotateZ(45deg);
+            transform-origin: center center;
+        }
+
+        button[aria-pressed="true"]::after {
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: #000;
+            border: 0.125em solid #000;
+        }
+    </style>
+</head>
+<body>
+<h1>aria-pressed Examples</h1>
+<p>This page contains various aria-pressed examples</p>
+
+<h2>Target 0: false</h2>
+<button id="target-0" aria-pressed="false">Action</button>
+
+<h2>Target 1: true</h2>
+<button id="target-1" aria-pressed="true">Action</button>
+
+<h2>Target 2: mixed</h2>
+<button id="target-2" aria-pressed="mixed">Action</button>
+
+<h2>Target 3: undefined</h2>
+<button id="target-3" aria-pressed>Action</button>
+
+<h2>Target 4: change in state</h2>
+<button id="target-4" aria-pressed="false">Action</button>
+
+<p>End test</p>
+
+
+<script>
+    var button = document.querySelector('#target-4');
+
+    button.addEventListener('click', function(e) {
+        switch (button.getAttribute('aria-pressed')) {
+            case 'false':
+                button.setAttribute('aria-pressed', 'mixed');
+                break;
+            case 'mixed':
+                button.setAttribute('aria-pressed', 'true');
+                break;
+            default:
+                button.setAttribute('aria-pressed', 'false');
+        }
+    });
+
+</script>
+
+</body>
+</html>
