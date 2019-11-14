@@ -38,6 +38,16 @@
                   "to": "target",
                   "output": "\"month, enter a date, edit spin box, 12\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -56,6 +66,16 @@
                   "to": "target",
                   "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -73,6 +93,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
                   "result": "pass"
                 }
               ]
@@ -96,6 +126,11 @@
                   "to": "target",
                   "output": "\"december 12, 2012, button\"",
                   "result": "fail"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -118,6 +153,18 @@
                   "to": "target",
                   "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"show date picker, menu button, sub menu\"",
+                  "result": "na",
+                  "notes": "date picker button was found, but not the actual input"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
+                  "result": "na",
+                  "notes": "date picker button was found, but not the actual input"
                 }
               ]
             },
@@ -136,6 +183,16 @@
                   "to": "target",
                   "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -150,6 +207,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, date and time picker, double-top to activate\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date and time picker, double tap to activate\"",
                   "result": "pass"
                 }
               ]
@@ -180,6 +242,11 @@
                   "to": "target",
                   "output": "\"december 12, 2012, at 7:30 pm, \"",
                   "result": "fail"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "skipped",
+                  "result": "na"
                 }
               ]
             }
@@ -202,6 +269,16 @@
                   "to": "target",
                   "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"2012-12-12T19:30\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -223,6 +300,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
                   "result": "pass"
                 }
               ]
@@ -309,6 +391,16 @@
                   "output": "\"month, enter a date, edit spin box, 12\"",
                   "result": "pass",
                   "notes": "role implied by the embedded spin box"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -327,6 +419,16 @@
                   "to": "target",
                   "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -344,6 +446,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
                   "result": "pass"
                 }
               ]
@@ -368,6 +480,11 @@
                   "output": "\"december 12, 2012, button\"",
                   "result": "fail",
                   "notes": "the embedded button role does not clearly convey the role for the entire input"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -391,6 +508,18 @@
                   "to": "target",
                   "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"show date picker, menu button, sub menu\"",
+                  "result": "na",
+                  "notes": "date picker button was found but not the actual input"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
+                  "result": "na",
+                  "notes": "date picker button was found but not the actual input"
                 }
               ]
             },
@@ -409,6 +538,16 @@
                   "to": "target",
                   "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -423,6 +562,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, date and time picker, double-top to activate\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date and time picker, double tap to activate\"",
                   "result": "pass"
                 }
               ]
@@ -452,6 +596,11 @@
                   "to": "target",
                   "output": "\"december 12, 2012, at 7:30 pm, \"",
                   "result": "fail"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "skipped",
+                  "result": "na"
                 }
               ]
             }
@@ -474,6 +623,16 @@
                   "to": "target",
                   "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"2012-12-12T19:30\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -495,6 +654,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
                   "result": "pass"
                 }
               ]
@@ -552,6 +716,16 @@
                   "output": "\"month, enter a date, edit spin box, 12\"",
                   "result": "partial",
                   "notes": "value was only partially conveyed"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -570,6 +744,16 @@
                   "to": "target",
                   "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
+                  "result": "pass"
                 }
               ]
             },
@@ -587,6 +771,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
                   "result": "pass"
                 }
               ]
@@ -609,6 +803,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"december 12, 2012, button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
                   "result": "pass"
                 }
               ]
@@ -633,6 +832,18 @@
                   "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
                   "result": "partial",
                   "notes": "value was only partially conveyed"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"show date picker, menu button, sub menu\"",
+                  "result": "na",
+                  "notes": "date picker button was found, but not the actual input"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
+                  "result": "na",
+                  "notes": "date picker button was found, but not the actual input"
                 }
               ]
             },
@@ -651,6 +862,16 @@
                   "to": "target",
                   "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -665,6 +886,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, date and time picker, double-top to activate\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, date and time picker, double tap to activate\"",
                   "result": "fail"
                 }
               ]
@@ -681,6 +907,11 @@
                   "to": "target",
                   "output": "\"december 12, 2012, at 7:30 pm, \"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "skipped",
+                  "result": "na"
                 }
               ]
             }
@@ -703,6 +934,16 @@
                   "to": "target",
                   "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"2012-12-12T19:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -724,6 +965,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
                   "result": "pass"
                 }
               ]
@@ -932,12 +1178,14 @@
                 {
                   "command": "next_form_field",
                   "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "pass"
+                  "result": "partial",
+                  "notes": "date picker button was found, but not the actual input."
                 },
                 {
                   "command": "open_element_list",
                   "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "pass"
+                  "result": "pass",
+                  "notes": "date picker button was found, but not the actual input."
                 }
               ]
             },
@@ -1055,7 +1303,7 @@
               "notes": "browser does not support this widget."
             }
           }
-          },
+        },
         "narrator": {
           "browsers": {
             "edge": {

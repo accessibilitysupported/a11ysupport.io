@@ -38,6 +38,18 @@
                   "to": "target",
                   "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"hours, enter a date, spin box, 01\"",
+                  "result": "pass",
+                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
+                  "result": "pass",
+                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
                 }
               ]
             },
@@ -55,6 +67,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, edit, 13:30, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 13:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
                   "result": "pass"
                 }
               ]
@@ -74,6 +96,18 @@
                   "to": "target",
                   "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"edit spin box, 01\"",
+                  "result": "fail",
+                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date hours edit 01\"",
+                  "result": "pass",
+                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
                 }
               ]
             }
@@ -95,6 +129,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, time, 1:30pm\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
                   "result": "pass"
                 }
               ]
@@ -118,6 +157,16 @@
                   "to": "target",
                   "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "skipped",
+                  "result": "na"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "not found",
+                  "result": "na"
                 }
               ]
             },
@@ -136,6 +185,17 @@
                   "to": "target",
                   "output": "\"enter a date, grouping, hours, spin button 01\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
+                  "result": "fail",
+                  "notes": "also has an entry for the clear button"
                 }
               ]
             }
@@ -149,6 +209,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
+                  "output": "\"enter a date, time picker, double tap to activate\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
                   "output": "\"enter a date, time picker, double tap to activate\"",
                   "result": "pass"
                 }
@@ -180,6 +245,11 @@
                   "to": "target",
                   "output": "\"enter a date, 1:30pm, pop up button\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, 1:30pm, pop up button\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -201,6 +271,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"13:30 contents selected, Enter a date, edit text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"13:30\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
                   "result": "pass"
                 }
               ]
@@ -224,6 +304,12 @@
                   "to": "target",
                   "output": "\"enter a date, panel, 01, spin button\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"am/pm entry pm\"",
+                  "result": "fail",
+                  "notes": "only the am/pm embedded control was found"
                 }
               ]
             }
@@ -310,6 +396,18 @@
                   "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
                   "result": "pass",
                   "notes": "role implied by embedded controls"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"hours, enter a date, spin box, 01\"",
+                  "result": "pass",
+                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
+                  "result": "pass",
+                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
                 }
               ]
             },
@@ -327,6 +425,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, edit, 13:30, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 13:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
                   "result": "pass"
                 }
               ]
@@ -347,6 +455,18 @@
                   "to": "target",
                   "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"edit spin box, 01\"",
+                  "result": "pass",
+                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date hours edit 01\"",
+                  "result": "pass",
+                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
                 }
               ]
             }
@@ -368,6 +488,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, time, 1:30pm\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
                   "result": "pass"
                 }
               ]
@@ -392,6 +517,16 @@
                   "to": "target",
                   "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "skipped",
+                  "result": "na"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "not found",
+                  "result": "na"
                 }
               ]
             },
@@ -411,6 +546,17 @@
                   "to": "target",
                   "output": "\"enter a date, grouping, hours, spin button 01\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
+                  "result": "fail",
+                  "notes": "outer role was not conveyed"
                 }
               ]
             }
@@ -424,6 +570,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
+                  "output": "\"enter a date, time picker, double tap to activate\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
                   "output": "\"enter a date, time picker, double tap to activate\"",
                   "result": "pass"
                 }
@@ -454,6 +605,11 @@
                   "to": "target",
                   "output": "\"enter a date, 1:30pm, pop up button\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, 1:30pm, pop up button\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -475,6 +631,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"13:30 contents selected, Enter a date, edit text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"13:30\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
                   "result": "pass"
                 }
               ]
@@ -498,6 +664,12 @@
                   "to": "target",
                   "output": "\"enter a date, panel, 01, spin button\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"am/pm entry pm\"",
+                  "result": "fail",
+                  "notes": "only the am/pm embedded control was found"
                 }
               ]
             }
@@ -553,6 +725,18 @@
                   "to": "target",
                   "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"hours, enter a date, spin box, 01\"",
+                  "result": "partial",
+                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
+                  "result": "partial",
+                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
                 }
               ]
             },
@@ -570,6 +754,16 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, edit, 13:30, type in text\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, edit, 13:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
                   "result": "pass"
                 }
               ]
@@ -591,6 +785,18 @@
                   "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
                   "result": "partial",
                   "notes": "value was only partially conveyed"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"edit spin box, 01\"",
+                  "result": "partial",
+                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"enter a date hours edit 01\"",
+                  "result": "partial",
+                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
                 }
               ]
             }
@@ -612,6 +818,11 @@
                   "from": "before target",
                   "to": "target",
                   "output": "\"enter a date, time, 1:30pm\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
                   "result": "pass"
                 }
               ]
@@ -636,6 +847,16 @@
                   "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
                   "result": "partial",
                   "notes": "value was only partially conveyed"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "skipped",
+                  "result": "na"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "not found",
+                  "result": "na"
                 }
               ]
             },
@@ -655,6 +876,17 @@
                   "output": "\"enter a date, grouping, hours, spin button 01\"",
                   "result": "partial",
                   "notes": "value was only partially conveyed"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
+                  "result": "fail"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
+                  "result": "fail",
+                  "notes": "also has an entry for the clear button"
                 }
               ]
             }
@@ -670,6 +902,11 @@
                   "to": "target",
                   "output": "\"enter a date, time picker, double tap to activate\"",
                   "result": "fail"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"enter a date, time picker, double tap to activate\"",
+                  "result": "fail"
                 }
               ]
             }
@@ -683,6 +920,11 @@
                   "command": "next_item",
                   "from": "before target",
                   "to": "target",
+                  "output": "\"enter a date, 1:30pm, pop up button\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
                   "output": "\"enter a date, 1:30pm, pop up button\"",
                   "result": "pass"
                 }
@@ -707,6 +949,16 @@
                   "to": "target",
                   "output": "\"13:30 contents selected, Enter a date, edit text\"",
                   "result": "pass"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"13:30\"",
+                  "result": "pass"
+                },
+                {
+                  "command": "open_element_list",
+                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
+                  "result": "pass"
                 }
               ]
             }
@@ -730,6 +982,12 @@
                   "output": "\"enter a date, panel, 01, spin button\"",
                   "result": "partial",
                   "notes": "value was only partially conveyed"
+                },
+                {
+                  "command": "next_form_field",
+                  "output": "\"am/pm entry pm\"",
+                  "result": "partial",
+                  "notes": "only the am/pm embedded control was found"
                 }
               ]
             }
