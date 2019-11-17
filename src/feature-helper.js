@@ -571,7 +571,9 @@ helper.initalizeTestCase = function (testCase) {
 	let ATBrowsers = require('./../data/ATBrowsers');
 
 	// transform the commands object to the assertions array
-	testCase.assertions = [];
+	if (!testCase.assertions) {
+		testCase.assertions = [];
+	}
 
 	for(let at in ATBrowsers.at) {
 		if (!testCase.commands[at]) {
@@ -593,10 +595,13 @@ helper.initalizeTestCase = function (testCase) {
 					if (-1 === assertion_key) {
 						testCase.assertions.push({
 							feature_id: result.feature_id,
-							feature_assertion_id: result.feature_assertion_id,
-							results: {}
+							feature_assertion_id: result.feature_assertion_id
 						});
 						assertion_key = testCase.assertions.length-1;
+					}
+
+					if (!testCase.assertions[assertion_key].results) {
+						testCase.assertions[assertion_key].results = {};
 					}
 
 					if (!testCase.assertions[assertion_key].results[at]) {
@@ -611,10 +616,6 @@ helper.initalizeTestCase = function (testCase) {
 						}
 					}
 
-					if (testCase.browserNotes && testCase.browserNotes[at] && testCase.browserNotes[at][browser]) {
-						testCase.assertions[assertion_key].results[at].browsers[browser].notes = testCase.browserNotes[at][browser];
-					}
-
 					let output = Object.assign({}, command);
 					output.result = result.result;
 					output.notes = result.notes;
@@ -626,7 +627,6 @@ helper.initalizeTestCase = function (testCase) {
 	}
 
 	delete testCase.commands;
-	delete testCase.browserNotes;
 
 	let sortStrengthMap = {
 		convey_name: '0',
@@ -800,6 +800,13 @@ helper.initalizeTestCase = function (testCase) {
 						"support": "u", //unknown support
 						"id": browser
 					};
+				}
+
+				// copy over notes
+				if (testCase.assertions[assertion_key].browserNotes
+					&& testCase.assertions[assertion_key].browserNotes[at]
+					&& testCase.assertions[assertion_key].browserNotes[at][browser]) {
+					testCase.assertions[assertion_key].results[at].browsers[browser].notes = testCase.assertions[assertion_key].browserNotes[at][browser];
 				}
 
 				// Auto set this to NA if the assertion link indicates that this AT is not applicable
@@ -994,6 +1001,8 @@ helper.initalizeTestCase = function (testCase) {
 				testCase.core_may_support_string[type] =  helper.generateSupportString(testCase.core_may_support[type]);
 			}
 		});
+
+		delete testCase.assertions[assertion_key].browserNotes;
 	});
 
 	//Set support strings for the test

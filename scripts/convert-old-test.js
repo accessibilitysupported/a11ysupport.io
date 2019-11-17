@@ -44,15 +44,15 @@ testFiles.forEach(function(testFile) {
                 }
 
                 if (assertionLink.results[at].browsers[browser].notes) {
-                    if (!test.browserNotes) {
-                        test.browserNotes = {};
+                    if (!assertionLink.browserNotes) {
+						assertionLink.browserNotes = {};
                     }
 
-                    if (!test.browserNotes[at]) {
-                        test.browserNotes[at] = {};
+                    if (!assertionLink.browserNotes[at]) {
+						assertionLink.browserNotes[at] = {};
                     }
 
-                    test.browserNotes[at][browser] = assertionLink.results[at].browsers[browser].notes;
+					assertionLink.browserNotes[at][browser] = assertionLink.results[at].browsers[browser].notes;
                 }
 
                 assertionLink.results[at].browsers[browser].output.forEach(command => {
@@ -131,10 +131,11 @@ testFiles.forEach(function(testFile) {
                 });
             });
         }
-        delete test.assertions;
-        // Use the latest versions that we have on file.
-        var string = JSON.stringify(test, null, 2);
 
-        fs.writeFileSync(newTestFile, string);
+        delete assertionLink.results;
     });
+	// Use the latest versions that we have on file.
+	var string = JSON.stringify(test, null, 2);
+
+	fs.writeFileSync(newTestFile, string);
 });
