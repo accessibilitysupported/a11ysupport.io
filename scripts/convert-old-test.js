@@ -56,11 +56,38 @@ test.assertions.forEach(function(assertionLink) {
 
                 // set default from and to where necessary
                 if (ATBrowsers.at[at].type === 'sr') {
+                    switch(copy.command) {
+                        case 'enter_text':
+                            if (!copy.from) {
+                                copy.from = 'target';
+                            }
+                            if (!copy.to) {
+                                copy.to = 'target';
+                            }
+                            break;
+                        case 'multiple_commands':
+                        case 'open_element_list':
+                            if (!copy.from) {
+                                copy.from = 'na';
+                            }
+                            if (!copy.to) {
+                                copy.to = 'na';
+                            }
+                            break;
+                        default:
+                            if (!copy.from) {
+                                copy.from = 'before target';
+                            }
+                            if (!copy.to) {
+                                copy.to = 'target';
+                            }
+                    }
+                } else {
                     if (!copy.from) {
-                        copy.from = 'before target';
+                        copy.from = 'na';
                     }
                     if (!copy.to) {
-                        copy.to = 'target';
+                        copy.to = 'na';
                     }
                 }
 
