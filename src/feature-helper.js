@@ -570,6 +570,89 @@ helper.initalizeTestCase = function (testCase) {
 	//Grab the ATBrowsers data
 	let ATBrowsers = require('./../data/ATBrowsers');
 
+	// transform the commands object to the assertions array
+	testCase.assertions = [];
+
+	for(let at in ATBrowsers.at) {
+		if (!testCase.commands[at]) {
+			continue;
+		}
+
+		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+		validBrowsers.forEach(function (browser) {
+			if (!testCase.commands[at][browser]) {
+				return;
+			}
+			testCase.commands[at][browser].forEach(function(command) {
+				command.results.forEach(function(result) {
+					let assertion_key = testCase.assertions.findIndex(obj =>
+						obj.feature_id === result.feature_id
+						&& obj.feature_assertion_id === result.feature_assertion_id
+					);
+
+					if (-1 === assertion_key) {
+						testCase.assertions.push({
+							feature_id: result.feature_id,
+							feature_assertion_id: result.feature_assertion_id,
+							results: {}
+						});
+						assertion_key = testCase.assertions.length-1;
+					}
+
+					if (!testCase.assertions[assertion_key].results[at]) {
+						testCase.assertions[assertion_key].results[at] = {
+							browsers: {}
+						}
+					}
+
+					if (!testCase.assertions[assertion_key].results[at].browsers[browser]) {
+						testCase.assertions[assertion_key].results[at].browsers[browser] = {
+							output: []
+						}
+					}
+
+					if (testCase.browserNotes && testCase.browserNotes[at] && testCase.browserNotes[at][browser]) {
+						testCase.assertions[assertion_key].results[at].browsers[browser].notes = testCase.browserNotes[at][browser];
+					}
+
+					let output = Object.assign({}, command);
+					output.result = result.result;
+					output.notes = result.notes;
+					delete output.notes;
+					testCase.assertions[assertion_key].results[at].browsers[browser].output.push(output);
+				});
+			});
+		});
+	}
+
+	delete testCase.commands;
+	delete testCase.browserNotes;
+
+	let sortStrengthMap = {
+		convey_name: '0',
+		convey_role: '1',
+		convey_value: '2',
+		convey_change_in_value: '3',
+		convey_state: '4',
+		convey_change_in_state: '5',
+		convey_property: '6'
+	};
+
+	let generateSortString = function(assertion_id) {
+		let string = '';
+		if (sortStrengthMap[assertion_id]) {
+			string = sortStrengthMap[assertion_id];
+		}
+
+		return string+assertion_id;
+	};
+
+	testCase.assertions.sort(function(x, y) {
+		let x_id = x.feature_id+"."+generateSortString(x.feature_assertion_id);
+		let y_id = y.feature_id+"."+generateSortString(y.feature_assertion_id);
+		return ((x_id === y_id) ? 0 : ((x_id > y_id) ? 1 : -1));
+	});
+
 	//Set support properties
 	testCase.core_support = {
 		sr: [],
