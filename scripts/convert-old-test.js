@@ -134,6 +134,18 @@ testFiles.forEach(function(testFile) {
 
         delete assertionLink.results;
     });
+
+    test = Object.assign({
+        "id": null,
+        "title": null,
+        "description": null,
+        "html_file": null,
+        "assertions": null,
+        "commands": null,
+        "history": null,
+        "versions": null
+    }, test);
+
 	// Use the latest versions that we have on file.
 	var string = JSON.stringify(test, null, 2);
 
