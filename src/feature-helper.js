@@ -124,7 +124,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 						"sr/interaction",
 						"vc"
 					],
-					"exclude_at": ["vc_ios"]
+					"exclude_at": {"vc_ios":  "no_support"}
 				}, assertion);
 				break;
 			case 'convey_value':
@@ -811,12 +811,23 @@ helper.initalizeTestCase = function (testCase) {
 
 				// Auto set this to NA if the assertion link indicates that this AT is not applicable
 				if (ref_assertion.exclude_at
-					&& ref_assertion.exclude_at.includes(at)) {
+					&& ref_assertion.exclude_at[at]) {
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
 
 				if (testCase.assertions[assertion_key].exclude_at
-					&& testCase.assertions[assertion_key].exclude_at.includes(at)) {
+					&& testCase.assertions[assertion_key].exclude_at[at]) {
+					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
+				}
+
+				if (ref_assertion.exclude_browsers
+					&& ref_assertion.exclude_browsers[browser]) {
+					console.log('TODO: verify that browser was excluded');
+					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
+				}
+
+				if (testCase.assertions[assertion_key].exclude_browsers
+					&& testCase.assertions[assertion_key].exclude_browsers[browser]) {
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
 
