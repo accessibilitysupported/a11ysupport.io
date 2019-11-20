@@ -822,7 +822,6 @@ helper.initalizeTestCase = function (testCase) {
 
 				if (ref_assertion.exclude_browsers
 					&& ref_assertion.exclude_browsers[browser]) {
-					console.log('TODO: verify that browser was excluded');
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
 
