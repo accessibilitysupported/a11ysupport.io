@@ -97,6 +97,10 @@
             "description": "The id of the keyboard command. It MUST be a property name in the relevant ATBrowsers.results[at].commands object",
             "type": "string"
           },
+          "css_target": {
+            "description": "The css target of the element that this command was targeting.",
+            "type": "string"
+          },
           "from": {
             "type": "string",
             "enum": ["before target", "after target", "target", "within target", "start of target", "end of target", "na"],
@@ -138,7 +142,7 @@
             }
           }
         },
-        "required": ["command", "results"]
+        "required": ["command", "css_target", "results"]
       }
     },
     "assertion": {
