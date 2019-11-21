@@ -146,6 +146,10 @@ testFiles.forEach(function(testFile) {
         "versions": null
     }, test);
 
+    if (!test.html_file) {
+    	delete test.html_file;
+	}
+
 	// Use the latest versions that we have on file.
 	var string = JSON.stringify(test, null, 2);
 
