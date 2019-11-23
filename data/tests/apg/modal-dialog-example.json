@@ -5,1027 +5,1109 @@
   "assertions": [
     {
       "feature_id": "aria/dialog_role",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-          "firefox": {
-            "output": [
-              {
-                "command": "activate_button",
-                "from": "before target",
-                "to": "target",
-                "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
-                "result": "fail"
-              },
-              {
-                "command": "previous_item",
-                "from": "within target",
-                "to": "start of target",
-                "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\" ",
-                "result": "pass"
-              }
-            ]
-          }
-        }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"edit box, street\"",
-                  "result": "fail",
-                  "notes": "not conveyed when first entering the dialog"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "start of target",
-                  "to": "within target",
-                  "output": "\"edit box, street\"",
-                  "result": "fail",
-                  "notes": "not conveyed when navigating to the boundary of the dialog"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "start of target",
-                  "to": "within target",
-                  "output": "\"add delivery address, web dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"street, edit text\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "exit_object",
-                  "from": "within target",
-                  "to": "target",
-                  "output": "\"Out of add delivery address, web dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "aria/dialog_role",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\" ",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"edit box, street\"",
-                  "result": "fail",
-                  "notes": "not conveyed when first entering the dialog"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "start of target",
-                  "to": "within target",
-                  "output": "\"edit box, street\"",
-                  "result": "fail",
-                  "notes": "not conveyed when navigating to the boundary of the dialog"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "start of target",
-                  "to": "within target",
-                  "output": "\"add delivery address, web dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"street, edit text\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "exit_object",
-                  "from": "within target",
-                  "to": "target",
-                  "output": "\"Out of add delivery address, web dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "aria/dialog_role",
-      "feature_assertion_id": "convey_boundaries",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not able to move outside of the modal",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not able to move outside of the modal",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not able to move outside of the modal",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Dialog, heading level 2, add delivery address\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "\"Link, modal dialog design pattern in aria authoring practices 1.1\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not able to move outside of the modal",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not able to move outside of the modal",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
-                  "result": "partial",
-                  "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "dialog boundary not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "start of target",
-                  "to": "before target",
-                  "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, web dialog...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "target",
-                  "to": "before target",
-                  "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_boundaries"
     },
     {
       "feature_id": "aria/aria-modal_attribute",
-      "feature_assertion_id": "convey_presence",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The modal state was explicitly conveyed."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The modal state was explicitly conveyed."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"add delivery address, modal dialog...\"",
-                  "result": "pass",
-                  "notes": "The modal state was explicitly conveyed."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "fail",
-                  "notes": "Modal state was not conveyed and non-modal content was not obscured. See other expectations for details."
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass",
-                  "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Add delivery address, dialog...\"",
-                  "result": "pass",
-                  "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
-                  "result": "partial",
-                  "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"edit box, street\"",
-                  "result": "fail",
-                  "notes": "Modal state was not conveyed but non-modal content was not obscured. See other expectations for details."
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "start of target",
-                  "to": "within target",
-                  "output": "\"add delivery address, web dialog...\"",
-                  "result": "partial",
-                  "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"street, edit text\"",
-                  "result": "partial",
-                  "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_presence"
     },
     {
       "feature_id": "aria/aria-modal_attribute",
-      "feature_assertion_id": "limit_reading_to_children",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "unable to reach outside content",
-                  "result": "pass",
-                  "notes": "The title of the window was announced"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "unable to reach outside content",
-                  "result": "pass",
-                  "notes": "The title of the window was announced"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "unable to reach outside content",
-                  "result": "pass",
-                  "notes": "The title of the window was announced"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "content outside of the modal was announced",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "unable to reach outside content",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "unable to reach outside content",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
-                  "result": "partial",
-                  "notes": "Partial because the link before the modal was announced (but nothing else outside of the modal)."
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "content outside of the modal was announced",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "\"opening double quotation mark\" and \"closing double quotation mark\"",
-                  "result": "partial",
-                  "notes": "quotation marks were found and announced but no other content was conveyed"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "from": "target",
-                  "to": "before target",
-                  "output": "unable to navigate to outside content",
-                  "result": "pass",
-                  "notes": "unable to navigate to outside content even after navigating out of the dialog via VO+shift+up arrow"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "limit_reading_to_children"
     },
     {
       "feature_id": "aria/aria-modal_attribute",
-      "feature_assertion_id": "remove_outside_content_from_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "outside content was displayed in content lists, such as the of links, etc.",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_unvisited_link",
-                  "output": "no links were found",
-                  "result": "pass",
-                  "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "outside content was displayed in content lists, such as the of links, etc.",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_unvisited_link",
-                  "output": "no links were found",
-                  "result": "pass",
-                  "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "outside content was displayed in content lists, such as the of links, etc.",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_unvisited_link",
-                  "output": "no links were found",
-                  "result": "pass",
-                  "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "previous_link",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "links were found outside of the modal",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_form_field",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "no outside form fields were found",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_link",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "no outside links were found",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "only content within the modal was included in the lists",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_form_field",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "no outside form fields were found",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_link",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "no outside links were found",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "only content within the modal was included in the lists",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_form_field",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "no outside form fields were found",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_link",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "The link just before the dialog example was announced, but the reading cursor was immediately sent back to the open dialog. Not possible to find other links outside of the dialog.",
-                  "result": "partial"
-                },
-                {
-                  "command": "list_links",
-                  "output": "outside links are listed. When jumping to those links, focus is redirected back to the open dialog.",
-                  "result": "partial",
-                  "notes": "partial because outside links are listed but its not possible to jump to them."
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "previous_link",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "content outside of the modal was announced",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "previous_link",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not found",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_form_field",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "not found",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "previous_heading",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "previous headings in outside content were found",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "headings, links, and other content was listed and could be navigated to",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "remove_outside_content_from_shortcuts"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, modal dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "not able to move outside of the modal",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, modal dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "The modal state was explicitly conveyed."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "unable to reach outside content",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "pass",
+              "notes": "The title of the window was announced"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "outside content was displayed in content lists, such as the of links, etc.",
+          "css_target": "*[aria-modal=true]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "output": "no links were found",
+          "css_target": "*[aria-modal=true]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass",
+              "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, modal dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "not able to move outside of the modal",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, modal dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "The modal state was explicitly conveyed."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "unable to reach outside content",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "pass",
+              "notes": "The title of the window was announced"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "outside content was displayed in content lists, such as the of links, etc.",
+          "css_target": "*[aria-modal=true]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "output": "no links were found",
+          "css_target": "*[aria-modal=true]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass",
+              "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, modal dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "not able to move outside of the modal",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, modal dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "The modal state was explicitly conveyed."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "unable to reach outside content",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "pass",
+              "notes": "The title of the window was announced"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "outside content was displayed in content lists, such as the of links, etc.",
+          "css_target": "*[aria-modal=true]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "output": "no links were found",
+          "css_target": "*[aria-modal=true]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass",
+              "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Add delivery address, dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Dialog, heading level 2, add delivery address\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "\"Link, modal dialog design pattern in aria authoring practices 1.1\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Add delivery address, dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": "Modal state was not conveyed and non-modal content was not obscured. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "content outside of the modal was announced",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "from": "within target",
+          "to": "before target",
+          "output": "links were found outside of the modal",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Add delivery address, dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "not able to move outside of the modal",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Add delivery address, dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "unable to reach outside content",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_form_field",
+          "from": "within target",
+          "to": "before target",
+          "output": "no outside form fields were found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "from": "within target",
+          "to": "before target",
+          "output": "no outside links were found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "only content within the modal was included in the lists",
+          "css_target": "*[aria-modal=true]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Add delivery address, dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "not able to move outside of the modal",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Add delivery address, dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "unable to reach outside content",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_form_field",
+          "from": "within target",
+          "to": "before target",
+          "output": "no outside form fields were found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "from": "within target",
+          "to": "before target",
+          "output": "no outside links were found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "only content within the modal was included in the lists",
+          "css_target": "*[aria-modal=true]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"edit box, street\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "not conveyed when first entering the dialog"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "not conveyed when first entering the dialog"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "start of target",
+          "to": "within target",
+          "output": "\"edit box, street\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "not conveyed when navigating to the boundary of the dialog"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "not conveyed when navigating to the boundary of the dialog"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "dialog boundary not conveyed",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"edit box, street\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": "Modal state was not conveyed but non-modal content was not obscured. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "content outside of the modal was announced",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "from": "within target",
+          "to": "before target",
+          "output": "content outside of the modal was announced",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_button",
+          "from": "start of target",
+          "to": "within target",
+          "output": "\"add delivery address, web dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "start of target",
+          "to": "within target",
+          "output": "\"add delivery address, web dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "start of target",
+          "to": "before target",
+          "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"add delivery address, web dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "start of target",
+          "to": "within target",
+          "output": "\"add delivery address, web dialog...\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "partial",
+              "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "\"opening double quotation mark\" and \"closing double quotation mark\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "partial",
+              "notes": "quotation marks were found and announced but no other content was conveyed"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "from": "within target",
+          "to": "before target",
+          "output": "not found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_form_field",
+          "from": "within target",
+          "to": "before target",
+          "output": "not found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "\"street, edit text\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "exit_object",
+          "from": "within target",
+          "to": "target",
+          "output": "\"Out of add delivery address, web dialog...\"",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "target",
+          "to": "before target",
+          "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "\"street, edit text\"",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "partial",
+              "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "target",
+          "to": "before target",
+          "output": "unable to navigate to outside content",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "pass",
+              "notes": "unable to navigate to outside content even after navigating out of the dialog via VO+shift+up arrow"
+            }
+          ]
+        },
+        {
+          "command": "previous_heading",
+          "from": "within target",
+          "to": "before target",
+          "output": "previous headings in outside content were found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "headings, links, and other content was listed and could be navigated to",
+          "css_target": "*[aria-modal=true]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "start of target",
+          "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\" ",
+          "css_target": "*[aria-role=\"dialog\"]",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "partial",
+              "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "start of target",
+          "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "partial",
+              "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "result": "partial",
+              "notes": "Partial because the link before the modal was announced (but nothing else outside of the modal)."
+            }
+          ]
+        },
+        {
+          "command": "previous_form_field",
+          "from": "within target",
+          "to": "before target",
+          "output": "no outside form fields were found",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "from": "within target",
+          "to": "before target",
+          "output": "The link just before the dialog example was announced, but the reading cursor was immediately sent back to the open dialog. Not possible to find other links outside of the dialog.",
+          "css_target": "*[aria-modal=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "list_links",
+          "output": "outside links are listed. When jumping to those links, focus is redirected back to the open dialog.",
+          "css_target": "*[aria-modal=true]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "result": "partial",
+              "notes": "partial because outside links are listed but its not possible to jump to them."
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-08-13",

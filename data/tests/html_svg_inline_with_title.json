@@ -6,143 +6,241 @@
       "feature_id": "svg/title_element",
       "feature_assertion_id": "convey_accessible_name",
       "css_target": "#target",
-      "expected_value": "red square",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "red square",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_graphic",
-                  "output": "(not found)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "red square",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_graphic",
-                  "output": "red square",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(target not announced)",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_graphic",
-                  "output": "(target not found)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(target not announced)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(not announced)",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_graphic",
-                  "output": "(not found)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(not announced)",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_graphic",
-                  "output": "(not found)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(not announced)",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "output": "(not included in list of graphics)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "not announced",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "expected_value": "red square"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "red square",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_graphic",
+          "output": "red square",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "red square",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_graphic",
+          "output": "(not found)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "(target not announced)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_graphic",
+          "output": "(target not found)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "(target not announced)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "(not announced)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_graphic",
+          "output": "(not found)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "not announced",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "(not announced)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "output": "(not included in list of graphics)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "(not announced)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_graphic",
+          "output": "(not found)",
+          "css_target": "svg",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {},
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2018-12-14",

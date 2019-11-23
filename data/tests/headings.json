@@ -4,719 +4,990 @@
   "assertions": [
     {
       "feature_id": "html/h1-6_elements",
-      "feature_assertion_id": "convey_role_and_name",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"<name>, heading <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role_and_name"
     },
     {
       "feature_id": "html/h1-6_elements",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_heading",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_headings",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "all headings and heading levels were listed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name> heading level <level>\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "output": "\"<name> heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "aria/heading_role",
-      "feature_assertion_id": "convey_role_and_name",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"<name>, heading <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role_and_name"
     },
     {
       "feature_id": "aria/heading_role",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_heading",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_headings",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "all headings and heading levels were listed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "list_headings",
-                  "output": "all headings included in list along with heading levels",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_heading",
-                  "output": "\"<name> heading level <level>\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "output": "\"<name> heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_heading",
-                  "output": "\"<name>, heading <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "aria/aria-level_attribute",
-      "feature_assertion_id": "convey_presence_and_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"<name>, heading level <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"heading level <level>, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"<name>, heading <level>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_presence_and_value"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name> heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "output": "\"<name> heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in list along with heading levels",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name> heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "output": "\"<name> heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"<name>, heading <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"<name>, heading <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "output": "\"<name>, heading <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"<name>, heading <level>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[role=\"heading\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "css_target": "*[role=\"heading\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"heading level <level>, <name>\"",
+          "css_target": "*[aria-level]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "from": "within target",
+          "to": "end of target",
+          "output": "all headings and heading levels were listed",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[role=\"heading\"]",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "from": "within target",
+          "to": "end of target",
+          "output": "all headings and heading levels were listed",
+          "css_target": "*[role=\"heading\"]",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "css_target": "*[aria-level]",
+          "results": [
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-07-27",

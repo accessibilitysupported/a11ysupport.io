@@ -6,568 +6,769 @@
     {
       "feature_id": "aria/link_role",
       "feature_assertion_id": "convey_accessible_name",
-      "css_target": "#target_1",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(target was clicked)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(target was clicked)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was activated",
-                  "result": "pass",
-                  "notes": "said \"tap target 1\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was tapped",
-                  "result": "pass",
-                  "notes": "said \"tap target 1\" "
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was clicked",
-                  "result": "pass",
-                  "notes": "said \"click target one\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click target 1\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "target 0 was clicked instead",
-                  "result": "fail",
-                  "notes": "said \"click target 1\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target_1"
     },
     {
       "feature_id": "aria/link_role",
       "feature_assertion_id": "convey_role",
-      "css_target": "#target_1",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "(all elements of type were flagged)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "(all elements of type were flagged)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, target 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target_1"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "(target was clicked)",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "(all elements of type were flagged)",
+          "css_target": "*[role=\"button\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_name",
+          "output": "(target was clicked)",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "(all elements of type were flagged)",
+          "css_target": "*[role=\"button\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link, double tap to activate\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link, double tap to activate\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "link was activated",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass",
+              "notes": "said \"tap target 1\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was flagged with a number",
+          "css_target": "*[role=\"button\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, target 1\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"link\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, link\"",
+          "css_target": "*[role=\"button\"]",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "link was tapped",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass",
+              "notes": "said \"tap target 1\" "
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "link was clicked",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass",
+              "notes": "said \"click target one\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "*[role=\"button\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "target 0 was clicked instead",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "fail",
+              "notes": "said \"click target 1\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "*[role=\"button\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "*[role=\"link\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_accessible_name",
+              "result": "pass",
+              "notes": "said \"click target 1\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "*[role=\"button\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-02-08",

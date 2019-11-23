@@ -6,277 +6,444 @@
       "feature_id": "html/label_element",
       "feature_assertion_id": "accessible_name",
       "css_target": "#target",
-      "expected_value": "Your name",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Clickable, Your name, edit, has auto complete\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit, has auto complete, blank\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Clickable, Your name, edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit, blank\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"your name, entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"your name, entry, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Your name, text field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "your name, edit text",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "your name, edit text",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "your name, edit text",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "your name, edit text",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Your name\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Your name, edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Your name, edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(input was not focused)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(input was not focused)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(input was not focused)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"tap your name\""
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "command was not recognized",
-                  "result": "fail",
-                  "notes": "said \"tap your name\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "fail",
-                  "notes": "said \"click your name\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click your name\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click your name\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "expected_value": "Your name"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "(input was not focused)",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_name",
+          "output": "(input was not focused)",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_name",
+          "output": "(input was not focused)",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit, type in text\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit, type in text\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit, type in text\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit, type in text\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "\"Your name\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"Clickable, Your name, edit\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit, blank\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"Clickable, Your name, edit, has auto complete\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"Your name, edit, has auto complete, blank\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"Your name, edit\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "command was not recognized",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "fail",
+              "notes": "said \"tap your name\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "\"Your name, text field\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "your name, edit text",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "your name, edit text",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "your name, edit text",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "your name, edit text",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"your name, entry\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"your name, entry, focus mode\"",
+          "css_target": "label",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass",
+              "notes": "said \"tap your name\""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "fail",
+              "notes": "said \"click your name\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass",
+              "notes": "said \"click your name\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "label",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass",
+              "notes": "said \"click your name\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2018-07-06",

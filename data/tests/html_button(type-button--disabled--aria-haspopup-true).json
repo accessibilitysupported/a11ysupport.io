@@ -6,174 +6,309 @@
       "feature_id": "html/disabled_attribute",
       "feature_assertion_id": "convey_disabled",
       "css_target": "#target",
-      "results": {
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "output": "target, shows popup",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target, shows popup",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "(target was not focused)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target, dimmed, popup button",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "(target was not focused)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "(target was not focused)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "(target was not focused)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "(input was not focused)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "button disabled target",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Note: the haspopup property was not announced, but this test does not test that aspect."
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "menu button unavailable submenu target",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "(target was not focused)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "menu button unavailable submenu target",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "(target was not focused)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"target, push button, grayed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "edge": "Note: the haspopup property was not announced, but this test does not test that aspect."
         },
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"target, pop up button\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "did not announce \"double tap to activate\""
-            }
-          }
+          "and_chr": "did not announce \"double tap to activate\""
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "(target was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "output": "(target was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "(target was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "output": "(input was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "button disabled target",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "menu button unavailable submenu target",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "(target was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "menu button unavailable submenu target",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "(target was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"target, pop up button\"",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item_of_type",
+          "output": "target, shows popup",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target, shows popup",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "output": "(target was not focused)",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target, dimmed, popup button",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"target, push button, grayed\"",
+          "css_target": "*[disabled]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-07-27",

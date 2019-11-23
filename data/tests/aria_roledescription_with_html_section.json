@@ -5,185 +5,267 @@
     {
       "feature_id": "aria/aria-roledescription_attribute",
       "feature_assertion_id": "convey_value",
-      "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target\"",
-                  "result": "fail",
-                  "notes": "no information about the section was conveyed"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"section name, region\"",
-                  "result": "fail",
-                  "notes": "in list of regions, but role was not changed."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target\"",
-                  "result": "fail",
-                  "notes": "no information about the section was conveyed"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"section name, region\"",
-                  "result": "fail",
-                  "notes": "in list of regions, but role was not changed."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target\"",
-                  "result": "fail",
-                  "notes": "no information about the section was conveyed"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"no regions were found on the page\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Target\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"section name, custom section role, region landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"section name, custom section role, target.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Section name, custom section role, target.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom section role\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"section name, region\"",
-                  "result": "fail",
-                  "notes": "Contents of the section could not be announced."
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"section name, region\"",
-                  "result": "fail",
-                  "notes": "Contents of the section could not be announced."
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Section name, custom section role\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Target, section name, landmark\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "no information about the section was conveyed"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"section name, region\"",
+          "css_target": "*[aria-roledescription]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "in list of regions, but role was not changed."
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "no information about the section was conveyed"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"no regions were found on the page\"",
+          "css_target": "*[aria-roledescription]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "no information about the section was conveyed"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"section name, region\"",
+          "css_target": "*[aria-roledescription]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "in list of regions, but role was not changed."
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"section name, custom section role, region landmark\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"section name, custom section role, target.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Section name, custom section role, target.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"section name, region\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "Contents of the section could not be announced."
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"section name, region\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "Contents of the section could not be announced."
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Target, section name, landmark\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Section name, custom section role\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom section role\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-09-09",

@@ -6,1302 +6,1331 @@
     {
       "feature_id": "html/dl_element",
       "feature_assertion_id": "convey_role",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "(role not conveyed)",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"1 of 6, level 1\" (a list was implied)",
-                  "result": "partial"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"list with 6 items. Green\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "Conveyed as a list, but not a description list."
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"list with 6 items. Green\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "Conveyed as a list, but not a description list."
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"definition list of 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"definition list of 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"definition list of 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"green, description term\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Green, in list, 3 items\"",
-                  "result": "partial",
-                  "notes": "conveyed as a list, but not a description list."
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"description list, 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "chrome": "Conveyed as a list, but not a description list.",
+          "firefox": "Conveyed as a list, but not a description list."
         }
       }
     },
     {
       "feature_id": "html/dl_element",
       "feature_assertion_id": "convey_setsize",
-      "expected_value": "3",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Green\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"1 of 6, level 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"list with 6 items. Green\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"list with 6 items. Green\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"definition list of 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"definition list of 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"definition list of 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"green, description term\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Green, in list, 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"description list, 3 items\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "expected_value": "3"
     },
     {
       "feature_id": "html/dl_element",
-      "feature_assertion_id": "convey_boundaries",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"Green\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item_advanced",
-                  "from": "start of target",
-                  "to": "start of target",
-                  "output": "\"1 of 6, level 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(did not convey boundary)",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) (did not convey boundary)",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item_advanced",
-                  "from": "within target",
-                  "to": "within target",
-                  "output": "(enter list from start) \"6 of 6, level 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"list with 6 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"out of list\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"list with 6 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"out of list\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"list with 6 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"out of list\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"list with 6 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"out of list\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"definition list of 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"list end\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"definition list of 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"list end\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"definition list of 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"list end\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"definition list of 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"list end\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"definition list of 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"list end\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"definition list of 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"list end\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"green, description term\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"some other content\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"and possibly white\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "\"These colors match well together\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Green, in list, 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "\"Some other content, out of list\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"And possibly white. In list, 3 items.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "\"\"",
-                  "result": "These colors match well together. out of list."
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) \"description list, 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"end of description list\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"description list, 3 items\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"end of description list\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "(enter list from start) Orange",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "(exit list from end) \"some other content\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "within target",
-                  "output": "(enter list from end) \"And possibly white\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "within target",
-                  "to": "before target",
-                  "output": "(exit list from start) \"These colors match well together\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_boundaries"
     },
     {
       "feature_id": "html/dt_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange 3 of 6\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"Orange list item, read only\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"list item, read only, 2 of 3\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Green, description term\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/dt_element",
-      "feature_assertion_id": "convey_posinset",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"3 of 6, level 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"Orange list item, read only\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"list item, read only, 2 of 3\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Green, description term\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange 3 of 6\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Orange\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_posinset"
     },
     {
       "feature_id": "html/dd_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"Gray paragraph\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"Gray paragraph\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blue\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Gray, definition\"",
-                  "result": "partial",
-                  "notes": "The 'definition' role is not announced if the definition spans multiple lines, such as the definition for 'red' in the example."
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray 4 of 6\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/dd_element",
-      "feature_assertion_id": "convey_posinset",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"4 of 6, level 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"Gray, paragraph\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "read_item",
-                  "output": "\"Gray, paragraph\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blue\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Gray, definition\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray 4 of 6\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "after target",
-                  "output": "\"Gray\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_posinset"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"list end\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"list end\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"list end\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"list end\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"list end\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"definition list of 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"list end\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "(role not conveyed)",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "target",
+          "to": "target",
+          "output": "\"1 of 6, level 1\" (a list was implied)",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"Green\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item_advanced",
+          "from": "start of target",
+          "to": "start of target",
+          "output": "\"1 of 6, level 1\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(did not convey boundary)",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) (did not convey boundary)",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item_advanced",
+          "from": "within target",
+          "to": "within target",
+          "output": "(enter list from start) \"6 of 6, level 1\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange 3 of 6\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "target",
+          "to": "target",
+          "output": "\"3 of 6, level 1\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "target",
+          "to": "target",
+          "output": "\"4 of 6, level 1\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"list with 6 items. Green\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"list with 6 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"out of list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"list with 6 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"out of list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item",
+          "output": "\"list item, read only, 2 of 3\"",
+          "css_target": "dt",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item",
+          "output": "\"Gray paragraph\"",
+          "css_target": "dd",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"list with 6 items. Green\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"list with 6 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"out of list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"list with 6 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"out of list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item",
+          "output": "\"Orange list item, read only\"",
+          "css_target": "dt",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item",
+          "output": "\"Gray paragraph\"",
+          "css_target": "dd",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Green, in list, 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial",
+              "notes": "conveyed as a list, but not a description list."
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "\"Some other content, out of list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"And possibly white. In list, 3 items.\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "start of target",
+          "output": "\"\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "These colors match well together. out of list."
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Gray, definition\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial",
+              "notes": "The 'definition' role is not announced if the definition spans multiple lines, such as the definition for 'red' in the example."
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) Orange",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"some other content\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"And possibly white\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"These colors match well together\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"description list, 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "(enter list from start) \"description list, 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "(exit list from end) \"end of description list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "within target",
+          "output": "(enter list from end) \"description list, 3 items\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "before target",
+          "output": "(exit list from start) \"end of description list\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Orange\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "after target",
+          "output": "\"Gray 4 of 6\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"green, description term\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"some other content\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"and possibly white\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "within target",
+          "to": "start of target",
+          "output": "\"These colors match well together\"",
+          "css_target": "dl",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Green, description term\"",
+          "css_target": "dt",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blue\"",
+          "css_target": "dd",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-09-11",

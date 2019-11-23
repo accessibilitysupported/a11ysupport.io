@@ -5,2747 +5,2493 @@
   "assertions": [
     {
       "feature_id": "html/select_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "element was focused",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, combobox, apple, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, apple, combobox, collapsed, scan\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, apple, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "select was not activated",
-                  "result": "fail",
-                  "notes": "said \"tap Choose a food item\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, apple, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"tap Choose a food item\"."
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "checkbox was checked",
-                  "result": "pass",
-                  "notes": "said \"click Choose a food item\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click choose a food item\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click choose a food item\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/select_element",
       "feature_assertion_id": "convey_role",
-      "results": {
+      "browserNotes": {
         "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "element was focused",
-                  "result": "pass"
-                }
-              ],
-              "notes": "said \"click list box\""
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, combobox, apple, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, apple, combobox, collapsed, scan\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, apple, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role is flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, apple, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
+          "chrome": "said \"click list box\""
         }
       }
     },
     {
       "feature_id": "html/select_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, combobox, apple, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, apple, combobox, collapsed, scan\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, apple, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, apple, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, apple, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/select_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form fields",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form fields",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, Combo box, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form fields",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, steak, combobox, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combobox, collapsed.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"in list of form fields\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combobox, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"in list of form fields\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_combo_box",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_combo_boxes",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "in list of combo boxes",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, apple, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "html/select_element",
       "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"banana\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"banana (fruits)\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"banana\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "select_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"banana, 2 of 5, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"banana\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"next_option\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "select_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? everything, combobox, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "select_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"collapsed, banana, popup button, Choose a food item\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "Partial support due to the work around needed to activate an option. I was unable to activate an option after double tapping the pop up button. The list was displayed and I could swipe right to navigate options, but double tapping just closed the list and didn't change the value. Work around: swipe right through the entire page until you reach the open options at the end of the page, then you can navigate and make your selection."
-            }
-          }
+          "and_chr": "Partial support due to the work around needed to activate an option. I was unable to activate an option after double tapping the pop up button. The list was displayed and I could swipe right to navigate options, but double tapping just closed the list and didn't change the value. Work around: swipe right through the entire page until you reach the open options at the end of the page, then you can navigate and make your selection."
         },
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "select_option",
-                  "output": "\"Choose a food item, banana, pop up button\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Focus was sent back to the select after a choice was made, so the control was announced again with the new value"
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "select_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Closing menu, chicken, Choose a food item, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "ios_saf": "Focus was sent back to the select after a choice was made, so the control was announced again with the new value"
         }
       }
     },
     {
       "feature_id": "html/select_element",
-      "feature_assertion_id": "convey_option_boundaries",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "output": "silence when the start of end of the list is reached after pressing up or down arrows respectively",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "output": "silence when the start of end of the list is reached after pressing up or down arrows respectively",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "output": "silence when the start of end of the list is reached after pressing up or down arrows respectively",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "previous_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"1 of 8, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"5 of 8, everything\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by looping through list",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "previous_option",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "\"select test, web view, out of list\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "ear con",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "previous_option",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "first option was re-announced with an earcon",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "last option was re-announced with an earcon",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "down arrow loops back to the start of the list, but there is no indication of the start or end of the list",
-                  "result": "partial"
-                },
-                {
-                  "command": "vo_down",
-                  "from": "within target",
-                  "to": "start of target",
-                  "output": "earcon indicates start of list",
-                  "result": "pass"
-                },
-                {
-                  "command": "vo_down",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "earcon indicates end of list",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_option_boundaries"
     },
     {
       "feature_id": "html/select_element",
       "feature_assertion_id": "convey_collapsed_state",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Combo box, apple\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, combobox, apple, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"What food do you want, apple, combobox, collapsed, scan\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, collapsed, apple\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, combo box, apple, collapsed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item apple, combo box, focus mode\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Choose a food item, banana, pop up button\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "implied by the pop up button"
-            }
-          }
+          "ios_saf": "implied by the pop up button"
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple, Choose a food item, pop up button\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Implied by the pop up button role"
-            }
-          }
+          "safari": "Implied by the pop up button role"
         }
       }
     },
     {
       "feature_id": "html/optgroup_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"meats\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"meats\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"meats, dimmed\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/optgroup_element",
       "feature_assertion_id": "convey_name",
-      "results": {
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"chicken\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"chicken (meats)\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "only conveyed when the pressing up or down arrows while the listbox is closed"
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"chicken\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"meats\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"meats\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"meats, dimmed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "ie": "only conveyed when the pressing up or down arrows while the listbox is closed"
         }
       }
     },
     {
       "feature_id": "html/optgroup_element",
-      "feature_assertion_id": "convey_boundaries",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "optgroup boundaries were not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+      "feature_assertion_id": "convey_boundaries"
+    },
+    {
+      "feature_id": "html/option_element",
+      "feature_assertion_id": "convey_name",
+      "browserNotes": {
+        "dragon_win": {
+          "chrome": "Options within an optgroup are not supported. I said 'click listbox', 'show choices', 'choose banana', and the option was not activated. Saying 'choose everything' instead worked as expected ('everything' is not part of an optgroup)."
         }
       }
     },
     {
       "feature_id": "html/option_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "choose_dropdown_option",
-                  "output": "the \"everything\" option was chosen, however, options within optgroups could not be chosen.",
-                  "result": "partial"
-                }
-              ],
-              "notes": "Options within an optgroup are not supported. I said 'click listbox', 'show choices', 'choose banana', and the option was not activated. Saying 'choose everything' instead worked as expected ('everything' is not part of an optgroup)."
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"3 of 8, chicken\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "option was activated",
-                  "result": "pass",
-                  "notes": "said \"tap banana\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "show_names",
-                  "output": "names were not listed for options",
-                  "result": "fail",
-                  "notes": "said \"show names\". This was done after tapping the select element so that options were displayed. "
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "option was selected",
-                  "result": "pass",
-                  "notes": "said \"click everything\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click chicken\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "fail",
-                  "notes": "said \"click chicken\""
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "feature_id": "html/option_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "move_down",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "value was changed to the next option",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by the context",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by the context",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by the context",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"implied by the context\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by context",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by context",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by the combo box role",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by context",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by context",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "implied by context",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "fail",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/option_element",
       "feature_assertion_id": "convey_posinset",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "steak",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"3 of 8, steak\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple 1 of 8\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "only conveyed when expanded"
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"apple 1 of 8\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "only conveyed when expanded"
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"chicken\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "select_and_speak",
-                  "output": "\"apple, picker item, 2 of 7\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"steak\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "chrome": "only conveyed when expanded",
+          "firefox": "only conveyed when expanded"
         }
       }
     },
     {
       "feature_id": "html/disabled_attribute",
-      "feature_assertion_id": "convey_disabled",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "choose_dropdown_option",
-                  "output": "the \"nothing\" option was chosen, however, options within optgroups could not be chosen.",
-                  "result": "fail",
-                  "notes": "I said 'click listbox', 'show choices', 'choose nothing', and the option was activated."
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options were skipped",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options were skipped",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options were skipped",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "options are skipped when scan mode is off",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Broccoli, Lettuce, 3 of 5, disabled\" (when scan mode is on)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Broccoli, 1 of 2, disabled\" (when scan mode is on)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Nothing, 5 of 5, disabled\" (when scan mode is on)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options were skipped",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options were skipped",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options are skipped which implies the disabled state",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options and optgroups were not displayed at all",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                },
-                {
-                  "command": "activate_name",
-                  "output": "button was not activated",
-                  "result": "pass",
-                  "notes": "said \"tap Broccoli\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "disabled options and optgroups were not displayed at all",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"veggies, dimmed\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"nothing, dimmed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "unknown",
-                  "notes": "said \"show numbers\". Unknown because the select widget is not operable by VC."
-                },
-                {
-                  "command": "activate_name",
-                  "output": "button was not activated",
-                  "result": "unknown",
-                  "notes": "said \"tap Broccoli\". Unknown because the select widget is not operable by VC."
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "option was not selected",
-                  "result": "pass",
-                  "notes": "said \"click lettuce\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "",
-                  "result": "unknown",
-                  "notes": "none of the options were operable"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "",
-                  "result": "unknown",
-                  "notes": "none of the options were operable"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_disabled"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "element was focused",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "element was focused",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "choose_dropdown_option",
+          "output": "the \"everything\" option was chosen, however, options within optgroups could not be chosen.",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "move_down",
+          "from": "before target",
+          "to": "target",
+          "output": "value was changed to the next option",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "choose_dropdown_option",
+          "output": "the \"nothing\" option was chosen, however, options within optgroups could not be chosen.",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "fail",
+              "notes": "I said 'click listbox', 'show choices', 'choose nothing', and the option was activated."
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Combo box, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want, Combo box, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form fields",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"banana\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"chicken\"",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options were skipped",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Combo box, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want, Combo box, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form fields",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"banana (fruits)\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"chicken (meats)\"",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options were skipped",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Combo box, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want, Combo box, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form fields",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"banana\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"chicken\"",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options were skipped",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want, combobox, apple, collapsed, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want, apple, combobox, collapsed, scan\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want, steak, combobox, collapsed\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"banana, 2 of 5, selected\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"1 of 8, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"5 of 8, everything\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "within target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"3 of 8, chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "options are skipped when scan mode is off",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Broccoli, Lettuce, 3 of 5, disabled\" (when scan mode is on)",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item, combo box, collapsed\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item, combo box, collapsed\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want? Combobox, collapsed.\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"in list of form fields\"",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"banana\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_option",
+          "from": "before target",
+          "to": "target",
+          "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "within target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options were skipped",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item, combo box, collapsed, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item, combo box, apple, collapsed\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want? Combobox, collapsed, apple\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"in list of form fields\"",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_option",
+          "from": "before target",
+          "to": "target",
+          "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "within target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options were skipped",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"collapsed, banana, popup button, Choose a food item\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "previous_option",
+          "from": "within target",
+          "to": "start of target",
+          "output": "\"select test, web view, out of list\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "end of target",
+          "output": "ear con",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"meats\"",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"steak\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options and optgroups were not displayed at all",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "select was not activated",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"tap Choose a food item\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role is flagged with a number",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "option was activated",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap banana\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "button was not activated",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass",
+              "notes": "said \"tap Broccoli\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item, apple, pop up button\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item, apple, pop up button\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Choose a food item, banana, pop up button\"",
+          "css_target": "select",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_option",
+          "from": "within target",
+          "to": "start of target",
+          "output": "first option was re-announced with an earcon",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "end of target",
+          "output": "last option was re-announced with an earcon",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"meats\"",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"steak\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "select_and_speak",
+          "output": "\"apple, picker item, 2 of 7\"",
+          "css_target": "option",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options and optgroups were not displayed at all",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"apple, Choose a food item, pop up button\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"apple, Choose a food item, pop up button\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"apple, Choose a food item pop up button\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Closing menu, chicken, Choose a food item, pop up button\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "end of target",
+          "output": "down arrow loops back to the start of the list, but there is no indication of the start or end of the list",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "vo_down",
+          "from": "within target",
+          "to": "start of target",
+          "output": "earcon indicates start of list",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "vo_down",
+          "from": "within target",
+          "to": "end of target",
+          "output": "earcon indicates end of list",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"meats, dimmed\"",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "after target",
+          "output": "optgroup boundaries were not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"steak\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"veggies, dimmed\"",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item apple, combo box\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item apple, combo box, focus mode\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_collapsed_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_combo_box",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Choose a food item apple, combo box\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_combo_boxes",
+          "from": "before target",
+          "to": "target",
+          "output": "in list of combo boxes",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"What food do you want? everything, combobox, focus mode\"",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "implied by looping through list",
+          "css_target": "select",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_option_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not conveyed",
+          "css_target": "optgroup",
+          "results": [
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/optgroup_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"chicken\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "disabled options are skipped which implies the disabled state",
+          "css_target": "*[disabled]",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap Choose a food item\"."
+            }
+          ]
+        },
+        {
+          "command": "show_names",
+          "output": "names were not listed for options",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"show names\". This was done after tapping the select element so that options were displayed. "
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "unknown",
+              "notes": "said \"show numbers\". Unknown because the select widget is not operable by VC."
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "button was not activated",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "unknown",
+              "notes": "said \"tap Broccoli\". Unknown because the select widget is not operable by VC."
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "checkbox was checked",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click Choose a food item\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "option was selected",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click everything\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "option was not selected",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "pass",
+              "notes": "said \"click lettuce\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click choose a food item\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click chicken\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "unknown",
+              "notes": "none of the options were operable"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click choose a food item\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "select",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/select_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click chicken\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "",
+          "css_target": "*[disabled]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/disabled_attribute",
+              "feature_assertion_id": "convey_disabled",
+              "result": "unknown",
+              "notes": "none of the options were operable"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-08-08",
@@ -2775,7 +2521,6 @@
       "date": "2019-10-18",
       "message": "Add wsr results"
     }
-
   ],
   "versions": {
     "dragon_win": {

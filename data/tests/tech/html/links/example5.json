@@ -7,551 +7,25 @@
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_role",
       "css_target": "#example-5 a[href]",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "flagged as a link to choose from",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Link, tablet 9000!\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\" (embedded semantics were not conveyed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000!, heading level 3, link\"",
-                  "result": "pass",
-                  "notes": "each line is announced as a link"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. link, tablet 9000!, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role is flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Each line is conveyed as its own link",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "and_chr": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
+          "safari": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
         }
       }
-    },  
+    },
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_name",
       "css_target": "#example-5 a[href]",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "successfully activated",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Link, tablet 9000!\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\" (embedded semantics were not conveyed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000!, heading level 3, link\"",
-                  "result": "pass",
-                  "notes": "each line is announced as a link"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. link, tablet 9000!, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was activated",
-                  "result": "pass",
-                  "notes": "said \"tap tablet 9000\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Each line is conveyed as its own link",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "and_chr": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"tap tablet 9000\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was clicked",
-                  "result": "pass",
-                  "notes": "said \"click tablet 9000\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "fail",
-                  "notes": "said \"click tablet 9000\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "fail",
-                  "notes": "said \"click tablet 9000\""
-                }
-              ]
-            }
-          }
+          "safari": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
         }
       }
     },
@@ -559,208 +33,21 @@
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_boundaries",
       "css_target": "#example-5 a[href]",
-      "results": {
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"<all text in link>, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Link, tablet 9000!\" (following lines of the link were not announced as links, nor was the end boundaries conveyed)",
-                  "result": "partial"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\" (embedded semantics were not conveyed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving.",
+          "ie": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving.",
+          "firefox": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
         },
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000!, heading level 3, link\"",
-                  "result": "pass",
-                  "notes": "each line is announced as a link"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. link, tablet 9000!, heading level 3, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving.",
+          "firefox": "Announces the link role on every line, and does not announce something like \"entering link\" or \"leaving link\" when entering or leaving."
         },
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation. The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Each line is conveyed as its own link",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "and_chr": "Boundaries implied by navigation. The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
-            }
-          }
+          "safari": "The entire contents of the link are announced when navigating to the link. Users can navigate into the link contain and navigate object by object."
         }
       }
     },
@@ -768,186 +55,907 @@
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "provide_shortcuts",
       "css_target": "#example-5 a[href]",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Only conveys the first line of the link",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Full text included in the list of links",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Only conveys the first line of the link",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Full text included in the list of links",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Only conveys the first line of the link",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Full text included in the list of links",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\" (embedded semantics were not conveyed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Conveys full text of link",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Full text included in the list of links",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Conveys full text of link",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "Full text included in the list of links",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "announced correctly",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_links",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "in list of links (all lines included)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Each line is conveyed as its own link",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "(included in the list of links)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "and_chr": "The entire content is announced as a link, and it is not possible to navigate content within the link. No semantics inside the link are conveyed."
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_role",
+          "output": "flagged as a link to choose from",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "successfully activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<all text in link>, heading level 3, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Only conveys the first line of the link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Full text included in the list of links",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<all text in link>, heading level 3, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Only conveys the first line of the link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Full text included in the list of links",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Heading level 3, link, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"<all text in link>, heading level 3, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Only conveys the first line of the link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Full text included in the list of links",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Link, tablet 9000!\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "Link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\" (embedded semantics were not conveyed)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\" (embedded semantics were not conveyed)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Conveys full text of link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Full text included in the list of links",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, Heading level 3, tablet 9000!\" (each down arrow press announces a line of text within the link along with the the link role)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000! heading level 3, <rest of text>, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Conveys full text of link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Full text included in the list of links",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "show_numbers",
+          "output": "role is flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "link was activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap tablet 9000\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "Each line is conveyed as its own link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Each line is conveyed as its own link",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in the list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000!, heading level 3, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "each line is announced as a link"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "each line is announced as a link"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "each line is announced as a link"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. link, tablet 9000!, heading level 3, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "announced correctly",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_links",
+          "from": "before target",
+          "to": "target",
+          "output": "in list of links (all lines included)",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "link was flagged for disambiguation",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap tablet 9000\""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "link was clicked",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click tablet 9000\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click tablet 9000\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click tablet 9000\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-07-28",

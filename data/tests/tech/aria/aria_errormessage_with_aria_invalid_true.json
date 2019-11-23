@@ -5,389 +5,532 @@
   "assertions": [
     {
       "feature_id": "aria/aria-errormessage_attribute",
-      "feature_assertion_id": "convey_pertinent",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, invalid entry\"",
-                  "result": "fail",
-                  "notes": "not conveyed when either the target or its label are read"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"blank, edit, Input with aria-invalid=\"true\", invalid entry, has error, example error text, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"blank, edit, Input with aria-invalid=\"true\", invalid entry, has error, example error text, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid, scan off\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry  has auto complete\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry  has auto complete, blank\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, blank\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", entry, invalid entry, example error text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", entry, invalid entry, example error texte\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit box, error: Invalid entry, input with aria-invalid=\"true\"\"",
-                  "result": "fail",
-                  "notes": "the text \"error: invalid entry\" conveys the aria-invalid state, note the aria-errormessage property."
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", text field, invalid data, double tap to edit\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", invalid data, edit text\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"true\", invalid data, edit text\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_pertinent"
     },
     {
       "feature_id": "aria/aria-errormessage_attribute",
-      "feature_assertion_id": "convey_not_pertinent",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"blank, edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"blank, edit, Input with aria-invalid=\"false\", edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, Input with aria-invalid=\"false\", edit, has error, example error text, type in text\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit, has error, example error text, type in text\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit, scan off\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", entry\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", entry\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit box, input with aria-invalid=\"false\"\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", text field, double tap to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Input with aria-invalid=\"false\", edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_not_pertinent"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"blank, edit, Input with aria-invalid=\"true\", invalid entry, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"blank, edit, Input with aria-invalid=\"false\", edit, type in text\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit, type in text\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"blank, edit, Input with aria-invalid=\"true\", invalid entry, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit, Input with aria-invalid=\"false\", edit, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit, invalid entry\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail",
+              "notes": "not conveyed when either the target or its label are read"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"blank, edit\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid, scan off\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit, scan off\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, blank\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry  has auto complete\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry  has auto complete, blank\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", entry\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", entry\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Edit box, error: Invalid entry, input with aria-invalid=\"true\"\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail",
+              "notes": "the text \"error: invalid entry\" conveys the aria-invalid state, note the aria-errormessage property."
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Edit box, input with aria-invalid=\"false\"\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", text field, invalid data, double tap to edit\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", text field, double tap to edit\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", invalid data, edit text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", invalid data, edit text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit text\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit text\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", entry, invalid entry, example error text\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"true\", entry, invalid entry, example error texte\"",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", entry\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Input with aria-invalid=\"false\", entry\"",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-08-02",

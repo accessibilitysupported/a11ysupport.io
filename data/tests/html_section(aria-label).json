@@ -5,836 +5,925 @@
     {
       "feature_id": "html/section_element",
       "feature_assertion_id": "convey_name_and_role_if_named",
-      "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_region",
-                  "output": "Sample text line 1, target region",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_region",
-                  "output": "\"Sample text line 1, target region\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_region",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target section, region landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"target, region\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"target region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target, region, landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target region, sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"region, sample text line 1\"",
-                  "result": "partial",
-                  "notes": "name not announced"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     },
     {
       "feature_id": "html/section_element",
       "feature_assertion_id": "convey_boundaries",
-      "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_region",
-                  "output": "Sample text line 1, target region",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"blank\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_region",
-                  "output": "\"Sample text line 1, target region\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"blank\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_region",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target region\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"blank\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target section, region landmark\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "\"example end\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"example, end\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"example, end\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"target, region\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"target region\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"target, region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
-                  "result": "pass",
-                  "notes": "boundaries implied because all contents were announced"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target, region, landmark\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"example end\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target region, sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"region, sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"leaving region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     },
     {
       "feature_id": "aria/aria-label_attribute",
       "feature_assertion_id": "contribute_to_accessible_name",
       "css_target": "#target",
-      "exclude_at": {"dragon_win":  "no_support", "vc_ios":  "no_support", "va_and":  "no_support", "vc_macos":  "no_support", "wsr":  "no_support"},
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "na",
-                  "notes": "na because the element was not conveyed"
-                },
-                {
-                  "command": "next_region",
-                  "output": "Sample text line 1, target region",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"sample text line 1\"",
-                  "result": "na",
-                  "notes": "na because the element was not conveyed"
-                },
-                {
-                  "command": "next_region",
-                  "output": "\"Sample text line 1, target region\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "na",
-                  "notes": "na because the element was not conveyed"
-                },
-                {
-                  "command": "next_region",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "na",
-                  "notes": "na because the element was not conveyed"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target section, region landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"target, region\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "\"target region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, line 1\"",
-                  "result": "na",
-                  "notes": "na because the element was not conveyed"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, line 1\"",
-                  "result": "na",
-                  "notes": "na because the element was not conveyed"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target, region, landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target region, sample text line 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"region, sample text line 1\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
+      "exclude_at": {
+        "dragon_win": "no_support",
+        "vc_ios": "no_support",
+        "va_and": "no_support",
+        "vc_macos": "no_support",
+        "wsr": "no_support"
       }
     },
     {
       "feature_id": "html/section_element",
       "feature_assertion_id": "provide_shortcuts",
-      "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_region",
-                  "output": "Sample text line 1, target region",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_region",
-                  "output": "\"Sample text line 1, target region\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target section, region landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Target region, Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "\"target region\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1, target, region, landmark\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_landmark",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"region, sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "output": "Sample text line 1, target region",
+          "css_target": "section[aria-label]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"blank\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "output": "Sample text line 1, target region",
+          "css_target": "*[aria-label]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "\"sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "output": "\"Sample text line 1, target region\"",
+          "css_target": "section[aria-label]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"blank\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "output": "\"Sample text line 1, target region\"",
+          "css_target": "*[aria-label]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, target region\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"blank\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, target region\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, target region\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target section, region landmark\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "\"example end\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target section, region landmark\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"example, end\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"example, end\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "boundaries implied because all contents were announced"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, region, sample text line 1, sample text line 2, sample text line 3\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, target, region, landmark\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"example end\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1, target, region, landmark\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"target, region\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"target region\"",
+          "css_target": "section[aria-label]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"target, region\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"target, region\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"target region\"",
+          "css_target": "*[aria-label]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target region, sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"region, sample text line 1\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "partial",
+              "notes": "name not announced"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"leaving region\"",
+          "css_target": "section[aria-label]",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target region, sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "from": "before target",
+          "to": "target",
+          "output": "\"region, sample text line 1\"",
+          "css_target": "*[aria-label]",
+          "results": [
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2018-11-14",

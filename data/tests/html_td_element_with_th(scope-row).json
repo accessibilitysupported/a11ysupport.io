@@ -1,1592 +1,2323 @@
 {
   "title": "HTML td element with a row header (th[scope=\"row\"])",
   "description": "This test verifies that the row header is announced for associated td elements when the scope=\"row\" attribute is used.",
-  "keywords": [
-    "scope=\"row\""
-  ],
   "assertions": [
     {
       "feature_id": "html/table_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_row_header",
-                  "output": "\"name, row header\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 rows, 2 columns, name, greg\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Name, row header, row 1, in grid, 2 rows, 2 columns\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table, 2 columns, 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"end of table\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"name, row 1 column 1, table start 2 rows, 2 columns\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "\"car, column 2, table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/table_element",
-      "feature_assertion_id": "convey_boundaries",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table exit, text after the table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table exit, text before the table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "\"no next cell in column\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"no next cell in row\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "\"no previous cell in column\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"no previous cell in row\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "\"out of table, text after the table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "\"out of table, text after the table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"edge of table\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"table with 2 rows, 2 columns, name, greg\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "\"leaving table\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "\"end of row\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "\"beginning of row\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"bottom of column\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"top of column\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Name, row header, row 1, in grid, 2 rows, 2 columns\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "\"out of grid\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table with 2 columns and 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"table, 2 columns, 2 rows\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"end of table\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"name, row 1 column 1, table start 2 rows, 2 columns\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"car, column 2, table end\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_boundaries"
     },
     {
       "feature_id": "html/scope_attribute",
       "feature_assertion_id": "convey_value_row",
-      "css_target": "#target",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_row_header",
-                  "output": "\"name, row header\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name row 1 greg\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"name row 1 column 2 greg\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name row 1 greg\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"name row 1 column 2 greg\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"Name, greg, row 1, column 2\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Type, row header, name\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name, greg, row 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_current_cell",
-                  "output": "\"column 2, row 1, name, Greg\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"name, greg, row 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_current_cell",
-                  "output": "\"column 2, row 1, name, Greg\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "n\"ame, greg, row 1\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_current_cell",
-                  "output": "\"column 2, row 1, name, Greg\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"Row 1 of 2 Name, greg\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_row_header",
-                  "output": "\"Name\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Greg, column 2\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"Greg, row 1 column 2\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "additional_information",
-                  "output": "\"row 1 column 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "additional_information",
-                  "output": "\"row 1 column 2\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     },
     {
       "feature_id": "html/th_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Name, row header\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(cell is announced as the header as you transition between rows)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "\"Row 1 of 2 Name, greg\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_read_row_header",
-                  "output": "\"Name\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Greg, column 2\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "\"Greg, row 1 column 2\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "additional_information",
-                  "output": "\"row 1 column 1\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "additional_information",
-                  "output": "\"row 1 column 2\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/th_element",
-      "feature_assertion_id": "convey_position",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_position"
     },
     {
       "feature_id": "html/td_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "(no header semantics surfaced, which implies that this is a cell)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/td_element",
-      "feature_assertion_id": "convey_position",
-      "results": {
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "table_move_to_next_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_column",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_next_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "table_move_to_previous_row",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "output": "(position information is announced as column and rows are changed)",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_position"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"table with 2 columns and 2 rows\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"table end\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "n\"ame, greg, row 1\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_current_cell",
+          "output": "\"column 2, row 1, name, Greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "\"table with 2 columns and 2 rows\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"table end\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"name, greg, row 1\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_current_cell",
+          "output": "\"column 2, row 1, name, Greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"table with 2 columns and 2 rows\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"table end\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"name, greg, row 1\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_current_cell",
+          "output": "\"column 2, row 1, name, Greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "table_move_to_next_column",
+          "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_row_header",
+          "output": "\"name, row header\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"table exit, text after the table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"table exit, text before the table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "\"no previous cell in column\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"no previous cell in row\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "\"Greg, non-selected, row header Name, row 1 of 2 column 2 of 2\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_row_header",
+          "output": "\"name, row header\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"name row 1 greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"name row 1 column 2 greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"table  with 2 rows and 2 columns, row 1  column 1, Name\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"edge of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"name row 1 greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"name row 1 column 2 greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"Name, row header, row 1, in grid, 2 rows, 2 columns\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"Type, row header, name\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"Name, row header\"",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "\"name, row 1 column 1, table start 2 rows, 2 columns\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"car, column 2, table end\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"Greg, column 2\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"Greg, row 1 column 2\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "additional_information",
+          "output": "\"row 1 column 1\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"Greg, column 2\"",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"Greg, row 1 column 2\"",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "additional_information",
+          "output": "\"row 1 column 1\"",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "\"table, 2 columns, 2 rows\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "\"end of table\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"Row 1 of 2 Name, greg\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_row_header",
+          "output": "\"Name\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"Row 1 of 2 Name, greg\"",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_row_header",
+          "output": "\"Name\"",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"table with 2 rows, 2 columns, name, greg\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"table with 2 rows, 2 columns, name, greg\"",
+          "css_target": "table",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "\"leaving table\"",
+          "css_target": "table",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "\"end of row\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "\"beginning of row\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "\"bottom of column\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"top of column\"",
+          "css_target": "table",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "\"Name, greg, row 1, column 2\"",
+          "css_target": "*[scope=\"col\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_row",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(cell is announced as the header as you transition between rows)",
+          "css_target": "th",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "output": "(position information is announced as column and rows are changed)",
+          "css_target": "td",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-05-03",
@@ -1690,5 +2421,8 @@
         }
       }
     }
-  }
+  },
+  "keywords": [
+    "scope=\"row\""
+  ]
 }
