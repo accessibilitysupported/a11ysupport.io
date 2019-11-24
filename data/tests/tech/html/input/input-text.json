@@ -5,1363 +5,1315 @@
   "assertions": [
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "text input was focused",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal, Edit, type in text\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit, cats, your favorite animal, edit, cats, type in text\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal, Edit, type in text\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? edit, cats, cats, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? edit, cats, cats selected.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Combo edit, press space to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, selected cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal; edit; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Clickable, your favorite animal? Edit, has auto complete. cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit has auto complete. selected, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal?; edit; has auto complete; cats\" ",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, has auto complete. Cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"Your favorite animal?; entry; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"cats, edit box, your favorite animal? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "command was not recognized",
-                  "result": "fail",
-                  "notes": "said \"tap your favorite animal?\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"cats Your favorite animal? edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, you are currently in a text field...\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"tap what is your email?\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "pass",
-                  "notes": "said \"click your favorite animal?\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click your favorite animal\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click your favorite animal\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "text input was focused",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal, Edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit, cats, your favorite animal, edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal, Edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? edit, cats, cats, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? edit, cats, cats selected.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Combo edit, press space to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, selected cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal; edit; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Clickable, your favorite animal? Edit, has auto complete. cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit has auto complete. selected, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal?; edit; has auto complete; cats\" ",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, has auto complete. Cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"Your favorite animal?; entry; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"cats, edit box, your favorite animal? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role is flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"cats Your favorite animal? edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, you are currently in a text field...\"",
-                  "result": "partial",
-                  "notes": "not consistent with the usual role announcement"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, Edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? edit, cats, cats, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? edit, cats, cats selected.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Combo edit, press space to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, selected cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal; edit; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Clickable, your favorite animal? Edit, has auto complete. cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit has auto complete. selected, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal?; edit; has auto complete; cats\" ",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, has auto complete. cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"Your favorite animal?; entry; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"cats, edit box, your favorite animal? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"cats Your favorite animal? edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, you are currently in a text field...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_change_in_value"
     },
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal? edit cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Combo edit, press space to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal; edit; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"your favorite animal?; edit; has auto complete; cats\" ",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Edit, has auto complete. Cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"Your favorite animal?; entry; cats\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Entry, cats.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"cats, edit box, your favorite animal? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"cats Your favorite animal? edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Cats, you are currently in a text field...\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "text input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "text input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal, Edit, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"your favorite animal? edit cats\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Edit, cats, your favorite animal, edit, cats, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"your favorite animal? edit cats\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal, Edit, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"your favorite animal? edit cats\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? edit, cats, cats, scan off.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? edit, cats, cats selected.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Combo edit, press space to edit\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, selected cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"your favorite animal; edit; cats\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Clickable, your favorite animal? Edit, has auto complete. cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit has auto complete. selected, cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"your favorite animal?; edit; has auto complete; cats\" ",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Edit, has auto complete. Cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"cats, edit box, your favorite animal? double tap to enter text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"cats, edit box, your favorite animal? end of field\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "command was not recognized",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"tap your favorite animal?\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role is flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Cats, text field, double tap to edit\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Cats, contents selected, your favorite animal?, edit text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"cats Your favorite animal? edit text\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Cats, you are currently in a text field...\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial",
+              "notes": "not consistent with the usual role announcement"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Entry, cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Entry, cats selected, focus mode\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_form_fields",
+          "output": "in list of form controls as \"Your favorite animal?; entry; cats\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_edit_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite animal? Entry, cats.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap what is your email?\""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click your favorite animal?\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click your favorite animal\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click your favorite animal\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-09-14",

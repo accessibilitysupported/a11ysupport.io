@@ -5,147 +5,190 @@
     {
       "feature_id": "html/section_element",
       "feature_assertion_id": "no_role_if_not_named",
-      "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"sample text, line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text, line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"sample text line 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "\"sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text, line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"sample text, line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"sample text line 1\"",
+          "css_target": "section:not([aria-label])",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "no_role_if_not_named",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2018-11-14",

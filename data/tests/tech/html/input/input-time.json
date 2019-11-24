@@ -5,1481 +5,1495 @@
   "assertions": [
     {
       "feature_id": "html/input(type-time)_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "fail",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"hours, enter a date\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"hours, enter a date, spin box, 01\"",
-                  "result": "pass",
-                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
-                  "result": "pass",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 13:30, enter a date, edit, 13:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 13:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "fail",
-                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date hours edit 01\"",
-                  "result": "pass",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time, 1:30pm, 1:30pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time, 1:30pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button 01, spin button 30, spin button pm\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "not found",
-                  "result": "na"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable enter a date, clickable, hours, spin button, 01, minutes spin button 30, am/pm has auto complete, pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, grouping, hours, spin button 01\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
-                  "result": "fail",
-                  "notes": "also has an entry for the clear button"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"13:30 contents selected, Enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"13:30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Enter a date, clickable, enter a date, panel, 01 spin button, 30 spin button, am/pm entry, pm, clear push button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, panel, 01, spin button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"am/pm entry pm\"",
-                  "result": "fail",
-                  "notes": "only the am/pm embedded control was found"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"tap enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "Embedded controls were flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/input(type-time)_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "input was not found",
-                  "result": "fail",
-                  "notes": "said \"click edit\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"hours, enter a date\"",
-                  "result": "pass",
-                  "notes": "role implied by embedded controls"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
-                  "result": "pass",
-                  "notes": "role implied by embedded controls"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"hours, enter a date, spin box, 01\"",
-                  "result": "pass",
-                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
-                  "result": "pass",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 13:30, enter a date, edit, 13:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 13:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "fail",
-                  "notes": "embedded control role was conveyed, but not the outer control role."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "pass",
-                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date hours edit 01\"",
-                  "result": "pass",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time, 1:30pm, 1:30pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time, 1:30pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button 01, spin button 30, spin button pm\"",
-                  "result": "fail",
-                  "notes": "embedded roles were conveyed, but not the outer control"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "not found",
-                  "result": "na"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable enter a date, clickable, hours, spin button, 01, minutes spin button 30, am/pm has auto complete, pm\"",
-                  "result": "fail",
-                  "notes": "embedded roles were conveyed, but not the outer control"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, grouping, hours, spin button 01\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
-                  "result": "fail",
-                  "notes": "outer role was not conveyed"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged with a number",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"13:30 contents selected, Enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"13:30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Enter a date, clickable, enter a date, panel, 01 spin button, 30 spin button, am/pm entry, pm, clear push button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, panel, 01, spin button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"am/pm entry pm\"",
-                  "result": "fail",
-                  "notes": "only the am/pm embedded control was found"
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged with a number",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "embedded controls were flagged for disambiguation",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/input(type-time)_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"hours, enter a date, edit spin box, 01\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"hours, enter a date, spin box, 01\"",
-                  "result": "partial",
-                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
-                  "result": "partial",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 13:30, enter a date, edit, 13:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 13:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "partial",
-                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date hours edit 01\"",
-                  "result": "partial",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time, 1:30pm, 1:30pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time, 1:30pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button 01, spin button 30, spin button pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "not found",
-                  "result": "na"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable enter a date, clickable, hours, spin button, 01, minutes spin button 30, am/pm has auto complete, pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, grouping, hours, spin button 01\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
-                  "result": "fail",
-                  "notes": "also has an entry for the clear button"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"30\"",
-                  "result": "partial"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"13:30 contents selected, Enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"13:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Enter a date, clickable, enter a date, panel, 01 spin button, 30 spin button, am/pm entry, pm, clear push button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, panel, 01, spin button\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"am/pm entry pm\"",
-                  "result": "partial",
-                  "notes": "only the am/pm embedded control was found"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/input(type-time)_element",
       "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "output": "new value was announced",
-                  "result": "pass",
-                  "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new value was announced",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "output": "new value was announced",
-                  "result": "pass",
-                  "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "after changing the value in the widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
-                  "result": "fail",
-                  "notes": "Scan mode must be manually turned off to interact with widgets"
-                }
-              ],
-              "notes": "unable to change the value without using the date picker widget"
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "character was announced followed by the announcement of the formatted value.",
-                  "result": "pass",
-                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "character was announced followed by the announcement of the formatted value.",
-                  "result": "pass",
-                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "input was announced without a value",
-                  "result": "fail",
-                  "notes": "changed the value in the date picker and activated the \"set\" button."
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "unable to open the date picker and change the value.",
-                  "result": "fail",
-                  "notes": "double tapped on the control to open, but did not open"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new character was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new value for embedded spin buttons was announced",
-                  "result": "pass",
-                  "notes": "enter raw value of new text"
-                },
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "output": "new value for embedded spin buttons was not announced",
-                  "result": "fail",
-                  "notes": "used up and down arrow keys to change the value"
-                }
-              ]
-            }
-          }
+          "edge": "unable to change the value without using the date picker widget"
         }
       }
     },
     {
       "feature_id": "html/input(type-time)_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"hours, enter a date, spin box, 01\"",
-                  "result": "pass",
-                  "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
-                  "result": "pass",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 13:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit spin box, 01\"",
-                  "result": "pass",
-                  "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date hours edit 01\"",
-                  "result": "pass",
-                  "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "not found",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
-                  "result": "pass",
-                  "notes": "also has an entry for the clear button"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, 1:30pm, pop up button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"13:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"13:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"am/pm entry pm\"",
-                  "result": "fail",
-                  "notes": "only the am/pm embedded control was found"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "html/input(type-time)_element",
-      "feature_assertion_id": "widget_is_supported",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "unable to get to the control",
-                  "result": "fail",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            },
-            "ie": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for times are conveyed correctly and operable",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for time are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for time are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was possible to change the time, however time buttons were missing the role and the selected state was not conveyed for the selected day.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to open the time picker and set a new time",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "unable to open the date picker and change the value.",
-                  "result": "fail",
-                  "notes": "double tapped on the control to open, but did not open"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "Safari does not support this widget."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"am/pm entry, pm\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to change do a desired time. said \"show numbers\" followed by \"increment <number>\" for the corresponding control.",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to open the time picker but not interact with any elements in the time picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
-                  "result": "partial",
-                  "notes": "partial because it was still possible to use some of the controls and enter a date"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "widget_is_supported"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "input was not found",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"click edit\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "unable to get to the control",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "fail",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"hours, enter a date\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "role implied by embedded controls"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "role implied by embedded controls"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"hours, enter a date, spin box, 01\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "has separate stops for each embedded control. note that other date inputs with embedded controls do not have similar stops."
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "output": "new value was announced",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit, 13:30, enter a date, edit, 13:30, type in text\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 13:30, type in text\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, 13:30\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date, edit, 13:30\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new value was announced",
+          "css_target": "input[type=\"time\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit spin box, 01\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "embedded control role was conveyed, but not the outer control role."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, hours, edit spin box, 01, type in text\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"edit spin box, 01\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date hours edit 01\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "output": "new value was announced",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, time, 1:30pm, 1:30pm\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, time, 1:30pm\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "after changing the value in the widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "Scan mode must be manually turned off to interact with widgets"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for times are conveyed correctly and operable",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"spin button 01, spin button 30, spin button pm\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "embedded roles were conveyed, but not the outer control"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "skipped",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "not found",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "character was announced followed by the announcement of the formatted value.",
+          "css_target": "input[type=\"time\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"clickable enter a date, clickable, hours, spin button, 01, minutes spin button 30, am/pm has auto complete, pm\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "embedded roles were conveyed, but not the outer control"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, grouping, hours, spin button 01\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"clickable, enter a date, grouping, am/pm, edit has auto complete, pm\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"AM/PM; edit has auto complete, PM\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "also has an entry for the clear button"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "outer role was not conveyed"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "also has an entry for the clear button"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "also has an entry for the clear button"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "character was announced followed by the announcement of the formatted value.",
+          "css_target": "input[type=\"time\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, time picker, double tap to activate\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, time picker, double tap to activate\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "input was announced without a value",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "changed the value in the date picker and activated the \"set\" button."
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was possible to change the time, however time buttons were missing the role and the selected state was not conveyed for the selected day.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged with a number",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to open the time picker and set a new time",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, 1:30pm, pop up button\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, 1:30pm, pop up button\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "unable to open the date picker and change the value.",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "double tapped on the control to open, but did not open"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "unable to open the date picker and change the value.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "fail",
+              "notes": "double tapped on the control to open, but did not open"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"30\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"13:30 contents selected, Enter a date, edit text\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"13:30\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"13:30 enter a date edit text\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new character was announced",
+          "css_target": "input[type=\"time\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Enter a date, clickable, enter a date, panel, 01 spin button, 30 spin button, am/pm entry, pm, clear push button\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, panel, 01, spin button\"",
+          "css_target": "input[type=\"time\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"am/pm entry pm\"",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "only the am/pm embedded control was found"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "only the am/pm embedded control was found"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "only the am/pm embedded control was found"
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail",
+              "notes": "only the am/pm embedded control was found"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new value for embedded spin buttons was announced",
+          "css_target": "input[type=\"time\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "enter raw value of new text"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "output": "new value for embedded spin buttons was not announced",
+          "css_target": "input[type=\"time\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "used up and down arrow keys to change the value"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"am/pm entry, pm\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to change do a desired time. said \"show numbers\" followed by \"increment <number>\" for the corresponding control.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged with a number",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "Embedded controls were flagged for disambiguation",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "embedded controls were flagged for disambiguation",
+          "css_target": "input[type=\"time\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to open the time picker but not interact with any elements in the time picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": "partial because it was still possible to use some of the controls and enter a date"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-11-02",

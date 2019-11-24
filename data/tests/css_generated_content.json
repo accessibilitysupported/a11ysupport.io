@@ -5,152 +5,246 @@
     {
       "feature_id": "css/generated_content",
       "feature_assertion_id": "part_of_accessible_name",
-      "exclude_at": ["dragon_win", "vc_macos", "vc_ios", "va_and", "wsr"],
+      "exclude_at": {
+        "dragon_win": "no_support",
+        "vc_macos": "no_support",
+        "vc_ios": "no_support",
+        "va_and": "no_support",
+        "wsr": "no_support"
+      },
       "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "is generated",
-                  "result": "fail"
-                }
-              ]
-            },
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "this is generated content.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "this. is generated. content.",
-                  "result": "pass"
-                },
-                {
-                  "command": "start_reading",
-                  "output": "this is generated content",
-                  "result": "pass"
-                }
-              ],
-              "notes": "When using the next/previous line command, you have to swipe left/right three times to hear the entire sentence. The first swipe right reads the before generated content 'this', the next swipe right reads the html contents 'is generated', and the final swipe right reads the after generated content 'content'."
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                },
-                {
-                  "command": "start_reading",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "This is generated content.",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
+          "ios_saf": "When using the next/previous line command, you have to swipe left/right three times to hear the entire sentence. The first swipe right reads the before generated content 'this', the next swipe right reads the html contents 'is generated', and the final swipe right reads the after generated content 'content'."
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "is generated",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "this is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "this. is generated. content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "start_reading",
+          "output": "this is generated content",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "start_reading",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "This is generated content.",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-09-14",

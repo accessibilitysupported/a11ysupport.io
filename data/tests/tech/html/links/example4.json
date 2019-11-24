@@ -6,1157 +6,1052 @@
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_role",
-      "css_target": "#example-4 a[href]",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "flagged as a link to choose from",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role is flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visisted, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#example-4 a[href]"
     },
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_name",
-      "css_target": "#example-4 a[href]",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "successfully activated",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was activated",
-                  "result": "pass",
-                  "notes": "said \"tap you visited this link\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visisted, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was activated",
-                  "result": "pass",
-                  "notes": "said \"tap you visited this link\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was clicked",
-                  "result": "pass",
-                  "notes": "said \"click you visited this link\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click you visited this link\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click you visited this link\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#example-4 a[href]"
     },
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_boundaries",
       "css_target": "#example-4 a[href]",
-      "results": {
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link. link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            }
-          }
+          "chrome": "Boundaries implied by navigation",
+          "ie": "Boundaries implied by navigation",
+          "firefox": "Boundaries implied by navigation"
         },
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            }
-          }
+          "edge": "Boundaries implied by navigation"
         },
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "Boundaries implied by navigation",
+          "firefox": "Boundaries implied by navigation"
         },
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            }
-          }
+          "and_chr": "Boundaries implied by navigation"
         },
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visisted, link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            }
-          }
+          "ios_saf": "Boundaries implied by navigation"
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries implied by navigation"
-            }
-          }
+          "safari": "Boundaries implied by navigation"
         }
       }
     },
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "provide_shortcuts",
-      "css_target": "#example-4 a[href]",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "(included in list of links)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "(included in list of links)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "(included in list of links)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_unvisited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "(included in the list of links)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_visited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "(included in the list of links)",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_visited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_visited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "list_visited_links",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "in list of links",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visisted, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_visited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "(included in the list of links)",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#example-4 a[href]"
     },
     {
       "feature_id": "html/a(href)_element",
       "feature_assertion_id": "convey_visited",
-      "css_target": "#example-4 a[href]",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link, link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link, link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link, link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"link, You've already visited this link\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, visited link\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited link, You've already visited this link",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, visited link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visited link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"You've already visited this link, link\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"you visited this link, visisted, link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_visited_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"visited, link, you visited this link\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#example-4 a[href]"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_role",
+          "output": "flagged as a link to choose from",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "successfully activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link. link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link. link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link. link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_unvisited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link.\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, You've already visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, You've already visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"link, You've already visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in the list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_visited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited link, You've already visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in the list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_visited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"You've already visited this link, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "show_numbers",
+          "output": "role is flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "link was activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap you visited this link\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"you visited this link, visisted, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"you visited this link, visisted, link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited, link, you visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited, link, you visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited, link, you visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_visited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"visited, link, you visited this link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "(included in the list of links)",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"you visited this link, visited link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"you visited this link, visited link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_visited",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_visited_link",
+          "from": "before target",
+          "to": "target",
+          "output": "\"you visited this link, visited link\"",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "unknown"
+            }
+          ]
+        },
+        {
+          "command": "list_visited_links",
+          "from": "before target",
+          "to": "target",
+          "output": "in list of links",
+          "css_target": "a[href]",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "link was activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap you visited this link\""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "link was clicked",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click you visited this link\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click you visited this link\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "a[href]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a(href)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click you visited this link\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-07-28",

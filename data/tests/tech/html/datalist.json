@@ -5,2576 +5,2611 @@
   "assertions": [
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "text input was focused",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit combo\"",
-                  "result": "fail",
-                  "notes": "did not announce the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit combo, to set the value use the arrow keys or type the value.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, function type, edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank, function type, Edit, has popup\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit has popup, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo edit, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo edit, scan off, suggestions available.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo box, has auto complete, editable.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo box, has auto complete, editable. Blank.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit subMenu, has auto complete. Blank.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit has auto complete. Blank.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit box, function type, double-tap to enter text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "fail",
-                  "notes": "said \"tap function type\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, text field, double tap to edit.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"tap function type\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"click function type\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click function type\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click function type\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/input(type-text)_element",
       "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "text input was focused",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit combo\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit combo, to set the value use the arrow keys or type the value.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit, type in text\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "When paired with IE, JAWS does not alter the role to convey the datalist functionality."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank, Edit, has popup\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit has popup, type in text\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo edit, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo edit, scan off, suggestions available.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist.",
+          "ie": "When paired with IE, JAWS does not alter the role to convey the datalist functionality.",
+          "firefox": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
         },
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo box, has auto complete, editable.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Combo box, has auto complete, editable. Blank.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"has popup\") to convey the presence of the datalist."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit subMenu, has auto complete. Blank.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, Edit has auto complete. Blank.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"subMenu\") to convey the presence of the datalist."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit box, function type, double-tap to enter text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, text field, double tap to edit.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
+          "chrome": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"has popup\") to convey the presence of the datalist.",
+          "firefox": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"subMenu\") to convey the presence of the datalist."
         }
       }
     },
     {
       "feature_id": "html/input(type-text)_element",
       "feature_assertion_id": "convey_change_in_value",
-      "results": {
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"Function, type Edit combo\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Focus was sent back to the input and the input was announced"
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"edit, function\"",
-                  "result": "unknown"
-                }
-              ],
-              "notes": "unknown because it was not possible to navigate to a suggestion to activate"
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"Function, edit, has popup\"",
-                  "result": "unknown"
-                }
-              ],
-              "notes": "Unknown because it was not possible to navigate to a suggestion to activate"
-            }
-          }
+          "chrome": "Focus was sent back to the input and the input was announced",
+          "ie": "unknown because it was not possible to navigate to a suggestion to activate",
+          "firefox": "Unknown because it was not possible to navigate to a suggestion to activate"
         },
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"Function\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The value was announced after a suggestion was activated and focus was returned to the text input"
-            }
-          }
+          "edge": "The value was announced after a suggestion was activated and focus was returned to the text input"
         },
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"Function type combo box, has auto complete, editable, function\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Focus was returned to the text input"
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"function\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Focus was returned to the text input but only the value was announced"
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "the character is announced",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "Focus was returned to the text input",
+          "firefox": "Focus was returned to the text input but only the value was announced"
         },
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"function, close features\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "value was announced and focus was returned to the text input."
-            }
-          }
+          "and_chr": "value was announced and focus was returned to the text input."
         },
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"Function\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The activated suggestion was announced, and focus was moved to a new suggestion"
-            }
-          }
+          "ios_saf": "The activated suggestion was announced, and focus was moved to a new suggestion"
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "(the entered character was announced)",
-                  "result": "pass"
-                },
-                {
-                  "command": "select_option",
-                  "output": "\"Function\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Focus was returned to the text input"
-            }
-          }
+          "safari": "Focus was returned to the text input"
         }
       }
     },
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function, Edit combo\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit combo, function, to set the value use the arrow keys or type the value.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, function\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Function, Edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function, edit, has popup\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit has popup, function, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo edit, function, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo edit, scan off, function selected.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo box, has auto complete, editable.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo box, has auto complete, editable. Blank.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit subMenu, has auto complete. function.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit has auto complete. Selected function.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry, function\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry, function selected, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function, edit box, function type, double-tap to enter text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, function text field, double tap to edit.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function, contents selected, Function type, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function, contents selected, Function type, edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/input(type-text)_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form controls with name and \"edit combo\" role",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit combo, to set the value use the arrow keys or type the value.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form controls with name and \"edit\" role",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of elements with name and \"edit\" role",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit has popup, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo edit, press space to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form controls with name and \"combobox; edit has auto complete editable\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo box, has auto complete, editable.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "\"Function type Edit; subMenu has auto complete.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_edit_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_edit_fields",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "in list of text fields",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit box, function type, double-tap to enter text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, text field, double tap to edit.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Shown in list of form controls with name and \"edit text\" role",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "html/list_attribute",
       "feature_assertion_id": "convey_presence",
-      "results": {
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Edit combo\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit combo, to set the value use the arrow keys or type the value.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit, type in text\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "When paired with IE, JAWS does not alter the role to convey the datalist functionality."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank, Edit, has popup\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit has popup, type in text\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo edit, scan off.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo edit, scan off, suggestions available.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist.",
+          "ie": "When paired with IE, JAWS does not alter the role to convey the datalist functionality.",
+          "firefox": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo\" or \"has popup\") to convey the presence of the datalist."
         },
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo box, has auto complete, editable.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Combo box, has auto complete, editable. Blank.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"subMenu\") to convey the presence of the datalist."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type Edit has auto complete. Blank.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"subMenu\") to convey the presence of the datalist."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function type, entry\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "function type, entry, focus mode",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "(after entering text) \"showing autofill popup\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, text field, double tap to edit.\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function type, edit text\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "chrome": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"subMenu\") to convey the presence of the datalist.",
+          "firefox": "The role is not consistently conveyed across browsers, and is often presented with a modifier (\"combo box\" or \"subMenu\") to convey the presence of the datalist."
         }
       }
     },
     {
       "feature_id": "html/datalist_element",
       "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_dropdown_choices",
-                  "output": "suggestions were displayed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Menu, Function, To move through items press up or down arrow\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "The datalist is conveyed as a menu as opposed to a listbox."
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "chrome": "The datalist is conveyed as a menu as opposed to a listbox."
         },
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function, 1 of 6, selected\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The datalist role is implied by the \"combo\" role and \"suggestions\" announcement."
-            }
-          }
+          "edge": "The datalist role is implied by the \"combo\" role and \"suggestions\" announcement."
         },
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function, row 1 column 1\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "The datalist role is implied by the \"has auto complete\" announcement for the text input, combined with down arrow navigating suggestions. However, table semantics were also announced when none exist."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\"",
-                  "result": "partial"
-                }
-              ],
-              "notes": "The datalist role is implied by the \"has auto complete\" announcement for the text input, combined with down arrow navigating suggestions. However, all options are announced as \"blank\"."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"menu, function, function\"",
-                  "result": "partial",
-                  "notes": "data list is conveyed as a menu instead of a listbox"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"autofill, menu\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "The datalist role is implied by the \"has auto complete\" announcement for the text input, combined with down arrow navigating suggestions. However, table semantics were also announced when none exist.",
+          "firefox": "The datalist role is implied by the \"has auto complete\" announcement for the text input, combined with down arrow navigating suggestions. However, all options are announced as \"blank\"."
         },
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "touch_type",
-                  "output": "\"function, prediction\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "Suggestions are listed in the normal virtual keyboard predictions. However, there is no indication that these predictions are suggestions from the website, and may be confused with the normal virtual keyboard predictions."
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not possible to navigate to datalist and suggestions are not announced",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "ios_saf": "Suggestions are listed in the normal virtual keyboard predictions. However, there is no indication that these predictions are suggestions from the website, and may be confused with the normal virtual keyboard predictions."
         }
       }
     },
     {
       "feature_id": "html/datalist_element",
       "feature_assertion_id": "convey_boundaries",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "When the end of the list is reached, down arrow loops back to the start, but no announcement was provided for start or end of list.",
-                  "result": "partial"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"function, 1 of 6, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "\"async generator function, 6 of 6, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"row 1\" was announced when first entering the datalist, however that is not expected and there is no indication when the end of the list is reached.\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "all suggestions are announced as \"blank\", with no indication of boundaries.",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+      "browserNotes": {
+        "vo_ios": {
+          "ios_saf": "Boundaries can be implied by the role of \"prediction\" being announced for each available prediction. In other words, when the user hears a different role announced, they can assume they left the predictions."
         },
         "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"menu, function, function\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_option",
-                  "from": "within target",
-                  "to": "end of target",
-                  "output": "focus is sent back to the input and the input is announced",
-                  "result": "pass"
-                }
-              ],
-              "notes": "boundaries are implied by the menu and focus being sent back to the input"
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "indicates end of list but not start when going back up",
-                  "result": "partial"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Function, prediction\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "touch_type",
-                  "output": "\"Function, prediction\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Boundaries can be implied by the role of \"prediction\" being announced for each available prediction. In other words, when the user hears a different role announced, they can assume they left the predictions."
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not possible to navigate to datalist and suggestions are not announced",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "firefox": "boundaries are implied by the menu and focus being sent back to the input"
         }
       }
     },
     {
       "feature_id": "html/datalist_element",
-      "feature_assertion_id": "convey_change_in_suggestions",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "The entered character was announced, but no information about changes to the suggestions",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "The entered character was announced, but no information about changes to the suggestions",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "The entered character was announced, but no information about changes to the suggestions",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "\"suggestions\" is announced every time the suggestions change",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "The entered character was announced, but no information about changes to the suggestions",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "The entered character was announced, but no information about changes to the suggestions",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "no announcements",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "nothing output when options update from input tex",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "The entered character was announced, but no information about changes to the suggestions",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "no announcement made",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_change_in_suggestions"
     },
     {
       "feature_id": "html/option_element",
       "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "choose_dropdown_option",
-                  "output": "text of command was entered into the text input",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Name and value are announced when provided.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function, 1 of 6, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Name and value are announced when provided.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"blank\" was announced for every option",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"generator function, generator function\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "function* generator function, double tap to activate, double tap and hold to long press",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "option was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"tap function\""
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "touch_type",
-                  "output": "\"function*\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "Only the option value is listed as predictions, not the name."
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "nothing was conveyed at all",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "names were not listed for options",
-                  "result": "fail",
-                  "notes": "said \"show names\". This was done after entering the word \"function\" into the input so that suggestions were displayed. "
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "option was not activated",
-                  "result": "pass",
-                  "notes": "said \"click function\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click function\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "fail",
-                  "notes": "said \"click function\""
-                }
-              ]
-            }
-          }
+          "ios_saf": "Only the option value is listed as predictions, not the name."
         }
       }
     },
     {
       "feature_id": "html/option_element",
       "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "text of command was entered into the text input",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Menu context is conveyed when entering the list, which implies that every item in the list is an option.",
-                  "result": "partial"
-                }
-              ],
-              "notes": "The menu context might imply a menuitem role instead of an option role"
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "the option role is implied by the \"combo\" role of the text input and the \"suggestions\" announcement.",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"has auto complete\" announced on the text input implies that up and down arrows will navigate suggestions",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"has auto complete\" announced on the text input implies that up and down arrows will navigate suggestions",
-                  "result": "partial"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"generator function, generator function\"",
-                  "result": "partial",
-                  "notes": "the menu role might imply a menuitem role instead of an option role"
-                }
-              ]
-            }
-          }
+          "chrome": "The menu context might imply a menuitem role instead of an option role"
         },
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function, in list, showing autofill popup\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "option role was implied by the announcement of \"autofill menu\" and \"in list\" when entering the list of options"
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "options were flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "fail",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "touch_type",
-                  "output": "\"function, prediction\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "nothing was conveyed at all",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "fail",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
+          "and_chr": "option role was implied by the announcement of \"autofill menu\" and \"in list\" when entering the list of options"
         }
       }
     },
     {
       "feature_id": "html/option_element",
       "feature_assertion_id": "convey_value",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "choose_dropdown_option",
-                  "output": "text of command was entered into the text input",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Name and value are announced when available",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"async generator function\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "Only the name is displayed by Edge and announced by Narrator if both the name and value are set."
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Name and value are announced when provided.",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Blank\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"generator function, generator function\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "function* generator function, double tap to activate, double tap and hold to long press",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "options were flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"tap target arrow\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "touch_type",
-                  "output": "\"function*\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "nothing was conveyed at all",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "names were not listed for options",
-                  "result": "fail",
-                  "notes": "said \"show names\". This was done after entering the word \"function\" into the input so that suggestions were displayed. "
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "option was not activated",
-                  "result": "fail",
-                  "notes": "said \"click function\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "",
-                  "result": "na",
-                  "notes": "not displayed"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "fail",
-                  "notes": "said \"click function\""
-                }
-              ]
-            }
-          }
+          "edge": "Only the name is displayed by Edge and announced by Narrator if both the name and value are set."
         }
       }
     },
     {
       "feature_id": "html/option_element",
       "feature_assertion_id": "convey_posinset",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"function, 1 of 6, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ],
-              "notes": "the first item was announced as \"row 1\", however other items did not convey their position."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"generator function, generator function\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "(outputs number of items when first entering list of options)",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "touch_type",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_option",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "position information was not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "chrome": "the first item was announced as \"row 1\", however other items did not convey their position."
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "text input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "text input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_dropdown_choices",
+          "output": "suggestions were displayed",
+          "css_target": "datalist",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "choose_dropdown_option",
+          "output": "text of command was entered into the text input",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "text of command was entered into the text input",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "choose_dropdown_option",
+          "output": "text of command was entered into the text input",
+          "css_target": "datalist option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Edit combo\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "did not announce the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, edit combo, to set the value use the arrow keys or type the value.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Function, type Edit combo\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form controls with name and \"edit combo\" role",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit combo, to set the value use the arrow keys or type the value.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Edit combo\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit combo, to set the value use the arrow keys or type the value.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Menu, Function, To move through items press up or down arrow\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "The entered character was announced, but no information about changes to the suggestions",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "Name and value are announced when provided.",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "Name and value are announced when available",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit, function type, edit, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Edit, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"edit, function\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "unknown"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form controls with name and \"edit\" role",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit, type in text\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "The entered character was announced, but no information about changes to the suggestions",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank, function type, Edit, has popup\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Edit has popup, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Function, edit, has popup\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "unknown"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of elements with name and \"edit\" role",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit has popup, type in text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank, Edit, has popup\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit has popup, type in text\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "The entered character was announced, but no information about changes to the suggestions",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Combo edit, scan off.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Combo edit, scan off, suggestions available.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Function\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Combo edit, press space to edit\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Combo edit, scan off.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Combo edit, scan off, suggestions available.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function, 1 of 6, selected\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"function, 1 of 6, selected\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "end of target",
+          "output": "\"async generator function, 6 of 6, selected\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "\"suggestions\" is announced every time the suggestions change",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function, 1 of 6, selected\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"async generator function\"",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Combo box, has auto complete, editable.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Combo box, has auto complete, editable. Blank.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Function type combo box, has auto complete, editable, function\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form controls with name and \"combobox; edit has auto complete editable\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Combo box, has auto complete, editable.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Combo box, has auto complete, editable.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Combo box, has auto complete, editable. Blank.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function, row 1 column 1\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "The entered character was announced, but no information about changes to the suggestions",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "Name and value are announced when provided.",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "Name and value are announced when provided.",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Edit subMenu, has auto complete. Blank.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, Edit has auto complete. Blank.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"function\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "\"Function type Edit; subMenu has auto complete.\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type Edit has auto complete. Blank.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "all suggestions are announced as \"blank\", with no indication of boundaries.",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "The entered character was announced, but no information about changes to the suggestions",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"blank\" was announced for every option",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Blank\"",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit box, function type, double-tap to enter text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"function, close features\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"edit box, function type, double-tap to enter text\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "(after entering text) \"showing autofill popup\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"autofill, menu\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "nothing output when options update from input tex",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "function* generator function, double tap to activate, double tap and hold to long press",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "function* generator function, double tap to activate, double tap and hold to long press",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"tap function type\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "option was flagged for disambiguation",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap function\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "options were flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "options were flagged for disambiguation",
+          "css_target": "datalist option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": "said \"tap target arrow\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, text field, double tap to edit.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Function\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, text field, double tap to edit.\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, text field, double tap to edit.\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "touch_type",
+          "output": "\"function, prediction\"",
+          "css_target": "datalist",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function, prediction\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "The entered character was announced, but no information about changes to the suggestions",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "touch_type",
+          "output": "\"function*\"",
+          "css_target": "option",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "touch_type",
+          "output": "\"function*\"",
+          "css_target": "datalist option",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, edit text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, edit text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "(the entered character was announced)",
+          "css_target": "input[type=\"text\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "output": "\"Function\"",
+          "css_target": "input[type=\"text\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Shown in list of form controls with name and \"edit text\" role",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, edit text\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, edit text\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Function type, edit text\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "not possible to navigate to datalist and suggestions are not announced",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "no announcement made",
+          "css_target": "datalist",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "nothing was conveyed at all",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "nothing was conveyed at all",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function type, entry\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function type, entry, focus mode\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "from": "before target",
+          "to": "target",
+          "output": "the character is announced",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "select_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_edit_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function type, entry\"",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_edit_fields",
+          "from": "before target",
+          "to": "target",
+          "output": "in list of text fields",
+          "css_target": "input[type=\"text\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"function type, entry\"",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "function type, entry, focus mode",
+          "css_target": "input[list]",
+          "results": [
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"menu, function, function\"",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial",
+              "notes": "data list is conveyed as a menu instead of a listbox"
+            },
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "within target",
+          "to": "end of target",
+          "output": "focus is sent back to the input and the input is announced",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "from": "before target",
+          "to": "target",
+          "output": "no announcements",
+          "css_target": "datalist",
+          "results": [
+            {
+              "feature_id": "html/datalist_element",
+              "feature_assertion_id": "convey_change_in_suggestions",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"generator function, generator function\"",
+          "css_target": "option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial",
+              "notes": "the menu role might imply a menuitem role instead of an option role"
+            },
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "from": "before target",
+          "to": "target",
+          "output": "\"generator function, generator function\"",
+          "css_target": "datalist option",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap function type\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "names were not listed for options",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"show names\". This was done after entering the word \"function\" into the input so that suggestions were displayed. "
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "names were not listed for options",
+          "css_target": "datalist option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "said \"show names\". This was done after entering the word \"function\" into the input so that suggestions were displayed. "
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click function type\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "option was not activated",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click function\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "option was not activated",
+          "css_target": "datalist option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "said \"click function\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click function type\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click function\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "datalist option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": "said \"click function\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click function type\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"text\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click function\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "",
+          "css_target": "datalist option",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/option_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "not displayed"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-07-26",

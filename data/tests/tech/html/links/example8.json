@@ -7,593 +7,612 @@
       "feature_id": "html/a_element",
       "feature_assertion_id": "convey_role",
       "css_target": "#example-8 a[href]",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "flagged as a link to choose from",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "the first line was conveyed as without the link role followed by \"clickable\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"text, readonly, <name>\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "The text role was conveyed along with the readonly state. No semantics should be conveyed."
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. tablet 9000!, heading level 3\"",
-                  "result": "pass",
-                  "notes": "Entire placeholder link was announced, but then each line can be read individually"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"conveyed as static text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was not flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "conveyed as static text, NOT followed by \"clickable\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "fail",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "fail",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
+          "edge": "The text role was conveyed along with the readonly state. No semantics should be conveyed."
         }
       }
     },
     {
       "feature_id": "html/a_element",
       "feature_assertion_id": "convey_name",
-      "css_target": "#example-8 a[href]",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "links were flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click tablet 9000!\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"text, readonly, <name>\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. tablet 9000!, heading level 3\"",
-                  "result": "pass",
-                  "notes": "Entire placeholder link was announced, but then each line can be read individually"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"conveyed as static text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was not activated",
-                  "result": "pass",
-                  "notes": "said \"tap tablet 9000\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "link role was not conveyed",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "conveyed as static text, NOT followed by \"clickable\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "name was displayed",
-                  "result": "pass",
-                  "notes": "said \"show names\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "link was not clicked",
-                  "result": "pass",
-                  "notes": "said \"click tablet 9000\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "pass",
-                  "notes": "said \"click tablet 9000\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "fail",
-                  "notes": "said \"click tablet 9000\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#example-8 a[href]"
     },
     {
       "feature_id": "html/a_element",
       "feature_assertion_id": "provide_shortcuts",
       "css_target": "#example-8 a[href]",
-      "results": {
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Not included in list of links, but it was included in the list of anchors.",
-                  "result": "partial"
-                }
-              ],
-              "notes": "partial support because HTML5 does not call these anchors."
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Not included in list of links, but it was included in the list of anchors.",
-                  "result": "partial"
-                }
-              ],
-              "notes": "partial support because HTML5 does not call these anchors."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Not included in list of links, but it was included in the list of anchors.",
-                  "result": "partial"
-                }
-              ],
-              "notes": "partial support because HTML5 does not call these anchors."
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Not found as a link",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Not included in list of links",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "open_element_list",
-                  "output": "Not included in list of links",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not found",
-                  "result": "pass"
-                },
-                {
-                  "command": "list_links",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not found",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not included in link navigation",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Not included in list of links",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_link",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not found as a link",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "not included in the list of links",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "chrome": "partial support because HTML5 does not call these anchors.",
+          "ie": "partial support because HTML5 does not call these anchors.",
+          "firefox": "partial support because HTML5 does not call these anchors."
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_role",
+          "output": "flagged as a link to choose from",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "links were flagged for disambiguation",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click tablet 9000!\""
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "the first line was conveyed as without the link role followed by \"clickable\"",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Not included in list of links, but it was included in the list of anchors.",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "partial"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "link role was not conveyed",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Not included in list of links, but it was included in the list of anchors.",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "partial"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "link role was not conveyed",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Not included in list of links, but it was included in the list of anchors.",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "partial"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"text, readonly, <name>\"",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Not found as a link",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "link role was not conveyed",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Not included in list of links",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "link role was not conveyed",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "Not included in list of links",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"conveyed as static text\"",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "not included in link navigation",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "link was not activated",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap tablet 9000\""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "link role was not conveyed",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "Not included in list of links",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "conveyed as static text, NOT followed by \"clickable\"",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "not found as a link",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "from": "before target",
+          "to": "target",
+          "output": "not included in the list of links",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"tablet 9000! Turn all your widgets into mellbloms! Only $9.99 plus shipping and handling. tablet 9000!, heading level 3\"",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "Entire placeholder link was announced, but then each line can be read individually"
+            },
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "Entire placeholder link was announced, but then each line can be read individually"
+            }
+          ]
+        },
+        {
+          "command": "next_link",
+          "from": "before target",
+          "to": "target",
+          "output": "not found",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_links",
+          "from": "before target",
+          "to": "target",
+          "output": "not found",
+          "css_target": "a:not([href])",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "name was displayed",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"show names\""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "show_numbers",
+          "output": "role was not flagged with a number",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "link was not clicked",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click tablet 9000\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click tablet 9000\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "a:not([href])",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/a_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click tablet 9000\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-07-28",

@@ -6,962 +6,914 @@
     {
       "feature_id": "aria/aria-required_attribute",
       "feature_assertion_id": "convey_value_true",
-      "target": "input[type=\"radio\"], *[aria-required=\"true\"]",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"animal, required, cat radio button, not checked\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal. Cat. Radio button. Non selected. 1 of 3.\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"animal panel, cat, not selected, radio button\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
-                  "result": "fail",
-                  "notes": "Not conveyed when any of the radio buttons are focused"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal, heading 3\"",
-                  "result": "fail",
-                  "notes": "Group semantics were not conveyed"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"cat, radio button, unchecked, 1 of 3, required.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"cat, radio button, 1 of 3, Animal, required, radio group.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "target": "input[type=\"radio\"], *[aria-required=\"true\"]"
     },
     {
       "feature_id": "aria/radiogroup_role",
       "feature_assertion_id": "convey_role",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal. Cat. Radio button. Non selected. 1 of 3.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Selected. Requires selection. Contains 2 items. Required. Heading level 3. Animal.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"Selected. Requires selection. Contains 2 items. Required. Heading level 3. CatDog.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Reading mode passed because \"Contains 2 items\" implies a grouping"
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Heading level 3 Animal\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"radio button  not checked. clickable Cat. radio button  not checked. clickable. CatDog.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Heading level 3 Animal\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"radio button  not checked. clickable Cat. radio button  not checked. clickable. CatDog.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal panel, cat, not selected, radio button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"animal panel\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"animal panel. cat, not selected, radio button. dog, not selected, radio button. catdog, not selected, radio button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
-                  "result": "fail",
-                  "notes": "Not conveyed when any of the radio buttons are focused"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal, heading 3\"",
-                  "result": "fail",
-                  "notes": "Group semantics were not conveyed"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "within target",
-                  "output": "\"Cat, radio button, unchecked, 1 of 3, required\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Animal, Heading level 3, required\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"CatDog. Radio button, unchecked, 3 of 3, required\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Cat, radio button, 1 of 3, Animal, radio group.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Animal. Required. Radio group.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"End of Animal. Required. Radio group.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "edge": "Reading mode passed because \"Contains 2 items\" implies a grouping"
         }
       }
     },
     {
       "feature_id": "aria/radiogroup_role",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal. Cat. Radio button. Non selected. 1 of 3.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal panel, cat, not selected, radio button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
-                  "result": "fail",
-                  "notes": "Not conveyed when any of the radio buttons are focused"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal, heading 3\"",
-                  "result": "fail",
-                  "notes": "Group semantics were not conveyed"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "within target",
-                  "output": "\"Cat, radio button, unchecked, 1 of 3, required\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Animal, Heading level 3, required\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"CatDog. Radio button, unchecked, 3 of 3, required\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Cat, radio button, 1 of 3, Animal, radio group.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Animal. Required. Radio group.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"End of Animal. Required. Radio group.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "aria/radiogroup_role",
       "feature_assertion_id": "convey_boundaries",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"group start, animal\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"group end\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal. Cat. Radio button. Non selected. 1 of 3.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Selected. Requires selection. Contains 2 items. Required. Heading level 3. Animal.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"Selected. Requires selection. Contains 2 items. Required. Heading level 3. CatDog.\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Reading mode passed because \"Contains 2 items\" implies a grouping"
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Heading level 3 Animal\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "\"Button. Submit.\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"radio button  not checked. clickable Cat. radio button  not checked. clickable. CatDog.\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Heading level 3 Animal\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "\"Button. Submit.\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"radio button  not checked. clickable Cat. radio button  not checked. clickable. CatDog.\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"animal panel, cat, not selected, radio button\"",
-                  "result": "unknown"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"animal panel\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "after target",
-                  "output": "\"leaving panel\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"animal panel. cat, not selected, radio button. dog, not selected, radio button. catdog, not selected, radio button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
-                  "result": "fail",
-                  "notes": "Not conveyed when any of the radio buttons are focused"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Animal, heading 3\"",
-                  "result": "fail",
-                  "notes": "Group semantics were not conveyed"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "within target",
-                  "to": "within target",
-                  "output": "\"Cat, radio button, unchecked, 1 of 3, required\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Animal, Heading level 3, required\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"CatDog. Radio button, unchecked, 3 of 3, required\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "within target",
-                  "output": "\"Cat, radio button, 1 of 3, Animal, radio group.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "start of target",
-                  "output": "\"Animal. Required. Radio group.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "previous_item",
-                  "from": "after target",
-                  "to": "end of target",
-                  "output": "\"End of Animal. Required. Radio group.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "edge": "Reading mode passed because \"Contains 2 items\" implies a grouping"
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"group start, animal\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"group end\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"animal, required, cat radio button, not checked\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"group start, animal\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"group end\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"animal, required, cat radio button, not checked, 1 of 3\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"group start, animal\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"group end\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Animal. Cat. Radio button. Non selected. 1 of 3.\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Animal. Cat. Radio button. Non selected. 1 of 3.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Selected. Requires selection. Contains 2 items. Required. Heading level 3. Animal.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"Selected. Requires selection. Contains 2 items. Required. Heading level 3. CatDog.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Heading level 3 Animal\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"radio button  not checked. clickable Cat. radio button  not checked. clickable. CatDog.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "\"Button. Submit.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Animal grouping required. Cat radio button. Checked, 1 of 3.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Heading level 3 Animal\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"radio button  not checked. clickable Cat. radio button  not checked. clickable. CatDog.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "\"Button. Submit.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": "Not conveyed when any of the radio buttons are focused"
+            },
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": "Group semantics were not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"No checked, cat, radio button. Double tap to toggle.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "Not conveyed when any of the radio buttons are focused"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "Group semantics were not conveyed"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "Not conveyed when any of the radio buttons are focused"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "Group semantics were not conveyed"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail",
+              "notes": "Not conveyed when any of the radio buttons are focused"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail",
+              "notes": "Group semantics were not conveyed"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"cat, radio button, unchecked, 1 of 3, required.\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "within target",
+          "output": "\"Cat, radio button, unchecked, 1 of 3, required\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Animal, Heading level 3, required\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"CatDog. Radio button, unchecked, 3 of 3, required\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"cat, radio button, 1 of 3, Animal, required, radio group.\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"Cat, radio button, 1 of 3, Animal, radio group.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"Animal. Required. Radio group.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"End of Animal. Required. Radio group.\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"animal panel, cat, not selected, radio button\"",
+          "css_target": "*[ara-required=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "within target",
+          "output": "\"animal panel, cat, not selected, radio button\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "unknown"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "start of target",
+          "output": "\"animal panel\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "from": "after target",
+          "to": "end of target",
+          "output": "\"animal panel. cat, not selected, radio button. dog, not selected, radio button. catdog, not selected, radio button\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "within target",
+          "to": "after target",
+          "output": "\"leaving panel\"",
+          "css_target": "*[role=\"radiogroup\"]",
+          "results": [
+            {
+              "feature_id": "aria/radiogroup_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-08-16",

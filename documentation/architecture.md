@@ -25,14 +25,14 @@ Details of the grading method and a high level overview of the project include:
     * Core combinations are kept to a minimum and include the most common combinations as found by surveys and other research.
     * Extended combinations include any combination of AT/browser that might exist on a given OS.
 * Only assertions where `assertion.type === "MUST"` contribute to `core` support.
-* Support values are defined in an `output.result` by a contributor (either by editing the JSON directly or by filling out a form in the front end). Possible values of `output.result` include `pass`, `fail`, or `partial`.
-* `output.result` indicates the result of an assertion of a specific feature applied to a specific test, applied to a specific input command for a specific AT/browser combination. It is the most specific result in the project. For example, the following might reference the result of a test against NVDA/Firefox: `test.assertions[0].results.nvda.browsers.firefox.output[0].result`
-* A single AT/browser combination can have many output results.
-* During the build process, output results are bubbled to:
-    * The browser object `test.assertions[0].results.nvda.browsers.firefox.support`. Values are mapped to one of `y` (support='yes'), `n` (support='no'), or `p` (support='partial').
-        * If one output results were `pass`, then support maps to `y`.
-        * If some output results were `partial`, then support maps to `p`.
-        * If no output results passed, then support maps to `n`.
+* Support values are defined in the `results` property of a command by a contributor (either by editing the JSON directly or by filling out a form in the front end). Possible values of a `result` include `pass`, `fail`, or `partial`, `na`, `unknown`.
+* A given command applies to only a single AT/browser combination and may store the results for many assertions (or expectations). It is the most specific result in the project. For example, the following might reference the result of a test against NVDA/Firefox: `test.commands[0].nvda.firefox[0].results[0]`
+* During the build process, command results are bubbled to:
+    * Each linked assertion
+    * The browser object for each linked assertion `test.assertions[0].results.nvda.browsers.firefox.support`. Values are mapped to one of `y` (support='yes'), `n` (support='no'), or `p` (support='partial').
+     * If one output results were `pass`, then support maps to `y`.
+     * If some output results were `partial`, then support maps to `p`.
+     * If no output results passed, then support maps to `n`.
     * The AT object `test.assertions[0].results.nvda.core_support` and `test.assertions[0].results.nvda.extended_support` (which includes unique support values for all browsers)
     * The test assertion `test.assertions[0].core_support` and `test.assertions[0].extended_support`, 
     * The test object `test.core_support` and `test.extended_support` which include unique support values for all at
@@ -129,7 +129,9 @@ The following properties can be provided by a contributor:
 * `description` (string|required): a longer markdown formatted description of the test.
 * `html_file` (string|optional): the path, relative to the `data/tests/` directory for the HTML test file. If empty, the same path as the test file is assumed (relative to the `data/tests/` directory)
 * `assertions` (object|required): an object that describes the assertion that must be met for the test to pass.
+* `commands` (object|required): an object that describes the commands and results of each at/browser combination
 * `history` (array|required): an array of history objects that describe how the test and results have changed over time.
+* `versions` (object|required): an object that describes the versions of each at/browser combination tested
 
 Properties that are generated during the build process include:
 
@@ -139,6 +141,7 @@ Properties that are generated during the build process include:
 * `core_support_by_at_browser` (object|built): an object that describes core support for different core at/browser combinations
 * `extended_support` (array|built): an array of strings that describe unique support values found in the `results` object
 * `extended_support_string` (string|built): an human readable string that describes the support based on the values found in `extended_support`
+* `assertions` (object|required|built): the commands property and associated results are transformed to fill in support data for each assertion.
 
 #### The test `assertion` object
 
@@ -150,7 +153,6 @@ The following properties can be provided by a contributor:
 * `feature_assertion_id` (string|required): the ID of the feature object on the linked feature
 * `css_target` (string|optional): a CSS target that overrides the more generic one provided by the feature assertion (this can be specific to the test)
 * `expected_value` (string|optional): The expected value of the assertion test result (can be helpful in some circumstances)
-* `results` (object|required): an object that describes the testing results
 
 Properties that are generated during the build process include:
 
@@ -163,55 +165,38 @@ Properties that are generated during the build process include:
 * `core_support_by_at_browser` (object|built): an object that describes core support for different core at/browser combinations
 * `extended_support` (array|built): an array of strings that describe unique support values found in the `results` object
 * `extended_support_string` (string|built): an human readable string that describes the support based on the values found in `extended_support`
+* `results` (object|built): an object that describes the testing results
 
-### `results` object
+The results object is created during the build process and contains core and extended support information for each at/browser/command combination.
 
-The `results` object (located at `test.assertions[0].results`) can contain a property for each of the at `at` objects listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). For example, support data for `nvda` would live under `test.assertions[0].results.nvda`.
+#### `test.commands` object
 
-Each `results` object chan contain a property for each of the browsers listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). These property names map to the ids of AT defined in `ATBrowsers.json`. For example, support data for `nvda` and `firefox` would live under `test.assertions[0].results.nvda.browsers.firefox`. These objects are known as `browser` objects.
+The `commands` object (located at `test.commands`) can contain a property for each of the at `at` objects listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). For example, support data for `nvda` would live under `test.commands.nvda`.
+
+Each `at` object chan contain a property for each of the browsers listed in [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json). These property names map to the ids of browsers defined in `ATBrowsers.json`. For example, support data for `nvda` and `firefox` would live under `test.nvda.firefox`. These objects are known as `browser` objects.
 
 All `at` and `browser` combinations are optional, and any gaps will be filled in by the build process with empty data (unknown results). This makes iterating over the built data easy.
 
-#### the `at` object
+#### the `command` object
 
-The following properties can be provided by a contributor:
-
-* `browsers` (object|required): an object with properties that map to each supported browser for the AT
-
-Properties that are generated during the build process include:
-
-* `id` (string|built): the ID of the AT as found in `ATBrowsers.json`
-* `core_support` (array|built): an array of unique support values of core testing combinations from its children
-* `core_support_string` (string|built): an string that describes `core_support`
-* `extended_support`: (array|built): an array of unique support values of extended testing combinations from its children
-* `core_support_string` (string|built): an string that describes `extended_support`
-
-#### the `browser` object
-
-Each `browser` object then contains the following properties which can be provided by the contributor.
-
-* `at_version` (string|required): the version of the AT used during the test
-* `browser_version` (string|required): the version of the browser used during the test
-* `os_version` (string|required): the version of the OS used during the test. The OS name can be inferred.
-* `output` (array|required): an array of output objects that describes the specific output and results for different interactions.
-* `date` (string|required): the date that this at/browser combination was last tested.
-* `notes` (string|optional): any notes that describe findings or jusitfy the result.
-
-Properties that are generated during the build process include:
-
-* `support`: (string|built) the combination of support values for the output array y=yes, p=partial, n=no, na=not-applicable.
-
-#### the `output` object
-
-The `output` object contains the following properties which can be provided by the contributor:
+The `command` object contains the following properties which can be provided by the contributor:
 
 * `command` (string|required): The ID of the command used to navigate or trigger the element that matches the css target. These IDs match those found in the [/data/ATBrowsers.json](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/data/ATBrowsers.json) array of commands for the current AT.
+* `css_target` (string|required): the css selector for the element that the command targets
 * `output` (string|required): the output of the result.
-* `result` (enum|required): One of `pass`, `fail`, or `partial`.
+* `results` (array|required): an array of `result` objects. each results object defines a result for a linked assertion.
 * `from` (string|optional): the location of focus or virtual cursor before the command was issued. Useful to reproduce results and identify execution path.
 * `to` (string|optional): the location of focus or virtual cursor after the command was issued. Useful to reproduce results and identify execution path.
 * `notes` (string|optional): notes about the output
 * `behind_setting`: (string|optional): Describes the setting that must be changed in order for the assertion to be supported. Some support is hidden behind default settings (see aria-controls for an example). Leave `undefined` if not applicable.
+
+#### the `result` object
+
+The `command` object contains the following properties which can be provided by the contributor:
+
+* `result` (enum|required): One of `pass`, `fail`, or `partial`.
+* `feature_id` (string|required): The id of the feature
+* `feature_assertion_id` (string|required): The id of the assertion within the feature
 
 #### the `versions` object (`at_version` and `browser_version`)
 
@@ -227,7 +212,7 @@ The `versions` object defines the AT, browser, os and date values used while tes
 The build process:
 
 * loops over each feature, test, and assertion, combining them and adding empty at/browser combinations where none have been defined
-* bubbles support data from the the `output` object all the way to the `feature` object, creating matching support strings along the way
+* bubbles support data from each command `result` object all the way to the `feature` object, creating matching support strings along the way
 * outputs all of this generated data to the `/build/` directory.
 
 This built data makes coding the frontend easy. The frontend itself does not contain any logic around filling in gaps of support data or bubbling information.

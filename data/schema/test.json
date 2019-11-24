@@ -169,8 +169,12 @@
           "description": "an example of expected output; does not need to be exact. This can be helpful especially for things like computed accessible names and descriptions."
         },
         "exclude_at": {
-          "type": "array",
-          "description": "an array of AT ids that are not applicable. An example might be vc_ios on the convey_role assertion since vc_ios intentionally does not support this."
+          "type": "object",
+          "description": "an object of AT ids as keys and rationale as values. The presence of a key indicates that the AT is not applicable for the given reason. An example might be vc_ios on the convey_role assertion since vc_ios intentionally does not support this."
+        },
+        "exclude_browsers": {
+          "type": "object",
+          "description": "an object of browser ids as keys and rationale as values. The presence of a key indicates that the browser is not applicable for the given reason. An example might be that IE does not support an html5 form control."
         },
         "results": {
           "type": "object",

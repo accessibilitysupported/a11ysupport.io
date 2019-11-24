@@ -62,95 +62,87 @@
     "at": {
       "type": "object",
       "properties": {
-        "browsers": {
-          "type": "object",
-          "properties": {
-            "chrome": {
-              "$ref": "#/definitions/browser"
-            },
-            "and_chr": {
-              "$ref": "#/definitions/browser"
-            },
-            "edge": {
-              "$ref": "#/definitions/browser"
-            },
-            "firefox": {
-              "$ref": "#/definitions/browser"
-            },
-            "and_ff": {
-              "$ref": "#/definitions/browser"
-            },
-            "ie": {
-              "$ref": "#/definitions/browser"
-            },
-            "ios_saf": {
-              "$ref": "#/definitions/browser"
-            },
-            "safari": {
-              "$ref": "#/definitions/browser"
-            }
-          }
+        "chrome": {
+          "$ref": "#/definitions/browser"
+        },
+        "and_chr": {
+          "$ref": "#/definitions/browser"
+        },
+        "edge": {
+          "$ref": "#/definitions/browser"
+        },
+        "firefox": {
+          "$ref": "#/definitions/browser"
+        },
+        "and_ff": {
+          "$ref": "#/definitions/browser"
+        },
+        "ie": {
+          "$ref": "#/definitions/browser"
+        },
+        "ios_saf": {
+          "$ref": "#/definitions/browser"
+        },
+        "safari": {
+          "$ref": "#/definitions/browser"
         }
-      },
-      "required": ["browsers"]
+      }
     },
     "browser": {
-      "type": "object",
-      "properties": {
-        "support": {
-          "description": "Is the combination supported? y=yes, p=partial, n=no, na=not-applicable. If partial, please provide extra documentation as to why.",
-          "type": "string",
-          "enum": ["y", "p", "n", "na", "u"]
-        },
-        "output": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "command": {
-                "description": "The id of the keyboard command. It MUST be a property name in the relevant ATBrowsers.results[at].commands object",
-                "type": "string"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "description": "The id of the keyboard command. It MUST be a property name in the relevant ATBrowsers.results[at].commands object",
+            "type": "string"
+          },
+          "css_target": {
+            "description": "The css target of the element that this command was targeting.",
+            "type": "string"
+          },
+          "from": {
+            "type": "string",
+            "enum": ["before target", "after target", "target", "within target", "start of target", "end of target", "na"],
+            "description": "Describes the focus/cursor destination before the command."
+          },
+          "to": {
+            "type": "string",
+            "enum": ["target", "start of target", "end of target", "past target", "before target", "within target", "after target", "na"],
+            "description": "Describes the focus/cursor destination after the command."
+          },
+          "output": {
+            "type": "string"
+          },
+          "behind_setting": {
+            "type": "string",
+            "description": "If support is hidden behind a non-default setting, describe that setting here."
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "enum": ["pass", "fail", "partial", "unknown", "na"]
+                },
+                "feature_id": {
+                  "type": "string",
+                  "description": "the id of the linked feature"
+                },
+                "feature_assertion_id": {
+                  "type": "string",
+                  "description": "the id of the assertion within the linked feature"
+                }
               },
-              "from": {
-                "type": "string",
-                "enum": ["before target", "after target", "target", "within target", "start of target", "end of target", "na"],
-                "description": "Describes the focus/cursor destination before the command."
-              },
-              "to": {
-                "type": "string",
-                "enum": ["target", "start of target", "end of target", "past target", "before target", "within target", "after target", "na"],
-                "description": "Describes the focus/cursor destination after the command."
-              },
-              "output": {
-                "type": "string"
-              },
-              "result": {
-                "type": "string",
-                "enum": ["pass", "fail", "partial", "unknown", "na"]
-              },
-              "behind_setting": {
-                "type": "string",
-                "description": "If support is hidden behind a non-default setting, describe that setting here."
-              }
-            },
-            "required": ["command", "result"]
+              "required": [
+                "result", "feature_id", "feature_assertion_id"
+              ]
+            }
           }
         },
-        "notes": {
-          "description": "Any relevant notes. This can be in markdown format.",
-          "type": "string"
-        }
-      },
-      "if": {
-        "properties": {
-          "support": { "enum": ["na"] }
-        }
-      },
-      "then": {
-        "required": []
-      },
-      "else": {
-        "required": ["output"]
+        "required": ["command", "css_target", "results"]
       }
     },
     "assertion": {
@@ -171,37 +163,44 @@
           "description": "an example of expected output; does not need to be exact. This can be helpful especially for things like computed accessible names and descriptions."
         },
         "exclude_at": {
-          "type": "array",
-          "description": "an array of AT ids that are not applicable. An example might be vc_ios on the convey_role assertion since vc_ios intentionally does not support this."
+          "type": "object",
+          "description": "an object of AT ids as keys and rationale as values. The presence of a key indicates that the AT is not applicable for the given reason. An example might be vc_ios on the convey_role assertion since vc_ios intentionally does not support this."
         },
-        "results": {
+        "exclude_browsers": {
+          "type": "object",
+          "description": "an object of browser ids as keys and rationale as values. The presence of a key indicates that the browser is not applicable for the given reason. An example might be that IE does not support an html5 form control."
+        },
+        "browserNotes": {
           "type": "object",
           "properties": {
-            "jaws": {
-              "$ref": "#/definitions/at"
+            "chrome": {
+              "type": "string"
             },
-            "nvda": {
-              "$ref": "#/definitions/at"
+            "and_chr": {
+              "type": "string"
             },
-            "vo_ios": {
-              "$ref": "#/definitions/at"
+            "edge": {
+              "type": "string"
             },
-            "vo_macos": {
-              "$ref": "#/definitions/at"
+            "firefox": {
+              "type": "string"
             },
-            "narrator": {
-              "$ref": "#/definitions/at"
+            "and_ff": {
+              "type": "string"
             },
-            "android": {
-              "$ref": "#/definitions/at"
+            "ie": {
+              "type": "string"
             },
-            "dragon_win": {
-              "$ref": "#/definitions/at"
+            "ios_saf": {
+              "type": "string"
+            },
+            "safari": {
+              "type": "string"
             }
           }
         }
       },
-      "required": ["feature_id", "feature_assertion_id", "results"]
+      "required": ["feature_id", "feature_assertion_id"]
     },
     "history": {
       "type": "object",
@@ -235,6 +234,38 @@
       "type": "string",
       "description": "path relative to the /data/tests/html directory. References the file that contains the test html."
     },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/assertion"
+      }
+    },
+    "commands": {
+      "type": "object",
+      "properties": {
+        "jaws": {
+          "$ref": "#/definitions/at"
+        },
+        "nvda": {
+          "$ref": "#/definitions/at"
+        },
+        "vo_ios": {
+          "$ref": "#/definitions/at"
+        },
+        "vo_macos": {
+          "$ref": "#/definitions/at"
+        },
+        "narrator": {
+          "$ref": "#/definitions/at"
+        },
+        "android": {
+          "$ref": "#/definitions/at"
+        },
+        "dragon_win": {
+          "$ref": "#/definitions/at"
+        }
+      }
+    },
     "versions": {
       "type": "object",
       "properties": {
@@ -259,12 +290,6 @@
         "dragon_win": {
           "$ref": "#/definitions/at_version"
         }
-      }
-    },
-    "assertions": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/assertion"
       }
     },
     "history": {

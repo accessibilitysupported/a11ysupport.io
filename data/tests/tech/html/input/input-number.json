@@ -5,1486 +5,1457 @@
   "assertions": [
     {
       "feature_id": "html/input(type-number)_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"click your favorite number\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox 11\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 11, your favorite number, edit 11, type in text\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox 11\"",
-                  "result": "pass",
-                  "notes": "announced the name when entering the input and automatically switching to forms mode."
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, editable, selected 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11; spin button; editable\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, edit, selected, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit 11, your favorite number, spin button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"unlabeled; edit; 11\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, spin button, your favorite number?\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"11, spin button, your favorite number? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "fail",
-                  "notes": "said \"tap your favorite number\" "
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number? 11, text field, double tap to edit.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"Your favorite number? 11, text field, double tab to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11 your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, entry, 11, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "output": "\"entry, 11\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"; entry; 11\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said tap your favorite number"
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"click your favorite number\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click your favorite number\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click yur favorite number\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/input(type-number)_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click edit\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 11, your favorite number, edit 11, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, editable, selected 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11; spin button; editable\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, edit, selected, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit 11, your favorite number, spin button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"unlabeled; edit; 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, spin button, your favorite number?\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"11, spin button, your favorite number? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "\"role is flagged with a number\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number? 11, text field, double tap to edit.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"Your favorite number? 11, text field, double tab to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11 your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
-                  "result": "pass",
-                  "notes": "number input also conveyed by buttons to increment and decrement"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, entry, 11, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "output": "\"entry, 11\"",
-                  "result": "pass",
-                  "notes": "label was not conveyed"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"; entry; 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "role was flagged with a number",
-                  "result": "pass",
-                  "notes": "said \"show numbers\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/input(type-number)_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, editable, selected 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11; spin button; editable\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, spin button, edit, selected, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit 11, your favorite number, spin button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"unlabeled; edit; 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, spin button, your favorite number?\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"11, spin button, your favorite number? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number? 11, text field, double tap to edit.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"Your favorite number? 11, text field, double tab to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11 your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, entry, 11, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_edit_field",
-                  "output": "\"entry, 11\"",
-                  "result": "pass",
-                  "notes": "label was not conveyed"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"; entry; 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/input(type-number)_element",
-      "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "name of key was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_change_in_value"
     },
     {
       "feature_id": "html/input(type-number)_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, edit, spinbox, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"Your favorite number? edit, 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"your favorite number, spin button, editable, 11\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11; spin button; editable\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"edit 11, your favorite number, spin button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"unlabeled; edit; 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"11, spin button, your favorite number? end of field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"Your favorite number? 11, text field, double tab to edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"11 your favorite number? incrementable edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_edit_field",
-                  "output": "\"entry, 11\"",
-                  "result": "pass",
-                  "notes": "label was not conveyed"
-                },
-                {
-                  "command": "list_form_fields",
-                  "output": "in list of form controls as \"; entry; 11\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "html/input(type-number)_element",
-      "feature_assertion_id": "increment_decrement",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "keypress",
-                  "output": "value was incremented and decremented",
-                  "result": "pass",
-                  "notes": "said \"press up arrow\" and \"press down arrow\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was incremented and decremented",
-                  "result": "pass",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was not incremented or decremented",
-                  "result": "fail",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was incremented and decremented on first key press, but switched to reading mode on the second keypress",
-                  "result": "partial",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was not incremented and decremented",
-                  "result": "fail",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was incremented and decremented",
-                  "result": "pass",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was incremented and decremented",
-                  "result": "pass",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "support": "na",
-              "notes": "na because talkback does not have a command to increment or decrement"
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "support": "na",
-              "notes": "na because va_and does not have a command to increment or decrement"
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "support": "na",
-              "notes": "na because the mobile safari browser treats this as a text field."
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was incremented and decremented",
-                  "result": "pass",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "from": "target",
-                  "to": "target",
-                  "output": "value was incremented and decremented",
-                  "result": "pass",
-                  "notes": "Used up and down arrows."
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "support": "na",
-              "notes": "na because the mobile safari browser treats this as a text field."
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "na because vc_macos does not have a command for increment/decrement or up/down arrows"
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "increment_decrement"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click your favorite number\""
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"click edit\""
+            }
+          ]
+        },
+        {
+          "command": "keypress",
+          "output": "value was incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "pass",
+              "notes": "said \"press up arrow\" and \"press down arrow\""
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, edit, spinbox 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"your favorite number, edit, spinbox, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"Your favorite number? edit, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "pass",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit, 11, your favorite number, edit 11, type in text\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, edit, type in text\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"your favorite number, edit, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"Your favorite number? edit, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was not incremented or decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "fail",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, edit, spinbox 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "announced the name when entering the input and automatically switching to forms mode."
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, edit, spinbox, 11, to set the value use the arrow keys or type the value\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"your favorite number, edit, spinbox, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"Your favorite number? edit, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was incremented and decremented on first key press, but switched to reading mode on the second keypress",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "partial",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was not incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "fail",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, spin button, editable, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, spin button, editable, selected 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"your favorite number, spin button, editable, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"11; spin button; editable\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "pass",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"spin button, edit, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, spin button, edit, selected, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"edit 11, your favorite number, spin button\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"unlabeled; edit; 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "pass",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"11, spin button, your favorite number?\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"11, spin button, your favorite number? end of field\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"tap your favorite number\" "
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "\"role is flagged with a number\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number? 11, text field, double tap to edit.\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"Your favorite number? 11, text field, double tab to edit\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "from": "before target",
+          "to": "target",
+          "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"11 your favorite number? incrementable edit text\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "pass",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "number input also conveyed by buttons to increment and decrement"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"your favorite number, entry, 11, selected\"",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_edit_field",
+          "output": "\"entry, 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "label was not conveyed"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": "label was not conveyed"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "label was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "list_form_fields",
+          "output": "in list of form controls as \"; entry; 11\"",
+          "css_target": "input[type=\"number\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "name of key was announced",
+          "css_target": "input[type=\"number\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "from": "target",
+          "to": "target",
+          "output": "value was incremented and decremented",
+          "css_target": "input[type=\"number\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "increment_decrement",
+              "result": "pass",
+              "notes": "Used up and down arrows."
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said tap your favorite number"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click your favorite number\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click yur favorite number\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click your favorite number\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "role was flagged with a number",
+          "css_target": "input[type=\"number\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "said \"show numbers\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-10-14",

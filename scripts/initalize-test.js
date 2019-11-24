@@ -14,6 +14,48 @@ if (!argv.id) {
 let testFile = __dirname + '/../data/tests/'+argv.id+'.json';
 let test = require(testFile);
 
+if (!test.commands || argv['clear-all']) {
+    test.commands = {};
+}
+
+var addCommand = function(test, at, browser, command, feature_id, feature_assertion_id, output, result, notes) {
+    if (!test.commands[at]) {
+        test.commands[at] = {};
+    }
+
+    if (!test.commands[at][browser]) {
+        test.commands[at][browser] = [];
+    }
+
+    let command_index = test.commands[at][browser].findIndex(obj =>
+        obj.command === command.command
+        && obj.css_target === command.css_target
+        && obj.from === command.from
+        && obj.to === command.to
+    );
+
+    if (-1 === command_index) {
+        command.results = [];
+        test.commands[at][browser].push(command);
+        command_index = test.commands[at][browser].length - 1;
+    }
+
+    let result_index = test.commands[at][browser][command_index].results.findIndex(obj =>
+        obj.feature_id === feature_id
+        && obj.feature_assertion_id === feature_assertion_id
+    );
+
+    if (-1 === result_index) {
+
+        test.commands[at][browser][command_index].results.push({
+            feature_id: feature_id,
+            feature_assertion_id: feature_assertion_id,
+            output: output,
+            result: result,
+            notes: notes
+        });
+    }
+};
 
 test.assertions.forEach(function(assertionLink) {
     var feature = require(__dirname + '/../build/tech/'+assertionLink.feature_id+'.json');
@@ -25,10 +67,6 @@ test.assertions.forEach(function(assertionLink) {
     }
 
     var assertion = feature.assertions[assertion_key];
-
-    if (!assertionLink.results || argv['clear-all']) {
-        assertionLink.results = {};
-    }
 
     for(let at in ATBrowsers.at) {
         if (assertion.exclude_at && assertion.exclude_at.includes(at)) {
@@ -49,151 +87,106 @@ test.assertions.forEach(function(assertionLink) {
             continue;
         }
 
-        if (!assertionLink.results[at] || argv['clear-all']) {
-            assertionLink.results[at] = {
-                browsers: {}
-            };
-        }
-
         let validBrowsers = ATBrowsers.at[at].core_browsers;
         validBrowsers.forEach(function (browser) {
-
-            //Set support arrays
-            if (!assertionLink.results[at].browsers[browser] || argv['clear-all']) {
-                assertionLink.results[at].browsers[browser] = {
-                    output: []
-                };
-            }
-
             switch (assertion.id) {
                 case 'convey_change_in_value':
                     if (ATBrowsers.at[at].type === "sr" && assertion.operation_modes.includes('sr/interaction')) {
                         // see if it already exists
-                        let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "enter_text");
-                        if (-1 === found) {
-                            assertionLink.results[at].browsers[browser].output.push({
-                                command: "enter_text",
-                                output: "character was announced.",
-                                result: "pass"
-                            });
-                        }
+                        addCommand(test, at, browser, {
+                            command: "enter_text",
+                            css_target: assertion.css_target,
+                            from: "before target",
+                            to: "target"
+                        }, assertionLink.feature_id, assertionLink.feature_assertion_id, "character was announced", "pass", null);
                     } else {
                         console.log("expected convey_change_in_value to support sr/interaction ");
                     }
                     break;
                 case 'provide_shortcuts':
                     if (ATBrowsers.at[at].type === "sr" && assertion.operation_modes.includes('sr/reading')) {
-                        let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "next_form_field");
-                        if (-1 === found) {
-                            assertionLink.results[at].browsers[browser].output.push({
-                                command: "next_form_field",
-                                output: "\"\"",
-                                result: "unknown"
-                            });
-                        }
+                        addCommand(test, at, browser, {
+                            command: "next_form_field",
+                            css_target: assertion.css_target,
+                            from: "before target",
+                            to: "target"
+                        }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+
                         if (at === "jaws" || at === "nvda" || at === "vo_macos") {
                             // These support open_element_list
-                            let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "open_element_list");
-                            if (-1 === found) {
-                                assertionLink.results[at].browsers[browser].output.push({
-                                    command: "open_element_list",
-                                    output: "\"\"",
-                                    result: "unknown"
-                                });
-                            }
+                            addCommand(test, at, browser, {
+                                command: "open_element_list",
+                                css_target: assertion.css_target,
+                                from: "na",
+                                to: "na"
+                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
                         }
                     } else {
                         console.log("expected convey_change_in_value to support sr/reading ");
                     }
                     break;
                 case 'widget_is_supported':
-                    let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "multiple_commands");
-                    if (-1 === found) {
-                        assertionLink.results[at].browsers[browser].output.push({
-                            command: "multiple_commands",
-                            output: "",
-                            result: "unknown",
-                            notes: ""
-                        });
-                    }
+                    addCommand(test, at, browser, {
+                        command: "multiple_commands",
+                        css_target: assertion.css_target,
+                        from: "na",
+                        to: "na"
+                    }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
                     break;
                 default:
                     if (ATBrowsers.at[at].type === "sr") {
-                        var next_item_created = false;
-
                         if (assertion.operation_modes.includes('sr/reading')) {
-                            let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "next_item");
-                            if (-1 === found) {
-                                assertionLink.results[at].browsers[browser].output.push({
-                                    command: "next_item",
-                                    from: "before target",
-                                    to: "target",
-                                    output: "\"\"",
-                                    result: "unknown"
-                                });
-                                next_item_created = true;
-                            }
+                            addCommand(test, at, browser, {
+                                command: "next_item",
+                                css_target: assertion.css_target,
+                                from: "before target",
+                                to: "target"
+                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
                         }
 
                         if (assertion.operation_modes.includes('sr/interaction')) {
                             // not all screen readers have next_focusable_item...
                             if (ATBrowsers.at[at].commands.next_focusable_item) {
-                                let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "next_focusable_item");
-                                if (-1 === found) {
-                                    assertionLink.results[at].browsers[browser].output.push({
-                                        command: "next_focusable_item",
-                                        from: "before target",
-                                        to: "target",
-                                        output: "\"\"",
-                                        result: "unknown"
-                                    });
-                                }
-                            } else if (!next_item_created) {
-                                let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "next_item");
-                                if (-1 === found) {
-                                    assertionLink.results[at].browsers[browser].output.push({
-                                        command: "next_item",
-                                        from: "before target",
-                                        to: "target",
-                                        output: "\"\"",
-                                        result: "unknown"
-                                    });
-                                }
+                                addCommand(test, at, browser, {
+                                    command: "next_focusable_item",
+                                    css_target: assertion.css_target,
+                                    from: "before target",
+                                    to: "target"
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                            } else {
+                                addCommand(test, at, browser, {
+                                    command: "next_item",
+                                    css_target: assertion.css_target,
+                                    from: "before target",
+                                    to: "target"
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
                             }
                         }
                     } else if (ATBrowsers.at[at].type === "vc" && assertion.operation_modes.includes('vc')) {
                         if (assertion.id === "convey_name" || assertion.id === "contribute_to_accessible_name") {
-                            let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_name");
-                            if (-1 === found) {
-                                assertionLink.results[at].browsers[browser].output.push({
-                                    command: "activate_name",
-                                    output: "\"\"",
-                                    result: "unknown",
-                                    notes: "said \"\""
-                                });
-                            }
+                            addCommand(test, at, browser, {
+                                command: "activate_name",
+                                css_target: assertion.css_target,
+                                from: "na",
+                                to: "na"
+                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
                         }
 
                         if (assertion.id === "convey_role") {
                             if (at === "dragon_win") {
-                                let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "activate_role");
-                                if (-1 === found) {
-                                    assertionLink.results[at].browsers[browser].output.push({
-                                        command: "activate_role",
-                                        output: "\"\"",
-                                        result: "unknown",
-                                        notes: "said \"\""
-                                    });
-                                }
+                                addCommand(test, at, browser, {
+                                    command: "activate_role",
+                                    css_target: assertion.css_target,
+                                    from: "na",
+                                    to: "na"
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
                             } else {
-                                let found = assertionLink.results[at].browsers[browser].output.findIndex(obj => obj.command === "show_numbers");
-                                if (-1 === found) {
-                                    assertionLink.results[at].browsers[browser].output.push({
-                                        command: "show_numbers",
-                                        output: "\"\"",
-                                        result: "unknown"
-                                    });
-                                }
+                                addCommand(test, at, browser, {
+                                    command: "show_numbers",
+                                    css_target: assertion.css_target,
+                                    from: "na",
+                                    to: "na"
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
                             }
                         }
                     }

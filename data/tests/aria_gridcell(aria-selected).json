@@ -4,582 +4,627 @@
   "assertions": [
     {
       "feature_id": "aria/aria-selected_attribute",
-      "feature_assertion_id": "convey_value_undefined",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Grid, date, column 1, row 2, 2018-01-01, selected\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"column 0, row 1, 2018-01-01\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"table, column 1, row 2, grid, 2018-01-01, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Table, has 3 rows, 2 columns, January 1st, 2018, editable, column header date, row 2 of 3, column 1 of 2\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"table, 2018-01-01, selected\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"table, editable, not selected\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"table with 3 rows, 2 columns, date column header, 2018-01-01, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2018-01-01, row 2, Date, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2018-01-01, row 2, column 1\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"January 1 2018, table, 2 columns, 2 rows\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value_undefined"
     },
     {
       "feature_id": "aria/aria-selected_attribute",
-      "feature_assertion_id": "convey_value_false",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"name, target 1\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, type in text\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, editable, column header name, column 2 of 2\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, not selected, row 2 name, column 2\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"not selected, row 2 name, column 2\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2018-01-01 target 1, not selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, name, double tap to activate\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, column 2\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 1, you are currently on a cell\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value_false"
     },
     {
       "feature_id": "aria/aria-selected_attribute",
-      "feature_assertion_id": "convey_value_true",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2, selected\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2, type in text\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2, selected, editable, column header name, column 2 of 2\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2, row 3, column 2\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"not selected, row 3 name, column 2\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2018-01-02, target 2, not selected\"",
-                  "result": "false"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"selected, target 2, name, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2, column 2, table end\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target 2, you are currently on a cell\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value_true"
     },
     {
       "feature_id": "aria/aria-selected_attribute",
       "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"enter\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"enter\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "target",
-                  "to": "target",
-                  "output": "\"enter\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"non-selected\"",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Narrator appears to intercept the enter key when aria-selected is set to false"
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"not selected\" or \"selected\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "no announcement was made",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"space\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"selected\", but does not announce the transition to the unselected state",
-                  "result": "partial"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "change of state not conveyed",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "no announcement was made",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
+          "edge": "Narrator appears to intercept the enter key when aria-selected is set to false"
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Grid, date, column 1, row 2, 2018-01-01, selected\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"name, target 1\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2, selected\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "target",
+          "to": "target",
+          "output": "\"enter\"",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"column 0, row 1, 2018-01-01\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "target",
+          "to": "target",
+          "output": "\"enter\"",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"table, column 1, row 2, grid, 2018-01-01, type in text\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, type in text\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2, type in text\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "target",
+          "to": "target",
+          "output": "\"enter\"",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Table, has 3 rows, 2 columns, January 1st, 2018, editable, column header date, row 2 of 3, column 1 of 2\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, editable, column header name, column 2 of 2\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2, selected, editable, column header name, column 2 of 2\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "\"non-selected\"",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"table, 2018-01-01, selected\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, not selected, row 2 name, column 2\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2, row 3, column 2\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "\"not selected\" or \"selected\"",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"table, editable, not selected\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"not selected, row 2 name, column 2\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"not selected, row 3 name, column 2\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "no announcement was made",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2018-01-01, row 2, Date, double tap to activate\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, name, double tap to activate\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"selected, target 2, name, double tap to activate\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "\"selected\", but does not announce the transition to the unselected state",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "partial"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2018-01-01, row 2, column 1\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, column 2\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2, column 2, table end\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "change of state not conveyed",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"January 1 2018, table, 2 columns, 2 rows\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 1, you are currently on a cell\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target 2, you are currently on a cell\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "no announcement was made",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"table with 3 rows, 2 columns, date column header, 2018-01-01, focus mode\"",
+          "css_target": "*:not(['aria-selected'])",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2018-01-01 target 1, not selected\"",
+          "css_target": "*[aria-selected=\"false\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2018-01-02, target 2, not selected\"",
+          "css_target": "*[aria-selected=\"true\"]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "false"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "from": "before target",
+          "to": "target",
+          "output": "\"space\"",
+          "css_target": "*[aria-selected]",
+          "results": [
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-09-14",

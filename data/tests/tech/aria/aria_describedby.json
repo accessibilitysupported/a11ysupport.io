@@ -5,134 +5,204 @@
   "assertions": [
     {
       "feature_id": "aria/aria-describedby_attribute",
-      "feature_assertion_id": "convey_value_if_valid",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Example label, edit, error\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Example label, edit, error\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Example label, edit, error\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Example label, edit\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Example label, editing\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"Example label edit has auto complete, error\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"example label, entry\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"example label, entry, error, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Example label, edit text, error\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Example label, edit text, error\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"Edit box, example label, error\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value_if_valid"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Example label, edit, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Example label, edit, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Example label, edit, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Example label, edit\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Example label, editing\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"Example label edit has auto complete, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"Edit box, example label, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "\"Example label, edit text, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "\"Example label, edit text, error\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"example label, entry\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"example label, entry, error, focus mode\"",
+          "css_target": "*[ara-describedby]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-07-27",

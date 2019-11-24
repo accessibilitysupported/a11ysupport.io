@@ -6,177 +6,314 @@
       "feature_id": "aria/aria-disabled_attribute",
       "feature_assertion_id": "convey_value_true",
       "css_target": "#target",
-      "results": {
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "output": "target, shows popup",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_item_of_type",
-                  "output": "target, shows popup",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target, dimmed, popup button",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target, dimmed, popup button",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
+      "browserNotes": {
         "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button menu unavailable menu",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button menu unavailable menu",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button menu unavailable",
-                  "result": "pass"
-                }
-              ],
-              "notes": "haspopup property not announced."
-            }
-          }
+          "ie": "haspopup property not announced."
         },
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button disabled",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "button, disabled, target",
-                  "result": "pass"
-                }
-              ],
-              "notes": "haspopup property not announced."
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target menu button unavailable submenu",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "menu button unavailable submenu target",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target menu button unavailable submenu",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "menu button unavailable submenu target",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"target, push button, grayed\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "\"target, push button, grayed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "target, pop up button, disabled",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "edge": "haspopup property not announced."
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button menu unavailable menu",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button menu unavailable menu",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button menu unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button disabled",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "button, disabled, target",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "target menu button unavailable submenu",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "menu button unavailable submenu target",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "target menu button unavailable submenu",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "menu button unavailable submenu target",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "target, pop up button, disabled",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item_of_type",
+          "output": "target, shows popup",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "output": "target, dimmed, popup button",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target, dimmed, popup button",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"target, push button, grayed\"",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"target, push button, grayed\"",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-07-27",

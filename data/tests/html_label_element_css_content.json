@@ -6,281 +6,474 @@
       "feature_id": "css/generated_content",
       "feature_assertion_id": "part_of_accessible_name",
       "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"is generated\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"is generated\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit\"",
-                  "result": "fail"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, clickable\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit, type in text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, clickable\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit, blank\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit, blank\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, entry\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, entry, focus mode\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, text field\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"This is generated content, edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"This is generated content, edit\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(input was not focused)",
-                  "result": "fail"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(input was not focused)",
-                  "result": "fail"
-                }
-              ],
-              "notes": "It worked if I said \"click generated\", which means that the CSS generated content is not taken into account."
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "(input was not focused)",
-                  "result": "fail"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "3 names were created, \"this\", \"is generated\", and \"content\".",
-                  "result": "partial",
-                  "notes": "said \"show names\" and 3 names were displayed, while 1 is expected. said \"tap this is generated content\" and the command failed. said \"tap content\" and the command passed. said \"tap is generated\" and the command passed. "
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "button was not activated",
-                  "result": "unknown",
-                  "notes": "said \"tap this is generated content\". VA does not support HTML form labels, so it is not known if this result is due to lack of CSS generated content support or lack of HTML form label support."
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was focused",
-                  "result": "pass",
-                  "notes": "said \"click this is generated content\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was activated",
-                  "result": "pass",
-                  "notes": "said \"click this is generated content\""
-                }
-              ]
-            },
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "role was not activated",
-                  "result": "fail",
-                  "notes": "said \"click this is generated content\""
-                }
-              ]
-            }
-          }
+          "ie": "It worked if I said \"click generated\", which means that the CSS generated content is not taken into account."
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "(input was not focused)",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_name",
+          "output": "(input was not focused)",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_name",
+          "output": "(input was not focused)",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit, type in text\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "output": "\"is generated\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"is generated\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, clickable\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, edit\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, edit\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit, blank\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, clickable\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit, blank\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, edit\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "button was not activated",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "unknown",
+              "notes": "said \"tap this is generated content\". VA does not support HTML form labels, so it is not known if this result is due to lack of CSS generated content support or lack of HTML form label support."
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, text field\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, edit text\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, edit text\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "\"This is generated content, entry\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "output": "\"This is generated content, entry, focus mode\"",
+          "css_target": "*",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "3 names were created, \"this\", \"is generated\", and \"content\".",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "partial",
+              "notes": "said \"show names\" and 3 names were displayed, while 1 is expected. said \"tap this is generated content\" and the command failed. said \"tap content\" and the command passed. said \"tap is generated\" and the command passed. "
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was focused",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass",
+              "notes": "said \"click this is generated content\""
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "role was not activated",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "fail",
+              "notes": "said \"click this is generated content\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "output": "role was activated",
+          "css_target": "*",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "css/generated_content",
+              "feature_assertion_id": "part_of_accessible_name",
+              "result": "pass",
+              "notes": "said \"click this is generated content\""
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2018-07-06",
@@ -325,7 +518,8 @@
     {
       "date": "2019-10-07",
       "message": "Add vc_macos results"
-    },    {
+    },
+    {
       "date": "2019-10-18",
       "message": "Add wsr results"
     }

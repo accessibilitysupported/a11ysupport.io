@@ -5,205 +5,302 @@
     {
       "feature_id": "aria/aria-roledescription_attribute",
       "feature_assertion_id": "convey_value",
-      "css_target": "#target",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button. To activate press space bar.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button. To activate press space bar.\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button.\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Target, custom button. To activate press space bar.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"custom button, target\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Target. Custom button.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"custom button, target\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"custom button, target\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"custom button, target\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Target, custom button.\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, custom button\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"target, button, double tap to activate\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"Target, custom button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Target, custom button",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "Target, custom button",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "css_target": "#target"
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button. To activate press space bar.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Target, custom button. To activate press space bar.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button. To activate press space bar.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"custom button, target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Target. Custom button.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"custom button, target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"custom button, target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"custom button, target\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Target, custom button.\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, button, double tap to activate\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "Target, custom button",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"Target, custom button\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "Target, custom button",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"target, custom button\"",
+          "css_target": "*[aria-roledescription]",
+          "results": [
+            {
+              "feature_id": "aria/aria-roledescription_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-09-09",

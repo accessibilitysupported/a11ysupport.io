@@ -5,1417 +5,1377 @@
   "assertions": [
     {
       "feature_id": "html/input(type-week)_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "fail",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"week, datetime, edit\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"week, enter a date, edit, spin box, 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, week 12 2012, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit 2012-W12, enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, week, week 12 2012, week 12 2012\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, week, week 12 2012\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, week, week 12, 2012, suggestions available, week 12, 12 of 52, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "na because the date picker button was found, not the actual input."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "na because the date picker button was found, not the actual input."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable, enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit has auto complete, selected 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-w12\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"W12\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-W12, contents selected, Enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-W12\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"29120W12 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-W12 selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"tap enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "Embedded controls were flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/input(type-week)_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "input was not found",
-                  "result": "fail",
-                  "notes": "said \"click edit\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"week, datetime, edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"week, enter a date, edit, spin box, 12\"",
-                  "result": "pass",
-                  "notes": "role implied by embedded controls"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, week 12 2012, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit 2012-W12, enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, week, week 12 2012, week 12 2012\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, week, week 12 2012\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, week, week 12, 2012, suggestions available, week 12, 12 of 52, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "na because the date picker button was found, not the actual input."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "na because the date picker button was found, not the actual input."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable, enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit has auto complete, selected 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged with a number",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-w12\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"W12\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-W12, contents selected, Enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-W12\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"29120W12 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-W12 selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged with a number",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "embedded controls were flagged for disambiguation",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/input(type-week)_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"week, datetime, edit\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"week, enter a date, edit, spin box, 12\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, week 12 2012, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit 2012-W12, enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-W12, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, week, week 12 2012, week 12 2012\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, week, week 12 2012\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, week, week 12, 2012, suggestions available, week 12, 12 of 52, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "na because the date picker button was found, not the actual input."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "na because the date picker button was found, not the actual input."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable, enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit has auto complete, selected 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-w12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"W12\"",
-                  "result": "partial"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-W12, contents selected, Enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"29120W12 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-W12 selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/input(type-week)_element",
       "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "output": "new value was announced",
-                  "result": "pass",
-                  "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new value was announced",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new value was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "after changing the value in the widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
-                  "result": "fail",
-                  "notes": "Scan mode must be manually turned off to interact with widgets"
-                }
-              ],
-              "notes": "unable to change the value without using the date picker widget"
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "character was announced followed by the announcement of the formatted value.",
-                  "result": "pass",
-                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new character was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "input was announced without a value",
-                  "result": "fail",
-                  "notes": "changed the value in the date picker and activated the \"set\" button."
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "unable to change value",
-                  "result": "unknown"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new character was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
+          "edge": "unable to change the value without using the date picker widget"
         }
       }
     },
     {
       "feature_id": "html/input(type-week)_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, week 12 2012, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-w12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, week, week 12, 2012, suggestions available, week 12, 12 of 52, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"enter a date, edit has auto complete, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-W12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"29120W12 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-W12\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "html/input(type-week)_element",
-      "feature_assertion_id": "widget_is_supported",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "unable to get to the control",
-                  "result": "fail",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for week and year are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            },
-            "ie": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            },
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for month and year are conveyed correctly and operable",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for week and year are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            },
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was possible to change the date, however groupings of buttons was not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to open the week picker and set a new week",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "unable to change value",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "Safari does not support this widget."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to open the week picker but not interact with any elements in the week picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
-                  "result": "partial",
-                  "notes": "partial because it was still possible to use some of the controls and enter a date"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "widget_is_supported"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "input was not found",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"click edit\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "unable to get to the control",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "fail",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"week, datetime, edit\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"week, enter a date, edit, spin box, 12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "role implied by embedded controls"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, datetime edit, week 12 2012, show date picker\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "output": "new value was announced",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for week and year are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit 2012-W12, enter a date, edit, 2012-W12, type in text\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 2012-W12, type in text\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date edit 2012-w12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new value was announced",
+          "css_target": "input[type=\"week\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 2012-W12, type in text\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 2012-W12, type in text\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date edit 2012-w12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new value was announced",
+          "css_target": "input[type=\"week\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, week, week 12 2012, week 12 2012\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, week, week 12 2012\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, week, week 12, 2012, suggestions available, week 12, 12 of 52, selected\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "after changing the value in the widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "Scan mode must be manually turned off to interact with widgets"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for month and year are conveyed correctly and operable",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, date edit, week enter a date, spin button 12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"show date picker, menu button, sub menu\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na",
+              "notes": "na because the date picker button was found, not the actual input."
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na",
+              "notes": "na because the date picker button was found, not the actual input."
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "na because the date picker button was found, not the actual input."
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na",
+              "notes": "na because the date picker button was found, not the actual input."
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na",
+              "notes": "na because the date picker button was found, not the actual input."
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "na because the date picker button was found, not the actual input."
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "character was announced followed by the announcement of the formatted value.",
+          "css_target": "input[type=\"week\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for week and year are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"clickable, enter a date, edit has auto complete, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit has auto complete, selected 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, has auto complete, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"enter a date, edit has auto complete, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new character was announced",
+          "css_target": "input[type=\"week\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "input was announced without a value",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "changed the value in the date picker and activated the \"set\" button."
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was possible to change the date, however groupings of buttons was not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged with a number",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to open the week picker and set a new week",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2012-w12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "skipped",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "unable to change value",
+          "css_target": "input[type=\"week\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "unknown"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "unable to change value",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"W12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2012-W12, contents selected, Enter a date, edit text\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"29120W12 enter a date edit text\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new character was announced",
+          "css_target": "input[type=\"week\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, entry, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, entry, 2012-W12 selected\"",
+          "css_target": "input[type=\"week\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, entry, 2012-W12\"",
+          "css_target": "input[type=\"week\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap enter a date\""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged with a number",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "Embedded controls were flagged for disambiguation",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "embedded controls were flagged for disambiguation",
+          "css_target": "input[type=\"week\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to open the week picker but not interact with any elements in the week picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": "partial because it was still possible to use some of the controls and enter a date"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-11-02",

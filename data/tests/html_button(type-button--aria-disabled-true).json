@@ -6,179 +6,320 @@
       "feature_id": "aria/aria-disabled_attribute",
       "feature_assertion_id": "convey_value_true",
       "css_target": "#target",
-      "results": {
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item_of_type",
-                  "output": "target, dimmed, button",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target, dimmed, button",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target, dimmed, button",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target, dimmed, button",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target, button, disabled",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "button, disabled, target",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button unavailable",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button unavailable",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "target button unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "target button unavailable",
-                  "result": "pass"
-                }
-              ],
-              "notes": ""
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "Target, button, unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "button, unavailable, target",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "Target, button, unavailable",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "button, unavailable, target",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_focusable_item",
-                  "output": "\"target, push button, grayed\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_item",
-                  "output": "\"target, push button, grayed\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "\"target, button\"",
-                  "result": "fail"
-                }
-              ],
-              "notes": "did not announce \"double tap to activate\""
-            }
-          }
+          "and_chr": "did not announce \"double tap to activate\""
         }
       }
     }
   ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "target button unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target button unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "output": "target, button, disabled",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "button, disabled, target",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "output": "Target, button, unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "button, unavailable, target",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "Target, button, unavailable",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "button, unavailable, target",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "output": "\"target, button\"",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item_of_type",
+          "output": "target, dimmed, button",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target, dimmed, button",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "output": "target, dimmed, button",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "target, dimmed, button",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "output": "\"target, push button, grayed\"",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "output": "\"target, push button, grayed\"",
+          "css_target": "*[aria-disabled=\"true\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "aria/aria-disabled_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2019-07-27",

@@ -5,1433 +5,1411 @@
   "assertions": [
     {
       "feature_id": "html/input(type-datetime-local)_element",
-      "feature_assertion_id": "convey_name",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was not focused",
-                  "result": "fail",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"12, date time, edit\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"month, enter a date, edit spin box, 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 2012-12-12T19:30, enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, local date and time, december 12, 2012, 7:30 pn\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"december 12, 2012, button\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button 12 / spin button 12 / spin button 2012 / spin button 07, spin button 30, spin button pm\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "date picker button was found, but not the actual input"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "date picker button was found, but not the actual input"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable, enter a date, edit, has auto complete, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date and time picker, double-top to activate\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"december 12, 2012, at 7:30 pm, \"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"12T9:30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-12-12T19:30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"tap enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "input was flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_name",
-                  "output": "Embedded controls were flagged for disambiguation",
-                  "result": "pass",
-                  "notes": "said \"click enter a date\""
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_name"
     },
     {
       "feature_id": "html/input(type-datetime-local)_element",
-      "feature_assertion_id": "convey_role",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "activate_role",
-                  "output": "input was not found",
-                  "result": "fail",
-                  "notes": "said \"click edit\""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"12, date time, edit\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"month, enter a date, edit spin box, 12\"",
-                  "result": "pass",
-                  "notes": "role implied by the embedded spin box"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 2012-12-12T19:30, enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, local date and time, december 12, 2012, 7:30 pn\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"december 12, 2012, button\"",
-                  "result": "fail",
-                  "notes": "the embedded button role does not clearly convey the role for the entire input"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button 12 / spin button 12 / spin button 2012 / spin button 07, spin button 30, spin button pm\"",
-                  "result": "fail",
-                  "notes": "embedded roles were conveyed, but not the outer control"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "date picker button was found but not the actual input"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "date picker button was found but not the actual input"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable, enter a date, edit, has auto complete, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date and time picker, double-top to activate\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged with a number",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"december 12, 2012, at 7:30 pm, \"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"12T9:30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-12-12T19:30\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "input was flagged with a number",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "show_numbers",
-                  "output": "embedded controls were flagged for disambiguation",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_role"
     },
     {
       "feature_id": "html/input(type-datetime-local)_element",
-      "feature_assertion_id": "convey_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"12, date time, edit\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"month, enter a date, edit spin box, 12\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"edit, 2012-12-12T19:30, enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, local date and time, december 12, 2012, 7:30 pn\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"december 12, 2012, button\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"spin button 12 / spin button 12 / spin button 2012 / spin button 07, spin button 30, spin button pm\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
-                  "result": "partial",
-                  "notes": "value was only partially conveyed"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "date picker button was found, but not the actual input"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "na",
-                  "notes": "date picker button was found, but not the actual input"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"clickable, enter a date, edit, has auto complete, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, date and time picker, double-top to activate\"",
-                  "result": "fail"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"december 12, 2012, at 7:30 pm, \"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "na"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"12T9:30\"",
-                  "result": "partial"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_focusable_item",
-                  "from": "before target",
-                  "to": "target",
-                  "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "convey_value"
     },
     {
       "feature_id": "html/input(type-datetime-local)_element",
       "feature_assertion_id": "convey_change_in_value",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "forms_mode_keyboard_command",
-                  "output": "new value was announced",
-                  "result": "pass",
-                  "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new value was announced",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new value was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
+      "browserNotes": {
         "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "after changing the value in the widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
-                  "result": "fail",
-                  "notes": "Scan mode must be manually turned off to interact with widgets"
-                }
-              ],
-              "notes": "unable to change the value without using the date picker widget"
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "character was announced followed by the announcement of the formatted value.",
-                  "result": "pass",
-                  "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new character was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "input was announced without a value",
-                  "result": "fail",
-                  "notes": "changed the value in the date picker and activated the \"set\" button."
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "activate_button",
-                  "output": "focus was sent to the format controls button at the top of the window and new value was not conveyed",
-                  "result": "fail",
-                  "notes": "clicked \"done\" in the widget keyboard"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new character was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "enter_text",
-                  "output": "new character was announced",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
+          "edge": "unable to change the value without using the date picker widget"
         }
       }
     },
     {
       "feature_id": "html/input(type-datetime-local)_element",
-      "feature_assertion_id": "provide_shortcuts",
-      "results": {
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "ie": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, 2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"show date picker, menu button, sub menu\"",
-                  "result": "partial",
-                  "notes": "date picker button was found, but not the actual input."
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
-                  "result": "pass",
-                  "notes": "date picker button was found, but not the actual input."
-                }
-              ]
-            },
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, date and time picker, double tap to activate\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "skipped",
-                  "result": "fail"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"2012-12-12T19:30\"",
-                  "result": "pass"
-                },
-                {
-                  "command": "open_element_list",
-                  "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_form_field",
-                  "output": "\"enter a date, entry, 2012-12-12T1930\"",
-                  "result": "pass"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "provide_shortcuts"
     },
     {
       "feature_id": "html/input(type-datetime-local)_element",
-      "feature_assertion_id": "widget_is_supported",
-      "results": {
-        "dragon_win": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "unable to get to the control",
-                  "result": "fail",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "jaws": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for month, date, year, and time are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            },
-            "ie": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            },
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "narrator": {
-          "browsers": {
-            "edge": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for month, date, and year, and time are conveyed correctly and operable",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "nvda": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "embedded controls for month, date, year, and time are conveyed correctly, however controls within the date picker are not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            },
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "talkback": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was possible to change the date and time, however groupings of buttons was not conveyed.",
-                  "result": "partial",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "va_and": {
-          "browsers": {
-            "and_chr": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to open the date picker and set a new date and time",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "vo_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to set the time with the widget however embedded controls were missing labels.",
-                  "result": "partial"
-                }
-              ]
-            }
-          }
-        },
-        "vo_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "Safari does not support this widget."
-            }
-          }
-        },
-        "orca": {
-          "browsers": {
-            "firefox": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "vc_ios": {
-          "browsers": {
-            "ios_saf": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to change do a desired date and time. said \"show numbers\" followed by \"increment <number>\" for the corresponding control.",
-                  "result": "pass",
-                  "notes": ""
-                }
-              ]
-            }
-          }
-        },
-        "vc_macos": {
-          "browsers": {
-            "safari": {
-              "support": "na",
-              "notes": "browser does not support this widget."
-            }
-          }
-        },
-        "wsr": {
-          "browsers": {
-            "chrome": {
-              "output": [
-                {
-                  "command": "multiple_commands",
-                  "output": "was able to open the date picker but not interact with any elements in the date picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
-                  "result": "partial",
-                  "notes": "partial because it was still possible to use some of the controls and enter a date"
-                }
-              ]
-            }
-          }
-        }
-      }
+      "feature_assertion_id": "widget_is_supported"
     }
   ],
+  "commands": {
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "input was not focused",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "output": "input was not found",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "said \"click edit\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "unable to get to the control",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "fail",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"12, date time, edit\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"month, enter a date, edit spin box, 12\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "role implied by the embedded spin box"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date, edit, 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "output": "new value was announced",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for month, date, year, and time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"edit, 2012-12-12T19:30, enter a date, edit, 2012-12-12T19:30, type in text\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new value was announced",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, 2012-12-12T19:30, type in text\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date edit 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new value was announced",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, local date and time, december 12, 2012, 7:30 pn\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"december 12, 2012, button\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "the embedded button role does not clearly convey the role for the entire input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "after changing the value in the widget and activating the button accept button, the date input was focused but the new value was not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "Scan mode must be manually turned off to interact with widgets"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for month, date, and year, and time are conveyed correctly and operable",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"spin button 12 / spin button 12 / spin button 2012 / spin button 07, spin button 30, spin button pm\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "embedded roles were conveyed, but not the outer control"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, date edit, month, enter a date, spin button, 12\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value was only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"show date picker, menu button, sub menu\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na",
+              "notes": "date picker button was found, but not the actual input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na",
+              "notes": "date picker button was found but not the actual input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "date picker button was found, but not the actual input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "partial",
+              "notes": "date picker button was found, but not the actual input."
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na",
+              "notes": "date picker button was found, but not the actual input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na",
+              "notes": "date picker button was found but not the actual input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "date picker button was found, but not the actual input"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass",
+              "notes": "date picker button was found, but not the actual input."
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "character was announced followed by the announcement of the formatted value.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "embedded controls for month, date, year, and time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"clickable, enter a date, edit, has auto complete, 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, edit, has auto complete, selected 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form fields as \"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new character was announced",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, date and time picker, double-top to activate\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "input was announced without a value",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "changed the value in the date picker and activated the \"set\" button."
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was possible to change the date and time, however groupings of buttons was not conveyed.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged with a number",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to open the date picker and set a new date and time",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"december 12, 2012, at 7:30 pm, \"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "skipped",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "output": "focus was sent to the format controls button at the top of the window and new value was not conveyed",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "clicked \"done\" in the widget keyboard"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to set the time with the widget however embedded controls were missing labels.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"12T9:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "output": "in list of form controls as \"2012-12-12T19:30 enter a date edit text\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new character was announced",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, entry, 2012-12-12T19:30\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "from": "before target",
+          "to": "target",
+          "output": "\"enter a date, entry, 2012-12-12T19:30, selected\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "output": "\"enter a date, entry, 2012-12-12T1930\"",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "output": "new character was announced",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"tap enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to change do a desired date and time. said \"show numbers\" followed by \"increment <number>\" for the corresponding control.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "output": "input was flagged for disambiguation",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "input was flagged with a number",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "output": "Embedded controls were flagged for disambiguation",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "said \"click enter a date\""
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "output": "embedded controls were flagged for disambiguation",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "output": "was able to open the date picker but not interact with any elements in the date picker. was unable to set the value for embedded controls such as the year by saying \"numeral 1955\", however \"up arrow\" and \"down arrow\" adjusted the values.",
+          "css_target": "input[type=\"datetime-local\"]",
+          "from": "na",
+          "to": "na",
+          "results": [
+            {
+              "feature_id": "html/input(type-datetime-local)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial",
+              "notes": "partial because it was still possible to use some of the controls and enter a date"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "history": [
     {
       "date": "2019-11-01",

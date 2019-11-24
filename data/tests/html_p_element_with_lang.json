@@ -7,41 +7,64 @@
       "feature_assertion_id": "switch_to_lang",
       "css_target": "#target",
       "expected_value": "zh",
-      "results": {
+      "browserNotes": {
         "nvda": {
-          "browsers": {
-            "firefox": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "中文 (简体)",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Had to install the Simplified Chinese language in the Windows 10 Language Settings for this to work. If the language is not installed, nothing will be announced."
-            }
-          }
+          "firefox": "Had to install the Simplified Chinese language in the Windows 10 Language Settings for this to work. If the language is not installed, nothing will be announced."
         },
         "vo_macos": {
-          "browsers": {
-            "safari": {
-              "output": [
-                {
-                  "command": "next_item",
-                  "output": "中文 (简体)",
-                  "result": "pass"
-                }
-              ],
-              "notes": "Had to install the Chinese language in the Language Settings for VoiceOver."
-            }
-          }
+          "safari": "Had to install the Chinese language in the Language Settings for VoiceOver."
         }
       }
     }
   ],
-  "sr_instructions": [
-    "If the screen reader attempts to read the text in as english or not at all, this test fails regardless of what the other instructions indicate. The screen reader must announce the text of the target element in the correct language."
-  ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {},
+    "narrator": {},
+    "nvda": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "output": "中文 (简体)",
+          "css_target": "*[lang]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/lang_attribute",
+              "feature_assertion_id": "switch_to_lang",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {},
+    "va_and": {},
+    "vo_ios": {},
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "output": "中文 (简体)",
+          "css_target": "*[lang]",
+          "from": "before target",
+          "to": "target",
+          "results": [
+            {
+              "feature_id": "html/lang_attribute",
+              "feature_assertion_id": "switch_to_lang",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {},
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
   "history": [
     {
       "date": "2018-10-19",
@@ -69,5 +92,8 @@
         }
       }
     }
-  }
+  },
+  "sr_instructions": [
+    "If the screen reader attempts to read the text in as english or not at all, this test fails regardless of what the other instructions indicate. The screen reader must announce the text of the target element in the correct language."
+  ]
 }
