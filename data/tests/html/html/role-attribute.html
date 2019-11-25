@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Role attribute test suite</title>
+    <style>
+        *[role*="button"], *[role="link"] {
+            padding: .5em;
+            border: 1px solid #000;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HTML role attribute tests</h1>
+
+<p>The following are a few tests for the role attribute.</p>
+
+
+<h2>Test 1: is the role attribute conveyed?</h2>
+<p>This tests ensures that the role attribute is conveyed. The button role was selected since it is known to be widely supported. To pass, the element must be conveyed as a button.</p>
+
+<div role="button" tabindex="0" id="test-1">Action 1</div>
+
+<h2>Test 2: are fallback roles supported?</h2>
+<p>This tests ensures that fallback roles are supported. A nonsensical role was selected as the first value since it should never be supported, and the button role was selected as a fallback role since it is known to be widely supported. Too pass, the element must be conveyed as a button.</p>
+
+<div role="invalidrole0001 button" tabindex="0" id="test-2">Action 2</div>
+
+
+<h2>Test 3: are changes to the role processed?</h2>
+<p>This tests ensures that changes to the role are processed. The link role was chosen for the initial role since it is known to be widely supported, and the button role was selected as the new dynamic role since it is also known to be widely supported. Too pass, the element must be conveyed as a button after the role has been changed. The role should be changed 1 second after page load and a success message will display under the button when the role has changed.</p>
+
+<div role="link" tabindex="0" id="test-3">Action 3</div>
+<div id="test-3-status">Role has not changed yet</div>
+
+<script>
+    var target = document.querySelector('#test-3');
+    var targetStatus = document.querySelector('#test-3-status');
+    setTimeout(
+        function() {
+            target.setAttribute('role', 'button');
+            targetStatus.innerHTML = 'role has been updated!';
+        },
+        1000
+    );
+</script>
+
+
+<p>End tests</p>
+
+</body>
+</html>

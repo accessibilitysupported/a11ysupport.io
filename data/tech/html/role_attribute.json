@@ -1,0 +1,73 @@
+{
+  "id": "role_attribute",
+  "title": "role attribute",
+  "type": "attribute",
+  "description": "The role attribute is defined in Accessible Rich Internet Applications (ARIA). While the role attribute is defined in ARIA, these expectations test the attribute as implemented in HTML.",
+  "references": [
+    {
+      "title": "HTML5 spec for the role attribute",
+      "url": "https://html.spec.whatwg.org/multipage/infrastructure.html#attr-aria-role"
+    },
+    {
+      "title": "ARIA 1.1 spec for the role attribute",
+      "url": "https://www.w3.org/TR/wai-aria-1.1/#host_general_role"
+    },
+    {
+      "title": "Additional information about the role attribute in the ARIA 1.2 spec (draft)",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#introroles"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_presence",
+      "title": "convey the presence of the role attribute",
+      "rationale": "The user needs to know when a role is defined.",
+      "notes": "The expectation is that a valid role value is conveyed to end users. This expectation does not check the correctness of the role conveyed, but only that a role is conveyed. Note that roles can be conveyed in a way that is implied by context and that AT have discretion in how to actually convey the role value. For example, some screen readers may convey the actual value of the role, and others may choose to convey a slightly different value. The correctness of role values is tested on a per-value bases elsewhere in this project.",
+      "css_target": "*[role]",
+      "strength": {
+        "sr": "MUST",
+        "vc": "MUST"
+      },
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ],
+      "exclude_at": {"vc_ios":  "no_support"}
+    },
+    {
+      "id": "support_fallback_roles",
+      "title": "support fallback roles",
+      "rationale": "If multiple URLs are defined, the user needs to be made aware of the first supported role value",
+      "css_target": "*[role]",
+      "strength": {
+        "sr": "MUST",
+        "vc": "MUST"
+      },
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ],
+      "exclude_at": {"vc_ios":  "no_support"}
+    },
+    {
+      "id": "process_change_in_role",
+      "title": "process changes in role values",
+      "rationale": "If the role of an element changes, users need to be able to determine the new role",
+      "notes": "Due to the way that accessibility APIs and caching mechanisms work, this is unlikely to be supported. See the ARIA 1.2 spec for more details.",
+      "css_target": "*[role]",
+      "strength": {
+        "sr": "MAY",
+        "vc": "MAY"
+      },
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction",
+        "vc"
+      ],
+      "exclude_at": {"vc_ios":  "no_support"}
+    }
+  ],
+  "date_updated": "2019-11-25"
+}
