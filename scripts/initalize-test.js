@@ -69,13 +69,13 @@ test.assertions.forEach(function(assertionLink) {
     var assertion = feature.assertions[assertion_key];
 
     for(let at in ATBrowsers.at) {
-        if (assertion.exclude_at && assertion.exclude_at.includes(at)) {
+        if (assertion.exclude_at && Object.keys(assertion.exclude_at).includes(at)) {
             // This AT is not applicable for some reason. Don't pre-populate commands.
             // the "na" value is populated at build-time.
             continue;
         }
 
-        if (assertionLink.exclude_at && assertionLink.exclude_at.includes(at)) {
+        if (assertionLink.exclude_at && Object.keys(assertionLink.exclude_at).includes(at)) {
             // This AT is not applicable for some reason. Don't pre-populate commands.
             // the "na" value is populated at build-time.
             continue;
@@ -95,7 +95,7 @@ test.assertions.forEach(function(assertionLink) {
                         // see if it already exists
                         addCommand(test, at, browser, {
                             command: "enter_text",
-                            css_target: assertion.css_target,
+                            css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                             from: "before target",
                             to: "target"
                         }, assertionLink.feature_id, assertionLink.feature_assertion_id, "character was announced", "pass", null);
@@ -107,7 +107,7 @@ test.assertions.forEach(function(assertionLink) {
                     if (ATBrowsers.at[at].type === "sr" && assertion.operation_modes.includes('sr/reading')) {
                         addCommand(test, at, browser, {
                             command: "next_form_field",
-                            css_target: assertion.css_target,
+                            css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                             from: "before target",
                             to: "target"
                         }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
@@ -116,7 +116,7 @@ test.assertions.forEach(function(assertionLink) {
                             // These support open_element_list
                             addCommand(test, at, browser, {
                                 command: "open_element_list",
-                                css_target: assertion.css_target,
+                                css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                 from: "na",
                                 to: "na"
                             }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
@@ -128,7 +128,7 @@ test.assertions.forEach(function(assertionLink) {
                 case 'widget_is_supported':
                     addCommand(test, at, browser, {
                         command: "multiple_commands",
-                        css_target: assertion.css_target,
+                        css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                         from: "na",
                         to: "na"
                     }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
@@ -138,7 +138,7 @@ test.assertions.forEach(function(assertionLink) {
                         if (assertion.operation_modes.includes('sr/reading')) {
                             addCommand(test, at, browser, {
                                 command: "next_item",
-                                css_target: assertion.css_target,
+                                css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                 from: "before target",
                                 to: "target"
                             }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
@@ -149,14 +149,14 @@ test.assertions.forEach(function(assertionLink) {
                             if (ATBrowsers.at[at].commands.next_focusable_item) {
                                 addCommand(test, at, browser, {
                                     command: "next_focusable_item",
-                                    css_target: assertion.css_target,
+                                    css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "before target",
                                     to: "target"
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
                             } else {
                                 addCommand(test, at, browser, {
                                     command: "next_item",
-                                    css_target: assertion.css_target,
+                                    css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "before target",
                                     to: "target"
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
@@ -166,7 +166,7 @@ test.assertions.forEach(function(assertionLink) {
                         if (assertion.id === "convey_name" || assertion.id === "contribute_to_accessible_name") {
                             addCommand(test, at, browser, {
                                 command: "activate_name",
-                                css_target: assertion.css_target,
+                                css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                 from: "na",
                                 to: "na"
                             }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
@@ -176,14 +176,14 @@ test.assertions.forEach(function(assertionLink) {
                             if (at === "dragon_win") {
                                 addCommand(test, at, browser, {
                                     command: "activate_role",
-                                    css_target: assertion.css_target,
+                                    css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "na",
                                     to: "na"
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
                             } else {
                                 addCommand(test, at, browser, {
                                     command: "show_numbers",
-                                    css_target: assertion.css_target,
+                                    css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "na",
                                     to: "na"
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
