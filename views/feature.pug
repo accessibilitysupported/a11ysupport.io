@@ -90,7 +90,7 @@ block content
                 li Voice Control: #{assertion.strength.vc}
 
               if (assertion.notes)
-                p Notes: #{assertion.notes}
+                p Notes: !{md.renderInline(assertion.notes)}
 
               if assertion.tests.length > 0
                 each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]
