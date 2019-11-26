@@ -18,7 +18,7 @@ if (!test.commands || argv['clear-all']) {
     test.commands = {};
 }
 
-var addCommand = function(test, at, browser, command, feature_id, feature_assertion_id, output, result, notes) {
+var addCommand = function(test, at, browser, command, feature_id, feature_assertion_id, result, resultNotes) {
     if (!test.commands[at]) {
         test.commands[at] = {};
     }
@@ -50,9 +50,8 @@ var addCommand = function(test, at, browser, command, feature_id, feature_assert
         test.commands[at][browser][command_index].results.push({
             feature_id: feature_id,
             feature_assertion_id: feature_assertion_id,
-            output: output,
             result: result,
-            notes: notes
+            notes: resultNotes
         });
     }
 };
@@ -97,8 +96,9 @@ test.assertions.forEach(function(assertionLink) {
                             command: "enter_text",
                             css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                             from: "before target",
-                            to: "target"
-                        }, assertionLink.feature_id, assertionLink.feature_assertion_id, "character was announced", "pass", null);
+                            to: "target",
+                            output: "character was announced"
+                        }, assertionLink.feature_id, assertionLink.feature_assertion_id, "pass", null);
                     } else {
                         console.log("expected convey_change_in_value to support sr/interaction ");
                     }
@@ -109,8 +109,9 @@ test.assertions.forEach(function(assertionLink) {
                             command: "next_form_field",
                             css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                             from: "before target",
-                            to: "target"
-                        }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                            to: "target",
+                            output: "\"\""
+                        }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
 
                         if (at === "jaws" || at === "nvda" || at === "vo_macos") {
                             // These support open_element_list
@@ -118,8 +119,9 @@ test.assertions.forEach(function(assertionLink) {
                                 command: "open_element_list",
                                 css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                 from: "na",
-                                to: "na"
-                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                                to: "na",
+                                output: "\"\""
+                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                         }
                     } else {
                         console.log("expected convey_change_in_value to support sr/reading ");
@@ -130,8 +132,9 @@ test.assertions.forEach(function(assertionLink) {
                         command: "multiple_commands",
                         css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                         from: "na",
-                        to: "na"
-                    }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                        to: "na",
+                        output: "\"\""
+                    }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                     break;
                 default:
                     if (ATBrowsers.at[at].type === "sr") {
@@ -140,8 +143,9 @@ test.assertions.forEach(function(assertionLink) {
                                 command: "next_item",
                                 css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                 from: "before target",
-                                to: "target"
-                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                                to: "target",
+                                output: "\"\""
+                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                         }
 
                         if (assertion.operation_modes.includes('sr/interaction')) {
@@ -151,15 +155,17 @@ test.assertions.forEach(function(assertionLink) {
                                     command: "next_focusable_item",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "before target",
-                                    to: "target"
-                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                                    to: "target",
+                                    output: "\"\""
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             } else {
                                 addCommand(test, at, browser, {
                                     command: "next_item",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "before target",
-                                    to: "target"
-                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", null);
+                                    to: "target",
+                                    output: "\"\""
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             }
                         }
                     } else if (ATBrowsers.at[at].type === "vc" && assertion.operation_modes.includes('vc')) {
@@ -168,8 +174,10 @@ test.assertions.forEach(function(assertionLink) {
                                 command: "activate_name",
                                 css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                 from: "na",
-                                to: "na"
-                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
+                                to: "na",
+                                output: "\"\"",
+                                notes: "said \"\""
+                            }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                         }
 
                         if (assertion.id === "convey_role") {
@@ -178,15 +186,18 @@ test.assertions.forEach(function(assertionLink) {
                                     command: "activate_role",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "na",
-                                    to: "na"
-                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
+                                    to: "na",
+                                    output: "\"\"",
+                                    notes: "said \"\""
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             } else {
                                 addCommand(test, at, browser, {
                                     command: "show_numbers",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
                                     from: "na",
-                                    to: "na"
-                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "\"\"", "unknown", "said \"\"");
+                                    to: "na",
+                                    output: "\"\""
+                                }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             }
                         }
                     }
