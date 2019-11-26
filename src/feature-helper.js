@@ -737,6 +737,7 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].feature_title = feature.title;
 		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
 		testCase.assertions[assertion_key].assertion_strength = ref_assertion.strength;
+		testCase.assertions[assertion_key].assertion_notes = ref_assertion.notes;
 		testCase.assertions[assertion_key].core_support = {
 			sr: [],
 			vc: []

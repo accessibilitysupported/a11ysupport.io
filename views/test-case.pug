@@ -137,6 +137,9 @@ block content
                     else
                         p Grading method: Just one of the listed commands must pass for the expectation to pass.
 
+                    if (assertion.assertion_notes)
+                        p Notes: #{assertion.assertion_notes}
+
                     p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
                     div.responsive-table
