@@ -617,9 +617,18 @@ helper.initalizeTestCase = function (testCase) {
 					}
 
 					let output = Object.assign({}, command);
+
+					if (command.notes) {
+						output.commandNotes = command.notes;
+						delete output.notes;
+					}
+
+					if (result.notes) {
+						output.resultNotes = result.notes;
+					}
+
 					output.result = result.result;
-					output.notes = result.notes;
-					delete output.notes;
+					delete output.results;
 					testCase.assertions[assertion_key].results[at].browsers[browser].output.push(output);
 				});
 			});

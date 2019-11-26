@@ -188,10 +188,14 @@ block content
                                                                     li
                                                                         strong Must change default settings to enable support:
                                                                         span= " " + output.behind_setting
-                                                                if (output.notes)
+                                                                if (output.commandNotes)
                                                                     li
-                                                                        strong Notes:
-                                                                        span= " " + output.notes
+                                                                        strong Command Notes:
+                                                                        span= " " + output.commandNotes
+                                                                if (output.resultNotes)
+                                                                    li
+                                                                        strong Result Notes:
+                                                                        span= " " + output.resultNotes
 
                                                 if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
                                                     strong Notes:
@@ -264,10 +268,14 @@ block content
                                                                         li
                                                                             strong Must change default settings to enable support:
                                                                             span= " " + output.behind_setting
-                                                                    if (output.notes)
+                                                                    if (output.commandNotes)
                                                                         li
-                                                                            strong Notes:
-                                                                            span= " " + output.notes
+                                                                            strong Command Notes:
+                                                                            span= " " + output.commandNotes
+                                                                    if (output.resultNotes)
+                                                                        li
+                                                                            strong Result Notes:
+                                                                            span= " " + output.resultNotes
                                                 else
                                                     span -
                                             td
