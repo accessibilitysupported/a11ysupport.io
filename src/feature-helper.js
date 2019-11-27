@@ -781,6 +781,10 @@ helper.initalizeTestCase = function (testCase) {
 			testCase.assertions[assertion_key].css_target = ref_assertion.css_target;
 		}
 
+		if (!testCase.assertions[assertion_key].results) {
+			testCase.assertions[assertion_key].results = {}
+		}
+
 		//Add missing AT
 		for(let at in ATBrowsers.at){
 			//Add an empty versions array if we don't have any info on versions
