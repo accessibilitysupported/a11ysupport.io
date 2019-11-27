@@ -68,7 +68,22 @@
         "vc"
       ],
       "exclude_at": {"vc_ios":  "no_support"}
+    },
+    {
+      "id": "browse_caret_not_lost",
+      "title": "lose the location of the browsing caret when a container role is changed",
+      "rationale": "If a screen reader user is browsing the contents of a container element and the role of the container changes, the caret should stay in the same location so that the user can continue reading the document in a logical order.",
+      "notes": "When the role of an element changes, some AT and accessibility APIs may remove the element and all children and then replace them with the new container, which may result in the screen reader losing its caret position.",
+      "css_target": "*[role]",
+      "strength": {
+        "sr": "SHOULD NOT",
+        "vc": "NA"
+      },
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
     }
   ],
-  "date_updated": "2019-11-25"
+  "date_updated": "2019-11-27"
 }
