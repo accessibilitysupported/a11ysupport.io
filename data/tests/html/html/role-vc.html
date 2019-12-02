@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML role attribute tests for voice control</title>
+    <style>
+        *[role="button"] {
+            padding: .5em;
+            border: 1px solid #000;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>HTML role attribute for voice control test</h1>
+
+<p>This page tests how the voice control software uses the role attribute.</p>
+
+<p>To pass:</p>
+<ul>
+    <li>If the VC supports activating by role (Dragon), the test passes if the button in test 2 activates.</li>
+    <li>If the VC supports showing numbers for interactive elements, the test passes if all buttons are flagged with numbers.</li>
+</ul>
+
+<h2>test 1: just a button role</h2>
+<p>For this test, just a div with a button role was used. It is not in the tab order and does not have a click event, as these aspects could, in theory, independently cause voice control software to consider the element as interactive.</p>
+<div role="button" id="target-1">target 1</div>
+
+<h2>test 2: button role with click event</h2>
+<p>For this test, the div has a button role and a click event. The click event is present for VC that supports activating by role, since without the click event, it may not be obvious if the command was successful.</p>
+<div role="button" id="target-2" onclick="alert('target 1 clicked')">target 2</div>
+
+</body>
+</html>
