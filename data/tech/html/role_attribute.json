@@ -83,7 +83,24 @@
         "sr/reading",
         "sr/interaction"
       ]
+    },
+    {
+      "id": "vc_actionable",
+      "title": "use the role to determine if an element is actionable",
+      "rationale": "Voice control users may wish to activate roles that are actionable.",
+      "notes": "Voice control software may choose to look at an element's role when determining if it is actionable. Some voice control software will allow users to activate elements by specific roles, while others will only flag actionable elements with numbers. Note that Voice Control for iOS will flag all elements on the page with numbers, not just those that are actionable.",
+      "css_target": "*[role]",
+      "strength": {
+        "sr": "NA",
+        "vc": "MAY"
+      },
+      "operation_modes": [
+        "vc"
+      ],
+      "exclude_at": {
+        "vc_ios": "no_support"
+      }
     }
   ],
-  "date_updated": "2019-11-27"
+  "date_updated": "2019-12-02"
 }
