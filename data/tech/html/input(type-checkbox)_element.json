@@ -1,0 +1,46 @@
+{
+  "id": "input[type=checkbox]_element",
+  "title": "input[type=\"checkbox\"] element",
+  "type": "element",
+  "description": "The input element represents a two-state control that represents the element's checkedness state.",
+  "references": [
+    {
+      "title": "HTML5 spec for input[type=\"checkbox\"]",
+      "url": "https://html.spec.whatwg.org/multipage/input.html#checkbox-state-(type=checkbox)"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_name",
+      "examples": [
+        "A screen reader will announce the name (label).",
+        "Voice control software will let the user say something like \"click <name>\" to activate the control."
+      ],
+      "css_target": "input[type=\"checkbox\"]"
+    },
+    {
+      "id": "convey_role",
+      "examples": [
+        "Screen readers might announce the role as \"check box\"",
+        "Voice control software will let the user say something like \"click check box\" or flag the role with a number."
+      ],
+      "css_target": "input[type=\"checkbox\"]"
+    },
+    {
+      "id": "convey_value",
+      "css_target": "input[type=\"checkbox\"]"
+    },
+    {
+      "id": "convey_change_in_value",
+      "examples": [
+        "When the user checks or unchecks the check box, the screen reader will announce the new state."
+      ],
+      "css_target": "input[type=\"checkbox\"]"
+    },
+    {
+      "id": "provide_shortcuts",
+      "css_target": "input[type=\"checkbox\"]"
+    }
+  ],
+  "date_updated": "2018-10-29"
+}
