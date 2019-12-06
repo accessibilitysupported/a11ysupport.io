@@ -27,15 +27,37 @@
       "css_target": "input[type=\"checkbox\"]"
     },
     {
-      "id": "convey_value",
-      "css_target": "input[type=\"checkbox\"]"
+      "id": "convey_checked_state",
+      "title": "convey the current checked state",
+      "css_target": "input[type=\"checkbox\"]",
+      "rationale": "A screen reader user needs to know the current checked state of the input.",
+      "examples": [
+        "A screen reader may convey the checked state as something like \"checked\", \"unchecked\", or \"not checked\""
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
     },
     {
-      "id": "convey_change_in_value",
+      "id": "convey_change_in_checked_state",
+      "title": "convey changes in the checked state",
+      "rationale": "The user needs to know that the state was successfully changed.",
       "examples": [
         "When the user checks or unchecks the check box, the screen reader will announce the new state."
       ],
-      "css_target": "input[type=\"checkbox\"]"
+      "css_target": "input[type=\"checkbox\"]",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "operation_modes": [
+        "sr/interaction"
+      ]
     },
     {
       "id": "provide_shortcuts",
