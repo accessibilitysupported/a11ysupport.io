@@ -318,17 +318,6 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		if (assertion.operation_modes.includes('vc')) {
 			featureObject.assertions[assertion_key].supports_at.push('vc');
 		}
-
-		/*
-		let titleModifier = "The assistive technology ";
-		if (featureObject.assertions[assertion_key].supports_at[0] === 'sr') {
-			titleModifier = "The screen reader ";
-		} else if (featureObject.assertions[assertion_key].supports_at[0] === 'vc') {
-			titleModifier = "The voice control software ";
-		}
-
-		featureObject.assertions[assertion_key].title = titleModifier + featureObject.assertions[assertion_key].type.toUpperCase() + " " + featureObject.assertions[assertion_key].title;
-	 	*/
 	});
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
@@ -355,7 +344,8 @@ helper.bubbleFeatureSupport = function(featureObject) {
 					core_support_string: {
 						sr: featureObject.tests[testIndex].core_support_string.sr,
 						vc: featureObject.tests[testIndex].core_support_string.vc
-					}
+					},
+					core_assertion_support_by_at_browser: assertion.core_support_by_at_browser
 				});
 			}
 
@@ -763,6 +753,7 @@ helper.initalizeTestCase = function (testCase) {
 			sr: 'unknown',
 			vc: 'unknown'
 		};
+		testCase.assertions[assertion_key].core_support_by_at_browser = {};
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
 
 		testCase.assertions[assertion_key].rationale = "";
@@ -800,6 +791,7 @@ helper.initalizeTestCase = function (testCase) {
 			testCase.assertions[assertion_key].results[at].core_support_string = 'unknown';
 			testCase.assertions[assertion_key].results[at].extended_support = [];
 			testCase.assertions[assertion_key].results[at].extended_support_string = 'unknown';
+			testCase.assertions[assertion_key].core_support_by_at_browser[at] = {};
 
 			let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
 			validBrowsers.forEach(function(browser) {
@@ -815,6 +807,12 @@ helper.initalizeTestCase = function (testCase) {
 						"id": browser
 					};
 				}
+
+				testCase.assertions[assertion_key].core_support_by_at_browser[at][browser] = {
+					'string': null,
+					'values': [],
+					'some_support_behind_settings': false
+				};
 
 				// copy over notes
 				if (testCase.assertions[assertion_key].browserNotes
@@ -922,6 +920,12 @@ helper.initalizeTestCase = function (testCase) {
 
 				// Set support arrays
 				let support = testCase.assertions[assertion_key].results[at].browsers[browser].support;
+				testCase.assertions[assertion_key].core_support_by_at_browser[at][browser].values.push(support);
+				testCase.assertions[assertion_key].core_support_by_at_browser[at][browser].string = helper.generateSupportString(testCase.assertions[assertion_key].core_support_by_at_browser[at][browser].values);
+				if (testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings) {
+					testCase.assertions[assertion_key].core_support_by_at_browser[at][browser].some_support_behind_settings = testCase.assertions[assertion_key].results[at].browsers[browser].some_support_behind_settings;
+				}
+
 				if (ATBrowsers.at[at].core_browsers.includes(browser)) {
 					testCase.assertions[assertion_key].results[at].core_support.push(support);
 
