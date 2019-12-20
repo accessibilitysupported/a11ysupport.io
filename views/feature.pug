@@ -123,13 +123,14 @@ block content
                             if (!test_assertion)
                               - continue
                             tr
-                              td
-                                a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-') + "-" + test_assertion.feature_assertion_id) #{linked_test.title}
+                              th(scope="row")
+                                a(href="/tests/"+ testHelper.makeSafe(linked_test.id)) #{linked_test.title}
                               each at in ATBrowsers.core_at
                                 if ATBrowsers.at[at].type !== at_type.type
                                   - continue
                                 each browser in ATBrowsers.at[at].core_browsers
-                                  td(class='support-case ' + test_assertion.core_support_by_at_browser[at][browser].string.class)= test_assertion.core_support_by_at_browser[at][browser].string.string
+                                  td(class='support-case ' + test_assertion.core_support_by_at_browser[at][browser].string.class)
+                                    a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-')+"-"+test_assertion.feature_assertion_id+"-"+at+"-"+browser)=test_assertion.core_support_by_at_browser[at][browser].string.string
                                     if (test_assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
                                       - some_support_behind_settings = true
                                       span *

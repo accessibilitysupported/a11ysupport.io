@@ -152,7 +152,7 @@ block content
                                 th Action
                             each at in ATBrowsers.core_at
                                 each browser in ATBrowsers.at[at].core_browsers
-                                    tr
+                                    tr(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id+"-"+at+"-"+browser)
                                         td= ATBrowsers.at[at].title
                                         td= ATBrowsers.browsers[browser].title
                                         td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string.string
