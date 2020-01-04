@@ -1,0 +1,48 @@
+{
+  "id": "textarea_element",
+  "title": "textarea element",
+  "type": "element",
+  "description": "",
+  "references": [
+    {
+      "title": "HTML5 spec for textarea",
+      "url": "https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_name",
+      "examples":  [
+        "A screen reader will announce the name (label).",
+        "Voice control software will let the user say something like \"click <name>\" to activate the control."
+      ],
+      "css_target": "textarea"
+    },
+    {
+      "id": "convey_role",
+      "examples": [
+        "A screen reader might be announce the role as something like \"edit\", \"edit multi line\", \"entry\", \"edit box\", \"multi line text field\", or \"edit text\".",
+        "Voice control software will let the user say something like \"click text box\" to focus a the input or flag the role with a number."
+      ],
+      "css_target": "textarea"
+    },
+    {
+      "id": "convey_change_in_value",
+      "examples": [
+        "When the user enter texts, the screen reader will announce it back to them.",
+        "When used with the datalist, the chosen suggestion should be announced after activating it."
+      ],
+      "css_target": "textarea"
+    },
+    {
+      "id": "convey_value",
+      "css_target": "textarea",
+      "notes": "some screen readers may only convey part of the value or indicate that the control has a value."
+    },
+    {
+      "id": "provide_shortcuts",
+      "css_target": "textarea"
+    }
+  ],
+  "date_updated": "2020-01-03"
+}
