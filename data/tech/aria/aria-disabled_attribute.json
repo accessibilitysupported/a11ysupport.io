@@ -15,28 +15,35 @@
       "title": "convey the \"false\" value",
       "strength": {
         "sr": "MUST",
-        "vc": "NA"
+        "vc": "MAY"
       },
       "css_target": "*[aria-disabled=\"false\"]",
       "preconditions": [],
       "operation_modes": [
         "sr/reading",
-        "sr/interaction"
+        "sr/interaction",
+        "vc"
       ]
     },
     {
       "id": "convey_value_true",
       "title": "convey the \"true\" value",
+      "examples": [
+        "Screen readers might convey the disabled state by announcing \"disabled\", \"unavailable\", or \"dimmed\"",
+        "Screen readers might convey the disabled state of certain embedded controls, such as the option element, by skipping it when navigating embedded controls",
+        "Voice control software might not include the element in operations, for example it might not flag the element with a number or respond to name commands"
+      ],
       "strength": {
         "sr": "MUST",
-        "vc": "NA"
+        "vc": "MAY"
       },
       "css_target": "*[aria-disabled=\"true\"]",
       "operation_modes": [
         "sr/reading",
-        "sr/interaction"
+        "sr/interaction",
+        "vc"
       ]
     }
   ],
-  "date_updated": "2018-11-08"
+  "date_updated": "2020-01-08"
 }
