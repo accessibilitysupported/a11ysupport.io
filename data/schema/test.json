@@ -110,12 +110,28 @@
               "command": {
                 "type": "string"
               },
-              "from": {
-                "type": "string",
-                "enum": ["before target", "after target", "target", "within target", "start of target", "end of target", "na"],
-                "description": "Describes the focus/cursor destination before the command."
+              "before": {
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "type": "string",
+                    "enum": ["auto", "browse", "forms"],
+                    "description": "Describes the mode that the AT was in before executing the command (usually applies just for screen readers)."
+                  },
+                  "focus_location": {
+                    "type": "string",
+                    "enum": ["before target", "after target", "target", "within target", "start of target", "end of target", "na"],
+                    "description": "Describes the location of keyboard focus before the command was executed."
+                  },
+                  "virtual_location": {
+                    "type": "string",
+                    "enum": ["before target", "after target", "target", "within target", "start of target", "end of target", "na"],
+                    "description": "Describes the location of the virtual cursor before the command was executed."
+                  }
+                },
+                "required": ["mode", "focus_location", "virtual_location"]
               },
-              "to": {
+              "after": {
                 "type": "string",
                 "enum": ["target", "start of target", "end of target", "past target", "before target", "within target", "after target", "na"],
                 "description": "Describes the focus/cursor destination after the command."
