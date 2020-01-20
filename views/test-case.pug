@@ -172,15 +172,31 @@ block content
                                                                     else
                                                                         strong= ", " + output.command
 
-                                                                if (output.from && output.from !== "na")
-                                                                    li
-                                                                        strong= "location before command: "
-                                                                        span= output.from
+                                                                if (output.before && ATBrowsers.at[at].type === "sr")
+                                                                    li before the command was executed
+                                                                        ul
+                                                                            if (output.before.mode !== "na")
+                                                                                - var mode = output.before.mode
+                                                                                if (mode === "auto")
+                                                                                    - mode = "browse";
+                                                                                li
+                                                                                    strong= "mode: "
+                                                                                    span= mode
 
-                                                                if (output.to && output.to !== "na")
+                                                                                if (output.before.focus_location !== "na")
+                                                                                    li
+                                                                                        strong= "keyboard focus location: "
+                                                                                        span= output.before.focus_location
+
+                                                                                if (output.before.virtual_location !== "na")
+                                                                                    li
+                                                                                        strong= "virtual cursor location: "
+                                                                                        span= output.before.virtual_location
+
+                                                                if (output.after && output.after !== "na")
                                                                     li
                                                                         strong= "location after command: "
-                                                                        span= output.to
+                                                                        span= output.after
                                                                 li
                                                                     strong Output:
                                                                     span= " " + output.output
@@ -252,15 +268,31 @@ block content
                                                                         else
                                                                             strong= ", " + output.command
 
-                                                                    if (output.from && output.from !== "na")
-                                                                        li
-                                                                            strong= "from: "
-                                                                            span= output.from
+                                                                    if (output.before && ATBrowsers.at[at.id].type === "sr")
+                                                                        li before the command was executed
+                                                                            ul
+                                                                                if (output.before.mode !== "na")
+                                                                                    - var mode = output.before.mode
+                                                                                    if (mode === "auto")
+                                                                                        - mode = "browse";
+                                                                                    li
+                                                                                        strong= "mode: "
+                                                                                        span= mode
 
-                                                                    if (output.to && output.to !== "na")
+                                                                                    if (output.before.focus_location !== "na")
+                                                                                        li
+                                                                                            strong= "keyboard focus location: "
+                                                                                            span= output.before.focus_location
+
+                                                                                    if (output.before.virtual_location !== "na")
+                                                                                        li
+                                                                                            strong= "virtual cursor location: "
+                                                                                            span= output.before.virtual_location
+
+                                                                    if (output.after && output.after !== "na")
                                                                         li
-                                                                            strong= "to: "
-                                                                            span= output.to
+                                                                            strong= "location after command: "
+                                                                            span= output.after
                                                                     li
                                                                         strong Output:
                                                                         span= " " + output.output
