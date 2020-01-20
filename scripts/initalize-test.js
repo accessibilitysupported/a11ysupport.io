@@ -30,8 +30,8 @@ var addCommand = function(test, at, browser, command, feature_id, feature_assert
     let command_index = test.commands[at][browser].findIndex(obj =>
         obj.command === command.command
         && obj.css_target === command.css_target
-        && obj.from === command.from
-        && obj.to === command.to
+        && obj.before === command.before
+        && obj.after === command.after
     );
 
     if (-1 === command_index) {
@@ -95,8 +95,12 @@ test.assertions.forEach(function(assertionLink) {
                         addCommand(test, at, browser, {
                             command: "enter_text",
                             css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                            from: "before target",
-                            to: "target",
+                            before: {
+                                mode: "auto",
+                                focus_location: "before target",
+                                virtual_location: "before target"
+                            },
+                            after: "target",
                             output: "character was announced"
                         }, assertionLink.feature_id, assertionLink.feature_assertion_id, "pass", null);
                     } else {
@@ -108,8 +112,12 @@ test.assertions.forEach(function(assertionLink) {
                         addCommand(test, at, browser, {
                             command: "next_form_field",
                             css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                            from: "before target",
-                            to: "target",
+                            before: {
+                                mode: "auto",
+                                focus_location: "before target",
+                                virtual_location: "before target"
+                            },
+                            after: "target",
                             output: "\"\""
                         }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
 
@@ -118,8 +126,12 @@ test.assertions.forEach(function(assertionLink) {
                             addCommand(test, at, browser, {
                                 command: "open_element_list",
                                 css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                from: "na",
-                                to: "na",
+                                before: {
+                                    mode: "auto",
+                                    focus_location: "na",
+                                    virtual_location: "na"
+                                },
+                                after: "na",
                                 output: "\"\""
                             }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                         }
@@ -131,8 +143,12 @@ test.assertions.forEach(function(assertionLink) {
                     addCommand(test, at, browser, {
                         command: "multiple_commands",
                         css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                        from: "na",
-                        to: "na",
+                        before: {
+                            mode: "auto",
+                            focus_location: "target",
+                            virtual_location: "target"
+                        },
+                        after: "target",
                         output: "\"\""
                     }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                     break;
@@ -142,8 +158,12 @@ test.assertions.forEach(function(assertionLink) {
                             addCommand(test, at, browser, {
                                 command: "next_item",
                                 css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                from: "before target",
-                                to: "target",
+                                before: {
+                                    mode: "auto",
+                                    focus_location: "before target",
+                                    virtual_location: "before target"
+                                },
+                                after: "target",
                                 output: "\"\""
                             }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                         }
@@ -154,16 +174,24 @@ test.assertions.forEach(function(assertionLink) {
                                 addCommand(test, at, browser, {
                                     command: "next_focusable_item",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                    from: "before target",
-                                    to: "target",
+                                    before: {
+                                        mode: "auto",
+                                        focus_location: "before target",
+                                        virtual_location: "before target"
+                                    },
+                                    after: "target",
                                     output: "\"\""
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             } else {
                                 addCommand(test, at, browser, {
                                     command: "next_item",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                    from: "before target",
-                                    to: "target",
+                                    before: {
+                                        mode: "auto",
+                                        focus_location: "before target",
+                                        virtual_location: "before target"
+                                    },
+                                    after: "target",
                                     output: "\"\""
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             }
@@ -173,8 +201,12 @@ test.assertions.forEach(function(assertionLink) {
                             addCommand(test, at, browser, {
                                 command: "activate_name",
                                 css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                from: "na",
-                                to: "na",
+                                before: {
+                                    mode: "auto",
+                                    focus_location: "na",
+                                    virtual_location: "na"
+                                },
+                                after: "na",
                                 output: "\"\"",
                                 notes: "said \"\""
                             }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
@@ -185,8 +217,12 @@ test.assertions.forEach(function(assertionLink) {
                                 addCommand(test, at, browser, {
                                     command: "activate_role",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                    from: "na",
-                                    to: "na",
+                                    before: {
+                                        mode: "auto",
+                                        focus_location: "na",
+                                        virtual_location: "na"
+                                    },
+                                    after: "na",
                                     output: "\"\"",
                                     notes: "said \"\""
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
@@ -194,8 +230,12 @@ test.assertions.forEach(function(assertionLink) {
                                 addCommand(test, at, browser, {
                                     command: "show_numbers",
                                     css_target: (assertionLink.css_target)? assertionLink.css_target : assertion.css_target,
-                                    from: "na",
-                                    to: "na",
+                                    before: {
+                                        mode: "auto",
+                                        focus_location: "na",
+                                        virtual_location: "na"
+                                    },
+                                    after: "na",
                                     output: "\"\""
                                 }, assertionLink.feature_id, assertionLink.feature_assertion_id, "unknown", null);
                             }

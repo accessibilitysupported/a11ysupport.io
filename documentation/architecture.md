@@ -185,8 +185,8 @@ The `command` object contains the following properties which can be provided by 
 * `css_target` (string|required): the css selector for the element that the command targets
 * `output` (string|required): the output of the result.
 * `results` (array|required): an array of `result` objects. each results object defines a result for a linked assertion.
-* `from` (string|optional): the location of focus or virtual cursor before the command was issued. Useful to reproduce results and identify execution path.
-* `to` (string|optional): the location of focus or virtual cursor after the command was issued. Useful to reproduce results and identify execution path.
+* `before` (object|optional): an object that describes the mode and location of keyboard and virtual focus before the command is executed. Useful to reproduce results and identify execution path. For details about this object, see the dev-test schema file.
+* `after` (enum|optional): the location of focus or virtual cursor after the command was issued. Useful to reproduce results and identify execution path. This is not as detailed as `before` since the exact location of virtual focus, keyboard focus, and screen reader mode are not as important, and are often implied by the execution path and the command that was issued.
 * `notes` (string|optional): notes about the output
 * `behind_setting`: (string|optional): Describes the setting that must be changed in order for the assertion to be supported. Some support is hidden behind default settings (see aria-controls for an example). Leave `undefined` if not applicable.
 

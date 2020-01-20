@@ -147,6 +147,7 @@ var buildAssertionFieldsets = function(at_value, browser_value) {
 		fieldset.classList.add('assertion');
 		fieldset.setAttribute('data-feature-assertion-id', assertion.feature_assertion_id);
 		fieldset.setAttribute('data-feature-id', assertion.feature_id);
+		fieldset.setAttribute('data-assertion-key', assertion_key);
 		var name = assertion.feature_id+'.'+assertion.feature_assertion_id;
 		// The feature ID might contain a /, which isn't a valid HTML id. Convert it to a dash.
 		fieldset.setAttribute('id', name
@@ -337,18 +338,66 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
     div.appendChild(command_select);
     fieldset.appendChild(div);
 
-
-    // target before
+	// at mode before command is executed
 	var div = document.createElement('div');
 	div.classList.add('control');
 	var label = document.createElement('label');
-	label.innerText = 'Location of focus or virtual cursor before command';
-	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_from';
+	label.innerText = 'AT mode before executing the command';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_before_mode';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
 	select.setAttribute('id', id);
-	select.setAttribute('data-property', 'from');
-	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_from');
+	select.setAttribute('data-property', 'before');
+	select.setAttribute('data-sub-property', 'mode');
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_before_mode');
+	var options = [
+		{
+			label: 'auto (mode not explicitly set; usually browse mode for screen readers)',
+			value: 'auto'
+		},
+		{
+			label: 'browse mode (browse, document, or table)',
+			value: 'browse'
+		},
+		{
+			label: 'forms mode (form or application mode)',
+			value: 'forms'
+		},
+		{
+			label: 'n/a',
+			value: 'na'
+		}
+	];
+
+	options.forEach(function(data) {
+		var option = document.createElement('option');
+		option.innerText = data.label;
+		option.value = data.value;
+
+		if (output_row && output_row.before.mode === data.value) {
+			option.setAttribute('selected', 'selected');
+		} else if (!output_row && at_type === "vc" && data.value === "na") {
+			option.setAttribute('selected', 'selected');
+		}
+
+		select.appendChild(option);
+	});
+	div.appendChild(label);
+	div.appendChild(select);
+	fieldset.appendChild(div);
+
+    // keyboard focus target before
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'Location of keyboard focus before executing the command';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_before_focus';
+	label.setAttribute('for', id);
+	var select = document.createElement('select');
+	select.setAttribute('id', id);
+	select.setAttribute('data-property', 'before');
+	select.setAttribute('data-sub-property', 'focus_location');
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_before_focus');
 	var options = [
 		{
 			label: 'unknown',
@@ -389,7 +438,9 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 		option.innerText = data.label;
 		option.value = data.value;
 
-		if (output_row && output_row.from === data.value) {
+		if (output_row && output_row.before.focus_location === data.value) {
+			option.setAttribute('selected', 'selected');
+		} else if (!output_row && at_type === "vc" && data.value === "na") {
 			option.setAttribute('selected', 'selected');
 		}
 
@@ -399,18 +450,81 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 	div.appendChild(select);
 	fieldset.appendChild(div);
 
+	// virtual cursor target before
+	var div = document.createElement('div');
+	div.classList.add('control');
+	var label = document.createElement('label');
+	label.innerText = 'Location of virtual cursor before executing the command';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_before_virtual';
+	label.setAttribute('for', id);
+	var select = document.createElement('select');
+	select.setAttribute('id', id);
+	select.setAttribute('data-property', 'before');
+	select.setAttribute('data-sub-property', 'virtual_location');
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_before_virtual');
+	var options = [
+		{
+			label: 'unknown',
+			value: ''
+		},
+		{
+			label: 'before target',
+			value: 'before target'
+		},
+		{
+			label: 'after target',
+			value: 'after target'
+		},
+		{
+			label: 'start of target',
+			value: 'start of target'
+		},
+		{
+			label: 'target',
+			value: 'target'
+		},
+		{
+			label: 'within target',
+			value: 'within target'
+		},
+		{
+			label: 'end of target',
+			value: 'end of target'
+		},
+		{
+			label: 'n/a',
+			value: 'na'
+		}
+	];
+
+	options.forEach(function(data) {
+		var option = document.createElement('option');
+		option.innerText = data.label;
+		option.value = data.value;
+
+		if (output_row && output_row.before.virtual_location === data.value) {
+			option.setAttribute('selected', 'selected');
+		} else if (!output_row && at_type === "vc" && data.value === "na") {
+			option.setAttribute('selected', 'selected');
+		}
+
+		select.appendChild(option);
+	});
+	div.appendChild(label);
+	div.appendChild(select);
+	fieldset.appendChild(div);
 
 	// target after command
 	var div = document.createElement('div');
 	div.classList.add('control');
 	var label = document.createElement('label');
 	label.innerText = 'Location of focus or virtual cursor after command';
-	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_to';
+	var id = assertion_fieldset.getAttribute('id')+'--output_'+key+'_after';
 	label.setAttribute('for', id);
 	var select = document.createElement('select');
-	select.setAttribute('data-property', 'to');
+	select.setAttribute('data-property', 'after');
 	select.setAttribute('id', id);
-	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_to');
+	select.setAttribute('name', assertion_fieldset.getAttribute('data-name')+'.output_'+key+'_after');
 	var options = [
 		{
 			label: 'unknown',
@@ -455,7 +569,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 		option.innerText = data.label;
 		option.value = data.value;
 
-		if (output_row && output_row.to === data.value) {
+		if (output_row && output_row.after === data.value) {
 			option.setAttribute('selected', 'selected');
 		}
 
@@ -707,29 +821,49 @@ function initFeatureTest() {
 
         var assertion_fieldsets = document.querySelectorAll('fieldset.assertion');
 
-        assertion_fieldsets.forEach(function(fieldset, assertion_key) {
+        assertion_fieldsets.forEach(function(fieldset) {
             var legend = fieldset.querySelector('legend');
             var output_rows = fieldset.querySelectorAll('fieldset.output-row');
 			var output_body = '';
+			var assertion_key = parseInt(fieldset.getAttribute("data-assertion-key"));
 
 			output_rows.forEach(function(output_row, output_row_index) {
 				var controls = output_row.querySelectorAll('input, select');
+				if (test.assertions[assertion_key].results[at_value].browsers[browser_value].support === "na") {
+					// nothing to report here
+					return;
+				}
+
 				var current = test.assertions[assertion_key].results[at_value].browsers[browser_value].output[output_row_index];
+
 
 				controls.forEach(function(control) {
 					var name = control.getAttribute('name');
 					name = name.split('.');
 					name = name[name.length -1]; // the name is namespaced, and we already provide that namespace info, so just send the last bit.
 					var property = control.getAttribute('data-property');
+					var subProperty = control.getAttribute('data-sub-property');
 
-					if (current[property] === control.value
-						|| (current[property] === undefined && control.value === '')) {
-						// Only send over changes in data.
-						return;
+					if (subProperty) {
+						// We need to check sub properties a bit differently
+						if (current[property][subProperty] === control.value
+							|| (current[property][subProperty] === undefined && control.value === '')) {
+							// Only send over changes in data.
+							return;
+						}
+					} else {
+						// we need to check sub properties a bit differentlyß
+						if (current[property] === control.value
+							|| (current[property] === undefined && control.value === '')) {
+							// Only send over changes in data.
+							return;
+						}
 					}
 
 					var old_value = '';
-					if (current[property]) {
+					if (subProperty && current[property][subProperty]) {
+						old_value = current[property][subProperty];
+					} else if (current[property]) {
 						old_value = current[property];
 					}
 
