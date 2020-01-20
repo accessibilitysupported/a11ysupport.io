@@ -44,8 +44,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "announces \"has flow to\" if the current element flows to another element and \"has flow from\" if another element references the current element.",
           "results": [
             {
@@ -58,8 +62,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "announces \"has flow from\" if another element references the current element.",
           "results": [
             {
@@ -72,8 +80,12 @@
         {
           "command": "follow_flowto",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(navigates directly to the element if only one relationship, otherwise it opens a dialog and lists relationships to jump to)",
           "results": [
             {
@@ -86,8 +98,12 @@
         {
           "command": "follow_flowfrom",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(navigates directly to the element if only one relationship, otherwise it opens a dialog and lists relationships to jump to)",
           "results": [
             {
@@ -102,8 +118,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "announces \"has flow to\" if the current element flows to another element and \"has flow from\" if another element references the current element.",
           "results": [
             {
@@ -116,8 +136,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "announces \"has flow from\" if another element references the current element.",
           "results": [
             {
@@ -130,8 +154,12 @@
         {
           "command": "follow_flowto",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(navigates directly to the element if only one relationship, otherwise it opens a dialog and lists relationships to jump to)",
           "results": [
             {
@@ -144,8 +172,12 @@
         {
           "command": "follow_flowfrom",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(navigates directly to the element if only one relationship, otherwise it opens a dialog and lists relationships to jump to)",
           "results": [
             {
@@ -160,8 +192,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "announces \"has flow to\" if the current element flows to another element and \"has flow from\" if another element references the current element.",
           "results": [
             {
@@ -174,8 +210,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "announces \"has flow from\" if another element references the current element.",
           "results": [
             {
@@ -188,8 +228,12 @@
         {
           "command": "follow_flowto",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(navigates to the first referenced element, dialog is not displayed if there are multiple relationships)",
           "results": [
             {
@@ -202,8 +246,12 @@
         {
           "command": "follow_flowfrom",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(navigates to the first element that references the current element, dialog is not displayed if there are multiple relationships)",
           "results": [
             {
@@ -220,8 +268,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -239,8 +291,12 @@
         {
           "command": "next_item_of_type",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -258,8 +314,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -277,8 +337,12 @@
         {
           "command": "next_item_of_type",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -291,8 +355,12 @@
         {
           "command": "previous_item_of_type",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not let user navigate to any of the targeting elements)",
           "results": [
             {
@@ -309,8 +377,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -328,8 +400,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -349,8 +425,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -368,8 +448,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -391,8 +475,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -410,8 +498,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -434,8 +526,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -453,8 +549,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -476,8 +576,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -495,8 +599,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -518,8 +626,12 @@
         {
           "command": "next_item",
           "css_target": "*[aria-flowto]",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
@@ -537,8 +649,12 @@
         {
           "command": "next_item",
           "css_target": "*",
-          "from": "before target",
-          "to": "target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "(does not convey presence of aria-flowto)",
           "results": [
             {
