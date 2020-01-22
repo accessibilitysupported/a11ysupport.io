@@ -2296,36 +2296,18 @@
             "virtual_location": "within target",
             "focus_location": "within target"
           },
-          "after": "end of target",
-          "output": "down arrow loops back to the start of the list, but there is no indication of the start or end of the list",
-          "results": [
-            {
-              "feature_id": "html/select_element",
-              "feature_assertion_id": "convey_option_boundaries",
-              "result": "partial"
-            }
-          ]
-        },
-        {
-          "command": "vo_down",
-          "css_target": "select",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
           "after": "start of target",
-          "output": "earcon indicates start of list",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "html/select_element",
               "feature_assertion_id": "convey_option_boundaries",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
         {
-          "command": "vo_down",
+          "command": "next_option",
           "css_target": "select",
           "before": {
             "mode": "auto",
@@ -2333,12 +2315,12 @@
             "focus_location": "within target"
           },
           "after": "end of target",
-          "output": "earcon indicates end of list",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "html/select_element",
               "feature_assertion_id": "convey_option_boundaries",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -2351,7 +2333,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"meats, dimmed\"",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "html/optgroup_element",
@@ -2361,7 +2343,7 @@
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -2392,17 +2374,17 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"steak\"",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/option_element",
@@ -2413,24 +2395,19 @@
         },
         {
           "command": "next_option",
-          "css_target": "*[disabled]",
+          "css_target": "option[disabled]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"veggies, dimmed\"",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "html/disabled_attribute",
               "feature_assertion_id": "convey_disabled",
-              "result": "pass"
-            },
-            {
-              "feature_id": "html/disabled_attribute",
-              "feature_assertion_id": "convey_disabled",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
@@ -3056,6 +3033,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2020-01-22",
+      "message": "Update vo_macos results. Option elements are no longer conveyed."
     }
   ],
   "versions": {
@@ -3160,10 +3141,10 @@
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.5",
-          "browser_version": "12.1.1",
-          "os_version": "10.14.5",
-          "date": "2019-08-08"
+          "at_version": "10.15.2",
+          "browser_version": "13.0.4",
+          "os_version": "10.15.2",
+          "date": "2020-01-22"
         }
       }
     },
