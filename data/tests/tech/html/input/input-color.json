@@ -100,17 +100,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite color, button\"",
+          "output": "\"your favorite color?\"",
+          "notes": "button was not conveyed at all",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-color)_element",
@@ -128,17 +129,17 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite color, button, to activate press space bar\"",
+          "output": "previous input was announced, not the color picker button",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-color)_element",
@@ -255,13 +256,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "input was announced without the new value",
+          "output": "focus was sent back to the previous control",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_change_in_value",
               "result": "fail",
-              "notes": "pressed enter on the okay button within the widget dialog after selecting a new color."
+              "notes": ""
             }
           ]
         },
@@ -274,12 +275,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "No keyboard commands worked until I used alt+tab to refocus the browser. It was possible to navigate around the dialog using the tab and arrow keys, but buttons to select colors were missing names.",
+          "output": "Not possible to open the control",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial"
+              "result": "fail"
             }
           ]
         }
@@ -1862,6 +1863,10 @@
     {
       "date": "2019-10-20",
       "message": "Added test"
+    },
+    {
+      "date": "2020-01-27",
+      "message": "Updated with JAWS 2020"
     }
   ],
   "versions": {
@@ -1878,22 +1883,22 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1909.28",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-10-29"
+          "at_version": "2020.1912.11",
+          "os_version": "1909",
+          "browser_version": "79",
+          "date": "2020-01-27"
         },
         "ie": {
-          "at_version": "2019.1909.28",
-          "os_version": "1903",
+          "at_version": "2020.1912.11",
+          "os_version": "1909",
           "browser_version": "11",
-          "date": "2019-10-29"
+          "date": "2020-01-27"
         },
         "firefox": {
-          "at_version": "2019.1909.28",
-          "os_version": "1903",
-          "browser_version": "69",
-          "date": "2019-10-29"
+          "at_version": "2020.1912.11",
+          "os_version": "1909",
+          "browser_version": "72.0.1",
+          "date": "2020-01-27"
         }
       }
     },
