@@ -84,7 +84,7 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -102,7 +102,7 @@
         },
         {
           "command": "table_read_current_cell",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -360,7 +360,7 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -378,7 +378,7 @@
         },
         {
           "command": "table_read_current_cell",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -636,7 +636,7 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -654,7 +654,7 @@
         },
         {
           "command": "table_read_current_cell",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1004,7 +1004,7 @@
         },
         {
           "command": "table_move_to_next_column",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1022,7 +1022,7 @@
         },
         {
           "command": "table_move_to_next_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1040,7 +1040,7 @@
         },
         {
           "command": "table_read_row_header",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1354,7 +1354,7 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1372,7 +1372,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1684,7 +1684,7 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1702,10 +1702,10 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -1746,7 +1746,7 @@
           "css_target": "th",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -1792,7 +1792,7 @@
           "css_target": "th",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -1815,7 +1815,7 @@
           "css_target": "td",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -1879,7 +1879,7 @@
           "css_target": "td",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -1897,7 +1897,7 @@
           "css_target": "td",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -1944,7 +1944,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -2017,10 +2017,10 @@
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
-            "focus_location": "before target"
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"name, row 1 column 1, table start 2 rows, 2 columns\"",
+          "output": "\"name, row header, column header, row 1, column 1, table start 2 rows, 2 columns\"",
           "results": [
             {
               "feature_id": "html/table_element",
@@ -2044,11 +2044,11 @@
           "css_target": "table",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
+            "virtual_location": "after target",
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"car, column 2, table end\"",
+          "output": "\"type, car, row 2, column 2, table end\"",
           "results": [
             {
               "feature_id": "html/table_element",
@@ -2059,60 +2059,55 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
-            "focus_location": "before target"
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"Greg, column 2\"",
+          "output": "\"name, row header, column header, table start, 2 rows, 2 columns\"",
           "results": [
             {
               "feature_id": "html/scope_attribute",
               "feature_assertion_id": "convey_value_row",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
+            "virtual_location": "after target",
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"Greg, row 1 column 2\"",
+          "output": "\"name, row header, column header, table start, 2 rows, 2 columns\"",
           "results": [
             {
               "feature_id": "html/scope_attribute",
               "feature_assertion_id": "convey_value_row",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "additional_information",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
+            "virtual_location": "target",
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"row 1 column 1\"",
+          "output": "\"page 1 of 1, top of screen, row header, column header, row 1 column 1\"",
           "results": [
             {
               "feature_id": "html/scope_attribute",
               "feature_assertion_id": "convey_value_row",
-              "result": "fail"
-            },
-            {
-              "feature_id": "html/scope_attribute",
-              "feature_assertion_id": "convey_value_row",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -2122,15 +2117,16 @@
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
-            "focus_location": "before target"
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"Greg, column 2\"",
+          "output": "\"name, row header, column header, table start, 2 rows, 2 columns\"",
           "results": [
             {
               "feature_id": "html/th_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "partial",
+              "notes": "also conveyed, incorrectly, as a column header"
             },
             {
               "feature_id": "html/th_element",
@@ -2144,16 +2140,17 @@
           "css_target": "th",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
+            "virtual_location": "after target",
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"Greg, row 1 column 2\"",
+          "output": "\"name, row header, column header, table start, 2 rows, 2 columns\"",
           "results": [
             {
               "feature_id": "html/th_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "partial",
+              "notes": "also conveyed, incorrectly, as a column header"
             },
             {
               "feature_id": "html/th_element",
@@ -2167,21 +2164,16 @@
           "css_target": "th",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
+            "virtual_location": "target",
+            "focus_location": "na"
           },
           "after": "target",
-          "output": "\"row 1 column 1\"",
+          "output": "\"page 1 of 1, top of screen, row header, column header, row 1 column 1\"",
           "results": [
             {
               "feature_id": "html/th_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
-            },
-            {
-              "feature_id": "html/th_element",
-              "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -2191,7 +2183,7 @@
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
-            "focus_location": "before target"
+            "focus_location": "na"
           },
           "after": "target",
           "output": "(no header semantics surfaced, which implies that this is a cell)",
@@ -2213,8 +2205,8 @@
           "css_target": "td",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
+            "virtual_location": "after target",
+            "focus_location": "na"
           },
           "after": "target",
           "output": "(no header semantics surfaced, which implies that this is a cell)",
@@ -2263,7 +2255,7 @@
           "css_target": "table",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -2283,32 +2275,14 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Row 1 of 2 Name, greg\"",
-          "results": [
-            {
-              "feature_id": "html/scope_attribute",
-              "feature_assertion_id": "convey_value_row",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "table_read_row_header",
-          "css_target": "*[scope=\"col\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Name\"",
+          "output": "\"Row 1 of 2 Name, greg, column 2 of 2\"",
           "results": [
             {
               "feature_id": "html/scope_attribute",
@@ -2322,7 +2296,7 @@
           "css_target": "th",
           "before": {
             "mode": "auto",
-            "virtual_location": "before target",
+            "virtual_location": "after target",
             "focus_location": "before target"
           },
           "after": "target",
@@ -2336,24 +2310,6 @@
             {
               "feature_id": "html/th_element",
               "feature_assertion_id": "convey_position",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "table_read_row_header",
-          "css_target": "th",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Name\"",
-          "results": [
-            {
-              "feature_id": "html/th_element",
-              "feature_assertion_id": "convey_role",
               "result": "pass"
             }
           ]
@@ -2644,7 +2600,7 @@
         },
         {
           "command": "table_move_to_previous_row",
-          "css_target": "*[scope=\"col\"]",
+          "css_target": "*[scope=\"row\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -2870,6 +2826,10 @@
     {
       "date": "2019-09-14",
       "message": "Add orca and talkback results"
+    },
+    {
+      "date": "2020-01-29",
+      "message": "Update VO results and clean up data"
     }
   ],
   "versions": {
@@ -2944,20 +2904,20 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.2",
-          "browser_version": "12.2",
-          "os_version": "12.2",
-          "date": "2019-05-01"
+          "at_version": "13.3",
+          "browser_version": "13.3",
+          "os_version": "13.3",
+          "date": "2020-01-29"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.4",
-          "browser_version": "12.1",
-          "os_version": "10.14.4",
-          "date": "2019-05-03"
+          "at_version": "10.15.2",
+          "browser_version": "13.0.4",
+          "os_version": "10.15.2",
+          "date": "2020-01-29"
         }
       }
     }
