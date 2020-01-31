@@ -802,17 +802,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"sample text line 1\"",
+          "output": "\"sample text line 1, target, region, Landmark\"",
           "results": [
             {
               "feature_id": "html/section_element",
               "feature_assertion_id": "convey_name_and_role_if_named",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/section_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
             }
           ]
         },
@@ -841,6 +846,11 @@
               "feature_id": "html/section_element",
               "feature_assertion_id": "provide_shortcuts",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "result": "pass"
             }
           ]
         },
@@ -853,48 +863,11 @@
             "focus_location": "within target"
           },
           "after": "end of target",
-          "output": "\"example end\"",
+          "output": "\"sample text line 3, end, target, region\"",
           "results": [
             {
               "feature_id": "html/section_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-label]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"sample text line 1, line 1\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-label_attribute",
-              "feature_assertion_id": "contribute_to_accessible_name",
-              "result": "na",
-              "notes": "na because the element was not conveyed"
-            }
-          ]
-        },
-        {
-          "command": "next_landmark",
-          "css_target": "*[aria-label]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"sample text line 1, target, region, landmark\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-label_attribute",
-              "feature_assertion_id": "contribute_to_accessible_name",
               "result": "pass"
             }
           ]
@@ -1132,6 +1105,10 @@
     {
       "date": "2019-09-16",
       "message": "Add more assertions and update results"
+    },
+    {
+      "date": "2020-01-31",
+      "message": "update vo_ios; now passes"
     }
   ],
   "versions": {
@@ -1216,10 +1193,10 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.4.1",
-          "browser_version": "12.4.1",
-          "os_version": "12.4.1",
-          "date": "2019-09-16"
+          "at_version": "13.3.1",
+          "browser_version": "13.3.1",
+          "os_version": "13.3.1",
+          "date": "2020-01-31"
         }
       }
     },
