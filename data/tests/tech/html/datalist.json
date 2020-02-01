@@ -288,6 +288,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
             }
           ]
         },
@@ -315,6 +320,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -346,7 +356,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function, type Edit combo\"",
+          "output": "\"<window title> Function, type Edit combo, async function\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -364,7 +374,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "Shown in list of form controls with name and \"edit combo\" role",
+          "output": "Shown in list of form controls as \"function type edit combo\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -382,47 +392,11 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type Edit combo, to set the value use the arrow keys or type the value.\"",
+          "output": "\"Function type Edit combo\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Edit combo\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Edit combo, to set the value use the arrow keys or type the value.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -436,17 +410,19 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Menu, Function, To move through items press up or down arrow\"",
+          "output": "\"Auto fill list box expanded, Function, 1 of 6, To move to an item press the arrow keys\"",
           "results": [
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_role",
-              "result": "partial"
+              "result": "pass",
+              "notes": "implied by the text \"list box expanded\""
             },
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "partial"
+              "result": "pass",
+              "notes": "opening was conveyed as well as posinset"
             }
           ]
         },
@@ -477,7 +453,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Name and value are announced when provided.",
+          "output": "Name, posinset, and value are announced when provided.",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -487,26 +463,13 @@
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_role",
-              "result": "partial"
+              "result": "pass"
             },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "Name and value are announced when available",
-          "results": [
+              "result": "pass"
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -541,6 +504,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
             }
           ]
         },
@@ -569,6 +537,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
             }
           ]
         },
@@ -645,42 +618,6 @@
           ]
         },
         {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"edit\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Edit, type in text\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
-            }
-          ]
-        },
-        {
           "command": "next_option",
           "css_target": "datalist",
           "before": {
@@ -746,20 +683,7 @@
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-          "results": [
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -778,23 +702,28 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Blank, function type, Edit, has popup\"",
+          "output": "\"function type\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_name",
               "result": "pass",
-              "notes": "announced the name when entering the input and automatically switching to forms mode."
+              "notes": "announced the name when entering the input."
             },
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
             }
           ]
         },
@@ -822,6 +751,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -853,12 +787,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function, edit, has popup\"",
+          "output": "\"Function, edit, has popup, async function, type in text\" (input was re-announced with new value)",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "unknown"
+              "result": "pass"
             }
           ]
         },
@@ -889,47 +823,11 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type Edit has popup, type in text\"",
+          "output": "\"Function type Edit has popup\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Blank, Edit, has popup\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Edit has popup, type in text\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -943,17 +841,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "output": "\"function, 1 of 6, to move to an item press the arrow keys\"",
+          "notes": "partial because when the input is empty, the list of options is displayed but it is not possible to navigate to it",
           "results": [
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "partial"
             },
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "partial"
             }
           ]
         },
@@ -984,40 +883,27 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
+          "output": "\"async function, 1 of 3\"",
           "results": [
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Blank\", skipped the suggestions and started reading the content after the input.",
-          "results": [
+              "result": "pass"
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -1318,6 +1204,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass"
             }
           ]
         },
@@ -1345,6 +1236,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -1422,42 +1318,6 @@
           ]
         },
         {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Combo box, has auto complete, editable.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Combo box, has auto complete, editable. Blank.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
           "command": "next_option",
           "css_target": "datalist",
           "before": {
@@ -1466,7 +1326,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"function, row 1 column 1\"",
+          "output": "\"auto fill list expanded, function, 1 of 6\"",
           "results": [
             {
               "feature_id": "html/datalist_element",
@@ -1476,7 +1336,7 @@
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1507,7 +1367,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Name and value are announced when provided.",
+          "output": "Name, value, and posinset are announced when provided.",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -1522,21 +1382,8 @@
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "Name and value are announced when provided.",
-          "results": [
+              "result": "pass"
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -1555,7 +1402,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, Edit subMenu, has auto complete. Blank.\"",
+          "output": "\"clickable, Function type, Edit subMenu, has auto complete, function\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1570,6 +1417,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -1583,7 +1435,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, Edit has auto complete. Blank.\"",
+          "output": "\"Function type, Edit has auto complete. selected function.\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1598,6 +1450,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -1629,7 +1486,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"function\"",
+          "output": "document title and input were re-announced with the new value",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1665,47 +1522,11 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
+          "output": "\"Function type Edit subMenu, has auto complete. function.\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Edit subMenu, has auto complete. Blank.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Edit has auto complete. Blank.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -1719,12 +1540,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Blank\"",
+          "output": "\"list, function, 1 of 6\"",
           "results": [
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_role",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1737,12 +1558,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "all suggestions are announced as \"blank\", with no indication of boundaries.",
+          "output": "async generator function, 6 of 6",
           "results": [
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1773,40 +1594,29 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"blank\" was announced for every option",
+          "output": "function 1 of 6",
           "results": [
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_role",
-              "result": "partial"
+              "result": "pass",
+              "notes": "implied by list context"
             },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Blank\"",
-          "results": [
+              "result": "pass"
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "fail",
+              "notes": "only name was conveyed"
             }
           ]
         }
@@ -2113,7 +1923,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, text field, double tap to edit.\"",
+          "output": "\"Function type, text field, list box popup, double tap to edit.\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -2128,6 +1938,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -2177,30 +1992,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, text field, double tap to edit.\"",
+          "output": "\"Function type, text field, list box popup, double tap to edit.\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type, text field, double tap to edit.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
             }
           ]
         },
@@ -2218,7 +2015,8 @@
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass",
+              "notes": "implied by the prediction roles"
             },
             {
               "feature_id": "html/datalist_element",
@@ -2288,20 +2086,7 @@
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "touch_type",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"function*\"",
-          "results": [
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -2322,7 +2107,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, edit text\"",
+          "output": "\"Function type, list box popup, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -2337,6 +2122,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -2350,7 +2140,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, edit text\"",
+          "output": "\"Function type, list box popup, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -2365,6 +2155,11 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -2414,7 +2209,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "Shown in list of form controls with name and \"edit text\" role",
+          "output": "Shown in list of form controls with name and \"list box popup edit text\" role",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -2432,48 +2227,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type, edit text\"",
+          "output": "\"Function type, list box popup, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type, edit text\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type, edit text\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
             }
           ]
         },
@@ -2543,20 +2302,7 @@
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "nothing was conveyed at all",
-          "results": [
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -2593,6 +2339,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
             }
           ]
         },
@@ -2621,6 +2372,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
             }
           ]
         },
@@ -2651,7 +2407,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"function\"",
+          "output": "focus was returned to the input and the input was re-announced with the new value \"function\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -2693,42 +2449,6 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"function type, entry\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "function type, entry, focus mode",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "fail"
             }
           ]
         },
@@ -2801,7 +2521,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"generator function, generator function\"",
+          "output": "\"generator function\"",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -2818,20 +2538,7 @@
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"generator function, generator function\"",
-          "results": [
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -2957,7 +2664,7 @@
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -3230,6 +2937,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2020-02-01",
+      "message": "update results for all core combinations of screen readers and voice control software except for those on android."
     }
   ],
   "versions": {
@@ -3237,31 +2948,31 @@
       "browsers": {
         "chrome": {
           "at_version": "15.30",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "browser_version": "79",
+          "os_version": "1909",
+          "date": "2020-02-01"
         }
       }
     },
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "at_version": "2020.1912.11",
+          "browser_version": "79",
+          "os_version": "1909",
+          "date": "2020-02-01"
         },
         "ie": {
-          "at_version": "2019.1906.10",
+          "at_version": "2020.1912.11",
           "browser_version": "11",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "os_version": "1909",
+          "date": "2020-02-01"
         },
         "firefox": {
-          "at_version": "2019.1906.10",
-          "browser_version": "68",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "at_version": "2020.1912.11",
+          "browser_version": "72",
+          "os_version": "1909",
+          "date": "2020-02-01"
         }
       }
     },
@@ -3278,26 +2989,26 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "at_version": "2019.2.1",
+          "browser_version": "79",
+          "os_version": "1909",
+          "date": "2020-02-01"
         },
         "firefox": {
-          "at_version": "2019.1.1",
-          "browser_version": "68",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "at_version": "2019.2.1",
+          "browser_version": "72",
+          "os_version": "1909",
+          "date": "2020-02-01"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-15"
+          "at_version": "3.34.0",
+          "browser_version": "72",
+          "os_version": "Ubuntu 19.10",
+          "date": "2020-02-01"
         }
       }
     },
@@ -3324,40 +3035,40 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.3.1",
-          "browser_version": "12.3.1",
-          "os_version": "12.3.1",
-          "date": "2019-07-24"
+          "at_version": "13.3.1",
+          "browser_version": "13.3.1",
+          "os_version": "13.3.1",
+          "date": "2020-02-01"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.5",
-          "browser_version": "12.1.1",
-          "os_version": "10.14.5",
-          "date": "2019-07-24"
+          "at_version": "10.15.3",
+          "browser_version": "13.0.5",
+          "os_version": "10.15.3",
+          "date": "2020-02-01"
         }
       }
     },
     "vc_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.0",
-          "browser_version": "13.0",
-          "os_version": "13.0",
-          "date": "2019-09-23"
+          "at_version": "13.3.1",
+          "browser_version": "13.3.1",
+          "os_version": "13.3.1",
+          "date": "2020-02-01"
         }
       }
     },
     "vc_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "browser_version": "13.0.2",
-          "os_version": "10.15",
-          "date": "2019-10-07"
+          "at_version": "10.15.3",
+          "browser_version": "13.0.5",
+          "os_version": "10.15.3",
+          "date": "2020-02-01"
         }
       }
     },
@@ -3371,9 +3082,9 @@
         },
         "chrome": {
           "at_version": "1903",
-          "browser_version": "77",
-          "os_version": "1903",
-          "date": "2019-10-18"
+          "browser_version": "79",
+          "os_version": "1909",
+          "date": "2020-02-01"
         }
       }
     }
