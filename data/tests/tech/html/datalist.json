@@ -1633,7 +1633,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"edit box, function type, double-tap to enter text\"",
+          "output": "\"edit box, function type, double-tap to edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1649,6 +1649,11 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail"
             }
           ]
         },
@@ -1679,7 +1684,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"function, close features\"",
+          "output": "\"function, close features menu\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1708,24 +1713,6 @@
         },
         {
           "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(after entering text) \"showing autofill popup\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
           "css_target": "datalist",
           "before": {
             "mode": "auto",
@@ -1733,7 +1720,8 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"autofill, menu\"",
+          "output": "\"autofill, menu, disabled\", swipe right again, \"function, in list, showing autofill popup, 6 items\"",
+          "notes": "the disabled state was incorrectly conveyed",
           "results": [
             {
               "feature_id": "html/datalist_element",
@@ -1743,7 +1731,7 @@
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1756,12 +1744,12 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "nothing output when options update from input tex",
+          "output": "showing items 1 of 6",
           "results": [
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_change_in_suggestions",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1790,20 +1778,7 @@
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "datalist option",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "function* generator function, double tap to activate, double tap and hold to long press",
-          "results": [
+            },
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_value",
@@ -2941,6 +2916,10 @@
     {
       "date": "2020-02-01",
       "message": "update results for all core combinations of screen readers and voice control software except for those on android."
+    },
+    {
+      "date": "2020-02-03",
+      "message": "update android results for Talkback and Voice Access."
     }
   ],
   "versions": {
@@ -3015,10 +2994,10 @@
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7",
-          "browser_version": "75",
+          "at_version": "8.1",
+          "browser_version": "79",
           "os_version": "7",
-          "date": "2019-07-26"
+          "date": "2020-02-03"
         }
       }
     },
@@ -3026,9 +3005,9 @@
       "browsers": {
         "and_chr": {
           "at_version": "3.1",
-          "browser_version": "77",
+          "browser_version": "79",
           "os_version": "7",
-          "date": "2019-10-02"
+          "date": "2020-02-03"
         }
       }
     },
