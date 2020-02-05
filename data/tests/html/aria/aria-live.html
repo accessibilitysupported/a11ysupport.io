@@ -17,20 +17,30 @@
 
 <h2>aria-live=polite</h2>
 
-<div aria-live="polite"></div>
+<div id="target-2" aria-live="polite"></div>
 
-<button id="trigger-2">Test aria-live polite</button>
+<button id="trigger-2" onclick="testTwo()">Test aria-live polite</button>
 
 <h2>aria-live=assertive</h2>
 
-<div aria-live="assertive"></div>
+<div id="target-3" aria-live="assertive"></div>
 
-<button id="trigger-3">Test aria-live assertive</button>
+<button id="trigger-3" onclick="testThree()">Test aria-live assertive</button>
 
 <script>
     var testOne = function() {
         var liveRegion = document.querySelector('#target-1');
-        liveRegion.innerText = "I am now populated";
+        liveRegion.innerText = "I am now populated aria-live=off";
+    }
+
+    var testTwo = function() {
+        var liveRegion = document.querySelector('#target-2');
+        liveRegion.innerText = "I am now populated aria-live=polite";
+    }
+
+    var testThree = function() {
+        var liveRegion = document.querySelector('#target-3');
+        liveRegion.innerText = "I am now populated aria-live=assertive";
     }
 </script>
 
