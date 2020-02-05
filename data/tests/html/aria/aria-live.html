@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-live test suite</title>
+</head>
+<body>
+
+<h1>aria-live test suite</h1>
+
+<p>This is a test suite for the aria-live attribute.</p>
+
+<h2>aria-live=off</h2>
+
+<div id="target-1" aria-live="off"></div>
+
+<button id="trigger-1" onclick="testOne()">Test aria-live off</button>
+
+<h2>aria-live=polite</h2>
+
+<div aria-live="polite"></div>
+
+<button id="trigger-2">Test aria-live polite</button>
+
+<h2>aria-live=assertive</h2>
+
+<div aria-live="assertive"></div>
+
+<button id="trigger-3">Test aria-live assertive</button>
+
+<script>
+    var testOne = function() {
+        var liveRegion = document.querySelector('#target-1');
+        liveRegion.innerText = "I am now populated";
+    }
+</script>
+
+</body>
+</html>

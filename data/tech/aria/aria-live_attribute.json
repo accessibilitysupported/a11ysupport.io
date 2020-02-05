@@ -9,6 +9,55 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-live"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_value_off",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the off value",
+      "examples": [
+        "Screen readers will not announce changes to content within aria-live=\"off\"."
+      ],
+      "css_target": "*[aria-live=\"off\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_polite",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the polite value",
+      "examples": [
+        "Screen readers will changes to content within aria-live=\"polite\" after other announcements finish."
+      ],
+      "css_target": "*[aria-live=\"polite\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_assertive",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the assertive value",
+      "examples": [
+        "Screen readers will announce changes to content within aria-live=\"assertive\" as soon as those changes are made and interrupt any current announcements."
+      ],
+      "css_target": "*[aria-live=\"assertive\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-02-05"
 }
