@@ -11,6 +11,12 @@ Dragon Naturally Speaking is dictation software from Nuance. It is also a popula
 3. click "Yes" to the prompt to enable the browser extensions after you install.
 4. You will likely need to train the software to work with your voice.
 
+## How to find your version
+
+1. From the system search, type "About Dragon"
+2. Click "About Dragon"
+3. Use the number listed in the resulting dialog
+
 ## Guides, Documentation, and resources
 
 * [Nuance documentation](http://support.nuance.com/usersguides/?UsersGuidesProduct=naturallyspeaking)

@@ -6,6 +6,11 @@ JAWS is a popular screen reader for windows based computers.
 
 You can [download and install JAWS from Freedom Scientific](https://www.freedomscientific.com/Products/Blindness/JAWS). A time-limited demo is also available.
 
+## How to find your version
+
+1. Open JAWS
+2. The version is listed under the JAWS menu
+
 ## Guides, Documentation, and resources
 
 * [JAWS documentation from Freedom Scientific](https://www.freedomscientific.com/products/blindness/jawsdocumentation)

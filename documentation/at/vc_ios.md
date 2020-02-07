@@ -16,6 +16,13 @@ Because Voice Control only supports names and not roles, all expectations for ro
 
 Voice Control is built in to iOS and you can enable it from your Settings app.
 
+## How to find your version
+
+1. Open the Settings app
+2. Search for "About"
+3. Click the "About" result
+4. Use the "Software Version" number that is listed
+
 ## Guides, Documentation, and resources
 
 * [Apple documentation](https://support.apple.com/guide/iphone/voice-control-iph2c21a3c88/ios)

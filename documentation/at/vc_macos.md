@@ -15,6 +15,13 @@ Because Voice Control only supports names and not roles, all expectations for ro
 
 Voice Control is built in to MacOS and you can enable it from System Preferences.
 
+## How to find your version
+
+1. Press `command+space bar` to open search
+2. Type "About this mac"
+3. Click "About this mac"
+4. Use the version number listed on the dialog
+
 ## Guides, Documentation, and resources
 
 * [Apple documentation](https://support.apple.com/en-us/HT210539)

@@ -13,6 +13,13 @@ There are 2 types of overlays that you can turn on.
 
 Windows Speech Recognition is built into Windows.
 
+## How to find your version
+
+1. From the system search, type "About your PC"
+2. Click "About your PC"
+3. Scroll down to "Windows specifications"
+4. Use the "version" listed there
+
 ## Guides, Documentation, and resources
 
 * [Windows Documentation](https://support.microsoft.com/en-us/help/4027176/windows-10-use-voice-recognition)

@@ -10,7 +10,7 @@ Orca is bundled with Gnome based distributions, such as Ubuntu
 
 * [Orca User Guide](https://help.gnome.org/users/orca/stable/)
 
-## How to find version
+## How to find your version
 
 From command line, run `orca --version`
 
