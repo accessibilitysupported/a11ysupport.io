@@ -6,6 +6,13 @@ VoiceOver on iOS is touch based and comes bundled with iOS.
 
 VoiceOver is built in to iOS and you can enable it from your Settings app.
 
+## How to find your version
+
+1. Open the Settings app
+2. Search for "About"
+3. Click the "About" result
+4. Use the "Software Version" number that is listed
+
 ## Guides, Documentation, and resources
 
 * [Apple documentation](https://www.apple.com/accessibility/iphone/vision/)

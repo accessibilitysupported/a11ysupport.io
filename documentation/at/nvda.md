@@ -7,6 +7,14 @@ Non Visual Desktop Access (NVDA) is a popular free (and open source) screen read
 1. [Download NVDA from their website](https://www.nvaccess.org/).
 2. [The Focus Highlight](https://addons.nvda-project.org/addons/focusHighlight.en.html) plugin can make NVDA easier to use and learn for sighted users.
 
+## How to find your version
+
+1. Open NVDA
+2. Press `Insert+N` to open the NVDA menu
+3. Click "Help"
+4. Click "About"
+5. The version is listed on the "About" dialog
+
 ## Guides, Documentation, and resources
 
 * [NVDA User Guide](https://www.nvaccess.org/files/nvda/documentation/userGuide.html)
