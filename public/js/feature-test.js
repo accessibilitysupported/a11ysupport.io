@@ -376,7 +376,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 
 		if (output_row && output_row.before.mode === data.value) {
 			option.setAttribute('selected', 'selected');
-		} else if (!output_row && at_type === "vc" && data.value === "na") {
+		} else if (!output_row && ATBrowsers.at[at_value].type === "vc" && data.value === "na") {
 			option.setAttribute('selected', 'selected');
 		}
 
@@ -440,7 +440,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 
 		if (output_row && output_row.before.focus_location === data.value) {
 			option.setAttribute('selected', 'selected');
-		} else if (!output_row && at_type === "vc" && data.value === "na") {
+		} else if (!output_row && ATBrowsers.at[at_value].type === "vc" && data.value === "na") {
 			option.setAttribute('selected', 'selected');
 		}
 
@@ -504,7 +504,7 @@ var createCommandOutputRow = function(assertion, assertion_fieldset, output_row,
 
 		if (output_row && output_row.before.virtual_location === data.value) {
 			option.setAttribute('selected', 'selected');
-		} else if (!output_row && at_type === "vc" && data.value === "na") {
+		} else if (!output_row && ATBrowsers.at[at_value].type === "vc" && data.value === "na") {
 			option.setAttribute('selected', 'selected');
 		}
 
