@@ -92,6 +92,12 @@ block content
               if (assertion.notes)
                 p Notes: !{md.renderInline(assertion.notes)}
 
+              if (assertion.examples)
+                p Examples of assistive technologies support this expectation:
+                ul
+                  for example in assertion.examples
+                    li #{example}
+
               if assertion.tests.length > 0
                 each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]
                   if (assertion.strength[at_type.type] === "NA")

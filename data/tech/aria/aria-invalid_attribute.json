@@ -9,6 +9,76 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-invalid"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_value_false",
+      "title": "convey the \"false\" value",
+      "examples": [
+        "The \"false\" value indicates that the input does not have an error.",
+        "Screen readers may imply this by not conveying the presence of the attribute at all. Most screen readers do not explicitly indicate that the input is valid."
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-invalid=\"false\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_true",
+      "title": "convey the \"true\" value",
+      "examples": [
+        "The \"true\" value indicates that the input is invalid."
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-invalid=\"true\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_grammar",
+      "title": "convey the \"grammar\" value",
+      "examples": [
+        "The \"grammar\" value indicates that the input has a grammar error."
+      ],
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-invalid=\"grammar\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_spelling",
+      "title": "convey the \"spelling\" value",
+      "examples": [
+        "The \"spelling\" value indicates that the input has a spelling error."
+      ],
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-invalid=\"spelling\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-02-14"
 }
