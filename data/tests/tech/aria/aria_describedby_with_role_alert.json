@@ -115,6 +115,26 @@
       ]
     },
     "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[ara-describedby]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Example label edit error\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "firefox": [
         {
           "command": "next_focusable_item",
@@ -125,7 +145,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label edit has auto complete\"",
+          "output": "\"Example label edit has auto complete, blank\"",
           "results": [
             {
               "feature_id": "aria/aria-describedby_attribute",
@@ -259,6 +279,10 @@
     {
       "date": "2019-09-16",
       "message": "Add orca results"
+    },
+    {
+      "date": "2020-02-15",
+      "message": "retest NVDA with crome and firefox"
     }
   ],
   "versions": {
@@ -302,11 +326,17 @@
     },
     "nvda": {
       "browsers": {
+        "chrome": {
+          "at_version": "2019.2.1",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-02-14"
+        },
         "firefox": {
-          "at_version": "2018.4.1",
-          "browser_version": "65.0.2",
-          "os_version": "1804",
-          "date": "2019-03-08"
+          "at_version": "2019.2.1",
+          "os_version": "1909",
+          "browser_version": "72",
+          "date": "2020-02-14"
         }
       }
     },
