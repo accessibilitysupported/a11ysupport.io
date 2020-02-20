@@ -1542,33 +1542,20 @@
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
-            "focus_location": "before target"
+            "focus_location": "within target"
           },
           "after": "target",
-          "output": "not conveyed",
+          "output": "\"Meats grouping. Chicken 1 of 2 level 2.\"",
           "results": [
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "optgroup",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "not conveyed",
-          "results": [
+              "result": "pass"
+            },
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1581,12 +1568,12 @@
             "focus_location": "within target"
           },
           "after": "after target",
-          "output": "optgroup boundaries were not conveyed",
+          "output": "optgroup announced when entering, and position of options within optgroup convey boundaries.",
           "results": [
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1599,7 +1586,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"chicken\"",
+          "output": "\"meats grouping, chicken 1 of 2 level 2\"",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -1614,7 +1601,8 @@
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "partial"
+              "result": "pass",
+              "notes": "only conveyed when expanded (this matches visual experience)"
             }
           ]
         },
@@ -3056,6 +3044,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2020-02-20",
+      "message": "Update NVDA+FF. Now supports posinet and optgroups. Thanks @smhigley"
     }
   ],
   "versions": {
@@ -3110,10 +3102,10 @@
           "date": "2019-08-08"
         },
         "firefox": {
-          "at_version": "2019.1.1",
-          "browser_version": "68",
-          "os_version": "1903",
-          "date": "2019-08-08"
+          "at_version": "2019.3.1",
+          "browser_version": "73",
+          "os_version": "1909",
+          "date": "2020-02-20"
         }
       }
     },
