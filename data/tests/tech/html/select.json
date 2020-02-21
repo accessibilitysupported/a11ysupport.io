@@ -237,7 +237,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
+          "output": "\"Choose a food item? Combo box, apple, to change the selection use the arrow keys\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -270,7 +270,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want, Combo box, apple\"",
+          "output": "\"Choose a food item, Combo box, apple\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -464,7 +464,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
+          "output": "\"Choose a food item? Combo box, apple, to change the selection use the arrow keys\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -497,7 +497,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want, Combo box, apple\"",
+          "output": "\"Choose a food item, Combo box, apple\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -555,31 +555,14 @@
             "virtual_location": "before target",
             "focus_location": "before target"
           },
-          "after": "target",
-          "output": "not conveyed",
-          "results": [
-            {
-              "feature_id": "html/optgroup_element",
-              "feature_assertion_id": "convey_role",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "optgroup",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
           "after": "within target",
           "output": "\"chicken (meats)\"",
           "results": [
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_name",
-              "result": "partial"
+              "result": "partial",
+              "notes": "optgroup name is conveyed only when changing items while the listbox is collapsed."
             }
           ]
         },
@@ -597,7 +580,8 @@
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "partial",
+              "notes": "optgroup name and boundaries are conveyed only when changing items while the listbox is collapsed."
             }
           ]
         },
@@ -691,7 +675,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want? Combo box, apple, to change the selection use the arrow keys\"",
+          "output": "\"Choose a food item? Combo box, apple, to change the selection use the arrow keys\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -724,7 +708,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want, Combo box, apple\"",
+          "output": "\"Choose a food item, Combo box, apple\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -760,7 +744,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banana\"",
+          "output": "\"steak\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -783,30 +767,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "not conveyed",
+          "output": "\"meats, horizontal, chicken\" and \"steak 2 of 2\"",
+          "notes": "optgroup semantics are conveyed when the listbox is expanded, but not collapsed. This matches the visual experience.",
           "results": [
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_option",
-          "css_target": "optgroup",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"chicken\"",
-          "results": [
+              "result": "pass"
+            },
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -819,12 +791,12 @@
             "focus_location": "within target"
           },
           "after": "after target",
-          "output": "optgroup boundaries were not conveyed",
+          "output": "implied by position information being announced \"2 of 2\"",
           "results": [
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -837,7 +809,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"chicken\"",
+          "output": "\"steak, 2 of 2\"",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -852,7 +824,8 @@
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
+              "result": "pass",
+              "notes": "posinset information is only conveyed when the listbox is expanded and focus is on an option in greater than position 1 within an optgroup"
             }
           ]
         },
@@ -887,7 +860,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want, combobox, apple, collapsed, apple\"",
+          "output": "\"Choose a food item, combobox, apple, collapsed\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -920,7 +893,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want, apple, combobox, collapsed, scan\"",
+          "output": "\"Choose a food item, apple, combobox, collapsed\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -953,7 +926,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want, steak, combobox, collapsed\"",
+          "output": "\"Choose a food item, apple, combobox, collapsed\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -971,7 +944,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banana, 2 of 5, selected\"",
+          "output": "\"banana, 2 of 2, selected\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -989,7 +962,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"1 of 8, apple\"",
+          "output": "\"apple, 1 of 2\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1007,7 +980,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"5 of 8, everything\"",
+          "output": "\"everything, 4 of 6\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1030,7 +1003,8 @@
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "partial",
+              "notes": "Posinset information may hint at optgroups but the name is never announced."
             }
           ]
         },
@@ -1061,12 +1035,12 @@
             "focus_location": "within target"
           },
           "after": "after target",
-          "output": "optgroup boundaries were not conveyed",
+          "output": "optgroup boundaries were conveyed by posinset info",
           "results": [
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1079,7 +1053,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"3 of 8, chicken\"",
+          "output": "\"chicken, 1 of 2\"",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -1107,7 +1081,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "options are skipped when scan mode is off",
+          "output": "disabled options are skipped",
           "results": [
             {
               "feature_id": "html/disabled_attribute",
@@ -1125,7 +1099,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Broccoli, Lettuce, 3 of 5, disabled\" (when scan mode is on)",
+          "output": "\"Broccoli, 1 of 2\" (when scan mode is on)",
           "results": [
             {
               "feature_id": "html/disabled_attribute",
@@ -1140,7 +1114,8 @@
             {
               "feature_id": "html/disabled_attribute",
               "feature_assertion_id": "convey_disabled",
-              "result": "pass"
+              "result": "pass",
+              "notes": "implied by not being able to select it"
             }
           ]
         }
@@ -1157,7 +1132,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Choose a food item, combo box, collapsed\"",
+          "output": "\"Choose a food item, combo box, collapsed, apple\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1190,7 +1165,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Choose a food item, combo box, collapsed\"",
+          "output": "\"Choose a food item, combo box, apple, collapsed\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1223,7 +1198,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want? Combobox, collapsed.\"",
+          "output": "\"Choose a food item? Combobox, collapsed, apple.\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1259,7 +1234,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banana\"",
+          "output": "\"banana, 2 of 8\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1354,7 +1329,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"chicken\"",
+          "output": "\"chicken, 3 of 8\"",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -1369,7 +1344,8 @@
             {
               "feature_id": "html/option_element",
               "feature_assertion_id": "convey_posinset",
-              "result": "partial"
+              "result": "pass",
+              "notes": "position information is only conveyed when listbox is expanded. This matches the visual experience."
             }
           ]
         },
@@ -1402,7 +1378,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Choose a food item, combo box, collapsed, apple\"",
+          "output": "\"clickable, choose a food item, combo box, collapsed, apple\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1473,7 +1449,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want? Combobox, collapsed, apple\"",
+          "output": "\"Choose a food item? Combobox, collapsed, apple\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1509,7 +1485,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
+          "output": "when expanded: \"apple, 1 of 2, level 2\"; when collapsed: implied by silence when trying to press up arrow to navigate to navigate past the first option.",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1527,7 +1503,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "when expanded: \"apple, 1 of 8\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
+          "output": "when expanded: \"apple, 1 of 2, level 2\"; when collapsed: implied by silence when trying to press down arrow to navigate to navigate past the last option.",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1637,7 +1613,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
+          "output": "\"collapsed, apple, pop up button, Choose a food item, double tap to change\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1670,7 +1646,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"collapsed, apple, pop up button, Choose a food item double tap to change\"",
+          "output": "\"collapsed, apple, pop up button, Choose a food item, double tap to change\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1693,7 +1669,7 @@
             {
               "feature_id": "html/select_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1706,7 +1682,7 @@
             "focus_location": "within target"
           },
           "after": "start of target",
-          "output": "\"select test, web view, out of list\"",
+          "output": "earcon indicates the boundary",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -1747,7 +1723,8 @@
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "fail",
+              "notes": "failure because it is the same announcement as an optgroup (\"double tap to toggle\" was not announced) and the two may be confused."
             },
             {
               "feature_id": "html/optgroup_element",
@@ -1783,7 +1760,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"steak\"",
+          "output": "\"steak, double tap to toggle\"",
           "results": [
             {
               "feature_id": "html/option_element",
@@ -1811,12 +1788,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "disabled options and optgroups were not displayed at all",
+          "output": "\"Broccoli\"",
           "results": [
             {
               "feature_id": "html/disabled_attribute",
               "feature_assertion_id": "convey_disabled",
-              "result": "pass"
+              "result": "fail",
+              "notes": "failure because it is the same announcement as an optgroup (\"double tap to toggle\" was not announced) and the two may be confused."
             }
           ]
         }
@@ -2061,7 +2039,8 @@
             {
               "feature_id": "html/optgroup_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "fail",
+              "notes": "fail because there is no difference in the announcement of an option"
             },
             {
               "feature_id": "html/optgroup_element",
@@ -2285,12 +2264,12 @@
             "focus_location": "within target"
           },
           "after": "end of target",
-          "output": "down arrow loops back to the start of the list, but there is no indication of the start or end of the list",
+          "output": "loops through the menu with an earcon that conveys the end was reached",
           "results": [
             {
               "feature_id": "html/select_element",
               "feature_assertion_id": "convey_option_boundaries",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -2468,7 +2447,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Choose a food item apple, combo box, focus mode\"",
+          "output": "\"Choose a food item, apple, combo box, focus mode\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -2501,7 +2480,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Choose a food item apple, combo box\"",
+          "output": "\"Choose a food item, apple, combo box\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -2537,7 +2516,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"What food do you want? everything, combobox, focus mode\"",
+          "output": "\"Choose a food item? everything, combobox, focus mode\"",
           "results": [
             {
               "feature_id": "html/select_element",
@@ -3047,7 +3026,7 @@
     },
     {
       "date": "2020-02-20",
-      "message": "Update NVDA+FF. Now supports posinet and optgroups. Thanks @smhigley"
+      "message": "Update NVDA+FF. Now supports posinet and optgroups. Thanks @smhigley. Also updated other core screen reader combinations."
     }
   ],
   "versions": {
@@ -3064,42 +3043,42 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-08-08"
+          "at_version": "2020.2001.70",
+          "browser_version": "80",
+          "os_version": "1909",
+          "date": "2020-02-20"
         },
         "ie": {
-          "at_version": "2019.1906.10",
+          "at_version": "2020.2001.70",
           "browser_version": "11",
-          "os_version": "1903",
-          "date": "2019-08-08"
+          "os_version": "1909",
+          "date": "2020-02-20"
         },
         "firefox": {
-          "at_version": "2019.1906.10",
-          "browser_version": "68",
-          "os_version": "1903",
-          "date": "2019-08-08"
+          "at_version": "2020.2001.70",
+          "browser_version": "73",
+          "os_version": "1909",
+          "date": "2020-02-20"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
+          "at_version": "1909",
           "browser_version": "44",
-          "os_version": "1903",
-          "date": "2019-08-08"
+          "os_version": "1909",
+          "date": "2020-02-20"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-08-08"
+          "at_version": "2019.3.1",
+          "browser_version": "80",
+          "os_version": "1909",
+          "date": "2020-02-20"
         },
         "firefox": {
           "at_version": "2019.3.1",
@@ -3112,20 +3091,20 @@
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-15"
+          "at_version": "3.34.04",
+          "browser_version": "73",
+          "os_version": "Ubuntu 19.10",
+          "date": "2020-02-20"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
-          "browser_version": "75",
+          "at_version": "8.1",
+          "browser_version": "80",
           "os_version": "7",
-          "date": "2019-07-27"
+          "date": "2020-02-20"
         }
       }
     },
@@ -3142,20 +3121,20 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.3.1",
-          "browser_version": "12.3.1",
-          "os_version": "12.3.1",
-          "date": "2019-08-08"
+          "at_version": "13.3.1",
+          "browser_version": "13.3.1",
+          "os_version": "13.3.1",
+          "date": "2020-02-20"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.5",
-          "browser_version": "12.1.1",
-          "os_version": "10.14.5",
-          "date": "2019-08-08"
+          "at_version": "10.15.3",
+          "browser_version": "13.0.5",
+          "os_version": "10.15.3",
+          "date": "2020-02-20"
         }
       }
     },
