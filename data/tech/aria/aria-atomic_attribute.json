@@ -9,6 +9,39 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-atomic"
     }
   ],
-  "assertions": [],
+  "assertions": [
+    {
+      "id": "convey_value_false",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the false value",
+      "examples": [
+        "Screen readers will announce only the changed content within aria-atomic=\"false\"."
+      ],
+      "css_target": "*[aria-atomic=\"false\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_true",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the true value",
+      "examples": [
+        "Screen readers will announce all the content within aria-atomic=\"true\"."
+      ],
+      "css_target": "*[aria-atomic=\"true\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
   "date_updated": "2019-01-06"
 }
