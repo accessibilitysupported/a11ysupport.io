@@ -85,6 +85,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 		featureObject.keywords = [];
 	}
 
+	if (!featureObject.is_form_control) {
+		featureObject.is_form_control = false;
+	}
+
 	featureObject.keywords.push(featureObject.title);
 
 	// Set defaults for assertions
@@ -102,8 +106,12 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 						"sr/reading",
 						"sr/interaction",
 						"vc"
-					]
+					],
 				}, assertion);
+
+				if (featureObject.is_form_control && !featureObject.assertions[assertion_key].notes) {
+					featureObject.assertions[assertion_key].notes = "For form inputs - commands to read line by line (down and up arrows in most windows screen readers) will not always result in the name being explicitly conveyed when the virtual focus is moved to an input where the label is visually displayed and programmatically associated with the input. This is acceptable because the name is implied by the fact that it should be naturally found in the reading order. Some screen readers choose to not convey the name in these cases, likely in an effort to reduce verbosity."
+				}
 				break;
 			case 'convey_role':
 				featureObject.assertions[assertion_key] = Object.assign({
