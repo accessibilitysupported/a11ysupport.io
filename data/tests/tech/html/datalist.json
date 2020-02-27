@@ -572,12 +572,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"edit, function\"",
+          "output": "unable to select an option",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "unknown"
+              "result": "fail"
             }
           ]
         },
@@ -702,7 +702,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"function type\"",
+          "output": "\"function type, edit, has popup, function, type in text\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -713,17 +713,18 @@
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/list_attribute",
               "feature_assertion_id": "convey_presence",
-              "result": "fail"
+              "result": "pass",
+              "notes": "conveyed by 'has popup'"
             }
           ]
         },
@@ -823,7 +824,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type Edit has popup\"",
+          "output": "\"Function type, Edit, has popup\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -842,17 +843,17 @@
           },
           "after": "target",
           "output": "\"function, 1 of 6, to move to an item press the arrow keys\"",
-          "notes": "partial because when the input is empty, the list of options is displayed but it is not possible to navigate to it",
+          "notes": "observation: sometimes pressing down arrow will not move virtual focus to an option in the list, but instead to content after the input. Not able to reproduce consistently.",
           "results": [
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_role",
-              "result": "partial"
+              "result": "pass"
             },
             {
               "feature_id": "html/datalist_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -936,6 +937,12 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "conveyed by 'combo edit' role"
             }
           ]
         },
@@ -964,6 +971,12 @@
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "convey_value",
               "result": "pass"
+            },
+            {
+              "feature_id": "html/list_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": "conveyed by 'combo edit' role"
             }
           ]
         },
@@ -994,7 +1007,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function\"",
+          "output": "\"Function\" (new value was conveyed)",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1012,47 +1025,11 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function type Combo edit, press space to edit\"",
+          "output": "\"Function type, Combo edit, press space to edit\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Combo edit, scan off.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "input[list]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Function type Combo edit, scan off, suggestions available.\"",
-          "results": [
-            {
-              "feature_id": "html/list_attribute",
-              "feature_assertion_id": "convey_presence",
               "result": "pass"
             }
           ]
@@ -1633,7 +1610,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"edit box, function type, double-tap to edit text\"",
+          "output": "\"edit box, function type, double-tap to edit text, edit options available\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1653,7 +1630,8 @@
             {
               "feature_id": "html/list_attribute",
               "feature_assertion_id": "convey_presence",
-              "result": "fail"
+              "result": "pass",
+              "notes": "after double tapping on the input, 'showing autofill popup' is announced."
             }
           ]
         },
@@ -1684,7 +1662,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"function, close features menu\"",
+          "output": "\"function, in list, showing autofill popup, 6 items\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -1949,7 +1927,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Function\"",
+          "output": "\"Function, prediction\"",
           "results": [
             {
               "feature_id": "html/input(type-text)_element",
@@ -2436,7 +2414,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"menu, function, function\"",
+          "output": "\"menu, function\"",
           "results": [
             {
               "feature_id": "html/datalist_element",
@@ -2920,6 +2898,10 @@
     {
       "date": "2020-02-03",
       "message": "update android results for Talkback and Voice Access."
+    },
+    {
+      "date": "2020-02-03",
+      "message": "update android results for core desktop screen readers."
     }
   ],
   "versions": {
@@ -2936,48 +2918,48 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "browser_version": "79",
+          "at_version": "2020.2001.70",
+          "browser_version": "80",
           "os_version": "1909",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         },
         "ie": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2001.70",
           "browser_version": "11",
           "os_version": "1909",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         },
         "firefox": {
-          "at_version": "2020.1912.11",
-          "browser_version": "72",
+          "at_version": "2020.2001.70",
+          "browser_version": "73",
           "os_version": "1909",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
+          "at_version": "1909",
           "browser_version": "44",
-          "os_version": "1903",
-          "date": "2019-07-24"
+          "os_version": "1909",
+          "date": "2020-02-27"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "browser_version": "79",
+          "at_version": "2019.3.1",
+          "browser_version": "80",
           "os_version": "1909",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "browser_version": "72",
+          "at_version": "2019.3.1",
+          "browser_version": "73",
           "os_version": "1909",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         }
       }
     },
@@ -2985,9 +2967,9 @@
       "browsers": {
         "firefox": {
           "at_version": "3.34.0",
-          "browser_version": "72",
+          "browser_version": "73",
           "os_version": "Ubuntu 19.10",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         }
       }
     },
@@ -2995,9 +2977,9 @@
       "browsers": {
         "and_chr": {
           "at_version": "8.1",
-          "browser_version": "79",
+          "browser_version": "80",
           "os_version": "7",
-          "date": "2020-02-03"
+          "date": "2020-02-27"
         }
       }
     },
@@ -3017,7 +2999,7 @@
           "at_version": "13.3.1",
           "browser_version": "13.3.1",
           "os_version": "13.3.1",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         }
       }
     },
@@ -3027,7 +3009,7 @@
           "at_version": "10.15.3",
           "browser_version": "13.0.5",
           "os_version": "10.15.3",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         }
       }
     },
@@ -3047,7 +3029,7 @@
           "at_version": "10.15.3",
           "browser_version": "13.0.5",
           "os_version": "10.15.3",
-          "date": "2020-02-01"
+          "date": "2020-02-27"
         }
       }
     },
