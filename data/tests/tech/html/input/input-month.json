@@ -31,6 +31,10 @@
     {
       "feature_id": "html/input(type-month)_element",
       "feature_assertion_id": "widget_is_supported"
+    },
+    {
+      "feature_id": "html/input(type-month)_element",
+      "feature_assertion_id": "allow_data_entry"
     }
   ],
   "commands": {
@@ -76,7 +80,7 @@
         },
         {
           "command": "multiple_commands",
-          "css_target": "input[type=\"datetime-local\"]",
+          "css_target": "input[type=\"month\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "na",
@@ -90,6 +94,25 @@
               "feature_assertion_id": "widget_is_supported",
               "result": "fail",
               "notes": ""
+            }
+          ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"month\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was not recognized",
+          "notes": "said \"october\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-month)_element",
+              "feature_assertion_id": "allow_data_entry",
+              "result": "fail"
             }
           ]
         }
@@ -1627,6 +1650,25 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"month\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was recognized",
+          "notes": "said \"10\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-month)_element",
+              "feature_assertion_id": "allow_data_entry",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -1685,6 +1727,25 @@
               "feature_assertion_id": "widget_is_supported",
               "result": "partial",
               "notes": "partial because it was still possible to use some of the controls and enter a date"
+            }
+          ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"month\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was not recognized",
+          "notes": "said \"october\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-month)_element",
+              "feature_assertion_id": "allow_data_entry",
+              "result": "fail"
             }
           ]
         }

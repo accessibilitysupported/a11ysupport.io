@@ -294,6 +294,22 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					]
 				}, assertion);
 				break;
+			case 'allow_data_entry':
+				featureObject.assertions[assertion_key] = Object.assign({
+					title: "allow data entry",
+					rationale: "Users need to be able to enter data",
+					strength: {
+						sr: "NA",
+						vc: "MUST"
+					},
+					examples: [
+						"Voice control software might allow someone to dictate data into a field once it is focused.",
+					],
+					operation_modes: [
+						"vc"
+					]
+				}, assertion);
+				break;
 		}
 	});
 

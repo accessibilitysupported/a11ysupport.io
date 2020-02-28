@@ -26,6 +26,10 @@
     {
       "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "increment_decrement"
+    },
+    {
+      "feature_id": "html/input(type-number)_element",
+      "feature_assertion_id": "allow_data_entry"
     }
   ],
   "commands": {
@@ -84,6 +88,25 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "increment_decrement",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"number\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "value was updated",
+          "notes": "said \"ten\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "allow_data_entry",
               "result": "pass"
             }
           ]
@@ -1153,6 +1176,25 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"number\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was recognized",
+          "notes": "said \"10\" - number kept being interpreted as a command. Instead I entered data by controlling the on-screen keyboard.",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "allow_data_entry",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -1589,6 +1631,25 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"number\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was recognized",
+          "notes": "said \"cats\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "allow_data_entry",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -1627,6 +1688,25 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"number\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was recognized",
+          "notes": "said \"10\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "allow_data_entry",
               "result": "pass"
             }
           ]
@@ -1670,6 +1750,25 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_role",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "dictate",
+          "css_target": "input[type=\"number\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "target"
+          },
+          "after": "na",
+          "output": "input was not recognized",
+          "notes": "said \"numeral 10\" and \"ten\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "allow_data_entry",
+              "result": "fail"
             }
           ]
         }
