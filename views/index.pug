@@ -28,33 +28,57 @@ block content
                     table
                       caption Screen Reader support
                       thead
+                        col
+                        each at in ATBrowsers.core_at
+                          if ATBrowsers.at[at].type !== "sr"
+                            - continue
+                          colgroup(span=ATBrowsers.at[at].core_browsers.length)
                         tr
-                          each at_id in ATBrowsers.core_at
-                            if ATBrowsers.at[at_id].type !== "sr"
+                          each at in ATBrowsers.core_at
+                            if ATBrowsers.at[at].type !== "sr"
                               - continue
-                            th #{ATBrowsers.at[at_id].short_title}
+                            th(colspan=ATBrowsers.at[at].core_browsers.length scope="colgroup") #{ATBrowsers.at[at].title}
+                        tr
+                          each at in ATBrowsers.core_at
+                            if ATBrowsers.at[at].type !== "sr"
+                              - continue
+                            each browser in ATBrowsers.at[at].core_browsers
+                              th(scope="col") #{ATBrowsers.browsers[browser].title}
                       tbody
                         tr
-                          each at_id in ATBrowsers.core_at
-                            if ATBrowsers.at[at_id].type !== "sr"
+                          each at in ATBrowsers.core_at
+                            if ATBrowsers.at[at].type !== "sr"
                               - continue
-                            td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
+                            each browser in ATBrowsers.at[at].core_browsers
+                              td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
                 if (feature.core_support.vc.length)
                   div.responsive-table.support-summary-table
                     table
                       caption Voice Control support
                       thead
+                        col
+                        each at in ATBrowsers.core_at
+                          if ATBrowsers.at[at].type !== "vc"
+                            - continue
+                          colgroup(span=ATBrowsers.at[at].core_browsers.length)
                         tr
-                          each at_id in ATBrowsers.core_at
-                            if ATBrowsers.at[at_id].type !== "vc"
+                          each at in ATBrowsers.core_at
+                            if ATBrowsers.at[at].type !== "vc"
                               - continue
-                            th #{ATBrowsers.at[at_id].short_title}
+                            th(colspan=ATBrowsers.at[at].core_browsers.length scope="colgroup") #{ATBrowsers.at[at].title}
+                        tr
+                          each at in ATBrowsers.core_at
+                            if ATBrowsers.at[at].type !== "vc"
+                              - continue
+                            each browser in ATBrowsers.at[at].core_browsers
+                              th(scope="col") #{ATBrowsers.browsers[browser].title}
                       tbody
                         tr
-                          each at_id in ATBrowsers.core_at
-                            if ATBrowsers.at[at_id].type !== "vc"
+                          each at in ATBrowsers.core_at
+                            if ATBrowsers.at[at].type !== "vc"
                               - continue
-                            td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
+                            each browser in ATBrowsers.at[at].core_browsers
+                              td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
                 p Supported by #{feature.total_test_count} tests.
                 if feature.core_support.sr.includes('u') || feature.core_support.vc.includes('u')
                   p We are missing data on some combinations.

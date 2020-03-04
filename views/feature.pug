@@ -48,13 +48,25 @@ block content
           - var assertions_found = 0;
           div.responsive-table
             table(aria-labelledby='support-table-by-assertion-and-at-'+at_type.type).support-summary-table
+              col
+              each at in ATBrowsers.core_at
+                if ATBrowsers.at[at].type !== at_type.type
+                  - continue
+                colgroup(span=ATBrowsers.at[at].core_browsers.length)
               tr
-                th Expectation
-                each at_id in ATBrowsers.core_at
-                  if ATBrowsers.at[at_id].type !== at_type.type
+                th(rowspan="2") Expectation
+                each at in ATBrowsers.core_at
+                  if ATBrowsers.at[at].type !== at_type.type
                     - continue
-                  th #{ATBrowsers.at[at_id].title}
-                  - colspan++;
+                  th(colspan=ATBrowsers.at[at].core_browsers.length scope="colgroup") #{ATBrowsers.at[at].title}
+              tr
+                each at in ATBrowsers.core_at
+                  if ATBrowsers.at[at].type !== at_type.type
+                    - continue
+                  each browser in ATBrowsers.at[at].core_browsers
+                    th(scope="col") #{ATBrowsers.browsers[browser].title}
+                    - colspan++;
+
               each assertion, index in data.assertions
                 if assertion.strength[at_type.type] === "NA"
                   - continue
@@ -66,10 +78,11 @@ block content
                       each at in ATBrowsers.core_at
                         if ATBrowsers.at[at].type !== at_type.type
                           - continue
-                        td(class='support-case ' + assertion.core_support_by_at[at].string.class)= assertion.core_support_by_at[at].string.string
-                          if (assertion.core_support_by_at[at].some_support_behind_settings)
-                            - some_support_behind_settings = true
-                            span *
+                        each browser in ATBrowsers.at[at].core_browsers
+                          td(class='support-case ' + assertion.core_support_by_at_browser[at][browser].string.class)= assertion.core_support_by_at_browser[at][browser].string.string
+                            if (assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
+                              - some_support_behind_settings = true
+                              span *
               if assertions_found === 0
                 tr
                   td(colspan=colspan+1) Not applicable

@@ -131,6 +131,7 @@ let getFeatures = function(techId, buildDir) {
 				vc: feature.core_support_string.vc
 			},
 			core_support_by_at: feature.core_support_by_at,
+			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length,
 			assertions: []
