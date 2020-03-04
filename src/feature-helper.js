@@ -720,6 +720,43 @@ helper.initalizeTestCase = function (testCase) {
 
 	testCase.history = testCase.history.sort(sortByProperty('date'));
 
+	testCase.all_dates = {
+		all: [],
+		min: null,
+		median: null,
+		max: null
+	};
+
+	// TODO: collect all failing dates (fail/partial results)
+	testCase.failing_dates = {
+		all: [],
+		min: null,
+		median: null,
+		max: null
+	};
+
+	for(let at in ATBrowsers.at){
+		if (!testCase.versions[at]) {
+			continue;
+		}
+
+		if (!testCase.versions[at].browsers) {
+			continue;
+		}
+
+		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+		validBrowsers.forEach((browser) => {
+			if (!testCase.versions[at].browsers[browser]) {
+				return;
+			}
+			if (!testCase.versions[at].browsers[browser].date) {
+				return;
+			}
+
+			testCase.all_dates.all.push(testCase.versions[at].browsers[browser].date);
+		});
+	}
+
 	testCase.assertions.forEach(function(assertion, assertion_key) {
 		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)
 		let feature = require('../data/tech/'+assertion.feature_id+".json");
