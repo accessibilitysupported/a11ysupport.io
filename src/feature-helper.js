@@ -37,6 +37,18 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	featureObject.id = id;
 	featureObject.techId = techId;
 
+	featureObject.all_dates = {
+		all: [],
+		min: null,
+		max: null
+	};
+
+	featureObject.failing_dates = {
+		all: [],
+		min: null,
+		max: null
+	};
+
 	//Set up support properties
 	featureObject.core_support = {
 		sr: [],
@@ -347,6 +359,9 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
 		featureObject.tests[testIndex] = require('../build/tests/'+featureObject.tests[testIndex]);
 
+		featureObject.all_dates.all = featureObject.all_dates.all.concat(featureObject.tests[testIndex].all_dates.all);
+		featureObject.failing_dates.all = featureObject.failing_dates.all.concat(featureObject.tests[testIndex].failing_dates.all);
+
 		// Set up keywords to help searches
 		if (featureObject.tests[testIndex].keywords) {
 			featureObject.keywords = featureObject.keywords.concat(featureObject.tests[testIndex].keywords);
@@ -483,6 +498,11 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		});
 	}
 
+	featureObject.all_dates.min = Math.min(...featureObject.all_dates.all);
+	featureObject.all_dates.max = Math.max(...featureObject.all_dates.all);
+	featureObject.failing_dates.min = Math.min(...featureObject.failing_dates.all);
+	featureObject.failing_dates.max = Math.max(...featureObject.failing_dates.all);
+
 	if (featureObject.tests.length === 0) {
 		// This is just a stub
 		["sr", "vc"].forEach(type => {
@@ -589,6 +609,40 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions = [];
 	}
 
+	testCase.all_dates = {
+		all: [],
+		min: null,
+		max: null
+	};
+
+	testCase.failing_dates = {
+		all: [],
+		min: null,
+		max: null
+	};
+
+	for(let at in ATBrowsers.at){
+		if (!testCase.versions[at]) {
+			continue;
+		}
+
+		if (!testCase.versions[at].browsers) {
+			continue;
+		}
+
+		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
+		validBrowsers.forEach((browser) => {
+			if (!testCase.versions[at].browsers[browser]) {
+				return;
+			}
+			if (!testCase.versions[at].browsers[browser].date) {
+				return;
+			}
+
+			testCase.all_dates.all.push(testCase.versions[at].browsers[browser].date);
+		});
+	}
+
 	for(let at in ATBrowsers.at) {
 		if (!testCase.commands[at]) {
 			continue;
@@ -644,12 +698,21 @@ helper.initalizeTestCase = function (testCase) {
 					output.result = result.result;
 					delete output.results;
 					testCase.assertions[assertion_key].results[at].browsers[browser].output.push(output);
+					if (output.result === "fail" || output.result === "partial" || output.result === "unknown") {
+						testCase.failing_dates.all.push(testCase.versions[at].browsers[browser].date);
+						testCase.versions[at].browsers[browser].has_failing = true;
+					}
 				});
 			});
 		});
 	}
 
 	delete testCase.commands;
+
+	testCase.all_dates.min = Math.min(...testCase.all_dates.all);
+	testCase.all_dates.max = Math.max(...testCase.all_dates.all);
+	testCase.failing_dates.min = Math.min(...testCase.failing_dates.all);
+	testCase.failing_dates.max = Math.max(...testCase.failing_dates.all);
 
 	let sortStrengthMap = {
 		convey_name: '0',
@@ -719,43 +782,6 @@ helper.initalizeTestCase = function (testCase) {
 	};
 
 	testCase.history = testCase.history.sort(sortByProperty('date'));
-
-	testCase.all_dates = {
-		all: [],
-		min: null,
-		median: null,
-		max: null
-	};
-
-	// TODO: collect all failing dates (fail/partial results)
-	testCase.failing_dates = {
-		all: [],
-		min: null,
-		median: null,
-		max: null
-	};
-
-	for(let at in ATBrowsers.at){
-		if (!testCase.versions[at]) {
-			continue;
-		}
-
-		if (!testCase.versions[at].browsers) {
-			continue;
-		}
-
-		let validBrowsers = ATBrowsers.at[at].core_browsers.concat(ATBrowsers.at[at].extended_browsers);
-		validBrowsers.forEach((browser) => {
-			if (!testCase.versions[at].browsers[browser]) {
-				return;
-			}
-			if (!testCase.versions[at].browsers[browser].date) {
-				return;
-			}
-
-			testCase.all_dates.all.push(testCase.versions[at].browsers[browser].date);
-		});
-	}
 
 	testCase.assertions.forEach(function(assertion, assertion_key) {
 		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)
