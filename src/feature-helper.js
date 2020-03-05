@@ -2,6 +2,9 @@ let helper = {};
 const moment = require('moment');
 let now = new moment();
 
+//Grab the ATBrowsers data
+const ATBrowsers = require('./../data/ATBrowsers');
+
 /**
  * Generic array sorting
  *
@@ -20,6 +23,22 @@ Array.prototype.unique = function() {
 	});
 };
 
+let isCoreCombination = function(at, browser) {
+	if (!ATBrowsers.core_at.includes(at)) {
+		return false;
+	}
+
+	if (!ATBrowsers.at[at]) {
+		return false;
+	}
+
+	if (ATBrowsers.at[at].core_browsers.includes(browser)) {
+		return true;
+	}
+
+	return false;
+};
+
 Array.prototype.occurenceCount = function (what) {
 	let count = 0;
 	for (let i = 0; i < this.length; i++) {
@@ -31,9 +50,6 @@ Array.prototype.occurenceCount = function (what) {
 };
 
 helper.initalizeFeatureObject = function(featureObject, techId, id) {
-	//Grab the ATBrowsers data
-	let ATBrowsers = require('./../data/ATBrowsers');
-
 	featureObject.id = id;
 	featureObject.techId = techId;
 
@@ -330,9 +346,6 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 };
 
 helper.bubbleFeatureSupport = function(featureObject) {
-	//Grab the ATBrowsers data
-	let ATBrowsers = require('./../data/ATBrowsers');
-
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		featureObject.assertions[assertion_key].tests = [];
 
@@ -359,9 +372,6 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
 		featureObject.tests[testIndex] = require('../build/tests/'+featureObject.tests[testIndex]);
 
-		featureObject.all_dates.all = featureObject.all_dates.all.concat(featureObject.tests[testIndex].all_dates.all);
-		featureObject.failing_dates.all = featureObject.failing_dates.all.concat(featureObject.tests[testIndex].failing_dates.all);
-
 		// Set up keywords to help searches
 		if (featureObject.tests[testIndex].keywords) {
 			featureObject.keywords = featureObject.keywords.concat(featureObject.tests[testIndex].keywords);
@@ -373,6 +383,9 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			if (featureObject.id !== assertion.feature_id) {
 				return;
 			}
+
+			featureObject.all_dates.all = [...new Set(featureObject.all_dates.all.concat(assertion.all_dates.all))];
+			featureObject.failing_dates.all = [...new Set(featureObject.failing_dates.all.concat(assertion.failing_dates.all))];
 
 			let assertion_key = featureObject.assertions.findIndex(obj => obj.id === assertion.feature_assertion_id);
 
@@ -498,8 +511,10 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		});
 	}
 
+	featureObject.all_dates.all = [...new Set(featureObject.all_dates.all)];
 	featureObject.all_dates.min = Math.min(...featureObject.all_dates.all);
 	featureObject.all_dates.max = Math.max(...featureObject.all_dates.all);
+	featureObject.failing_dates.all = [...new Set(featureObject.failing_dates.all)];
 	featureObject.failing_dates.min = Math.min(...featureObject.failing_dates.all);
 	featureObject.failing_dates.max = Math.max(...featureObject.failing_dates.all);
 
@@ -601,9 +616,6 @@ helper.bubbleFeatureSupport = function(featureObject) {
 
 
 helper.initalizeTestCase = function (testCase) {
-	//Grab the ATBrowsers data
-	let ATBrowsers = require('./../data/ATBrowsers');
-
 	// transform the commands object to the assertions array
 	if (!testCase.assertions) {
 		testCase.assertions = [];
@@ -639,7 +651,9 @@ helper.initalizeTestCase = function (testCase) {
 				return;
 			}
 
-			testCase.all_dates.all.push(testCase.versions[at].browsers[browser].date);
+			if (isCoreCombination(at, browser)) {
+				testCase.all_dates.all.push(new Date(testCase.versions[at].browsers[browser].date).getTime());
+			}
 		});
 	}
 
@@ -672,6 +686,22 @@ helper.initalizeTestCase = function (testCase) {
 						testCase.assertions[assertion_key].results = {};
 					}
 
+					if (!testCase.assertions[assertion_key].all_dates) {
+						testCase.assertions[assertion_key].all_dates = {
+							all: [],
+							min: null,
+							max: null
+						};
+					}
+
+					if (!testCase.assertions[assertion_key].failing_dates) {
+						testCase.assertions[assertion_key].failing_dates = {
+							all: [],
+							min: null,
+							max: null
+						};
+					}
+
 					if (!testCase.assertions[assertion_key].results[at]) {
 						testCase.assertions[assertion_key].results[at] = {
 							browsers: {}
@@ -697,10 +727,23 @@ helper.initalizeTestCase = function (testCase) {
 
 					output.result = result.result;
 					delete output.results;
+
+					// handle dates
+					testCase.assertions[assertion_key].all_dates.all.push(new Date(testCase.versions[at].browsers[browser].date).getTime());
 					testCase.assertions[assertion_key].results[at].browsers[browser].output.push(output);
-					if (output.result === "fail" || output.result === "partial" || output.result === "unknown") {
-						testCase.failing_dates.all.push(testCase.versions[at].browsers[browser].date);
-						testCase.versions[at].browsers[browser].has_failing = true;
+					if (isCoreCombination(at, browser)) {
+						if (output.result === "fail" || output.result === "partial") {
+							testCase.failing_dates.all.push(new Date(testCase.versions[at].browsers[browser].date).getTime());
+							testCase.assertions[assertion_key].failing_dates.all.push(new Date(testCase.versions[at].browsers[browser].date).getTime());
+							testCase.versions[at].browsers[browser].has_failing = true;
+						}
+
+						testCase.assertions[assertion_key].all_dates.all = [...new Set(testCase.assertions[assertion_key].all_dates.all)];
+						testCase.assertions[assertion_key].all_dates.min = Math.min(...testCase.assertions[assertion_key].all_dates.all);
+						testCase.assertions[assertion_key].all_dates.max = Math.max(...testCase.assertions[assertion_key].all_dates.all);
+						testCase.assertions[assertion_key].failing_dates.all = [...new Set(testCase.assertions[assertion_key].failing_dates.all)];
+						testCase.assertions[assertion_key].failing_dates.min = Math.min(...testCase.assertions[assertion_key].failing_dates.all);
+						testCase.assertions[assertion_key].failing_dates.max = Math.max(...testCase.assertions[assertion_key].failing_dates.all);
 					}
 				});
 			});
@@ -709,8 +752,10 @@ helper.initalizeTestCase = function (testCase) {
 
 	delete testCase.commands;
 
+	testCase.all_dates.all = [...new Set(testCase.all_dates.all)];
 	testCase.all_dates.min = Math.min(...testCase.all_dates.all);
 	testCase.all_dates.max = Math.max(...testCase.all_dates.all);
+	testCase.failing_dates.all = [...new Set(testCase.failing_dates.all)];
 	testCase.failing_dates.min = Math.min(...testCase.failing_dates.all);
 	testCase.failing_dates.max = Math.max(...testCase.failing_dates.all);
 
