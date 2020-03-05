@@ -6,6 +6,7 @@ let createError = require('http-errors');
 let MarkdownIt = require('markdown-it');
 let md = new MarkdownIt().use(require('markdown-it-anchor'));
 let testHelper = require('../src/test-id-helper.js');
+const moment = require('moment');
 
 /* GET a specific test for a feature. */
 router.get('/', function(req, res, next) {
@@ -24,7 +25,8 @@ router.get('/', function(req, res, next) {
 		testMap: testMap,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-		testHelper: testHelper
+		testHelper: testHelper,
+		moment: moment
 	});
 });
 
@@ -68,7 +70,8 @@ router.get('/:testId', function(req, res, next) {
 		features: features,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-        testHelper: testHelper
+        testHelper: testHelper,
+		moment: moment
 	});
 });
 
@@ -112,7 +115,8 @@ router.get('/:testId/run', function(req, res, next) {
         features: features,
         ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-        testHelper: testHelper
+        testHelper: testHelper,
+		moment: moment
     });
 });
 
@@ -185,7 +189,8 @@ router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(
 		ATBrowsers: ATBrowsers,
 		md: md,
 		assertion: assertion,
-        testHelper: testHelper
+        testHelper: testHelper,
+		moment: moment
 	});
 });
 

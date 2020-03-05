@@ -6,6 +6,7 @@ let createError = require('http-errors');
 let MarkdownIt = require('markdown-it');
 let md = new MarkdownIt().use(require('markdown-it-anchor'));
 let testHelper = require('../src/test-id-helper.js');
+const moment = require('moment');
 
 /* GET feature listing. */
 router.get('/', function(req, res, next) {
@@ -14,6 +15,7 @@ router.get('/', function(req, res, next) {
 	res.render('tech-index', {
 		tech: tech,
 		title: 'All Technologies | Accessibility',
+		moment: moment
 	});
 });
 
@@ -32,7 +34,8 @@ router.get('/:techId', function(req, res, next) {
 		techId: req.params.techId,
 		tech: tech[req.params.techId],
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
-		testHelper: testHelper
+		testHelper: testHelper,
+		moment: moment
 	});
 });
 
@@ -68,7 +71,8 @@ router.get('/:techId/:featureId', function(req, res, next) {
 		related_features: related_features,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-		testHelper: testHelper
+		testHelper: testHelper,
+		moment: moment
 	});
 });
 

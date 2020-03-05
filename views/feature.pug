@@ -14,7 +14,11 @@ block content
         h2 On this page
         ul.link-list
           li
-            a(href="#test-html") Expectations
+            a(href="#description") About this feature
+          li
+            a(href="#age-of-results") Age of results
+          li
+            a(href="#expectations") Expectations
             ul
               each assertion, index in data.assertions
                 li
@@ -30,12 +34,24 @@ block content
           li
             a(href="#feedback") Is something not right?
 
+      h2(id='description') About this feature
+
       p!= md.render(data.description)
 
       if data.recommendation
         p!= md.render(data.recommendation)
 
-      h2 Expectations
+      h2(id='age-of-results') Age of results
+      p Results across all tests for this feature range from #{new Date(data.all_dates.min).toISOString().split('T')[0]} (#{moment(data.all_dates.min).fromNow()}) to #{new Date(data.all_dates.max).toISOString().split('T')[0]} (#{moment(data.all_dates.max).fromNow()}). Detailed dates and version information can be found in <a href="#related-tests">associated tests</a>.
+      if (data.failing_dates.max && moment().diff(data.failing_dates.max, 'months') >= 3)
+        div.caution
+          h3 Caution
+          p Failing or partial results may be out of date. The oldest result is from #{new Date(data.failing_dates.min).toISOString().split('T')[0]} (#{moment(data.failing_dates.min).fromNow()}). Consider running the <a href="#related-tests">associated tests</a> and contributing results.
+      else if (data.failing_dates.max)
+        p Failing and partial results are between #{new Date(data.failing_dates.min).toISOString().split('T')[0]} (#{moment(data.failing_dates.min).fromNow()}) and #{new Date(data.failing_dates.max).toISOString().split('T')[0]} (#{moment(data.failing_dates.min).fromNow()})
+
+
+      h2(id='expectations') Expectations
       p
         a(href="/faq#what-are-expectations%3F") What are expectations?
 

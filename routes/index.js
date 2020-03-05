@@ -3,6 +3,7 @@ let router = express.Router();
 let fs = require('fs');
 let createError = require('http-errors');
 let testHelper = require('../src/test-id-helper.js');
+const moment = require('moment');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +11,8 @@ router.get('/', function(req, res, next) {
 	res.render('index', {
 		title: 'Accessibility Support',
 		features: require(__dirname+'/../build/features.json'),
-		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json')
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		moment: moment
 	});
 });
 
@@ -31,7 +33,8 @@ router.get('/run-tests', function(req, res, next) {
 		title: 'Run Tests | Accessibility Support',
 		supportPoints: supportPoints,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
-		testHelper: testHelper
+		testHelper: testHelper,
+		moment: moment
 	});
 });
 

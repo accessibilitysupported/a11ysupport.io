@@ -10,12 +10,12 @@ block content
             div(class="current-support-container " + test.core_support_string.vc.class)
                 p= 'Voice Control support level: ' + test.core_support_string.vc.string
 
-            div!= md.render(test.description)
-
-            a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
-
             h2(id="top") On this page
             ul.link-list
+                li
+                    a(href="#desciption") About this test
+                li
+                    a(href="#age-of-results") Age of results
                 li
                     a(href="#test-html") Test HTML
                 if test.assertions
@@ -32,6 +32,20 @@ block content
                 li
                     a(href="#contribute") Contribute and Feedback
 
+            h2(id='description') About this test
+            div!= md.render(test.description)
+
+            a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
+
+            h2(id='age-of-results') Age of results
+            p Results in this test range from #{new Date(test.all_dates.min).toISOString().split('T')[0]} (#{moment(test.all_dates.min).fromNow()}) to #{new Date(test.all_dates.max).toISOString().split('T')[0]} (#{moment(test.all_dates.max).fromNow()}). See <a href="#versions">detailed information about test dates and versions</a> for more information.
+            if (test.failing_dates.max && moment().diff(test.failing_dates.max, 'months') >= 3)
+                div.caution
+                    h3 Caution
+                    p Failing or partial results may be out of date. The oldest result is from #{new Date(test.failing_dates.min).toISOString().split('T')[0]} (#{moment(test.failing_dates.min).fromNow()}). Consider <a href="#{"/tests/" + testHelper.makeSafe(test.id) + "/run"}">running this test</a> and contributing results.
+            else if (test.failing_dates.max)
+                p Failing and partial results are between #{new Date(test.failing_dates.min).toISOString().split('T')[0]} (#{moment(test.failing_dates.min).fromNow()}) and #{new Date(test.failing_dates.max).toISOString().split('T')[0]} (#{moment(test.failing_dates.min).fromNow()})
+
             h2(id="test-html") Test HTML
             if (test.html_file.startsWith('http'))
                 a(href=test.html_file) view the external test
@@ -42,29 +56,6 @@ block content
             else
                 a(href="/tests/html/" + test.html_file) open the test page
                 p HTML source is too long to display here.
-
-            details(open)
-                summary
-                    h2(id="versions") Dates and Versions of tested combinations
-                div.responsive-table
-                    table
-                        tr
-                            th AT
-                            th AT Version
-                            th Browser
-                            th Browser version
-                            th OS version
-                            th Date tested
-                        each at in ATBrowsers.core_at
-                            each browser in ATBrowsers.at[at].core_browsers
-                                if (test.versions[at] && test.versions[at].browsers[browser])
-                                    tr
-                                        td #{ATBrowsers.at[at].title}
-                                        td #{test.versions[at].browsers[browser].at_version}
-                                        td #{ATBrowsers.browsers[browser].title}
-                                        td #{test.versions[at].browsers[browser].browser_version}
-                                        td #{test.versions[at].browsers[browser].os_version}
-                                        td #{test.versions[at].browsers[browser].date}
 
             if test.assertions
 
@@ -313,6 +304,29 @@ block content
                                             td
                                                 a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
                     a(href="#top").back-to-top Back to top
+
+            details(open)
+                summary
+                    h2(id="versions") Dates and Versions of tested combinations
+                div.responsive-table
+                    table
+                        tr
+                            th AT
+                            th AT Version
+                            th Browser
+                            th Browser version
+                            th OS version
+                            th Date tested
+                        each at in ATBrowsers.core_at
+                            each browser in ATBrowsers.at[at].core_browsers
+                                if (test.versions[at] && test.versions[at].browsers[browser])
+                                    tr
+                                        td #{ATBrowsers.at[at].title}
+                                        td #{test.versions[at].browsers[browser].at_version}
+                                        td #{ATBrowsers.browsers[browser].title}
+                                        td #{test.versions[at].browsers[browser].browser_version}
+                                        td #{test.versions[at].browsers[browser].os_version}
+                                        td #{test.versions[at].browsers[browser].date}
 
             h2(id="history") History
             ul
