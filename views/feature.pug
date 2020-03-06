@@ -43,7 +43,7 @@ block content
 
       h2(id='age-of-results') Age of results
       p Results across all tests for this feature range from  #{moment(data.all_dates.max).fromNow()} to #{moment(data.all_dates.min).fromNow()}. Detailed dates and version information can be found in <a href="#related-tests">associated tests</a>.
-      if (data.failing_dates.max && moment().diff(data.failing_dates.max, 'months') >= 3)
+      if (data.failing_dates.max && moment().diff(data.failing_dates.max, 'months') >= 9)
         div.caution
           h3 Caution
           p Failing or partial results may be out of date. The oldest result is from #{moment(data.failing_dates.min).fromNow()}. Consider running the <a href="#related-tests">associated tests</a> and contributing results.

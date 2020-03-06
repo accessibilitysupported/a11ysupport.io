@@ -39,7 +39,7 @@ block content
 
             h2(id='age-of-results') Age of results
             p Results in this test range from #{moment(test.all_dates.max).fromNow()} to #{moment(test.all_dates.min).fromNow()}. See <a href="#versions">detailed information about test dates and versions</a> for more information.
-            if (test.failing_dates.max && moment().diff(test.failing_dates.max, 'months') >= 3)
+            if (test.failing_dates.max && moment().diff(test.failing_dates.max, 'months') >= 9)
                 div.caution
                     h3 Caution
                     p Failing or partial results may be out of date. The oldest result is from #{moment(test.failing_dates.min).fromNow()}. Consider <a href="#{"/tests/" + testHelper.makeSafe(test.id) + "/run"}">running this test</a> and contributing results.
