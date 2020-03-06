@@ -79,7 +79,5 @@ block content
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
-                p Supported by #{feature.total_test_count} tests.
-                if feature.core_support.sr.includes('u') || feature.core_support.vc.includes('u')
-                  p We are missing data on some combinations.
+                p Supported by #{feature.total_test_count} tests. Results range from #{moment(feature.all_dates.max).fromNow()} to #{moment(feature.all_dates.min).fromNow()}. #{(feature.failing_dates.max && moment().diff(feature.failing_dates.max, 'months') >= 9)? 'Caution: failing or partial results may be out of date. Consider contributing results.': ''}
       script(src="/js/search.js")

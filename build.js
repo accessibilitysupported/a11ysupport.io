@@ -134,6 +134,8 @@ let getFeatures = function(techId, buildDir) {
 			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length,
+			all_dates: feature.all_dates,
+			failing_dates: feature.failing_dates,
 			assertions: []
 		};
 
