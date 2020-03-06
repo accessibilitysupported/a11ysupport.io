@@ -148,13 +148,14 @@ block content
                                 th Browser
                                 th Has Support
                                 th Output
-                                th Action
                             each at in ATBrowsers.core_at
                                 each browser in ATBrowsers.at[at].core_browsers
                                     tr(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id+"-"+at+"-"+browser)
                                         td= ATBrowsers.at[at].title
                                         td= ATBrowsers.browsers[browser].title
-                                        td(class='support-case ' + assertion.results[at].browsers[browser].support)= assertion.results[at].browsers[browser].support_string.string
+                                        td(class='support-case ' + assertion.results[at].browsers[browser].support)
+                                            a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser)
+                                                span #{assertion.results[at].browsers[browser].support_string.string}
                                         td
                                             if (assertion.results[at].browsers[browser].output)
                                                 ul
@@ -222,9 +223,6 @@ block content
                                                 else
                                                     span -
 
-                                        td
-                                            a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at + "/" + browser) More information
-
                     details.indent
                         summary
                             h4 Extended Support for: #{assertion.feature_title}: #{assertion.assertion_title}
@@ -237,7 +235,6 @@ block content
                                     th Browser
                                     th Has Support
                                     th Output
-                                    th Action
                                 each at in ATBrowsers.at
                                     - var browsers = at.extended_browsers
                                     if ATBrowsers.extended_at.includes(at.id)
@@ -250,7 +247,9 @@ block content
                                             td= ATBrowsers.browsers[browser].title
                                                 if test.versions[at.id] && test.versions[at.id].browsers[browser] && test.versions[at.id].browsers[browser].browser_version
                                                     span= ' ' + test.versions[at.id].browsers[browser].browser_version
-                                            td(class='support-case ' + assertion.results[at.id].browsers[browser].support)= assertion.results[at.id].browsers[browser].support_string.string
+                                            td(class='support-case ' + assertion.results[at.id].browsers[browser].support)
+                                                a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser)
+                                                    span #{assertion.results[at.id].browsers[browser].support_string.string}
                                             td
                                                 if (assertion.results[at.id].browsers[browser].output)
                                                     ul
@@ -309,8 +308,6 @@ block content
                                                                             span= " " + output.resultNotes
                                                 else
                                                     span -
-                                            td
-                                                a(href="/tests/" + testHelper.makeSafe(test.id) + "/" + testHelper.makeSafe(assertion.feature_id) + "/" + assertion.feature_assertion_id + "/" + at.id + "/" + browser) More information
                     a(href="#top").back-to-top Back to top
 
             details(open)
