@@ -101,10 +101,11 @@ block content
                                                     - assertions_found++
                                                     each browser in ATBrowsers.at[at_id].core_browsers
                                                         td(class="support-case " + assertion.core_support_by_at_browser[at_id][browser].string.class headers=at_type.type+"-h-feature-" + currentFeatureIndex + " " + at_type.type+"-h-assertion-" + assertionIndex + " h-at-" + at_id + " h-at-" + at_id + "-browser-" + browser )
-                                                            span #{assertion.core_support_by_at_browser[at_id][browser].string.string}
-                                                            if (assertion.core_support_by_at_browser[at_id][browser].some_support_behind_settings)
-                                                                - some_support_behind_settings = true;
-                                                                span *
+                                                            a(href="#assertion-"+assertion.feature_id.replace('/', '-')+"-"+assertion.feature_assertion_id+"-"+at_id+"-"+browser)
+                                                                span #{assertion.core_support_by_at_browser[at_id][browser].string.string}
+                                                                if (assertion.core_support_by_at_browser[at_id][browser].some_support_behind_settings)
+                                                                    - some_support_behind_settings = true;
+                                                                    span *
                                 if assertions_found === 0
                                     tr
                                         td(colspan=colspan + 1) Not applicable
