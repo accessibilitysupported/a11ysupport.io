@@ -9,6 +9,39 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-activedescendant"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_value",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the referenced element as active",
+      "rationale": "A screen reader user needs to be aware of which descendant is currently active",
+      "examples": [
+        "When navigating to an element with this attribute, screen readers will also announce the referenced element"
+      ],
+      "css_target": "*[aria-activedescendant]",
+      "operation_modes": [
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_change_in_value",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey when the referenced element changes",
+      "rationale": "A screen reader user needs to be aware of which descendant is currently active",
+      "examples": [
+        "When navigating within an element with this attribute, screen readers will also announce the referenced element as the reference changes"
+      ],
+      "css_target": "*[aria-activedescendant]",
+      "operation_modes": [
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-03-25"
 }

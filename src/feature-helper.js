@@ -383,7 +383,9 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			if (featureObject.id !== assertion.feature_id) {
 				return;
 			}
-
+if (!assertion.all_dates) {
+	console.log(assertion);
+}
 			featureObject.all_dates.all = [...new Set(featureObject.all_dates.all.concat(assertion.all_dates.all))];
 			featureObject.failing_dates.all = [...new Set(featureObject.failing_dates.all.concat(assertion.failing_dates.all))];
 
@@ -633,6 +635,28 @@ helper.initalizeTestCase = function (testCase) {
 		max: null
 	};
 
+	testCase.assertions.forEach(assertion => {
+		if (!assertion.results) {
+			assertion.results = {};
+		}
+
+		if (!assertion.all_dates) {
+			assertion.all_dates = {
+				all: [],
+				min: null,
+				max: null
+			};
+		}
+
+		if (!assertion.failing_dates) {
+			assertion.failing_dates = {
+				all: [],
+				min: null,
+				max: null
+			};
+		}
+	});
+
 	for(let at in ATBrowsers.at){
 		if (!testCase.versions[at]) {
 			continue;
@@ -683,23 +707,7 @@ helper.initalizeTestCase = function (testCase) {
 					}
 
 					if (!testCase.assertions[assertion_key].results) {
-						testCase.assertions[assertion_key].results = {};
-					}
-
-					if (!testCase.assertions[assertion_key].all_dates) {
-						testCase.assertions[assertion_key].all_dates = {
-							all: [],
-							min: null,
-							max: null
-						};
-					}
-
-					if (!testCase.assertions[assertion_key].failing_dates) {
-						testCase.assertions[assertion_key].failing_dates = {
-							all: [],
-							min: null,
-							max: null
-						};
+						console.log("Error; make sure that this assertion reference actually exists and is spelled correctly", assertion_key, result.feature_id, result.feature_assertion_id);
 					}
 
 					if (!testCase.assertions[assertion_key].results[at]) {

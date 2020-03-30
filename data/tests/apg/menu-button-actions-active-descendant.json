@@ -1,0 +1,2042 @@
+{
+  "title": "APG Actions Menu Button Example Using aria-activedescendant",
+  "description": "This example demonstrates how the menu button design pattern can be used to create a button that opens an actions menu. Note: not all features present in this example are tested, as they are tested elsewhere in this project.",
+  "html_file": "https://w3c.github.io/aria-practices/examples/menu-button/menu-button-actions-active-descendant.html",
+  "assertions": [
+    {
+      "feature_id": "html/button_element",
+      "feature_assertion_id": "convey_name"
+    },
+    {
+      "feature_id": "html/button_element",
+      "feature_assertion_id": "convey_role"
+    },
+    {
+      "feature_id": "aria/aria-controls_attribute",
+      "feature_assertion_id": "convey_presence"
+    },
+    {
+      "feature_id": "aria/aria-controls_attribute",
+      "feature_assertion_id": "allow_jump_to_controlled"
+    },
+    {
+      "feature_id": "aria/aria-expanded_attribute",
+      "feature_assertion_id": "convey_value_true"
+    },
+    {
+      "feature_id": "aria/aria-haspopup_attribute",
+      "feature_assertion_id": "convey_value_true"
+    },
+    {
+      "feature_id": "aria/menu_role",
+      "feature_assertion_id": "convey_name"
+    },
+    {
+      "feature_id": "aria/menu_role",
+      "feature_assertion_id": "convey_role"
+    },
+    {
+      "feature_id": "aria/aria-activedescendant_attribute",
+      "feature_assertion_id": "convey_value"
+    },
+    {
+      "feature_id": "aria/aria-activedescendant_attribute",
+      "feature_assertion_id": "convey_change_in_value"
+    },
+    {
+      "feature_id": "aria/menu_role",
+      "feature_assertion_id": "convey_boundaries"
+    },
+    {
+      "feature_id": "aria/menuitem_role",
+      "feature_assertion_id": "convey_name"
+    },
+    {
+      "feature_id": "aria/menuitem_role",
+      "feature_assertion_id": "convey_role"
+    },
+    {
+      "feature_id": "aria/menuitem_role",
+      "feature_assertion_id": "convey_posinset"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, button, menu\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": null,
+              "behind_setting": "Modify Speech and Sounds Schemes"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"leaving menu, action button, menu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "jump_to_controlled",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "after target",
+          "notes": "tab to the button with it expanded, then execute this command",
+          "output": "\"move to controlled element, action 1, menu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"menu, Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"action 3, 3 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "implied by menu context"
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by posinset information"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"action button, menu\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": null,
+              "behind_setting": "Modify Speech and Sounds Schemes"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"leaving menus, action button, menu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "jump_to_controlled",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "after target",
+          "notes": "tab to the button with it expanded, then execute this command",
+          "output": "\"move to controlled element, action 1, menu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"menu, Action 1, To move through items press up or down arrow.\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "implied by menu context"
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "Implied by looping back to the first item"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, button, menu\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "pass",
+              "notes": null,
+              "behind_setting": "Modify Speech and Sounds Schemes"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"leaving menus, actions button menu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "jump_to_controlled",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "after target",
+          "notes": "tab to the button with it expanded, then execute this command",
+          "output": "\"move to controlled element, action 1, menu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"menu, Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"Action 3, 3 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "implied by menu context"
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by posinset informationß"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, button\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, button, expanded\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"Actions, menu\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"action 3, menu item\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by looping back to the first item"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, menu button, subMenu\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, menu button, expanded, subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"Action 1, 1 of 4, actions menu \"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "possibly implied by the aria-haspopup attribute on the button that opens the menu, but if a button was missing that attribute, this information may not be implied."
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"Action 3, 3 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "possibly implied by the aria-haspopup attribute on the button that opens the menu, but if a button was missing that attribute, this information may not be implied."
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by posinset information"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, menu button, submenu\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, menu button, expanded, subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"expanded, actions menu, action 1, 1 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"Action 3, 3 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by posinset information"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, popup button\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "partial",
+              "notes": "not announced as a menu popup"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"expanded, actions, popup button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "ul[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, menu, double tap to activate\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"action 1, menu item, expanded, double tap to activate\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action 3, menu item, double tap to activate\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "na",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "ul[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "after target",
+          "notes": "swipe to the element after the open menu",
+          "output": "The next element was announced",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by navigating to an element that is not announced as a menu item"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, popup button, menu popup\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, button, menu popup, expanded\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"selected, action 1, menu item\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "possibly implied by the aria-haspopup attribute on the button that opens the menu, but if a button was missing that attribute, this information may not be implied."
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action 3, menu item\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "na",
+              "notes": "na because forms mode was not used"
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by no longer announcing object with the role of menu item"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, menu popup button, main\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, menu popup, expanded, button, main\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"menu, 4 items, action 1\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"action 3, menu item\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by looping back to the top of the menu"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button:not([aria-expanded])",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"actions, push button, focus mode\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "after target",
+            "virtual_location": "after target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"actions, expanded push button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[role=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "activate the menu button, and focus will be sent to the target (menu)",
+          "output": "\"expanded, actions menu, action 1\"",
+          "results": [
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "press up and down arrows to navigate menu items",
+          "output": "\"action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "implied by menu context"
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/menu_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "implied by looping back to the top"
+            }
+          ]
+        }
+      ]
+    },
+    "dragon_win": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "css_target": "button",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated and command was recognized. However, the menu opened and then immediately closed. This appears to be a bug with the example.",
+          "notes": "said \"click actions\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "css_target": "button",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated and command was recognized. However, the menu opened and then immediately closed. This appears to be a bug with the example.",
+          "notes": "said \"click button\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "menu item was activated",
+          "notes": "said \"click action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "menu items were flagged for disambiguation",
+          "notes": "said \"click link\"",
+          "results": [
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "css_target": "button",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"tap actions\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"tap action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "items were flagged",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "css_target": "button",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"tap actions\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "item was activated",
+          "notes": "said \"tap action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "css_target": "button",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "Other links on the page were clicked. Could not get it to click the button",
+          "notes": "said \"click actions\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "action 3 was not activated",
+          "notes": "said \"click action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged, but when the menu was opened, nothing was flagged",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "css_target": "button",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "\"button was activated and command was recognized. However, the menu opened and then immediately closed. This appears to be a bug with the example.\"",
+          "notes": "said \"click actions\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "menu item was activated",
+          "notes": "said \"click action 3\"",
+          "results": [
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"menuitem\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "na",
+            "virtual_location": "na"
+          },
+          "after": "na",
+          "output": "menu items were flagged with numbers",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/menuitem_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-03-25",
+      "message": "Draft test"
+    }
+  ],
+  "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2001.70",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-03-25"
+        },
+        "ie": {
+          "at_version": "2020.2001.70",
+          "os_version": "1909",
+          "browser_version": "11",
+          "date": "2020-03-25"
+        },
+        "firefox": {
+          "at_version": "2020.2001.70",
+          "os_version": "1909",
+          "browser_version": "73",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1909",
+          "os_version": "1909",
+          "browser_version": "44",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.3.1",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-03-25"
+        },
+        "firefox": {
+          "at_version": "2019.3.1",
+          "os_version": "1909",
+          "browser_version": "73",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "10",
+          "browser_version": "80",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "va_and": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "3.1",
+          "os_version": "10",
+          "browser_version": "80",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.3.1",
+          "os_version": "13.3.1",
+          "browser_version": "13.3.1",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.3",
+          "os_version": "10.15.3",
+          "browser_version": "13.0.5",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.34.0",
+          "os_version": "Ubuntu 19.10",
+          "browser_version": "73",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "vc_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.3.1",
+          "os_version": "13.3.1",
+          "browser_version": "13.3.1",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "vc_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.3",
+          "os_version": "10.15.3",
+          "browser_version": "13.0.5",
+          "date": "2020-03-25"
+        }
+      }
+    },
+    "wsr": {
+      "browsers": {
+        "chrome": {
+          "at_version": "1909",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-03-25"
+        }
+      }
+    }
+  }
+}
