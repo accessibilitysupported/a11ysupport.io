@@ -19,6 +19,7 @@
       "title": "convey an appropriate role",
       "rationale": "A screen reader user needs to be aware that elements are within a menu",
       "examples": [
+        "Some screen readers will explicitly convey the menu role as something like \"<name> menu\"",
         "The role may be implied by the presence of menuitem children"
       ],
       "css_target": "*[role=\"menu\"]",
@@ -49,7 +50,10 @@
       "title": "convey the boundaries of the menu",
       "rationale": "A screen reader user needs to be aware when they enter and exit a menu",
       "examples": [
-        "Boundaries may be implied by posinset information"
+        "Boundaries may be implied by posinset information",
+        "Boundaries may be implied by no longer conveying the menu item role (if the role is explicitly conveyed)",
+        "Boundaries may be implied by looping back to the top of the menu",
+        "Boundaries may be explicitly conveyed by announcing something like \"<name> menu\" when entering and  \"exiting menu\" when leaving"
       ],
       "css_target": "*[role=\"menu\"]",
       "operation_modes": [
