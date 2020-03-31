@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Disclosure widget (show/hide) example</title>
+</head>
+
+
+<style>
+    .main {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    [aria-expanded]:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-top: 5px solid;
+        border-right: 5px solid;
+        margin: 5px;
+        display:inline-block;
+        vertical-align: middle;
+        transform: rotate(45deg);
+    }
+    [aria-expanded="true"]:after {
+        transform: rotate(135deg);
+    }
+    [hidden] {
+        display: none;
+    }
+</style>
+
+<body>
+<h1>Disclosure widget (show/hide) example</h1>
+
+<button>Tab stop before</button>
+
+<div class="main">
+
+    <button aria-expanded="false">Show more</button>
+    <div id="content" hidden>
+        <p>More details</p>
+    </div>
+
+</div>
+
+<button>Tab stop after</button>
+
+<script>
+    var button = document.querySelector('button[aria-expanded]');
+    var content = document.querySelector('#content');
+    button.addEventListener('click', function() {
+    	if (button.getAttribute('aria-expanded') === 'false') {
+    		content.removeAttribute('hidden');
+    		button.setAttribute('aria-expanded', 'true');
+        } else {
+			content.setAttribute('hidden', true);
+			button.setAttribute('aria-expanded', 'false');
+        }
+    })
+</script>
+
+</body>
+</html>
