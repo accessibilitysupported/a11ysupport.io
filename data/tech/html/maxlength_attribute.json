@@ -1,0 +1,49 @@
+{
+  "id": "maxlength_attribute",
+  "title": "maxlength attribute",
+  "type": "attribute",
+  "description": "The min and max attributes indicate the allowed range of values for the element.",
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec for the minlength and maxlength attributes",
+      "url": "https://html.spec.whatwg.org/multipage/input.html#the-maxlength-and-minlength-attributes"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_max_length_reached",
+      "title": "convey when the maximum length is reached",
+      "rationale": "The attribute prevents characters beyond the maximum length from being entered. The user needs to know when the maximum length has been reached, so that they do not think that they are entering data when they are in fact not.",
+      "examples": [
+        "screen readers might announce an earcon when the user tries to enter data beyond the maximum length.",
+        "screen readers might imply that the maximum length has been reached by not announcing anything when a user tries to enter data (usually the keypress is echoed)"
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[maxlength]",
+      "operation_modes": [
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_max_length",
+      "title": "convey the the maximum length when navigating to an input",
+      "rationale": "The user may wish to know the maximum length when navigating to an input, and before they enter any data.",
+      "examples": [
+        "screen readers might announce the maximum length when navigating to an input."
+      ],
+      "strength": {
+        "sr": "MAY",
+        "vc": "NA"
+      },
+      "css_target": "*[maxlength]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-04-03"
+}
