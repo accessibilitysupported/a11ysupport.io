@@ -329,13 +329,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"(tick)\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_additions",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "Nothing was announced after the button was first activated (except for a tick sound). On subsequent presses, \"DOM was added\" was announced."
             }
           ]
         },
@@ -348,12 +348,12 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"(tick)\" (nothing was conveyed)",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_removals",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -367,12 +367,12 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"(tick)\" nothing was conveyed",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_text",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -386,13 +386,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"(tick)\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_all",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "Nothing was announced after the button was first activated (except for a tick sound). On subsequent presses, \"DOM was added\" was announced."
             }
           ]
         },
@@ -405,13 +405,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"(tick)\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_additions_text",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "Nothing was announced after the button was first activated (except for a tick sound). On subsequent presses, \"DOM was added\" was announced."
             }
           ]
         }
@@ -490,7 +490,7 @@
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_all",
-              "result": "unknown",
+              "result": "partial",
               "notes": "DOM removals were not conveyed"
             }
           ]
@@ -714,6 +714,101 @@
     },
     "vo_ios": {
       "ios_saf": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "partial",
+              "notes": "Supports \"additions\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "fail",
+              "notes": "DOM additions and text changes were conveyed, DOM removals were not"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "partial",
+              "notes": "Supports \"text\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "partial",
+              "notes": "DOM removals were not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
       ]
     },
     "vo_macos": {
@@ -826,13 +921,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"content changed, DOM was added\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_additions",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "Supports \"additions\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
             }
           ]
         },
@@ -845,13 +940,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"DOM was removed\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_removals",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             }
           ]
         },
@@ -864,13 +959,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"(earcon)\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_text",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "nothing was conveyed"
             }
           ]
         },
@@ -883,13 +978,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"DOM was removed, content changed, DOM was added\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_all",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             }
           ]
         },
@@ -902,12 +997,12 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"content changed, DOM was added\"",
           "results": [
             {
               "feature_id": "aria/aria-relevant_attribute",
               "feature_assertion_id": "convey_value_additions_text",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             }
           ]
