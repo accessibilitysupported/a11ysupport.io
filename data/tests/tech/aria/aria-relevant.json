@@ -1,0 +1,1064 @@
+{
+  "title": "aria-relevant attribute",
+  "description": "Tests the aria-relevant attribute. This test just asserts that a screen reader conveys different changes to an aria-live region.",
+  "html_file": "aria/aria-relevant.html",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-relevant_attribute",
+      "feature_assertion_id": "convey_value_additions"
+    },
+    {
+      "feature_id": "aria/aria-relevant_attribute",
+      "feature_assertion_id": "convey_value_removals"
+    },
+    {
+      "feature_id": "aria/aria-relevant_attribute",
+      "feature_assertion_id": "convey_value_text"
+    },
+    {
+      "feature_id": "aria/aria-relevant_attribute",
+      "feature_assertion_id": "convey_value_all"
+    },
+    {
+      "feature_id": "aria/aria-relevant_attribute",
+      "feature_assertion_id": "convey_value_additions_text"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "partial",
+              "notes": "Supports \"additions\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "(nothing was conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "partial",
+              "notes": "Supports \"text\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "partial",
+              "notes": "DOM removals were not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Dom was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "Removed DOM was removed",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "Content changed",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"DOM was added Removed DOM was removed Content changed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"DOM was added Content changed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "partial",
+              "notes": "Supports \"additions\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Removed Content changed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "fail",
+              "notes": "Conveys text removals instead of DOM removals"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "partial",
+              "notes": "Supports \"text\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Removed Content changed Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "partial",
+              "notes": "Does not convey DOM removals"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "(nothing was conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "(nothing was conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "partial",
+              "notes": "Supports \"text\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "unknown",
+              "notes": "DOM removals were not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "(nothing was conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "(nothing was conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "partial",
+              "notes": "Supports \"text\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "partial",
+              "notes": "DOM removals were not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "partial",
+              "notes": "Supports \"additions\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "fail",
+              "notes": "DOM additions and text changes were conveyed, DOM removals were not"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "partial",
+              "notes": "Supports \"text\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "partial",
+              "notes": "DOM removals were not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "partial",
+              "notes": "Supports \"additions\" but conveys it as if it were \"additions text\" and reads both DOM additions and text changes"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"DOM was removed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "(nothing was conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"DOM was removed Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Content changed DOM was added\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"removals\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_removals",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_text",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"all\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_all",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "*[aria-relevant=\"additions text\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-relevant_attribute",
+              "feature_assertion_id": "convey_value_additions_text",
+              "result": "unknown",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-04-13",
+      "message": "Add test and results."
+    }
+  ],
+  "versions": {
+    "dragon_win": {
+      "browsers": {
+        "chrome": {
+          "at_version": "15.30",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.1912.1",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-04-14"
+        },
+        "ie": {
+          "at_version": "2019.1912.1",
+          "os_version": "1909",
+          "browser_version": "11",
+          "date": "2020-04-14"
+        },
+        "firefox": {
+          "at_version": "2019.1912.1",
+          "os_version": "1909",
+          "browser_version": "74",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "1909",
+          "os_version": "1909",
+          "browser_version": "44",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2019.3.1",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-04-14"
+        },
+        "firefox": {
+          "at_version": "2019.3.1",
+          "os_version": "1909",
+          "browser_version": "74",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "10",
+          "browser_version": "80",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "va_and": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "3.1",
+          "os_version": "10",
+          "browser_version": "80",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4",
+          "os_version": "13.4",
+          "browser_version": "13.4",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.4",
+          "os_version": "10.15.4",
+          "browser_version": "13.1",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.34.0",
+          "os_version": "Ubuntu 19.10",
+          "browser_version": "74",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "vc_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4",
+          "os_version": "13.4",
+          "browser_version": "13.4",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "vc_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.4",
+          "os_version": "10.15.4",
+          "browser_version": "13.1",
+          "date": "2020-04-14"
+        }
+      }
+    },
+    "wsr": {
+      "browsers": {
+        "chrome": {
+          "at_version": "1909",
+          "os_version": "1909",
+          "browser_version": "80",
+          "date": "2020-04-14"
+        }
+      }
+    }
+  }
+}

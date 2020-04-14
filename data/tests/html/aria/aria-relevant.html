@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-relevant test suite</title>
+</head>
+<body>
+
+<h1>aria-relevant test suite</h1>
+
+<p>This is a test suite for the aria-relevant attribute.</p>
+
+<div id="content"></div>
+
+<script>
+    ['additions', 'removals', 'text', 'all', 'additions text'].forEach(function(attr, index) {
+        var content = document.querySelector('#content');
+
+        var div = document.createElement('div');
+        div.innerHTML = '<h2>aria-relevant=' + attr +'</h2>' +
+        '<div id="target-' + index + '" aria-live="assertive" aria-relevant="' + attr + '">' +
+            '<span data-remove>DOM was removed</span>' +
+            '<span data-change></span>' +
+        '</div>' +
+        '<button id="trigger-' + index + '" onclick="test(' + index + ')">Test aria-relevant ' + attr + '</button>';
+        content.appendChild(div);
+
+    });
+
+
+    var test = function(index) {
+        var liveRegion = document.querySelector('#target-' + index);
+
+        var span = document.createElement("span");
+        span.innerText = "DOM was added"
+        liveRegion.appendChild(span);
+
+        liveRegion.removeChild(liveRegion.querySelector('[data-remove]'));
+
+        liveRegion.querySelector('[data-change]').textContent = 'Content changed';
+    }
+</script>
+
+</body>
+</html>

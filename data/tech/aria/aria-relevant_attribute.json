@@ -2,13 +2,94 @@
   "id": "aria-relevant_attribute",
   "title": "aria-relevant attribute",
   "type": "attribute",
-  "description": "Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. See related aria-atomic.",
+  "description": "Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. See related aria-relevant.",
   "references": [
     {
       "title": "ARIA spec for aria-relevant",
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-relevant"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_value_additions",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the additions value",
+      "examples": [
+        "Screen readers will announce only additions to the DOM within aria-relevant=\"additions\"."
+      ],
+      "css_target": "*[aria-relevant=\"additions\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_removals",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the removal value",
+      "examples": [
+        "Screen readers will announce only removals to the DOM within aria-relevant=\"removals\"."
+      ],
+      "css_target": "*[aria-relevant=\"removals\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_text",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the text value",
+      "examples": [
+        "Screen readers will announce only text changes to existing nodes within aria-relevant=\"text\"."
+      ],
+      "css_target": "*[aria-relevant=\"text\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_all",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the all value",
+      "examples": [
+        "Screen readers will announce additions, removals, and text changes to within aria-relevant=\"all\"."
+      ],
+      "css_target": "*[aria-relevant=\"all\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_additions_text",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey multiple values",
+      "examples": [
+        "Screen readers will announce only additions to the DOM and text changes to existing nodes within aria-relevant=\"additions text\"."
+      ],
+      "css_target": "*[aria-relevant=\"additions text\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-04-13"
 }
