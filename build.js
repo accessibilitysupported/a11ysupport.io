@@ -18,6 +18,9 @@ let allFeatures = [];
  */
 let sortByProperty = function (property) {
 	return function (x, y) {
+		if (typeof x[property] === 'string') {
+			return ((x[property].toLowerCase() === y[property].toLowerCase()) ? 0 : ((x[property].toLowerCase() > y[property].toLowerCase()) ? 1 : -1));
+		}
 		return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
 	};
 };
