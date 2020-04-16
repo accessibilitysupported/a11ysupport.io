@@ -15,7 +15,7 @@ function filterFeatures(query) {
 	}
 
 	for (var i = 0; i < allResults.length; i++) {
-		if (allResults[i].getAttribute('data-keywords').indexOf(query.toLowerCase()) === -1) {
+		if (allResults[i].getAttribute('data-keywords').toLowerCase().indexOf(query.toLowerCase()) === -1) {
 			allResults[i].setAttribute('hidden', '');
 		} else {
 			allResults[i].removeAttribute('hidden');
