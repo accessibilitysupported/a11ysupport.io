@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS generated content with alt text test</title>
+
+    <style>
+        #target::before {
+            content: "Google";
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSS generated content with alt text test</h1>
+
+<p>The target button should have an accessible name of "play"</p>
+
+<button>Tab stop before</button>
+
+<a href="https://www.google.com" id="target" onclick="alert('clicked'); return false;"></a>
+
+<button>Tab stop after</button>
+
+</body>
+</html>
