@@ -62,7 +62,7 @@ block content
           - var some_support_behind_settings = false
           - var colspan = 0;
           - var assertions_found = 0;
-          div.responsive-table
+          div.responsive-table(tabindex="0")
             table(aria-labelledby='support-table-by-assertion-and-at-'+at_type.type).support-summary-table
               col
               each at in ATBrowsers.core_at
@@ -132,7 +132,7 @@ block content
                   if (assertion.strength[at_type.type] === "NA")
                     - continue
                   - var some_support_behind_settings = false
-                  div.responsive-table
+                  div.responsive-table(tabindex="0")
                     table.support-summary-table
                       caption #{at_type.title} support for '#{assertion.strength[at_type.type]} #{assertion.title}'
                       col
@@ -186,7 +186,7 @@ block content
             div(data-keywords=feature.keywords_string).result
               h2
                 a(href='/tech/' + feature.techId + '/' + feature.id) #{feature.title} (#{feature.techId})
-              div.responsive-table
+              div.responsive-table(tabindex="0")
                 table
                   thead
                     tr

@@ -24,7 +24,7 @@ block content
                 p We do not currently have any data on this feature. Please help contribute.
               else
                 if (feature.core_support.sr.length)
-                  div.responsive-table.support-summary-table
+                  div.responsive-table.support-summary-table(tabindex="0")
                     table
                       caption Screen Reader support
                       thead
@@ -52,7 +52,7 @@ block content
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
                 if (feature.core_support.vc.length)
-                  div.responsive-table.support-summary-table
+                  div.responsive-table.support-summary-table(tabindex="0")
                     table
                       caption Voice Control support
                       thead

@@ -66,7 +66,7 @@ block content
                         - var some_support_behind_settings = false;
                         - var colspan = 0;
                         - var assertions_found = 0;
-                        div.responsive-table
+                        div.responsive-table(tabindex="0")
                             table(aria-labelledby="support-summary-by-at-"+at_type.type).support-table.assertion-container.summary-matrix
                                 tr
                                     th(id="h-at-type-"+at_type.type+"-expectation" rowspan="2") Expectation
@@ -141,7 +141,7 @@ block content
 
                     p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
-                    div.responsive-table
+                    div.responsive-table(tabindex="0")
                         table(aria-labelledby="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id)
                             tr
                                 th AT
@@ -228,7 +228,7 @@ block content
                             h4 Extended Support for: #{assertion.feature_title}: #{assertion.assertion_title}
 
                         p These are less common combinations
-                        div.responsive-table
+                        div.responsive-table(tabindex="0")
                             table
                                 tr
                                     th AT
@@ -313,7 +313,7 @@ block content
             details(open)
                 summary
                     h2(id="versions") Dates and Versions of tested combinations
-                div.responsive-table
+                div.responsive-table(tabindex="0")
                     table
                         tr
                             th AT
