@@ -22,7 +22,8 @@
 
 <button>Tab stop before</button>
 
-<div role="grid" tabindex="0">
+<h2 id="grid-name">Grid example</h2>
+<div role="grid" aria-labelledby="grid-name" tabindex="0">
 
     <div role="row">
         <div role="columnheader" tabindex="-1">
@@ -126,8 +127,13 @@
       }
     });
 
-    grid.addEventListener('focus', function(e) {
+    grid.addEventListener('focusin', function(e) {
       currentCell.focus();
+      grid.setAttribute('tabindex', '-1');
+    });
+
+    grid.addEventListener('focusout', function(e) {
+        grid.setAttribute('tabindex', '0');
     })
 </script>
 
