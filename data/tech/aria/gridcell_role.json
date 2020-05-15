@@ -15,8 +15,7 @@
       "examples": [
         "A screen reader might announce \"grid cell\"",
         "A screen reader might announce \"cell\"",
-        "A screen reader might imply the role by announcing other table semantics",
-        "A screen reader might imply the role by support table navigation"
+        "A screen reader might imply the role by announcing other grid semantics"
       ],
       "operation_modes": [
         "sr/reading"
@@ -27,6 +26,24 @@
       "css_target": "*[role=\"gridcell\"]",
       "operation_modes": [
         "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_position",
+      "title": "convey the position of the header (row/column) when row and columns exist",
+      "rationale": "A user needs to be able to determine where they are while navigating a table or grid.",
+      "examples": [
+        "A screen reader might say something like \"Column 3\""
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"gridcell\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
       ]
     }
   ],

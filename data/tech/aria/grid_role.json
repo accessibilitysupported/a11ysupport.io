@@ -9,6 +9,77 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#grid"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_name",
+      "title": "convey an appropriate name",
+      "rationale": "A user needs to know the name of the grid so that they understand what it is for",
+      "examples": [
+        "A screen reader might announce the name when entering the grid"
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"grid\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_role",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey an appropriate role",
+      "rationale": "A screen reader user needs to be aware that they are entering a grid so that they know that grid keyboard commands are available.",
+      "examples": [
+        "Screen readers might convey the role as something like \"grid\""
+      ],
+      "css_target": "*[role=\"grid\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "change_mode_interaction",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
+      "title": "switch to interaction mode",
+      "rationale": "Grids are usually navigated via arrow keys, so those keys presses need to be sent directly to the browser and not intercepted by the screen reader.",
+      "examples": [
+        "Screen readers might convey an earcon when the mode switches",
+        "Arrow keys will work for navigation without manually switching modes"
+      ],
+      "css_target": "*[role=\"grid\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey boundaries",
+      "rationale": "Screen reader users need to know when they enter and exist a grid",
+      "examples": [
+        "Screen readers might say something like \"entering grid\" and \"exiting grid\""
+      ],
+      "css_target": "*[role=\"grid\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-05-07"
 }

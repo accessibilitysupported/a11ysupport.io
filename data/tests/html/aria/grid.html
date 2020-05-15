@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aria gridcell</title>
+
+    <style>
+        [role="grid"] {
+            display: table;
+        }
+        [role="row"]  {
+            display: table-row;
+        }
+        [role="gridcell"], [role="columnheader"] {
+            display: table-cell;
+            padding: .25em;
+        }
+    </style>
+</head>
+<body>
+<p>Use the screen reader to announce the target element.</p>
+<p><strong>Note:</strong> Most JavaScript functionality has not been implemented for this ARIA pattern. Using arrow keys will not navigate the grid. Only the target cell will receive focus.</p>
+
+<button>Tab stop before</button>
+
+<div role="grid" tabindex="0">
+
+    <div role="row">
+        <div role="columnheader" tabindex="-1">
+            Date
+        </div>
+        <div role="columnheader" tabindex="-1">
+            Name
+        </div>
+    </div>
+
+    <div role="row">
+        <div role="gridcell" tabindex="-1">
+            2018-01-01
+        </div>
+        <div role="gridcell" id="target" tabindex="-1">
+            target
+        </div>
+    </div>
+    <div role="row">
+        <div role="gridcell" tabindex="-1">
+            2018-01-02
+        </div>
+        <div role="gridcell" tabindex="-1">
+            Alex
+        </div>
+    </div>
+</div>
+
+<button>Tab stop after</button>
+
+<script>
+    var grid = document.querySelector('[role="grid"]');
+
+    var focusGrid = [];
+    var rows = grid.querySelectorAll('[role="row"]');
+    var currentCell;
+
+    for (var i = 0; i < rows.length; i++) {
+      var cells = rows[i].querySelectorAll('[role="gridcell"], [role="columnheader"]');
+      focusGrid.push([].slice.call(cells));
+    }
+
+    currentCell = focusGrid[0][0];
+
+    var findCurrentCoords = function() {
+      // Find the current position
+      for (var y = 0; y < focusGrid.length; y++) {
+        for (var x = 0; x < focusGrid.length; x++) {
+          if (focusGrid[y][x] === currentCell) {
+            return {x: x, y: y};
+          }
+         }
+      }
+    };
+
+    var moveInGrid = function(key) {
+      var currentCoords = findCurrentCoords();
+
+      switch(key) {
+        case 38: //up
+            if (currentCoords.y-1 < 0) {
+              return;
+            }
+            currentCell = focusGrid[currentCoords.y-1][currentCoords.x];
+            break;
+        case 40: //down
+            if (currentCoords.y+1 > focusGrid.length-1) {
+              return;
+            }
+            currentCell = focusGrid[currentCoords.y+1][currentCoords.x];
+            break;
+        case 37: //left
+            if (currentCoords.x-1 < 0) {
+              return;
+            }
+            currentCell = focusGrid[currentCoords.y][currentCoords.x-1];
+            break;
+        case 39: //right
+            if (currentCoords.x+1 > focusGrid[0].length-1) {
+              return;
+            }
+            currentCell = focusGrid[currentCoords.y][currentCoords.x+1];
+          break;
+         default:
+          // nothing
+      }
+      currentCell.focus();
+    };
+
+    grid.addEventListener('keyup', function(e) {
+      var key = e.which || e.keyCode;
+
+      switch(key) {
+          case 38: //up
+          case 40: //down
+          case 37: //left
+          case 39: //right
+              moveInGrid(key);
+          default:
+            // nothing
+      }
+    });
+
+    grid.addEventListener('focus', function(e) {
+      currentCell.focus();
+    })
+</script>
+
+</body>
+</html>

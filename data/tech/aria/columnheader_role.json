@@ -9,6 +9,44 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#columnheader"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_role",
+      "title": "convey that the cell is a header",
+      "rationale": "A user needs to be able to determine what headers apply to a given cell.",
+      "examples": [
+        "A screen reader might say something like \"Column 3, <header name>\"",
+        "A screen reader might imply the role by conveying the header name when the moving between columns"
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"columnheader\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "title": "convey an appropriate name",
+      "rationale": "A user needs to know the name of the header",
+      "examples": [
+        "A screen reader might say something like \"Column 3, <header name>\""
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"columnheader\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-05-07"
 }
