@@ -1,5 +1,5 @@
 {
-  "title": "ARIA readyonly grid",
+  "title": "ARIA readonly grid",
   "description": "This test ensures that grid semantics are conveyed.",
   "html_file": "aria/grid.html",
   "assertions": [
@@ -61,31 +61,50 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"Grid with 2 columns and 3 rows\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "starting boundary was conveyed"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "was not automatically switched to forms mode"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"Grid end\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "end boundary was conveyed"
             }
           ]
         },
@@ -97,32 +116,26 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"Grid end\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "end boundary was conveyed"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "mode was not switched to forms mode"
             }
           ]
         },
@@ -135,30 +148,56 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"Grid example, table, column 1, row 1, Grid example, grid, column 1, row 1, date column header\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "Table semantics were conveyed in addition to grid semantics"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "start boundary was implied by the grid role being conveyed"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"Date, column header\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -173,37 +212,25 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"name, target\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "implied by grid context"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "when changing columns, the new column header name was conveyed. However, no information was conveyed about row position."
             }
           ]
         }
@@ -218,31 +245,50 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid with 2 columns and 3 rows\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "conveyed the starting boundary"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "was not automatically switched to forms mode"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"grid end\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "ending boundary was conveyed"
             }
           ]
         },
@@ -254,32 +300,26 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"grid end\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "ending boundary was conveyed"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "was not switched to forms mode"
             }
           ]
         },
@@ -292,30 +332,56 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example table, column 1, row 1, column 1, row 1, date column header\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "start was conveyed by grid/table semantics"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column header, column 2\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -330,36 +396,24 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"name, target, column 2\" (row changes were announced as something like \"row 2\")",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "table context does not fully imply the gridcell role"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -375,30 +429,49 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid with 2 columns and 3 rows\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"grid end\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -411,31 +484,25 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"grid end\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -449,30 +516,56 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example, table, column 1, row 1, grid example, grid, date column header, type in text\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "table semantics were conveyed in addition to grid semantics"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "implied by grid role"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column header, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -487,37 +580,25 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"target, target selected, type in text\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "implied by grid context"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "no indication of row or column position conveyed"
             }
           ]
         }
@@ -534,31 +615,50 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"table, grid example, has 3 rows, 2 columns, grid example, data grid, columns date, contains 3 rows, column header, column header, date, row 1 of 3, column 1 of 2 \"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "table role was conveyed in addition to the grid role. Also, very verbose output."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "starting boundary was implied by the grid role"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "did not switch to forms mode"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"table exit, button, tab stop after\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "end boundary was conveyed"
             }
           ]
         },
@@ -570,31 +670,25 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"grid example, data grid, columns date, contains 3 rows\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "end boundary was implied by backwards navigation and the grid role"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -608,31 +702,57 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"table grid example, has 3 rows, two columns, date, readonly, column header, column header, date, row column 1 of 3, column 1 of 2 \"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "table role was also conveyed."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "starting boundary was conveyed"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
+              "notes": "mode was not changed"
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, readonly, column 2 of 2\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
               "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "column header role was not explicitly conveyed or implicitly conveyed by being announced as columns change when navigating grid data."
             }
           ]
         },
@@ -646,37 +766,25 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"target, read only, column 2 of 2\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "implied by grid context"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "column and row positions are conveyed when changing columns and rows"
             }
           ]
         }
@@ -693,30 +801,49 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"table with 3 rows and 2 columns, row 1, date, column 1 date\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by the table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
+              "notes": "mode was not changed"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"out of table, button tab stop after\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -729,32 +856,26 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"grid example, table, date column header, row 1, date, column 1\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "mode was changed"
             }
           ]
         },
@@ -767,30 +888,56 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example table, date, column header, row 1, date, column 1\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column header, row 1, date, column 2\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -805,37 +952,24 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"target, row 2, name, column 2\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "table context does not fully imply the gridcell role"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
-              "notes": null
+              "result": "pass"
             }
           ]
         }
@@ -850,31 +984,48 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"table with 3 rows and 2 columns, row 1, column 1, editable, date\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "potentially implied by \"editable\" and \"table\", however this is a readonly grid."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"out of table, button, tab stop after\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
             }
           ]
         },
@@ -886,32 +1037,25 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"grid example, table, editable, date column header, editable, row 1, column 1, date\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "potentially implied by \"editable\" and \"table\", however this is a readonly grid."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "mode was changed"
             }
           ]
         },
@@ -924,30 +1068,56 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"Grid example, table, editable, Date column header, selected, editable, row 1, column 1, Date\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "potentially implied by \"editable\" and \"table\", however this is a readonly grid."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column header, editable, row 1, column 2, name\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -962,36 +1132,24 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"target, editable, row 2, name, column 2, target\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "potentially implied by \"editable\"and \"table\", however this is a readonly grid, and the grid role was not correctly conveyed."
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -1009,30 +1167,49 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example, table\" <swipe right to enter first cell> \"date, column header, row 1, in grid, grid example, 3 rows, 2 columns\" ",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "na",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"tab stop after, button, out of grid\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -1045,68 +1222,51 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"alex, row 3, name, in grid, grid example, 3 rows, 2 columns\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "na",
               "notes": null
             }
           ]
         },
         {
-          "command": "next_focusable_item",
-          "css_target": "[role=\"grid\"]",
+          "command": "next_item",
+          "css_target": "[role=\"columnheader\"]",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column header\"",
           "results": [
             {
-              "feature_id": "aria/grid_role",
+              "feature_id": "aria/columnheader_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
-              "feature_id": "aria/grid_role",
+              "feature_id": "aria/columnheader_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
-              "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -1120,38 +1280,26 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "notes": "navigated to the cell with the name of \"target\"",
-          "output": "\"\"",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"target, name\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "implied by grid role"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": "A change of column header along with column and row positions were conveyed when moving to a new row or column."
             }
           ]
         }
@@ -1168,30 +1316,49 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"date\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "na",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"tab stop after, button\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -1204,68 +1371,51 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"alex\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "na",
               "notes": null
             }
           ]
         },
         {
-          "command": "next_focusable_item",
-          "css_target": "[role=\"grid\"]",
+          "command": "next_item",
+          "css_target": "[role=\"columnheader\"]",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"date\"",
           "results": [
             {
-              "feature_id": "aria/grid_role",
+              "feature_id": "aria/columnheader_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
-              "feature_id": "aria/grid_role",
+              "feature_id": "aria/columnheader_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
-              "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -1279,37 +1429,25 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "notes": "navigated to the cell with the name of \"target\"",
-          "output": "\"\"",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"target\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -1327,31 +1465,50 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example, table, 2 columns, 3 rows\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
               "result": "na",
               "notes": "VoiceOver doesn't have a concept of modes"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"end of table\"",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": ""
             }
           ]
         },
@@ -1363,31 +1520,25 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"end of table\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "na",
               "notes": null
             }
           ]
@@ -1401,30 +1552,82 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"leaving aria gridcell, entering grid example, table. entering grid example table, date, grid example, table, 2 columns, 3 rows.\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "na",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "column header was not conveyed either explicitly or implicitly."
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column 2 of 2\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -1439,37 +1642,57 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"target\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
+              "result": "fail",
+              "notes": "position was not conveyed at all. No information was conveyed about position changes when moving to new rows or columns."
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"gridcell\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, target, column 2 of 2\"",
+          "results": [
+            {
+              "feature_id": "aria/gridcell_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
               "notes": null
+            },
+            {
+              "feature_id": "aria/gridcell_role",
+              "feature_assertion_id": "convey_role",
+              "result": "partial",
+              "notes": "partial because of table context instead of grid"
+            },
+            {
+              "feature_id": "aria/gridcell_role",
+              "feature_assertion_id": "convey_position",
+              "result": "pass",
+              "notes": ""
             }
           ]
         }
@@ -1486,31 +1709,50 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example, table with 3 rows, 2 columns, date, column header, name, column header\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
-              "notes": null
+              "result": "fail",
+              "notes": "did not automatically switch to forms mode"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[role=\"grid\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "within target",
+            "virtual_location": "within target"
+          },
+          "after": "end of target",
+          "output": "not possible to navigate to the end of the grid, virtual focus kept returning to the first row",
+          "results": [
+            {
+              "feature_id": "aria/grid_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail",
+              "notes": "fail because not possible to complete task"
             }
           ]
         },
@@ -1522,31 +1764,25 @@
             "focus_location": "after target",
             "virtual_location": "after target"
           },
-          "after": "target",
-          "output": "\"\"",
+          "after": "end of target",
+          "output": "\"name, column header, alex\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partial because of the table context instead of grid"
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -1560,30 +1796,56 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"grid example, table with 3 rows, 2 columns, date, column header, name, column header, focus mode\"",
           "results": [
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partially conveyed by table role. Grid role hints at arrow key navigation, while table does not."
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/grid_role",
               "feature_assertion_id": "change_mode_interaction",
-              "result": "unknown",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "forms_mode_keyboard_command",
+          "css_target": "[role=\"columnheader\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "use arrow keys to navigate the table cells",
+          "output": "\"name, column header\"",
+          "results": [
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/columnheader_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -1598,37 +1860,25 @@
           },
           "after": "target",
           "notes": "use arrow keys to navigate the table cells",
-          "output": "\"\"",
+          "output": "\"name, column header, target, column 2\"",
           "results": [
             {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_name",
-              "result": "unknown",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/columnheader_role",
-              "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
-            },
-            {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_name",
-              "result": "unknown",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_role",
-              "result": "unknown",
-              "notes": null
+              "result": "partial",
+              "notes": "partial because of table context instead of grid"
             },
             {
               "feature_id": "aria/gridcell_role",
               "feature_assertion_id": "convey_position",
-              "result": "unknown",
-              "notes": null
+              "result": "pass",
+              "notes": ""
             }
           ]
         }
@@ -1637,40 +1887,30 @@
   },
   "history": [
     {
-      "date": "2020-05-07",
+      "date": "2020-05-15",
       "message": "Draft the test"
     }
   ],
   "versions": {
-    "dragon_win": {
-      "browsers": {
-        "chrome": {
-          "at_version": "15.30",
-          "os_version": "1909",
-          "browser_version": "81",
-          "date": "2020-05-07"
-        }
-      }
-    },
     "jaws": {
       "browsers": {
         "chrome": {
           "at_version": "2020.2003.13",
           "os_version": "1909",
           "browser_version": "81",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         },
         "ie": {
           "at_version": "2020.2003.13",
           "os_version": "1909",
           "browser_version": "11",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         },
         "firefox": {
           "at_version": "2020.2003.13",
           "os_version": "1909",
           "browser_version": "76",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     },
@@ -1680,7 +1920,7 @@
           "at_version": "1909",
           "os_version": "1909",
           "browser_version": "44",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     },
@@ -1690,13 +1930,13 @@
           "at_version": "2019.3.1",
           "os_version": "1909",
           "browser_version": "81",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         },
         "firefox": {
           "at_version": "2019.3.1",
           "os_version": "1909",
           "browser_version": "76",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     },
@@ -1706,17 +1946,7 @@
           "at_version": "8.1",
           "os_version": "10",
           "browser_version": "80",
-          "date": "2020-05-07"
-        }
-      }
-    },
-    "va_and": {
-      "browsers": {
-        "and_chr": {
-          "at_version": "3.1",
-          "os_version": "10",
-          "browser_version": "80",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     },
@@ -1726,7 +1956,7 @@
           "at_version": "13.4.1",
           "os_version": "13.4.1",
           "browser_version": "13.4.1",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     },
@@ -1736,7 +1966,7 @@
           "at_version": "10.15.4",
           "os_version": "10.15.4",
           "browser_version": "13.1",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     },
@@ -1744,39 +1974,9 @@
       "browsers": {
         "firefox": {
           "at_version": "3.36.1",
-          "os_version": "Ubuntu 19.10",
+          "os_version": "Ubuntu 20.04",
           "browser_version": "76",
-          "date": "2020-05-07"
-        }
-      }
-    },
-    "vc_ios": {
-      "browsers": {
-        "ios_saf": {
-          "at_version": "13.4.1",
-          "os_version": "13.4.1",
-          "browser_version": "13.4.1",
-          "date": "2020-05-07"
-        }
-      }
-    },
-    "vc_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.15.4",
-          "os_version": "10.15.4",
-          "browser_version": "13.1",
-          "date": "2020-05-07"
-        }
-      }
-    },
-    "wsr": {
-      "browsers": {
-        "chrome": {
-          "at_version": "1909",
-          "os_version": "1909",
-          "browser_version": "81",
-          "date": "2020-05-07"
+          "date": "2020-05-15"
         }
       }
     }
