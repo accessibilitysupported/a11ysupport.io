@@ -383,9 +383,9 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			if (featureObject.id !== assertion.feature_id) {
 				return;
 			}
-if (!assertion.all_dates) {
-	console.log(assertion);
-}
+			if (!assertion.all_dates) {
+				console.log(assertion);
+			}
 			featureObject.all_dates.all = [...new Set(featureObject.all_dates.all.concat(assertion.all_dates.all))];
 			featureObject.failing_dates.all = [...new Set(featureObject.failing_dates.all.concat(assertion.failing_dates.all))];
 
@@ -636,6 +636,10 @@ helper.initalizeTestCase = function (testCase) {
 	};
 
 	testCase.assertions.forEach(assertion => {
+		if (!assertion.applied_to) {
+			assertion.applied_to = null;
+		}
+
 		if (!assertion.results) {
 			assertion.results = {};
 		}
@@ -693,21 +697,25 @@ helper.initalizeTestCase = function (testCase) {
 			}
 			testCase.commands[at][browser].forEach(function(command) {
 				command.results.forEach(function(result) {
+					if (!result.applied_to) {
+						result.applied_to = null;
+					}
 					let assertion_key = testCase.assertions.findIndex(obj =>
 						obj.feature_id === result.feature_id
 						&& obj.feature_assertion_id === result.feature_assertion_id
+						&& obj.applied_to === result.applied_to
 					);
 
 					if (-1 === assertion_key) {
 						testCase.assertions.push({
 							feature_id: result.feature_id,
-							feature_assertion_id: result.feature_assertion_id
+							feature_assertion_id: result.feature_assertion_id,
 						});
 						assertion_key = testCase.assertions.length-1;
 					}
 
 					if (!testCase.assertions[assertion_key].results) {
-						console.log("Error; make sure that this assertion reference actually exists and is spelled correctly", assertion_key, result.feature_id, result.feature_assertion_id);
+						console.log("Error; make sure that this assertion reference actually exists and is spelled correctly", "testCase: " + testCase.id, assertion_key, result.feature_id, result.feature_assertion_id);
 					}
 
 					if (!testCase.assertions[assertion_key].results[at]) {
@@ -873,7 +881,13 @@ helper.initalizeTestCase = function (testCase) {
 			titleModifier = 'The voice control software ';
 		}
 
+		let ref_applied_to_feature = null;
+		if (assertion.applied_to) {
+			ref_applied_to_feature = require('../data/tech/'+assertion.applied_to+".json");
+		}
+
 		testCase.assertions[assertion_key].feature_title = feature.title;
+		testCase.assertions[assertion_key].applied_to_title = (ref_applied_to_feature) ? ref_applied_to_feature.title : null;
 		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
 		testCase.assertions[assertion_key].assertion_strength = ref_assertion.strength;
 		testCase.assertions[assertion_key].assertion_notes = ref_assertion.notes;
