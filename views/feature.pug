@@ -154,21 +154,24 @@ block content
                             th(scope="col") #{ATBrowsers.browsers[browser].title}
 
                       each linked_test in data.tests
-                          - let test_assertion = linked_test.assertions.find(obj => obj.feature_id === data.id && obj.feature_assertion_id === assertion.id);
-                            if (!test_assertion)
+                          - let test_assertions = linked_test.assertions.filter(obj => obj.feature_id === data.id && obj.feature_assertion_id === assertion.id);
+                            if (!test_assertions)
                               - continue
-                            tr
-                              th(scope="row")
-                                a(href="/tests/"+ testHelper.makeSafe(linked_test.id)) #{linked_test.title}
-                              each at in ATBrowsers.core_at
-                                if ATBrowsers.at[at].type !== at_type.type
-                                  - continue
-                                each browser in ATBrowsers.at[at].core_browsers
-                                  td(class='support-case ' + test_assertion.core_support_by_at_browser[at][browser].string.class)
-                                    a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-')+"-"+test_assertion.feature_assertion_id+"-"+at+"-"+browser)=test_assertion.core_support_by_at_browser[at][browser].string.string
-                                    if (test_assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
-                                      - some_support_behind_settings = true
-                                      span *
+                            each test_assertion in test_assertions
+                              tr
+                                th(scope="row")
+                                  a(href="/tests/"+ testHelper.makeSafe(linked_test.id)) #{linked_test.title}
+                                    if (test_assertion.applied_to)
+                                      span.applied_to  applied to: #{test_assertion.applied_to_title}
+                                each at in ATBrowsers.core_at
+                                  if ATBrowsers.at[at].type !== at_type.type
+                                    - continue
+                                  each browser in ATBrowsers.at[at].core_browsers
+                                    td(class='support-case ' + test_assertion.core_support_by_at_browser[at][browser].string.class)
+                                      a(href="/tests/"+ testHelper.makeSafe(linked_test.id) + "#assertion-"+test_assertion.feature_id.replace('/', '-')+"-"+test_assertion.feature_assertion_id+"-"+(test_assertion.applied_to ? test_assertion.applied_to.toString().replace('/', '-') : '')+'-'+at+"-"+browser)=test_assertion.core_support_by_at_browser[at][browser].string.string
+                                      if (test_assertion.core_support_by_at_browser[at][browser].some_support_behind_settings)
+                                        - some_support_behind_settings = true
+                                        span *
                     if (some_support_behind_settings)
                       p * means that some support is hidden behind settings
               else
