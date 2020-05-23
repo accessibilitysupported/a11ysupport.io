@@ -124,7 +124,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 		switch (assertion.id) {
 			case 'convey_name':
 				featureObject.assertions[assertion_key] = Object.assign({
-					title: "convey an appropriate name",
+					title: "convey its name",
 					rationale: "A screen reader user needs to know what to enter.",
                     strength: {
 					  sr: "MUST",
@@ -143,7 +143,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				break;
 			case 'convey_role':
 				featureObject.assertions[assertion_key] = Object.assign({
-					title: "convey an appropriate role",
+					title: "convey its role",
 					rationale: "A screen reader user needs to know how they can interact with the element. Voice control software might use the role to help users activate controls that do not have a visible name.",
 					examples: [
 						"A screen reader might announce an element as something like \"<name>, <role>\"",
