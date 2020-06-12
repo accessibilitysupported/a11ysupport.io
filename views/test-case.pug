@@ -67,32 +67,28 @@ block content
                         - var colspan = 0;
                         - var assertions_found = 0;
                         div.responsive-table(tabindex="0")
-                            table(aria-labelledby="support-summary-by-at-"+at_type.type).support-table.assertion-container.summary-matrix
-                                tr
-                                    th(id="h-at-type-"+at_type.type+"-expectation" rowspan="2") Expectation
-                                    each at in ATBrowsers.core_at
-                                        if ATBrowsers.at[at].type !== at_type.type
-                                            - continue
-                                        th(id="h-at-" + at colspan=ATBrowsers.at[at].core_browsers.length) #{ATBrowsers.at[at].title}
-                                tr
-                                    each at in ATBrowsers.core_at
-                                        if ATBrowsers.at[at].type !== at_type.type
-                                            - continue
-                                        each browser in ATBrowsers.at[at].core_browsers
-                                            th(id="h-at-" + at + "-browser-" + browser) #{ATBrowsers.browsers[browser].title}
-                                            - colspan++;
-                                each feature, currentFeatureIndex in testMap[test.id]
-                                    - var feature_title_printed = false;
+                            each feature, currentFeatureIndex in testMap[test.id]
+                                table(aria-labelledby="support-summary-by-at-"+at_type.type+" "+at_type.type+"-feature-index-"+currentFeatureIndex).support-table.assertion-container.summary-matrix
+                                    caption(id=at_type.type+"-feature-index-"+currentFeatureIndex) #{feature.title}
+                                    tr
+                                        th(id="h-feature-"+currentFeatureIndex+"-at-type-"+at_type.type+"-expectation" rowspan="2") Expectation
+                                        each at in ATBrowsers.core_at
+                                            if ATBrowsers.at[at].type !== at_type.type
+                                                - continue
+                                            th(id="h-feature-"+currentFeatureIndex+"-at-"+at colspan=ATBrowsers.at[at].core_browsers.length) #{ATBrowsers.at[at].title}
+                                    tr
+                                        each at in ATBrowsers.core_at
+                                            if ATBrowsers.at[at].type !== at_type.type
+                                                - continue
+                                            each browser in ATBrowsers.at[at].core_browsers
+                                                th(id="h-feature-"+currentFeatureIndex+"-at-" + at + "-browser-" + browser) #{ATBrowsers.browsers[browser].title}
+                                                - colspan++;
                                     each assertion, assertionIndex in test.assertions
                                         if assertion.assertion_strength[at_type.type] === "NA"
                                             - continue
                                         if (feature.featureId === assertion.feature_id)
-                                            if !feature_title_printed
-                                                tr
-                                                    th(colspan=colspan + 1 id=at_type.type+"-h-feature-" + currentFeatureIndex).feature #{feature.title}
-                                                - feature_title_printed = true;
                                             tr
-                                                th(id=at_type.type+"-h-assertion-" + assertionIndex headers="h-at-type-"+at_type.type+"-expectation "+at_type.type+"-h-feature-" + currentFeatureIndex).assertion
+                                                th(id="h-feature-"+currentFeatureIndex+"-"+at_type.type+"-assertion-"+assertionIndex headers="h-feature-"+currentFeatureIndex+"-at-type-"+at_type.type+"-expectation").assertion
                                                     a(href="#assertion-" + assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id + '-' + (assertion.applied_to ? assertion.applied_to.toString().replace('/', '-') : ''))
                                                         span #{assertion.assertion_strength[at_type.type]} #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
                                                         if (assertion.applied_to)
@@ -102,7 +98,7 @@ block content
                                                         - continue
                                                     - assertions_found++
                                                     each browser in ATBrowsers.at[at_id].core_browsers
-                                                        td(class="support-case " + assertion.core_support_by_at_browser[at_id][browser].string.class headers=at_type.type+"-h-feature-" + currentFeatureIndex + " " + at_type.type+"-h-assertion-" + assertionIndex + " h-at-" + at_id + " h-at-" + at_id + "-browser-" + browser )
+                                                        td(class="support-case " + assertion.core_support_by_at_browser[at_id][browser].string.class headers="h-feature-"+currentFeatureIndex+"-"+at_type.type+"-assertion-"+assertionIndex+" h-feature-"+currentFeatureIndex+"-at-"+at_id+" h-feature-"+currentFeatureIndex+"-at-" + at_id + "-browser-" + browser)
                                                             a(href="#assertion-"+assertion.feature_id.replace('/', '-')+"-"+assertion.feature_assertion_id+ '-' + (assertion.applied_to ? assertion.applied_to.toString().replace('/', '-') : '')+"-"+at_id+"-"+browser)
                                                                 span #{assertion.core_support_by_at_browser[at_id][browser].string.string}
                                                                 if (assertion.core_support_by_at_browser[at_id][browser].some_support_behind_settings)
