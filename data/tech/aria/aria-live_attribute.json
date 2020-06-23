@@ -11,6 +11,22 @@
   ],
   "assertions": [
     {
+      "id": "automatic_announcement",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "automatically convey the live region",
+      "examples": [
+        "Screen readers will automatically announce the live region as long as aria-live is not set to \"off\"."
+      ],
+      "css_target": "*[aria-live]:not([aria-live=\"off\"])",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
       "id": "convey_value_off",
       "strength": {
         "sr": "MUST",
@@ -29,7 +45,7 @@
     {
       "id": "convey_value_polite",
       "strength": {
-        "sr": "MUST",
+        "sr": "SHOULD",
         "vc": "NA"
       },
       "title": "convey the polite value",
@@ -45,12 +61,13 @@
     {
       "id": "convey_value_assertive",
       "strength": {
-        "sr": "MUST",
+        "sr": "SHOULD",
         "vc": "NA"
       },
       "title": "convey the assertive value",
+      "notes": "This is not a 'MUST' requirement because some screen readers may choose treat assertive announcements as polite announcements to curb abuse of assertive announcements. ",
       "examples": [
-        "Screen readers will announce changes to content within aria-live=\"assertive\" as soon as those changes are made and interrupt any current announcements."
+        "Screen readers will announce changes to content within aria-live=\"assertive\" as soon as those changes are made and interrupt any current announcements, or announce it immediately after the current announcement but before anything else in the announcement queue."
       ],
       "css_target": "*[aria-live=\"assertive\"]",
       "operation_modes": [
@@ -59,5 +76,5 @@
       ]
     }
   ],
-  "date_updated": "2020-02-05"
+  "date_updated": "2020-06-23"
 }
