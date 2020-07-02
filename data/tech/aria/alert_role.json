@@ -11,17 +11,90 @@
   ],
   "assertions": [
     {
-      "id": "convey_role",
+      "id": "automatic_announcement",
       "strength": {
         "sr": "MUST",
         "vc": "NA"
       },
+      "title": "announce changes to the live region",
+      "examples": [
+        "Screen readers will automatically announce the live region."
+      ],
       "css_target": "*[role=\"alert\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_aria_live_value_assertive",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the implicit aria-live value of assertive by interrupting the current announcement",
+      "examples": [
+        "Screen readers will announce changes to content within aria-live=\"assertive\" as soon as those changes are made and interrupt any current announcements, or announce it immediately after the current announcement but before anything else in the announcement queue."
+      ],
+      "css_target": "*[role=\"alert\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_aria_atomic_value_true",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the implicit aria-atomic value of true by announcing the entire region",
+      "examples": [
+        "Screen readers will announce all the content within role=\"alert\"."
+      ],
+      "css_target": "*[role=\"alert\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_name_and_role_in_announcement_if_named",
+      "title": "convey its name and role as part of the live announcement if it has a name",
+      "examples": [
+        "Screen readers may announce the name and alert role if it has a name from the author (usually via aria-label or aria-labelledby).",
+        "The name will be announced before or after the contents of the live region.",
+        "The the role will be implied by interruption, or may be explicitly stated as something like \"alert\" or an earcon"
+      ],
+      "strength": {
+        "sr": "MAY",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"alert\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_name_and_role_if_named",
+      "title": "convey its name and role while navigating the page if it has a name",
+      "examples": [
+        "Screen readers may announce the name and role if it has a name from the author (usually via aria-label or aria-labelledby). The name and role are usually announced when navigating into the element.",
+        "screen readers may convey the role as an earcon."
+      ],
+      "strength": {
+        "sr": "MAY",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"alert\"]",
+      "preconditions": [],
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
       ]
     }
   ],
-  "date_updated": "2018-07-21"
+  "date_updated": "2020-06-19"
 }
