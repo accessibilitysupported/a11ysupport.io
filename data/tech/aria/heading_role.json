@@ -27,6 +27,22 @@
       ]
     },
     {
+      "id": "default_level_of_2",
+      "title": "convey its default level as 2 if aria-level is missing",
+      "rationale": "The user needs to know the level of the heading if aria-level is missing.",
+      "examples": [
+        "When applied to a heading, the heading might be announced as something like \"<name> heading level <level>\""
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[role=\"heading\"]:not([aria-level])",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
       "id": "provide_shortcuts",
       "title": "provide shortcuts to jump to headings",
       "rationale": "Headings provide an outline of the page and users need to be able to quickly navigate to different sections of the page.",

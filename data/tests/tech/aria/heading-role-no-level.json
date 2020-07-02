@@ -1,0 +1,801 @@
+{
+  "title": "ARIA heading role with no aria-level attribute",
+  "description": "This test uses an aria heading with no aria-level. It should default to an aria-level of 2.",
+  "html_file": "aria/heading-role-no-level.html",
+  "assertions": [
+    {
+      "feature_id": "aria/heading_role",
+      "feature_assertion_id": "convey_role_and_name"
+    },
+    {
+      "feature_id": "aria/heading_role",
+      "feature_assertion_id": "provide_shortcuts"
+    },
+    {
+      "feature_id": "aria/heading_role",
+      "feature_assertion_id": "default_level_of_2"
+    }
+  ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "correctly marked as heading level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "correctly marked as heading level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "correctly marked as heading level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "all headings included in list along with heading levels",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "na",
+              "notes": "level is not listed here for any headings"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "nested under the h1",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "nested under the h1",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "in list as level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>,\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "listed as level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "default_level_of_2",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
+  "history": [
+    {
+      "date": "2020-07-02",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        },
+        "ie": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "11",
+          "date": "2020-07-02"
+        },
+        "firefox": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "83",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        },
+        "firefox": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "9",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4.1",
+          "os_version": "13.4.1",
+          "browser_version": "13.4.1",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.5",
+          "os_version": "10.15.5",
+          "browser_version": "13.1.1",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "77",
+          "date": "2020-07-02"
+        }
+      }
+    }
+  }
+}
