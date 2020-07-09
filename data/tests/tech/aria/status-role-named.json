@@ -1,0 +1,769 @@
+{
+  "title": "named status role",
+  "description": "This tests a named status role",
+  "html_file": "aria/status-role-named.html",
+  "assertions": [
+    {
+      "feature_id": "aria/status_role",
+      "feature_assertion_id": "automatic_announcement",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/status_role",
+      "feature_assertion_id": "convey_aria_live_value_polite",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/status_role",
+      "feature_assertion_id": "convey_aria_atomic_value_true",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/status_role",
+      "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/status_role",
+      "feature_assertion_id": "convey_name_and_role_if_named",
+      "applied_to": "html/div_element"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, polite message, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "name was conveyed, but not role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, polite message, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, polite message, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "partial because the name was conveyed, but not the role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, existing content, I am now populated, polite message\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "partial because name was conveyed, but not role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, polite message, status, polite message\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": "fail because the contents were not conveyed at all"
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "partial because the contents of the live region were not conveyed; just the region's name"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"polite message, status\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "partial because while the name and role were conveyed, the contents were not conveyed."
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement interrupted>, <2nd announcement in full> existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement skipped>, <2nd announcement in full>, polite message, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "name was conveyed, but not the role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"polite message, application status\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, polite message, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "name was conveyed, but not the role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"polite message, status bar\"",
+          "results": [
+            {
+              "feature_id": "aria/status_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": "fail because the name and role were conveyed, but the content of the live region was not"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-07-09",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        },
+        "ie": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "11",
+          "date": "2020-07-02"
+        },
+        "firefox": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "83",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        },
+        "firefox": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "9",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4.1",
+          "os_version": "13.4.1",
+          "browser_version": "13.4.1",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.5",
+          "os_version": "10.15.5",
+          "browser_version": "13.1.1",
+          "date": "2020-07-02"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "77",
+          "date": "2020-07-02"
+        }
+      }
+    }
+  }
+}
