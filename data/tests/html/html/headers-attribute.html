@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>headers attribute test</title>
+</head>
+<body>
+<h1>Headers attribute test</h1>
+
+<p>Expected headers for target: "negative, mood". Note: when using table navigation, screen readers will often reduce verbosity by not announcing headers multiple times; they will only announce changes to headers as you navigate through cells. Therefore, when navigating down from the "negative" header, it is okay to only hear the "mood" header.</p>
+
+<button>tab stop before</button>
+
+<table>
+    <caption>Characteristics with positive and negative sides</caption>
+    <thead>
+    <tr>
+        <th id="n"> Negative
+        <th> Characteristic
+        <th> Positive
+    <tbody>
+    <tr>
+        <td headers="n r1" id="target"> Sad (target)
+        <th id="r1"> Mood
+        <td> Happy
+    <tr>
+        <td headers="n r2"> Failing
+        <th id="r2"> Grade
+        <td> Passing
+</table>
+
+<p>This example was taken from the <a href="https://html.spec.whatwg.org/multipage/tables.html#table-descriptions-techniques">WHATWG 4.9.1.1 Techniques for describing tables</a></p>
+</body>
+</html>

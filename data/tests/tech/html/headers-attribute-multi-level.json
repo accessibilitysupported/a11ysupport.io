@@ -1,0 +1,343 @@
+{
+  "title": "headers attribute test - multi level",
+  "description": "this tests the headers attribute on a td element",
+  "html_file": "html/headers-attribute-multi-level.html",
+  "assertions": [
+    {
+      "feature_id": "html/headers_attribute",
+      "feature_assertion_id": "convey_headers",
+      "applied_to": "html/td_element"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example 1 ltd, example 3 ltd, Suzette Jones (target)\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "fail",
+              "notes": "fail because the implicit headers were not overridden ('Example 1 Ltd' should not have been conveyed)"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example 3 ltd, suzette Jones (target), column 2\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "pass",
+              "notes": "this may be a false negative as the header may be derived from the th element. See other tests for this feature."
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example 3 ltd, suzette Jones (target), column 2\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "pass",
+              "notes": "this may be a false negative as the header may be derived from the th element. See other tests for this feature."
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"suzette jones (target), column header, example 1 ltd, example 3 ltd, column 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "fail",
+              "notes": "fail because the implicit headers were not overridden ('Example 1 Ltd' should not have been conveyed)"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Example 1 Ltd, Example 3 Ltd, column 2, Suzette Jones (target)\n\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "fail",
+              "notes": "fail because the implicit headers were not overridden ('Example 1 Ltd' should not have been conveyed)"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Example 3 Ltd  column 2  Suzette Jones (target)\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"suzette jones (target), example 1 ltd\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "fail",
+              "notes": "announced the wrong header"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example 1 ltd, suzette jones (target), column 2\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "fail",
+              "notes": "wrong header was conveyed"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example 3 ltd, contact, suzette jones (target), column 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "pass",
+              "notes": "this may be a false negative as the header may be derived from the th element. See other tests for this feature."
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"suzette jones (target), row 6, column 2\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "result": "fail",
+              "notes": "no headers were conveyed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-07-10",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-10"
+        },
+        "ie": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "11",
+          "date": "2020-07-10"
+        },
+        "firefox": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "83",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-10"
+        },
+        "firefox": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "9",
+          "browser_version": "84",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4.1",
+          "os_version": "13.4.1",
+          "browser_version": "13.4.1",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.5",
+          "os_version": "10.15.5",
+          "browser_version": "13.1.1",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "77",
+          "date": "2020-07-10"
+        }
+      }
+    }
+  }
+}

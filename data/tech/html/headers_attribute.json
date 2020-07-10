@@ -1,0 +1,37 @@
+{
+  "id": "headers_attribute",
+  "title": "headers attribute",
+  "type": "attribute",
+  "description": "The `headers` attribute gives authors a way to override implicit cell headers (via `<th>` elements) to accurately describe the structure of complex tables to assistive technology. Note: this is a difficult feature to test, as implicit headers often interfere with results. It's not possible to tell where the header originitated from when testing with an assistive technology; is this header sourced implicitly (via `<th>` elements) or explicitly (via the `headers` attribute). Most real world tables that require the `headers` attribute also make use of implicit headers. Several tests are included for this feature because of this, and some of the results may be false negatives.",
+  "related_features": [
+    "html/table_element",
+    "html/td_element",
+    "html/th_element"
+  ],
+  "references": [
+    {
+      "title": "WHATWG HTML5 spec 4.9.12.2 Forming relationships between data cells and header cells",
+      "url": "https://html.spec.whatwg.org/multipage/tables.html#header-and-data-cell-semantics:attr-tdth-headers"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "convey_headers",
+      "title": "convey the defined cell headers",
+      "rationale": "The user needs to know which headers apply to the current cell",
+      "examples": [
+        "Screen readers will announce the headers defined by the attribute. The attribute value will override the implicit row and column headers."
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[headers]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-07-10"
+}
