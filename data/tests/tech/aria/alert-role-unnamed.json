@@ -1,0 +1,490 @@
+{
+  "title": "unnamed alert role",
+  "description": "this tests an unnamed alert role",
+  "html_file": "aria/alert-role-unnamed.html",
+  "assertions": [
+    {
+      "feature_id": "aria/alert_role",
+      "feature_assertion_id": "automatic_announcement",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/alert_role",
+      "feature_assertion_id": "convey_aria_live_value_assertive",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/alert_role",
+      "feature_assertion_id": "convey_aria_atomic_value_true",
+      "applied_to": "html/div_element"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement interrupted>, alert, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement interrupted>, alert, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, existing content, I am now populated, <2nd announcement in full>\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement interrupted>, alert, existing content, I am now populated, <1st announcement in full>, <2nd announcement in full>\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<other announcements were interrupted or not conveyed> existing content, i am now populated, alert, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement interrupted>, existing content, I am now populated <2nd announcement not conveyed at all>\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<2st announcement interrupted>, <earcon> existing content, I am now populated, <1st announcement not conveyed at all>\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-07-10",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-10"
+        },
+        "ie": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "11",
+          "date": "2020-07-10"
+        },
+        "firefox": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "83",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-10"
+        },
+        "firefox": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "9",
+          "browser_version": "84",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4.1",
+          "os_version": "13.4.1",
+          "browser_version": "13.4.1",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.5",
+          "os_version": "10.15.5",
+          "browser_version": "13.1.1",
+          "date": "2020-07-10"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "77",
+          "date": "2020-07-10"
+        }
+      }
+    }
+  }
+}
