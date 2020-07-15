@@ -1,0 +1,769 @@
+{
+  "title": "named log role",
+  "description": "This tests a named log role",
+  "html_file": "aria/log-role-named.html",
+  "assertions": [
+    {
+      "feature_id": "aria/log_role",
+      "feature_assertion_id": "automatic_announcement",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/log_role",
+      "feature_assertion_id": "convey_aria_live_value_polite",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/log_role",
+      "feature_assertion_id": "convey_aria_atomic_value_false",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/log_role",
+      "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/log_role",
+      "feature_assertion_id": "convey_name_and_role_if_named",
+      "applied_to": "html/div_element"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, chat; bullet Customer support: hello, how may I help?; bullet Me: where is the cake?\n\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "partial because name was conveyed, but not the role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"group start, chat\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, chat; Me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "name was conveyed, but not the role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"chat log\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet Me: where is the cake?; bullet Me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list of 1 items\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, 2 of 2 level 1, group\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": "fail because the contents of the region were not conveyed."
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"enter list, level 1 of 1, bullet, customer support: hello, how may I help?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet Customer support: hello, how may I help?; bullet Me: where is the cake?; chat\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "name conveyed but not role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"chat grouping, list  with 1 items; bullet Customer support: hello, how may I help?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list  with 1 items; bullet Customer support: hello, how may I help?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, chat, log, list, bullet customer support: hello, how may I help?; bullet me: where is the cake?; bullet me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement interrupted>, <2nd announcement in full> bullet me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet list start\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement skipped>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"chat, log\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, me: where is the cake?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_live_value_polite",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "applied_to": "html/div_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list with one item, bullet customer support: hello, how may I help?\"",
+          "results": [
+            {
+              "feature_id": "aria/log_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-07-15",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-15"
+        },
+        "ie": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "11",
+          "date": "2020-07-15"
+        },
+        "firefox": {
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-15"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "83",
+          "date": "2020-07-15"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-15"
+        },
+        "firefox": {
+          "at_version": "2020.1",
+          "os_version": "2004",
+          "browser_version": "77",
+          "date": "2020-07-15"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.1",
+          "os_version": "9",
+          "browser_version": "84",
+          "date": "2020-07-15"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.4.1",
+          "os_version": "13.4.1",
+          "browser_version": "13.4.1",
+          "date": "2020-07-15"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.5",
+          "os_version": "10.15.5",
+          "browser_version": "13.1.1",
+          "date": "2020-07-15"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "77",
+          "date": "2020-07-15"
+        }
+      }
+    }
+  }
+}

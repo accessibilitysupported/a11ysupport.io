@@ -2,13 +2,99 @@
   "id": "log_role",
   "title": "log role",
   "type": "role",
-  "description": "A type of live region where new information is added in meaningful order and old information may disappear. See related marquee.",
+  "description": "A type of live region where new information is added in meaningful order and old information may disappear",
   "references": [
     {
       "title": "ARIA spec for log",
       "url": "https://www.w3.org/TR/wai-aria-1.1/#log"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "automatic_announcement",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "announce changes to the live region",
+      "examples": [
+        "Screen readers will automatically announce the live region."
+      ],
+      "css_target": "*[role=\"log\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_aria_live_value_polite",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the implicit aria-live value of polite by not interrupting the current announcement",
+      "examples": [
+        "Screen readers will changes to content within role=\"log\" after other announcements finish."
+      ],
+      "css_target": "*[role=\"log\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_aria_atomic_value_false",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the implicit aria-atomic value of false by only announcing content that has changed",
+      "examples": [
+        "Screen readers will announce all the content within role=\"log\"."
+      ],
+      "css_target": "*[role=\"log\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_name_and_role_in_announcement_if_named",
+      "title": "convey its name and role as part of the live announcement if it has a name",
+      "examples": [
+        "Screen readers may announce the name and logf role if it has a name from the author (usually via aria-label or aria-labelledby).",
+        "The name will be announced before or after the contents of the live region.",
+        "The the role will be implied by interruption, or may be explicitly stated as something like \"log\" or an earcon"
+      ],
+      "strength": {
+        "sr": "MAY",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"log\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_name_and_role_if_named",
+      "title": "convey its name and role while navigating the page if it has a name",
+      "examples": [
+        "Screen readers may announce the name and role if it has a name from the author (usually via aria-label or aria-labelledby). The name and role are usually announced when navigating into the element.",
+        "screen readers may convey the role as an earcon."
+      ],
+      "strength": {
+        "sr": "MAY",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"log\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-07-14"
 }

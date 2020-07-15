@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>named log role test suite</title>
+</head>
+<body>
+
+<h1>unnamed log role test suite</h1>
+
+<p>This is a test suite for an unnamed log role.</p>
+
+<h2>Example 1: unnamed log role</h2>
+
+<div role="log" id="target-1">
+    <ul>
+        <li>Customer support: hello, how may I help?</li>
+    </ul>
+</div>
+
+<button id="trigger-1" onclick="testOne()">Test</button>
+
+<div aria-live="polite" id="first-announcement-text"></div>
+<div aria-live="polite" id="second-announcement-text"></div>
+
+<p>End of example</p>
+
+<script>
+	var firstAnnouncement = 'The assertive announcement should interrupt or follow this first announcement.';
+	var secondAnnouncement = 'This second announcement should either be skipped or come after the assertive announcement. Polite announcements will always follow the first two.';
+	var firstAnnouncementDiv = document.querySelector('#first-announcement-text');
+	var secondAnnouncementDiv = document.querySelector('#second-announcement-text');
+
+	var announce = function(liveRegion, text) {
+		firstAnnouncementDiv.innerText = firstAnnouncement;
+		setTimeout(function() {
+			secondAnnouncementDiv.innerText = secondAnnouncement;
+			setTimeout(function() {
+				var li = document.createElement('li');
+				li.innerText = text;
+				liveRegion.appendChild(li);
+				firstAnnouncementDiv.innerText = ''; // clear so that the announcement will happen again
+				secondAnnouncementDiv.innerText = ''; // clear so that the announcement will happen again
+			}, 1000);
+		}, 100);
+	};
+
+	var testOne = function() {
+		announce(document.querySelector('#target-1 ul'), "Me: where is the cake?");
+	}
+</script>
+
+</body>
+</html>
