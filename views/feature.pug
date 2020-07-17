@@ -163,7 +163,7 @@ block content
                                   a(href="/tests/"+ testHelper.makeSafe(linked_test.id)) #{linked_test.title}
                                     if (test_assertion.applied_to)
                                       span.applied_to  applied to: #{test_assertion.applied_to_title}
-                                        if (test_assertion.references)
+                                        if (test_assertion.references && test_assertion.references.length)
                                           span ; references: #{test_assertion.references_titles}
                                 each at in ATBrowsers.core_at
                                   if ATBrowsers.at[at].type !== at_type.type

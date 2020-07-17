@@ -93,7 +93,7 @@ block content
                                                         span #{assertion.assertion_strength[at_type.type]} #{testHelper.trimTechFromAssertion(assertion.assertion_title)}
                                                         if (assertion.applied_to)
                                                             span.applied_to  applied to: #{assertion.applied_to_title}
-                                                                if (assertion.references)
+                                                                if (assertion.references && assertion.references.length)
                                                                     span ; references: #{assertion.references_titles}
                                                 each at_id in ATBrowsers.core_at
                                                     if ATBrowsers.at[at_id].type !== at_type.type
@@ -117,13 +117,13 @@ block content
                     h3(id="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id+ '-' + (assertion.applied_to ? assertion.applied_to.toString().replace('/', '-') : '')) Expectation for the #{assertion.feature_title}: #{assertion.assertion_title}
                         if (assertion.applied_to)
                             span  - applied to the #{assertion.applied_to_title}
-                        if (assertion.references)
+                        if (assertion.references && assertion.references.length)
                             span  - applied to the #{assertion.references_titles}
 
                     if (assertion.applied_to)
                         p  This expectation is applied to the #{assertion.applied_to_title}. Expectations and results might differ when the the feature is applied to different roles.
 
-                    if (assertion.references)
+                    if (assertion.references && assertion.references.length)
                         p  This expectation references the #{assertion.references_titles}. Expectations and results might differ when the the feature references different roles.
 
                     if (assertion.assertion_rationale)
