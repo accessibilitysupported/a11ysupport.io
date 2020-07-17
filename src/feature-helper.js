@@ -640,6 +640,10 @@ helper.initalizeTestCase = function (testCase) {
 			assertion.applied_to = null;
 		}
 
+		if (!assertion.references) {
+			assertion.references = [];
+		}
+
 		if (!assertion.results) {
 			assertion.results = {};
 		}
@@ -700,10 +704,14 @@ helper.initalizeTestCase = function (testCase) {
 					if (!result.applied_to) {
 						result.applied_to = null;
 					}
+					if (!result.references) {
+						result.references = [];
+					}
 					let assertion_key = testCase.assertions.findIndex(obj =>
 						obj.feature_id === result.feature_id
 						&& obj.feature_assertion_id === result.feature_assertion_id
 						&& obj.applied_to === result.applied_to
+						&& obj.references.join('-') === result.references.join('-')
 					);
 
 					if (-1 === assertion_key) {
@@ -715,7 +723,8 @@ helper.initalizeTestCase = function (testCase) {
 					}
 
 					if (!testCase.assertions[assertion_key].results) {
-						console.log("Error; make sure that this assertion reference actually exists and is spelled correctly", "testCase: " + testCase.id, assertion_key, result.feature_id, result.feature_assertion_id);
+						console.log(assertion_key, testCase.assertions[assertion_key]);
+						console.log("Error; make sure that this assertion reference actually exists and is spelled correctly", "testCase: " + testCase.id, assertion_key, result.feature_id, result.feature_assertion_id, 'applied_to: ', result.applied_to, 'references: ', result.references);
 					}
 
 					if (!testCase.assertions[assertion_key].results[at]) {
@@ -885,12 +894,22 @@ helper.initalizeTestCase = function (testCase) {
 		if (assertion.applied_to) {
 			ref_applied_to_feature = require('../data/tech/'+assertion.applied_to+".json");
 		}
+		let ref_references_features = null;
+		if (assertion.references) {
+			testCase.assertions[assertion_key].references_titles = [];
+			assertion.references.forEach(ref => {
+				let ref_feature = require('../data/tech/'+ref+".json");
+				testCase.assertions[assertion_key].references_titles.push(ref_feature.title);
+			});
+			testCase.assertions[assertion_key].references_titles = testCase.assertions[assertion_key].references_titles.join(', ');
+		}
 
 		testCase.assertions[assertion_key].feature_title = feature.title;
 		testCase.assertions[assertion_key].applied_to_title = (ref_applied_to_feature) ? ref_applied_to_feature.title : null;
 		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
 		testCase.assertions[assertion_key].assertion_strength = ref_assertion.strength;
 		testCase.assertions[assertion_key].assertion_notes = ref_assertion.notes;
+
 		testCase.assertions[assertion_key].core_support = {
 			sr: [],
 			vc: []

@@ -147,13 +147,14 @@ Properties that are generated during the build process include:
 
 The test assertion object creates a link to a feature assertion object.
 
-Together, the unique ID of the assertion object is considered to be a combination of `feature_id`, `feature_assertion_id`, and `applied_to`. For example, a test may define several assertions for the same feature and feature assertion, but test them as applied to other features.
+Together, the unique ID of the assertion object is considered to be a combination of `feature_id`, `feature_assertion_id`, `applied_to` and `references`. For example, a test may define several assertions for the same feature and feature assertion, but test them as applied to other features.
 
 The following properties can be provided by a contributor:
 
 * `feature_id` (string|required): the ID of linked feature
 * `feature_assertion_id` (string|required): the ID of the feature object on the linked feature
-* `applies_to` (string|option): the ID of the feature object that this assertion is applied to. This is helpful to clarify what an attribute is applied to, as that may have an affect support.
+* `applied_to` (string|option): the ID of the feature object that this assertion is applied to. This is helpful to clarify what an attribute is applied to, as that may have an affect support.
+* `references` (array|option): An array of string. Each string is the ID of a feature object that this feature instance references. This is helpful to clarify what an attribute references (for example, what the value of the `headers` attribute references), as that may have an affect support.
 * `css_target` (string|optional): a CSS target that overrides the more generic one provided by the feature assertion (this can be specific to the test)
 * `expected_value` (string|optional): The expected value of the assertion test result (can be helpful in some circumstances)
 
@@ -197,12 +198,13 @@ The `command` object contains the following properties which can be provided by 
 
 The `command` object contains the following properties which can be provided by the contributor:
 
-The combination of `feature_id`, `feature_assertion_id`, and `applied_to` essentially link to a test assertion and must match exactly one assertion defined on the test.
+The combination of `feature_id`, `feature_assertion_id`, `applied_to`, and `references` essentially link to a test assertion and must match exactly one assertion defined on the test.
 
 * `result` (enum|required): One of `pass`, `fail`, or `partial`.
 * `feature_id` (string|required): The id of the feature
 * `feature_assertion_id` (string|required): The id of the assertion within the feature
-* `apploed_to` (string|optional): the id of the feature that that this feature (usually an attribute) is applied to in the example. For example, `aria-disabled` can be applied to many different features, and there is a potential for what it is applied to to yield different support values.
+* `applied_to` (string|optional): the id of the feature that that this feature (usually an attribute) is applied to in the example. For example, `aria-disabled` can be applied to many different features, and there is a potential for what it is applied to to yield different support values.
+* `references` (array|option): An array of string. Each string is the ID of a feature object that this feature instance references. This is helpful to clarify what an attribute references (for example, what the value of the `headers` attribute references), as that may have an affect support.
 
 #### the `versions` object (`at_version` and `browser_version`)
 
