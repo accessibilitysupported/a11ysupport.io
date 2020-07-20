@@ -1,7 +1,7 @@
 {
-  "title": "APG 1.1 modal dialog example",
+  "title": "APG modal dialog example",
   "description": "This example implements a modal dialog.",
-  "html_file": "https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html",
+  "html_file": "https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html",
   "assertions": [
     {
       "feature_id": "aria/dialog_role",
@@ -37,14 +37,14 @@
       "chrome": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"add delivery address, modal dialog...\"",
+          "output": "\"add delivery address, modal dialog, street: edit, type in text\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -57,12 +57,19 @@
               "feature_assertion_id": "convey_name",
               "result": "pass",
               "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "The modal state was explicitly conveyed."
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" *[aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
@@ -75,46 +82,12 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"add delivery address, modal dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "The modal state was explicitly conveyed."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "unable to reach outside content",
-          "results": [
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "The title of the window was announced"
+              "result": "pass"
             }
           ]
         },
@@ -127,7 +100,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "outside content was displayed in content lists, such as the of links, etc.",
+          "output": "outside content was displayed in content lists, such as the of links, etc. Note: not possible to navigate to an item in the list.",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
@@ -161,14 +134,14 @@
       "ie": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"add delivery address, modal dialog...\"",
+          "output": "\"add delivery address, modal dialog, street: edit, type in text\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -181,12 +154,19 @@
               "feature_assertion_id": "convey_name",
               "result": "pass",
               "notes": "The name and role were conveyed when entering the dialog for the first time. The modal state was not"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "The modal state was explicitly conveyed."
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
@@ -199,46 +179,12 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"add delivery address, modal dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "The modal state was explicitly conveyed."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "unable to reach outside content",
-          "results": [
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "The title of the window was announced"
+              "result": "pass"
             }
           ]
         },
@@ -251,7 +197,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "outside content was displayed in content lists, such as the of links, etc.",
+          "output": "outside content was displayed in content lists, such as the of links, etc. Note: it IS possible to navigate to headings in this list and break free from the modal.",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
@@ -276,8 +222,7 @@
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+              "result": "pass"
             }
           ]
         }
@@ -285,7 +230,7 @@
       "firefox": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -305,12 +250,19 @@
               "feature_assertion_id": "convey_name",
               "result": "pass",
               "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "The modal state was explicitly conveyed."
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
@@ -323,40 +275,7 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"add delivery address, modal dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "The modal state was explicitly conveyed."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "unable to reach outside content",
-          "results": [
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
@@ -411,14 +330,14 @@
       "edge": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"Add delivery address, dialog...\"",
+          "output": "\"<title of page>, tab, Add delivery address, dialog, street, edit, scan off, heading level 2, add delivery address, street\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -429,6 +348,13 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "fail",
+              "notes": "Modal state was not conveyed and non-modal content was not obscured. See other expectations for details."
             }
           ]
         },
@@ -441,64 +367,42 @@
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"Dialog, heading level 2, add delivery address\"",
+          "output": "\"heading level 2, add delivery address\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail",
+              "notes": "fail because the dialog role was not conveyed"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
             "focus_location": "within target"
           },
           "after": "before target",
-          "output": "\"Link, modal dialog design pattern in aria authoring practices 1.1\"",
+          "output": "\"Link, modal dialog design pattern in wai-aria authoring practices 1.2\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"Add delivery address, dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "fail",
-              "notes": "Modal state was not conveyed and non-modal content was not obscured. See other expectations for details."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "content outside of the modal was announced",
-          "results": [
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
@@ -508,7 +412,7 @@
           ]
         },
         {
-          "command": "previous_link",
+          "command": "previous_heading",
           "css_target": "*[aria-modal=true]",
           "before": {
             "mode": "auto",
@@ -516,7 +420,7 @@
             "focus_location": "within target"
           },
           "after": "before target",
-          "output": "links were found outside of the modal",
+          "output": "headings were found outside of the modal",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
@@ -532,14 +436,14 @@
       "chrome": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"Add delivery address, dialog...\"",
+          "output": "\"Add delivery address, dialog, street, edit, blank\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -550,12 +454,19 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
@@ -568,45 +479,13 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"Add delivery address, dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "unable to reach outside content",
-          "results": [
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass"
+              "result": "pass",
+              "note": "This is fairly fragile. If you use the mouse to click on content under the modal, the content behind the modal can be found. This does not appear to happen when using just keyboard interactions."
             }
           ]
         },
@@ -671,14 +550,14 @@
       "firefox": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"Add delivery address, dialog...\"",
+          "output": "\"Add delivery address, dialog, street, edit, has auto complete, blank.\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -689,12 +568,19 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
@@ -707,45 +593,13 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"Add delivery address, dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "unable to reach outside content",
-          "results": [
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass"
+              "result": "pass",
+              "notes": "If you click content outside of the modal with a mouse, it is then possible to navigate that content behind the modal. This does not appear to be possible when using keyboard-alone."
             }
           ]
         },
@@ -812,14 +666,14 @@
       "and_chr": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "within target",
-          "output": "\"edit box, street\"",
+          "output": "\"edit box, street, in pager\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -832,6 +686,13 @@
               "feature_assertion_id": "convey_name",
               "result": "fail",
               "notes": "not conveyed when first entering the dialog"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "fail",
+              "notes": "Modal state was not conveyed but non-modal content was not obscured. See other expectations for details."
             }
           ]
         },
@@ -862,18 +723,24 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
             "focus_location": "within target"
           },
           "after": "before target",
-          "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
+          "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "applied_to": "aria/dialog_role",
               "result": "fail"
             }
           ]
@@ -892,45 +759,6 @@
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
-          "output": "\"edit box, street\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "fail",
-              "notes": "Modal state was not conveyed but non-modal content was not obscured. See other expectations for details."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "content outside of the modal was announced",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "limit_reading_to_children",
-              "applied_to": "aria/dialog_role",
               "result": "fail"
             }
           ]
@@ -961,54 +789,49 @@
       "ios_saf": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "start of target",
             "focus_location": "start of target"
           },
           "after": "within target",
-          "output": "\"add delivery address, web dialog...\"",
+          "output": "\"(earcon indicating button was activated)\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "start of target",
-            "focus_location": "start of target"
-          },
-          "after": "within target",
-          "output": "\"add delivery address, web dialog...\"",
-          "results": [
+              "result": "fail"
+            },
             {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "fail",
+              "notes": "Modal state was not conveyed and content outside the modal could be found."
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "start of target",
             "focus_location": "start of target"
           },
           "after": "before target",
-          "output": "\"modal dialog design pattern in aria authoring practices 1.1, link\"",
+          "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "applied_to": "aria/dialog_role",
               "result": "fail"
             }
           ]
@@ -1026,48 +849,18 @@
           "results": [
             {
               "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "start of target",
-            "focus_location": "start of target"
-          },
-          "after": "within target",
-          "output": "\"add delivery address, web dialog...\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "partial",
-              "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
-          "output": "\"opening double quotation mark\" and \"closing double quotation mark\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "limit_reading_to_children",
-              "applied_to": "aria/dialog_role",
-              "result": "partial",
-              "notes": "quotation marks were found and announced but no other content was conveyed"
             }
           ]
         },
@@ -1080,13 +873,13 @@
             "focus_location": "within target"
           },
           "after": "before target",
-          "output": "not found",
+          "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -1099,13 +892,13 @@
             "focus_location": "within target"
           },
           "after": "before target",
-          "output": "not found",
+          "output": "\"add delivery address, button\"",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
@@ -1115,7 +908,7 @@
       "safari": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1133,6 +926,13 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "partial",
+              "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
             }
           ]
         },
@@ -1156,24 +956,32 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
             "focus_location": "within target"
           },
           "after": "before target",
-          "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
+          "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
+          "notes": "Could navigate to the previous link, but nothing past that.",
           "results": [
             {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "applied_to": "aria/dialog_role",
+              "result": "partial",
+              "notes": "Only the previous link could be found, even after navigating out of the dialog via VO+shift+up arrow"
             }
           ]
         },
@@ -1192,46 +1000,6 @@
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "activate_button",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"street, edit text\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "partial",
-              "notes": "Modal state was not conveyed but non-modal content was partially obscured which partially implies the modal state. See other expectations for details."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "target",
-            "focus_location": "target"
-          },
-          "after": "before target",
-          "output": "unable to navigate to outside content",
-          "results": [
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "limit_reading_to_children",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "unable to navigate to outside content even after navigating out of the dialog via VO+shift+up arrow"
             }
           ]
         },
@@ -1302,14 +1070,14 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
+          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "within target",
             "focus_location": "within target"
           },
           "after": "start of target",
-          "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\" ",
+          "output": "\"add delivery address dialog, street, entry\" ",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -1324,35 +1092,22 @@
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "partial",
-              "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "start of target",
-          "output": "link before the modal was announced, and then \"add delivery address dialog, street, entry\".",
-          "results": [
+              "result": "pass",
+              "notes": ""
+            },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
-              "result": "partial",
-              "notes": "boundaries partially implied by the fact that the rest of the document is not navigable. Partial because the link before the modal was announced."
+              "result": "pass",
+              "notes": ""
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "partial",
-              "notes": "Partial because the link before the modal was announced (but nothing else outside of the modal)."
+              "result": "pass",
+              "notes": ""
             }
           ]
         },
@@ -1391,6 +1146,20 @@
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
               "result": "partial"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "partial",
+              "notes": ""
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "applied_to": "aria/dialog_role",
+              "result": "partial",
+              "notes": ""
             }
           ]
         },
@@ -1427,29 +1196,19 @@
     }
   ],
   "versions": {
-    "dragon_win": {
-      "browsers": {
-        "chrome": {
-          "at_version": "15.30",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-08-13"
-        }
-      }
-    },
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-08-13"
+          "at_version": "2020.2006.12",
+          "browser_version": "84",
+          "os_version": "2004",
+          "date": "2020-07-20"
         },
         "ie": {
-          "at_version": "2019.1906.10",
+          "at_version": "2020.2006.12",
           "browser_version": "11",
-          "os_version": "1903",
-          "date": "2019-08-13"
+          "os_version": "2004",
+          "date": "2020-07-20"
         },
         "firefox": {
           "at_version": "2019.1906.10",
@@ -1462,66 +1221,66 @@
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "browser_version": "44",
-          "os_version": "1903",
-          "date": "2019-08-13"
+          "at_version": "2004",
+          "browser_version": "83",
+          "os_version": "2004",
+          "date": "2020-07-20"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-08-13"
+          "at_version": "2020.1",
+          "browser_version": "84",
+          "os_version": "2004",
+          "date": "2020-07-20"
         },
         "firefox": {
-          "at_version": "2019.1.1",
-          "browser_version": "68",
-          "os_version": "1903",
-          "date": "2019-08-13"
+          "at_version": "2020.1",
+          "browser_version": "78",
+          "os_version": "2004",
+          "date": "2020-07-20"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-13"
+          "at_version": "3.36.1",
+          "browser_version": "78",
+          "os_version": "Ubuntu 20.04",
+          "date": "2020-07-20"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
-          "browser_version": "76",
+          "at_version": "8.1",
+          "browser_version": "84",
           "os_version": "7",
-          "date": "2019-08-13"
+          "date": "2020-07-20"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.3.1",
-          "browser_version": "12.3.1",
-          "os_version": "12.3.1",
-          "date": "2019-08-13"
+          "at_version": "13.6",
+          "browser_version": "13.6",
+          "os_version": "13.6",
+          "date": "2020-07-20"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.6",
-          "browser_version": "12.1.2",
-          "os_version": "10.14.5",
-          "date": "2019-08-13"
+          "at_version": "10.15.6",
+          "browser_version": "13.1.2",
+          "os_version": "10.15.6",
+          "date": "2020-07-20"
         }
       }
     }
