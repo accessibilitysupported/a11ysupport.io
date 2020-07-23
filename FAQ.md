@@ -11,16 +11,16 @@
 
 ## What is this?
 
-This is a community driven website that aims to help inform developers about what is [accessibility supported](https://www.w3.org/TR/WCAG21/#cc4). In order to conform to WCAG 2.0, you must write code in ways that are supported by assistive technologies (such as screen readers).
+This is a community-driven website that aims to help inform developers about what is [accessibility supported](https://www.w3.org/TR/WCAG21/#cc4). In order to conform to WCAG 2.0, you must write code in ways that are supported by assistive technologies (such as screen readers).
 
-Our goal is not to tell you what you can or can not use, but to help you make informed decisions. For example, you may be able to use unsupported features in a way that does not negatively affect AT interaction.
+Our goal is not to tell you what you can or cannot use, but to help you make informed decisions. For example, you may be able to use unsupported features in a way that does not negatively affect AT interaction.
 
 We also hope to help developers learn how to test with assistive technologies. To accomplish this, we will provide introductory materials on how to use different assistive technologies and provide detailed instructions about how to perform tests. We also hope to run workshops at developer conferences.
 
 There are some other projects that are similar to this, however, most of them:
 * Are closed sourced (no contributions)
-* Do not cover all of the common AT
-* Do not disclose exactly how tests are performed
+* Do not cover all the common AT
+* Do not disclose exactly how tests should be performed
 * Only tests a specific technology (or a subset of that technology)
 * Only tests the accessibility API layer, not the end result of the AT
 
@@ -29,19 +29,19 @@ There are some other projects that are similar to this, however, most of them:
 Interpreting results can be fairly complex, so here are some general suggestions:
 
 * Just because a feature is marked as supported in this project doesn't mean that it will be supported in all situations. Remember that we are testing against specific implementations. While we try to keep the tests as representative as possible, they might not match your specific implementation, and the context in which a code feature is used can mean the difference between good support and a blocker. Be sure to test your specific implementations.
-* Just because something is marked as not having any known support does not necessarily mean that there will be negative consequences for using it. It might be okay to use a feature that has poor accessibility support if doing so will not result in any barriers, or if a work-around is used.
+* Just because something is marked as not having any known support does not necessarily mean there will be negative consequences for using it. It might be okay to use a feature that has poor accessibility support if doing so will not result in any barriers, or if a work-around is used.
 * Be careful when using features that are listed as having partial support. Partial support might mean that specific aspects of a feature are not supported or that certain assistive technology commands do not work as expected.
 * Understand that this is a project of user-contributed data. As such it may not always be the most up to date resource and may not always be accurate. We do our best to validate contributions and ensure a high level of quality, but mistakes do happen, and technology rapidly changes.
 * The best way to determine how well your code works for people with disabilities is to test your code with people with disabilities.
-* Be sure that you conform to [WCAG 2.1 level AA](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
+* Be sure you conform to [WCAG 2.1 level AA](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
 
 ## What is the status of this project?
 
-This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project but with a slightly different approach and reduced scope. The ARIA-AT group is still in the planning phases and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
+This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project but with a slightly different approach and reduced scope. The ARIA-AT group is still in the planning phase, and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
 
 ## Can't this be automated?
 
-There are many different ways that Assistive Technology (AT) interacts with a browser and your code.
+There are many ways that Assistive Technology (AT) interacts with a browser and your code.
 
 1. Accessibility APIs (most common). In this method, a browser will create an accessibility tree (a subset of the DOM) and expose it to a system Accessibility API. The AT will then consume that API. This mapping is being standardized for many technologies via the [Accessibility API Mapping standards](https://www.w3.org/TR/core-aam-1.1/).
 2. The AT will directly interface with the browser and read the DOM.
@@ -69,32 +69,32 @@ Testing every possible combination of AT and Browser is simply unrealistic. We o
 
 ### Core AT + Browser combinations
 
-Core AT and Browsers are commonly used or widely available. We try to keep the list to a minimum in order to make testing easier. The following rules are used to determine what should be considered 'core':
+Core AT and Browsers are commonly used or widely available. We try to keep the list to a minimum in order to make testing easier. The following rules determine what should be considered 'core':
 
 For each category of AT that is within the scope:
-1. AT that is built into the operating system if it is used by at least 10% of respondents + the native browser on that operating system.
-2. Free or Open source AT (eg. NVDA) that this is widely adopted + the browser with the highest usage for the AT.
-3. AT that requires a paid license and is widely adopted + the browser with the highest reported usage for the AT.
+1. AT that is built into the operating system + the native browser on that operating system.
+2. Free or Open source AT (eg. NVDA) + browser combinations that are widely adopted for that AT.
+3. AT that requires a paid license + browser combinations that are widely adopted for that AT.
 4. AT that has published documentation of supported combinations.
 
-The phrase 'widely supported' for core AT means that greater than or equal to 10% of respondents use it as their primary AT.
+The phrase 'widely adopted' for core AT means that greater than or equal to 10% of respondents use it as their primary AT.
 
 ### Extended Combinations
 
-Extended combinations include rarer AT/Browser combinations that are used by at least 10% of respondents + the major browsers available on the operating system.
+Extended combinations include rarer AT/Browser combinations but is limited to major AT and major browsers.
 
-Major browsers are defined as Google Chrome, Edge, Firefox, Internet Explorer, and Safari.
+Major AT is defined as AT that is either built into operating systems or survey data shows at least 10% usage. Major browsers are defined as Google Chrome, Edge, Firefox, Internet Explorer, and Safari.
 
 ### Survey Sources
 
 For now, we base our data on the results of the latest
 
-* [WebAim Screen Reader Survey](https://webaim.org/projects/screenreadersurvey7/). 
+* [WebAim Screen Reader Survey](https://webaim.org/projects/screenreadersurvey8/). 
 * [UK.gov AT Survey](https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/)
 
 ## Who runs this?
 
-The community both runs and owns this project. The original idea and prototype were developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are opened sourced under the [GPL 3.0 license](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/LICENSE).
+The community both runs and owns this project. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are open sourced under the [GPL 3.0 license](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/LICENSE).
 
 ## What are the levels of support?
 
@@ -117,5 +117,5 @@ For a test or feature:
 
 ## What are expectations?
 
-Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support that goes above and beyond. Note that there is not an explicit standard that dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many different commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported.
+Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support which goes above and beyond. Note that there is not an explicit standard which dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported in some situations.
 
