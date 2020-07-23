@@ -73,9 +73,9 @@ Core AT and Browsers are commonly used or widely available. We try to keep the l
 
 For each category of AT that is within the scope:
 1. AT that is built into the operating system + the native browser on that operating system.
-2. Free or Open source AT (eg. NVDA) + browser combinations that are widely adopted for that AT.
-3. AT that requires a paid license + browser combinations that are widely adopted for that AT.
-4. AT that has published documentation of supported combinations.
+2. Free or Open source AT (eg. NVDA) that are widely adopted + browser combinations that are widely adopted for that AT.
+3. AT that requires a paid license that are widely adopted + browser combinations that are widely adopted for that AT.
+4. AT that is widely adopted and has published documentation of supported combinations.
 
 The phrase 'widely adopted' for core AT means that greater than or equal to 10% of respondents use it as their primary AT.
 
