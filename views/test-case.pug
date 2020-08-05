@@ -181,7 +181,15 @@ block content
                                                                         span= " ("+ATBrowsers.at[at].commands[output.command].name+")"
                                                                     else
                                                                         strong= ", " + output.command
-
+                                                                if (output.title)
+                                                                    li
+                                                                        strong= "procedure title: "
+                                                                        span= output.title + ' using '
+                                                                        if (ATBrowsers.at[at].commands[output.command])
+                                                                            span=  ATBrowsers.at[at].commands[output.command].command
+                                                                            span= " (" + ATBrowsers.at[at].commands[output.command].name + ")"
+                                                                        else
+                                                                            strong= " " + output.command
                                                                 if (output.before && ATBrowsers.at[at].type === "sr")
                                                                     li before the command was executed
                                                                         ul
@@ -193,12 +201,12 @@ block content
                                                                                     strong= "mode: "
                                                                                     span= mode
 
-                                                                                if (output.before.focus_location !== "na")
+                                                                                if (output.before.focus_location && output.before.focus_location !== "na")
                                                                                     li
                                                                                         strong= "keyboard focus location: "
                                                                                         span= output.before.focus_location
 
-                                                                                if (output.before.virtual_location !== "na")
+                                                                                if (output.before.virtual_location && output.before.virtual_location !== "na")
                                                                                     li
                                                                                         strong= "virtual cursor location: "
                                                                                         span= output.before.virtual_location
@@ -207,6 +215,55 @@ block content
                                                                     li
                                                                         strong= "location after command: "
                                                                         span= output.after
+                                                                if (output.steps && output.steps.length)
+                                                                    li
+                                                                        strong Steps to reproduce
+                                                                        ol
+                                                                            li navigate to test HTML
+                                                                            each step in output.steps
+                                                                                if (step.action === 'navigate forward to' || step.action === 'navigate backwards to')
+                                                                                    li #{step.action + ' '}
+                                                                                        if (step.selector === 'target')
+                                                                                            span `#{output.css_target}`
+                                                                                        else
+                                                                                            span `#{step.selector}`
+                                                                                if (step.action === 'set mode to')
+                                                                                    li #{step.action} #{step.value}
+                                                                                        if (step.value === 'auto')
+                                                                                            span  (do not explicitly change the mode)
+                                                                                if (step.action === 'issue command')
+                                                                                    li #{step.action}
+                                                                                        if (step.command)
+                                                                                            if (ATBrowsers.at[at].commands[step.command])
+                                                                                                span= ' "'+ATBrowsers.at[at].commands[step.command].command+'"'
+                                                                                                span= " (" + ATBrowsers.at[at].commands[step.command].name + ")"
+                                                                                            else
+                                                                                                strong #{' "'+step.command+'"'}
+                                                                                        else
+                                                                                            if (ATBrowsers.at[at].commands[output.command])
+                                                                                                span= ' "'+ATBrowsers.at[at].commands[output.command].command+'"'
+                                                                                                span= " (" + ATBrowsers.at[at].commands[output.command].name + ")"
+                                                                                            else
+                                                                                                strong #{' "'+output.command+'"'}
+                                                                                        if (step.multiple)
+                                                                                                span  multiple times
+                                                                                        if (step.summary || step.ensure_at_location)
+                                                                                            ul
+                                                                                                if (step.summary)
+                                                                                                    li summary: #{step.summary}
+                                                                                                if (step.ensure_at_location)
+                                                                                                    li Ensure AT location after executing the command
+                                                                                                        ul
+                                                                                                            if (step.ensure_at_location.focus)
+                                                                                                                li
+                                                                                                                    strong= "keyboard focus location: "
+                                                                                                                    span #{step.ensure_at_location.focus}
+                                                                                                            if (step.ensure_at_location.virtual)
+                                                                                                                li
+                                                                                                                    strong= "virtual cursor location: "
+                                                                                                                    span #{step.ensure_at_location.virtual}
+                                                                            li is the expectation met?
+
                                                                 li
                                                                     strong Output:
                                                                     span= " " + output.output
