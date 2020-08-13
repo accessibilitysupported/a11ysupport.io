@@ -77,10 +77,10 @@ router.get('/:testId', function(req, res, next) {
 
 /* Run a specific test for a feature. */
 router.get('/:testId/run', function(req, res, next) {
-    let testId = testHelper.undoMakeSafe(req.params.testId);
-    let testMap = require(__dirname+'/../build/test_map');
-    let features = testMap[testId];
-    let test_html, test, test_html_file;
+	let testId = testHelper.undoMakeSafe(req.params.testId);
+	let testMap = require(__dirname+'/../build/test_map');
+	let features = testMap[testId];
+	let test_html, test, dev_test, test_html_file;
 
 	if (!features || !features.length) {
 		// Not found in the test_map.
@@ -96,28 +96,37 @@ router.get('/:testId/run', function(req, res, next) {
 		return;
 	}
 
+	try {
+		dev_test = require(__dirname+'/../data/tests/'+testId+'.json');
+	} catch (e) {
+		// Not found
+		next(createError(404));
+		return;
+	}
+
 	test_html_file = __dirname+'/../data/tests/html/'+testId+'.html';
 
 	if (test.html_file) {
 		test_html_file = __dirname+'/../data/tests/html/'+test.html_file;
 	}
 
-    if (fs.existsSync(test_html_file)) {
-        test_html = fs.readFileSync(test_html_file, 'utf8');
-    }
+	if (fs.existsSync(test_html_file)) {
+		test_html = fs.readFileSync(test_html_file, 'utf8');
+	}
 
-    res.render('test-case-run', {
-        title: 'Test: '+test.title + ' | Accessibility Support',
-        techId: req.params.techId,
-        testMap: testMap,
-        testHTML: test_html,
-        test: test,
-        features: features,
-        ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+	res.render('test-case-run2', {
+		title: 'Test: '+test.title + ' | Accessibility Support',
+		techId: req.params.techId,
+		testMap: testMap,
+		testHTML: test_html,
+		test: test,
+		devTest: dev_test,
+		features: features,
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-        testHelper: testHelper,
+		testHelper: testHelper,
 		moment: moment
-    });
+	});
 });
 
 /* GET a specific test for a feature. */

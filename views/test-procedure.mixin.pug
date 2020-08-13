@@ -1,0 +1,75 @@
+mixin test-procedure(testCase, at, browser, ATBrowsers, test)
+
+    ol
+        li Launch #{at.title} and #{browser.title}.
+        li Navigate to #[a(href='/tests/html/' + test.html_file) the test page].
+        if (testCase.before)
+            li Identify all elements that match this selector:
+                code #{testCase.css_target}
+                ul
+                    li If multiple elements match the target, repeat this test for all instances. However, choose a single instance to report against. If you feel that the selector should be more specific, please open a GitHub Issue.
+            if (at.type === 'sr')
+                li Position and configure the screen reader so that the following conditions are met
+                    ul
+                        if (testCase.before.virtual_location && testCase.before.virtual_location !== 'na')
+                            li Virtual focus is: #{testCase.before.virtual_location}
+                        if (testCase.before.focus_location && testCase.before.focus_location !== 'na')
+                            li Keyboard focus is: #{testCase.before.focus_location}
+                        if (testCase.before.mode && testCase.before.mode !== 'na')
+                            li Mode is: #{testCase.before.mode}
+                                if (testCase.before.mode === 'auto')
+                                    span  (do not explicitly change the mode)
+                                else
+                                    span  (explicitly change the mode if needed)
+                li Issue the command:
+                    code  #{at.commands[testCase.command].command}
+                    span  (#{at.commands[testCase.command].name})
+                    ul
+                        li After issuing the command, virtual focus should be: #{testCase.after}
+                li Record results for the relevant expectations
+        else if (testCase.steps)
+            each step in testCase.steps
+                if (step.action === 'navigate forward to' || step.action === 'navigate backwards to')
+                    li #{step.action + ' '}
+                        if (step.selector === 'target')
+                            span `#{testCase.css_target}`
+                        else
+                            span `#{step.selector}`
+                if (step.action === 'set mode to')
+                    li #{step.action} #{step.value}
+                        if (step.value === 'auto')
+                            span  (do not explicitly change the mode)
+                if (step.action === 'issue command')
+                    li #{step.action}
+                        if (step.command)
+                            if (at.commands[step.command])
+                                span= ' "'+at.commands[step.command].command+'"'
+                                span= " (" + at.commands[step.command].name + ")"
+                            else
+                                strong #{' "'+step.command+'"'}
+                        else
+                            if (at.commands[testCase.command])
+                                span= ' "'+at.commands[testCase.command].command+'"'
+                                span= " (" + at.commands[testCase.command].name + ")"
+                            else
+                                strong #{' "'+testCase.command+'"'}
+                        if (step.multiple)
+                            span  multiple times
+                        if (step.summary || step.ensure_at_location)
+                            ul
+                                if (step.summary)
+                                    li summary: #{step.summary}
+                                if (step.ensure_at_location)
+                                    li Ensure AT location after executing the command
+                                        ul
+                                            if (step.ensure_at_location.focus)
+                                                li
+                                                    strong= "keyboard focus location: "
+                                                    span #{step.ensure_at_location.focus}
+                                            if (step.ensure_at_location.virtual)
+                                                li
+                                                    strong= "virtual cursor location: "
+                                                    span #{step.ensure_at_location.virtual}
+            li is the expectation met?
+        else
+            p unknown test procedure

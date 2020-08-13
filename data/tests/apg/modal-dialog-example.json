@@ -715,13 +715,7 @@
         },
         {
           "command": "previous_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no outside links were found",
           "results": [
             {
@@ -734,13 +728,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "only content within the modal was included in the lists",
           "results": [
             {
@@ -783,31 +771,6 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "start of target",
-            "focus_location": "start of target"
-          },
-          "after": "within target",
-          "output": "\"edit box, street\"",
-          "results": [
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_role",
-              "result": "fail",
-              "notes": "not conveyed when navigating to the boundary of the dialog"
-            },
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_name",
-              "result": "fail",
-              "notes": "not conveyed when navigating to the boundary of the dialog"
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
@@ -826,7 +789,7 @@
         },
         {
           "command": "next_item",
-          "key": "navigate_forward_into_open_dialog",
+          "procedure_key": "navigate_forward_into_open_dialog",
           "output": "dialog boundary not conveyed",
           "results": [
             {
