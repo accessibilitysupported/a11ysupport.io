@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 
 /* GET a specific test for a feature. */
 router.get('/:testId', function(req, res, next) {
-    let testId = testHelper.undoMakeSafe(req.params.testId);
+	let testId = testHelper.undoMakeSafe(req.params.testId);
 	let testMap = require(__dirname+'/../build/test_map');
 	let features = testMap[testId];
 	let test_html, test, test_html_file;
@@ -70,7 +70,7 @@ router.get('/:testId', function(req, res, next) {
 		features: features,
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
 		md: md,
-        testHelper: testHelper,
+		testHelper: testHelper,
 		moment: moment
 	});
 });
@@ -131,8 +131,8 @@ router.get('/:testId/run', function(req, res, next) {
 
 /* GET a specific test for a feature. */
 router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(req, res, next) {
-    let testId = testHelper.undoMakeSafe(req.params.testId);
-    let featureId = testHelper.undoMakeSafe(req.params.featureId);
+	let testId = testHelper.undoMakeSafe(req.params.testId);
+	let featureId = testHelper.undoMakeSafe(req.params.featureId);
 	let testMap = require(__dirname+'/../build/test_map');
 	let features = testMap[testId];
 	let test_html, test, test_html_file;
@@ -176,15 +176,15 @@ router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(
 		return;
 	}
 
-    test_html_file = __dirname+'/../data/tests/html/'+testId+'.html';
+	test_html_file = __dirname+'/../data/tests/html/'+testId+'.html';
 
-    if (test.html_file) {
-        test_html_file = __dirname+'/../data/tests/html/'+test.html_file;
-    }
+	if (test.html_file) {
+		test_html_file = __dirname+'/../data/tests/html/'+test.html_file;
+	}
 
-    if (fs.existsSync(test_html_file)) {
-        test_html = fs.readFileSync(test_html_file, 'utf8');
-    }
+	if (fs.existsSync(test_html_file)) {
+		test_html = fs.readFileSync(test_html_file, 'utf8');
+	}
 
 	res.render('test-case-support-point', {
 		title: req.params.atId + '/' + req.params.browserId + ' | Test: '+test.title + ' | Accessibility Support',
@@ -198,7 +198,7 @@ router.get('/:testId/:featureId/:featureAssertionId/:atId/:browserId', function(
 		ATBrowsers: ATBrowsers,
 		md: md,
 		assertion: assertion,
-        testHelper: testHelper,
+		testHelper: testHelper,
 		moment: moment
 	});
 });

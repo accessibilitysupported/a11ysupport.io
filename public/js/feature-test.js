@@ -221,42 +221,42 @@ function initFeatureTest() {
 
 		body += '| property | value |\n';
 		body += '| --- | --- |\n';
-        body += '| title | ' + dom_title.value + ' |\n';
+		body += '| title | ' + dom_title.value + ' |\n';
 		body += '| at | ' + dom_at.value + ' |\n';
-        body += '| at_version | ' + dom_at_version.value + ' |\n';
-        body += '| browser | ' + dom_browser.value + ' |\n';
-        body += '| browser_version | ' + dom_browser_version.value + ' |\n';
-        body += '| os_version | ' + dom_os_version.value + ' |\n';
+		body += '| at_version | ' + dom_at_version.value + ' |\n';
+		body += '| browser | ' + dom_browser.value + ' |\n';
+		body += '| browser_version | ' + dom_browser_version.value + ' |\n';
+		body += '| os_version | ' + dom_os_version.value + ' |\n';
 
-        var commands = document.querySelectorAll('#combo-'+at_value+'-'+browser_value+' fieldset.command');
-        console.log(commands);
+		var commands = document.querySelectorAll('#combo-'+at_value+'-'+browser_value+' fieldset.command');
+		console.log(commands);
 
+		var diff = '';
+
+		let getDiff = function(title, before, after) {
 			var diff = '';
-
-        let getDiff = function(title, before, after) {
-        	var diff = '';
-        	if (before === after) {
-        		return diff;
+			if (before === after) {
+				return diff;
 			}
 
-        	if (!before) {
-        		before = '(empty)';
+			if (!before) {
+				before = '(empty)';
 			}
 
-        	if (!after) {
-        		after = '(empty)';
+			if (!after) {
+				after = '(empty)';
 			}
 
-        	diff += title + '\n';
-        	diff += '**before:**' + '\n';
-        	diff += '```' + before + '```\n';
+			diff += title + '\n';
+			diff += '**before:**' + '\n';
+			diff += '```' + before + '```\n';
 			diff += '**after:**' + '\n';
 			diff += '```' + after + '```\n';
 			diff += '\n';
 			return diff;
 		};
 
-        commands.forEach(command => {
+		commands.forEach(command => {
 			var commandDiff = '';
 
 			var legend = command.querySelector('legend');
@@ -289,8 +289,8 @@ function initFeatureTest() {
 			diff += commandDiff;
 		});
 
-        if (!diff) {
-        	diff = 'no changes (same results were confirmed)';
+		if (!diff) {
+			diff = 'no changes (same results were confirmed)';
 		}
 
 		body += '\n\n'+diff;
