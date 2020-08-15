@@ -9,6 +9,12 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-label"
     }
   ],
+  "related_issues": [
+    {
+      "title": "NVDA: button name change not conveyed",
+      "url": "https://github.com/nvaccess/nvda/issues/11224"
+    }
+  ],
   "assertions": [
     {
       "id": "contribute_to_accessible_name",
@@ -23,6 +29,20 @@
         "sr/reading",
         "sr/interaction",
         "vc"
+      ]
+    },
+    {
+      "id": "convey_name_change",
+      "title": "convey name changes",
+      "css_target": "*[aria-label]",
+      "rationale": "The user needs to know that that the name of a control changes while interacting with it. This may be to convey a new purpose or to convey a state change which is provided by the name.",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
+      "pass_strategy": "all",
+      "operation_modes": [
+        "sr/interaction"
       ]
     }
   ],

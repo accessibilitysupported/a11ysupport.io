@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML button name change tests</title>
+    <style>
+        button[aria-label] {
+            vertical-align: middle;
+            padding: .2em;
+        }
+        button span[data-pressed] {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border: 1px solid #000;
+        }
+        span[data-pressed="true"] {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HTML button name change tests</h1>
+
+<p>The following are html button name change tests. The test passes if the screen reader announces the button's new name after activating it.</p>
+
+<div id="app">
+    <h2>Example 1: Button, inner text changes on click</h2>
+    <button id="example-1-target">show</button>
+
+    <h2>Example 2: Button, aria-label changes on click</h2>
+    <button id="example-2-target" aria-label="show"><span aria-hidden="true" data-pressed="false"></span></button>
+
+    <h2>Example 3: Button, inner text changes but has aria-labelledby that references itself (recursive)</h2>
+    <button id="example-3-target" aria-labelledby="example-3-target">show</button>
+</div>
+
+<script>
+	const appDiv = document.getElementById('app');
+
+	var changeName = function(e) {
+		var target = e.target;
+
+		if (target.tagName !== 'BUTTON') {
+			target = target.parentElement;
+		}
+
+		var changeInner = target.getAttribute('aria-label');
+		if (changeInner) {
+
+			if (target.getAttribute('aria-label') === 'show') {
+				target.setAttribute('aria-label', 'hide');
+				var icon = target.querySelector('span');
+				icon.setAttribute('data-pressed', 'true');
+			} else {
+				target.setAttribute('aria-label', 'show');
+				var icon = target.querySelector('span');
+				icon.setAttribute('data-pressed', 'false');
+			}
+		} else {
+			if (target.innerText === 'show') {
+				target.innerText = 'hide';
+			} else {
+				target.innerText = 'show';
+			}
+		}
+	}
+
+	var buttons = appDiv.querySelectorAll('button');
+	buttons.forEach(function(button) {
+		button.addEventListener('click', changeName);
+	})
+</script>
+
+</body>
+</html>
