@@ -114,7 +114,7 @@ router.get('/:testId/run', function(req, res, next) {
 		test_html = fs.readFileSync(test_html_file, 'utf8');
 	}
 
-	res.render('test-case-run2', {
+	res.render('test-case-run', {
 		title: 'Test: '+test.title + ' | Accessibility Support',
 		techId: req.params.techId,
 		testMap: testMap,
