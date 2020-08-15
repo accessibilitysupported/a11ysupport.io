@@ -263,6 +263,7 @@ function initFeatureTest() {
 
 			commandDiff += getDiff('### output', command.querySelector('.output-before').value, command.querySelector('.output-after').value);
 			commandDiff += getDiff('### notes', command.querySelector('.notes-before').value, command.querySelector('.notes-after').value);
+			commandDiff += getDiff('### behind setting', command.querySelector('.behind-setting-before').value, command.querySelector('.behind-setting-after').value);
 
 			var results = command.querySelectorAll('fieldset');
 			results.forEach(result => {

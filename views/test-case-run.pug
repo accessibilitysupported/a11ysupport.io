@@ -109,6 +109,11 @@ block content
                                                     label(for=at.id + '-' + browser_id + '-' + command_index + '-notes') Notes
                                                     textarea(id=at.id + '-' + browser_id + '-' + command_index + '-notes' class='notes-after') #{command.notes}
 
+                                                    // behind_setting
+                                                    input(type="hidden" class='behind-setting-before' id=at.id + '-' + browser_id + '-' + command_index + '-behind-setting-before' value=command.behind_setting)
+                                                    label(for=at.id + '-' + browser_id + '-' + command_index + '-behind-setting') If support is hidden behind non-default settings, briefly describe that setting
+                                                    textarea(id=at.id + '-' + browser_id + '-' + command_index + '-behind-setting' class='behind-setting-after') #{command.behind_setting}
+
                                                     each result, result_index in command.results
                                                         - var assertion_key = testHelper.getAssertionKey(test, result.feature_id, result.feature_assertion_id, result.applied_to, result.references);
                                                         fieldset
@@ -144,9 +149,6 @@ block content
                                                             input(type="hidden" class='note-before' id=at.id + '-' + browser_id + '-' + command_index + '-results-'+result_index+'-notes-before' value=result.note)
                                                             label(for=at.id + '-' + browser_id + '-' + command_index + '-results-'+result_index+'-notes') Notes
                                                             textarea(id=at.id + '-' + browser_id + '-' + command_index + '-results-'+result_index+'-notes' class='note-after') #{result.note}
-
-
-
 
                         div.control
                             button Create GitHub Issue
