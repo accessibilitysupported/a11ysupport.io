@@ -8,8 +8,12 @@ block content
             h1= 'Test: ' + test.title
             div(class="current-support-container "+test.core_support_string.sr.class)
                 p= 'Screen Reader support level: ' + test.core_support_string.sr.string
+                    if (test.core_support_string.sr.class === 'na')
+                        span  (or no 'MUST' expectations)
             div(class="current-support-container " + test.core_support_string.vc.class)
                 p= 'Voice Control support level: ' + test.core_support_string.vc.string
+                    if (test.core_support_string.vc.class === 'na')
+                        span  (or no 'MUST' expectations)
 
             h2(id="top") On this page
             ul.link-list
@@ -66,9 +70,10 @@ block content
                             h2(id="support-summary-by-at-"+at_type.type) Summary of #{at_type.title} support by expectation
                         - var some_support_behind_settings = false;
                         - var colspan = 0;
-                        - var assertions_found = 0;
+
                         div.responsive-table(tabindex="0")
                             each feature, currentFeatureIndex in testMap[test.id]
+                                - var assertions_found = 0;
                                 table(aria-labelledby="support-summary-by-at-"+at_type.type+" "+at_type.type+"-feature-index-"+currentFeatureIndex).support-table.assertion-container.summary-matrix
                                     caption(id=at_type.type+"-feature-index-"+currentFeatureIndex) #{feature.title}
                                     tr
@@ -107,9 +112,9 @@ block content
                                                                 if (assertion.core_support_by_at_browser[at_id][browser].some_support_behind_settings)
                                                                     - some_support_behind_settings = true;
                                                                     span *
-                                if assertions_found === 0
-                                    tr
-                                        td(colspan=colspan + 1) Not applicable
+                                    if assertions_found === 0
+                                        tr
+                                            td(colspan=colspan + 1) Not applicable
                         p * means that some support is hidden behind settings
 
             h2(id="detailed-results") Detailed support results by expectation
