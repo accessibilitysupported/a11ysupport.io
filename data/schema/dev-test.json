@@ -169,7 +169,12 @@
             }
           }
         },
-        "required": ["command", "css_target", "results"]
+        "anyOf": [
+          { "required":
+            [ "results", "command", "procedure_key" ] },
+          { "required":
+            [ "results", "command", "css_target", "before", "after" ] }
+        ]
       }
     },
     "assertion": {

@@ -31,19 +31,248 @@
       "applied_to": "aria/dialog_role"
     }
   ],
+  "procedures": [
+    {
+      "key": "open_dialog",
+      "title": "open the dialog",
+      "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "button",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "on selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "observe": "dialog will open and focus will be moved to the target",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        }
+      ]
+    },
+    {
+      "key": "navigate_backwards_out_of_open_modal",
+      "title": "attempt to navigate backwards to content behind the open modal",
+      "css_target": "*[aria-role=\"dialog\" *[aria-modal=\"true\"]",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "button",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "on selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "command": "activate_button",
+          "summary": "dialog will open and focus will be moved to the target",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        },
+        {
+          "action": "issue command",
+          "multiple": true,
+          "summary": "attempt to navigate backwards past the start of the dialog",
+          "ensure_at_location": {
+            "virtual": "before target",
+            "focus": "before target"
+          }
+        }
+      ]
+    },
+    {
+      "key": "navigate_backwards_out_of_open_modal_VO",
+      "title": "attempt to navigate backwards to content behind the open modal",
+      "css_target": "*[aria-role=\"dialog\" *[aria-modal=\"true\"]",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "button",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "on selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "command": "activate_button",
+          "summary": "dialog will open and focus will be moved to the target",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        },
+        {
+          "action": "issue command",
+          "command": "exit_object",
+          "summary": "navigate to the dialog container",
+          "ensure_at_location": {
+            "virtual": "target",
+            "focus": "target"
+          }
+        },
+        {
+          "action": "issue command",
+          "multiple": true,
+          "summary": "attempt to navigate backwards past the start of the dialog",
+          "ensure_at_location": {
+            "virtual": "before target",
+            "focus": "before target"
+          }
+        }
+      ]
+    },
+    {
+      "key": "navigate_to_modal_container_VO",
+      "title": "navigate to modal container",
+      "css_target": "*[aria-role=\"dialog\" *[aria-modal=\"true\"]",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "button",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "on selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "command": "activate_button",
+          "summary": "dialog will open and focus will be moved to the target",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        },
+        {
+          "action": "issue command",
+          "summary": "navigate to the modal container",
+          "ensure_at_location": {
+            "virtual": "target",
+            "focus": "target"
+          }
+        }
+      ]
+    },
+    {
+      "key": "open_element_list_while_modal_open",
+      "title": "Open the element list while the modal is open",
+      "css_target": "*[aria-modal=true]",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "button",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "on selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "command": "activate_button",
+          "summary": "dialog will open and focus will be moved to the target",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        },
+        {
+          "action": "set mode to",
+          "value": "browse"
+        },
+        {
+          "action": "issue command",
+          "summary": "attempt to navigate to content behind the modal via the element list"
+        }
+      ]
+    },
+    {
+      "key": "navigate_forward_into_open_dialog",
+      "title": "navigate forward into open dialog",
+      "css_target": "*[aria-role=\"dialog\"]",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "button",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "on selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "command": "activate_button",
+          "summary": "dialog will open and focus will be moved to the target",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        },
+        {
+          "action": "set mode to",
+          "value": "browse"
+        },
+        {
+          "action": "issue command",
+          "command": "previous_item",
+          "multiple": true,
+          "summary": "navigate backwards out of the open dialog",
+          "ensure_at_location": {
+            "virtual": "before target",
+            "focus": "before target"
+          }
+        },
+        {
+          "action": "issue command",
+          "multiple": true,
+          "summary": "navigate forwards into the open dialog",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        }
+      ]
+    }
+  ],
   "commands": {
     "dragon_win": {},
     "jaws": {
       "chrome": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"add delivery address, modal dialog, street: edit, type in text\"",
           "results": [
             {
@@ -69,13 +298,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" *[aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -93,13 +316,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "outside content was displayed in content lists, such as the of links, etc. Note: not possible to navigate to an item in the list.",
           "results": [
             {
@@ -111,14 +328,8 @@
           ]
         },
         {
-          "command": "next_unvisited_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
+          "command": "previous_unvisited_link",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no links were found",
           "results": [
             {
@@ -134,13 +345,7 @@
       "ie": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"add delivery address, modal dialog, street: edit, type in text\"",
           "results": [
             {
@@ -166,13 +371,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -190,13 +389,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "outside content was displayed in content lists, such as the of links, etc. Note: it IS possible to navigate to headings in this list and break free from the modal.",
           "results": [
             {
@@ -208,14 +401,8 @@
           ]
         },
         {
-          "command": "next_unvisited_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
+          "command": "previous_unvisited_link",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no links were found",
           "results": [
             {
@@ -230,13 +417,7 @@
       "firefox": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"add delivery address, modal dialog...\"",
           "results": [
             {
@@ -262,13 +443,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -287,13 +462,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "outside content was displayed in content lists, such as the of links, etc.",
           "results": [
             {
@@ -305,14 +474,8 @@
           ]
         },
         {
-          "command": "next_unvisited_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
+          "command": "previous_unvisited_link",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no links were found",
           "results": [
             {
@@ -330,13 +493,7 @@
       "edge": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"<title of page>, tab, Add delivery address, dialog, street, edit, scan off, heading level 2, add delivery address, street\"",
           "results": [
             {
@@ -360,13 +517,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "navigate_forward_into_open_dialog",
           "output": "\"heading level 2, add delivery address\"",
           "results": [
             {
@@ -389,13 +540,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"Link, modal dialog design pattern in wai-aria authoring practices 1.2\"",
           "results": [
             {
@@ -413,13 +558,7 @@
         },
         {
           "command": "previous_heading",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "headings were found outside of the modal",
           "results": [
             {
@@ -436,13 +575,7 @@
       "chrome": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"Add delivery address, dialog, street, edit, blank\"",
           "results": [
             {
@@ -466,13 +599,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -491,13 +618,7 @@
         },
         {
           "command": "previous_form_field",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no outside form fields were found",
           "results": [
             {
@@ -510,13 +631,7 @@
         },
         {
           "command": "previous_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no outside links were found",
           "results": [
             {
@@ -529,13 +644,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "only content within the modal was included in the lists",
           "results": [
             {
@@ -550,13 +659,7 @@
       "firefox": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"Add delivery address, dialog, street, edit, has auto complete, blank.\"",
           "results": [
             {
@@ -580,13 +683,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -605,13 +702,7 @@
         },
         {
           "command": "previous_form_field",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no outside form fields were found",
           "results": [
             {
@@ -624,13 +715,7 @@
         },
         {
           "command": "previous_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no outside links were found",
           "results": [
             {
@@ -643,13 +728,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "only content within the modal was included in the lists",
           "results": [
             {
@@ -666,13 +745,7 @@
       "and_chr": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"edit box, street, in pager\"",
           "results": [
             {
@@ -698,38 +771,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "start of target",
-            "focus_location": "start of target"
-          },
-          "after": "within target",
-          "output": "\"edit box, street\"",
-          "results": [
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_role",
-              "result": "fail",
-              "notes": "not conveyed when navigating to the boundary of the dialog"
-            },
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_name",
-              "result": "fail",
-              "notes": "not conveyed when navigating to the boundary of the dialog"
-            }
-          ]
-        },
-        {
-          "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
@@ -747,13 +789,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "navigate_forward_into_open_dialog",
           "output": "dialog boundary not conveyed",
           "results": [
             {
@@ -765,13 +801,7 @@
         },
         {
           "command": "previous_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "content outside of the modal was announced",
           "results": [
             {
@@ -789,13 +819,7 @@
       "ios_saf": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "start of target",
-            "focus_location": "start of target"
-          },
-          "after": "within target",
+          "procedure_key": "open_dialog",
           "output": "\"(earcon indicating button was activated)\"",
           "results": [
             {
@@ -814,13 +838,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "start of target",
-            "focus_location": "start of target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
@@ -838,13 +856,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "within target",
+          "procedure_key": "navigate_forward_into_open_dialog",
           "output": "\"add delivery address, web dialog...\"",
           "results": [
             {
@@ -866,13 +878,7 @@
         },
         {
           "command": "previous_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
@@ -885,13 +891,7 @@
         },
         {
           "command": "previous_form_field",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"add delivery address, button\"",
           "results": [
             {
@@ -908,13 +908,7 @@
       "safari": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
+          "procedure_key": "open_dialog",
           "output": "\"street, edit text\"",
           "results": [
             {
@@ -938,13 +932,7 @@
         },
         {
           "command": "exit_object",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "target",
+          "procedure_key": "navigate_to_modal_container_VO",
           "output": "\"Out of add delivery address, web dialog...\"",
           "results": [
             {
@@ -966,13 +954,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal_VO",
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "notes": "Could navigate to the previous link, but nothing past that.",
           "results": [
@@ -986,32 +968,8 @@
           ]
         },
         {
-          "command": "next_item",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "target",
-            "focus_location": "target"
-          },
-          "after": "before target",
-          "output": "Unable to navigate out of the dialog object and the dialog role is conveyed when entering the container is focused by VO",
-          "results": [
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
-            }
-          ]
-        },
-        {
           "command": "previous_heading",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal_VO",
           "output": "previous headings in outside content were found",
           "results": [
             {
@@ -1024,13 +982,7 @@
         },
         {
           "command": "open_element_list",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "headings, links, and other content was listed and could be navigated to",
           "results": [
             {
@@ -1047,13 +999,7 @@
       "firefox": [
         {
           "command": "activate_button",
-          "css_target": "*[aria-role=\"dialog\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
+          "procedure_key": "open_dialog",
           "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
           "results": [
             {
@@ -1070,13 +1016,7 @@
         },
         {
           "command": "previous_item",
-          "css_target": "*[aria-role=\"dialog\" aria-modal=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "start of target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "\"add delivery address dialog, street, entry\" ",
           "results": [
             {
@@ -1113,13 +1053,7 @@
         },
         {
           "command": "previous_form_field",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "no outside form fields were found",
           "results": [
             {
@@ -1132,13 +1066,7 @@
         },
         {
           "command": "previous_link",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "within target",
-            "focus_location": "within target"
-          },
-          "after": "before target",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
           "output": "The link just before the dialog example was announced, but the reading cursor was immediately sent back to the open dialog. Not possible to find other links outside of the dialog.",
           "results": [
             {
@@ -1165,13 +1093,7 @@
         },
         {
           "command": "list_links",
-          "css_target": "*[aria-modal=true]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
+          "procedure_key": "open_element_list_while_modal_open",
           "output": "outside links are listed. When jumping to those links, focus is redirected back to the open dialog.",
           "results": [
             {

@@ -700,6 +700,34 @@ helper.initalizeTestCase = function (testCase) {
 				return;
 			}
 			testCase.commands[at][browser].forEach(function(command) {
+
+				if (command.procedure_key) {
+					let procedure_index = testCase.procedures.findIndex(obj =>
+						obj.key === command.procedure_key
+					);
+
+					if (procedure_index === -1) {
+						console.log('error: procedure key of "' + command.procedure_key + '" was not found',  "testCase: " + testCase.id,);
+					}
+
+					// clone so that we can customize per AT
+					let procedure = JSON.parse(JSON.stringify(testCase.procedures[procedure_index]));
+
+					if (['vo_ios', 'talkback'].includes(at)) {
+						procedure.steps = procedure.steps.filter(step => {
+							return step.action !== "set mode to"
+						});
+						procedure.steps.forEach(step => {
+							if (step.ensure_at_location && step.ensure_at_location.focus) {
+								delete step.ensure_at_location.focus;
+							}
+						});
+					}
+
+					// merge the procedure into the command
+					command = Object.assign({}, procedure, command);
+				}
+
 				command.results.forEach(function(result) {
 					if (!result.applied_to) {
 						result.applied_to = null;
@@ -889,7 +917,6 @@ helper.initalizeTestCase = function (testCase) {
 		} else if (testCase.assertions[assertion_key].supports_at.length === 1 && testCase.assertions[assertion_key].supports_at[0] === 'vc') {
 			titleModifier = 'The voice control software ';
 		}
-
 		let ref_applied_to_feature = null;
 		if (assertion.applied_to) {
 			ref_applied_to_feature = require('../data/tech/'+assertion.applied_to+".json");
@@ -909,6 +936,7 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].assertion_title = ref_assertion.title;
 		testCase.assertions[assertion_key].assertion_strength = ref_assertion.strength;
 		testCase.assertions[assertion_key].assertion_notes = ref_assertion.notes;
+		testCase.assertions[assertion_key].assertion_examples = ref_assertion.examples;
 
 		testCase.assertions[assertion_key].core_support = {
 			sr: [],

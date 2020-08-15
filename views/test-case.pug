@@ -1,5 +1,6 @@
 extends layout
 include test-case/assertion
+include test-procedure.mixin.pug
 
 block content
     div.content-wrapper
@@ -175,38 +176,9 @@ block content
                                                             span(class="output-result "+output.result)= " (" + output.result + ")"
                                                             ul
                                                                 li
-                                                                    strong= "command: "
-                                                                    if (ATBrowsers.at[at].commands[output.command])
-                                                                        span=  ATBrowsers.at[at].commands[output.command].command
-                                                                        span= " ("+ATBrowsers.at[at].commands[output.command].name+")"
-                                                                    else
-                                                                        strong= ", " + output.command
-
-                                                                if (output.before && ATBrowsers.at[at].type === "sr")
-                                                                    li before the command was executed
-                                                                        ul
-                                                                            if (output.before.mode !== "na")
-                                                                                - var mode = output.before.mode
-                                                                                if (mode === "auto")
-                                                                                    - mode = "auto (mode not explicitly)";
-                                                                                li
-                                                                                    strong= "mode: "
-                                                                                    span= mode
-
-                                                                                if (output.before.focus_location !== "na")
-                                                                                    li
-                                                                                        strong= "keyboard focus location: "
-                                                                                        span= output.before.focus_location
-
-                                                                                if (output.before.virtual_location !== "na")
-                                                                                    li
-                                                                                        strong= "virtual cursor location: "
-                                                                                        span= output.before.virtual_location
-
-                                                                if (output.after && output.after !== "na")
-                                                                    li
-                                                                        strong= "location after command: "
-                                                                        span= output.after
+                                                                    details
+                                                                        summary Test Case: #{testHelper.generateTestTitle(output, ATBrowsers.at[at])}
+                                                                        +test-procedure(output, ATBrowsers.at[at], ATBrowsers.browsers[browser], ATBrowsers, test)
                                                                 li
                                                                     strong Output:
                                                                     span= " " + output.output
@@ -269,38 +241,9 @@ block content
                                                                 span= " (" + output.result + ")"
                                                                 ul
                                                                     li
-                                                                        strong= "command: "
-                                                                        if (ATBrowsers.at[at.id].commands[output.command])
-                                                                            span=  ATBrowsers.at[at.id].commands[output.command].command
-                                                                            span= " ("+ATBrowsers.at[at.id].commands[output.command].name+")"
-                                                                        else
-                                                                            strong= ", " + output.command
-
-                                                                    if (output.before && ATBrowsers.at[at.id].type === "sr")
-                                                                        li before the command was executed
-                                                                            ul
-                                                                                if (output.before.mode !== "na")
-                                                                                    - var mode = output.before.mode
-                                                                                    if (mode === "auto")
-                                                                                        - mode = "auto (mode not explicitly)";
-                                                                                    li
-                                                                                        strong= "mode: "
-                                                                                        span= mode
-
-                                                                                    if (output.before.focus_location !== "na")
-                                                                                        li
-                                                                                            strong= "keyboard focus location: "
-                                                                                            span= output.before.focus_location
-
-                                                                                    if (output.before.virtual_location !== "na")
-                                                                                        li
-                                                                                            strong= "virtual cursor location: "
-                                                                                            span= output.before.virtual_location
-
-                                                                    if (output.after && output.after !== "na")
-                                                                        li
-                                                                            strong= "location after command: "
-                                                                            span= output.after
+                                                                        details
+                                                                            summary Test Case: #{testHelper.generateTestTitle(output, ATBrowsers.at[at.id])}
+                                                                            +test-procedure(output, ATBrowsers.at[at.id], ATBrowsers.browsers[browser], ATBrowsers, test)
                                                                     li
                                                                         strong Output:
                                                                         span= " " + output.output
