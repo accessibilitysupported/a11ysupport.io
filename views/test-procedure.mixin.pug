@@ -27,6 +27,11 @@ mixin test-procedure(testCase, at, browser, ATBrowsers, test)
                     ul
                         li After issuing the command, virtual focus should be: #{testCase.after}
                 li Record results for the relevant expectations
+            else
+                li Issue the command:
+                    code  #{at.commands[testCase.command].command}
+                    span  (#{at.commands[testCase.command].name})
+                li Record results for the relevant expectations
         else if (testCase.steps)
             each step in testCase.steps
                 if (step.action === 'navigate forward to' || step.action === 'navigate backwards to')
