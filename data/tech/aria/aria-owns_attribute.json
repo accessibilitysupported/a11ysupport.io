@@ -9,6 +9,49 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-owns"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_single_relationship",
+      "title": "convey a single parent/child relationships",
+      "rationale": "A screen reader user needs to be aware of the appropriate relationships.",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-owns]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_multiple_relationships",
+      "title": "convey multiple parent/child relationships",
+      "rationale": "A screen reader user needs to be aware of the appropriate relationships.",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-owns]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "order_after_existing_children",
+      "title": "order the references after any existing children",
+      "rationale": "A screen reader user needs to be aware of the correct order of relationships so that the correct meaning is conveyed.",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-owns]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-08-31"
 }

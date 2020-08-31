@@ -1,0 +1,391 @@
+{
+  "title": "aria-owns multiple reference",
+  "description": "Tests aria-owns with multiples reference to other elements.",
+  "html_file": "aria/aria-owns-single.html",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-owns_attribute",
+      "feature_assertion_id": "convey_multiple_relationships",
+      "applied_to": "html/li_element",
+      "references": ["html/ul_element", "html/ul_element"]
+    },
+    {
+      "feature_id": "aria/aria-owns_attribute",
+      "feature_assertion_id": "order_after_existing_children",
+      "applied_to": "html/li_element",
+      "references": ["html/ul_element", "html/ul_element"]
+    }
+  ],
+  "procedures": [
+    {
+      "key": "navigate_through_list",
+      "title": "navigate through the list",
+      "css_target": "#target",
+      "steps": [
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "navigate forward to",
+          "selector": "#target",
+          "ensure_at_location": {
+            "virtual": "on selector",
+            "focus": "before selector"
+          }
+        },
+        {
+          "action": "issue command",
+          "multiple": "true",
+          "observe": "both of the fruits sub-lists are included as children of the target list and are not duplicated elsewhere on the page",
+          "ensure_at_location": {
+            "virtual": "after target",
+            "focus": "before target"
+          }
+        }
+      ]
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_through_list",
+          "output": "()",
+          "results": [
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "convey_multiple_relationships",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            },
+            {
+              "feature_id": "aria/aria-owns_attribute",
+              "feature_assertion_id": "order_after_existing_children",
+              "applied_to": "html/li_element",
+              "references": ["html/ul_element", "html/ul_element"],
+              "result": "unknown"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-08-31",
+      "message": "Create the test"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-08-31"
+        },
+        "ie": {
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "11",
+          "date": "2020-08-31"
+        },
+        "firefox": {
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-08-31"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-08-31"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-08-31"
+        },
+        "firefox": {
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-08-31"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.2",
+          "os_version": "7",
+          "browser_version": "85",
+          "date": "2020-08-31"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "13.6.1",
+          "os_version": "13.6.1",
+          "browser_version": "13.6.1",
+          "date": "2020-08-31"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.6",
+          "os_version": "10.15.6",
+          "browser_version": "13.1.2",
+          "date": "2020-08-31"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "80",
+          "date": "2020-08-31"
+        }
+      }
+    }
+  }
+}

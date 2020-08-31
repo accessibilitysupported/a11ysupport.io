@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-owns single test</title>
+</head>
+<body>
+<h1>aria owns tests (single reference)</h1>
+
+<button>tab stop before</button>
+
+<h2>Example 1</h2>
+
+<ul id="target">
+    <li aria-owns="child">Fruit</li>
+    <li>Vegetables</li>
+</ul>
+
+<ul id="child">
+    <li>Apples</li>
+    <li>Bananas</li>
+</ul>
+
+<h3>How Example 1 should be rendered</h3>
+
+<ul>
+    <li aria-owns="child">
+        Fruit
+        <ul>
+            <li>Apples</li>
+            <li>Bananas</li>
+        </ul>
+    </li>
+    <li>Vegetables</li>
+</ul>
+
+<button>tab stop after</button>
+
+</body>
+</html>
