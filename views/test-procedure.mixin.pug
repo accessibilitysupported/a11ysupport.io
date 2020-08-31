@@ -60,10 +60,12 @@ mixin test-procedure(testCase, at, browser, ATBrowsers, test)
                                 strong #{' "'+testCase.command+'"'}
                         if (step.multiple)
                             span  multiple times
-                        if (step.summary || step.ensure_at_location)
+                        if (step.summary || step.ensure_at_location || step.observe)
                             ul
                                 if (step.summary)
                                     li summary: #{step.summary}
+                                if (step.observe)
+                                    li Observe: #{step.observe}
                                 if (step.ensure_at_location)
                                     li Ensure AT location after executing the command
                                         ul
