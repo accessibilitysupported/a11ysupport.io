@@ -9,6 +9,87 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-sort"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_value_ascending",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the 'ascending' value",
+      "examples": [
+        "Screen readers will convey the 'ascending' value as something like \"sorted ascending\" or \"sort up\" when navigating to the header or one of its cells."
+      ],
+      "css_target": "*[aria-sort=\"ascending\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_descending",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the 'descending' value",
+      "examples": [
+        "Screen readers will convey the 'descending' value as something like \"sorted descending\" or \"sort down\" when navigating to the header or one of its cells."
+      ],
+      "css_target": "*[aria-sort=\"descending\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_none",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the 'none' value",
+      "examples": [
+        "Screen readers will convey the 'none' value by omitting any sort announcements when navigating to the header or one of its cells."
+      ],
+      "css_target": "*[aria-sort=\"none\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_other",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the 'other' value",
+      "examples": [
+        "Screen readers will convey the 'other' value as something like \"sorted\" or \"sorted other\" when navigating to the header or one of its cells."
+      ],
+      "css_target": "*[aria-sort=\"other\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_change_in_value",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey changes to the sort value",
+      "examples": [
+        "Screen readers will convey the new sort value after activating a button to change the sort direction."
+      ],
+      "css_target": "*[aria-sort]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-09-08"
 }

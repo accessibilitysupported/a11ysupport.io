@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-sort examples</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+            Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.4;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: .01em solid #000;
+        }
+
+        [aria-sort] .asc, [aria-sort] .desc, [aria-sort] .other {
+            display: none;
+        }
+
+        [aria-sort="ascending"] .asc {
+            display: initial;
+        }
+
+        [aria-sort="descending"] .desc {
+            display: initial;
+        }
+
+        [aria-sort="other"] .other {
+            display: initial;
+        }
+    </style>
+</head>
+<body>
+<h1>aria-sort examples</h1>
+
+<p>
+    No sorting is performed on these tables; they simply demonstrate the sorting properties.
+</p>
+
+<div id="example-1">
+    <h2>Example 1: Title is sorted as 'ascending'</h2>
+
+    <table>
+        <caption>example 1: Books I May or May Not Have Read</caption>
+        <tr>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Author
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th id="target-1" aria-sort="ascending">
+                <button type="button" onclick="toggleSort(this)">
+                    Title
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Year
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+        </tr>
+        <tr>
+            <td lang="es">Miguel De Cervantes</td>
+            <td>The Ingenious Gentleman Don Quixote of La Mancha</td>
+            <td>1605</td>
+        </tr>
+        <tr>
+            <td lang="fr">Gabrielle-Suzanne Barbot de Villeneuve</td>
+            <td lang="fr">La Belle et la Bête</td>
+            <td>1740</td>
+        </tr>
+        <tr>
+            <td>Sir Isaac Newton</td>
+            <td>The Method of Fluxions and Infinite Series: With Its Application to the Geometry of Curve-lines</td>
+            <td>1763</td>
+        </tr>
+        <tr>
+            <td>Mary Shelley</td>
+            <td>Frankenstein; or, The Modern Prometheus</td>
+            <td>1818</td>
+        </tr>
+    </table>
+</div>
+
+<div id="example-2">
+    <h2>Example 2: Title is sorted as 'descending'</h2>
+
+    <table>
+        <caption>example 2: Books I May or May Not Have Read</caption>
+        <tr>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Author
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th id="target-2" aria-sort="descending">
+                <button type="button" onclick="toggleSort(this)">
+                    Title
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Year
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+        </tr>
+        <tr>
+            <td lang="es">Miguel De Cervantes</td>
+            <td>The Ingenious Gentleman Don Quixote of La Mancha</td>
+            <td>1605</td>
+        </tr>
+        <tr>
+            <td lang="fr">Gabrielle-Suzanne Barbot de Villeneuve</td>
+            <td lang="fr">La Belle et la Bête</td>
+            <td>1740</td>
+        </tr>
+        <tr>
+            <td>Sir Isaac Newton</td>
+            <td>The Method of Fluxions and Infinite Series: With Its Application to the Geometry of Curve-lines</td>
+            <td>1763</td>
+        </tr>
+        <tr>
+            <td>Mary Shelley</td>
+            <td>Frankenstein; or, The Modern Prometheus</td>
+            <td>1818</td>
+        </tr>
+    </table>
+</div>
+
+<div id="example-3">
+    <h2>Example 3: Title is sorted as 'none'</h2>
+
+    <table>
+        <caption>Example: 3: Books I May or May Not Have Read</caption>
+        <tr>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Author
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th id="target-3" aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Title
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Year
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+        </tr>
+        <tr>
+            <td lang="es">Miguel De Cervantes</td>
+            <td>The Ingenious Gentleman Don Quixote of La Mancha</td>
+            <td>1605</td>
+        </tr>
+        <tr>
+            <td lang="fr">Gabrielle-Suzanne Barbot de Villeneuve</td>
+            <td lang="fr">La Belle et la Bête</td>
+            <td>1740</td>
+        </tr>
+        <tr>
+            <td>Sir Isaac Newton</td>
+            <td>The Method of Fluxions and Infinite Series: With Its Application to the Geometry of Curve-lines</td>
+            <td>1763</td>
+        </tr>
+        <tr>
+            <td>Mary Shelley</td>
+            <td>Frankenstein; or, The Modern Prometheus</td>
+            <td>1818</td>
+        </tr>
+    </table>
+</div>
+
+<div id="example-4">
+    <h2>Example 4: Title is sorted as 'other'</h2>
+
+    <table>
+        <caption>Books I May or May Not Have Read</caption>
+        <tr>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Author
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th id="target-4" aria-sort="other">
+                <button type="button" onclick="toggleSort(this)">
+                    Title
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+            <th aria-sort="none">
+                <button type="button" onclick="toggleSort(this)">
+                    Year
+                    <span class="asc" aria-hidden="true">&uarr;</span>
+                    <span class="desc" aria-hidden="true">&darr;</span>
+                    <span class="other" aria-hidden="true">&rarrw;</span>
+                </button>
+            </th>
+        </tr>
+        <tr>
+            <td lang="es">Miguel De Cervantes</td>
+            <td>The Ingenious Gentleman Don Quixote of La Mancha</td>
+            <td>1605</td>
+        </tr>
+        <tr>
+            <td lang="fr">Gabrielle-Suzanne Barbot de Villeneuve</td>
+            <td lang="fr">La Belle et la Bête</td>
+            <td>1740</td>
+        </tr>
+        <tr>
+            <td>Sir Isaac Newton</td>
+            <td>The Method of Fluxions and Infinite Series: With Its Application to the Geometry of Curve-lines</td>
+            <td>1763</td>
+        </tr>
+        <tr>
+            <td>Mary Shelley</td>
+            <td>Frankenstein; or, The Modern Prometheus</td>
+            <td>1818</td>
+        </tr>
+    </table>
+</div>
+
+
+<script>
+	function toggleSort(button) {
+		var theColumn = button.parentElement;
+		var theHeaderRow = theColumn.parentElement;
+		var currSort = theColumn.getAttribute("aria-sort");
+		if (currSort === "ascending") {
+			clearSorts(theHeaderRow);
+			theColumn.setAttribute("aria-sort", "descending");
+		} else if (currSort === "descending") {
+			clearSorts(theHeaderRow);
+			theColumn.setAttribute("aria-sort", "other");
+		} else {
+			clearSorts(theHeaderRow);
+			theColumn.setAttribute("aria-sort", "ascending");
+        }
+	}
+
+	function clearSorts(theHeaderRow) {
+		var thSort = theHeaderRow.querySelectorAll("*[aria-sort]");
+		for (var i = 0; i < thSort.length; i++) {
+			thSort[i].setAttribute("aria-sort", "none");
+		}
+	}
+</script>
+
+</body>
+</html>
