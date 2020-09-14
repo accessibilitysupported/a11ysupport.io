@@ -15,7 +15,7 @@
     },
     {
       "feature_id": "aria/aria-sort_attribute",
-      "feature_assertion_id": "convey_value_fail",
+      "feature_assertion_id": "convey_value_none",
       "applied_to": "html/th_element"
     },
     {
@@ -83,7 +83,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -180,7 +180,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -277,7 +277,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -376,7 +376,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -473,7 +473,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -508,6 +508,105 @@
           },
           "after": "target",
           "output": "\"\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "html/th_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-1[aria-sort=\"ascending\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"title, ascending, column header, column header title, column 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_ascending",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-2[aria-sort=\"descending\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"title, descending, column header, column header title, column 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_descending",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-3[aria-sort=\"fail\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"title, column header, column header title, column 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-4[aria-sort=\"other\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"title, other, column header, column header title, column 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_other",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#target-1[aria-sort=\"ascending\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"\" (nothing was conveyed)",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
@@ -572,7 +671,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -671,7 +770,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -770,7 +869,7 @@
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
               "result": "fail"
             }
@@ -827,13 +926,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"title, push button, row 1, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
               "feature_assertion_id": "convey_value_ascending",
               "applied_to": "html/th_element",
-              "result": "unknown"
+              "result": "fail"
             }
           ]
         },
@@ -846,13 +945,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"title, push button, row 1, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
               "feature_assertion_id": "convey_value_descending",
               "applied_to": "html/th_element",
-              "result": "unknown"
+              "result": "fail"
             }
           ]
         },
@@ -865,13 +964,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"title, push button, row 1, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
-              "feature_assertion_id": "convey_value_fail",
+              "feature_assertion_id": "convey_value_none",
               "applied_to": "html/th_element",
-              "result": "unknown"
+              "result": "fail"
             }
           ]
         },
@@ -884,13 +983,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"title, push button, row 1, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
               "feature_assertion_id": "convey_value_other",
               "applied_to": "html/th_element",
-              "result": "unknown"
+              "result": "fail"
             }
           ]
         },
@@ -903,13 +1002,13 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"title, push button, row 1, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "html/th_element",
-              "result": "unknown"
+              "result": "fail"
             }
           ]
         }
@@ -920,6 +1019,10 @@
     {
       "date": "2020-09-08",
       "message": "Test created"
+    },
+    {
+      "date": "2020-09-13",
+      "message": "Test results added. Thanks @aardrian"
     }
   ],
   "versions": {
