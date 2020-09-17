@@ -139,7 +139,10 @@ let getFeatures = function(techId, buildDir) {
 			total_test_count: feature.tests.length,
 			all_dates: feature.all_dates,
 			failing_dates: feature.failing_dates,
-			assertions: []
+			assertions: [],
+			core_must_support_string: feature.core_must_support_string,
+			core_should_support_string: feature.core_should_support_string,
+			core_may_support_string: feature.core_may_support_string
 		};
 
 		feature.assertions.forEach(function(assertion, assertion_key) {
