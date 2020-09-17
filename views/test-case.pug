@@ -132,30 +132,32 @@ block content
                     if (assertion.references && assertion.references.length)
                         p  This expectation references the #{assertion.references_titles}. Expectations and results might differ when the the feature references different roles.
 
-                    if (assertion.assertion_rationale)
-                        p Rationale: #{assertion.assertion_rationale}
+                    p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
 
-                    p Strength of these expectations for different types of assistive technologies:
-                        ul
-                            li Screen Readers: #{assertion.assertion_strength.sr}
-                            li Voice Control: #{assertion.assertion_strength.vc}
+                    if (assertion.assertion_rationale)
+                        h4 Rationale:
+                        p #{assertion.assertion_rationale}
+
+                    h4 Strength of this expectation for different types of assistive technologies:
+                    ul
+                        li Screen Readers: #{assertion.assertion_strength.sr}
+                        li Voice Control: #{assertion.assertion_strength.vc}
 
                     if (assertion.assertion_examples)
-                        p Examples of how assistive technologies support this expectation:
-
+                        h4 Examples:
                         ul
                             for example in assertion.assertion_examples
                                 li #{example}
 
+                    h4 Grading method:
                     if (assertion.pass_strategy === 'all')
-                        p Grading method: All of the listed commands must pass for the expectation to pass.
+                        p All of the listed commands must pass for the expectation to pass.
                     else
-                        p Grading method: Just one of the listed commands must pass for the expectation to pass.
+                        p Just one of the listed commands must pass for the expectation to pass.
 
                     if (assertion.assertion_notes)
-                        p Notes: !{md.renderInline(assertion.assertion_notes)}
-
-                    p This expectation is from the #[a(href="/tech/"+assertion.feature_id) #{assertion.feature_title} feature].
+                        h4 Notes:
+                        p !{md.renderInline(assertion.assertion_notes)}
 
                     div.responsive-table(tabindex="0")
                         table(aria-labelledby="assertion-"+assertion.feature_id.replace('/', '-') + "-" + assertion.feature_assertion_id + '-' + (assertion.applied_to ? assertion.applied_to.toString().replace('/', '-') : '') + (assertion.references ? assertion.references.join('').replace('/', '-') : ''))

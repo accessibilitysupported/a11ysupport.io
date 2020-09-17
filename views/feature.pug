@@ -111,18 +111,20 @@ block content
               h3(id='support-table-'+index) Expectation: #{assertion.title}
 
               if (assertion.rationale)
-                p Rationale: #{assertion.rationale}
+                h4 Rationale:
+                p #{assertion.rationale}
 
-              p Strength of these expectations for different types of assistive technologies:
+              h4 Strength of this expectation for different types of assistive technologies:
               ul
                 li Screen Readers: #{assertion.strength.sr}
                 li Voice Control: #{assertion.strength.vc}
 
               if (assertion.notes)
-                p Notes: !{md.renderInline(assertion.notes)}
+                h4 Notes:
+                p !{md.renderInline(assertion.notes)}
 
               if (assertion.examples)
-                p Examples of assistive technologies support this expectation:
+                h4 Examples:
                 ul
                   for example in assertion.examples
                     li #{example}
