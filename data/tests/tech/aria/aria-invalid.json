@@ -1,6 +1,6 @@
 {
-  "title": "aria-invalid test",
-  "description": "A various aria-invalid values applied to a text input",
+  "title": "aria-invalid test suite",
+  "description": "A various aria-invalid values applied to various html inputs",
   "html_file": "aria/aria-invalid.html",
   "assertions": [
     {
@@ -22,6 +22,16 @@
       "feature_id": "aria/aria-invalid_attribute",
       "feature_assertion_id": "convey_value_spelling",
       "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-invalid_attribute",
+      "feature_assertion_id": "convey_value_false",
+      "applied_to": "html/select_element"
+    },
+    {
+      "feature_id": "aria/aria-invalid_attribute",
+      "feature_assertion_id": "convey_value_true",
+      "applied_to": "html/select_element"
     }
   ],
   "commands": {
@@ -29,7 +39,7 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -49,7 +59,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -69,14 +79,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, invalid entry, invalid, cats, type in text\"",
+          "output": "\"cat, edit, target 2, edit, invalid entry, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -89,14 +99,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, invalid entry, invalid, cats, type in text\"",
+          "output": "\"target 2, edit, invalid entry, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -109,14 +119,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 3, edit, invalid entry, end invalid, cats, type in text\"",
+          "output": "\"cats, Edit, invalid entry, Target 3, Edit, invalid entry, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -129,14 +139,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 3, edit, invalid entry, end invalid, cats, type in text\"",
+          "output": "\"target 3, edit, invalid entry, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -149,7 +159,27 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"cats, Edit, invalid entry, Target 3, Edit, invalid entry, cats\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_spelling",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -168,20 +198,80 @@
           ]
         },
         {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "command": "next_item",
+          "css_target": "#target5",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 4, edit, invalid entry, misspelled, cats\"",
+          "output": "\"combobox, none\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
-              "feature_assertion_id": "convey_value_spelling",
-              "applied_to": "html/input(type-text)_element",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, combobox, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"combobox, invalid entry, menunone\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"combobox, invalid entry, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
               "result": "pass",
               "notes": null
             }
@@ -191,14 +281,14 @@
       "ie": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"edit cats, target 1, edit, cats, type in text\"",
+          "output": "\"edit cats, target 1, cats edit, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -211,14 +301,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, cats, edit, type in text\"",
+          "output": "\"target 1, cats, edit, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -231,7 +321,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -251,7 +341,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -271,7 +361,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -291,7 +381,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -311,7 +401,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -331,7 +421,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -348,19 +438,99 @@
               "notes": null
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"combobox, collapsed, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, combobox, none, 1 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"combobox, collapsed, invalid entry, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, combobox, none, 1 of 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
         }
       ],
       "firefox": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, cats, target 1, edit, cats, type in text\"",
+          "output": "\"target 1, edit, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -373,14 +543,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, cats, target 1, edit, cats, type in text\"",
+          "output": "\"target 1, edit, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -393,14 +563,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit, target 2, invalid entry, invalid, cats, type in text\"",
+          "output": "\"cats, edit, target 2, invalid entry, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -413,14 +583,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, invalid entry, invalid, cats, type in text\"",
+          "output": "\"target 2, edit, invalid entry, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -433,14 +603,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 3, edit, invalid entry, invalid entry, target 3, edit, invalid entry, end invalid, cats, type in text\"",
+          "output": "\"cats, Edit, invalid entry, invalid entry, Target 3, Edit, invalid entry, cats, Type in text.\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -453,14 +623,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 3, edit, invalid entry, end invalid, cats, type in text\"",
+          "output": "\"target 3, edit, invalid entry, cats, type in text\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -473,14 +643,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit, invalid entry, invalid entry, target 4, invalid entry, misspelled, cats, type in text\"",
+          "output": "\"cats, Edit, invalid entry, invalid entry, Target 4, Edit, invalid entry, Misspelled, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -493,7 +663,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -510,6 +680,86 @@
               "notes": null
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"combobox, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, combobox, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"combobox, invalid entry, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, combobox, invalid entry, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
         }
       ]
     },
@@ -517,14 +767,14 @@
       "edge": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, edit, cats, cats, scan off\"",
+          "output": "\"target 1, edit, cats, cats, press space to edit\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -537,14 +787,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, edit, cats, cats selected, scan off\"",
+          "output": "\"target 1, edit, cats, scan off\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -557,14 +807,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, cats, invalid, cats, scan off\"",
+          "output": "\"target 2, edit, cats, invalid, cats, press space to edit\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -577,14 +827,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, cats, invalid, cats selected\"",
+          "output": "\"target 2, edit, cats, invalid\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -597,7 +847,27 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 3, edit, cats, invalid, cats, press space to edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_grammar",
+              "applied_to": "html/input(type-text)_element",
+              "result": "partial",
+              "notes": "grammar error was not explicitly conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -616,62 +886,122 @@
           ]
         },
         {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "command": "next_item",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 3, edit, cats, invalid\"",
+          "output": "\"target 4, edit, cats, invalid, cats, press space to edit\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
-              "feature_assertion_id": "convey_value_grammar",
+              "feature_assertion_id": "convey_value_spelling",
               "applied_to": "html/input(type-text)_element",
               "result": "partial",
-              "notes": "grammar error was not explicitly conveyed"
+              "notes": "spelling error was not explicitly conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target4",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 4, edit, cats, invalid\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_spelling",
+              "applied_to": "html/input(type-text)_element",
+              "result": "partial",
+              "notes": "spelling error was not explicitly conveyed"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target5",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 4, edit, cats, invalid\"",
+          "output": "\"target 5, none, combobox, collapsed, has popupH\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
-              "feature_assertion_id": "convey_value_spelling",
-              "applied_to": "html/input(type-text)_element",
-              "result": "partial",
-              "notes": "spelling error was not explicitly conveyed"
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target5",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 4, edit, cats, invalid\"",
+          "output": "\"target 5, none, combobox, collapsed, has popup, scan\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
-              "feature_assertion_id": "convey_value_spelling",
-              "applied_to": "html/input(type-text)_element",
-              "result": "partial",
-              "notes": "spelling error was not explicitly conveyed"
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, none, combobox, collapsed, invalid, has popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, none, combobox, collapsed, invalid, has popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
             }
           ]
         }
@@ -681,7 +1011,7 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -701,14 +1031,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, edit, selected, cats\"",
+          "output": "\"target 1, edit, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -721,7 +1051,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -741,14 +1071,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, invalid entry, selected, cats\"",
+          "output": "\"target 2, edit, invalid entry, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -761,7 +1091,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -781,7 +1111,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -801,7 +1131,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -821,7 +1151,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -838,19 +1168,99 @@
               "notes": "grammar error not explicitly conveyed."
             }
           ]
-        }
-      ],
-      "firefox": [
+        },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target5",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"clickable, target 1, has auto complete, cats\"",
+          "output": "\"target 5, combobox, collapsed, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, combobox, none, collapsed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, combobox, collapsed, invalid entry, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, combobox, none, collapsed, invalid entry\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "#target1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable, target 1, edit, has auto complete, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -863,14 +1273,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 1, has auto complete, selected, cats\"",
+          "output": "\"target 1, edit, has auto complete, selected, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -883,7 +1293,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -903,14 +1313,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, has invalid entry, selected, cats\"",
+          "output": "\"target 2, edit, has invalid entry, has auto complete, selected, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -923,14 +1333,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"clickable, target 3, edit, invalid entry, has auto complete, has grammar error, cats\"",
+          "output": "\"clickable, target 3, edit, invalid entry, has auto complete, grammar error, cats\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -943,14 +1353,14 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"target 2, edit, invalid entry, has auto complete, selected, cats \"",
+          "output": "\"target 3, edit, invalid entry, has auto complete, selected, cats \"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -963,7 +1373,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -983,7 +1393,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1000,6 +1410,86 @@
               "notes": "spelling error not explicitly conveyed"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable, target 5, combobox, collapsed, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, combobox, none, collapsed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable, target 6, combobox, collapsed, invalid entry, none\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, combobox, collapsed, invalid entry\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
         }
       ]
     },
@@ -1007,7 +1497,7 @@
       "and_chr": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1027,7 +1517,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1047,14 +1537,14 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit box, error: invalid grammar, target 3, error: invalid entry, error: invalid grammar, end of field\"",
+          "output": "\"cats, edit box, error: invalid grammar, target 3, error: invalid grammar, error: invalid entry, end of field\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -1067,7 +1557,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1084,6 +1574,46 @@
               "notes": "also conveyed as invalid grammar"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"collapsed, none, popup button, target 5\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"collapsed, none, popup button, target 6\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
         }
       ]
     },
@@ -1091,7 +1621,7 @@
       "ios_saf": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1111,7 +1641,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1131,7 +1661,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1151,7 +1681,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1168,6 +1698,46 @@
               "notes": null
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, none, popup button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, none, popup pbutton\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
         }
       ]
     },
@@ -1175,7 +1745,7 @@
       "safari": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1195,7 +1765,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1215,7 +1785,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1235,7 +1805,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1255,7 +1825,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1275,7 +1845,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1295,7 +1865,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1315,7 +1885,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1328,6 +1898,86 @@
               "feature_id": "aria/aria-invalid_attribute",
               "feature_assertion_id": "convey_value_spelling",
               "applied_to": "html/input(type-text)_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"none, target 5, popup button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"none, target 5, popup button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"none, target 6, invalid data, popup button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"none, target 6, invalid data, popup button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
               "result": "pass",
               "notes": null
             }
@@ -1339,7 +1989,7 @@
       "firefox": [
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1359,7 +2009,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"false\"]",
+          "css_target": "#target1",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1379,7 +2029,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1399,7 +2049,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"true\"]",
+          "css_target": "#target2",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1419,7 +2069,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1439,7 +2089,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"grammar\"]",
+          "css_target": "#target3",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1459,7 +2109,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1479,7 +2129,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-invalid=\"spelling\"]",
+          "css_target": "#target4",
           "before": {
             "mode": "auto",
             "focus_location": "before target",
@@ -1496,152 +2146,186 @@
               "notes": null
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, none, combobox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target5",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 5, none, combobox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/select_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, none, combobox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target6",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target 6, none, combobox, focus mode\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-invalid_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/select_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
         }
       ]
     }
   },
   "history": [
     {
-      "date": "2020-02-14",
+      "date": "2020-09-18",
       "message": "Create test and add results"
+    },
+    {
+      "date": "2020-09-18",
+      "message": "Update with latest results, add html select to test suite"
     }
   ],
   "versions": {
-    "dragon_win": {
-      "browsers": {
-        "chrome": {
-          "at_version": "15.30",
-          "os_version": "1909",
-          "browser_version": "80",
-          "date": "2020-02-14"
-        }
-      }
-    },
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2001.70",
-          "os_version": "1909",
-          "browser_version": "80",
-          "date": "2020-02-14"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "ie": {
-          "at_version": "2020.2001.70",
-          "os_version": "1909",
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
           "browser_version": "11",
-          "date": "2020-02-14"
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2020.2001.70",
-          "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-02-14"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1909",
-          "os_version": "1909",
-          "browser_version": "44",
-          "date": "2020-02-14"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1909",
-          "browser_version": "80",
-          "date": "2020-02-14"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1909",
+          "at_version": "2020.2",
+          "os_version": "2004",
           "browser_version": "72",
-          "date": "2020-02-14"
+          "date": "2020-09-18"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.1",
+          "at_version": "8.2",
           "os_version": "10",
-          "browser_version": "80",
-          "date": "2020-02-14"
-        }
-      }
-    },
-    "va_and": {
-      "browsers": {
-        "and_chr": {
-          "at_version": "3.1",
-          "os_version": "10",
-          "browser_version": "80",
-          "date": "2020-02-14"
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.3.1",
-          "os_version": "13.3.1",
-          "browser_version": "13.3.1",
-          "date": "2020-02-14"
+          "at_version": "14.0",
+          "os_version": "14.0",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.3",
-          "os_version": "10.15.3",
-          "browser_version": "13.0.5",
-          "date": "2020-02-14"
+          "at_version": "10.15.6",
+          "os_version": "10.15.6",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.34.0",
-          "os_version": "Ubuntu 19.10",
-          "browser_version": "72",
-          "date": "2020-02-14"
-        }
-      }
-    },
-    "vc_ios": {
-      "browsers": {
-        "ios_saf": {
-          "at_version": "13.3.1",
-          "os_version": "13.3.1",
-          "browser_version": "13.3.1",
-          "date": "2020-02-14"
-        }
-      }
-    },
-    "vc_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.15.3",
-          "os_version": "10.15.3",
-          "browser_version": "13.0.5",
-          "date": "2020-02-14"
-        }
-      }
-    },
-    "wsr": {
-      "browsers": {
-        "chrome": {
-          "at_version": "1909",
-          "os_version": "1909",
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
           "browser_version": "80",
-          "date": "2020-02-14"
+          "date": "2020-09-18"
         }
       }
     }
