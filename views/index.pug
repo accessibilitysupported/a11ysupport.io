@@ -36,7 +36,8 @@ block content
                         if (feature.core_may_support_string.sr.string)
                           li(class=feature.core_may_support_string.sr.class) MAY: #{feature.core_may_support_string.sr.string}
 
-                    table(aria-labelledby="feature-"+index+" feature-"+index+'-sr-h')
+                    table(aria-labelledby="feature-"+index+" feature-"+index+"-sr-h feature-"+index+"-sr-cap")
+                      caption(id="feature-"+index+'-sr-cap') Summary of 'MUST' expectation support
                       thead
                         col
                         each at in ATBrowsers.core_at
@@ -73,7 +74,8 @@ block content
                           li(class=feature.core_should_support_string.vc.class) SHOULD: #{feature.core_should_support_string.vc.string}
                         if (feature.core_may_support_string.vc.string)
                           li(class=feature.core_may_support_string.vc.class) MAY: #{feature.core_may_support_string.vc.string}
-                    table(aria-labelledby="feature-"+index+" feature-"+index+'-sr-h')
+                    table(aria-labelledby="feature-"+index+" feature-"+index+"-vc-h feature-"+index+"-vc-cap")
+                      caption(id="feature-"+index+'-vc-cap') Summary of 'MUST' expectation support
                       thead
                         col
                         each at in ATBrowsers.core_at
