@@ -159,7 +159,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"month, enter a date, edit spin box, 12\"",
+          "output": "\"enter a date, date time edit, 2012-12-12 19:30, month, enter a date, edit spin box, 12\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -175,8 +175,7 @@
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass"
             }
           ]
         },
@@ -189,7 +188,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show date picker\"",
+          "output": "\"enter a date, datetime edit, 12/12/2012 07:30 pm, show local date and time picker\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -274,12 +273,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for month, date, year, and time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls and grid are accessible.",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
             }
           ]
@@ -581,7 +580,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, local date and time, december 12, 2012, 7:30 pn\"",
+          "output": "\"month, enter a date, spin button, minimum 1 and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -596,7 +595,8 @@
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -609,23 +609,24 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"december 12, 2012, button\"",
+          "output": "\"month, enter a date, spin button, 12, minimum 1, and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail",
-              "notes": "the embedded button role does not clearly convey the role for the entire input"
+              "result": "pass",
+              "notes": "implied by \"month\" context"
             },
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -638,7 +639,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date, 12-12-2012, december 12, 2012, suggestions available, 12 of 31, selected\"",
+          "output": "\"month, enter a date, spin button, 12, minimum 1, and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -648,7 +649,8 @@
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "pass",
+              "notes": "implied by \"month\""
             },
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -713,7 +715,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"spin button 12 / spin button 12 / spin button 2012 / spin button 07, spin button 30, spin button pm\"",
+          "output": "\"clickable spin button clickable 12 / spin button clickable 12 / spin button clickable 2012 / spin button clickable 07, spin button clickable 30, spin button clickable pm\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -772,7 +774,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"show date picker, menu button, sub menu\"",
+          "output": "\"clickable show local date and time picker menu button subMenu\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -809,7 +811,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"show date picker, menu button, sub menu\"",
+          "output": "in list of form fields as \"show local date and time picker, menu button, sub menu\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -865,12 +867,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for month, date, year, and time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls and grid are accessible",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
             }
           ]
@@ -942,7 +944,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, edit, has auto complete, 2019-12-12:T19:30\"",
+          "output": "\"enter a date, edit, has auto complete, 2012-12-12:T19:30\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -1030,7 +1032,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date and time picker, double-top to activate\"",
+          "output": "\"2012-12-12T19:30, date and time picker, enter a date, double-top to activate\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -1045,7 +1047,7 @@
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1058,7 +1060,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "output": "\"2012-12-12T19:30, date and time picker, enter a date, double-top to activate\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -1073,7 +1075,7 @@
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-datetime-local)_element",
@@ -1091,12 +1093,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "input was announced without a value",
+          "output": "input was announced with new value",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "fail",
+              "result": "pass",
               "notes": "changed the value in the date picker and activated the \"set\" button."
             }
           ]
@@ -1254,13 +1256,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "focus was sent to the format controls button at the top of the window and new value was not conveyed",
+          "output": "focus was sent to the address bar at the top of the window and new value was not conveyed",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_change_in_value",
               "result": "fail",
-              "notes": "clicked \"done\" in the widget keyboard"
+              "notes": "clicked \"okay\" in the widget keyboard"
             }
           ]
         },
@@ -1273,12 +1275,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "was able to set the time with the widget however embedded controls were missing labels.",
+          "output": "was able to set the time with the widget.",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         }
@@ -1295,22 +1297,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"12T9:30\"",
+          "output": "\"2012-12-12T9:30, contents selected, enter a date, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-datetime-local)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1741,58 +1743,58 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "ie": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
           "browser_version": "11",
-          "date": "2020-01-28"
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-01-28"
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2019-11-02"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
+          "at_version": "8.2",
           "os_version": "7.0",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
@@ -1809,30 +1811,30 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.2",
-          "os_version": "13.2",
-          "browser_version": "13.1",
-          "date": "2019-11-02"
+          "at_version": "14.0",
+          "os_version": "14.0",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.2",
-          "date": "2019-11-02"
+          "at_version": "10.15.6",
+          "os_version": "10.15.6",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "os_version": "Ubuntu 19.04",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },

@@ -129,7 +129,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"group start, enter a date [down arrow] hours, enter a date\"",
+          "output": "\"group start, enter a date [down arrow] hours, enter a date, edit spin box, 01 [down arrow] minutes enter a date, edit spin box 30 [down arrow] am slash pm enter a date edit spin box pm\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -145,8 +145,7 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass"
             }
           ]
         },
@@ -159,7 +158,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, 13:30, hours, enter a date, edit, spin box, 01\"",
+          "output": "\"enter a date, group 13:30, hours, enter a date, edit, spin box, 01\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -225,7 +224,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"enter a date edit hours enter a date edit 01\"",
+          "output": "each part is in the list of form fields as separately, such as \"enter a date edit hours enter a date edit 01\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -242,7 +241,7 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
+              "result": "pass",
               "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
             },
             {
@@ -262,12 +261,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "new value was announced",
+          "output": "new value was announced if using the spin buttons, but if using the widget the new value is not conveyed after closing",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "pass",
+              "result": "partial",
               "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
             }
           ]
@@ -286,7 +285,7 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
             }
           ]
@@ -460,8 +459,8 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass",
+              "notes": "conveyed by embedded controls"
             }
           ]
         },
@@ -508,26 +507,22 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail",
-              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+              "result": "partial"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "pass",
-              "notes": "was found but name and role were not correctly conveyed. Note that there was also a stop for each embedded control using this command."
+              "result": "pass"
             }
           ]
         },
@@ -540,7 +535,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"enter a date hours edit 01\"",
+          "output": "in list of form fields as distinct controls for each part, such as \"enter a date hours edit 01\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -557,7 +552,7 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
+              "result": "pass",
               "notes": "has separate entries for each embedded control. note that other date inputs with embedded controls do not have similar entries."
             },
             {
@@ -596,12 +591,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "no widget to activate",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "na",
               "notes": ""
             }
           ]
@@ -619,7 +614,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, time, 1:30pm, 1:30pm\"",
+          "output": "\"enter a date, group, [down arrow], hours enter a date, 01, spin button, minimum 0, maximum 12, 01, [down arrow] (similar announcement for other controls)\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -634,7 +629,8 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -647,7 +643,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, time, 1:30pm\"",
+          "output": "\"enter a date, hours enter a date, spin button, 1, minimum 1, and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -662,7 +658,8 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -675,7 +672,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, time, 1:30 pm, suggestions available, 30, 1 of 60, selected\"",
+          "output": "\"enter a date, hours, enter a date, spin button, minimum 1 and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -690,7 +687,8 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             },
             {
               "feature_id": "html/input(type-time)_element",
@@ -750,7 +748,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"spin button 01, spin button 30, spin button pm\"",
+          "output": "\"grouping, clickable, spin button, clickable, 01, spin button clickable 30, spin button, clickable PM\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -761,8 +759,7 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail",
-              "notes": "embedded roles were conveyed, but not the outer control"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-time)_element",
@@ -780,7 +777,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date grouping, hours, enter a date, spin button 01\"",
+          "output": "\"enter a date, grouping, hours, enter a date, spin button, 1\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -790,13 +787,14 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "pass",
+              "notes": "implied by embedded controls"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -809,27 +807,27 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "skipped",
+          "output": "\"enter a date, grouping, show time picker, menu button, subMenu\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_name",
-              "result": "na"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "na"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "na"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -842,27 +840,27 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "not found",
+          "output": "\"show time picker, menu button, subMenu\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_name",
-              "result": "na"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "na"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "na"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -894,13 +892,19 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls and the widget for time are conveyed correctly.",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
+            },
+            {
+              "feature_id": "html/input(type-time)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "new value was not conveyed after closing the widget"
             }
           ]
         }
@@ -915,7 +919,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"clickable enter a date, clickable, hours, spin button, 01, minutes spin button 30, am/pm has auto complete, pm\"",
+          "output": "\"clickable enter a date, grouping, clickable, hours, spin button, 01, minutes spin button 30, am/pm has auto complete, pm\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -925,8 +929,7 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail",
-              "notes": "embedded roles were conveyed, but not the outer control"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
@@ -959,8 +962,8 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass",
+              "notes": "pass because embedded controls convey the value"
             }
           ]
         },
@@ -983,12 +986,13 @@
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "fail",
+              "notes": "fail because only some of the embedded controls were found with this command"
             },
             {
               "feature_id": "html/input(type-time)_element",
@@ -1062,12 +1066,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for time are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls for time are conveyed correctly.",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
             }
           ]
@@ -1309,13 +1313,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "unable to open the date picker and change the value.",
+          "output": "\"enter a date\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_change_in_value",
               "result": "fail",
-              "notes": "double tapped on the control to open, but did not open"
+              "notes": "double tapped on the control to set the time, but new value was not conveyed"
             }
           ]
         },
@@ -1328,13 +1332,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "unable to open the date picker and change the value.",
+          "output": "time picker was accessible",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "fail",
-              "notes": "double tapped on the control to open, but did not open"
+              "result": "pass"
             }
           ]
         }
@@ -1351,22 +1354,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"30\"",
+          "output": "\"13:30, contents selected, enter a date, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1495,7 +1498,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Enter a date, clickable, enter a date, panel, 01 spin button, 30 spin button, am/pm entry, pm, clear push button\"",
+          "output": "\"Enter a date, clickable, hours 01 spin button, minutes 30 spin button, am/pm entry, pm, clear push button\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -1523,7 +1526,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, panel, 01, spin button\"",
+          "output": "\"enter a date, panel, hours 01, spin button\"",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
@@ -1544,7 +1547,7 @@
           ]
         },
         {
-          "command": "next_form_field",
+          "command": "list_form_fields",
           "css_target": "input[type=\"time\"]",
           "before": {
             "mode": "auto",
@@ -1552,31 +1555,27 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"am/pm entry pm\"",
+          "output": "in list as distinct form controls, one for each part",
           "results": [
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail",
-              "notes": "only the am/pm embedded control was found"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail",
-              "notes": "only the am/pm embedded control was found"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "only the am/pm embedded control was found"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-time)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "fail",
-              "notes": "only the am/pm embedded control was found"
+              "result": "pass"
             }
           ]
         },
@@ -1840,58 +1839,58 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "ie": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
           "browser_version": "11",
-          "date": "2020-01-28"
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-01-28"
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2019-11-02"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
+          "at_version": "8.2",
           "os_version": "7.0",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
@@ -1908,30 +1907,30 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.2",
-          "os_version": "13.2",
-          "browser_version": "13.1",
-          "date": "2019-11-02"
+          "at_version": "14.0",
+          "os_version": "14.0",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.2",
-          "date": "2019-11-02"
+          "at_version": "10.15.6",
+          "os_version": "10.15.6",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "os_version": "Ubuntu 19.04",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },

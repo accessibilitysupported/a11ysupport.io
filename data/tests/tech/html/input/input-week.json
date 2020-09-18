@@ -189,7 +189,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, datetime edit, week 12 2012, show date picker\"",
+          "output": "\"enter a date, datetime edit, week 12 2012, show week picker\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -255,12 +255,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "new value was announced",
+          "output": "new value was announced if using embedded controls but not the picker widget",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "pass",
+              "result": "partial",
               "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
             }
           ]
@@ -274,12 +274,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for week and year are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls for week and year are conveyed correctly.",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
             }
           ]
@@ -581,7 +581,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, week, week 12 2012, week 12 2012\"",
+          "output": "\"enter a date, week picker, 2012-W12, week, [down arrow], week, enter a date, spin button, 12, minimum 1, and maximum 53, 12...\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -609,7 +609,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, week, week 12 2012\"",
+          "output": "\"week, enter a date, spin button 12, minimum 1, and maximum 53\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -624,7 +624,8 @@
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -637,7 +638,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, week, week 12, 2012, suggestions available, week 12, 12 of 52, selected\"",
+          "output": "\"week, enter a date, spin button, 12, minimum 1, and maximum 53\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -727,8 +728,8 @@
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass",
+              "notes": "pass because embedded widgets convey the value"
             }
           ]
         },
@@ -756,8 +757,8 @@
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass",
+              "notes": "pass because embedded controls convey the value"
             }
           ]
         },
@@ -770,25 +771,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"show date picker, menu button, sub menu\"",
+          "output": "\"clickable, show week picker picker, menu button, sub menu\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_name",
-              "result": "na",
-              "notes": "na because the date picker button was found, not the actual input."
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_role",
-              "result": "na",
-              "notes": "na because the date picker button was found, not the actual input."
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "na",
-              "notes": "na because the date picker button was found, not the actual input."
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-week)_element",
@@ -811,20 +809,17 @@
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_name",
-              "result": "na",
-              "notes": "na because the date picker button was found, not the actual input."
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_role",
-              "result": "na",
-              "notes": "na because the date picker button was found, not the actual input."
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "na",
-              "notes": "na because the date picker button was found, not the actual input."
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-week)_element",
@@ -868,6 +863,12 @@
               "feature_assertion_id": "widget_is_supported",
               "result": "partial",
               "notes": ""
+            },
+            {
+              "feature_id": "html/input(type-week)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "fail because the new value was not conveyed after closing the widget"
             }
           ]
         }
@@ -1026,7 +1027,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "output": "\"2012-W12, date and time picker, enter a date, double tap to activate\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -1041,7 +1042,7 @@
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1054,7 +1055,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "output": "\"2012-W12, date and time picker, enter a date, double tap to activate\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -1069,7 +1070,7 @@
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-week)_element",
@@ -1087,12 +1088,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "input was announced without a value",
+          "output": "input was announced with the new value",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "fail",
+              "result": "pass",
               "notes": "changed the value in the date picker and activated the \"set\" button."
             }
           ]
@@ -1290,22 +1291,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"W12\"",
+          "output": "\"2012-W12, contents selected, enter a date, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-week)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1482,7 +1483,7 @@
           ]
         },
         {
-          "command": "next_form_field",
+          "command": "list_form_fields",
           "css_target": "input[type=\"week\"]",
           "before": {
             "mode": "auto",
@@ -1490,7 +1491,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, entry, 2012-W12\"",
+          "output": "in list as \"enter a date, entry, 2012-W12\"",
           "results": [
             {
               "feature_id": "html/input(type-week)_element",
@@ -1699,58 +1700,58 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "ie": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
           "browser_version": "11",
-          "date": "2020-01-28"
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-01-28"
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2019-11-02"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
+          "at_version": "8.2",
           "os_version": "7.0",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
@@ -1767,30 +1768,30 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.2",
-          "os_version": "13.2",
-          "browser_version": "13.1",
-          "date": "2019-11-02"
+          "at_version": "14.0",
+          "os_version": "14.0",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.2",
-          "date": "2019-11-02"
+          "at_version": "10.15.6",
+          "os_version": "10.15.6",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "os_version": "Ubuntu 19.04",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },

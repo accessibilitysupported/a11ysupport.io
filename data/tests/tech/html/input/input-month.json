@@ -254,12 +254,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "new value was announced",
+          "output": "new value was announced if using embedded controls but not the picker widget",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "pass",
+              "result": "partial",
               "notes": "for example, if you press \"up arrow\" or \"down arrow\" on any of the embedded spin boxes"
             }
           ]
@@ -273,12 +273,12 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for month and year are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls for month and year are conveyed correctly",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
             }
           ]
@@ -580,7 +580,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, month, december 2012, december 2012\"",
+          "output": "\"enter a date, edit, 2012-12 [down arrow] month, enter a date, minimum 1 and maximum 12, december\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -608,7 +608,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, month, december 2012\"",
+          "output": "\"month, enter a date, spin button, 12 minimum 1 and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -623,7 +623,8 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             }
           ]
         },
@@ -636,7 +637,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, month, December 2012, suggestions available, december 12 of 12, selected\"",
+          "output": "\"month, enter a date, spin button, minimum 1 and maximum 12\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -651,7 +652,8 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "pass",
+              "notes": "pass because the value is conveyed for each embedded control"
             },
             {
               "feature_id": "html/input(type-month)_element",
@@ -711,7 +713,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, spin button december, spin button 2012\"",
+          "output": "\"clickable spin button, clickable, december, spin button clickable 2012\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -728,8 +730,7 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass"
             }
           ]
         },
@@ -757,8 +758,8 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial",
-              "notes": "value was only partially conveyed"
+              "result": "pass",
+              "notes": "pass because the value is conveyed via embedded controls"
             }
           ]
         },
@@ -771,30 +772,30 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"show date picker, menu button, sub menu\"",
+          "output": "\"clickable, show month picker, menu button, subMenu\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_name",
-              "result": "na",
+              "result": "fail",
               "notes": "date picker button was found but not the actual input"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_role",
-              "result": "na",
+              "result": "pass",
               "notes": "date picker was found, but not the actual input"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "na",
+              "result": "fail",
               "notes": "date picker button was found, but not the actual input"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "fail",
+              "result": "pass",
               "notes": "date picker button was found but not the actual input"
             }
           ]
@@ -813,19 +814,19 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_name",
-              "result": "na",
+              "result": "fail",
               "notes": "date picker button was found but not the actual input"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_role",
-              "result": "na",
+              "result": "pass",
               "notes": "date picker was found, but not the actual input"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "na",
+              "result": "fail",
               "notes": "date picker button was found, but not the actual input"
             },
             {
@@ -863,13 +864,19 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "embedded controls for month and year are conveyed correctly, however controls within the date picker are not conveyed.",
+          "output": "embedded controls for month and year are conveyed correctly, and date picker is accessible.",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "widget_is_supported",
-              "result": "partial",
+              "result": "pass",
               "notes": ""
+            },
+            {
+              "feature_id": "html/input(type-month)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": "closing the date picker widget did not convey the new value"
             }
           ]
         }
@@ -1028,7 +1035,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "output": "\"2012-12, date and time picker, enter a date, double tap to activate\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -1043,7 +1050,7 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1056,7 +1063,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter a date, date and time picker, double tap to activate\"",
+          "output": "\"2012-12, date and time picker, enter a date, double tap to activate\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -1071,7 +1078,7 @@
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-month)_element",
@@ -1089,12 +1096,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "input was announced without a value",
+          "output": "input was announced with the new value",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "fail",
+              "result": "pass",
               "notes": "changed the value in the date picker and activated the \"set\" button."
             }
           ]
@@ -1252,13 +1259,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "focus was sent to the format controls button at the top of the window and new value was not conveyed",
+          "output": "focus was sent to the address bar at the top of the window and new value was not conveyed",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_change_in_value",
               "result": "fail",
-              "notes": "clicked \"done\" in the widget keyboard"
+              "notes": "clicked \"ok\" in the widget keyboard"
             }
           ]
         },
@@ -1293,22 +1300,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"12\"",
+          "output": "\"2012-12, contents selected, enter a date, edit text\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-month)_element",
               "feature_assertion_id": "convey_value",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1485,39 +1492,6 @@
           ]
         },
         {
-          "command": "next_form_field",
-          "css_target": "input[type=\"month\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"enter a date, entry, 2012-12\"",
-          "results": [
-            {
-              "feature_id": "html/input(type-month)_element",
-              "feature_assertion_id": "convey_name",
-              "result": "pass"
-            },
-            {
-              "feature_id": "html/input(type-month)_element",
-              "feature_assertion_id": "convey_role",
-              "result": "pass"
-            },
-            {
-              "feature_id": "html/input(type-month)_element",
-              "feature_assertion_id": "convey_value",
-              "result": "pass"
-            },
-            {
-              "feature_id": "html/input(type-month)_element",
-              "feature_assertion_id": "provide_shortcuts",
-              "result": "pass"
-            }
-          ]
-        },
-        {
           "command": "list_form_fields",
           "css_target": "input[type=\"month\"]",
           "before": {
@@ -1526,7 +1500,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "in list of form controls as \"Enter a date; entry; 2012-12\"",
+          "output": "in list as \"enter a date, entry, 2012-12\"",
           "results": [
             {
               "feature_id": "html/input(type-month)_element",
@@ -1772,58 +1746,58 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "ie": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
           "browser_version": "11",
-          "date": "2020-01-28"
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2020.1912.11",
+          "at_version": "2020.2008.24",
           "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-01-28"
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2019-11-02"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "85",
+          "date": "2020-09-18"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "2020.2",
+          "os_version": "2004",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
+          "at_version": "8.2",
           "os_version": "7.0",
-          "browser_version": "77",
-          "date": "2019-11-02"
+          "browser_version": "85",
+          "date": "2020-09-18"
         }
       }
     },
@@ -1840,30 +1814,30 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.2",
-          "os_version": "13.2",
-          "browser_version": "13.1",
-          "date": "2019-11-02"
+          "at_version": "14.0",
+          "os_version": "14.0",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.2",
-          "date": "2019-11-02"
+          "at_version": "10.15.6",
+          "os_version": "10.15.6",
+          "browser_version": "14.0",
+          "date": "2020-09-18"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "os_version": "Ubuntu 19.04",
-          "browser_version": "69",
-          "date": "2019-11-02"
+          "at_version": "3.36.1",
+          "os_version": "Ubuntu 20.04",
+          "browser_version": "80",
+          "date": "2020-09-18"
         }
       }
     },
