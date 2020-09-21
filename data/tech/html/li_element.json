@@ -24,7 +24,7 @@
         "sr": "MUST",
         "vc": "NA"
       },
-      "rationale": "A screen reader user needs to know when they enter a list item.",
+      "rationale": "A screen reader user needs to know when they enter a list item so that they can different content between items. If an item contains many lines of content, this is especially important because the boundary between items may not be clear.",
       "examples": [
         "When in an ordered list context, the list role might be conveyed with the position of the list item (1, 2, 3, etc.).",
         "When in an unordered list context, the list role might be conveyed by the word \"bullet\" or position in the list."
@@ -36,19 +36,40 @@
       ]
     },
     {
-      "id": "convey_posinset",
-      "rationale": "A screen reader user needs to know their position in a list.",
+      "id": "convey_posinset_ol_context",
+      "title": "convey its position within an ordered list",
+      "rationale": "A screen reader user needs to know the position of an item in a list when the order matters.",
       "examples": [
-        "When in an ordered list context, the role might be conveyed with the position of the list item (1, 2, 3, etc.).",
-        "When in an unordered list context, the role might be conveyed by the word \"bullet\" or information about the position of the item in the list.",
+        "Screen readers may convey the position in set as something like \"1 of 3\"",
         "The position of the first item in the list might be implied by the first announcement of list semantics."
       ],
-      "css_target": "li",
+      "css_target": "ol li",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "not_convey_posinset_ul_context",
+      "title": "convey its position within an unordered list",
+      "rationale": "When the order of items in a list does not matter, a screen reader user does not need to know the position of items. If position in set information was conveyed, users might assume that the order matters.",
+      "examples": [
+        "When in an unordered list context, the position in set information is omitted."
+      ],
+      "css_target": "ul li",
+      "strength": {
+        "sr": "SHOULD NOT",
+        "vc": "NA"
+      },
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
       ]
     }
   ],
-  "date_updated": "2019-05-27"
+  "date_updated": "2020-09-21"
 }
