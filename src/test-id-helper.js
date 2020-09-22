@@ -42,6 +42,24 @@ testHelper.generateTestTitle = function(command, at) {
         return title + ' on the target of `'+command.css_target+'`';
     }
 
+    if (command.before.virtual_location === 'start of target'
+        && command.before.focus_location === 'start of target'
+        && command.after === 'start of target') {
+        return title + ' while at the start of `'+command.css_target+'`';
+    }
+
+    if (command.before.virtual_location === 'end of target'
+        && command.before.focus_location === 'end of target'
+        && command.after === 'end of target') {
+        return title + ' while at the end of `'+command.css_target+'`';
+    }
+
+    if (command.before.virtual_location === 'within target'
+        && command.before.focus_location === 'within target'
+        && command.after === 'within target') {
+        return title + ' while within `'+command.css_target+'`';
+    }
+
     if (command.before.virtual_location === 'before target'
         && command.after === 'target') {
         let suffix = '';
