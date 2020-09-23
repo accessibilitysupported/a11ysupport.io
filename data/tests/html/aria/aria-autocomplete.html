@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-autocomplete examples</title>
+</head>
+<body>
+<h1>aria-autocomplete Examples</h1>
+
+<p>The following examples are static and not fully functional. This is simply a reduced test case.</p>
+
+<button>Tab stop before</button>
+
+<h2>Using a text input</h2>
+
+<h3>text input with aria-autocomplete="inline"</h3>
+<div>
+    <label for="target1">Target 1</label>
+    <input id="target1" type="text" aria-autocomplete="inline">
+</div>
+
+<h3>text input with aria-autocomplete="none"</h3>
+<div>
+    <label for="target2">Target 2</label>
+    <input id="target2" type="text" aria-autocomplete="none">
+</div>
+
+<h2>Using combobox</h2>
+
+<p>These follow the aria 1.2 combobox pattern.</p>
+
+<h3>Combobox with aria-autocomplete="list"</h3>
+<div>
+    <label for="target3">Target 3</label>
+    <input id="target3" type="text" role="combobox" aria-controls="target3-listbox" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="list">
+    <div role="listbox" id="target3-listbox" hidden></div>
+</div>
+
+<h3>Combobox with aria-autocomplete="both"</h3>
+<div>
+    <label for="target4">Target 4</label>
+    <input id="target4" type="text" role="combobox" aria-controls="target4-listbox" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="list">
+    <div role="listbox" id="target4-listbox" hidden></div>
+</div>
+
+
+<button>Tab stop atfter</button>
+
+</body>
+</html>

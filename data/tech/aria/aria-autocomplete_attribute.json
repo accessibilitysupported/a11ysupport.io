@@ -9,6 +9,66 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete"
     }
   ],
-  "assertions": [],
+  "assertions": [
+    {
+      "id": "convey_value_inline",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the `inline` value",
+      "rationale": "Screen reader users need to be aware that a form control has inline autocomplete behavior before they start typing so that the behavior is not unexpected.",
+      "css_target": "*[aria-autocomplete=\"inline\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_list",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "rationale": "Screen reader users need to be aware that a form control has list autocomplete behavior before they start typing so that the behavior is not unexpected. When used on a combobox, this value should hint to users that the popup contains auto complete suggestions rather than a static set of options.",
+      "title": "convey the `list` value",
+      "css_target": "*[aria-autocomplete=\"list\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_both",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the `both` value",
+      "rationale": "Screen reader users need to be aware that a form control has both inline and list autocomplete behavior before they start typing so that the behavior is not unexpected. When used on a combobox, this value should hint to users that the popup contains auto complete suggestions rather than a static set of options.",
+      "css_target": "*[aria-autocomplete=\"both\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_none",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the `none` value",
+      "rationale": "Screen reader users should not be informed that auto complete behavior exists when the behavior does not exist.",
+      "examples": [
+        "Screen readers will omit any announcements about autocomplete behavior."
+      ],
+      "css_target": "*[aria-autocomplete=\"none\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
   "date_updated": "2019-01-06"
 }

@@ -1,0 +1,925 @@
+{
+  "title": "aria-autocomplete reduced test case",
+  "description": "A sample of aria-autocomplete functionality",
+  "html_file": "aria/aria-autocomplete.html",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-autocomplete_attribute",
+      "feature_assertion_id": "convey_value_inline",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-autocomplete_attribute",
+      "feature_assertion_id": "convey_value_none",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-autocomplete_attribute",
+      "feature_assertion_id": "convey_value_list",
+      "applied_to": "aria/combobox_role"
+    },
+    {
+      "feature_id": "aria/aria-autocomplete_attribute",
+      "feature_assertion_id": "convey_value_both",
+      "applied_to": "aria/combobox_role"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, edit combo, collapsed, to set the value use the arrow keys or type the value\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 4, edit combo, collapsed, to set the value use the arrow keys or type the value\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "ie": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, edit, has popup, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 4, edit, has popup, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, edit combo, collapsed, to set the value use the arrow keys or type the value\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, edit combo, collapsed, to set the value use the arrow keys or type the value\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, combo edit, has popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target, combo edit, has popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit, has auto complete, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "partial",
+              "notes": "the type of auto complete was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, combobox, collapsed, has auto complete, editable, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "partial",
+              "notes": "the type of auto complete was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 4, combobox, collapsed, has auto complete, editable, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "partial",
+              "notes": "the type of auto complete was not conveyed"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit, has auto complete, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "partial",
+              "notes": "the type of auto complete was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit, has auto complete, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, combo box, collapsed, has auto complete, editable, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "partial",
+              "notes": "the type of auto complete was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 4, combo box, has auto complete, editable, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "partial",
+              "notes": "the type of auto complete was not conveyed"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Edit box, target 1\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Edit box, target 2\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"collapsed, edit box, target 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"collapsed, edit box, target 4\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, combo box, list box popup, collapsed, double tap to expand\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 4, combo box, list box popup, collapsed, double tap to expand\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, list box popup, menu popup, combo box\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, list box popup, menu popup, combo box\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"inline\"]#target1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 1, entry\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_inline",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"none\"]#target2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 2, entry\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"list\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 3, editable, combo box, opens list box\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "[aria-autocomplete=\"both\"]#target3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Target 4, editable, combo box, opens list box\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_both",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2020-09-23",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2008.24",
+          "browser_version": "85",
+          "os_version": "2004",
+          "date": "2020-09-23"
+        },
+        "ie": {
+          "at_version": "2020.2008.24",
+          "browser_version": "11.134",
+          "os_version": "2004",
+          "date": "2020-09-23"
+        },
+        "firefox": {
+          "at_version": "2020.2008.24",
+          "browser_version": "80",
+          "os_version": "2004",
+          "date": "2020-09-23"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "2004",
+          "browser_version": "85",
+          "os_version": "2004",
+          "date": "2020-09-23"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2020.2",
+          "browser_version": "85",
+          "os_version": "2004",
+          "date": "2020-09-23"
+        },
+        "firefox": {
+          "at_version": "2020.2",
+          "browser_version": "80",
+          "os_version": "2004",
+          "date": "2019-09-04"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "3.36.1",
+          "browser_version": "80",
+          "os_version": "Ubuntu 20.04",
+          "date": "2020-09-23"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "8.2",
+          "browser_version": "85",
+          "os_version": "7",
+          "date": "2020-09-23"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "14",
+          "browser_version": "14",
+          "os_version": "14",
+          "date": "2020-09-23"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "10.15.6",
+          "browser_version": "14.0",
+          "os_version": "10.15.6",
+          "date": "2020-09-23"
+        }
+      }
+    }
+  }
+}
