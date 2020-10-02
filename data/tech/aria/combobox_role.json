@@ -9,6 +9,45 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#combobox"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_name",
+      "examples": [
+        "A screen reader might convey the name as something like \"<role>, <name>, <value>\" (order varies by screen reader and settings)",
+        "Voice control software might allow the user to say \"click <name>\" to focus the combobox"
+      ],
+      "css_target": "[role=\"combobox\"]"
+    },
+    {
+      "id": "convey_role",
+      "examples": [
+        "A screen reader might convey the role as something like \"combo box\"",
+        "Voice control software might allow the user to say \"click text box\" to focus an editable combobox"
+      ],
+      "css_target": "[role=\"combobox\"]"
+    },
+    {
+      "id": "convey_change_in_value",
+      "examples": [
+        "A screen reader might announce the new value after it has been changed"
+      ],
+      "css_target": "[role=\"combobox\"]"
+    },
+    {
+      "id": "convey_value",
+      "examples": [
+        "A screen reader might convey the value as something like \"<role>, <name>, <value>\" (order varies by screen reader and settings)"
+      ],
+      "css_target": "[role=\"combobox\"]",
+      "notes": "Historically, this has not been a requirement explicitly defined in the ARIA spec. However, native counterparts do this, the value us displayed visually, and [ARIA 1.2 (draft) does explicitly state this requirement](https://rawgit.com/w3c/aria/master/#combobox)."
+    },
+    {
+      "id": "provide_shortcuts",
+      "examples": [
+        "A screen reader might provide a keyboard shortcut to jump to the next form control or provide a list of all form controls"
+      ],
+      "css_target": "[role=\"combobox\"]"
+    }
+  ],
+  "date_updated": "2020-10-01"
 }

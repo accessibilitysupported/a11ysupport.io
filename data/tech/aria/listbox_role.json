@@ -9,6 +9,47 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#listbox"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_name",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "examples": [
+        "A screen reader might convey the name when entering the listbox"
+      ],
+      "css_target": "[role=\"listbox\"]"
+    },
+    {
+      "id": "convey_role",
+      "examples": [
+        "A screen reader might explicitly convey the role as something like \"list box\", \"list\", or imply it by explicitly conveying \"option\" roles"
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"listbox\"]"
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "convey its boundaries",
+      "rationale": "The user needs to know when they enter and leave the listbox.",
+      "examples": [
+        "A screen reader might convey the listbox name and role when entering, and something like \"out of list\" when exiting",
+        "A screen reader might convey information about the position in the options, such as \"4 of 4\" to indicate the start and end of the options"
+      ],
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
+      "css_target": "[role=\"listbox\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2020-10-01"
 }
