@@ -23,14 +23,18 @@
       "css_target": "#target",
       "steps": [
         {
+          "action": "find target"
+        },
+        {
           "action": "set mode to",
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "#target",
+          "action": "issue command",
+          "summary": "navigate forward to the start of the list",
+          "command": "next_item",
           "ensure_at_location": {
-            "virtual": "on selector",
+            "virtual": "start of selector",
             "focus": "before selector"
           }
         },

@@ -42,11 +42,12 @@
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "button",
+          "action": "issue command",
+          "summary": "navigate forward to the button to open the dialog",
+          "command": "params.commands.navigate_to_button",
           "ensure_at_location": {
-            "virtual": "on selector",
-            "focus": "on selector"
+            "virtual": "button",
+            "focus": "button"
           }
         },
         {
@@ -69,11 +70,12 @@
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "button",
+          "action": "issue command",
+          "summary": "navigate forward to the button to open the dialog",
+          "command": "params.commands.navigate_to_button",
           "ensure_at_location": {
-            "virtual": "on selector",
-            "focus": "on selector"
+            "virtual": "button",
+            "focus": "button"
           }
         },
         {
@@ -106,11 +108,12 @@
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "button",
+          "action": "issue command",
+          "summary": "navigate forward to the button to open the dialog",
+          "command": "params.commands.navigate_to_button",
           "ensure_at_location": {
-            "virtual": "on selector",
-            "focus": "on selector"
+            "virtual": "button",
+            "focus": "button"
           }
         },
         {
@@ -152,11 +155,12 @@
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "button",
+          "action": "issue command",
+          "summary": "navigate forward to the button to open the dialog",
+          "command": "params.commands.navigate_to_button",
           "ensure_at_location": {
-            "virtual": "on selector",
-            "focus": "on selector"
+            "virtual": "button",
+            "focus": "button"
           }
         },
         {
@@ -188,11 +192,12 @@
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "button",
+          "action": "issue command",
+          "summary": "navigate forward to the button to open the dialog",
+          "command": "params.commands.navigate_to_button",
           "ensure_at_location": {
-            "virtual": "on selector",
-            "focus": "on selector"
+            "virtual": "button",
+            "focus": "button"
           }
         },
         {
@@ -224,11 +229,12 @@
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "button",
+          "action": "issue command",
+          "summary": "navigate forward to the button to open the dialog",
+          "command": "params.commands.navigate_to_button",
           "ensure_at_location": {
-            "virtual": "on selector",
-            "focus": "on selector"
+            "virtual": "button",
+            "focus": "button"
           }
         },
         {
@@ -273,6 +279,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"add delivery address, modal dialog, street: edit, type in text\"",
           "results": [
             {
@@ -299,6 +310,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -317,6 +333,11 @@
         {
           "command": "open_element_list",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "outside content was displayed in content lists, such as the of links, etc. Note: not possible to navigate to an item in the list.",
           "results": [
             {
@@ -330,6 +351,11 @@
         {
           "command": "previous_unvisited_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no links were found",
           "results": [
             {
@@ -346,6 +372,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"add delivery address, modal dialog, street: edit, type in text\"",
           "results": [
             {
@@ -372,6 +403,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -390,6 +426,11 @@
         {
           "command": "open_element_list",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "outside content was displayed in content lists, such as the of links, etc. Note: it IS possible to navigate to headings in this list and break free from the modal.",
           "results": [
             {
@@ -403,6 +444,11 @@
         {
           "command": "previous_unvisited_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no links were found",
           "results": [
             {
@@ -418,6 +464,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"add delivery address, modal dialog...\"",
           "results": [
             {
@@ -444,6 +495,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -463,6 +519,11 @@
         {
           "command": "open_element_list",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "outside content was displayed in content lists, such as the of links, etc.",
           "results": [
             {
@@ -476,6 +537,11 @@
         {
           "command": "previous_unvisited_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no links were found",
           "results": [
             {
@@ -494,6 +560,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"<title of page>, tab, Add delivery address, dialog, street, edit, scan off, heading level 2, add delivery address, street\"",
           "results": [
             {
@@ -518,6 +589,11 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_into_open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"heading level 2, add delivery address\"",
           "results": [
             {
@@ -541,6 +617,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"Link, modal dialog design pattern in wai-aria authoring practices 1.2\"",
           "results": [
             {
@@ -559,6 +640,11 @@
         {
           "command": "previous_heading",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "headings were found outside of the modal",
           "results": [
             {
@@ -576,6 +662,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"Add delivery address, dialog, street, edit, blank\"",
           "results": [
             {
@@ -600,6 +691,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -619,6 +715,11 @@
         {
           "command": "previous_form_field",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no outside form fields were found",
           "results": [
             {
@@ -632,6 +733,11 @@
         {
           "command": "previous_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no outside links were found",
           "results": [
             {
@@ -645,6 +751,11 @@
         {
           "command": "open_element_list",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "only content within the modal was included in the lists",
           "results": [
             {
@@ -660,6 +771,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"Add delivery address, dialog, street, edit, has auto complete, blank.\"",
           "results": [
             {
@@ -684,6 +800,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "not able to move outside of the modal",
           "results": [
             {
@@ -703,6 +824,11 @@
         {
           "command": "previous_form_field",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no outside form fields were found",
           "results": [
             {
@@ -716,6 +842,11 @@
         {
           "command": "previous_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no outside links were found",
           "results": [
             {
@@ -729,6 +860,11 @@
         {
           "command": "open_element_list",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "only content within the modal was included in the lists",
           "results": [
             {
@@ -746,6 +882,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"edit box, street, in pager\"",
           "results": [
             {
@@ -772,6 +913,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
@@ -790,6 +936,11 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_into_open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "dialog boundary not conveyed",
           "results": [
             {
@@ -802,6 +953,11 @@
         {
           "command": "previous_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "content outside of the modal was announced",
           "results": [
             {
@@ -820,6 +976,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"(earcon indicating button was activated)\"",
           "results": [
             {
@@ -839,6 +1000,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
@@ -857,6 +1023,11 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_into_open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"add delivery address, web dialog...\"",
           "results": [
             {
@@ -879,6 +1050,11 @@
         {
           "command": "previous_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "results": [
             {
@@ -892,6 +1068,11 @@
         {
           "command": "previous_form_field",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_item"
+            }
+          },
           "output": "\"add delivery address, button\"",
           "results": [
             {
@@ -909,6 +1090,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"street, edit text\"",
           "results": [
             {
@@ -933,6 +1119,11 @@
         {
           "command": "exit_object",
           "procedure_key": "navigate_to_modal_container_VO",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"Out of add delivery address, web dialog...\"",
           "results": [
             {
@@ -955,6 +1146,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal_VO",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"modal dialog design pattern in wai-aria authoring practices 1.2, link\"",
           "notes": "Could navigate to the previous link, but nothing past that.",
           "results": [
@@ -970,6 +1166,11 @@
         {
           "command": "previous_heading",
           "procedure_key": "navigate_backwards_out_of_open_modal_VO",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "previous headings in outside content were found",
           "results": [
             {
@@ -983,6 +1184,11 @@
         {
           "command": "open_element_list",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "headings, links, and other content was listed and could be navigated to",
           "results": [
             {
@@ -1000,6 +1206,11 @@
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "contents of modal was announced, but not the dialog name, role, or state (modal)",
           "results": [
             {
@@ -1017,6 +1228,11 @@
         {
           "command": "previous_item",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "\"add delivery address dialog, street, entry\" ",
           "results": [
             {
@@ -1054,6 +1270,11 @@
         {
           "command": "previous_form_field",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "no outside form fields were found",
           "results": [
             {
@@ -1067,6 +1288,11 @@
         {
           "command": "previous_link",
           "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "The link just before the dialog example was announced, but the reading cursor was immediately sent back to the open dialog. Not possible to find other links outside of the dialog.",
           "results": [
             {
@@ -1094,6 +1320,11 @@
         {
           "command": "list_links",
           "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
           "output": "outside links are listed. When jumping to those links, focus is redirected back to the open dialog.",
           "results": [
             {

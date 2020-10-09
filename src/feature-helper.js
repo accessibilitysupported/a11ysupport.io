@@ -728,6 +728,10 @@ helper.initalizeTestCase = function (testCase) {
 					command = Object.assign({}, procedure, command);
 				}
 
+				if (!command.results) {
+					command.results = [];
+				}
+
 				command.results.forEach(function(result) {
 					if (!result.applied_to) {
 						result.applied_to = null;

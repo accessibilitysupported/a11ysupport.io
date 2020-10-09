@@ -4,10 +4,10 @@ mixin test-procedure(testCase, at, browser, ATBrowsers, test)
         li Launch #{at.title} and #{browser.title}.
         li Navigate to #[a(href='/tests/html/' + test.html_file) the test page].
         if (testCase.before)
-            li Identify all elements that match this selector:
+            li Find the target element(s) that you will test against. Identify all elements that match this selector:
                 code #{testCase.css_target}
                 ul
-                    li If multiple elements match the target, repeat this test for all instances. However, choose a single instance to report against. If you feel that the selector should be more specific, please open a GitHub Issue.
+                    li If multiple elements match the selector, repeat this test for all instances. However, choose a single instance to report against. If you feel that the selector should be more specific, please open a GitHub Issue.
             if (at.type === 'sr')
                 li Position and configure the screen reader so that the following conditions are met
                     ul
@@ -34,41 +34,64 @@ mixin test-procedure(testCase, at, browser, ATBrowsers, test)
                 li Record results for the relevant expectations
         else if (testCase.steps)
             each step in testCase.steps
-                if (step.action === 'navigate forward to' || step.action === 'navigate backwards to')
-                    li #{step.action + ' '}
-                        if (step.selector === 'target')
-                            span `#{testCase.css_target}`
-                        else
-                            span `#{step.selector}`
+                if (step.action === 'find target')
+                    li Find the target element(s) that you will test against. Identify all elements that match this selector:
+                        code #{testCase.css_target}
+                        ul
+                            li If multiple elements match the selector, repeat this test for all instances. However, choose a single instance to report against. If you feel that the selector should be more specific, please open a GitHub Issue.
                 if (step.action === 'set mode to')
                     li #{step.action} #{step.value}
                         if (step.value === 'auto')
                             span  (do not explicitly change the mode)
+                if (step.action === 'set value')
+                    - var step_target = 'the target'
+                    if (step.target !== 'target')
+                        - step_target = step.target;
+                    li Set the value of #{step_target} to "#{step.value}"
+                if (step.action === 'position AT')
+                    li Position the AT so that the following is true
+                        ul
+                            if (step.focus)
+                                li
+                                    strong= "keyboard focus location: "
+                                    span #{step.focus}
+                            if (step.virtual)
+                                li
+                                    strong= "virtual cursor location: "
+                                    span #{step.virtual}
                 if (step.action === 'issue command')
                     li #{step.action}
-                        if (step.command)
-                            if (at.commands[step.command])
-                                span= ' "'+at.commands[step.command].command+'"'
-                                span= " (" + at.commands[step.command].name + ")"
-                            else
-                                strong #{' "'+step.command+'"'}
-                        else
-                            if (at.commands[testCase.command])
-                                span= ' "'+at.commands[testCase.command].command+'"'
-                                span= " (" + at.commands[testCase.command].name + ")"
-                            else
-                                strong #{' "'+testCase.command+'"'}
-                        if (step.multiple)
-                            span  multiple times
-                        if (step.summary || step.ensure_at_location || step.observe)
-                            ul
-                                if (step.summary)
-                                    li summary: #{step.summary}
+                        ul
+                            if (step.summary)
+                                li summary: #{step.summary}
+                            li Command:
+                                if (step.command)
+                                    - let command = step.command;
+                                    if (command.startsWith('params.commands'))
+                                            - command = command.split('params.commands.')[1];
+                                            - command = testCase.params.commands[command];
+                                    if (at.commands[command])
+                                        span= ' "'+at.commands[command].command+'"'
+                                        span= " (" + at.commands[command].name + ")"
+                                    else
+                                        strong #{' "'+command+'"'}
+                                else
+                                    if (at.commands[testCase.command])
+                                        span= ' "'+at.commands[testCase.command].command+'"'
+                                        span= " (" + at.commands[testCase.command].name + ")"
+                                    else
+                                        strong #{' "'+testCase.command+'"'}
+                                if (step.multiple)
+                                    li You may need to issue this command multiple times
                                 if (step.observe)
                                     li Observe: #{step.observe}
                                 if (step.ensure_at_location)
                                     li Ensure AT location after executing the command
                                         ul
+                                            if (step.target)
+                                                li Target: `#{step.target}`
+                                            else
+                                                li Target: `#{testCase.css_target}`
                                             if (step.ensure_at_location.focus)
                                                 li
                                                     strong= "keyboard focus location: "

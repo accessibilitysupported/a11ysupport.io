@@ -1,7 +1,7 @@
 {
   "title": "aria-owns multiple reference",
   "description": "Tests aria-owns with multiples reference to other elements.",
-  "html_file": "aria/aria-owns-single.html",
+  "html_file": "aria/aria-owns-multiple.html",
   "assertions": [
     {
       "feature_id": "aria/aria-owns_attribute",
@@ -23,14 +23,18 @@
       "css_target": "#target",
       "steps": [
         {
+          "action": "find target"
+        },
+        {
           "action": "set mode to",
           "value": "auto"
         },
         {
-          "action": "navigate forward to",
-          "selector": "#target",
+          "action": "issue command",
+          "summary": "navigate forward to the start of the list",
+          "command": "next_item",
           "ensure_at_location": {
-            "virtual": "on selector",
+            "virtual": "start of selector",
             "focus": "before selector"
           }
         },
