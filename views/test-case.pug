@@ -42,7 +42,7 @@ block content
             h2(id='description') About this test
             div!= md.render(test.description)
 
-            a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and and submit your results
+            a(href="/tests/" + testHelper.makeSafe(test.id) + "/run") Run this test and submit your results
 
             h2(id='age-of-results') Age of results
             p Results in this test range from #{moment(test.all_dates.max).fromNow()} to #{moment(test.all_dates.min).fromNow()}. See <a href="#versions">detailed information about test dates and versions</a> for more information.
