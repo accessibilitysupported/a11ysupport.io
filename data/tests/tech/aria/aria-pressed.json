@@ -699,13 +699,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"button, off, action\"",
+          "output": "\"button, action\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_undefined",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -718,13 +718,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, button, off\"",
+          "output": "\"action, button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_undefined",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -737,14 +737,14 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"<earcon>, action, button, [indeterminate, on, off]\"",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_change_in_state",
               "applied_to": "html/button_element",
-              "result": "pass",
-              "notes": "passed because the change was conveyed, even though the correct state was not always conveyed (\"indeterminate\"). The correct state is assessed by other assertions and the incorrect state was conveyed consistently with other expectations."
+              "result": "fail",
+              "notes": ""
             }
           ]
         }
@@ -915,14 +915,14 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"[half-checked|pressed not checked| not pressed]\"",
+          "output": "\"half-checked|\" when value is changed to `mixed`, \"pressed not checked\" when value is changed  to `true`, \"not pressed\" when value is changed to `false`",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_change_in_state",
               "applied_to": "html/button_element",
               "result": "partial",
-              "notes": "partial because \"pressed\" was conveyed as \"pressed not checked\" which could be confusing and is not consistent with how the state is conveyed in other situations."
+              "notes": "partial because the `true` value was conveyed as \"pressed not checked\" which could be confusing and is not consistent with how the state is conveyed in other situations."
             }
           ]
         }
@@ -1091,14 +1091,14 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"[half-checked|pressed not checked|not pressed]\"",
+          "output": "\"half-checked|\" when value is changed to `mixed`, \"pressed not checked\" when value is changed  to `true`, \"not pressed\" when value is changed to `false`",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_change_in_state",
               "applied_to": "html/button_element",
               "result": "partial",
-              "notes": "partial because \"pressed\" was conveyed as \"pressed not checked\" which could be confusing and is not consistent with how the state is conveyed in other situations."
+              "notes": "partial because the `true` value was conveyed as \"pressed not checked\" which could be confusing and is not consistent with how the state is conveyed in other situations."
             }
           ]
         }
@@ -1115,13 +1115,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, not checked, toggle button\"",
+          "output": "\"action, toggle button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "html/button_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -1134,13 +1134,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, checked, toggle button\"",
+          "output": "\"action, toggle button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -1153,7 +1153,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, not checked, toggle button\"",
+          "output": "\"action, toggle button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -1192,7 +1192,7 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"[off|on|off]\"",
+          "output": "\"off\" when value is changed to either `false` or `mixed`, \"on\" when value changed to `true`",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -1200,12 +1200,30 @@
               "applied_to": "html/button_element",
               "result": "pass",
               "notes": "passed because the change was conveyed, even though the correct state was not always conveyed. The correct state is assessed by other assertions and the incorrect state was conveyed consistently with other expectations."
+            },
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_mixed",
+              "applied_to": "html/button_element",
+              "result": "fail",
+              "notes": "fail because it was conveyed as \"off\""
             }
           ]
         }
       ]
     },
-    "va_and": {},
     "vo_ios": {
       "ios_saf": [
         {
@@ -1300,7 +1318,7 @@
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_change_in_state",
               "applied_to": "html/button_element",
-              "result": "pass",
+              "result": "partial",
               "notes": "earcon was made on change, but not the new value was never correctly conveyed."
             }
           ]
@@ -1684,10 +1702,7 @@
           ]
         }
       ]
-    },
-    "vc_ios": {},
-    "vc_macos": {},
-    "wsr": {}
+    }
   },
   "history": [
     {
@@ -1697,144 +1712,98 @@
     {
       "date": "2019-12-09",
       "message": "added test results"
+    },
+    {
+      "date": "2020-10-25",
+      "message": "updated with latest results from latest versions"
     }
   ],
   "versions": {
-    "dragon_win": {
-      "browsers": {
-        "chrome": {
-          "at_version": "15.30",
-          "os_version": "1903",
-          "browser_version": "78",
-          "date": "2019-12-09"
-        }
-      }
-    },
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1910.54",
-          "os_version": "1903",
-          "browser_version": "78",
-          "date": "2019-12-09"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "86",
+          "date": "2020-10-25"
         },
         "ie": {
-          "at_version": "2020.1910.54",
-          "os_version": "1903",
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
           "browser_version": "11",
-          "date": "2019-12-09"
+          "date": "2020-10-25"
         },
         "firefox": {
-          "at_version": "2020.1910.54",
-          "os_version": "1903",
-          "browser_version": "70",
-          "date": "2019-12-09"
+          "at_version": "2020.2008.24",
+          "os_version": "2004",
+          "browser_version": "81",
+          "date": "2020-10-25"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2019-12-09"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "86",
+          "date": "2020-10-25"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "78",
-          "date": "2019-12-09"
+          "at_version": "2020.3",
+          "os_version": "2004",
+          "browser_version": "86",
+          "date": "2020-10-25"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "70",
-          "date": "2019-12-09"
+          "at_version": "2020.3",
+          "os_version": "2004",
+          "browser_version": "81",
+          "date": "2020-10-25"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.1",
-          "os_version": "10",
-          "browser_version": "78",
-          "date": "2019-12-09"
-        }
-      }
-    },
-    "va_and": {
-      "browsers": {
-        "and_chr": {
-          "at_version": "3.1",
-          "os_version": "10",
-          "browser_version": "78",
-          "date": "2019-12-09"
+          "at_version": "8.2",
+          "os_version": "11",
+          "browser_version": "86",
+          "date": "2020-10-25"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.2.3",
-          "os_version": "13.2.3",
-          "browser_version": "13.2.3",
-          "date": "2019-12-09"
+          "at_version": "14.0",
+          "os_version": "14.0",
+          "browser_version": "14.0",
+          "date": "2020-10-25"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.3",
-          "date": "2019-12-09"
+          "at_version": "10.15.7",
+          "os_version": "10.15.7",
+          "browser_version": "14.0",
+          "date": "2020-10-25"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "os_version": "Ubuntu 19.04",
-          "browser_version": "70",
-          "date": "2019-12-09"
-        }
-      }
-    },
-    "vc_ios": {
-      "browsers": {
-        "ios_saf": {
-          "at_version": "13.2.3",
-          "os_version": "13.2.3",
-          "browser_version": "13.2.3",
-          "date": "2019-12-09"
-        }
-      }
-    },
-    "vc_macos": {
-      "browsers": {
-        "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.3",
-          "date": "2019-12-09"
-        }
-      }
-    },
-    "wsr": {
-      "browsers": {
-        "chrome": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "78",
-          "date": "2019-12-09"
+          "at_version": "3.38.0",
+          "os_version": "Ubuntu 20.10",
+          "browser_version": "81",
+          "date": "2020-10-25"
         }
       }
     }
