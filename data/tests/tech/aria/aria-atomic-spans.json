@@ -1,21 +1,16 @@
 {
-  "title": "unnamed log role",
-  "description": "This tests an unnamed log role",
-  "html_file": "aria/log-role-unnamed.html",
+  "title": "aria-atomic test - new nodes are spans",
+  "description": "A suite of tests for aria-atomic where new nodes are spans",
+  "html_file": "aria/aria-atomic-spans.html",
   "assertions": [
     {
-      "feature_id": "aria/log_role",
-      "feature_assertion_id": "automatic_announcement",
+      "feature_id": "aria/aria-atomic_attribute",
+      "feature_assertion_id": "convey_value_false",
       "applied_to": "html/div_element"
     },
     {
-      "feature_id": "aria/log_role",
-      "feature_assertion_id": "convey_aria_live_value_polite",
-      "applied_to": "html/div_element"
-    },
-    {
-      "feature_id": "aria/log_role",
-      "feature_assertion_id": "convey_aria_atomic_value_false",
+      "feature_id": "aria/aria-atomic_attribute",
+      "feature_assertion_id": "convey_value_true",
       "applied_to": "html/div_element"
     }
   ],
@@ -31,25 +26,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "output": "\"Announce only what has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "pass",
+              "result": "fail",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -67,25 +68,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, me: where is the cake?\"",
+          "output": "\"has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -103,25 +110,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake? bullet me where is the cake?\"",
+          "output": "\"t has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -141,27 +154,33 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, 2 of 2 level 1, group\"",
+          "output": "\"has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
-              "applied_to": "html/div_element",
-              "result": "fail",
-              "notes": "fail because contents of the live region were not announced"
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -179,25 +198,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "output": "\"Announce only what has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "pass",
+              "result": "fail",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -215,25 +240,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "output": "\"has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -253,24 +284,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "output": "\"Announce only what has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "pass"
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
+              "result": "fail",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -290,25 +328,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement interrupted>, <2nd announcement in full> bullet me: where is the cake?\"",
+          "output": "\"has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -328,25 +372,31 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement skipped>, <2nd announcement in full>, bullet me: where is the cake?\"",
+          "output": "\"has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
-              "applied_to": "html/div_element",
-              "result": "pass",
-              "notes": null
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
@@ -366,26 +416,34 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, me: where is the cake?\"",
+          "output": "\"has changed\"",
           "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "automatic_announcement",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
               "result": "pass",
               "notes": null
-            },
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-2",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"Announce only what has changed\"",
+          "results": [
             {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_live_value_polite",
+              "feature_id": "aria/aria-atomic_attribute",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
-              "result": "pass"
-            },
-            {
-              "feature_id": "aria/log_role",
-              "feature_assertion_id": "convey_aria_atomic_value_false",
-              "applied_to": "html/div_element",
-              "result": "pass"
+              "result": "pass",
+              "notes": null
             }
           ]
         }
@@ -394,12 +452,16 @@
   },
   "history": [
     {
-      "date": "2020-07-15",
-      "message": "test added"
+      "date": "2020-07-06",
+      "message": "FF+Jaws results pass. Thanks @stevefaulkner!"
+    },
+    {
+      "date": "2020-02-21",
+      "message": "Add test and results. Thanks @straker!"
     },
     {
       "date": "2020-11-12",
-      "message": "Updated results; chrome now supports the implicit aria-atomic=false"
+      "message": "Updated results; rename test to differentiate between the type of node that was added; div vs span"
     }
   ],
   "versions": {

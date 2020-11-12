@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aria-atomic test suite - new nodes are spans</title>
+</head>
+<body>
+
+<h1>aria-atomic test suite where new nodes are spans</h1>
+
+<p>This is a test suite for the aria-atomic attribute.</p>
+
+<h2>aria-atomic=false</h2>
+
+<div id="target-1" aria-live="assertive" aria-atomic="false">
+    <span>Announce only what</span>
+</div>
+
+<button id="trigger-1" onclick="testOne()">Test aria-atomic false</button>
+
+<h2>aria-atomic=true</h2>
+
+<div id="target-2" aria-live="assertive" aria-atomic="true">
+    <span>Announce only what</span>
+</div>
+
+<button id="trigger-2" onclick="testTwo()">Test aria-atomic true</button>
+
+<script>
+    var testOne = function() {
+        var liveRegion = document.querySelector('#target-1');
+        var span = document.createElement("span");
+        span.innerText = "has changed"
+        liveRegion.appendChild(span);
+    }
+
+    var testTwo = function() {
+        var liveRegion = document.querySelector('#target-2');
+        var span = document.createElement("span");
+        span.innerText = "has changed"
+        liveRegion.appendChild(span);
+    }
+</script>
+
+</body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>aria-atomic test suite</title>
+    <title>aria-atomic test suite - new nodes are divs</title>
 </head>
 <body>
 
-<h1>aria-atomic test suite</h1>
+<h1>aria-atomic test suite where new nodes are divs</h1>
 
 <p>This is a test suite for the aria-atomic attribute.</p>
 
@@ -28,14 +28,14 @@
 <script>
     var testOne = function() {
         var liveRegion = document.querySelector('#target-1');
-        var span = document.createElement("span");
+        var span = document.createElement("div");
         span.innerText = "has changed"
         liveRegion.appendChild(span);
     }
 
     var testTwo = function() {
         var liveRegion = document.querySelector('#target-2');
-        var span = document.createElement("span");
+        var span = document.createElement("div");
         span.innerText = "has changed"
         liveRegion.appendChild(span);
     }

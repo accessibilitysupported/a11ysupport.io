@@ -1,7 +1,7 @@
 {
-  "title": "aria-atomic test",
-  "description": "A suite of tests for aria-atomic",
-  "html_file": "aria/aria-atomic.html",
+  "title": "aria-atomic test - new nodes are divs",
+  "description": "A suite of tests for aria-atomic where new nodes are divs",
+  "html_file": "aria/aria-atomic-divs.html",
   "assertions": [
     {
       "feature_id": "aria/aria-atomic_attribute",
@@ -26,13 +26,13 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"Announce only what has changed\"",
+          "output": "\"has changed\"",
           "results": [
             {
               "feature_id": "aria/aria-atomic_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -110,7 +110,7 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"t has changed\"",
+          "output": "\"has changed\"",
           "results": [
             {
               "feature_id": "aria/aria-atomic_attribute",
@@ -198,13 +198,13 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"Announce only what has changed\"",
+          "output": "\"has changed\"",
           "results": [
             {
               "feature_id": "aria/aria-atomic_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -284,13 +284,13 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"Announce only what has changed\"",
+          "output": "\"has changed\"",
           "results": [
             {
               "feature_id": "aria/aria-atomic_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -304,13 +304,13 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"Announce only what has changed\"",
+          "output": "\"has changed\"",
           "results": [
             {
               "feature_id": "aria/aria-atomic_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/div_element",
-              "result": "pass",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -328,13 +328,13 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"Announce only what has changed\"",
+          "output": "\"has changed\"",
           "results": [
             {
               "feature_id": "aria/aria-atomic_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -458,94 +458,98 @@
     {
       "date": "2020-02-21",
       "message": "Add test and results. Thanks @straker!"
+    },
+    {
+      "date": "2020-11-12",
+      "message": "Added test to differentiate between the type of node that was added; div vs span"
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1921.1",
-          "os_version": "1903",
-          "browser_version": "80",
-          "date": "2020-02-21"
+          "at_version": "2021.2011.16",
+          "os_version": "2004",
+          "browser_version": "86",
+          "date": "2020-11-12"
         },
         "ie": {
-          "at_version": "2019.1921.1",
-          "os_version": "1903",
+          "at_version": "2021.2011.16",
+          "os_version": "2004",
           "browser_version": "11",
-          "date": "2020-02-21"
+          "date": "2020-11-12"
         },
         "firefox": {
-          "at_version": "2020.2006.12",
+          "at_version": "2021.2011.16",
           "os_version": "2004",
-          "browser_version": "77",
-          "date": "2020-07-06"
+          "browser_version": "82",
+          "date": "2020-11-12"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2020-02-21"
+          "at_version": "2004",
+          "os_version": "2004",
+          "browser_version": "86",
+          "date": "2020-11-12"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "80",
-          "date": "2020-02-21"
+          "at_version": "2020.3",
+          "os_version": "2004",
+          "browser_version": "86",
+          "date": "2020-11-12"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "72",
-          "date": "2020-02-21"
+          "at_version": "2020.3",
+          "os_version": "2004",
+          "browser_version": "82",
+          "date": "2020-11-12"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "9",
+          "at_version": "8.2",
           "os_version": "9",
-          "browser_version": "80",
-          "date": "2020-02-21"
+          "browser_version": "86",
+          "date": "2020-11-12"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.3",
-          "os_version": "13.3",
-          "browser_version": "13.3",
-          "date": "2020-02-21"
+          "at_version": "14.2",
+          "os_version": "14.2",
+          "browser_version": "14.2",
+          "date": "2020-11-12"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.3",
-          "os_version": "10.15.3",
-          "browser_version": "13.0.5",
-          "date": "2020-02-21"
+          "at_version": "10.15.7",
+          "os_version": "10.15.7",
+          "browser_version": "14.0",
+          "date": "2020-11-12"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.34.0",
-          "os_version": "Ubuntu 19.10",
-          "browser_version": "70",
-          "date": "2020-02-21"
+          "at_version": "3.38.0",
+          "os_version": "Ubuntu 20.10",
+          "browser_version": "82",
+          "date": "2020-11-12"
         }
       }
     }

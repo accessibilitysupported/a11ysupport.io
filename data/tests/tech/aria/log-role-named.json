@@ -41,7 +41,7 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, chat; bullet Customer support: hello, how may I help?; bullet Me: where is the cake?\n\"",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet Me: where is the cake?\n\"",
           "results": [
             {
               "feature_id": "aria/log_role",
@@ -61,15 +61,14 @@
               "feature_id": "aria/log_role",
               "feature_assertion_id": "convey_aria_atomic_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/log_role",
               "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
               "applied_to": "html/div_element",
-              "result": "partial",
-              "notes": "partial because name was conveyed, but not the role"
+              "result": "fail"
             }
           ]
         },
@@ -296,7 +295,7 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet Customer support: hello, how may I help?; bullet Me: where is the cake?; chat\"",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet Me: where is the cake?; chat\"",
           "results": [
             {
               "feature_id": "aria/log_role",
@@ -316,7 +315,7 @@
               "feature_id": "aria/log_role",
               "feature_assertion_id": "convey_aria_atomic_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             },
             {
@@ -424,7 +423,7 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, chat, log, list, bullet customer support: hello, how may I help?; bullet me: where is the cake?; bullet me: where is the cake?\"",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
           "results": [
             {
               "feature_id": "aria/log_role",
@@ -443,14 +442,14 @@
               "feature_id": "aria/log_role",
               "feature_assertion_id": "convey_aria_atomic_value_false",
               "applied_to": "html/div_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             },
             {
               "feature_id": "aria/log_role",
               "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
               "applied_to": "html/div_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -617,7 +616,7 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, me: where is the cake?\"",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, bullet me: where is the cake?\"",
           "results": [
             {
               "feature_id": "aria/log_role",
@@ -674,28 +673,32 @@
     {
       "date": "2020-07-15",
       "message": "test added"
+    },
+    {
+      "date": "2020-11-12",
+      "message": "Updated results; chrome now supports the implicit aria-atomic=false"
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2006.12",
+          "at_version": "2021.2011.16",
           "os_version": "2004",
-          "browser_version": "84",
-          "date": "2020-07-15"
+          "browser_version": "86",
+          "date": "2020-11-12"
         },
         "ie": {
-          "at_version": "2020.2006.12",
+          "at_version": "2021.2011.16",
           "os_version": "2004",
           "browser_version": "11",
-          "date": "2020-07-15"
+          "date": "2020-11-12"
         },
         "firefox": {
-          "at_version": "2020.2006.12",
+          "at_version": "2021.2011.16",
           "os_version": "2004",
-          "browser_version": "77",
-          "date": "2020-07-15"
+          "browser_version": "82",
+          "date": "2020-11-12"
         }
       }
     },
@@ -704,64 +707,64 @@
         "edge": {
           "at_version": "2004",
           "os_version": "2004",
-          "browser_version": "83",
-          "date": "2020-07-15"
+          "browser_version": "86",
+          "date": "2020-11-12"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1",
+          "at_version": "2020.3",
           "os_version": "2004",
-          "browser_version": "84",
-          "date": "2020-07-15"
+          "browser_version": "86",
+          "date": "2020-11-12"
         },
         "firefox": {
-          "at_version": "2020.1",
+          "at_version": "2020.3",
           "os_version": "2004",
-          "browser_version": "77",
-          "date": "2020-07-15"
+          "browser_version": "82",
+          "date": "2020-11-12"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.1",
+          "at_version": "8.2",
           "os_version": "9",
-          "browser_version": "84",
-          "date": "2020-07-15"
+          "browser_version": "86",
+          "date": "2020-11-12"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.4.1",
-          "os_version": "13.4.1",
-          "browser_version": "13.4.1",
-          "date": "2020-07-15"
+          "at_version": "14.2",
+          "os_version": "14.2",
+          "browser_version": "14.2",
+          "date": "2020-11-12"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.5",
-          "os_version": "10.15.5",
-          "browser_version": "13.1.1",
-          "date": "2020-07-15"
+          "at_version": "10.15.7",
+          "os_version": "10.15.7",
+          "browser_version": "14.0",
+          "date": "2020-11-12"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.36.1",
-          "os_version": "Ubuntu 20.04",
-          "browser_version": "77",
-          "date": "2020-07-15"
+          "at_version": "3.38.0",
+          "os_version": "Ubuntu 20.10",
+          "browser_version": "82",
+          "date": "2020-11-12"
         }
       }
     }
