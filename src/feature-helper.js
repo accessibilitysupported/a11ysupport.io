@@ -89,24 +89,24 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 		vc: []
 	};
 	featureObject.core_must_support_string = {
-		sr: 'na',
-		vc: 'na'
+		sr: 'unknown',
+		vc: 'unknown'
 	};
 	featureObject.core_should_support = {
 		sr: [],
 		vc: []
 	};
 	featureObject.core_should_support_string = {
-		sr: 'na',
-		vc: 'na'
+		sr: 'unknown',
+		vc: 'unknown'
 	};
 	featureObject.core_may_support = {
 		sr: [],
 		vc: []
 	};
 	featureObject.core_may_support_string = {
-		sr: 'na',
-		vc: 'na'
+		sr: 'unknown',
+		vc: 'unknown'
 	};
 
 	if (!featureObject.keywords) {
@@ -346,6 +346,16 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 };
 
 helper.bubbleFeatureSupport = function(featureObject) {
+	// Initialize the feature with defaults
+	["sr", "vc"].forEach(type => {
+		featureObject.core_support[type].push('u');
+	});
+	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
+		featureObject.core_support_by_at[ATBrowsers.core_at[i]] = {};
+		featureObject.core_support_by_at[ATBrowsers.core_at[i]].values = ['u'];
+		featureObject.core_support_by_at[ATBrowsers.core_at[i]].string = helper.generateSupportString(['u']);
+	}
+
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		featureObject.assertions[assertion_key].tests = [];
 
@@ -371,6 +381,11 @@ helper.bubbleFeatureSupport = function(featureObject) {
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
 		featureObject.tests[testIndex] = require('../build/tests/'+featureObject.tests[testIndex]);
+
+		if (featureObject.tests[testIndex].status && featureObject.tests[testIndex].status === 'DRAFT') {
+			// This is a draft test, don't bubble support to the feature level.
+			continue;
+		}
 
 		// Set up keywords to help searches
 		if (featureObject.tests[testIndex].keywords) {
@@ -519,18 +534,6 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	featureObject.failing_dates.all = [...new Set(featureObject.failing_dates.all)];
 	featureObject.failing_dates.min = Math.min(...featureObject.failing_dates.all);
 	featureObject.failing_dates.max = Math.max(...featureObject.failing_dates.all);
-
-	if (featureObject.tests.length === 0) {
-		// This is just a stub
-		["sr", "vc"].forEach(type => {
-			featureObject.core_support[type].push('u');
-		});
-		for (let i = 0; i < ATBrowsers.core_at.length; i++) {
-			featureObject.core_support_by_at[ATBrowsers.core_at[i]] = {};
-			featureObject.core_support_by_at[ATBrowsers.core_at[i]].values = ['u'];
-			featureObject.core_support_by_at[ATBrowsers.core_at[i]].string = helper.generateSupportString(['u']);
-		}
-	}
 
 	//Set support strings
 	featureObject.core_support_string.sr = helper.generateSupportString(featureObject.core_support.sr);
@@ -863,24 +866,24 @@ helper.initalizeTestCase = function (testCase) {
 		vc: []
 	};
 	testCase.core_must_support_string = {
-		sr: 'na',
-		vc: 'na'
+		sr: 'unknown',
+		vc: 'unknown'
 	};
 	testCase.core_should_support = {
 		sr: [],
 		vc: []
 	};
 	testCase.core_should_support_string = {
-		sr: 'na',
-		vc: 'na'
+		sr: 'unknown',
+		vc: 'unknown'
 	};
 	testCase.core_may_support = {
 		sr: [],
 		vc: []
 	};
 	testCase.core_may_support_string = {
-		sr: 'na',
-		vc: 'na'
+		sr: 'unknown',
+		vc: 'unknown'
 	};
 
 	testCase.history = testCase.history.sort(sortByProperty('date'));
@@ -1278,7 +1281,7 @@ helper.generateSupportString = function(support) {
 	}
 
 	if (support.length === 0) {
-		return helper.generateSupportString("na");
+		return helper.generateSupportString("unknown");
 	}
 
 	// test for full na support before filtering na support
