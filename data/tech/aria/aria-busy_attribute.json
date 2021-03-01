@@ -9,6 +9,41 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-busy"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_value_false",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the \"false\" value",
+      "rationale": "Screen reader users need to be aware that content is not busy and thus ready to use.",
+      "examples": [
+        "Screen readers might imply the false value by not hiding the element."
+      ],
+      "css_target": "*[aria-busy=\"false\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "convey_value_true",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "title": "convey the \"true\" value",
+      "rationale": "Screen reader users need to be aware that content is busy and thus not ready to use.",
+      "examples": [
+        "Screen readers might imply the true value by hiding the element."
+      ],
+      "css_target": "*[aria-busy=\"true\"]",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    }
+  ],
+  "date_updated": "2021-03-01"
 }
