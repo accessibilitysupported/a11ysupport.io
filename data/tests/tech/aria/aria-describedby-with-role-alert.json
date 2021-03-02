@@ -108,13 +108,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label, editing\"",
+          "output": "\"Example label, edit, error\"",
           "results": [
             {
               "feature_id": "aria/aria-describedby_attribute",
               "feature_assertion_id": "convey_value_if_valid",
               "applied_to": "html/input(type-text)_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -152,13 +152,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label edit has auto complete, blank\"",
+          "output": "\"Example label edit has auto complete, error, blank\"",
           "results": [
             {
               "feature_id": "aria/aria-describedby_attribute",
               "feature_assertion_id": "convey_value_if_valid",
               "applied_to": "html/input(type-text)_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -199,7 +199,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label, edit text\"",
+          "output": "\"Example label, text field\"",
           "results": [
             {
               "feature_id": "aria/aria-describedby_attribute",
@@ -213,6 +213,25 @@
     },
     "vo_macos": {
       "safari": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[ara-describedby]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Example label, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-describedby_attribute",
+              "feature_assertion_id": "convey_value_if_valid",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
         {
           "command": "next_item",
           "css_target": "*[ara-describedby]",
@@ -296,6 +315,10 @@
     {
       "date": "2020-02-15",
       "message": "retest NVDA with crome and firefox"
+    },
+    {
+      "date": "2021-03-02",
+      "message": "retest Narrator+Edge, NVDA+FF, Orca+FF, VO+Safari (iOS and macOS)"
     }
   ],
   "versions": {
@@ -330,10 +353,10 @@
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1809",
-          "browser_version": "44.17763",
-          "os_version": "1809",
-          "date": "2019-03-08"
+          "at_version": "20H2",
+          "browser_version": "88",
+          "os_version": "20H2",
+          "date": "2021-03-02"
         }
       }
     },
@@ -346,39 +369,39 @@
           "date": "2020-02-14"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-02-14"
+          "at_version": "2020.4",
+          "os_version": "20H2",
+          "browser_version": "86",
+          "date": "2021-03-02"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-16"
+          "at_version": "3.38.0",
+          "browser_version": "86",
+          "os_version": "Ubuntu 20.10",
+          "date": "2021-03-02"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.1.4",
-          "browser_version": "12.1.4",
-          "os_version": "12.1.4",
-          "date": "2019-03-08"
+          "at_version": "14.4",
+          "browser_version": "14.4",
+          "os_version": "14.4",
+          "date": "2021-03-02"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.3",
-          "browser_version": "12.0.3",
-          "os_version": "10.14.3",
+          "at_version": "11.2.2",
+          "browser_version": "14.0.3",
+          "os_version": "11.2.2",
           "date": "2019-03-08"
         }
       }
