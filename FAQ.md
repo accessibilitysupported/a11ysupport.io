@@ -34,7 +34,7 @@ Interpreting results can be fairly complex, so here are some general suggestions
 - Be careful when using features that are listed as having partial support. Partial support might mean that specific aspects of a feature are not supported or that certain assistive technology commands do not work as expected.
 - Understand that this is a project of user-contributed data. As such it may not always be the most up to date resource and may not always be accurate. We do our best to validate contributions and ensure a high level of quality, but mistakes do happen, and technology rapidly changes.
 - The best way to determine how well your code works for people with disabilities is to test your code with people with disabilities.
-- Be sure you conform to [WCAG 2.1 level AA](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
+- Be sure you conform to [WCAG 2.x level AA](https://www.w3.org/WAI/WCAG21/quickref/) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
 
 ## What is the status of this project?
 
