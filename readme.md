@@ -55,3 +55,9 @@ Now you just need to make sure that everything was synced correctly. If you thin
 4. (optional) manually verify that everything looks good `npm run start`
 4. commit the changes: `git commit -m 'closes #{issue-number}'`
 5. push the changes `git push origin master`
+
+## Publishing/Releasing
+
+1. Ensure the code is up-to-date with what you want to be released (`git pull origin master`)
+1. `git tag vX.Y.Z` where "vX.Y.Z" is the desired version
+1. `git push origin master --follow-tags && npm publish`
