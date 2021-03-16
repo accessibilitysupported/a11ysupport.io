@@ -139,7 +139,7 @@ let getFeatures = function(techId, buildDir) {
 			for (at in test.versions) {
 				for (browser in test.versions[at].browsers) {
 					if (browser in simplifiedVersions[at]) {
-						let versionString = test.versions[at].browsers[browser].at_version + "/" + test.versions[at].browsers[browser].browser_version;
+						let versionString = `${test.versions[at].browsers[browser].at_version}/${test.versions[at].browsers[browser].browser_version}`;
 						if (!simplifiedVersions[at][browser].includes(versionString))
 							simplifiedVersions[at][browser].push(versionString);
 					}
