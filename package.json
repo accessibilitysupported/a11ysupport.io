@@ -1,11 +1,12 @@
 {
   "name": "accessibilitysupported-site",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha --reporter progress",
-    "build": "node ./build.js"
+    "build": "node ./build.js",
+    "prepublishOnly": "npm install && npm run build"
   },
   "dependencies": {
     "ajv": "^6.10.0",
