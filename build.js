@@ -118,9 +118,40 @@ let getFeatures = function(techId, buildDir) {
 					found = true;
 				}
 			});
+
+			
+			
 		}
+		//Include AT and browser version combinations in feature objects
+		let simplifiedVersions = {}
+
+		for (const test of feature.tests) {
+			for (at in test.versions) {
+				simplifiedVersions[at] = {}
+
+				for (browser in test.versions[at].browsers) {
+					simplifiedVersions[at][browser] = [];
+				}	
+		}
+	}
+	//Add version combinations and exclude duplicates as to not clutter the user interface
+	for (const test of feature.tests) {
+		for (at in test.versions) {
+			for (browser in test.versions[at].browsers) {
+				if (browser in simplifiedVersions[at]) {
+					let versionString = test.versions[at].browsers[browser].at_version + "/" + test.versions[at].browsers[browser].browser_version;
+					if (simplifiedVersions[at][browser].indexOf(versionString) === -1)
+					simplifiedVersions[at][browser].push(versionString);
+				}
+		}
+	}
+}
+
+
+	
 
 		let simplifiedFeature = {
+			allTests: simplifiedVersions,
 			id: id,
 			techId: feature.techId,
 			title: feature.title,
