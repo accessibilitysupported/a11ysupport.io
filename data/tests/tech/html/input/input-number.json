@@ -30,6 +30,44 @@
     {
       "feature_id": "html/input(type-number)_element",
       "feature_assertion_id": "allow_data_entry"
+    },
+    {
+      "feature_id": "html/input(type-number)_element",
+      "feature_assertion_id": "convey_rejected_input"
+    }
+  ],
+  "procedures": [
+    {
+      "key": "enter_invalid_text",
+      "title": "Enter invalid text into the number input",
+      "css_target": "input[type=\"number\"]",
+      "steps": [
+        {
+          "action": "find target"
+        },
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "issue command",
+          "summary": "navigate forward to the number input",
+          "command": "params.commands.navigate_to_target",
+          "ensure_at_location": {
+            "virtual": "target",
+            "focus": "target"
+          }
+        },
+        {
+          "action": "issue command",
+          "summary": "type \"two\"",
+          "observe": "the input should be rejected and the screen reader should have conveyed that the input was rejected.",
+          "ensure_at_location": {
+            "virtual": "target",
+            "focus": "target"
+          }
+        }
+      ]
     }
   ],
   "commands": {
@@ -130,7 +168,7 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
               "result": "pass",
-              "notes": "announced the name when entering the input and automatically switching to forms mode."
+              "notes": "announced the name when entering the input and did not automatically switch to forms mode."
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -274,6 +312,24 @@
               "notes": "Used up and down arrows."
             }
           ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "Each keypress was echoed, with no indication that the input was rejected",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass",
+              "notes": "pass because the behavior is implied by \"spinbox\""
+            }
+          ]
         }
       ],
       "ie": [
@@ -286,13 +342,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"edit, 11, your favorite number, edit 11, type in text\"",
+          "output": "\"edit, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass",
-              "notes": "announced the name when entering the input and automatically switching to forms mode."
+              "result": "fail",
+              "notes": "announced the role and value when entering the input and did not automatically switch to forms mode."
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -315,7 +371,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, edit, type in text\"",
+          "output": "\"your favorite number, edit, 11, type in text\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -432,8 +488,26 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "increment_decrement",
-              "result": "fail",
-              "notes": "Used up and down arrows."
+              "result": "na",
+              "notes": "na because IE does not support this feature"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "Key presses were echoed",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "na",
+              "notes": "na because IE does not support this feature"
             }
           ]
         }
@@ -454,7 +528,7 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
               "result": "pass",
-              "notes": "announced the name when entering the input and automatically switching to forms mode."
+              "notes": "announced the name when entering the input and did not automatically switch to forms mode."
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -589,13 +663,31 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "value was incremented and decremented on first key press, but switched to reading mode on the second keypress",
+          "output": "value was incremented and decremented",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "increment_decrement",
-              "result": "partial",
+              "result": "pass",
               "notes": "Used up and down arrows."
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "\"<key press> invalid entry\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass",
+              "notes": "it appears that firefox allows invalid input but marks the field as invalid instead of outright rejecting the input."
             }
           ]
         }
@@ -640,7 +732,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, number, 11, minimum zero, and maximum zero, your favorite number, number, 11, minimum zero, and maxiumum zero, 11 selected, scan.\"",
+          "output": "\"your favorite number, spin button, 11, minimum zero, and maximum zero, 11 selected.\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -668,7 +760,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, number, 11, minimum zero, and maximum zero.\"",
+          "output": "\"your favorite number, spin button, 11, minimum zero, and maximum zero, 11 selected\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -726,6 +818,24 @@
               "feature_assertion_id": "increment_decrement",
               "result": "fail",
               "notes": "Used up and down arrows."
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "key press was echoed but input was rejected",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass",
+              "notes": "pass because the behavior is implied by the \"number role\""
             }
           ]
         }
@@ -836,7 +946,8 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "partial",
+              "notes": "name is conveyed when the input is blank"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -891,6 +1002,24 @@
               "notes": "Used up and down arrows."
             }
           ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "key press was echoed",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass",
+              "notes": "pass because the behavior is implied by the \"spin button announcement\""
+            }
+          ]
         }
       ],
       "firefox": [
@@ -903,7 +1032,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"spin button, edit, 11\"",
+          "output": "\"clickable, your favorite number, spin button has auto complete, editable, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -931,7 +1060,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, spin button, edit, selected, 11\"",
+          "output": "\"your favorite number, spin button, has auto complete, editable, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -959,7 +1088,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"edit 11, your favorite number, spin button\"",
+          "output": "\"your favorite number, spin button, has auto complete, editable, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -992,12 +1121,13 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form controls as \"unlabeled; edit; 11\"",
+          "output": "in list of form controls as \"11; spin button; has auto complete; editable;\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "partial",
+              "notes": "name is present if the input is blank"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -1052,6 +1182,24 @@
               "notes": "Used up and down arrows."
             }
           ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "<key press> invalid entry",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass",
+              "notes": "Firefox allows invalid input to be provided, but marks the field as invalid."
+            }
+          ]
         }
       ]
     },
@@ -1066,7 +1214,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"11, spin button, your favorite number?\"",
+          "output": "\"your favorite number, spin button\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1081,7 +1229,7 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -1094,7 +1242,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"11, spin button, your favorite number? end of field\"",
+          "output": "\"your favorite number, spin button\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1109,7 +1257,7 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -1133,6 +1281,24 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_change_in_value",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_item"
+            }
+          },
+          "output": "Unable to enter non-numerical characters.",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass",
+              "notes": "A number keyboard was opened and it was not possible to switch to the default keyboard. If you enter an invalid number (something like 11+) then it announces \"invalid entry\"."
             }
           ]
         }
@@ -1275,6 +1441,23 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_item"
+            }
+          },
+          "output": "Text can be entered, but VO announces the input as \"invalid data\" after navigating back to it",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
               "result": "pass"
             }
           ]
@@ -1441,6 +1624,23 @@
               "notes": "Used up and down arrows."
             }
           ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "invalid data could be entered, and VO announces \"invalid data\" when navigating back to the control",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -1455,7 +1655,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, clickable. your favorite number, entry, 11\"",
+          "output": "\"your favorite number, 11, spin button\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1465,8 +1665,7 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "number input also conveyed by buttons to increment and decrement"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -1512,30 +1711,27 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"entry, 11\"",
+          "output": "\"your favorite number, 11, spin button\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "label was not conveyed"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass",
-              "notes": "label was not conveyed"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "provide_shortcuts",
-              "result": "pass",
-              "notes": "label was not conveyed"
+              "result": "pass"
             }
           ]
         },
@@ -1548,12 +1744,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "in list of form controls as \"; entry; 11\"",
+          "output": "in list of form controls as \"your favorite number?; spin button; 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -1606,6 +1802,23 @@
               "feature_assertion_id": "increment_decrement",
               "result": "pass",
               "notes": "Used up and down arrows."
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_invalid_text",
+          "params": {
+            "commands": {
+              "navigate_to_target": "next_focusable_item"
+            }
+          },
+          "output": "Invalid data could be entered, but field was also conveyed as invalid",
+          "results": [
+            {
+              "feature_id": "html/input(type-number)_element",
+              "feature_assertion_id": "convey_rejected_input",
+              "result": "pass"
             }
           ]
         }
@@ -1823,6 +2036,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2020-03-17",
+      "message": "Add expectation for rejected input and re-test all screen readers."
     }
   ],
   "versions": {
@@ -1839,58 +2056,58 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2021.2102.34",
+          "os_version": "20H2",
+          "browser_version": "89",
+          "date": "2020-03-17"
         },
         "ie": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
+          "at_version": "2021.2102.34",
+          "os_version": "20H2",
           "browser_version": "11",
-          "date": "2020-01-28"
+          "date": "2020-03-17"
         },
         "firefox": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "72",
-          "date": "2020-01-28"
+          "at_version": "2021.2102.34",
+          "os_version": "20H2",
+          "browser_version": "86",
+          "date": "2020-03-17"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1903",
-          "os_version": "1903",
-          "browser_version": "44",
-          "date": "2019-10-14"
+          "at_version": "20H2",
+          "os_version": "20H2",
+          "browser_version": "89",
+          "date": "2020-03-17"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-10-14"
+          "at_version": "2020.4",
+          "os_version": "20H2",
+          "browser_version": "89",
+          "date": "2020-03-17"
         },
         "firefox": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "69",
-          "date": "2019-10-14"
+          "at_version": "2020.4",
+          "os_version": "20H2",
+          "browser_version": "86",
+          "date": "2020-03-17"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.3.0",
+          "at_version": "9.1",
           "os_version": "7.0",
-          "browser_version": "77",
-          "date": "2019-10-14"
+          "browser_version": "89",
+          "date": "2020-03-17"
         }
       }
     },
@@ -1907,30 +2124,30 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.1",
-          "os_version": "13.1",
-          "browser_version": "13.1",
-          "date": "2019-10-14"
+          "at_version": "14.4.1",
+          "os_version": "14.4.1",
+          "browser_version": "4.4.1",
+          "date": "2020-03-17"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "os_version": "10.15",
-          "browser_version": "13.0.2",
-          "date": "2019-10-14"
+          "at_version": "11.2.3",
+          "os_version": "11.2.3",
+          "browser_version": "14.0.3",
+          "date": "2020-03-17"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "os_version": "Ubuntu 19.04",
-          "browser_version": "69",
-          "date": "2019-10-14"
+          "at_version": "3.38.0",
+          "os_version": "Ubuntu 20.10",
+          "browser_version": "86",
+          "date": "2020-03-17"
         }
       }
     },

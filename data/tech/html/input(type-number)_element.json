@@ -26,7 +26,7 @@
     {
       "id": "convey_role",
       "examples": [
-        "A screen reader might be announce the role as \"text input\", \"edit\", \"edit text\", \"spinbox\", \"spin button\", \"incrementable\" etc.",
+        "A screen reader might be announce the role as \"number\", \"text input\", \"edit\", \"edit text\", \"spinbox\", \"spin button\", \"incrementable\" etc.",
         "Voice control software will let the user say something like \"click edit\" to focus a the input or flag the role with a number."
       ],
       "css_target": "input[type=\"number\"]"
@@ -71,7 +71,26 @@
     {
       "id": "allow_data_entry",
       "css_target": "input[type=\"number\"]"
+    },
+    {
+      "id": "convey_rejected_input",
+      "title": "convey when input is rejected",
+      "rationale": "The number input only allows numbers to be entered. Characters that the user attempts to enter that are outside of the allowed characters are rejected by the input and never displayed visually. Because a sighted user gets this visual feedback that their input was not accepted, a blind screen reader user also needs to know when input is not accepted. Otherwise, the user might assume that the data was accepted.",
+      "examples": [
+        "the behavior might be implied if the control is conveyed as something like \"number\", \"spinbox\", \"spin button\", or \"incrementable\"",
+        "some AT/browser combinations will allow invalid input but convey the field as invalid",
+        "screen readers might announce an earcon when the user tries to enter data beyond the maximum length.",
+        "screen readers might imply that the input was rejected by not announcing anything when a user tries to enter data (usually the keypress is echoed)"
+      ],
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "input[type=\"number\"]",
+      "operation_modes": [
+        "sr/interaction"
+      ]
     }
   ],
-  "date_updated": "2019-10-14"
+  "date_updated": "2020-03-16"
 }

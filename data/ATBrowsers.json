@@ -1487,7 +1487,7 @@
           ]
         },
         "start_reading_from_current_position": {
-          "command": "GCM, Read from next item",
+          "command": "swipe up then right, select 'read from next item'",
           "name": "Read from current position",
           "tags": [
             "reading",
@@ -1497,8 +1497,8 @@
         "global_context_menu": {
           "command": "Swipe down, then right (or alt+space)",
           "name": "Global context menu",
+          "note": "This feature was removed in Talkback 9.1",
           "tags": [
-            "general",
             "sr/reading"
           ]
         },
@@ -1519,8 +1519,8 @@
         "local_context_menu": {
           "command": "Swipe up, then right (or alt+shift+space)",
           "name": "Turn Off",
+          "note": "This feature was removed in Talkback 9.1",
           "tags": [
-            "general",
             "sr/reading"
           ]
         },
@@ -1531,6 +1531,14 @@
             "common",
             "reading",
             "sr/reading"
+          ]
+        },
+        "show_talkback_menu": {
+          "command": "Swipe up then right (or alt+space)",
+          "name": "Show talkback menu",
+          "note": "Available as of Talkback 9.1",
+          "tags": [
+            "general"
           ]
         },
         "next_option": {
@@ -1552,15 +1560,37 @@
         "open_element_list": {
           "command": "GCM, Quick navigation",
           "name": "Open element list",
+          "note": "removed in Talkback 9.1",
           "tags": [
+            "sr/reading"
+          ]
+        },
+        "next_reading_control": {
+          "command": "swipe down, then up",
+          "name": "Next reading control",
+          "note": "This command changes the type of control is found with the swipe up or swipe down gestures. You can customize the controls found in this menu by going to customize menus > customize reading controls.",
+          "tags": [
+            "common",
+            "elements",
+            "sr/reading",
+            "general"
+          ]
+        },
+        "previous_reading_control": {
+          "command": "swipe up, then down",
+          "name": "Next reading control",
+          "note": "This command changes the type of control is found with the swipe up or swipe down gestures. You can customize the controls found in this menu by going to customize menus > customize reading controls.",
+          "tags": [
+            "common",
             "elements",
             "sr/reading",
             "general"
           ]
         },
         "next_landmark": {
-          "command": "LCM, landmarks, swipe right",
+          "command": "swipe down after changing the reading control to 'landmarks' (alt+D)",
           "name": "Next landmark",
+          "note": "this reading control is not in the reading controls menu by default. You can enable it by going to customize menus > customize reading controls.",
           "tags": [
             "elements",
             "sr/reading",
@@ -1608,44 +1638,6 @@
             "sr/interaction"
           ]
         },
-        "previous_navigation_type": {
-          "command": "Swipe up",
-          "name": "previous navigation setting",
-          "note": "Cycle through types of elements, affects what happens when you swipe right or left",
-          "tags": [
-            "common",
-            "general",
-            "reading",
-            "sr/reading"
-          ]
-        },
-        "next_navigation_type": {
-          "command": "Swipe down",
-          "name": "next navigation setting",
-          "note": "Cycle through types of elements, affects what happens when you swipe right or left",
-          "tags": [
-            "common",
-            "general",
-            "reading",
-            "sr/reading"
-          ]
-        },
-        "focus_first": {
-          "command": "Swipe up then down",
-          "name": "focus first item on screen",
-          "tags": [
-            "reading",
-            "sr/reading"
-          ]
-        },
-        "focus_last": {
-          "command": "Swipe down then up",
-          "name": "focus last item on screen",
-          "tags": [
-            "reading",
-            "sr/reading"
-          ]
-        },
         "scroll_back": {
           "command": "Swipe left then right",
           "name": "scroll back",
@@ -1663,48 +1655,48 @@
           ]
         },
         "next_heading": {
-          "command": "Swipe right",
-          "name": "next heading (correct item type must be selected)",
+          "command": "Swipe down (alt+H)",
+          "name": "next heading (correct reading control must be selected)",
           "tags": [
             "reading",
             "sr/reading"
           ]
         },
         "previous_heading": {
-          "command": "Swipe left",
-          "name": "previous heading (correct item type must be selected)",
+          "command": "Swipe up",
+          "name": "previous heading (correct reading control must be selected)",
           "tags": [
             "reading",
             "sr/reading"
           ]
         },
         "next_link": {
-          "command": "Swipe right",
-          "name": "next link (correct item type must be selected)",
+          "command": "Swipe down (alt+L)",
+          "name": "next link (correct reading control must be selected)",
           "tags": [
             "reading",
             "sr/reading"
           ]
         },
         "previous_link": {
-          "command": "Swipe left",
-          "name": "previous link (correct item type must be selected)",
+          "command": "Swipe up (alt+shift+L)",
+          "name": "previous link (correct reading control must be selected)",
           "tags": [
             "reading",
             "sr/reading"
           ]
         },
         "next_form_field": {
-          "command": "Swipe right",
-          "name": "next control (correct item type must be selected)",
+          "command": "Swipe down (alt+c)",
+          "name": "next control (correct reading control must be selected)",
           "tags": [
             "reading",
             "sr/reading"
           ]
         },
         "previous_form_field": {
-          "command": "Swipe left",
-          "name": "previous control (correct item type must be selected)",
+          "command": "Swipe up (alt+shift+c)",
+          "name": "previous control (correct reading control must be selected)",
           "tags": [
             "reading",
             "sr/reading"
