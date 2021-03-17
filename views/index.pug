@@ -62,6 +62,16 @@ block content
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
+                                br
+                                dl(class="version-combinations") 
+                                  dt 
+                                    small Versions tested (SR/Browser)
+                                    if [at] in feature.allTests
+                                      if [browser] in feature.allTests[at]
+                                        each versCombo in feature.allTests[at][browser]
+                                          dd
+                                            small #{versCombo}
+                               
                 if (feature.core_support.vc.length)
                   div.responsive-table.support-summary-table.at-container(tabindex="0")
                     h3(id="feature-" + index + '-vc-h') Voice control support
