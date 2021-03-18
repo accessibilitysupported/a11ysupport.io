@@ -124,31 +124,34 @@ let getFeatures = function(techId, buildDir) {
 		}
 		//Include AT and browser version combinations in feature objects
 		let simplifiedVersions = {}
-
 		for (const test of feature.tests) {
 			for (at in test.versions) {
-				simplifiedVersions[at] = {}
-
-				for (browser in test.versions[at].browsers) {
-					simplifiedVersions[at][browser] = [];
-				}
-			}
-		}
-		//Add version combinations and exclude duplicates as to not clutter the user interface
-		for (const test of feature.tests) {
-			for (at in test.versions) {
-				for (browser in test.versions[at].browsers) {
-					if (browser in simplifiedVersions[at]) {
-						let versionString = `${test.versions[at].browsers[browser].at_version}/${test.versions[at].browsers[browser].browser_version}`;
-						if (!simplifiedVersions[at][browser].includes(versionString))
-							simplifiedVersions[at][browser].push(versionString);
+				if (ATBrowsers.at[at].type === 'sr') {
+					simplifiedVersions[at] = {}
+					simplifiedVersions[at].title = ATBrowsers.at[at].title;
+					simplifiedVersions[at].browsers = {};
+					for (browser in test.versions[at].browsers) {
+						simplifiedVersions[at].browsers[browser] = {}
+						simplifiedVersions[at].browsers[browser].title = ATBrowsers.browsers[browser].title;
+						simplifiedVersions[at].browsers[browser].versions = [];
 					}
 				}
 			}
+		
 		}
-
-
-	
+		
+		for (const test of feature.tests) {
+			for (at in test.versions) {
+				if (ATBrowsers.at[at].type === 'sr') {
+					for (browser in test.versions[at].browsers) {
+						let versionString = `${test.versions[at].browsers[browser].at_version}/${test.versions[at].browsers[browser].browser_version}`;
+						if (!simplifiedVersions[at].browsers[browser].versions.includes(versionString)) {
+							simplifiedVersions[at].browsers[browser].versions.push(versionString);
+						}
+					}
+				}
+			}
+		 }
 
 		let simplifiedFeature = {
 			id: id,

@@ -66,16 +66,13 @@ block content
                       summary
                         h4 Screen reader and browser versions tested
                       ul
-                        each at in ATBrowsers.core_at
-                          if ATBrowsers.at[at].type !== "sr"
-                            - continue
-                          each browser in ATBrowsers.at[at].core_browsers
-                            li #{ATBrowsers.at[at].title}/#{ATBrowsers.browsers[browser].title}
+                        each at in feature.allTests
+                          each browser in at.browsers
+                            li #{at.title}/#{browser.title}
                               ul
-                                if [at] in feature.allTests
-                                  if [browser] in feature.allTests[at]
-                                    each versCombo in feature.allTests[at][browser]
-                                      li #{versCombo}
+                                each versCombo in browser.versions
+                                  li #{versCombo}
+                              
                                
                 if (feature.core_support.vc.length)
                   div.responsive-table.support-summary-table.at-container(tabindex="0")
