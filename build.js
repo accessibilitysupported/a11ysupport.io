@@ -129,6 +129,7 @@ let getFeatures = function(techId, buildDir) {
 				for (at in test.versions) {
 						simplifiedVersions[at] = {}
 						simplifiedVersions[at].title = ATBrowsers.at[at].title;
+						simplifiedVersions[at].type = ATBrowsers.at[at].type;
 						simplifiedVersions[at].browsers = {};
 						for (browser in test.versions[at].browsers) {
 							simplifiedVersions[at].browsers[browser] = {}

@@ -67,11 +67,12 @@ block content
                         h4 Screen reader and browser versions tested
                       ul
                         each at in feature.allTests
-                          each browser in at.browsers
-                            li #{at.title}/#{browser.title}
-                              ul
-                                each versCombo in browser.versions
-                                  li #{versCombo}
+                          if at.type === 'sr'
+                            each browser in at.browsers
+                              li #{at.title}/#{browser.title}
+                                ul
+                                  each versCombo in browser.versions
+                                    li #{versCombo}
                               
                                
                 if (feature.core_support.vc.length)
@@ -112,5 +113,21 @@ block content
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
+                      - let vcTest = 0;
+                    each at in feature.allTests
+                      if at.type === 'vc'
+                        - vcTest++
+                    if vcTest > 0
+                      details
+                        summary
+                          h4 Voice control and browser versions tested
+                        ul
+                          each at in feature.allTests
+                            if at.type === 'vc'
+                              each browser in at.browsers
+                                li #{at.title}/#{browser.title}
+                                  ul
+                                    each versCombo in browser.versions
+                                      li #{versCombo}
                 p Supported by #{feature.total_test_count} tests. Results range from #{moment(feature.all_dates.max).fromNow()} to #{moment(feature.all_dates.min).fromNow()}. #{(feature.failing_dates.max && moment().diff(feature.failing_dates.max, 'months') >= 9)? 'Caution: failing or partial results may be out of date. Consider contributing results.': ''}
       script(src="/js/search.js")
