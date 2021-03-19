@@ -118,40 +118,25 @@ let getFeatures = function(techId, buildDir) {
 					found = true;
 				}
 			});
-
-			
-			
 		}
+		
 		//Include AT and browser version combinations in feature objects
-		let simplifiedVersions = {}
+		let simplifiedTests = [];
+
 		if (feature.tests.length > 0) {
-			for (const test of feature.tests) {
+			simplifiedTests = feature.tests.map(function (test) {
 				for (at in test.versions) {
-						simplifiedVersions[at] = {}
-						simplifiedVersions[at].title = ATBrowsers.at[at].title;
-						simplifiedVersions[at].type = ATBrowsers.at[at].type;
-						simplifiedVersions[at].browsers = {};
-						for (browser in test.versions[at].browsers) {
-							simplifiedVersions[at].browsers[browser] = {}
-							simplifiedVersions[at].browsers[browser].title = ATBrowsers.browsers[browser].title;
-							simplifiedVersions[at].browsers[browser].versions = [];
-						}
+					test.versions[at].title = ATBrowsers.at[at].title;
+					test.versions[at].type = ATBrowsers.at[at].type;
+					for (browser in test.versions[at].browsers) {
+						test.versions[at].browsers[browser].title = ATBrowsers.browsers[browser].title;
+					}
 				}
-			
-			}
-			
-			for (const test of feature.tests) {
-				for (at in test.versions) {
-						for (browser in test.versions[at].browsers) {
-							let versionString = `${test.versions[at].browsers[browser].at_version}/${test.versions[at].browsers[browser].browser_version}`;
-							if ([browser] in simplifiedVersions[at].browsers) {
-								if (!simplifiedVersions[at].browsers[browser].versions.includes(versionString)) {
-									simplifiedVersions[at].browsers[browser].versions.push(versionString);
-								}
-							}
-						}
+				return {
+					title: test.title,
+					versions: test.versions
 				}
-			}
+			});
 		}
 
 		let simplifiedFeature = {
@@ -171,7 +156,7 @@ let getFeatures = function(techId, buildDir) {
 			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length,
-			allTests: simplifiedVersions,
+			allTests: simplifiedTests,
 			all_dates: feature.all_dates,
 			failing_dates: feature.failing_dates,
 			assertions: [],
