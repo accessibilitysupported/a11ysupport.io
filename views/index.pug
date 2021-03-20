@@ -115,14 +115,18 @@ block content
                         h4 Voice control and browser versions tested
                       each test in feature.allTests
                         h5 Test: #{test.title}
-                        ul
-                        - let vcCount = 0;
+                          - let hasVoiceControlTests = false
                         each at in test.versions
                           if (at.type === 'vc')
-                            each browser in at.browsers
-                              li #{at.title} #{browser.at_version} with #{browser.title} #{browser.browser_version}
-                              - vcCount++
-                        if (vcCount === 0)
-                          p Not available
+                            - hasVoiceControlTests = true
+                            - return
+                        if (hasVoiceControlTests)
+                          ul
+                            each at in test.versions
+                              if (at.type === 'vc')
+                                each browser in at.browsers
+                                  li #{at.title} #{browser.at_version} with #{browser.title} #{browser.browser_version}
+                        else
+                          p No test data available.
                 p Supported by #{feature.total_test_count} tests. Results range from #{moment(feature.all_dates.max).fromNow()} to #{moment(feature.all_dates.min).fromNow()}. #{(feature.failing_dates.max && moment().diff(feature.failing_dates.max, 'months') >= 9)? 'Caution: failing or partial results may be out of date. Consider contributing results.': ''}
       script(src="/js/search.js")
