@@ -118,37 +118,26 @@ let getFeatures = function(techId, buildDir) {
 					found = true;
 				}
 			});
-
-			
-			
 		}
+		
 		//Include AT and browser version combinations in feature objects
-		let simplifiedVersions = {}
+		let simplifiedTests = [];
 
-		for (const test of feature.tests) {
-			for (at in test.versions) {
-				simplifiedVersions[at] = {}
-
-				for (browser in test.versions[at].browsers) {
-					simplifiedVersions[at][browser] = [];
-				}
-			}
-		}
-		//Add version combinations and exclude duplicates as to not clutter the user interface
-		for (const test of feature.tests) {
-			for (at in test.versions) {
-				for (browser in test.versions[at].browsers) {
-					if (browser in simplifiedVersions[at]) {
-						let versionString = `${test.versions[at].browsers[browser].at_version}/${test.versions[at].browsers[browser].browser_version}`;
-						if (!simplifiedVersions[at][browser].includes(versionString))
-							simplifiedVersions[at][browser].push(versionString);
+		if (feature.tests.length > 0) {
+			simplifiedTests = feature.tests.map(function (test) {
+				for (at in test.versions) {
+					test.versions[at].title = ATBrowsers.at[at].title;
+					test.versions[at].type = ATBrowsers.at[at].type;
+					for (browser in test.versions[at].browsers) {
+						test.versions[at].browsers[browser].title = ATBrowsers.browsers[browser].title;
 					}
 				}
-			}
+				return {
+					title: test.title,
+					versions: test.versions
+				}
+			});
 		}
-
-
-	
 
 		let simplifiedFeature = {
 			id: id,
@@ -167,7 +156,7 @@ let getFeatures = function(techId, buildDir) {
 			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
 			total_test_count: feature.tests.length,
-			allTests: simplifiedVersions,
+			allTests: simplifiedTests,
 			all_dates: feature.all_dates,
 			failing_dates: feature.failing_dates,
 			assertions: [],

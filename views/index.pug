@@ -62,16 +62,16 @@ block content
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
-                                br
-                                dl(class="version-combinations") 
-                                  dt 
-                                    small Versions tested (SR/Browser)
-                                    if [at] in feature.allTests
-                                      if [browser] in feature.allTests[at]
-                                        each versCombo in feature.allTests[at][browser]
-                                          dd
-                                            small #{versCombo}
-                               
+                    details
+                      summary
+                        h4 Screen reader and browser versions tested
+                      each test in feature.allTests
+                        h5 Test: #{test.title}
+                        ul
+                        each at in test.versions
+                          if (at.type === 'sr')
+                            each browser in at.browsers
+                              li #{at.title} #{browser.at_version} with #{browser.title} #{browser.browser_version}
                 if (feature.core_support.vc.length)
                   div.responsive-table.support-summary-table.at-container(tabindex="0")
                     h3(id="feature-" + index + '-vc-h') Voice control support
@@ -110,5 +110,23 @@ block content
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
+                    details
+                      summary
+                        h4 Voice control and browser versions tested
+                      each test in feature.allTests
+                        h5 Test: #{test.title}
+                          - let hasVoiceControlTests = false
+                        each at in test.versions
+                          if (at.type === 'vc')
+                            - hasVoiceControlTests = true
+                            - return
+                        if (hasVoiceControlTests)
+                          ul
+                            each at in test.versions
+                              if (at.type === 'vc')
+                                each browser in at.browsers
+                                  li #{at.title} #{browser.at_version} with #{browser.title} #{browser.browser_version}
+                        else
+                          p No test data available.
                 p Supported by #{feature.total_test_count} tests. Results range from #{moment(feature.all_dates.max).fromNow()} to #{moment(feature.all_dates.min).fromNow()}. #{(feature.failing_dates.max && moment().diff(feature.failing_dates.max, 'months') >= 9)? 'Caution: failing or partial results may be out of date. Consider contributing results.': ''}
       script(src="/js/search.js")
