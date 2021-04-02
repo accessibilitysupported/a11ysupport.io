@@ -23,7 +23,7 @@ block content
               if (feature.assertions.length === 0 || feature.total_test_count === 0)
                 p We do not currently have any data on this feature. Please help contribute.
               else
-                if (feature.core_support.sr.length)
+                if (feature.core_support.sr.length && feature.supports_at.includes('sr'))
                   div.responsive-table.support-summary-table.at-container(tabindex="0")
                     h3(id="feature-"+index+'-sr-h') Screen reader support
                     div.expectation-summary
@@ -62,7 +62,7 @@ block content
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
-                if (feature.core_support.vc.length)
+                if (feature.core_support.vc.length && feature.supports_at.includes('vc'))
                   div.responsive-table.support-summary-table.at-container(tabindex="0")
                     h3(id="feature-" + index + '-vc-h') Voice control support
                     div.expectation-summary
@@ -101,4 +101,14 @@ block content
                             each browser in ATBrowsers.at[at].core_browsers
                               td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
                 p Supported by #{feature.total_test_count} tests. Results range from #{moment(feature.all_dates.max).fromNow()} to #{moment(feature.all_dates.min).fromNow()}. #{(feature.failing_dates.max && moment().diff(feature.failing_dates.max, 'months') >= 9)? 'Caution: failing or partial results may be out of date. Consider contributing results.': ''}
+                details
+                  summary
+                    h3 Test and version details
+                  each test in feature.allTests
+                    h4
+                      a(href="/tests/"+ testHelper.makeSafe(test.id)) Test: #{test.title}
+                    ul
+                      each at in test.versions
+                        each browser in at.browsers
+                          li #{at.title} #{browser.at_version} with #{browser.title} #{browser.browser_version}
       script(src="/js/search.js")

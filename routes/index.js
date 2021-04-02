@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
 		title: 'Accessibility Support',
 		features: require(__dirname+'/../build/features.json'),
 		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
-		moment: moment
+		moment: moment,
+		testHelper: testHelper,
 	});
 });
 
