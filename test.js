@@ -27,42 +27,46 @@ describe('Development tests', function () {
 		// load the test
 		let test = require(file);
 
-		it(file + ' should conform to the dev-test schema', function () {
-			let valid = ajv.validate('http://accessibilitysupported.com/dev-test.json', test);
-			if (!valid) {
-				console.log(ajv.errors);
-			}
-			expect(valid).to.be.equal(true);
-		});
-
-		test.assertions.forEach(assertion => {
-			it(devDir+'/tech/'+assertion.feature_id + '.json should exist', function () {
-				let exists = fs.existsSync(devDir+'/tech/'+assertion.feature_id+'.json');
-				expect(exists).to.be.equal(true);
+		describe('test: ' + file, function () {
+			it(file + ' should conform to the dev-test schema', function () {
+				let valid = ajv.validate('http://accessibilitysupported.com/dev-test.json', test);
+				if (!valid) {
+					console.log(ajv.errors);
+				}
+				expect(valid).to.be.equal(true);
 			});
 
-			if (!assertion.results) {
-				return;
-			}
+			test.assertions.forEach(assertion => {
+				it(devDir + '/tech/' + assertion.feature_id + '.json should exist', function () {
+					let exists = fs.existsSync(devDir + '/tech/' + assertion.feature_id + '.json');
+					expect(exists).to.be.equal(true);
+				});
+			});
 
-			let at_keys = Object.getOwnPropertyNames(assertion.results);
-			at_keys.forEach(function(at_id) {
-				let browser_keys = Object.getOwnPropertyNames(assertion.results[at_id].browsers);
-				browser_keys.forEach(function(browser_key) {
-					if (!assertion.results[at_id].browsers[browser_key].output) {
-						return;
-					}
-					assertion.results[at_id].browsers[browser_key].output.forEach(function(output, index) {
-						it(at_id + '.' + browser_key + '.output['+index+'].command should be valid: ' + output.command, function() {
-							expect(ATBrowsers.at[at_id].commands[output.command]).to.be.not.undefined;
-						})
+			if (test.commands) {
+				let at_keys = Object.getOwnPropertyNames(test.commands);
+				at_keys.forEach(function (at_id) {
+					let browser_keys = Object.getOwnPropertyNames(test.commands[at_id]);
+					browser_keys.forEach(function (browser_key) {
 
-						it(at_id + '.browsers.' + browser_key + ' must have a version object defined: ' + file, function() {
-							expect(test.versions[at_id].browsers[browser_key]).to.be.not.undefined;
+						if (!test.commands[at_id][browser_key]) {
+							return;
+						}
+
+						test.commands[at_id][browser_key].forEach(function (command, index) {
+
+							it(at_id + '.' + browser_key + '[' + index + '].command should be valid: ' + command.command, function () {
+								expect(ATBrowsers.at[at_id].commands[command.command]).to.be.not.undefined;
+							})
+
+							it(at_id + '.' + browser_key + ' must have a version object defined: ' + file, function () {
+								expect(test.versions[at_id].browsers[browser_key]).to.be.not.undefined;
+							})
+
 						})
 					});
 				});
-			});
+			}
 		});
 	});
 });
