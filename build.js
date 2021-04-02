@@ -134,6 +134,7 @@ let getFeatures = function(techId, buildDir) {
 				}
 				return {
 					title: test.title,
+					id: test.id,
 					versions: test.versions
 				}
 			});
