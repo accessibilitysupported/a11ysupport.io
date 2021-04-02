@@ -596,9 +596,14 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		});
 	}
 
+	featureObject.supports_at = [];
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		// aggregate must/should/may core support
 		["sr", "vc"].forEach(type => {
+			if (assertion.supports_at.includes(type) && !featureObject.supports_at.includes(type)) {
+				featureObject.supports_at.push(type);
+			}
+
 			if (assertion.strength[type] === "MUST" || assertion.strength[type] === "MUST NOT") {
 				if (assertion.core_support && assertion.core_support[type] && assertion.core_support[type].length) {
 					featureObject.core_must_support[type] = featureObject.core_must_support[type].concat(assertion.core_support[type]);
@@ -616,6 +621,14 @@ helper.bubbleFeatureSupport = function(featureObject) {
 				featureObject.core_may_support_string[type] = helper.generateSupportString(featureObject.core_may_support[type]);
 			}
 		});
+	});
+
+	["sr", "vc"].forEach(type => {
+		if (!featureObject.supports_at.includes(type)) {
+			featureObject.core_must_support_string[type] = helper.generateSupportString('na');
+			featureObject.core_should_support_string[type] = helper.generateSupportString('na');
+			featureObject.core_may_support_string[type] = helper.generateSupportString('na');
+		}
 	});
 };
 
@@ -888,6 +901,7 @@ helper.initalizeTestCase = function (testCase) {
 
 	testCase.history = testCase.history.sort(sortByProperty('date'));
 
+	// compute data for each assertion
 	testCase.assertions.forEach(function(assertion, assertion_key) {
 		// Load the feature object so that we can reference linked assertions (use the data version because the feature hasn't been built yet)
 		let feature = require('../data/tech/'+assertion.feature_id+".json");
@@ -950,16 +964,16 @@ helper.initalizeTestCase = function (testCase) {
 			vc: []
 		};
 		testCase.assertions[assertion_key].core_support_string = {
-			sr: 'unknown',
-			vc: 'unknown'
+			sr: supports_sr ? 'unknown' : 'na',
+			vc: supports_vc ? 'unknown' : 'na'
 		};
-        testCase.assertions[assertion_key].extended_support = {
-        	sr: [],
+		testCase.assertions[assertion_key].extended_support = {
+			sr: [],
 			vc: []
 		};
 		testCase.assertions[assertion_key].extended_support_string = {
-			sr: 'unknown',
-			vc: 'unknown'
+			sr: supports_sr ? 'unknown' : 'na',
+			vc: supports_vc ? 'unknown' : 'na'
 		};
 		testCase.assertions[assertion_key].core_support_by_at_browser = {};
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
@@ -1075,8 +1089,12 @@ helper.initalizeTestCase = function (testCase) {
 					// Reduce it to unique values
 					results = results.unique();
 
-					// No support by default
-					testCase.assertions[assertion_key].results[at].browsers[browser].support = 'unknown';
+					// unknown or n/a support by default
+					if (testCase.assertions[assertion_key].supports_at.includes(ATBrowsers.at[at].type)) {
+						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'unknown';
+					} else {
+						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'na';
+					}
 
 					var pass_strategy = 'all';
 					if (ref_assertion.pass_strategy) {

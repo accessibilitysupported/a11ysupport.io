@@ -161,6 +161,7 @@ let getFeatures = function(techId, buildDir) {
 			all_dates: feature.all_dates,
 			failing_dates: feature.failing_dates,
 			assertions: [],
+			supports_at: feature.supports_at,
 			core_must_support_string: feature.core_must_support_string,
 			core_should_support_string: feature.core_should_support_string,
 			core_may_support_string: feature.core_may_support_string
