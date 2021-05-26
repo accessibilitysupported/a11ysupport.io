@@ -1,8 +1,8 @@
 # Accessibility Supported
 
-Status: prototype, awaiting feedback
+Status: help wanted
 
-accessibilitysupported.com
+[a11ysupport.io](a11ysupport.io)
 
 ## Install and run
 
