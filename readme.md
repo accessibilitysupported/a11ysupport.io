@@ -2,7 +2,7 @@
 
 Status: help wanted
 
-[a11ysupport.io](a11ysupport.io)
+[https://a11ysupport.io](a11ysupport.io)
 
 ## Install and run
 
