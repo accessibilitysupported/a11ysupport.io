@@ -22,7 +22,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "red square",
+          "output": "\"red square, graphic\"",
           "results": [
             {
               "feature_id": "svg/title_element",
@@ -40,7 +40,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "red square",
+          "output": "\"red square, graphic\"",
           "results": [
             {
               "feature_id": "svg/title_element",
@@ -60,7 +60,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "red square",
+          "output": "\"red square, graphic\"",
           "results": [
             {
               "feature_id": "svg/title_element",
@@ -98,12 +98,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "(target not announced)",
+          "output": "\"red square\"",
           "results": [
             {
               "feature_id": "svg/title_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "partial",
+              "notes": "name was conveyed but not the role"
             }
           ]
         },
@@ -138,7 +139,47 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "(target not announced)",
+          "output": "\"red square, image\"",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "svg",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"graphic red square\"",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_graphic",
+          "css_target": "svg",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"red square graphic\"",
           "results": [
             {
               "feature_id": "svg/title_element",
@@ -147,9 +188,7 @@
             }
           ]
         }
-      ]
-    },
-    "nvda": {
+      ],
       "firefox": [
         {
           "command": "next_item",
@@ -160,7 +199,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "(not announced)",
+          "output": "(not found)",
           "results": [
             {
               "feature_id": "svg/title_element",
@@ -200,7 +239,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "not announced",
+          "output": "\"red square, graphic\"",
           "results": [
             {
               "feature_id": "svg/title_element",
@@ -263,12 +302,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "(not announced)",
+          "output": "\"red square, empty group\"",
           "results": [
             {
               "feature_id": "svg/title_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "partial",
+              "notes": "name conveyed, but not role"
             }
           ]
         },
@@ -309,78 +349,88 @@
     {
       "date": "2018-12-17",
       "message": "narrator/edge support updated"
+    },
+    {
+      "date": "2021-05-30",
+      "message": "update all core at/browser combos"
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "18",
-          "browser_version": "65",
-          "os_version": "17763",
-          "date": "2018-01-01"
+          "at_version": "2021.2105.53",
+          "browser_version": "91",
+          "os_version": "20H2",
+          "date": "2021-05-30"
         },
         "ie": {
-          "at_version": "18",
+          "at_version": "2021.2105.53",
           "browser_version": "11",
-          "os_version": "17763",
-          "date": "2018-01-01"
+          "os_version": "20H2",
+          "date": "2021-05-30"
         },
         "firefox": {
-          "at_version": "2018.1808.10",
-          "browser_version": "64",
-          "os_version": "1809",
-          "date": "2018-12-14"
+          "at_version": "2021.2105.53",
+          "browser_version": "88",
+          "os_version": "20H2",
+          "date": "2021-05-30"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "1809",
-          "browser_version": "44",
-          "os_version": "1809",
-          "date": "2018-12-17"
+          "at_version": "20H2",
+          "browser_version": "91",
+          "os_version": "20H2",
+          "date": "2021-05-30"
         }
       }
     },
     "nvda": {
       "browsers": {
+        "chrome": {
+          "at_version": "2020.4",
+          "browser_version": "91",
+          "os_version": "20H2",
+          "date": "2021-05-30"
+        },
         "firefox": {
-          "at_version": "2018.3.2",
-          "browser_version": "64",
-          "os_version": "1809",
-          "date": "2018-12-14"
+          "at_version": "2020.4",
+          "browser_version": "88",
+          "os_version": "20H2",
+          "date": "2021-05-30"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "7.0",
-          "browser_version": "65",
+          "at_version": "9.1",
+          "browser_version": "91",
           "os_version": "7.0",
-          "date": "2018-01-01"
+          "date": "2021-05-30"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.1",
-          "browser_version": "12.1",
-          "os_version": "12.1",
-          "date": "2018-12-14"
+          "at_version": "14.5.1",
+          "browser_version": "14.5.1",
+          "os_version": "14.5.1",
+          "date": "2021-05-30"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.14.2",
-          "browser_version": "12.0.2",
-          "os_version": "10.14.2",
-          "date": "2018-12-14"
+          "at_version": "11.3.1",
+          "browser_version": "14.1",
+          "os_version": "11.3.1",
+          "date": "2021-05-30"
         }
       }
     }
