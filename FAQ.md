@@ -1,13 +1,14 @@
 # FAQ
 
-1. [What is this?](#what-is-this%3F)
-2. [How should I interpret results? How do I know if it's okay to use a feature?](#how-should-i-interpret-results%3F-how-do-i-know-if-it's-okay-to-use-a-feature%3F)
-3. [What is the status of this project?](#what-is-the-status-of-this-project%3F)
-4. [Can't this be automated?](#cant-this-be-automated%3F)
-5. [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
-6. [Who runs this?](#who-runs-this%3F)
-7. [What are the levels of support?](#what-are-the-levels-of-support%3F)
-8. [What are expectations?](#what-are-expectations%3F)
+* [What is this?](#what-is-this%3F)
+* [How should I interpret results? How do I know if it's okay to use a feature?](#how-should-i-interpret-results%3F-how-do-i-know-if-it's-okay-to-use-a-feature%3F)
+* [How do I get bugs fixed?](#how-do-i-get-bugs-fixed%3F)
+* [What is the status of this project?](#what-is-the-status-of-this-project%3F)
+* [Can't this be automated?](#cant-this-be-automated%3F)
+* [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
+* [Who runs this?](#who-runs-this%3F)
+* [What are the levels of support?](#what-are-the-levels-of-support%3F)
+* [What are expectations?](#what-are-expectations%3F)
 
 ## What is this?
 
@@ -46,7 +47,41 @@ Interpreting results can be fairly complex, so here are some general suggestions
   - It might be possible to use a different feature to accomplish the same task in a different way that yields more robust support without affecting the design.
   - It might be reasonable to use the feature as is and wait for better support if there are no sufficient alternatives.
   - If the site is used in a closed environment, such as a corporate network, AT/browsers might be restricted and issues with other AT/browsers might not be relevant.
-    
+
+## How do I get bugs fixed?
+
+It's not always easy to tell who is responsible for fixing a bug. If you can find the root cause and, please report it to the appropriate assistive technology or browser. To do this:
+
+1. Find the root cause and who is responsible for fixing it (assistive technology or browser). If you can't tell, [open an issue in this project](https://github.com/accessibilitysupported/a11ysupport.io/issues) for help.
+2. Find out if the bug has already been reported. Where to look:
+   * Search for the feature in this project. We try to list links to known bugs for each feature. These can be found under the "Related issues, discussions, and bugs" heading on each feature page.
+   * Look in relevant bug trackers and look at the relevant feature pages in this project.
+3. If you can't find an existing bug report, go ahead and report it.
+4. If you have a URL to the bug report, [open an issue in this project](https://github.com/accessibilitysupported/a11ysupport.io/issues) and let us know about the bug report. We can link to it from the relevant feature page to make it easier for people to find the bug report in the future.
+
+### Report issues with assistive technologies: 
+
+- Apple products (VoiceOver and Voice Control):
+  - Apple doesn't have a public issue tracker, but you can report issues by sending an email to [accessibility@apple.com](mailto:accessibility@apple.com).
+- Dragon Naturally Speaking:
+  - Dragon does not have a public issue tracker, but you can report issues by contacting [Dragon support](https://nuance.com/support.html?source=support#dr_support_contact).
+- JAWS:
+  - [JAWS issue tracker](https://github.com/FreedomScientific/VFO-standards-support)
+  - [JAWS support](https://support.freedomscientific.com/support)
+- Narrator:
+  - Press Narrator key + Alt + F with Narrator running to open a Narrator issue. Press Windows key + F to open the Feedback Hub, and search for "narrator" to see existing issues.
+- [NVDA issue tracker](https://github.com/nvaccess/nvda/issues)
+- [Orca issue tracker](https://gitlab.gnome.org/GNOME/orca/-/issues)
+- TalkBack:
+  - Talkback does not have a public issue tracker, but you can report issues by sending [feedback to Google](https://www.google.com/accessibility/get-in-touch.html).
+
+### Report issues with browsers:
+
+- [Edge issue tracker](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/)
+- [Firefox issue tracker](https://bugzilla.mozilla.org/)
+- [Google Chrome issue tracker](https://www.chromium.org/for-testers/bug-reporting-guidelines)
+- [Safari issue tracker](https://bugreport.apple.com/web/)
+  
 ## What is the status of this project?
 
 This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project but with a slightly different approach and reduced scope. The ARIA-AT group is still in the planning phase, and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
