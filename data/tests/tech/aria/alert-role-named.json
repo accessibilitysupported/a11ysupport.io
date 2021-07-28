@@ -94,6 +94,69 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, <2nd announcement in full>, important message, existing content, I am now populated\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "name was conveyed, but not role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "activate_button",
@@ -296,7 +359,7 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "\"<1st announcement in full>, <2nd announcement in full>, existing content, I am now populated, important message\"",
+          "output": "\"<1st announcement in full>, existing content, I am now populated, important message, <2nd announcement in full>\"",
           "results": [
             {
               "feature_id": "aria/alert_role",
@@ -309,7 +372,70 @@
               "feature_id": "aria/alert_role",
               "feature_assertion_id": "convey_aria_live_value_assertive",
               "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_atomic_value_true",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_name_and_role_in_announcement_if_named",
+              "applied_to": "html/div_element",
+              "result": "partial",
+              "notes": "partial because name was conveyed, but not role"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"existing content\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "applied_to": "html/div_element",
               "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_button",
+          "css_target": "#trigger-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"<1st announcement in full>, existing content, I am now populated, important message, <2nd announcement in full>\"",
+          "results": [
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "automatic_announcement",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/alert_role",
+              "feature_assertion_id": "convey_aria_live_value_assertive",
+              "applied_to": "html/div_element",
+              "result": "pass",
               "notes": null
             },
             {
@@ -674,6 +800,10 @@
     {
       "date": "2020-07-02",
       "message": "test added"
+    },
+    {
+      "date": "2021-07-15",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -685,6 +815,12 @@
           "browser_version": "84",
           "date": "2020-07-02"
         },
+        "edge": {
+          "at_version": "2021.2105.53",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
+        },
         "ie": {
           "at_version": "2020.2006.12",
           "os_version": "2004",
@@ -692,10 +828,10 @@
           "date": "2020-07-02"
         },
         "firefox": {
-          "at_version": "2020.2006.12",
-          "os_version": "2004",
-          "browser_version": "77",
-          "date": "2020-07-02"
+          "at_version": "2021.2105.53",
+          "os_version": "21H1",
+          "browser_version": "90",
+          "date": "2021-07-15"
         }
       }
     },
@@ -712,16 +848,22 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1",
-          "os_version": "2004",
-          "browser_version": "84",
-          "date": "2020-07-02"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
         },
         "firefox": {
-          "at_version": "2020.1",
-          "os_version": "2004",
-          "browser_version": "77",
-          "date": "2020-07-02"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "90",
+          "date": "2021-07-15"
         }
       }
     },

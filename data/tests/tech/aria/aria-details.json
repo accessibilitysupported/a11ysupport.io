@@ -38,7 +38,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Graphic, unavailable, Pythagorean Theorem, has details.\"",
+          "output": "\"Pythagorean Theorem, graphic, has details.\"",
           "results": [
             {
               "feature_id": "aria/aria-details_attribute",
@@ -57,7 +57,78 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "(does not let user navigate to the referenced element)",
+          "output": "\"no more flows found\" (does not let user navigate to the referenced element)",
+          "results": [
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "allow_jump_to",
+              "applied_to": "html/img_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "allow_jump_back",
+              "applied_to": "html/img_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Entering details\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "convey_details_boundaries",
+              "applied_to": "html/img_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "convey_details_boundaries",
+              "applied_to": "html/img_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-details]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Pythagorean Theorem, graphic, has details.\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "html/img_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "follow_flowto",
+          "css_target": "*[aria-details]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"no more flows found\" (does not let user navigate to the referenced element)",
           "results": [
             {
               "feature_id": "aria/aria-details_attribute",
@@ -285,6 +356,58 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-details]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Graphic, Pythagorean Theorem\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "html/img_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "allow_jump_to",
+              "applied_to": "html/img_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "allow_jump_back",
+              "applied_to": "html/img_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(does not convey boundaries)",
+          "results": [
+            {
+              "feature_id": "aria/aria-details_attribute",
+              "feature_assertion_id": "convey_details_boundaries",
+              "applied_to": "html/img_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "*[aria-details]",
@@ -618,16 +741,26 @@
     {
       "date": "2019-09-16",
       "message": "Added orca results"
+    },
+    {
+      "date": "2021-07-23",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1811.2",
-          "browser_version": "74",
-          "os_version": "1809",
-          "date": "2019-05-19"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-23"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-23"
         },
         "ie": {
           "at_version": "2018.1811.2",
@@ -656,10 +789,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1808.10",
-          "browser_version": "74",
-          "os_version": "1809",
-          "date": "2019-05-19"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-23"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-23"
         },
         "firefox": {
           "at_version": "2018.3.2",

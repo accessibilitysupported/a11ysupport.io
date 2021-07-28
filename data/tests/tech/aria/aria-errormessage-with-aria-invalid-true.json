@@ -20,6 +20,84 @@
       "chrome": [
         {
           "command": "next_item",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "earcon that signifies switch to forms mode",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-errormessage]:not([aria-invalid=true])",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"blank, edit\" (previously focused form control was partially conveyed)",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, has error, example error text, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
           "css_target": "*[aria-errormessage][aria-invalid=true]",
           "before": {
             "mode": "auto",
@@ -335,6 +413,122 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-errormessage][aria-invalid=false]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-errormessage][aria-invalid=false]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-errormessage][aria-invalid=true]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"true\", edit, invalid entry, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-errormessage][aria-invalid=false]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-errormessage][aria-invalid=false]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Input with aria-invalid=\"false\", edit, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-errormessage_attribute",
+              "feature_assertion_id": "convey_not_pertinent",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
         {
           "command": "next_item",
           "css_target": "*[aria-errormessage][aria-invalid=true]",
@@ -715,16 +909,26 @@
     {
       "date": "2019-09-16",
       "message": "Add orca results"
+    },
+    {
+      "date": "2021-07-23",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1907.42",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-02"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-23"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-23"
         },
         "ie": {
           "at_version": "2019.1907.42",
@@ -735,12 +939,6 @@
         "firefox": {
           "at_version": "2019.1907.42",
           "browser_version": "66",
-          "os_version": "1903",
-          "date": "2019-09-02"
-        },
-        "edge": {
-          "at_version": "2019.1907.42",
-          "browser_version": "44",
           "os_version": "1903",
           "date": "2019-09-02"
         }
@@ -759,10 +957,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.0.1",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-02"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-23"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-23"
         },
         "firefox": {
           "at_version": "2019.0.1",
