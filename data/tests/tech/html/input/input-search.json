@@ -79,7 +79,7 @@
           },
           "after": "na",
           "output": "input was recognized",
-          "notes": "said \"cats\"",
+          "notes": "said \"dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -101,24 +101,23 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"<previous input value and role> look up an animal, edit, cats, type in text\"",
-          "notes": "the previous input that had focus was conveyed again before the new input was conveyed.",
+          "output": "\"<previous input value and role>\"",
+          "notes": "the previous input that had focus was conveyed again",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass",
-              "notes": "announced the name when entering the input and automatically switching to forms mode."
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-search)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-search)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -131,7 +130,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, cats, type in text\"",
+          "output": "\"look  up an animal, edit, dogs, type in text\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -159,7 +158,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, cats\"",
+          "output": "\"look up an animal, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -192,7 +191,150 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"look up an animal, edit, cats\"",
+          "output": "in list of form fields as \"look up an animal, edit, dogs\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "character was announced",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<previous input value and role>\"",
+          "notes": "the previous input that had focus was conveyed again",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"look  up an animal, edit, dogs, type in text\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"look up an animal, edit, dogs\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "in list of form fields as \"look up an animal, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -245,7 +387,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"edit cats, look up an animal, edit cats, type in text\"",
+          "output": "\"edit dogs, look up an animal, edit dogs, type in text\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -274,7 +416,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, cats, type in text\"",
+          "output": "\"look up an animal, edit, dogs, type in text\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -302,7 +444,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, cats\"",
+          "output": "\"look up an animal, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -335,7 +477,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"look up an animal, edit, cats\"",
+          "output": "in list of form fields as \"look up an animal, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -388,7 +530,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"<previous input value and role> look up an animal, search, edit, cats, type in text\"",
+          "output": "\"<previous input value and role> look up an animal, search, edit, dogs, type in text\"",
           "notes": "the previous input that had focus was conveyed again before the new input was conveyed.",
           "results": [
             {
@@ -418,7 +560,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, search edit, cats, type in text\"",
+          "output": "\"look up an animal, search edit, dogs, type in text\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -446,7 +588,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"search, edit, cats\"",
+          "output": "\"search, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -534,7 +676,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, search box, cats, cats\"",
+          "output": "\"look up an animal, search box, dogs, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -562,7 +704,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, search box, cats, cats selected\"",
+          "output": "\"look up an animal, search box, dogs, dogs selected\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -590,7 +732,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, search box, cats, press space to edit\"",
+          "output": "\"look up an animal, search box, dogs, press space to edit\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -645,7 +787,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, cats\"",
+          "output": "\"look up an animal, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -673,7 +815,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, selected, cats\"",
+          "output": "\"look up an animal, edit, selected, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -701,7 +843,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit, cats\"",
+          "output": "\"look up an animal, edit, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -734,7 +876,149 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"look up an animal; edit; cats\"",
+          "output": "in list of form fields as \"look up an animal; edit; dogs\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"character was announced\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"look up an animal, edit, dogs\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"look up an animal, edit, selected, dogs\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"look up an animal, edit, dogs\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-search)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"search\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "in list of form fields as \"look up an animal; edit; dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -787,7 +1071,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"clickable, look up an animal, edit, has auto complete, cats\"",
+          "output": "\"clickable, look up an animal, edit, has auto complete, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -815,7 +1099,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit has auto completed, selected cats\"",
+          "output": "\"look up an animal, edit has auto completed, selected dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -843,7 +1127,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, edit has auto complete, cats\"",
+          "output": "\"look up an animal, edit has auto complete, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -876,7 +1160,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form fields as \"look up an animal; edit; has auto complete; cats\"",
+          "output": "in list of form fields as \"look up an animal; edit; has auto complete; dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -931,7 +1215,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit box, look up an animal\"",
+          "output": "\"dogs, edit box, look up an animal\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -959,7 +1243,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit box, look up an animal\"",
+          "output": "\"dogs, edit box, look up an animal\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1052,7 +1336,7 @@
           },
           "after": "na",
           "output": "input was recognized",
-          "notes": "said \"cats\"",
+          "notes": "said \"dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1074,7 +1358,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, cats, search field, double tap to edit\"",
+          "output": "\"look up an animal, dogs, search field, double tap to edit\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1102,7 +1386,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, cats, search field, double tap to edit\"",
+          "output": "\"look up an animal, dogs, search field, double tap to edit\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1157,7 +1441,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, insertion at end of text, look up an animal, search text field\"",
+          "output": "\"dogs, insertion at end of text, look up an animal, search text field\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1185,7 +1469,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, contents selected, look up an animal, search text field\"",
+          "output": "\"dogs, contents selected, look up an animal, search text field\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1213,7 +1497,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, contents selected, look up an animal, search text field\"",
+          "output": "\"dogs, contents selected, look up an animal, search text field\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1246,7 +1530,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form controls as \"cats look up an animal search text field\"",
+          "output": "in list of form controls as \"dogs look up an animal search text field\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1301,7 +1585,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, entry, cats\"",
+          "output": "\"look up an animal, entry, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1329,7 +1613,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, eentry, cats selected\"",
+          "output": "\"look up an animal, eentry, dogs selected\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1357,7 +1641,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"look up an animal, entry, cats\"",
+          "output": "\"look up an animal, entry, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1390,7 +1674,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "in list of form controls as \"look up an animal, entry, cats\"",
+          "output": "in list of form controls as \"look up an animal, entry, dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1465,7 +1749,7 @@
           },
           "after": "na",
           "output": "input was recognized",
-          "notes": "said \"cats\"",
+          "notes": "said \"dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1525,7 +1809,7 @@
           },
           "after": "na",
           "output": "input was recognized",
-          "notes": "said \"cats\"",
+          "notes": "said \"dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1586,7 +1870,7 @@
           },
           "after": "na",
           "output": "input was recognized",
-          "notes": "said \"cats\"",
+          "notes": "said \"dogs\"",
           "results": [
             {
               "feature_id": "html/input(type-search)_element",
@@ -1646,6 +1930,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2021-07-29",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -1662,10 +1950,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "ie": {
           "at_version": "2020.1912.11",
@@ -1694,10 +1988,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-10-16"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "firefox": {
           "at_version": "2019.2.1",

@@ -160,7 +160,7 @@
           },
           "after": "target",
           "output": "\"Enter a date, Date Time Edit, 2012-12-12. Month Enter a date, edit spin box, 12. To set the value use the Arrow keys or type the value.\"",
-          "notes": "each part of the date (month, day, and year) is rendered as its own tab stop and control",
+          "notes": "each part of the date (month, day, and year) is rendered as its own control, and you can move between controls using arrow keys",
           "results": [
             {
               "feature_id": "html/input(type-date)_element",
@@ -188,7 +188,172 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"enter date, date time edit, 12-12-2012, show date picker\"",
+          "output": "\"enter date, date time edit, 12-12-2012, show date picker, min 1, max 12\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "in list of form fields as \"Enter a date Edit 2012-12-12\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "character was announced followed by the announcement of the formatted value.",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "embedded controls and grid were accessible.",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"12, date time, edit\"",
+          "notes": "each part of the date (month, day, and year) is rendered as its own tab stop and control",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "implied by reading order"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Enter a date, Date Time Edit, 2012-12-12. Month Enter a date, edit spin box, 12. To set the value use the Arrow keys or type the value.\"",
+          "notes": "each part of the date (month, day, and year) is rendered as its own control, and you can move between controls using arrow keys",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"enter date, date time edit, 12-12-2012, show date picker, min 1, max 12\"",
           "results": [
             {
               "feature_id": "html/input(type-date)_element",
@@ -729,6 +894,178 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable spin button, clickable 12 /, spin button, clickable 12 /, spin button, clickable 2012\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "implied by reading order"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail",
+              "notes": "semantics for embedded controls are conveyed, but not the outer date control"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Enter a date, date edit. Month Enter a date, spin button, 12.\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "partial",
+              "notes": "value is only partially conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable, show date picker, menu button, sub menu\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail",
+              "notes": "the date picker button was found, but not the input. Additionally, hidden buttons were found, such as \"show previous month\", \"show previous month\", \"show month selection panel\" and \"today button\""
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na",
+              "notes": "na because the actual form control was not found"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "na because the date picker button was found, but not the input."
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail",
+              "notes": "the date picker button was found, but not the input. Additionally, hidden buttons were found, such as \"show previous month\", \"show previous month\", \"show month selection panel\" and \"today button\""
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "in list of form fields as \"show date picker, menu button, subMenu\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na",
+              "notes": "na because the actual form control was not found"
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na",
+              "notes": "na because the date picker button was found, but not the input."
+            },
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail",
+              "notes": "fail because the date picker button was found, not the input"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "character was announced followed by the announcement of the formatted value.",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "for example, if you enter \"1\" into the month field, \"1\" is announced followed by \"01\""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "css_target": "input[type=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "embedded controls and grid are conveyed correctly.",
+          "results": [
+            {
+              "feature_id": "html/input(type-date)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "pass",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "input[type=\"date\"]",
@@ -1822,6 +2159,10 @@
     {
       "date": "2020-01-28",
       "message": "updated jaws results"
+    },
+    {
+      "date": "2021-07-29",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -1838,10 +2179,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2008.24",
-          "os_version": "2004",
-          "browser_version": "85",
-          "date": "2020-09-18"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "ie": {
           "at_version": "2020.2008.24",
@@ -1870,10 +2217,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2",
-          "os_version": "2004",
-          "browser_version": "85",
-          "date": "2020-09-18"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "firefox": {
           "at_version": "2020.2",
