@@ -57,6 +57,46 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-required=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"fruit edit. type in text.\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-required=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"veggie edit. required. type in text.\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_focusable_item",
@@ -182,6 +222,46 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-required=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Fruit, edit. Blank.\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-required=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Veggie, edit, required. Blank.\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-required_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_focusable_item",
           "css_target": "*[aria-required=\"false\"]",
@@ -443,16 +523,26 @@
     {
       "date": "2019-09-15",
       "message": "add talkback and orca results"
+    },
+    {
+      "date": "2021-07-28",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-01"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
         },
         "ie": {
           "at_version": "2019.1906.10",
@@ -481,10 +571,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-01"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
         },
         "firefox": {
           "at_version": "2019.1.1",

@@ -101,23 +101,23 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"<previous input value and role> phone number, edit, 555-555-5555, type in text\"",
-          "notes": "the previous input that had focus was conveyed again before the new input was conveyed.",
+          "output": "\"<previous input value and role>\"",
+          "notes": "the previous input that had focus was conveyed",
           "results": [
             {
               "feature_id": "html/input(type-tel)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-tel)_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-tel)_element",
               "feature_assertion_id": "convey_value",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -158,7 +158,150 @@
             "focus_location": "before target"
           },
           "after": "target",
+          "output": "\"phone number, edit, 555-555-5555\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "in list of form controls as \"phone number edit 555-555-5555\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "character was announced.",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<previous input value and role>\"",
+          "notes": "the previous input that had focus was conveyed",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "\"phone number, edit, 555-555-5555, type in text\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"phone number, edit, 555-555-5555\"",
           "results": [
             {
               "feature_id": "html/input(type-tel)_element",
@@ -633,6 +776,148 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"phone number, edit, 555-555-5555\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"phone number, edit, selected 555-555-5555\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"phone number, edit, 555-555-5555\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "in list of form fields as \"phone number; edit; 555-555-5555\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "css_target": "input[type=\"tel\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "character was announced.",
+          "results": [
+            {
+              "feature_id": "html/input(type-tel)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "input[type=\"tel\"]",
@@ -1599,6 +1884,10 @@
     {
       "date": "2019-10-22",
       "message": "Add this test"
+    },
+    {
+      "date": "2021-07-29",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -1615,10 +1904,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-28"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "ie": {
           "at_version": "2020.1912.11",
@@ -1647,10 +1942,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-10-22"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
         },
         "firefox": {
           "at_version": "2019.2.1",

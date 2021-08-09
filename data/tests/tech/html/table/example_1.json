@@ -315,6 +315,284 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"table with 3 columns and 4 rows\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"table end\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "th[scope=\"auto\"], th:not([scope])",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Event,  Waltz with Strauss, column 2\"",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_auto",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_read_current_cell",
+          "css_target": "th[scope=\"auto\"], th:not([scope])",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"column 3, row 2, venue, main hall\"",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_auto",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(position information is announced as column and rows are changed)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(position information is announced as column and rows are changed)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -1221,6 +1499,338 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"table  with 4 rows and 3 columns, row 1  column 1, Date\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edge of table\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edge of table\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edge of table\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "css_target": "table",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edge of table\"",
+          "results": [
+            {
+              "feature_id": "html/table_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "th[scope=\"auto\"], th:not([scope])",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Event  column 2, Waltz with Strauss\"",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_auto",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "th[scope=\"auto\"], th:not([scope])",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"row 2  Venue  column 3, Main Hall\"",
+          "results": [
+            {
+              "feature_id": "html/scope_attribute",
+              "feature_assertion_id": "convey_value_auto",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "css_target": "th",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(cell is announced as the header as you transition between columns)",
+          "results": [
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/th_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(no header semantics surfaced, which implies that this is a cell)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_column",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(position information is announced as column and rows are changed)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_previous_row",
+          "css_target": "td",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "(position information is announced as column and rows are changed)",
+          "results": [
+            {
+              "feature_id": "html/td_element",
+              "feature_assertion_id": "convey_position",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "table",
@@ -2766,16 +3376,26 @@
     {
       "date": "2020-01-29",
       "message": "Update VO results and clean up data"
+    },
+    {
+      "date": "2021-07-30",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1811.2",
-          "browser_version": "74",
-          "os_version": "1809",
-          "date": "2019-05-03"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-30"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-30"
         },
         "ie": {
           "at_version": "2018.1811.2",
@@ -2804,10 +3424,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1808.10",
-          "browser_version": "74",
-          "os_version": "1809",
-          "date": "2019-05-03"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-30"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-30"
         },
         "firefox": {
           "at_version": "2018.2.1",

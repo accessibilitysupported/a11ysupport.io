@@ -46,7 +46,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Title button sorted ascending\"",
+          "output": "\"Title button sorted ascending, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
@@ -84,7 +84,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Title button sorted descending\"",
+          "output": "\"Title button sorted descending, column 2t\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
@@ -172,7 +172,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Title button sorted other\"",
+          "output": "\"Title button sorted other, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
@@ -191,7 +191,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Title column header, title button sorted other, to activate press enterr\"",
+          "output": "\"Title column header, title button sorted other, to activate press enter\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
@@ -210,13 +210,13 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"Sorted [new value]\"",
+          "output": "\"enter\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "html/th_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
@@ -767,7 +767,192 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"\"",
+          "output": "\"enter\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "html/th_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-1[aria-sort=\"ascending\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 sorted ascending button Title\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_ascending",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target-1[aria-sort=\"ascending\"] button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 sorted ascending title button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_ascending",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-2[aria-sort=\"descending\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 sorted descending button Title\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_descending",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target-2[aria-sort=\"descending\"] button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 sorted descending title button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_descending",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-3[aria-sort=\"none\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 button Title\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_none_as_sortable",
+              "applied_to": "html/th_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target-3[aria-sort=\"none\"] button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 title button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_none",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_none_as_sortable",
+              "applied_to": "html/th_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "table_move_to_next_column",
+          "css_target": "#target-4[aria-sort=\"other\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 sorted button Title\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_other",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#target-4[aria-sort=\"other\"] button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Title column 2 sorted title button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-sort_attribute",
+              "feature_assertion_id": "convey_value_other",
+              "applied_to": "html/th_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "#target-1[aria-sort=\"ascending\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"enter\"",
           "results": [
             {
               "feature_id": "aria/aria-sort_attribute",
@@ -1744,16 +1929,26 @@
     {
       "date": "2020-09-13",
       "message": "Test results added. Thanks @aardrian"
+    },
+    {
+      "date": "2021-07-28",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2008.24",
-          "browser_version": "85",
-          "os_version": "2004",
-          "date": "2020-09-13"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
         },
         "ie": {
           "at_version": "2020.2008.24",
@@ -1782,10 +1977,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2",
-          "browser_version": "85",
-          "os_version": "2004",
-          "date": "2020-09-13"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
         },
         "firefox": {
           "at_version": "2020.2",

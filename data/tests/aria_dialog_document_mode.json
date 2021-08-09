@@ -35,6 +35,26 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "target",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "stay_in_reading_mode",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -100,6 +120,26 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "target",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "stay_in_reading_mode",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "*[role=\"dialog\"]",
@@ -241,16 +281,26 @@
     {
       "date": "2019-01-18",
       "message": "Test created"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1808.10",
-          "browser_version": "74",
-          "os_version": "1809",
-          "date": "2019-05-19"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2018.1811.2",
@@ -279,10 +329,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1808.10",
-          "browser_version": "74",
-          "os_version": "1809",
-          "date": "2019-05-19"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2018.4.1",

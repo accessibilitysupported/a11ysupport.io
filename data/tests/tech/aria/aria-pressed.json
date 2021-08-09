@@ -186,6 +186,160 @@
           ]
         },
         {
+          "command": "activate_form_control",
+          "css_target": "#target-4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"space, toggle button, [partially checked | pressed | not pressed], action\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_change_in_state",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, pressed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, pressed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"mixed\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, partially checked\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_mixed",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"mixed\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, partially checked\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_mixed",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"undefined\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
           "command": "next_focusable_item",
           "css_target": "*[aria-pressed=\"undefined\"]",
           "before": {
@@ -752,6 +906,182 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"toggle button, not pressed, action\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, not pressed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"toggle button, pressed, action\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, pressed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"mixed\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"toggle button, not pressed, half checked, action\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_mixed",
+              "applied_to": "html/button_element",
+              "result": "fail",
+              "notes": "fail because it is announced as \"not pressed, half checked\", which may be confusing."
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"mixed\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, toggle button, not pressed, half-checked\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_mixed",
+              "applied_to": "html/button_element",
+              "result": "fail",
+              "notes": "fail because it is announced as \"not pressed, half checked\", which may be confusing."
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-pressed=\"undefined\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"button, action\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-pressed=\"undefined\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_value_undefined",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_form_control",
+          "css_target": "#target-4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"half-checked|\" when value is changed to `mixed`, \"pressed not checked\" when value is changed  to `true`, \"not pressed\" when value is changed to `false`",
+          "results": [
+            {
+              "feature_id": "aria/aria-pressed_attribute",
+              "feature_assertion_id": "convey_change_in_state",
+              "applied_to": "html/button_element",
+              "result": "partial",
+              "notes": "partial because the `true` value was conveyed as \"pressed not checked\" which could be confusing and is not consistent with how the state is conveyed in other situations."
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "*[aria-pressed=\"false\"]",
@@ -1716,16 +2046,26 @@
     {
       "date": "2020-10-25",
       "message": "updated with latest results from latest versions"
+    },
+    {
+      "date": "2021-07-28",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2008.24",
-          "os_version": "2004",
-          "browser_version": "86",
-          "date": "2020-10-25"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
         },
         "ie": {
           "at_version": "2020.2008.24",
@@ -1754,10 +2094,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.3",
-          "os_version": "2004",
-          "browser_version": "86",
-          "date": "2020-10-25"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
         },
         "firefox": {
           "at_version": "2020.3",

@@ -100,6 +100,72 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "section[aria-label]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"sample text line 1\"",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/section_element",
+              "result": "na",
+              "notes": "na because the element was not conveyed"
+            }
+          ]
+        },
+        {
+          "command": "next_region",
+          "css_target": "section[aria-label]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Sample text line 1, target region",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/section_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -352,6 +418,89 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "section[aria-label]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/section_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_landmark",
+          "css_target": "section[aria-label]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Target region, Sample text line 1\"",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_name_and_role_if_named",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-label_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/section_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "section[aria-label]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"Out of region, example end\"",
+          "results": [
+            {
+              "feature_id": "html/section_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
           "css_target": "section[aria-label]",
@@ -888,16 +1037,26 @@
     {
       "date": "2020-06-17",
       "message": "update results"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2006.12",
-          "browser_version": "84",
-          "os_version": "2004",
-          "date": "2020-06-17"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2020.2006.12",
@@ -926,10 +1085,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1",
-          "browser_version": "84",
-          "os_version": "2004",
-          "date": "2020-06-17"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2020.1",

@@ -110,6 +110,11 @@
               "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
             }
           ]
         },
@@ -128,12 +133,19 @@
               "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
             }
           ]
-        },
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
-          "css_target": "*[role=\"button\"]",
+          "css_target": "*[role=\"link\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -144,6 +156,11 @@
           "results": [
             {
               "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_role",
               "result": "pass"
             }
@@ -151,7 +168,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[role=\"button\"]",
+          "css_target": "*[role=\"link\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -160,6 +177,11 @@
           "after": "target",
           "output": "\"target 0, link\"",
           "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
             {
               "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_role",
@@ -410,6 +432,11 @@
               "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
             }
           ]
         },
@@ -428,12 +455,19 @@
               "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_name",
               "result": "pass"
+            },
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
             }
           ]
-        },
+        }
+      ],
+      "edge": [
         {
           "command": "next_item",
-          "css_target": "*[role=\"button\"]",
+          "css_target": "*[role=\"link\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -444,6 +478,11 @@
           "results": [
             {
               "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_role",
               "result": "pass"
             }
@@ -451,7 +490,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[role=\"button\"]",
+          "css_target": "*[role=\"link\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -460,6 +499,11 @@
           "after": "target",
           "output": "\"target 0, link\"",
           "results": [
+            {
+              "feature_id": "aria/link_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
             {
               "feature_id": "aria/link_role",
               "feature_assertion_id": "convey_role",
@@ -985,6 +1029,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2021-07-28",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -1007,10 +1055,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1907.42",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-14"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-28"
         },
         "ie": {
           "at_version": "2019.1907.42",
@@ -1039,10 +1093,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-14"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-28"
         },
         "firefox": {
           "at_version": "2019.2",

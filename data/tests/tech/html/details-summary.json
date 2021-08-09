@@ -310,6 +310,182 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "details",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "conveyed as presentational (no role or other semantics)",
+          "results": [
+            {
+              "feature_id": "html/details_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/details_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/details_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "na"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_expanded_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"all about trains, button, collapsed, to activate press enter\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_expanded_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Enter, expanded\" or \"Enter, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_change_in_expanded_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "not found",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -880,7 +1056,8 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"button, collapsed, heading level 2, all about trains\"",
+          "output": "\"button collapsed filled right pointing small triangle <down arrow> button, collapsed, heading level 2, all about trains\"",
+          "notes": "since the down arrow is on its own line, the summary is conveyed as two lines (two down arrow commands)",
           "results": [
             {
               "feature_id": "html/summary_element",
@@ -908,7 +1085,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"button, collapsed, heading level 2, all about trains\"",
+          "output": "\"filled right pointing small triangle, all about trains, button, collapsed\"",
           "results": [
             {
               "feature_id": "html/summary_element",
@@ -936,7 +1113,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "no information is announced when the state changes again",
+          "output": "\"expanded\" or \"collapsed\" ",
           "results": [
             {
               "feature_id": "html/summary_element",
@@ -954,7 +1131,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"all about trains, heading level 2, button, collapsed\"",
+          "output": "\"filled right pointing small triangle, all about trains, button, collapsed\"",
           "results": [
             {
               "feature_id": "html/summary_element",
@@ -972,7 +1149,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"all about trains, heading level 2, button, collapsed\"",
+          "output": "\"filled right pointing small triangle, all about trains, button, collapsed\"",
           "results": [
             {
               "feature_id": "html/summary_element",
@@ -991,6 +1168,185 @@
           },
           "after": "target",
           "output": "\"button, collapsed, heading level 2, all about trains\"",
+          "notes": "this is the second line of the summary",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"all about trains, heading level 2, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/h1-6_elements",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "details",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "conveyed as presentational (no role or other semantics)",
+          "results": [
+            {
+              "feature_id": "html/details_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/details_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/details_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "na"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"button collapsed filled right pointing small triangle <down arrow> button, collapsed, heading level 2, all about trains\"",
+          "notes": "since the down arrow is on its own line, the summary is conveyed as two lines (two down arrow commands)",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_expanded_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"filled right pointing small triangle, all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_expanded_state",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"expanded\" or \"collapsed\" ",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "convey_change_in_expanded_state",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"filled right pointing small triangle, all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "summary",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"filled right pointing small triangle, all about trains, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/summary_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "h1, h2, h3, h4, h5, h6",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"button, collapsed, heading level 2, all about trains\"",
+          "notes": "this is the second line of the summary",
           "results": [
             {
               "feature_id": "html/h1-6_elements",
@@ -2007,6 +2363,10 @@
     {
       "date": "2021-02-11",
       "message": "retest and update support listings for all core combinations"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -2023,10 +2383,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2012.57",
-          "browser_version": "88",
-          "os_version": "20H2",
-          "date": "2021-02-11"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2021.2012.57",
@@ -2055,10 +2421,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.3",
-          "browser_version": "88",
-          "os_version": "20H2",
-          "date": "2021-02-11"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2020.3",

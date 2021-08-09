@@ -285,6 +285,201 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"your favorite color?\"",
+          "notes": "button was not conveyed at all",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "previous input was announced, not the color picker button",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "control not found",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "control not found",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "not in list of form controls",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "focus was sent back to the previous control",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "fail",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "Not possible to open the control",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -763,7 +958,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite color? Your favorite color?\"",
+          "output": "\"your favorite color? clickable 90%red 39% green 39% blue\"",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
@@ -778,7 +973,7 @@
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -791,12 +986,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite color?\"",
+          "output": "\"clickable 90%red 39% green 39% blue\"",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/input(type-color)_element",
@@ -806,7 +1001,7 @@
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -918,12 +1113,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "title of the document was announced after clicking okay",
+          "output": "New value was announced (\"90% red 39% green 69% blue\n\")",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "fail",
+              "result": "pass",
               "notes": "pressed enter on the okay button within the widget dialog after selecting a new color."
             }
           ]
@@ -937,7 +1132,201 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "It was possible to navigate around the dialog using the tab and arrow keys, but buttons to select colors were missing names.",
+          "output": "color picker was opened but there was no announcement. Contents of the picker were mostly accessible. Interacting with the format toggler often crashed the browser.",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "widget_is_supported",
+              "result": "partial"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"your favorite color? clickable 90%red 39% green 39% blue\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable 90%red 39% green 39% blue\"",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_form_field",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "control not found",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "control not found",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "not in list of form controls",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_name",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_value",
+              "result": "na"
+            },
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "New value was announced (\"90% red 39% green 69% blue\n\")",
+          "results": [
+            {
+              "feature_id": "html/input(type-color)_element",
+              "feature_assertion_id": "convey_change_in_value",
+              "result": "pass",
+              "notes": "pressed enter on the okay button within the widget dialog after selecting a new color."
+            }
+          ]
+        },
+        {
+          "command": "multiple_commands",
+          "css_target": "input[type=\"color\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "color picker was opened but there was no announcement. Contents of the picker were mostly accessible. Interacting with the format toggler often crashed the browser.",
           "results": [
             {
               "feature_id": "html/input(type-color)_element",
@@ -1867,6 +2256,10 @@
     {
       "date": "2020-01-27",
       "message": "Updated with JAWS 2020"
+    },
+    {
+      "date": "2021-07-29",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -1883,10 +2276,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1912.11",
-          "os_version": "1909",
-          "browser_version": "79",
-          "date": "2020-01-27"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "ie": {
           "at_version": "2020.1912.11",
@@ -1915,10 +2314,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2.1",
-          "os_version": "1903",
-          "browser_version": "77",
-          "date": "2019-10-29"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
         },
         "firefox": {
           "at_version": "2019.2.1",

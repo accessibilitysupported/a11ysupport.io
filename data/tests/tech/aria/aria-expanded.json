@@ -99,8 +99,84 @@
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "html/button_element",
+              "result": "partial",
+              "notes": "only announced the new state on the first activation after tabbing to the element. subsequent activations only announce \"to activate press enter\""
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button[aria-expanded=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"show more button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
               "result": "pass",
               "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"show more button, expanded\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "button[aria-expanded]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"expanded\" or \"collapsed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "html/button_element",
+              "result": "partial",
+              "notes": "only announced the new state on the first activation after tabbing to the element. subsequent activations only announce \"to activate press enter\""
             }
           ]
         }
@@ -338,6 +414,82 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "button[aria-expanded=\"false\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it collapsed",
+          "output": "\"show more, button, expanded\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "button[aria-expanded=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "notes": "tab to the button with it expanded",
+          "output": "\"show more, button, collapsed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "activate_button",
+          "css_target": "button[aria-expanded]",
+          "before": {
+            "mode": "auto",
+            "focus_location": "target",
+            "virtual_location": "target"
+          },
+          "after": "target",
+          "output": "\"expanded\" or \"collapsed\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "html/button_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_focusable_item",
           "css_target": "button[aria-expanded=\"false\"]",
@@ -1004,6 +1156,10 @@
     {
       "date": "2020-03-30",
       "message": "Draft test"
+    },
+    {
+      "date": "2021-07-23",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -1020,10 +1176,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2003.13",
-          "os_version": "1909",
-          "browser_version": "80",
-          "date": "2020-03-30"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-23"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-23"
         },
         "ie": {
           "at_version": "2020.2003.13",
@@ -1052,10 +1214,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.3.1",
-          "os_version": "1909",
-          "browser_version": "80",
-          "date": "2020-03-30"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-23"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-23"
         },
         "firefox": {
           "at_version": "2019.3.1",

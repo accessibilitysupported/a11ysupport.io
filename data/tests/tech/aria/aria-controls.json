@@ -46,6 +46,46 @@
             "focus_location": "before target"
           },
           "after": "target",
+          "output": "\"target button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-controls]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "jump_to_controlled",
+          "css_target": "*[aria-controls]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
           "output": "target button",
           "results": [
             {
@@ -136,28 +176,8 @@
             }
           ]
         }
-      ],
-      "edge": [
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-controls]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"target button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-controls_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        }
       ]
+
     },
     "narrator": {
       "edge": [
@@ -199,7 +219,34 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "(property was not conveyed)",
+          "output": "\"target button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-controls]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target button\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -244,33 +291,6 @@
         }
       ],
       "ie": [
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-controls]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(property was not conveyed)",
-          "results": [
-            {
-              "feature_id": "aria/aria-controls_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            },
-            {
-              "feature_id": "aria/aria-controls_attribute",
-              "feature_assertion_id": "allow_jump_to_controlled",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        }
-      ],
-      "edge": [
         {
           "command": "next_focusable_item",
           "css_target": "*[aria-controls]",
@@ -443,16 +463,26 @@
     {
       "date": "2020-11-09",
       "message": "Updated core JAWS results. As of the JAWS 2020 release, it no longer has a setting to convey the presence of the attribute. The setting in JAWS 2019 was located at Utilities > Settings center > Speech and Sounds Schemes > Modify Schemes > Edit selected scheme > HTML Tab > switch \"controls\" to \"Speak HTML attribute\""
+    },
+    {
+      "date": "2021-07-15",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2008.24",
-          "browser_version": "86",
+          "at_version": "2020.2006.12",
           "os_version": "2004",
-          "date": "2020-11-09"
+          "browser_version": "84",
+          "date": "2020-07-02"
+        },
+        "edge": {
+          "at_version": "2021.2105.53",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
         },
         "ie": {
           "at_version": "2020.2008.24",
@@ -463,12 +493,6 @@
         "firefox": {
           "at_version": "2020.2008.24",
           "browser_version": "82",
-          "os_version": "2004",
-          "date": "2020-11-09"
-        },
-        "edge": {
-          "at_version": "2020.2008.24",
-          "browser_version": "86",
           "os_version": "2004",
           "date": "2020-11-09"
         }
@@ -487,10 +511,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.0.1",
-          "browser_version": "73",
-          "os_version": "1809",
-          "date": "2019-04-09"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
         },
         "firefox": {
           "at_version": "2019.0.1",
@@ -501,12 +531,6 @@
         "ie": {
           "at_version": "2019.0.1",
           "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-04-09"
-        },
-        "edge": {
-          "at_version": "2019.0.1",
-          "browser_version": "44.17763",
           "os_version": "1809",
           "date": "2019-04-09"
         }

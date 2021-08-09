@@ -123,6 +123,96 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "ol",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list of 3 items\"",
+          "results": [
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "ordered list was implied by the number of each item being announced"
+            },
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "ol",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"list end\"",
+          "results": [
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "ol ol",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list of 2 items, nesting level 1\"",
+          "results": [
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_nesting_level",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "li",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"1. cats\"",
+          "results": [
+            {
+              "feature_id": "html/li_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/li_element",
+              "feature_assertion_id": "convey_posinset_ol_context",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -434,7 +524,96 @@
             "focus_location": "within target"
           },
           "after": "end of target",
-          "output": "\"out of list\"",
+          "output": "\"out of list, end example\"",
+          "results": [
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "ol ol",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list with 2 items, 1. big cat\"",
+          "results": [
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_nesting_level",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "li",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"2. dogs\"",
+          "results": [
+            {
+              "feature_id": "html/li_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/li_element",
+              "feature_assertion_id": "convey_posinset_ol_context",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "ol",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list with 3 items, 1. cats\"",
+          "results": [
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/ol_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "ol",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"out of list, end example\"",
           "results": [
             {
               "feature_id": "html/ol_element",
@@ -951,6 +1130,10 @@
     {
       "date": "2019-09-15",
       "message": "Test created"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -967,10 +1150,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1907.42",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-15"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2019.1907.42",
@@ -999,10 +1188,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-15"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2019.2",

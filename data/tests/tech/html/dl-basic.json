@@ -172,6 +172,136 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"definition list of 3 items\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"list end\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"list end\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "start of target",
+          "output": "\"definition list of 3 items\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "dt",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Orange\"",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "dd",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Gray\"",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -594,7 +724,7 @@
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"list with 7 items, Green\"",
+          "output": "\"list with 6 items, Green\"",
           "results": [
             {
               "feature_id": "html/dl_element",
@@ -640,7 +770,183 @@
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"list with 7 items, and possibly white\"",
+          "output": "\"list with 6 items, and possibly white\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "before target",
+          "output": "\"out of list, these colors match well together\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "dt",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Orange\"",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item",
+          "css_target": "dt",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"list item, read only, 2 of 3\"",
+          "results": [
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dt_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "dd",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Gray\"",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "read_item",
+          "css_target": "dd",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "target",
+            "focus_location": "target"
+          },
+          "after": "target",
+          "output": "\"paragraph\"",
+          "results": [
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "html/dd_element",
+              "feature_assertion_id": "convey_posinset",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"list with 6 items, Green\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_role",
+              "result": "partial"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_setsize",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"out of list, some other content\"",
+          "results": [
+            {
+              "feature_id": "html/dl_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "dl",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"list with 6 items, and possibly white\"",
           "results": [
             {
               "feature_id": "html/dl_element",
@@ -1483,16 +1789,26 @@
     {
       "date": "2020-09-21",
       "message": "vo_ios+safari results updated by @aardrian. Additionally, the rest of the core combinations were re-tested and test instructions were fixed. Voice Over for iOS + Safari now has better results. Talkback, Narrator, and Orca now have worse results."
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2008.24",
-          "browser_version": "85",
-          "os_version": "2004",
-          "date": "2020-09-21"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2020.2008.24",
@@ -1521,10 +1837,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2",
-          "browser_version": "85",
-          "os_version": "2004",
-          "date": "2020-09-21"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2020.2",

@@ -125,6 +125,88 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "figure",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"content caption, figure\"",
+          "results": [
+            {
+              "feature_id": "html/figure_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/figure_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/figure_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/figure_element",
+              "feature_assertion_id": "content_navigable",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/figcaption_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "passed because it is only a single line"
+            },
+            {
+              "feature_id": "html/figcaption_element",
+              "feature_assertion_id": "content_navigable",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "figure",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "\"figure end\"",
+          "results": [
+            {
+              "feature_id": "html/figure_element",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "figcaption",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"content caption, figure end\"",
+          "results": [
+            {
+              "feature_id": "html/figcaption_element",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_item",
@@ -894,16 +976,26 @@
     {
       "date": "2019-09-15",
       "message": "Add orca and update results with output"
+    },
+    {
+      "date": "2021-07-29",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.1907.42",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-15"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
         },
         "ie": {
           "at_version": "2019.1907.42",
@@ -932,10 +1024,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.2",
-          "browser_version": "76",
-          "os_version": "1903",
-          "date": "2019-09-15"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
         },
         "firefox": {
           "at_version": "2019.2",

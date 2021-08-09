@@ -47,7 +47,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current date\"",
+          "output": "\"16, current date\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -66,7 +66,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current location\"",
+          "output": "\"bullet, visited, current location, link, phone numbers\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -85,7 +85,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current page\"",
+          "output": "\"bullet, visited, current page, link, home\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -104,7 +104,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current step\"",
+          "output": "\"visited, current step, link, do this\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -123,7 +123,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current time\"",
+          "output": "\"bullet, 10am to 11am: keynote, current time\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -142,7 +142,123 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current\"",
+          "output": "\"bullet, visited, current, link, apples\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"16, current date\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_date",
+              "applied_to": "html/td_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"location\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet, visited, current location, link, phone numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_location",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"page\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet, visited, current page, link, home\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_page",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"step\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"visited, current step, link, do this\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_step",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"time\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet, 10am to 11am: keynote, current time\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_time",
+              "applied_to": "html/li_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet, visited, current, link, apples\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -381,122 +497,6 @@
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/a(href)_element",
               "result": "pass"
-            }
-          ]
-        }
-      ],
-      "edge": [
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"date\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(not announced)",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_date",
-              "applied_to": "html/td_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"location\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(not announced)",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_location",
-              "applied_to": "html/a(href)_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"page\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(not announced)",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_page",
-              "applied_to": "html/a(href)_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"step\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(not announced)",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_step",
-              "applied_to": "html/a(href)_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"time\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(not announced)",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_time",
-              "applied_to": "html/li_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "(not announced)",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_true",
-              "applied_to": "html/a(href)_element",
-              "result": "fail"
             }
           ]
         }
@@ -631,7 +631,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current date\"",
+          "output": "\"sat column, current date, 16\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -650,7 +650,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current location\"",
+          "output": "\"bullet, visited link, current location, phone numbers\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -669,7 +669,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current page\"",
+          "output": "\"navigation landmark, list with 3 items, bullet, visited link, current page, Home\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -688,7 +688,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current step\"",
+          "output": "\"list with 3 items, 1., visited link, current step, Do this\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -707,7 +707,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current time\"",
+          "output": "\"current time, bullet, 10am to 11am: Keynote\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -726,7 +726,123 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"current\"",
+          "output": "\"list with 3 items, bullet, visited link, current, Apples\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"date\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"sat column, current date, 16\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_date",
+              "applied_to": "html/td_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"location\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"bullet, visited link, current location, phone numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_location",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"page\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"navigation landmark, list with 3 items, bullet, visited link, current page, Home\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_page",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"step\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list with 3 items, 1., visited link, current step, Do this\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_step",
+              "applied_to": "html/a(href)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"time\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"current time, bullet, 10am to 11am: Keynote\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_value_time",
+              "applied_to": "html/li_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-current=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"list with 3 items, bullet, visited link, current, Apples\"",
           "results": [
             {
               "feature_id": "aria/aria-current_attribute",
@@ -854,122 +970,6 @@
         }
       ],
       "ie": [
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"date\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"current date\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_date",
-              "applied_to": "html/td_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"location\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"current location\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_location",
-              "applied_to": "html/a(href)_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"page\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"current page\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_page",
-              "applied_to": "html/a(href)_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"step\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"current step\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_step",
-              "applied_to": "html/a(href)_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"time\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"current time\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_time",
-              "applied_to": "html/li_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-current=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"current\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-current_attribute",
-              "feature_assertion_id": "convey_value_true",
-              "applied_to": "html/a(href)_element",
-              "result": "pass"
-            }
-          ]
-        }
-      ],
-      "edge": [
         {
           "command": "next_item",
           "css_target": "*[aria-current=\"date\"]",
@@ -1575,16 +1575,26 @@
     {
       "date": "2019-09-16",
       "message": "Added orca results"
+    },
+    {
+      "date": "2021-07-15",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2018.1811.2",
-          "browser_version": "73",
-          "os_version": "1809",
-          "date": "2019-03-29"
+          "at_version": "2020.2006.12",
+          "os_version": "2004",
+          "browser_version": "84",
+          "date": "2020-07-02"
+        },
+        "edge": {
+          "at_version": "2021.2105.53",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
         },
         "ie": {
           "at_version": "2018.1811.2",
@@ -1595,12 +1605,6 @@
         "firefox": {
           "at_version": "2018.1811.2",
           "browser_version": "66",
-          "os_version": "1809",
-          "date": "2019-03-29"
-        },
-        "edge": {
-          "at_version": "2018.1811.2",
-          "browser_version": "44",
           "os_version": "1809",
           "date": "2019-03-29"
         }
@@ -1619,10 +1623,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2019.0.1",
-          "browser_version": "73",
-          "os_version": "1809",
-          "date": "2019-03-29"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "91",
+          "date": "2021-07-15"
         },
         "firefox": {
           "at_version": "2019.0.1",
@@ -1633,12 +1643,6 @@
         "ie": {
           "at_version": "2019.0.1",
           "browser_version": "11",
-          "os_version": "1809",
-          "date": "2019-03-29"
-        },
-        "edge": {
-          "at_version": "2019.0.1",
-          "browser_version": "44.17763",
           "os_version": "1809",
           "date": "2019-03-29"
         }

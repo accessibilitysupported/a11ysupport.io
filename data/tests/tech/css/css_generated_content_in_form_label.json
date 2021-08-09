@@ -84,7 +84,7 @@
     "jaws": {
       "chrome": [
         {
-          "command": "next_item",
+          "command": "next_focusable_item",
           "css_target": "#target",
           "before": {
             "mode": "auto",
@@ -92,16 +92,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is generated content\"",
+          "output": "\"is generated, edit, type in text\"",
           "results": [
             {
               "feature_id": "css/generated_content",
               "feature_assertion_id": "part_of_accessible_name",
               "applied_to": "html/label_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
-        },
+        }
+      ],
+      "edge": [
         {
           "command": "next_focusable_item",
           "css_target": "#target",
@@ -111,38 +113,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is generated content, edit, type in text\"",
+          "output": "\"is generated, edit, type in text\"",
           "results": [
             {
               "feature_id": "css/generated_content",
               "feature_assertion_id": "part_of_accessible_name",
               "applied_to": "html/label_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
       ],
       "ie": [
-        {
-          "command": "next_item",
-          "css_target": "#target",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"is generated\"",
-          "results": [
-            {
-              "feature_id": "css/generated_content",
-              "feature_assertion_id": "part_of_accessible_name",
-              "applied_to": "html/label_element",
-              "result": "na",
-              "notes": "na because the browser does not support this feature"
-            }
-          ]
-        },
         {
           "command": "next_focusable_item",
           "css_target": "#target",
@@ -166,25 +148,6 @@
       ],
       "firefox": [
         {
-          "command": "next_item",
-          "css_target": "#target",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"This is generated content, clickable\"",
-          "results": [
-            {
-              "feature_id": "css/generated_content",
-              "feature_assertion_id": "part_of_accessible_name",
-              "applied_to": "html/label_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
           "command": "next_focusable_item",
           "css_target": "#target",
           "before": {
@@ -200,46 +163,6 @@
               "feature_assertion_id": "part_of_accessible_name",
               "applied_to": "html/label_element",
               "result": "pass"
-            }
-          ]
-        }
-      ],
-      "edge": [
-        {
-          "command": "next_item",
-          "css_target": "#target",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"This is generated content\"",
-          "results": [
-            {
-              "feature_id": "css/generated_content",
-              "feature_assertion_id": "part_of_accessible_name",
-              "applied_to": "html/label_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "#target",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"This is generated content, edit\"",
-          "results": [
-            {
-              "feature_id": "css/generated_content",
-              "feature_assertion_id": "part_of_accessible_name",
-              "applied_to": "html/label_element",
-              "result": "fail"
             }
           ]
         }
@@ -290,7 +213,7 @@
     "nvda": {
       "chrome": [
         {
-          "command": "next_item",
+          "command": "next_focusable_item",
           "css_target": "#target",
           "before": {
             "mode": "auto",
@@ -298,16 +221,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is generated content, edit\"",
+          "output": "\"is generated, edit, blank\"",
           "results": [
             {
               "feature_id": "css/generated_content",
               "feature_assertion_id": "part_of_accessible_name",
               "applied_to": "html/label_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
-        },
+        }
+      ],
+      "edge": [
         {
           "command": "next_focusable_item",
           "css_target": "#target",
@@ -317,37 +242,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is generated content, edit, blank\"",
+          "output": "\"is generated, edit, blank\"",
           "results": [
             {
               "feature_id": "css/generated_content",
               "feature_assertion_id": "part_of_accessible_name",
               "applied_to": "html/label_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
       ],
       "firefox": [
-        {
-          "command": "next_item",
-          "css_target": "#target",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"This is generated content, clickable\"",
-          "results": [
-            {
-              "feature_id": "css/generated_content",
-              "feature_assertion_id": "part_of_accessible_name",
-              "applied_to": "html/label_element",
-              "result": "pass"
-            }
-          ]
-        },
         {
           "command": "next_focusable_item",
           "css_target": "#target",
@@ -666,6 +572,10 @@
     {
       "date": "2019-10-18",
       "message": "Add wsr results"
+    },
+    {
+      "date": "2021-07-29",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results. Chrome results for both NVDA and Jaws now fail when tabbing to the form control."
     }
   ],
   "versions": {
@@ -693,6 +603,18 @@
     },
     "jaws": {
       "browsers": {
+        "chrome": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-07-29"
+        },
         "ie": {
           "at_version": "2019.1906.10",
           "browser_version": "11",
@@ -702,18 +624,6 @@
         "firefox": {
           "at_version": "2019.1606.10",
           "browser_version": "67",
-          "os_version": "1903",
-          "date": "2019-07-10"
-        },
-        "edge": {
-          "at_version": "2019.1906.10",
-          "browser_version": "44",
-          "os_version": "1903",
-          "date": "2019-07-10"
-        },
-        "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "75",
           "os_version": "1903",
           "date": "2019-07-10"
         }
@@ -731,15 +641,21 @@
     },
     "nvda": {
       "browsers": {
+        "chrome": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-07-29"
+        },
         "firefox": {
           "at_version": "2019.1.1",
           "browser_version": "60",
-          "os_version": "1903",
-          "date": "2019-07-10"
-        },
-        "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "75",
           "os_version": "1903",
           "date": "2019-07-10"
         }
