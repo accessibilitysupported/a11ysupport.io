@@ -93,6 +93,26 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "label",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your name, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "next_focusable_item",
@@ -114,26 +134,6 @@
         }
       ],
       "firefox": [
-        {
-          "command": "next_focusable_item",
-          "css_target": "label",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"Your name, edit, type in text\"",
-          "results": [
-            {
-              "feature_id": "html/label_element",
-              "feature_assertion_id": "accessible_name",
-              "result": "pass"
-            }
-          ]
-        }
-      ],
-      "edge": [
         {
           "command": "next_focusable_item",
           "css_target": "label",
@@ -205,7 +205,45 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Clickable, Your name, edit\"",
+          "output": "\"Your name, edit\"",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "label",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your name, edit, blank\"",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "label",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your name, edit\"",
           "results": [
             {
               "feature_id": "html/label_element",
@@ -592,6 +630,10 @@
     {
       "date": "2020-08-21",
       "message": "Re-tested VC AT; no changes in support"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
@@ -631,17 +673,17 @@
           "os_version": "1903",
           "date": "2019-07-10"
         },
-        "edge": {
-          "at_version": "2019.1906.10",
-          "browser_version": "44",
-          "os_version": "1903",
-          "date": "2019-07-10"
-        },
         "chrome": {
-          "at_version": "2019.1906.10",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-10"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         }
       }
     },
@@ -664,10 +706,16 @@
           "date": "2019-07-10"
         },
         "chrome": {
-          "at_version": "2019.1.1",
-          "browser_version": "75",
-          "os_version": "1903",
-          "date": "2019-07-10"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         }
       }
     },

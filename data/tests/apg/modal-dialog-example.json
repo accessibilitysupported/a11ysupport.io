@@ -322,26 +322,19 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"add delivery address, modal dialog, {dialog contents without semantics}, street: edit, type in text\"",
+          "output": "\"add delivery address, dialog, street: edit, type in text\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_role",
               "result": "pass",
-              "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
+              "notes": "The name and role were conveyed when entering the dialog for the first time."
             },
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "pass",
-              "notes": "The name, role, and aria-modal were conveyed when entering the dialog for the first time."
-            },
-            {
-              "feature_id": "aria/aria-modal_attribute",
-              "feature_assertion_id": "convey_presence",
-              "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "The modal state was explicitly conveyed."
+              "notes": "The name and role were conveyed when entering the dialog for the first time."
             }
           ]
         },
@@ -376,13 +369,99 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "outside content was displayed in content lists, such as the of links, etc. Note: not possible to move to an item in the list, but could still activate the links.",
+          "output": "outside content was displayed in content lists, such as the of links, etc. Note: not possible to move to an item in the list.",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "fail"
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_unvisited_link",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "no links were found",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "This is sort of fragile. If you use the mouse to click outside of the modal content, the modal stays open but shortcuts can be used to jump to outside content. It appears to work fine if keyboard was used exclusively."
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_button",
+          "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "\"add delivery address, dialog, street: edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "The name and role were conveyed when entering the dialog for the first time."
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass",
+              "notes": "The name and role were conveyed when entering the dialog for the first time."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "not able to move outside of the modal",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "applied_to": "aria/dialog_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "outside content was displayed in content lists, such as the of links, etc. Note: not possible to move to an item in the list.",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "applied_to": "aria/dialog_role",
+              "result": "pass"
             }
           ]
         },
@@ -697,6 +776,115 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "activate_button",
+          "procedure_key": "open_dialog",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "\"Add delivery address, dialog, street, edit, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "notes": "Modal state was not conveyed but non-modal content was obscured which implies the modal state. See other expectations for details."
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "not able to move outside of the modal",
+          "results": [
+            {
+              "feature_id": "aria/dialog_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "limit_reading_to_children",
+              "applied_to": "aria/dialog_role",
+              "result": "pass",
+              "note": "This is fairly fragile. If you use the mouse to click on content under the modal, the content behind the modal can be found. This does not appear to happen when using just keyboard interactions."
+            }
+          ]
+        },
+        {
+          "command": "previous_form_field",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "no outside form fields were found",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "applied_to": "aria/dialog_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_link",
+          "procedure_key": "navigate_backwards_out_of_open_modal",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "no outside links were found",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "applied_to": "aria/dialog_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "procedure_key": "open_element_list_while_modal_open",
+          "params": {
+            "commands": {
+              "navigate_to_button": "next_button"
+            }
+          },
+          "output": "only content within the modal was included in the lists",
+          "results": [
+            {
+              "feature_id": "aria/aria-modal_attribute",
+              "feature_assertion_id": "remove_outside_content_from_shortcuts",
+              "applied_to": "aria/dialog_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "activate_button",
           "procedure_key": "open_dialog",
@@ -1372,16 +1560,26 @@
     {
       "date": "2021-02-03",
       "message": "re-tested all core versions, no significant changes were found"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2012.57",
-          "browser_version": "88",
-          "os_version": "20H2",
-          "date": "2021-02-03"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2021.2012.57",
@@ -1410,10 +1608,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.3",
-          "browser_version": "88",
-          "os_version": "2021-02-03",
-          "date": "2021-02-03"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2020.3",

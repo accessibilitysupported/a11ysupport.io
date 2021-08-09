@@ -34,6 +34,28 @@
           ]
         }
       ],
+      "edge": [
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"sad (target), row 2\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "references": ["html/th_element"],
+              "result": "fail"
+            }
+          ]
+        }
+      ],
       "ie": [
         {
           "command": "table_move_to_next_row",
@@ -105,6 +127,28 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "table_move_to_next_row",
+          "css_target": "#target",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"mood, row 2, sad (target)\"",
+          "results": [
+            {
+              "feature_id": "html/headers_attribute",
+              "feature_assertion_id": "convey_headers",
+              "applied_to": "html/td_element",
+              "references": ["html/th_element"],
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "table_move_to_next_row",
           "css_target": "#target",
@@ -250,16 +294,26 @@
     {
       "date": "2020-07-10",
       "message": "test added"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.2006.12",
-          "os_version": "2004",
-          "browser_version": "84",
-          "date": "2020-07-10"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2020.2006.12",
@@ -288,10 +342,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.1",
-          "os_version": "2004",
-          "browser_version": "84",
-          "date": "2020-07-10"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2020.1",

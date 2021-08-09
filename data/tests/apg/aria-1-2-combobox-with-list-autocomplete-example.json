@@ -745,7 +745,256 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
-          "output": "\"ne, edit, combo\"",
+          "output": "\"edit, combo\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_text_in_combobox_collapsed_with_no_value",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "input is echoed back (\"n\", \"e\"). \"expanded\" is announced when the list box is expanded.",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "procedure_key": "navigate_into_listbox_from_combobox",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "\"states list box, nebraska, 1 of 6, to move to an item press the arrow keys\"",
+          "results": [
+            {
+              "feature_id": "aria/listbox_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/listbox_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "implied by listbox context"
+            },
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "aria/option_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "jump_to_controlled",
+          "procedure_key": "navigate_into_listbox_from_combobox",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "\"move to controlled element, states list box\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "procedure_key": "navigate_through_listbox",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "each option was conveyed. After last option was conveyed, focus was looped back to the first option.",
+          "results": [
+            {
+              "feature_id": "aria/listbox_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "boundaries implied by position in set information"
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "procedure_key": "navigate_forward_to_button_for_combobox_collapsed_with_no_value",
+          "output": "\"states button collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "procedure_key": "navigate_forward_to_button_for_combobox_expanded_with_no_value",
+          "output": "\"states, button expanded\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "jump_to_controlled",
+          "procedure_key": "navigate_into_listbox_from_button_for_combobox",
+          "params": {
+            "commands": {
+              "navigate_to_button_1": "next_button",
+              "activate_button": "activate_button",
+              "navigate_to_button_2": "next_button"
+            }
+          },
+          "output": "\"move to controlled element, states list box\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_focusable_item",
+          "procedure_key": "navigate_forward_to_combobox_collapsed_with_no_value",
+          "output": "\"state, edit, combo, collapsed, to set the value use the arrow keys or type the value\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass",
+              "notes": "value is blank"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_editable",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
+          "output": "\"edit, combo\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
@@ -1669,6 +1918,230 @@
     },
     "nvda": {
       "chrome": [
+        {
+          "command": "next_focusable_item",
+          "procedure_key": "navigate_forward_to_combobox_collapsed_with_no_value",
+          "output": "\"state, combo box, collapsed, has auto complete, editable, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass",
+              "notes": "value is blank"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_editable",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-autocomplete_attribute",
+              "feature_assertion_id": "convey_value_list",
+              "applied_to": "aria/combobox_role",
+              "result": "partial",
+              "notes": "auto complete was conveyed, but not the list value"
+            },
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
+          "output": "\"combo box, expanded, has auto complete, editable, ne\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "enter_text",
+          "procedure_key": "enter_text_in_combobox_collapsed_with_no_value",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "input is echoed back (\"n\", \"e\"). \"expanded\" is announced when the list box is expanded.",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "procedure_key": "navigate_into_listbox_from_combobox",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "\"states, list, nebraska, 1 of 6\"",
+          "results": [
+            {
+              "feature_id": "aria/listbox_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/listbox_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": "implied by listbox context"
+            },
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_posinset",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-selected_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "aria/option_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "procedure_key": "navigate_through_listbox",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "each option was conveyed. After last option was conveyed, focus was looped back to the first option.",
+          "results": [
+            {
+              "feature_id": "aria/listbox_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "boundaries implied by position in set information"
+            },
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "aria/combobox_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "procedure_key": "navigate_forward_to_button_for_combobox_collapsed_with_no_value",
+          "output": "\"states button collapsed\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_false",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_button",
+          "procedure_key": "navigate_forward_to_button_for_combobox_expanded_with_no_value",
+          "output": "\"states, button expanded\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-expanded_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "convey_presence",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/aria-controls_attribute",
+              "feature_assertion_id": "allow_jump_to_controlled",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
         {
           "command": "next_focusable_item",
           "procedure_key": "navigate_forward_to_combobox_collapsed_with_no_value",
@@ -3383,16 +3856,26 @@
     {
       "date": "2020-10-09",
       "message": "Test created"
+    },
+    {
+      "date": "2021-08-07",
+      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2011.16",
-          "os_version": "2004",
-          "browser_version": "86",
-          "date": "2020-11-12"
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.2107.12",
+          "browser_version": "92",
+          "os_version": "21H1",
+          "date": "2021-08-07"
         },
         "ie": {
           "at_version": "2021.2011.16",
@@ -3421,10 +3904,16 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2020.3",
-          "os_version": "2004",
-          "browser_version": "86",
-          "date": "2020-11-12"
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
+        },
+        "edge": {
+          "at_version": "2021.1",
+          "os_version": "21H1",
+          "browser_version": "92",
+          "date": "2021-08-07"
         },
         "firefox": {
           "at_version": "2020.3",
