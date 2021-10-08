@@ -912,7 +912,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"table with 3 rows, 2 columns, date column header, 2018-01-01, focus mode\"",
+          "output": "\"table with 3 rows, 2 columns, 2018-01-01, target 1, focus mode\"",
           "results": [
             {
               "feature_id": "aria/aria-selected_attribute",
@@ -931,13 +931,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"2018-01-01 target 1, not selected\"",
+          "output": "\"Name column header, target 1, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-selected_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "aria/gridcell_role",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -950,13 +950,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"2018-01-02, target 2, not selected\"",
+          "output": "\"Name column header, target 2, column 2\"",
           "results": [
             {
               "feature_id": "aria/aria-selected_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/gridcell_role",
-              "result": "false"
+              "result": "fail"
             }
           ]
         },
@@ -1001,6 +1001,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2021-10-08",
+      "message": "Update orca results."
     }
   ],
   "versions": {
@@ -1067,10 +1071,10 @@
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-14"
+          "at_version": "3.38.0",
+          "browser_version": "93",
+          "os_version": "Ubuntu 21.04",
+          "date": "2020-10-08"
         }
       }
     },
