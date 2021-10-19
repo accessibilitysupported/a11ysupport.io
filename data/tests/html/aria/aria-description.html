@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ARIA description test</title>
+</head>
+<body>
+
+<h1>ARIA description test</h1>
+
+<button>Tab stop before</button>
+
+<div>
+    <label for="target">Example label</label>
+    <input id="target" type="text" aria-description="error: 0">
+</div>
+
+<script>
+	let textInput = document.querySelector('input');
+
+	textInput.addEventListener('keyup', e => {
+		let description = 'error: ' + Math.round((Math.random() * (100 - 0) + 0));
+		textInput.setAttribute('aria-description', description);
+	});
+</script>
+
+<button>Tab stop after</button>
+
+</body>
+</html>

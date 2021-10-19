@@ -1,15 +1,15 @@
 {
-  "title": "aria-describedby attribute on a text input",
-  "description": "This test ensures that the accessible description is computed correctly when `aria-describedby` is on a text input.",
-  "html_file": "aria/aria-describedby.html",
+  "title": "aria-description attribute on a text input",
+  "description": "This test ensures that the accessible description is computed correctly when `aria-description` is on a text input.",
+  "html_file": "aria/aria-description.html",
   "assertions": [
     {
-      "feature_id": "aria/aria-describedby_attribute",
+      "feature_id": "aria/aria-description_attribute",
       "feature_assertion_id": "contribute_to_description",
       "applied_to": "html/input(type-text)_element"
     },
     {
-      "feature_id": "aria/aria-describedby_attribute",
+      "feature_id": "aria/aria-description_attribute",
       "feature_assertion_id": "convey_description_change",
       "applied_to": "html/input(type-text)_element"
     }
@@ -30,7 +30,7 @@
           "output": "\"Example label, edit, error colon {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -49,7 +49,7 @@
           "output": "\"error colon {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -70,7 +70,7 @@
           "output": "\"Example label, edit, error colon {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -89,7 +89,7 @@
           "output": "\"error colon {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -110,7 +110,7 @@
           "output": "\"Example label, edit, error {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -126,13 +126,13 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"error {number}\"",
+          "output": "(only the character was announced)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
@@ -152,7 +152,7 @@
           "output": "\"example label, edit, error {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -171,7 +171,7 @@
           "output": "(only the character that was entered)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
@@ -194,7 +194,7 @@
           "output": "\"example, label, edit, error {number}, blank\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -213,7 +213,7 @@
           "output": "\"error {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -234,7 +234,7 @@
           "output": "\"example, label, edit, error {number}, blank\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -253,7 +253,7 @@
           "output": "\"error {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -274,7 +274,7 @@
           "output": "\"example, label, edit, error {number}, blank\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -290,13 +290,13 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"error {number}\"",
+          "output": "(only character was announced)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         }
@@ -316,7 +316,7 @@
           "output": "\"edit box, example label, error: {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -335,7 +335,7 @@
           "output": "(only character entered)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
@@ -356,13 +356,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"example label, text field, (long pause), error {number}, double tap to edit\"",
+          "output": "\"example label, text field, double tap to edit\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -378,7 +378,7 @@
           "output": "(only the character that was entered)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
@@ -398,13 +398,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"example label, edit text, error {number}\"",
+          "output": "\"example label, edit text\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -417,13 +417,13 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"error: {number}\" at first pause of typing, further keypresses and pauses do not convey changes to the description",
+          "output": "(only the character was announced)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
-              "result": "partial"
+              "result": "fail"
             }
           ]
         }
@@ -443,7 +443,7 @@
           "output": "\"Example label, entry, error: {number}\"",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
@@ -462,7 +462,7 @@
           "output": "(only the character that was entered)",
           "results": [
             {
-              "feature_id": "aria/aria-describedby_attribute",
+              "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
@@ -477,32 +477,8 @@
   },
   "history": [
     {
-      "date": "2019-07-27",
-      "message": "Talkback results added"
-    },
-    {
-      "date": "2019-02-08",
-      "message": "Test created"
-    },
-    {
-      "date": "2019-09-16",
-      "message": "Add orca results"
-    },
-    {
-      "date": "2020-02-15",
-      "message": "retest NVDA with crome and firefox"
-    },
-    {
-      "date": "2021-03-02",
-      "message": "retest Narrator+Edge and Orca+Firefox"
-    },
-    {
-      "date": "2021-07-23",
-      "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
-    },
-    {
       "date": "2021-10-19",
-      "message": "Updated all results and added test case for change of description"
+      "message": "Add test"
     }
   ],
   "versions": {

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ARIA describedby test</title>
+</head>
+<body>
+
+<h1>ARIA describedby test</h1>
+
+<button>Tab stop before</button>
+
+<div>
+    <label for="target">Example label</label>
+    <input id="target" aria-describedby="error" type="text">
+    <div id="error">
+    error: 0
+    </div>
+</div>
+
+<script>
+    let textInput = document.querySelector('input');
+    let error = document.querySelector('#error');
+
+    textInput.addEventListener('keyup', e => {
+        error.innerHTML = 'error: ' + Math.round((Math.random() * (100 - 0) + 0));
+    });
+</script>
+
+<button>Tab stop after</button>
+
+</body>
+</html>
