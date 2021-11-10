@@ -2004,13 +2004,13 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit box, error: invalid entry, target 2\"",
+          "output": "\"cats, edit box, target 2\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/input(type-text)_element",
-              "result": "pass",
+              "result": "fail",
               "notes": null
             }
           ]
@@ -2024,7 +2024,7 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit box, error: invalid grammar, target 3, error: invalid grammar, error: invalid entry, end of field\"",
+          "output": "\"cats, edit box, target 3\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -2044,14 +2044,14 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"cats, edit box, error: invalid spelling, target 4, error: invalid spelling, error: invalid grammar, end of field\"",
+          "output": "\"cats, edit box, target 4\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
               "feature_assertion_id": "convey_value_spelling",
               "applied_to": "html/input(type-text)_element",
-              "result": "partial",
-              "notes": "also conveyed as invalid grammar"
+              "result": "fail",
+              "notes": ""
             }
           ]
         },
@@ -2064,7 +2064,7 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"collapsed, none, popup button, target 5\"",
+          "output": "\"collapsed, none, menu popup button, target 5\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -2084,7 +2084,7 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"collapsed, none, popup button, target 6\"",
+          "output": "\"collapsed, none, menu popup button, target 6\"",
           "results": [
             {
               "feature_id": "aria/aria-invalid_attribute",
@@ -2722,6 +2722,10 @@
     {
       "date": "2021-07-28",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2021-11-10",
+      "message": "Updated Talkback+chrome results, now failing all values of aria-invalid other than 'false'."
     }
   ],
   "versions": {
@@ -2788,10 +2792,10 @@
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.2",
-          "os_version": "10",
-          "browser_version": "85",
-          "date": "2020-09-18"
+          "at_version": "12.1",
+          "os_version": "11",
+          "browser_version": "95",
+          "date": "2021-11-10"
         }
       }
     },
