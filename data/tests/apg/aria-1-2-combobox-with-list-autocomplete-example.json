@@ -327,6 +327,39 @@
       ]
     },
     {
+      "key": "navigate_into_listbox_from_combobox_no_value",
+      "title": "Navigate into listbox from the combobox input when the combobox has no value",
+      "css_target": "*[role=\"listbox\"]",
+      "steps": [
+        {
+          "action": "find target"
+        },
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "issue command",
+          "summary": "navigate forward to the combobox",
+          "command": "params.commands.navigate_to_combobox",
+          "target": "[role=\"combobox\"]",
+          "ensure_at_location": {
+            "virtual": "target",
+            "focus": "target"
+          }
+        },
+        {
+          "action": "issue command",
+          "summary": "navigate into the listbox",
+          "observe": "the listbox role and name should be conveyed",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        }
+      ]
+    },
+    {
       "key": "navigate_through_listbox",
       "title": "Navigate through listbox",
       "css_target": "*[role=\"listbox\"]",
@@ -354,6 +387,40 @@
           "target": "[role=\"combobox\"]",
           "summary": "type \"nebr\"",
           "observe": "the combo box should expand and listbox should display",
+          "ensure_at_location": {
+            "virtual": "target",
+            "focus": "target"
+          }
+        },
+        {
+          "action": "issue command",
+          "multiple": "true",
+          "summary": "navigate through all options in the listbox",
+          "observe": "are the start and end boundaries of the listbox conveyed?",
+          "ensure_at_location": {
+            "virtual": "within target",
+            "focus": "within target"
+          }
+        }
+      ]
+    },
+    {
+      "key": "navigate_through_listbox_no_value",
+      "title": "Navigate through listbox when combobox has no value",
+      "css_target": "*[role=\"listbox\"]",
+      "steps": [
+        {
+          "action": "find target"
+        },
+        {
+          "action": "set mode to",
+          "value": "auto"
+        },
+        {
+          "action": "issue command",
+          "summary": "navigate forward to the combobox",
+          "command": "params.commands.navigate_to_combobox",
+          "target": "[role=\"combobox\"]",
           "ensure_at_location": {
             "virtual": "target",
             "focus": "target"
@@ -3183,7 +3250,7 @@
         {
           "command": "next_focusable_item",
           "procedure_key": "navigate_forward_to_combobox_collapsed_with_no_value",
-          "output": "\"state, list box popup, menu popup combobox, main\"",
+          "output": "\"state, list box popup, menu popup combobox\"",
           "results": [
             {
               "feature_id": "aria/combobox_role",
@@ -3323,6 +3390,24 @@
         },
         {
           "command": "next_option",
+          "procedure_key": "navigate_into_listbox_from_combobox_no_value",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "nothing was conveyed, but the list of options was displayed. Nothing was conveyed even when continuing to navigate through the options.",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_value",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
           "procedure_key": "navigate_through_listbox",
           "params": {
             "commands": {
@@ -3342,6 +3427,24 @@
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "aria/combobox_role",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_option",
+          "procedure_key": "navigate_through_listbox_no_value",
+          "params": {
+            "commands": {
+              "navigate_to_combobox": "next_focusable_item"
+            }
+          },
+          "output": "nothing was conveyed even though visually options were selected",
+          "results": [
+            {
+              "feature_id": "aria/aria-activedescendant_attribute",
+              "feature_assertion_id": "convey_change_in_value",
+              "applied_to": "aria/combobox_role",
+              "result": "fail"
             }
           ]
         },
@@ -3860,6 +3963,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2021-11-10",
+      "message": "Updated VoiceOver tests to illustrate a bug where aria-activedescendant is not respected when the combobox input has no value."
     }
   ],
   "versions": {
@@ -3946,10 +4053,10 @@
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.7",
-          "os_version": "10.15.7",
-          "browser_version": "14.0",
-          "date": "2020-11-12"
+          "at_version": "12.0.1",
+          "os_version": "12.0.1",
+          "browser_version": "15.1",
+          "date": "2021-11-10"
         }
       }
     },
