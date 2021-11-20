@@ -1396,13 +1396,13 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "command was not recognized",
+          "output": "Label and field both matched command, input focused on follow-up selection",
           "notes": "said \"tap tell us about yourself\"",
           "results": [
             {
               "feature_id": "html/textarea_element",
               "feature_assertion_id": "convey_name",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             }
           ]
@@ -1822,6 +1822,25 @@
               "notes": null
             }
           ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "textarea",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "input was flagged with a number",
+          "results": [
+            {
+              "feature_id": "html/textarea_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass",
+              "notes": null
+            }
+          ]
         }
       ]
     },
@@ -1920,6 +1939,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2021-11-20",
+      "message": "Updated Voice Access, iOS Voice Control results"
     }
   ],
   "versions": {
@@ -2006,10 +2029,10 @@
     "va_and": {
       "browsers": {
         "and_chr": {
-          "at_version": "3.1",
-          "os_version": "10",
-          "browser_version": "78",
-          "date": "2020-01-03"
+          "at_version": "5.4",
+          "os_version": "11",
+          "browser_version": "96",
+          "date": "2021-11-20"
         }
       }
     },
@@ -2046,10 +2069,10 @@
     "vc_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.3",
-          "os_version": "13.3",
-          "browser_version": "13.3",
-          "date": "2020-01-03"
+          "at_version": "14.8.1",
+          "os_version": "14.8.1",
+          "browser_version": "14.8.1",
+          "date": "2021-11-20"
         }
       }
     },
