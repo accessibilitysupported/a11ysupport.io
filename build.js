@@ -193,6 +193,10 @@ let getFeatures = function(techId, buildDir) {
 let buildDir = __dirname+'/build';
 let dataDir = __dirname+'/data';
 
+// Update Windows directory strings to use forward slash
+buildDir = buildDir.replace(/\\/g, '/');
+dataDir = dataDir.replace(/\\/g, '/');
+
 if (fs.existsSync(buildDir)) {
 	rimraf.sync(buildDir);
 }
