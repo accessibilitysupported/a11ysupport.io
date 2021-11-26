@@ -11,16 +11,32 @@
   ],
   "assertions": [
     {
-      "id": "convey_placeholder_labelled_unpopulated",
+      "id": "convey_placeholder_labelled_no_value",
       "strength": {
         "sr": "MUST",
         "vc": "NA"
       },
-      "title": "convey placeholder when unpopulated",
+      "title": "convey aria-placeholder for text field with no value",
       "examples": [
-        "Screen readers announce the placeholder when a labelled, empty text field receives focus"
+        "Screen readers announce aria-placeholder when a labelled, empty text field receives focus"
       ],
-      "css_target": "*[aria-placeholder].labelled",
+      "css_target": "#text1",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "no_aria_placeholder_if_html_placeholder_present",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
+      "title": "convey aria-placeholder when (HTML attribute) placeholder is defined",
+      "examples": [
+        "Screen reader should ignore aria-placeholder if placeholder (HTML attribute) has also been defined"
+      ],
+      "css_target": "#text3",
       "operation_modes": [
         "sr/reading",
         "sr/interaction"
@@ -29,19 +45,35 @@
     {
       "id": "contribute_to_accessible_name",
       "strength": {
-        "sr": "MUST",
-        "vc": "MUST"
+        "sr": "SHOULD",
+        "vc": "SHOULD"
       },
       "title": "contribute to the accessible name",
       "examples": [
-        "Screen readers use the placeholder as the field name when no other labelling method is applied",
-        "Speech interfaces can use the placeholder to identify / activate a field when no other labelling method is applied"
+        "Screen readers should use aria-placeholder as the field name when no other labelling method is applied",
+        "Speech interfaces should use aria-placeholder to identify / activate a field when no other labelling method is applied"
       ],
-      "css_target": "*[aria-placeholder].unlabelled",
+      "css_target": "#text2",
       "operation_modes": [
         "sr/reading",
         "sr/interaction",
         "vc"
+      ]
+    },
+    {
+      "id": "convey_placeholder_labelled_with_value",
+      "strength": {
+        "sr": "MAY",
+        "vc": "NA"
+      },
+      "title": "convey aria-placeholder for text field with value",
+      "examples": [
+        "Screen readers may announce aria-placeholder when a labelled text field that contains a value receives focus"
+      ],
+      "css_target": "#text4",
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
       ]
     }
   ],

@@ -5,12 +5,22 @@
   "assertions": [
     {
       "feature_id": "aria/aria-placeholder_attribute",
-      "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+      "feature_assertion_id": "convey_placeholder_labelled_no_value",
       "applied_to": "html/input(type-text)_element"
     },
     {
       "feature_id": "aria/aria-placeholder_attribute",
       "feature_assertion_id": "contribute_to_accessible_name",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-placeholder_attribute",
+      "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-placeholder_attribute",
+      "feature_assertion_id": "convey_placeholder_labelled_with_value",
       "applied_to": "html/input(type-text)_element"
     }
   ],
@@ -19,7 +29,7 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -30,7 +40,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -38,7 +48,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -49,7 +59,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -57,7 +67,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -76,7 +86,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -92,12 +102,88 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"M M dash D D dash Y Y Y Y, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M dash D D dash Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"1 2 dash 2 5 dash 2 0 0 0, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 dash 2 5 dash 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ],
       "edge": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -108,7 +194,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -116,7 +202,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -127,7 +213,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -135,7 +221,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -154,7 +240,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -167,7 +253,85 @@
               "feature_id": "aria/aria-placeholder_attribute",
               "feature_assertion_id": "contribute_to_accessible_name",
               "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edit\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, type in text\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"1 2 dash 2 5 dash 2 0 0 0, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 dash 2 5 dash 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
             }
           ]
         }
@@ -175,7 +339,7 @@
       "firefox": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -186,7 +350,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -194,7 +358,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -210,6 +374,45 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, type in text\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"her birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -217,7 +420,7 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -228,7 +431,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -236,7 +439,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -247,7 +450,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -255,7 +458,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -274,7 +477,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -290,12 +493,88 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, selected, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ],
       "edge": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -306,7 +585,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -314,7 +593,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -325,7 +604,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -333,7 +612,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -352,7 +631,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -371,7 +650,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -387,12 +666,88 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, 10 characters\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, 10 characters, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ],
       "firefox": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -403,7 +758,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -411,7 +766,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -422,7 +777,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -430,7 +785,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -449,7 +804,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -465,6 +820,44 @@
               "result": "pass"
             }
           ]
+        },
+       {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, has autocomplete, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, has autocomplete, selected, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -472,7 +865,7 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -483,7 +876,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -491,7 +884,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -502,7 +895,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -510,7 +903,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -529,7 +922,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -545,12 +938,88 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ],
       "edge": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -561,7 +1030,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -569,7 +1038,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -580,7 +1049,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "fail"
             }
@@ -588,7 +1057,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -607,7 +1076,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -623,6 +1092,84 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -630,7 +1177,7 @@
       "and_chr": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -641,7 +1188,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -649,7 +1196,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -665,6 +1212,44 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Edit box, His birthday, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"December 25th 2000, Edit box, Her birthday, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -672,7 +1257,7 @@
       "ios_saf": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -683,7 +1268,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -691,7 +1276,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -707,6 +1292,44 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, M M D D Y Y Y Y, Text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, 12 25 2000, Text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -714,7 +1337,7 @@
       "and_chr": [
         {
           "command": "activate_name",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "na",
@@ -738,7 +1361,7 @@
       "ios_saf": [
         {
           "command": "activate_name",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "na",
@@ -762,7 +1385,7 @@
       "safari": [
         {
           "command": "activate_name",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "na",
@@ -786,7 +1409,7 @@
       "safari": [
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -797,7 +1420,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -805,7 +1428,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].labelled",
+          "css_target": "#text1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -816,7 +1439,7 @@
           "results": [
             {
               "feature_id": "aria/aria-placeholder_attribute",
-              "feature_assertion_id": "convey_placeholder_labelled_unpopulated",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
             }
@@ -824,7 +1447,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -843,7 +1466,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-placeholder].unlabelled",
+          "css_target": "#text2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -857,6 +1480,82 @@
               "feature_assertion_id": "contribute_to_accessible_name",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, M M D D Y Y Y Y, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, M M D D Y Y Y Y, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"12 25 dash 2000, content selected, her birthday, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"12 25 dash 2000, content selected, her birthday, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
             }
           ]
         }
@@ -865,7 +1564,7 @@
   },
   "history": [
     {
-      "date": "2021-11-25",
+      "date": "2021-11-26",
       "message": "Test created"
     }
   ],
@@ -876,19 +1575,19 @@
           "at_version": "2021.2105.53",
           "browser_version": "91",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         },
         "firefox": {
           "at_version": "2021.2105.53",
           "browser_version": "94",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         },
         "edge": {
           "at_version": "2021.2105.53",
           "browser_version": "96",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -898,19 +1597,19 @@
           "at_version": "2021.2",
           "browser_version": "91",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         },
         "firefox": {
           "at_version": "2021.2",
           "browser_version": "94",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         },
         "edge": {
           "at_version": "2021.2",
           "browser_version": "96",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -920,13 +1619,13 @@
           "at_version": "10.0.18363",
           "browser_version": "91",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         },
         "edge": {
           "at_version": "10.0.18363",
           "browser_version": "96",
           "os_version": "10.0.18363",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -936,7 +1635,7 @@
           "at_version": "12.1",
           "browser_version": "96",
           "os_version": "11",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -946,7 +1645,7 @@
           "at_version": "14.8.1",
           "browser_version": "14.8.1",
           "os_version": "14.8.1",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -956,7 +1655,7 @@
           "at_version": "11.6.1",
           "browser_version": "15.1",
           "os_version": "11.6.1",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -966,7 +1665,7 @@
           "at_version": "14.8.1",
           "browser_version": "14.8.1",
           "os_version": "14.8.1",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -976,7 +1675,7 @@
           "at_version": "11.6.1",
           "browser_version": "15.1",
           "os_version": "11.6.1",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     },
@@ -986,7 +1685,7 @@
           "at_version": "5.4",
           "browser_version": "96",
           "os_version": "11",
-          "date": "2021-11-25"
+          "date": "2021-11-26"
         }
       }
     }
