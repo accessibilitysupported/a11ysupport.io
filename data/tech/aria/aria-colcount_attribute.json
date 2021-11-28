@@ -9,6 +9,48 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-colcount"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_column_count_all_cols",
+      "title": "convey the total column count when all columns are visible",
+      "rationale": "The user needs to know how many columns are in the whole grid / table",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-colcount]",
+      "preconditions": "Activate the \"Show Type / Category\" button to show all columns",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_column_count_hidden_cols",
+      "title": "convey the total column count when some columns are hidden",
+      "rationale": "The user needs to know how many columns are in the whole grid / table when some columns are hidden",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
+      "css_target": "",
+      "preconditions": "Activate the \"Hide Type / Category\" button to hide some columns",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "do_not_calculate_unknown_column_count",
+      "title": "convey a column count when total column count is unknown",
+      "rationale": "Screen readers should not attempt to calculate the column count when it is unknown",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
+      "css_target": "",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2021-11-29"
 }
