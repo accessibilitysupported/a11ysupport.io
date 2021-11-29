@@ -1,5 +1,5 @@
 {
-  "title": "APG 1.1 Data Grids examples",
+  "title": "aria-colcount attribute",
   "description": "This example implements the ARIA 1.1 data grid",
   "html_file": "aria/aria-colcount.html",
   "assertions": [
@@ -21,7 +21,7 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -38,7 +38,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -50,6 +50,23 @@
             {
               "feature_id": "aria/aria-colcount_attribute",
               "feature_assertion_id": "convey_column_count_hidden_cols"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#table3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "",
+          "results": [
+            {
+              "feature_id": "aria/aria-colcount_attribute",
+              "feature_assertion_id": "do_not_calculate_unknown_column_count"
             }
           ]
         }
@@ -131,35 +148,55 @@
       "edge": [
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Enter table Table 1, 6 by 6, Date\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_all_cols"
+              "feature_assertion_id": "convey_column_count_all_cols",
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Enter table Table 2, 6 by 6, Date\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_hidden_cols"
+              "feature_assertion_id": "convey_column_count_hidden_cols",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#table3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Enter table Table 3, 6 by zero, Date\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-colcount_attribute",
+              "feature_assertion_id": "do_not_calculate_unknown_column_count",
+              "result": "fail"
             }
           ]
         }
@@ -169,35 +206,55 @@
       "chrome": [
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table with 6 rows and 6 columns, Table 1\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_all_cols"
+              "feature_assertion_id": "convey_column_count_all_cols",
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table with 6 rows and 6 columns, Table 2\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_hidden_cols"
+              "feature_assertion_id": "convey_column_count_hidden_cols",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#table3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Table with 6 rows and minus 1 columns, Table 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-colcount_attribute",
+              "feature_assertion_id": "do_not_calculate_unknown_column_count",
+              "result": "fail"
             }
           ]
         }
@@ -205,35 +262,55 @@
       "edge": [
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table with 6 rows and 6 columns, Table 1\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_all_cols"
+              "feature_assertion_id": "convey_column_count_all_cols",
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table with 6 rows and 6 columns, Table 2\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_hidden_cols"
+              "feature_assertion_id": "convey_column_count_hidden_cols",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#table3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Table with 6 rows and minus 1 columns, Table 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-colcount_attribute",
+              "feature_assertion_id": "do_not_calculate_unknown_column_count",
+              "result": "fail"
             }
           ]
         }
@@ -241,35 +318,55 @@
       "firefox": [
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table with 6 rows and 6 columns, Table 1\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_all_cols"
+              "feature_assertion_id": "convey_column_count_all_cols",
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table with 6 rows and 6 columns, Table 1\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_hidden_cols"
+              "feature_assertion_id": "convey_column_count_hidden_cols",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#table3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Table with 6 rows and minus 1 columns, Table 3\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-colcount_attribute",
+              "feature_assertion_id": "do_not_calculate_unknown_column_count",
+              "result": "fail"
             }
           ]
         }
@@ -279,35 +376,55 @@
       "ios_saf": [
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table1",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table 1, Date, Row header, Column header, Row 1, Column 1, Table start, 6 rows 6 columns\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_all_cols"
+              "feature_assertion_id": "convey_column_count_all_cols",
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-colcount]",
+          "css_target": "#table2",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "",
+          "output": "\"Table 2, Date, Row header, Column header, Row 1, Column 1, Table start, 6 rows, 4 columns\"",
           "results": [
             {
               "feature_id": "aria/aria-colcount_attribute",
-              "feature_assertion_id": "convey_column_count_hidden_cols"
+              "feature_assertion_id": "convey_column_count_hidden_cols",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#table3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Table 3, Date, Row header, Column header, Row 1, Column 1, Table start, 6 rows 4 columns\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-colcount_attribute",
+              "feature_assertion_id": "do_not_calculate_unknown_column_count",
+              "result": "fail"
             }
           ]
         }
@@ -422,9 +539,9 @@
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "",
-          "browser_version": "",
-          "os_version": "",
+          "at_version": "10.0.19043",
+          "browser_version": "96",
+          "os_version": "10.0.19043",
           "date": "2021-11-29"
         }
       }
@@ -432,21 +549,21 @@
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "",
-          "os_version": "",
-          "browser_version": "",
+          "at_version": "2021.2",
+          "os_version": "10.0.19043",
+          "browser_version": "96",
           "date": "2021-11-29"
         },
         "edge": {
-          "at_version": "",
-          "os_version": "",
-          "browser_version": "",
+          "at_version": "2021.2",
+          "os_version": "10.0.19043",
+          "browser_version": "96",
           "date": "2021-11-29"
         },
         "firefox": {
-          "at_version": "",
-          "browser_version": "",
-          "os_version": "",
+          "at_version": "2021.2",
+          "browser_version": "10.0.19043",
+          "os_version": "94",
           "date": "2021-11-29"
         }
       }
@@ -454,9 +571,9 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "",
-          "browser_version": "",
-          "os_version": "",
+          "at_version": "14.8.1",
+          "browser_version": "14.8.1",
+          "os_version": "14.8.1",
           "date": "2021-11-29"
         }
       }
