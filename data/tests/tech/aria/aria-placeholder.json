@@ -1,0 +1,1785 @@
+{
+  "title": "aria-placeholder test",
+  "description": "A suite of tests for aria-placeholder",
+  "html_file": "aria/aria-placeholder.html",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-placeholder_attribute",
+      "feature_assertion_id": "convey_placeholder_labelled_no_value",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-placeholder_attribute",
+      "feature_assertion_id": "contribute_to_accessible_name",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-placeholder_attribute",
+      "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+      "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-placeholder_attribute",
+      "feature_assertion_id": "convey_placeholder_labelled_with_value",
+      "applied_to": "html/input(type-text)_element"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"M M dash D D dash Y Y Y Y, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M dash D D dash Y Y Y Y, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday\" is said before entering text field on next down arrow press",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"M M dash D D dash Y Y Y Y, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M dash D D dash Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"1 2 dash 2 5 dash 2 0 0 0, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 dash 2 5 dash 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"MM dash DD dash Y Y Y Y, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M dash D D dash Y Y Y Y, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday\" is said before entering text field on next down arrow press",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"M M dash D D dash Y Y Y Y, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M dash D D dash Y Y Y Y, type in text\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"1 2 dash 2 5 dash 2 0 0 0, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 dash 2 5 dash 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"MM dash DD dash Y Y Y Y, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M dash D D dash Y Y Y Y, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"input left bracket type equals text right bracket, aria dash placeholder defined, unlabelled, edit, Your birthday, type in text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"10 characters, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, 10 characters, type in text\"",
+          "notes": "Doesn't announce html placeholder nor aria-placeholder",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"1 2 dash 2 5 dash 2 0 0 0, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 dash 2 5 dash 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, selected, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, selected, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"clickable, My birthday, edit, has autocomplete, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, has autocomplete, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edit, has autocomplete, Your birthday\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edit, has autocomplete, Your birthday, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, has autcomplete, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, has autocomplete, M M D D Y Y Y Y, blank\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, has autocomplete, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, has autocomplete, selected, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y, scan off\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y, scan off\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit, scan off\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y, scan off\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0, M M D D Y Y Y Y, 1 2 2 5 2 0 0 0, scan off\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, edit, M M D D Y Y Y Y, scan off\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, edit, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0, M M D D Y Y Y Y, 1 2 2 5 2 0 0 0\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, edit, 1 2 2 5 2 0 0 0, M M D D Y Y Y Y, 1 2 2 5 2 0 0 0 selected\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"edit box, My birthday, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Edit box, Your birthday\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Edit box, His birthday, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"December 25th 2000, Edit box, Her birthday, M M D D Y Y Y Y\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, M M D D Y Y Y Y, Text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, Text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, M M D D Y Y Y Y, Text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Her birthday, 12 25 2000, Text field\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {
+      "and_chr": [
+        {
+          "command": "activate_name",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "text field was activated",
+          "notes": "Said \"tap your birthday\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_name",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "text field was activated",
+          "notes": "Said \"tap your birthday\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_macos": {
+      "safari": [
+        {
+          "command": "activate_name",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "text field was not activated",
+          "notes": "Said \"click your birthday\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, M M D D Y Y Y Y, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text1",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"My birthday, M M D D Y Y Y Y, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_no_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text2",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Your birthday, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "contribute_to_accessible_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, M M D D Y Y Y Y, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text3",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"His birthday, M M D D Y Y Y Y, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "no_aria_placeholder_if_html_placeholder_present",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"12 25 dash 2000, content selected, her birthday, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "#text4",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"12 25 dash 2000, content selected, her birthday, edit text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-placeholder_attribute",
+              "feature_assertion_id": "convey_placeholder_labelled_with_value",
+              "applied_to": "html/input(type-text)_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2021-11-30",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2022.2110.36",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        },
+        "firefox": {
+          "at_version": "2022.2110.36",
+          "browser_version": "94",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        },
+        "edge": {
+          "at_version": "2022.2110.36",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2021.2",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        },
+        "firefox": {
+          "at_version": "2021.2",
+          "browser_version": "94",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        },
+        "edge": {
+          "at_version": "2021.2",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "chrome": {
+          "at_version": "21H1",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        },
+        "edge": {
+          "at_version": "21H1",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-11-30"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "12.1",
+          "browser_version": "96",
+          "os_version": "11",
+          "date": "2021-11-26"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "14.8.1",
+          "browser_version": "14.8.1",
+          "os_version": "14.8.1",
+          "date": "2021-11-26"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "11.6.1",
+          "browser_version": "15.1",
+          "os_version": "11.6.1",
+          "date": "2021-11-26"
+        }
+      }
+    },
+    "vc_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "14.8.1",
+          "browser_version": "14.8.1",
+          "os_version": "14.8.1",
+          "date": "2021-11-26"
+        }
+      }
+    },
+    "vc_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "11.6.1",
+          "browser_version": "15.1",
+          "os_version": "11.6.1",
+          "date": "2021-11-26"
+        }
+      }
+    },
+    "va_and": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "5.4",
+          "browser_version": "96",
+          "os_version": "11",
+          "date": "2021-11-26"
+        }
+      }
+    }
+  }
+}
