@@ -9,6 +9,34 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-colcount"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_column_count_hidden_cols",
+      "title": "convey the total column count when some columns are hidden",
+      "rationale": "The user needs to know how many columns are in the whole grid / table when some columns are hidden",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "table[aria-colcount]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "do_not_calculate_unknown_column_count",
+      "title": "convey a column count when total column count is unknown",
+      "rationale": "Screen readers should not attempt to calculate the column count when it is unknown",
+      "notes": "ARIA 1.1 spec: \"If the total number of columns is unknown, authors MUST set the value of aria-colcount to -1 to indicate that the value should not be calculated by the user agent.\"",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
+      "css_target": "table[aria-colcount]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2021-11-29"
 }
