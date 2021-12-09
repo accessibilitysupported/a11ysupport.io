@@ -1,0 +1,501 @@
+{
+    "title": "aria-rowcount attribute",
+    "description": "aria-rowcount tests",
+    "html_file": "aria/aria-rowcount.html",
+    "assertions": [
+      {
+        "feature_id": "aria/aria-rowcount_attribute",
+        "feature_assertion_id": "convey_row_count_hidden_rows"
+      },
+      {
+        "feature_id": "aria/aria-rowcount_attribute",
+        "feature_assertion_id": "do_not_calculate_unknown_row_count"
+      }
+    ],
+    "commands": {
+      "jaws": {
+        "chrome": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 4 of 4 columns and 4 of 10 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 4 of 4 columns and 4 of minus 1 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ],
+        "edge": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 4 of 4 columns and 4 of 10 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 4 of 4 columns and 4 of minus 1 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ],
+        "firefox": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 4 of 4 columns and 4 of 10 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 4 columns and 4 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ]
+      },
+      "narrator": {
+        "edge": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Enter table Table 1, 10 by 4, First name\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Enter table Table 2, zero by 4, First name\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ]
+      },
+      "nvda": {
+        "chrome": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 10 rows and 4 columns, Table 1\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with minus 1 rows and 4 columns, Table 2\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ],
+        "edge": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 10 rows and 4 columns, Table 1\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with minus 1 rows and 4 columns, Table 2\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ],
+        "firefox": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with 10 rows and 4 columns, Table 1\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table with minus 1 rows and 4 columns, Table 2\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ]
+      },
+      "vo_ios": {
+        "ios_saf": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table 1, First Name, Row header, column header, Row 1, Column 1, Table start, 4 rows 4 columns\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "fail"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table 2, First Name, Row header, column header, Row 1, Column 1, Table start, 4 rows 4 columns\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ]
+      },
+      "vo_macos": {
+        "safari": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table 1, table, 4 columns, 10 rows\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "pass"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"Table 2, table, 4 columns, minus 1 row\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ]
+      },
+      "talkback": {
+        "and_chr": [
+          {
+            "command": "next_item",
+            "css_target": "#table1",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"First Name, column header, Row 1, In table Table 1, 4 rows, 4 columns\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "convey_row_count_hidden_rows",
+                "result": "fail"
+              }
+            ]
+          },
+          {
+            "command": "next_item",
+            "css_target": "#table2",
+            "before": {
+              "mode": "auto",
+              "virtual_location": "before target",
+              "focus_location": "before target"
+            },
+            "after": "target",
+            "output": "\"First Name, column header, Row 1, In table Table 2, 4 rows, 4 columns\"",
+            "results": [
+              {
+                "feature_id": "aria/aria-rowcount_attribute",
+                "feature_assertion_id": "do_not_calculate_unknown_row_count",
+                "result": "fail"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "history": [
+      {
+        "date": "2021-12-04",
+        "message": "Test created"
+      }
+    ],
+    "versions": {
+      "jaws": {
+        "browsers": {
+          "chrome": {
+            "at_version": "2022.2110.36",
+            "browser_version": "96",
+            "os_version": "21H1",
+            "date": "2021-12-04"
+          },
+          "edge": {
+            "at_version": "2022.2110.36",
+            "browser_version": "96",
+            "os_version": "21H1",
+            "date": "2021-12-04"
+          },
+          "firefox": {
+            "at_version": "2022.2110.36",
+            "browser_version": "94",
+            "os_version": "21H1",
+            "date": "2021-12-04"
+          }
+        }
+      },
+      "narrator": {
+        "browsers": {
+          "edge": {
+            "at_version": "21H1",
+            "browser_version": "96",
+            "os_version": "21H1",
+            "date": "2021-12-02"
+          }
+        }
+      },
+      "nvda": {
+        "browsers": {
+          "chrome": {
+            "at_version": "2021.2",
+            "os_version": "21H1",
+            "browser_version": "96",
+            "date": "2021-12-02"
+          },
+          "edge": {
+            "at_version": "2021.2",
+            "os_version": "21H1",
+            "browser_version": "96",
+            "date": "2021-12-02"
+          },
+          "firefox": {
+            "at_version": "2021.2",
+            "os_version": "21H1",
+            "browser_version": "94",
+            "date": "2021-12-02"
+          }
+        }
+      },
+      "vo_ios": {
+        "browsers": {
+          "ios_saf": {
+            "at_version": "14.8.1",
+            "browser_version": "14.8.1",
+            "os_version": "14.8.1",
+            "date": "2021-12-04"
+          }
+        }
+      },
+      "vo_macos": {
+        "browsers": {
+          "safari": {
+            "at_version": "11.6.1",
+            "browser_version": "11.6.1",
+            "os_version": "11.6.1",
+            "date": "2021-12-04"
+          }
+        }
+      },
+      "talkback": {
+        "browsers": {
+          "and_chr": {
+            "at_version": "12.1",
+            "browser_version": "96",
+            "os_version": "11",
+            "date": "2021-12-04"
+          }
+        }
+      }
+    }
+  }

@@ -9,6 +9,34 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#aria-rowcount"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_row_count_hidden_rows",
+      "title": "convey the total row count when some rows are hidden",
+      "rationale": "The user needs to know how many rows are in the whole grid / table when some rows are hidden",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-rowcount]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "do_not_calculate_unknown_row_count",
+      "title": "convey a row count when total row count is unknown",
+      "rationale": "Screen readers should not attempt to calculate the row count when it is unknown",
+      "notes": "ARIA 1.1 spec: \"If the total number of rows is unknown, authors MUST set the value of aria-rowcount to -1 to indicate that the value should not be calculated by the user agent.\"",
+      "strength": {
+        "sr": "MUST NOT",
+        "vc": "NA"
+      },
+      "css_target": "*[aria-rowcount]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2021-12-02"
 }
