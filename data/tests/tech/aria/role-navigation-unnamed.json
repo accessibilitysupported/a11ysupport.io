@@ -1,0 +1,1364 @@
+{
+  "title": "unnamed navigation role",
+  "description": "This test checks an unnamed navigation role",
+  "html_file": "aria/landmarks-aria-unnamed.html",
+  "assertions": [
+    {
+      "feature_id": "aria/navigation_role",
+      "feature_assertion_id": "convey_role"
+    },
+    {
+      "feature_id": "aria/navigation_role",
+      "feature_assertion_id": "convey_boundaries"
+    },
+    {
+      "feature_id": "aria/navigation_role",
+      "feature_assertion_id": "provide_shortcuts"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation region\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "List of regions includes \"Navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation region, nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Navigation region, nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Navigation region\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Navigation region end\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation region\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "List of regions includes \"Navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation region, nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Navigation region, nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Navigation region\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Navigation region end\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation region\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "List of regions includes \"Navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation region, nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Navigation region, nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Navigation region\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Navigation region end\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_landmarks",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "List of regions includes \"Navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"This is the end of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, Nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, Nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Navigation landmark, This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Navigation landmark, This is the end of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, Nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, Nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Navigation landmark, This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Navigation landmark, This is the end of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, Nav button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Navigation landmark, Nav button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Navigation landmark, This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Navigation landmark, This is the end of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"navigation, This is the start of an unnamed navigation role container, List, This is the end of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"This is the start of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"This is the end of an unnamed navigation role container\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"This is the start of an unnamed navigation role container, navigation, landmark\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"This is the start of an unnamed navigation role container, navigation, landmark\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"This is the end of an unnamed navigation role container, end, navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Nav button 1, button, navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"navigation\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Nav button 2, button, navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"navigation\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"end of, navigation\"",
+          "results": [
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/navigation_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2021-12-15",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2022.2110.60",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-12-15"
+        },
+        "edge": {
+          "at_version": "2022.2110.60",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-12-15"
+        },
+        "firefox": {
+          "at_version": "2022.2110.60",
+          "browser_version": "95",
+          "os_version": "21H1",
+          "date": "2021-12-15"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "21H1",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2021-12-15"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2021.3",
+          "os_version": "21H1",
+          "browser_version": "96",
+          "date": "2021-12-15"
+        },
+        "edge": {
+          "at_version": "2021.3",
+          "os_version": "21H1",
+          "browser_version": "96",
+          "date": "2021-12-15"
+        },
+        "firefox": {
+          "at_version": "2021.3",
+          "browser_version": "95",
+          "os_version": "21H1",
+          "date": "2021-12-15"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "12.1",
+          "browser_version": "96",
+          "os_version": "12",
+          "date": "2021-12-15"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "15.1",
+          "browser_version": "15.1",
+          "os_version": "15.1",
+          "date": "2021-12-15"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "11.6.1",
+          "browser_version": "15.1",
+          "os_version": "11.6.1",
+          "date": "2021-12-15"
+        }
+      }
+    }
+  }
+}

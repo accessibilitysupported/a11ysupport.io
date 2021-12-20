@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>ARIA named landmarks test suite</title>
+  <style type="text/css">
+    div { border: 1px solid darkblue; padding: 10px }
+  </style>
+</head>
+
+<body>
+  <div role="banner" aria-label="Site header">
+    <p>This is the start of the banner role container</p>
+    <p><a href="/">A11ySupport home</a></p>
+    <div role="search" aria-label="Site search">
+      <p>This is the start of a search role container</p>
+      <label for="txtSearch">Search A11ySupport</label>
+      <input id="txtSearch" type="search" />
+      <p>This is the end of a search role container</p>
+    </div>
+    <p>This is the end of the banner role container</p>
+  </div>
+  <div role="navigation" aria-label="Site sections">
+    <p>This is the start of a named navigation role container</p>
+    <p><button type="button" onclick="alert('nav button 1 pressed');">Nav button 1</button></p>
+    <ul>
+      <li>
+        <a href="/tests">All tests</a>
+      </li>
+      <li>
+        <a href="/faq">FAQ</a>
+      </li>
+      <li>
+        <a href="/contribute">Contribute</a>
+      </li>
+      <li>
+        <a href="/learn">Learn</a>
+      </li>
+    </ul>
+    <p><button type="button" onclick="alert('nav button 2 pressed');">Nav button 2</button></p>
+    <p>This is the end of a named navigation role container</p>
+  </div>
+  <div role="main" aria-label="Site main">
+    <p>This is the start of the main role container</p>
+    <h1>ARIA landmarks testing</h1>
+    <button type="button" onclick="alert('You don\'t follow instructions very well');">Don't click me</button>
+    <p>This is the end of the main role container</p>
+  </div>
+  <div role="complementary" aria-label="Additional info">
+    <p>This is the start of the complementary role container</p>
+    <p>This is the end of the complementary role container</p>
+  </div>
+  <div role="contentinfo" aria-label="Site footer">
+    <p>This is the start of the contentinfo role container</p>
+    <p>This is the end of the contentinfo role container</p>
+  </div>
+</body>
+
+</html>
