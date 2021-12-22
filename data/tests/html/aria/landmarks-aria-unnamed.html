@@ -4,13 +4,21 @@
 <head>
   <title>ARIA unnamed landmarks test suite</title>
   <style type="text/css">
-    div { border: 1px solid darkblue; padding: 10px }
+    div {
+      border: 1px solid darkblue;
+      padding: 10px
+    }
   </style>
 </head>
 
 <body>
+  <p>
+    <a href="#mainheading">Skip link</a>
+    <button type="button" onclick="alert('Pre-header button pressed');">Pre-header button</button>
+  </p>
   <div role="banner">
     <p>This is the start of the banner role container</p>
+    <p><button type="button" onclick="alert('Header button 1 pressed');">Header button 1</button></p>
     <p><a href="/">A11ySupport home</a></p>
     <div role="search">
       <p>This is the start of a search role container</p>
@@ -18,6 +26,7 @@
       <input id="txtSearch" type="search" />
       <p>This is the end of a search role container</p>
     </div>
+    <p><button type="button" onclick="alert('Header button 2 pressed');">Header button 2</button></p>
     <p>This is the end of the banner role container</p>
   </div>
   <div role="navigation">
@@ -40,7 +49,7 @@
     <p><button type="button" onclick="alert('nav button 2 pressed');">Nav button 2</button></p>
     <p>This is the end of an unnamed navigation role container</p>
   </div>
-  <div role="main">
+  <div role="main" id="mainheading">
     <p>This is the start of the main role container</p>
     <h1>ARIA landmarks testing</h1>
     <button type="button" onclick="alert('You don\'t follow instructions very well');">Don't click me</button>
