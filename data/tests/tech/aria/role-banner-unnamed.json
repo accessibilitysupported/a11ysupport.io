@@ -120,17 +120,18 @@
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"This is the start of the banner role container\"",
+          "output": "\"banner\"",
+          "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -143,17 +144,18 @@
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"This is the end of the banner role container\"",
+          "output": "\"banner end\"",
+          "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -260,17 +262,18 @@
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"This is the start of the banner role container\"",
+          "output": "\"banner\"",
+          "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -283,22 +286,69 @@
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"This is the end of the banner role container\"",
+          "output": "\"banner end\"",
+          "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/banner_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
       ],
       "firefox": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"banner\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"This is the start of the banner role container, banner\"",
+          "results": [
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"banner\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Regions list includes \"Banner\"",
+          "results": [
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
         {
           "command": "next_focusable_item",
           "css_target": "role=\"banner\" > button",
@@ -332,6 +382,54 @@
           },
           "after": "target",
           "output": "\"banner region, Header button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"banner\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"banner\"",
+          "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
+          "results": [
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/banner_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"banner\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"banner end\"",
+          "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
               "feature_id": "aria/banner_role",
