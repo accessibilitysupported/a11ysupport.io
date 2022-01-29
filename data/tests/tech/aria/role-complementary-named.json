@@ -1,0 +1,1635 @@
+{
+  "title": "named complementary role",
+  "description": "This test checks a named complementary role",
+  "html_file": "aria/landmarks-aria-named.html",
+  "assertions": [
+    {
+      "feature_id": "aria/complementary_role",
+      "feature_assertion_id": "convey_role"
+    },
+    {
+      "feature_id": "aria/complementary_role",
+      "feature_assertion_id": "convey_name"
+    },
+    {
+      "feature_id": "aria/complementary_role",
+      "feature_assertion_id": "convey_boundaries"
+    },
+    {
+      "feature_id": "aria/complementary_role",
+      "feature_assertion_id": "provide_shortcuts"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Regions list includes \"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary region, comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary region, comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Additional information, complementary information, end\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Regions list includes \"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary region, comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary region, comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Additional info, complementary information, end\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_region",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_regions",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Regions list includes \"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary region, comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary region, comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary information\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Additional info, complementary information, end\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_landmarks",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks list includes \"Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "Landmark boundary implied by landmark container name"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "Landmark boundary implied by landmark container name"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"This is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"This is the end of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, This is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary landmark, this is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Additional info, complementary landmark, This is the end of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, This is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, Comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, Comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary landmark, this is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Additional info, complementary landmark, this is the end of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, This is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks elements list includes \"Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, comp button 1, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary landmark, comp button 2, button\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary landmark, This is the start of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"Additional info, complementary landmark, this is the end of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary, This is the start of a named complementary role container...\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"This is the started of a named complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"This is the end of a namde complementary role container\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "fail"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_landmark",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"This is the start of a named complementary role container, Additional info, complementary, landmark\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"This is the start of a named complementary role container, Additional info, complementary, landmark\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"This is the end of a named complementary role container, end, Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "open_element_list",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "Landmarks list includes \"Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Comp button 1, button, Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Comp button 2, button, Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "start of target",
+          "output": "\"Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_item",
+          "css_target": "role=\"complementary\"",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "end of target",
+          "output": "\"End of, Additional info, complementary\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2022-01-26",
+      "message": "Test created"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2022.2112.24",
+          "browser_version": "97",
+          "os_version": "21H1",
+          "date": "2022-01-26"
+        },
+        "edge": {
+          "at_version": "2022.2112.24",
+          "browser_version": "97",
+          "os_version": "21H1",
+          "date": "2022-01-26"
+        },
+        "firefox": {
+          "at_version": "2022.2112.24",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2022-01-26"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "21H1",
+          "browser_version": "97",
+          "os_version": "21H1",
+          "date": "2022-01-28"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2021.3.1",
+          "os_version": "21H1",
+          "browser_version": "97",
+          "date": "2022-01-26"
+        },
+        "edge": {
+          "at_version": "2021.3.1",
+          "os_version": "21H1",
+          "browser_version": "97",
+          "date": "2022-01-26"
+        },
+        "firefox": {
+          "at_version": "2021.3.1",
+          "browser_version": "96",
+          "os_version": "21H1",
+          "date": "2022-01-28"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "12.1",
+          "browser_version": "97",
+          "os_version": "12",
+          "date": "2022-01-28"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "15.3",
+          "browser_version": "15.3",
+          "os_version": "15.3",
+          "date": "2022-01-28"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "11.6.2",
+          "browser_version": "15.3",
+          "os_version": "11.6.2",
+          "date": "2022-01-29"
+        }
+      }
+    }
+  }
+}
