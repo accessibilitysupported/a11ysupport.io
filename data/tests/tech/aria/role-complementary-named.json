@@ -604,9 +604,47 @@
           "results": [
             {
               "feature_id": "aria/complementary_role",
-              "feature_assertion_id": "convey_role",
-              "result": "fail"
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
             },
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_boundaries",
+              "result": "pass",
+              "notes": "Landmark boundary implied by landmark container name"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Additional info, complementary, comp button 1, button\"",
+          "behind_setting": "Settings > Ease of access > Narrator > Change the level of context Narrator provides for buttons and other controls = \"3 - Immediate context name and type\"",
+          "results": [
+            {
+              "feature_id": "aria/complementary_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "previous_focusable_item",
+          "css_target": "role=\"complementary\" > button",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "after target",
+            "focus_location": "after target"
+          },
+          "after": "target",
+          "output": "\"Additional info, comp button 2, button\"",
+          "results": [
             {
               "feature_id": "aria/complementary_role",
               "feature_assertion_id": "convey_name",
@@ -629,23 +667,13 @@
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"Additional info, comp button 2, button\"",
+          "output": "\"Additional info, complementary, comp button 2, button\"",
+          "behind_setting": "Settings > Ease of access > Narrator > Change the level of context Narrator provides for buttons and other controls = \"3 - Immediate context name and type\"",
           "results": [
             {
               "feature_id": "aria/complementary_role",
               "feature_assertion_id": "convey_role",
-              "result": "fail"
-            },
-            {
-              "feature_id": "aria/complementary_role",
-              "feature_assertion_id": "convey_name",
               "result": "pass"
-            },
-            {
-              "feature_id": "aria/complementary_role",
-              "feature_assertion_id": "convey_boundaries",
-              "result": "pass",
-              "notes": "Landmark boundary implied by landmark container name"
             }
           ]
         },
