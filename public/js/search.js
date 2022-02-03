@@ -31,14 +31,17 @@ function initSearch() {
 	var form = searchContainer.querySelector('form');
 	var input = searchContainer.querySelector('input.search');
 	var summary = searchContainer.querySelector('.summary-container');
-	var liveAnnouncements = searchContainer.querySelector('.live-announcements');
+	var heading = searchContainer.querySelector('h2');
+	var liveAnnouncementsPolite = searchContainer.querySelector('.live-announcements-polite');
+	var liveAnnouncementsAssertive = searchContainer.querySelector('.live-announcements-assertive');
 	var liveTimeoutId;
+	var lastResultsLength = 1;
 
 	form.addEventListener('submit', function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 
-		summary.focus();
+		heading.focus();
 
 		return false;
 	});
@@ -47,30 +50,25 @@ function initSearch() {
 	 * Set up a separate aria-live region to announce results. Because results are populated on each keypress, we need to rate limit the announcement of results so as to not make the screen reader output too verbose.
 	 * @param string
 	 */
-	function setLiveResultNotification(string) {
-		//Stop a previously pending announcement
-		if (liveTimeoutId) {
-			window.clearTimeout(liveTimeoutId);
+	function setLiveResultNotification(string, assertive) {
+		// set which region we are targeting
+		let region = liveAnnouncementsPolite;
+		if (assertive) {
+			region = liveAnnouncementsAssertive
 		}
 
-		liveTimeoutId = window.setTimeout(function() {
-			liveAnnouncements.innerHTML = string;
+		// announce it
+		region.innerHTML = string;
 
-			//Now... set a timeout to clear the contents
-			liveTimeoutId = window.setTimeout(function() {
-				liveAnnouncements.innerHTML = '';
-			}, 2000);
-		}, 750);
+		//Now... set a timeout to clear the contents
+		window.setTimeout(function() {
+			region.innerHTML = '';
+		}, 2000);
 	}
 
-	function showSearchResults(query, disableLiveAnnouncements) {
+	function showSearchResults(query) {
 		//Empty the current results
 		summary.innerHTML = '';
-
-		if (query.length === 0 && !disableLiveAnnouncements) {
-			//No query was selected
-			setLiveResultNotification('Showing all features');
-		}
 
 		filterFeatures(query);
 
@@ -79,25 +77,28 @@ function initSearch() {
 		if (!results.length) {
 			var string = 'Sorry, no results could be found.';
 			summary.innerHTML = string;
-			if (!disableLiveAnnouncements) {
-				setLiveResultNotification(string);
+			if (lastResultsLength > 0) {
+				setLiveResultNotification(string, true);
 			}
 
+			lastResultsLength = results.length;
 			return;
 		}
 
-		var string = results.length + ' results found';
-		summary.innerHTML = string;
+		if (lastResultsLength === 0 && results.length > 0) {
+			setLiveResultNotification("results found");
+		}
 
-		if (!disableLiveAnnouncements) {
-			setLiveResultNotification(string);
+		lastResultsLength = results.length;
+
+		if (query) {
+			summary.innerText = results.length + ' results found for ' + query;
+		} else {
+			summary.innerText = results.length + ' results found';
 		}
 	}
 
 	input.addEventListener('input', function() {
 		showSearchResults(this.value);
 	});
-
-	// Show everything by default
-	//showSearchResults('', true);
 }

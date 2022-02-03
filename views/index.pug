@@ -5,17 +5,18 @@ block content
     div.call-out
       p This a community driven effort. Please <a href="/run-tests">run some tests</a> to help keep this project going and to learn about assistive technologies along the way.
     div.search-container
-      div.live-announcements(aria-live="polite" aria-atomic="true").visually-hidden
+      div.live-announcements-polite(aria-live="polite").visually-hidden
+      div.live-announcements-assertive(aria-live="assertive").visually-hidden
       div.search-controls
         form
           div.input
             label(for="feature-search") Find support for a feature (search by element or attribute, for example &quot;aria&quot;)
-            input(id="feature-search" type="text").search
-          div.submit
-            button Search
-      div.summary-container(tabindex="-1")
-          span #{features.length} results found
+            input(id="feature-search" type="text" aria-describedby="feature-search-description").search
+            p(id="feature-search-description") Features will be filtered as you type
       div.search-results
+          h1(id="features" tabindex="-1") Features
+          div.summary-container
+            span #{features.length} results found
           each feature, index in features
             div(data-keywords=feature.keywords_string).result
               h2(id="feature-"+index)
