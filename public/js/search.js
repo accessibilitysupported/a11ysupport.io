@@ -1,6 +1,6 @@
 // Fetch all of the required data
 initSearch();
-var allResults = document.querySelectorAll('.search-results .result');
+let allResults = document.querySelectorAll('.search-results .result');
 
 /**
  * Array filters items based on search criteria (query)
@@ -8,13 +8,13 @@ var allResults = document.querySelectorAll('.search-results .result');
 function filterFeatures(query) {
 	if (!query) {
 		// Show everything
-		for (var i = 0; i < allResults.length; i++) {
+		for (let i = 0; i < allResults.length; i++) {
 			allResults[i].removeAttribute('hidden');
 		}
 		return;
 	}
 
-	for (var i = 0; i < allResults.length; i++) {
+	for (let i = 0; i < allResults.length; i++) {
 		if (allResults[i].getAttribute('data-keywords').toLowerCase().indexOf(query.toLowerCase()) === -1) {
 			allResults[i].setAttribute('hidden', '');
 		} else {
@@ -24,18 +24,17 @@ function filterFeatures(query) {
 }
 
 function initSearch() {
-	var searchContainer = document.querySelector('.search-container');
+	let searchContainer = document.querySelector('.search-container');
 	if (!searchContainer) {
 		return;
 	}
-	var form = searchContainer.querySelector('form');
-	var input = searchContainer.querySelector('input.search');
-	var summary = searchContainer.querySelector('.summary-container');
-	var heading = searchContainer.querySelector('h2');
-	var liveAnnouncementsPolite = searchContainer.querySelector('.live-announcements-polite');
-	var liveAnnouncementsAssertive = searchContainer.querySelector('.live-announcements-assertive');
-	var liveTimeoutId;
-	var lastResultsLength = 1;
+	let form = searchContainer.querySelector('form');
+	let input = searchContainer.querySelector('input.search');
+	let summary = searchContainer.querySelector('.summary-container');
+	let heading = searchContainer.querySelector('h2');
+	let liveAnnouncementsPolite = searchContainer.querySelector('.live-announcements-polite');
+	let liveAnnouncementsAssertive = searchContainer.querySelector('.live-announcements-assertive');
+	let lastResultsLength = 1;
 
 	form.addEventListener('submit', function(e) {
 		e.preventDefault();
@@ -72,10 +71,10 @@ function initSearch() {
 
 		filterFeatures(query);
 
-		var results = document.querySelectorAll('.search-results .result:not([hidden])');
+		let results = document.querySelectorAll('.search-results .result:not([hidden])');
 
 		if (!results.length) {
-			var string = 'Sorry, no results could be found.';
+			let string = 'Sorry, no results could be found.';
 			summary.innerHTML = string;
 			if (lastResultsLength > 0) {
 				setLiveResultNotification(string, true);
