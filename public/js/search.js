@@ -31,7 +31,7 @@ function initSearch() {
 	var form = searchContainer.querySelector('form');
 	var input = searchContainer.querySelector('input.search');
 	var summary = searchContainer.querySelector('.summary-container');
-	var heading = searchContainer.querySelector('h1');
+	var heading = searchContainer.querySelector('h2');
 	var liveAnnouncementsPolite = searchContainer.querySelector('.live-announcements-polite');
 	var liveAnnouncementsAssertive = searchContainer.querySelector('.live-announcements-assertive');
 	var liveTimeoutId;
