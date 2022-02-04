@@ -1,18 +1,18 @@
 {
-  "title": "unnamed banner role",
-  "description": "This test checks an unnamed banner role",
+  "title": "unnamed contentinfo role",
+  "description": "This test checks an unnamed contentinfo role",
   "html_file": "aria/landmarks-aria-unnamed.html",
   "assertions": [
     {
-      "feature_id": "aria/banner_role",
+      "feature_id": "aria/contentinfo_role",
       "feature_assertion_id": "convey_role"
     },
     {
-      "feature_id": "aria/banner_role",
+      "feature_id": "aria/contentinfo_role",
       "feature_assertion_id": "convey_boundaries"
     },
     {
-      "feature_id": "aria/banner_role",
+      "feature_id": "aria/contentinfo_role",
       "feature_assertion_id": "provide_shortcuts"
     }
   ],
@@ -21,141 +21,141 @@
       "chrome": [
         {
           "command": "next_region",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is the start of the banner role container, banner\"",
+          "output": "\"Content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "list_regions",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Regions list includes \"Banner\"",
+          "output": "Regions list includes \"content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner region, Header button 1, button\"",
+          "output": "\"Content info, region, footer button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner region, Header button 2, button\"",
+          "output": "\"Content info, region, fotter button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner\"",
+          "output": "\"Content information\"",
           "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"banner end\"",
+          "output": "\"Content information, end\"",
           "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -163,141 +163,141 @@
       "edge": [
         {
           "command": "next_region",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is the start of the banner role container, banner\"",
+          "output": "\"Complementary information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "list_regions",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Regions list includes \"Banner\"",
+          "output": "Regions list includes \"content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner region, Header button 1, button\"",
+          "output": "\"Content info region, footer button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner region, Header button 2, button\"",
+          "output": "\"Content info, region, footer button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner\"",
+          "output": "\"Content information\"",
           "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"banner end\"",
+          "output": "\"Content information, end\"",
           "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -305,141 +305,141 @@
       "firefox": [
         {
           "command": "next_region",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is the start of the banner role container, banner\"",
+          "output": "\"Content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "list_regions",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Regions list includes \"Banner\"",
+          "output": "Regions list includes \"content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner region, Header button 1, button\"",
+          "output": "\"Content info region, footer button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner region, Header button 2, button\"",
+          "output": "\"Content info, region, footer button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner\"",
+          "output": "\"Content information\"",
           "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"banner end\"",
+          "output": "\"Content information, end\"",
           "behind_setting": "Utilities > Settings Center > Web / HTML / PDFs > Reading > Web Verbosity Level = High",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -449,139 +449,139 @@
       "edge": [
         {
           "command": "next_landmark",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark\"",
+          "output": "\"content information, landmark\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "list_landmarks",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Landmarks list includes \"banner\"",
+          "output": "Landmarks list includes \"content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, Header button 1, button\"",
+          "output": "\"content information, footer button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner, Header button 2, button\"",
+          "output": "\"content information, footer button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"This is the start of the banner role container\"",
+          "output": "\"This is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "fail"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "fail"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"This is the end of the banner role container\"",
+          "output": "\"This is the end of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "fail"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "fail"
             }
           ]
         }
@@ -591,139 +591,139 @@
       "chrome": [
         {
           "command": "next_landmark",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark, This is the start of the banner role container\"",
+          "output": "\"content info, landmark, This is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "open_element_list",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Elements landmarks list includes \"banner\"",
+          "output": "Landmarks elements list includes \"content info\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark, Header button 1, button\"",
+          "output": "\"content info, landmark, fotter button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner, landmark, Header button 2, button\"",
+          "output": "\"content info, landmark, footer button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner, landmark, This is the start of the banner role container\"",
+          "output": "\"Content info, landmark, This is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"banner, landmark, This is the end of the banner landmark container\"",
+          "output": "\"content info, landmark, This is the end of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -731,139 +731,139 @@
       "edge": [
         {
           "command": "next_landmark",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark, This is the start of the banner role container\"",
+          "output": "\"content info, landmark, this is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "open_element_list",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Elements landmarks list includes \"banner\"",
+          "output": "Landmarks elements list includes \"content info\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark, Button 1, button\"",
+          "output": "\"Content info, landmark, footer button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner, landmark, Header button 2, button\"",
+          "output": "\"Content info, landmark, footer button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner, landmark, This is the start of the banner landmark container\"",
+          "output": "\"Content info, landmark, this is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"banner, landmark, This is the end of the banner role container\"",
+          "output": "\"Content info, landmark, this is the end of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -871,139 +871,139 @@
       "firefox": [
         {
           "command": "next_landmark",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark, This is the start of the banner role container\"",
+          "output": "\"Content info, landmark, this is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "open_element_list",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Elements landmarks list includes \"banner\"",
+          "output": "Landmarks elements list includes \"content info\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, landmark, Header button 1, button\"",
+          "output": "\"Content info, landmark, footer button 1, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"banner, landmark, Header button 2, button\"",
+          "output": "\"Content info, landmark, footer button 2, button\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner, landmark, This is the start of the banner role container\"",
+          "output": "\"Content info, landmark, this is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"banner, landmark, This is the end of the banner role container\"",
+          "output": "\"Content info, landmark, this is the end of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -1013,70 +1013,70 @@
       "and_chr": [
         {
           "command": "next_landmark",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"banner, This is the start of the banner role container...\"",
+          "output": "\"content information, this is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"This is the start of the banner role container\"",
+          "output": "\"This is the start of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "fail"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "fail"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"This is the end of the banner role container\"",
+          "output": "\"This is the end of the contentinfo role container\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "fail"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "fail"
             }
           ]
         }
@@ -1086,70 +1086,70 @@
       "ios_saf": [
         {
           "command": "next_landmark",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"This is the start of the banner role container, banner, Landmark\"",
+          "output": "\"This is the start of the contentinfo role container, content information, landmark\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"This is the start of the banner role container, banner, Landmark\"",
+          "output": "\"This is the start of the contentinfo role container, content information, landmark\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"This is the end of the banner role container, end, banner\"",
+          "output": "\"This is the end of the contentinfo role container, end, content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -1159,116 +1159,116 @@
       "safari": [
         {
           "command": "open_element_list",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "Landmarks list includes \"banner\"",
+          "output": "Landmarks list includes \"content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "provide_shortcuts",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Header button 1, button, banner\"",
+          "output": "\"Footer button 1, button, content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_focusable_item",
-          "css_target": "role=\"banner\" > button",
+          "css_target": "role=\"contentinfo\" > button",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "target",
-          "output": "\"Header button 2, button, banner\"",
+          "output": "\"Footer button 2, button, content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "start of target",
-          "output": "\"banner\"",
+          "output": "\"content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         },
         {
           "command": "previous_item",
-          "css_target": "role=\"banner\"",
+          "css_target": "role=\"contentinfo\"",
           "before": {
             "mode": "auto",
             "virtual_location": "after target",
             "focus_location": "after target"
           },
           "after": "end of target",
-          "output": "\"end of, banner\"",
+          "output": "\"end of content information\"",
           "results": [
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_role",
-              "result": ""
+              "result": "pass"
             },
             {
-              "feature_id": "aria/banner_role",
+              "feature_id": "aria/contentinfo_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": ""
+              "result": "pass"
             }
           ]
         }
@@ -1277,7 +1277,7 @@
   },
   "history": [
     {
-      "date": "2021-12-21",
+      "date": "2022-02-04",
       "message": "Test created"
     }
   ],
@@ -1286,21 +1286,21 @@
       "browsers": {
         "chrome": {
           "at_version": "2022.2112.24",
-          "browser_version": "96",
+          "browser_version": "98",
           "os_version": "21H1",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         },
         "edge": {
           "at_version": "2022.2112.24",
-          "browser_version": "96",
+          "browser_version": "98",
           "os_version": "21H1",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         },
         "firefox": {
           "at_version": "2022.2112.24",
-          "browser_version": "95",
+          "browser_version": "96",
           "os_version": "21H1",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         }
       }
     },
@@ -1308,31 +1308,31 @@
       "browsers": {
         "edge": {
           "at_version": "21H1",
-          "browser_version": "96",
+          "browser_version": "97",
           "os_version": "21H1",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.3",
+          "at_version": "2021.3.1",
           "os_version": "21H1",
-          "browser_version": "96",
-          "date": "2021-12-21"
+          "browser_version": "97",
+          "date": "2022-02-04"
         },
         "edge": {
-          "at_version": "2021.3",
+          "at_version": "2021.3.1",
           "os_version": "21H1",
-          "browser_version": "96",
-          "date": "2021-12-21"
+          "browser_version": "97",
+          "date": "2022-02-04"
         },
         "firefox": {
-          "at_version": "2021.3",
-          "browser_version": "95",
+          "at_version": "2021.3.1",
+          "browser_version": "96",
           "os_version": "21H1",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         }
       }
     },
@@ -1340,9 +1340,9 @@
       "browsers": {
         "and_chr": {
           "at_version": "12.1",
-          "browser_version": "96",
+          "browser_version": "98",
           "os_version": "12",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         }
       }
     },
@@ -1352,17 +1352,17 @@
           "at_version": "15.1",
           "browser_version": "15.1",
           "os_version": "15.1",
-          "date": "2021-12-21"
+          "date": "2022-02-04"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "11.6.1",
-          "browser_version": "15.1",
-          "os_version": "11.6.1",
-          "date": "2021-12-21"
+          "at_version": "11.6.3",
+          "browser_version": "15.3",
+          "os_version": "11.6.3",
+          "date": "2022-02-04"
         }
       }
     }
