@@ -51,7 +51,7 @@ block content
                     h3 Caution
                     p Failing or partial results may be out of date. The oldest result is from #{moment(test.failing_dates.min).fromNow()}. Consider <a href="#{"/tests/" + testHelper.makeSafe(test.id) + "/run"}">running this test</a> and contributing results.
             else if (test.failing_dates.max)
-                p Failing and partial results are between #{moment(test.failing_dates.min).fromNow()} and #{moment(test.failing_dates.min).fromNow()}.
+                p Failing and partial results are between #{moment(test.failing_dates.max).fromNow()} and #{moment(test.failing_dates.min).fromNow()}.
 
             h2(id="test-html") Test HTML
             if (test.html_file.startsWith('http'))

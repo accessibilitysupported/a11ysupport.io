@@ -48,7 +48,7 @@ block content
           h3 Caution
           p Failing or partial results may be out of date. The oldest result is from #{moment(data.failing_dates.min).fromNow()}. Consider running the <a href="#related-tests">associated tests</a> and contributing results.
       else if (data.failing_dates.max)
-        p Failing and partial results are between #{moment(data.failing_dates.min).fromNow()} and #{moment(data.failing_dates.min).fromNow()}.
+        p Failing and partial results are between #{moment(data.failing_dates.max).fromNow()} and #{moment(data.failing_dates.min).fromNow()}.
 
 
       h2(id='expectations') Expectations
