@@ -1,5 +1,5 @@
 {
-  "$id": "http://accessibilitysupported.com/feature.json",
+  "$id": "https://a11ysupport.io/schema/feature.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "definitions": {
@@ -83,7 +83,7 @@
           "description": "an object of browser ids as keys and rationale as values. The presence of a key indicates that the browser is not applicable for the given reason. An example might be that IE does not support an html5 form control."
         }
       },
-      "required": ["id", "title", "strength", "operation_modes", "css_target", "pass_strategy"]
+      "required": ["id", "css_target"]
     }
   },
   "properties": {
@@ -131,7 +131,7 @@
     "tests": {
       "type": "array",
       "items": {
-        "$ref": "test.json"
+        "$ref": "./test.json"
       }
     },
     "date_updated": {
@@ -140,6 +140,6 @@
     }
   },
   "required": [
-    "id", "title", "description", "tests", "date_updated"
+    "title", "description", "date_updated"
   ]
 }
