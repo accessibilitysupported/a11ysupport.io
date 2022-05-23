@@ -84,6 +84,9 @@ let getFeatures = function(techId, buildDir) {
 		// Initialize the feature object to add missing data points and generate support strings
 		helper.bubbleFeatureSupport(feature);
 
+		// Check for situations where features only have negative support (which suggests they actually have no support)
+		helper.checkForOnlyNegativeSupport(feature);
+
 		// Save initialized JSON in the build dir
 		fs.writeFileSync(techDir+'/'+file, JSON.stringify(feature, null, 2));
 

@@ -19,6 +19,7 @@ block content
             div.summary-container
               span #{features.length} results found
           each feature, index in features
+            - let onlyNegativeSupportFound = false
             div(data-keywords=feature.keywords_string).result
               h3(id="feature-"+index)
                 a(href='/tech/'+feature.techId + '/' + feature.id) #{feature.title} (#{feature.techId})
@@ -63,7 +64,11 @@ block content
                             if ATBrowsers.at[at].type !== "sr"
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
-                              td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
+                              if (feature.core_support_by_at_browser[at][browser].onlyNegativeSupport)
+                                - onlyNegativeSupportFound = true
+                                td(class='no') none**
+                              else
+                                td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
                 if (feature.core_support.vc.length && feature.supports_at.includes('vc'))
                   div.responsive-table.support-summary-table.at-container(tabindex="0")
                     h4(id="feature-" + index + '-vc-h') Voice control support
@@ -101,7 +106,13 @@ block content
                             if ATBrowsers.at[at].type !== "vc"
                               - continue
                             each browser in ATBrowsers.at[at].core_browsers
-                              td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
+                              if (feature.core_support_by_at_browser[at][browser].onlyNegativeSupport)
+                                - onlyNegativeSupportFound = true
+                                td(class='no') none**
+                              else
+                                td(class=feature.core_support_by_at_browser[at][browser].string.class) #{feature.core_support_by_at_browser[at][browser].string.string}
+                if (onlyNegativeSupportFound)
+                  p ** Only support for expectations where the feature is not supposed to be exposed was found, suggesting that the feature is not supported at all.
                 p Supported by #{feature.total_test_count} tests. Results range from #{moment(feature.all_dates.max).fromNow()} to #{moment(feature.all_dates.min).fromNow()}. #{(feature.failing_dates.max && moment().diff(feature.failing_dates.max, 'months') >= 9)? 'Caution: failing or partial results may be out of date. Consider contributing results.': ''}
                 details
                   summary

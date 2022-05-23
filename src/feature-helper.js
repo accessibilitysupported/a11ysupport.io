@@ -632,6 +632,46 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	});
 };
 
+/**
+ * Needs to be run after support data has bubbled
+ * @param featureObject
+ */
+helper.checkForOnlyNegativeSupport = function(featureObject) {
+	// detect if assertions contain something like convey_value_false
+	let hasNegativeExpectation = featureObject.assertions.some(e => e.same_as_no_support === true);
+
+	if (!hasNegativeExpectation) {
+		return; // nothing to see here, keep moving (fail early)
+	}
+
+	for(let at in ATBrowsers.at) {
+		let validBrowsers = ATBrowsers.at[at].core_browsers;
+		validBrowsers.forEach(function (browser) {
+			// for each AT/browser combo, detect if same_as_no_support is the only supported assertion
+			let negativeSupport = false;
+			let positiveSupport = false;
+			featureObject.assertions.forEach((assertion, assertion_key) => {
+				//Set support arrays
+				let support = [...new Set(assertion.core_support_by_at_browser[at][browser].values)]; // Make sure its unique
+
+				if (support.length === 1 && assertion.same_as_no_support) {
+					if (support[0] === 'y') {
+						negativeSupport = true;
+					}
+				} else {
+					if (support[0] === 'y') {
+						positiveSupport = true;
+					}
+				}
+			});
+
+			featureObject.core_support_by_at_browser[at][browser].onlyNegativeSupport = false;
+			if (negativeSupport === true && positiveSupport === false) {
+				featureObject.core_support_by_at_browser[at][browser].onlyNegativeSupport = true;
+			}
+		});
+	}
+};
 
 helper.initalizeTestCase = function (testCase) {
 	// transform the commands object to the assertions array
