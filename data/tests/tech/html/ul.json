@@ -768,22 +768,22 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"in list, level 1, 3 items\"",
+          "output": "\"bullet\" (swipe right) \"cats\"",
           "results": [
             {
               "feature_id": "html/ul_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/ul_element",
               "feature_assertion_id": "convey_setsize",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/ul_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -796,12 +796,12 @@
             "focus_location": "within target"
           },
           "after": "end of target",
-          "output": "\"end example, out of list\"",
+          "output": "\"end example\"",
           "results": [
             {
               "feature_id": "html/ul_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -814,12 +814,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"in list, level 2, 2 items\"",
+          "output": "(silence - the sub bullet character is not announced) (swipe right) \"cats\"",
           "results": [
             {
               "feature_id": "html/ul_element",
               "feature_assertion_id": "convey_nesting_level",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -832,13 +832,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"bullet\"",
+          "output": "\"bullet\" (swipe right) \"dog\"",
           "results": [
             {
               "feature_id": "html/li_element",
               "feature_assertion_id": "convey_role",
               "result": "pass",
-              "notes": "The bullet is its own cursor stop; the item text is another cursor stop. bullet is not announced when entering a list."
+              "notes": "The bullet is its own cursor stop; the item text is another cursor stop."
             },
             {
               "feature_id": "html/li_element",
@@ -925,7 +925,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"bullet, dogs\"",
+          "output": "\"bullet (swipe right) dogs\"",
           "results": [
             {
               "feature_id": "html/li_element",
@@ -1137,6 +1137,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2022-07-15",
+      "message": "Updated iOS/VO and Talkback results. Talkback no longer conveys list semantics."
     }
   ],
   "versions": {
@@ -1225,7 +1229,7 @@
         "and_chr": {
           "at_version": "7.3.0",
           "browser_version": "76",
-          "os_version": "7",
+          "os_version": "12.2",
           "date": "2019-09-15"
         }
       }
@@ -1233,10 +1237,10 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.4.1",
-          "browser_version": "12.4.1",
-          "os_version": "12.4.1",
-          "date": "2019-09-15"
+          "at_version": "15.5",
+          "browser_version": "15.5",
+          "os_version": "15.5",
+          "date": "2022-07-15"
         }
       }
     },

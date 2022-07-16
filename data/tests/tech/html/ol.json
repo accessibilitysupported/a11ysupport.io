@@ -765,22 +765,24 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"1. in list, level 1, 3 items\"",
+          "output": "\"1\" (swipe right) \"cats\"",
           "results": [
             {
               "feature_id": "html/ol_element",
               "feature_assertion_id": "convey_role",
-              "result": "pass"
+              "result": "fail",
+              "notes": "list role could be implied by the number 1, but that could also be just text. Most other screen readers explicitly convey the list role and boundaries."
             },
             {
               "feature_id": "html/ol_element",
               "feature_assertion_id": "convey_setsize",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "html/ol_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail",
+              "notes": "list role could be implied by the number 1, but that could also be just text. Most other screen readers explicitly convey the list role and boundaries."
             }
           ]
         },
@@ -798,7 +800,8 @@
             {
               "feature_id": "html/ol_element",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail",
+              "notes": "list role could be implied by the number 1, but that could also be just text. Most other screen readers explicitly convey the list role and boundaries."
             }
           ]
         },
@@ -811,12 +814,12 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"1. in list, level 2, 2 items\"",
+          "output": "\"1.\"",
           "results": [
             {
               "feature_id": "html/ol_element",
               "feature_assertion_id": "convey_nesting_level",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -829,7 +832,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"2.\"",
+          "output": "\"2.\" (swipe right) \"Dogs\" ",
           "results": [
             {
               "feature_id": "html/li_element",
@@ -922,18 +925,18 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"2\"",
+          "output": "\"2\" (swipe right) \"dogs\"",
           "results": [
             {
               "feature_id": "html/li_element",
               "feature_assertion_id": "convey_role",
               "result": "partial",
-              "notes": "the number has its own cursor stop. The first number is not announced when first entering the list."
+              "notes": "the number has its own cursor stop. Partial because the first number is not announced when first entering the list."
             },
             {
               "feature_id": "html/li_element",
               "feature_assertion_id": "convey_posinset_ol_context",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -1134,6 +1137,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2022-07-15",
+      "message": "Updated iOS/VO and Talkback results. Talkback no longer conveys list semantics."
     }
   ],
   "versions": {
@@ -1222,7 +1229,7 @@
         "and_chr": {
           "at_version": "7.3.0",
           "browser_version": "76",
-          "os_version": "7",
+          "os_version": "12.2",
           "date": "2019-09-15"
         }
       }
@@ -1230,10 +1237,10 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "12.4.1",
-          "browser_version": "12.4.1",
-          "os_version": "12.4.1",
-          "date": "2019-09-15"
+          "at_version": "15.5",
+          "browser_version": "15.5",
+          "os_version": "15.5",
+          "date": "2022-07-15"
         }
       }
     },
