@@ -1,5 +1,5 @@
 {
-  "core_at": ["dragon_win", "jaws", "narrator", "nvda", "orca", "talkback", "va_and", "vc_ios", "vc_macos", "vo_ios", "vo_macos", "wsr"],
+  "core_at": ["dragon_win", "jaws", "narrator", "nvda", "orca", "talkback", "va_and", "vc_ios", "vc_macos", "vo_ios", "vo_macos", "wsr", "va_windows"],
   "extended_at": ["dragon_mac"],
   "at": {
     "dragon_win": {
@@ -3390,8 +3390,8 @@
       "title": "Windows Speech Recognition",
       "short_title": "Speech Recognition",
       "os": "Windows",
-      "core_browsers": ["chrome"],
-      "extended_browsers": ["edge"],
+      "core_browsers": ["edge", "chrome"],
+      "extended_browsers": [],
       "url": "https://support.microsoft.com/en-gb/help/12427/windows-speech-recognition-commands",
       "description": "",
       "commands": {
@@ -3449,6 +3449,93 @@
           "command": "\"What can I say?\"",
           "name": "What can I say?",
           "note": "See command suggestions and hints",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "keypress": {
+          "command": "\"press <key>\"",
+          "name": "press a keyboard command",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "multiple_commands": {
+          "command": "(multiple commands)",
+          "name": "Multiple commands were used",
+          "notes": "Used when testing a composite widget provided by a browser or OS such as a color picker. Do not use if a more specific command fits better.",
+          "tags": [
+            "sr/reading",
+            "sr/interaction"
+          ]
+        },
+        "dictate": {
+          "command": "\"{speak text to type}\"",
+          "name": "dictate",
+          "tags": [
+            "vc"
+          ]
+        }
+      }
+    },
+    "va_windows": {
+      "id": "va_windows",
+      "type": "vc",
+      "title": "Windows Voice Access",
+      "short_title": "Windows Voice Access",
+      "os": "Windows",
+      "core_browsers": ["edge", "chrome"],
+      "extended_browsers": [],
+      "url": "https://support.microsoft.com/en-us/topic/use-voice-access-to-control-your-pc-author-text-with-your-voice-4dcd23ee-f1b9-4fd1-bacc-862ab611f55d",
+      "description": "",
+      "commands": {
+        "activate_name": {
+          "command": "\"Click <text>\"",
+          "name": "Activate item by name",
+          "note": "If there are multiple choices with the same text, they will be labeled by numbers. Say \"Choose <number>\", then \"Okay\" to finish.",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "choose_number": {
+          "command": "\"<number>\"",
+          "name": "Activate item by number",
+          "note": "You will need to say \"okay\" to confirm",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "show_numbers": {
+          "command": "\"Show numbers\"",
+          "name": "Turn on the numbers overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "hide_numbers": {
+          "command": "\"Hide numbers\"",
+          "name": "Hide the numbers overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "show_grid": {
+          "command": "\"mousegrid\"",
+          "name": "Turn on the grid overlay",
+          "tags": [
+            "general",
+            "vc"
+          ]
+        },
+        "hide_grid": {
+          "command": "\"Hide grid\"",
+          "name": "Hide the grid overlay",
           "tags": [
             "general",
             "vc"
