@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Voice Control General Tests</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>Voice Control Tests</h1>
+
+<p>
+    This page contains several tests for Voice Control software.
+</p>
+
+<div id="test">
+    <h2>"Control" button for reference</h2>
+    <button onclick="convey(event)">
+        control
+    </button>
+    <button onclick="convey(event)">
+        control
+    </button>
+
+    <h2>Name in label test</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click find my phone". Test passes if the button is clicked.</p>
+    <button onclick="convey(event)" aria-label="find my">find my phone</button>
+
+    <h2>Label in name test</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click read more". Test passes if the button is clicked.</p>
+    <button onclick="convey(event)" aria-label="read more about trains">Read more</button>
+
+    <h2>Disambiguation</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click same". Test passes if buttons are flagged for disambiguation. Fail if only one is activated.</p>
+    <button onclick="convey(event)">same</button>
+    <button onclick="convey(event)">same</button>
+
+    <h2>role without tabindex</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click test 1". Test passes if button is activated. Fail if not activated.</p>
+    <div role="button" onclick="convey(event)">test 1</div>
+
+    <h2>no role, but tabindex=0</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click test 2". Test passes if button is activated. Fail if not activated.</p>
+    <div tabindex="0" onclick="convey(event)">test 2</div>
+
+    <h2>long name</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click test 2". Test passes if button is activated. Fail if not activated.</p>
+    <button onclick="convey(event)">help me with my work right now</button>
+
+    <h2>"heart" unicode button</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click heart". Test passes if the first button is clicked or if the buttons are flagged for disambiguation.</p>
+    <button onclick="convey(event)">❤</button>
+    <button onclick="convey(event)">heart</button>
+
+    <h2>"heart" with "favorite" text button</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click favorite". Test passes if the first button is clicked or if the buttons are flagged for disambiguation.</p>
+    <button onclick="convey(event)">❤ favorite</button>
+    <button onclick="convey(event)">favorite ❤</button>
+    <button onclick="convey(event)">favorite</button>
+
+    <h2>"heart" with "favorite" text and "favorite" label on a button</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click favorite". Test passes if the first button is clicked or if the buttons are flagged for disambiguation.</p>
+    <button aria-label="favorite" onclick="convey(event)">❤ favorite</button>
+    <button onclick="convey(event)">favorite</button>
+
+    <h2>"spades" unicode button</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click spades". Test passes if the first button is clicked or if the buttons are flagged for disambiguation.</p>
+    <button onclick="convey(event)">&spades;</button>
+    <button onclick="convey(event)">spades</button>
+
+    <h2>"ﬁnish"</h2>
+    <p>Scroll the page so that the examples are at the top of the page. Say "click finish". Test passes if the first button is clicked or if the buttons are flagged for disambiguation.</p>
+    <button onclick="convey(event)">ﬁnish</button>
+    <button onclick="convey(event)">finish</button>
+</div>
+
+<div style="height: 500px">
+
+</div>
+
+<script>
+    var convey = function(e) {
+        alert('button was clicked: ' + e.target.innerText)
+    }
+</script>
+
+</body>
+</html>
