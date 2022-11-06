@@ -10,7 +10,7 @@
 <p>This is a test suite for the aria-atomic attribute.</p>
 
 <h2>aria-atomic=false</h2>
-
+<p>Passes if only "what has changed" is conveyed.</p>
 <div id="target-1" aria-live="assertive" aria-atomic="false">
     <span>Announce only what</span>
 </div>
@@ -18,9 +18,9 @@
 <button id="trigger-1" onclick="testOne()">Test aria-atomic false</button>
 
 <h2>aria-atomic=true</h2>
-
+<p>Passes if only "Announce entire region" is conveyed.</p>
 <div id="target-2" aria-live="assertive" aria-atomic="true">
-    <span>Announce only what</span>
+    <span>Announce</span>
 </div>
 
 <button id="trigger-2" onclick="testTwo()">Test aria-atomic true</button>
@@ -29,14 +29,14 @@
     var testOne = function() {
         var liveRegion = document.querySelector('#target-1');
         var span = document.createElement("span");
-        span.innerText = "has changed"
+        span.innerText = "what has changed"
         liveRegion.appendChild(span);
     }
 
     var testTwo = function() {
         var liveRegion = document.querySelector('#target-2');
         var span = document.createElement("span");
-        span.innerText = "has changed"
+        span.innerText = "entire region"
         liveRegion.appendChild(span);
     }
 </script>
