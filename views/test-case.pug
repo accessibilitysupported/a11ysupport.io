@@ -126,7 +126,7 @@ block content
                         if (assertion.applied_to)
                             span  - applied to the #{assertion.applied_to_title}
                         if (assertion.references && assertion.references.length)
-                            span  - applied to the #{assertion.references_titles}
+                            span  - references the #{assertion.references_titles}
 
                     if (assertion.applied_to)
                         p  This expectation is applied to the #{assertion.applied_to_title}. Expectations and results might differ when the the feature is applied to different roles.
@@ -203,10 +203,17 @@ block content
                                                                     li
                                                                         strong Result Notes:
                                                                         span= " " + output.resultNotes
+                                                                if ((!assertion.pass_strategy || assertion.pass_strategy === 'any') && output.result === 'fail')
+                                                                    li
+                                                                        strong Grading note:
+                                                                        span= " This command may be expected to fail. This result simply indicates that it did not yield support."
 
                                                 if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
                                                     strong Notes:
                                                     span= " " + assertion.results[at].browsers[browser].notes
+                                                if (assertion.results[at].browsers[browser].support_string.string === "none")
+                                                    strong Grading Note:
+                                                    span  There is no known/documented support. There may still be support for this expectation, but it is undocumented. If this is the case, please report this issue.
                                             else
                                                 if (assertion.results[at].browsers[browser].notes && assertion.results[at].browsers[browser].notes)
                                                     strong Notes:

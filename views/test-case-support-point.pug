@@ -5,8 +5,12 @@ block content
     div.content
         h1= 'Test: ' + test.title + ' ('+ATBrowsers.at[atId].title+'/'+ATBrowsers.browsers[browserId].title+')'
 
-        if (test.assertion)
-            p Assertion: #[+assertion(test.assertion)]
+        if (assertion)
+            p Expectation: #{assertion.feature_title}: #{assertion.assertion_strength[ATBrowsers.at[atId].type]} #{assertion.assertion_title}
+                if (assertion.applied_to)
+                    span  - applied to the #{assertion.applied_to_title}
+                if (assertion.references && assertion.references.length)
+                    span  - references the #{assertion.references_titles}
 
         ul
             li
@@ -24,6 +28,10 @@ block content
                 tr
                     th(scope="row") Support
                     td= assertion.results[atId].browsers[browserId].support_string.string
+                        if (assertion.results[atId].browsers[browserId].support_string.string === "none")
+                            div
+                                strong Grading Note:
+                                span  There is no known/documented support. There may still be support for this expectation, but it is undocumented. If this is the case, please report this issue.
                 tr
                     th(scope="row") AT Name
                     td
@@ -78,4 +86,7 @@ block content
                             td
                                 if (output.notes)
                                     span #{output.notes}
+                                if ((!assertion.pass_strategy || assertion.pass_strategy === 'any') && output.result === 'fail')
+                                    strong Grading note:
+                                    span= " This command may be expected to fail. This result simply indicates that it did not yield support."
 
