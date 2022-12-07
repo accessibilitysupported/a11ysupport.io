@@ -148,21 +148,32 @@ The community both runs and owns this project. The original idea and prototype w
 
 There are several levels of support.
 
-For a given support point (specific to a test):
+For specific commands:
 
-- u = unknown
-- n = no support
-- y = full support
-- p = partial support (unusual)
-- na = not applicable
+- unknown
+- pass
+- fail
+- partial
+- not applicable
 
-For a test or feature:
+For expectations:
 
-- Full support (all core support points are fully supported across all tests)
-- Some support (some core support points are fully supported across all tests)
-- No support (no core support points are fully supported across all tests)
-- Unknown (all core support points are unknown)
+- unknown
+- supported/yes
+- none
+- partial
+- not applicable
+
+
+**Important**: Failing results such as "fail" or "none" just means that there is no known/documented support. There may still be support for this expectation, but it is undocumented. If this is the case, please report this issue.
+
+There are also two grading methods:
+
+- Any: Any command listed must pass for the expectation to be met. This is the default grading method and used for most expectations.
+- All: All commands listed must pass for the expectation to be met.
 
 ## What are expectations?
 
-Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support which goes above and beyond. Note that there is not an explicit standard which dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many commands to read, navigate, or otherwise interact with a feature. Only one command is required to pass for the expectation to be minimally supported in some situations.
+Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support which goes above and beyond. Note that there is not an explicit standard which dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many commands to read, navigate, or otherwise interact with a feature. Only one command is usually required to pass for the expectation to be minimally supported.
+
+**Important**: This website is not normative and does not attempt to establish a standard for how assistive technologies (such as screen readers) must behave or dictate how assistive technologies must provide support (no such standard exists). It should not be used as the only source for determining if something is supported. Instead, it is meant to help visitors get a head start in understanding behaviors, general expectations, and support.
