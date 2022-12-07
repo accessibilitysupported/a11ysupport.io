@@ -1136,7 +1136,7 @@ helper.initalizeTestCase = function (testCase) {
 						testCase.assertions[assertion_key].results[at].browsers[browser].support = 'na';
 					}
 
-					var pass_strategy = 'all';
+					var pass_strategy = 'any';
 					if (ref_assertion.pass_strategy) {
 						pass_strategy = ref_assertion.pass_strategy;
 					}
@@ -1147,7 +1147,7 @@ helper.initalizeTestCase = function (testCase) {
 							return element !== "na"
 						});
 
-						// 'any' strategy, a single pass for a command counts a pass for the assertion
+						// 'all' strategy, all commands must pass for the assertion
 						if (filteredResults.length === 1 && filteredResults.includes('pass')) {
 							testCase.assertions[assertion_key].results[at].browsers[browser].support = 'y';
 						} else if (results.includes('pass')) {
