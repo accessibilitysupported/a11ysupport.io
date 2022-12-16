@@ -93,8 +93,12 @@ block content
                                         else
                                             each command, command_index in devTest.commands[at.id][browser_id]
                                                 fieldset.command
-                                                    legend Test case: #{testHelper.generateTestTitle(command, at)}
-                                                    +test-procedure(command, at, ATBrowsers.browsers[browser_id], ATBrowsers, test)
+                                                    legend Test case: #{testHelper.generateTestTitle(command, at, test)}
+                                                    if (command.procedure_key)
+                                                        - let procedure = testHelper.getProcedure(test, command.procedure_key);
+                                                        +test-procedure(Object.assign(command, procedure), at, ATBrowsers.browsers[browser_id], ATBrowsers, test)
+                                                    else
+                                                        +test-procedure(command, at, ATBrowsers.browsers[browser_id], ATBrowsers, test)
 
                                                     // Command key
                                                     input(type="hidden" class='command' id=at.id+'-'+browser_id+'-'+command_index+'-command' value=command.command)

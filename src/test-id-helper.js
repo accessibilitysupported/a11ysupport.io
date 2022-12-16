@@ -12,7 +12,7 @@ testHelper.trimTechFromAssertion = function(string) {
     return string;
 };
 
-testHelper.generateTestTitle = function(command, at) {
+testHelper.generateTestTitle = function(command, at, test) {
     let getHumanLocation = function(location) {
         return location.replace(/(target)/g, "the $1");
     }
@@ -29,6 +29,11 @@ testHelper.generateTestTitle = function(command, at) {
 
     if (at.type === 'vc') {
         return title;
+    }
+
+    if (command.procedure_key) {
+        let procedure = testHelper.getProcedure(test, command.procedure_key);
+        return procedure.title;
     }
 
     if (command.before.virtual_location === 'na') {
@@ -160,6 +165,13 @@ testHelper.generateTestTitle = function(command, at) {
     }
 
     return 'unknown'
+}
+
+testHelper.getProcedure = function(test, key) {
+    return test.procedures.find(obj => {
+            return obj.key === key
+        }
+    );
 }
 
 testHelper.getAssertionKey = function(test, feature_id, feature_assertion_id, applied_to, references) {
