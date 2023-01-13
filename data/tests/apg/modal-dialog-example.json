@@ -1,7 +1,7 @@
 {
   "title": "APG modal dialog example",
   "description": "This example implements a modal dialog.",
-  "html_file": "https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html",
+  "html_file": "https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html",
   "assertions": [
     {
       "feature_id": "aria/dialog_role",
@@ -322,7 +322,7 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"add delivery address, dialog, street: edit, type in text\"",
+          "output": "\"add delivery address, dialog, (dialog content), street: edit, type in text\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -415,7 +415,7 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"add delivery address, dialog, street: edit, type in text\"",
+          "output": "\"add delivery address, dialog, (dialog content), street: edit, type in text\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -434,7 +434,7 @@
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
               "result": "pass",
-              "notes": "Conveyed implicitly by not being able to access content behind the modal."
+              "notes": "conveyed implicitly by not being able to access content behind the modal."
             }
           ]
         },
@@ -600,26 +600,26 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"add delivery address, modal dialog...\"",
+          "output": "\"add delivery address, dialog (modal content) street: edit, type in text\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_role",
               "result": "pass",
-              "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+              "notes": "The name and role were conveyed when entering the dialog for the first time."
             },
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_name",
               "result": "pass",
-              "notes": "The name, role, and modal state were conveyed when entering the dialog for the first time."
+              "notes": "The name and role were conveyed when entering the dialog for the first time."
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
               "result": "pass",
-              "notes": "The modal state was explicitly conveyed."
+              "notes": "conveyed implicitly by not being able to access content behind the modal."
             }
           ]
         },
@@ -696,7 +696,7 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"Add delivery address, dialog, street, edit, scan off, heading level 2, add delivery address, street\"",
+          "output": "\"Add delivery address, dialog, street, edit, Scan off\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -712,8 +712,8 @@
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
-              "result": "fail",
-              "notes": "Modal state was not conveyed and non-modal content was not obscured. See other expectations for details."
+              "result": "pass",
+              "notes": "Implied by content being limited to the modal. See other expectations for details."
             }
           ]
         },
@@ -725,23 +725,12 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"heading level 2, add delivery address\"",
+          "output": "\"no next item\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_role",
-              "result": "fail"
-            },
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_name",
-              "result": "fail"
-            },
-            {
-              "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail",
-              "notes": "fail because the dialog role was not conveyed"
+              "result": "pass"
             }
           ]
         },
@@ -753,18 +742,18 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"Button, add delivery address\"",
+          "output": "\"no next item\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1127,7 +1116,7 @@
               "navigate_to_button": "next_item"
             }
           },
-          "output": "\"edit box, street, in pager\"",
+          "output": "\"edit box, street, english (US) qwerty shown\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -1181,7 +1170,7 @@
               "navigate_to_button": "next_item"
             }
           },
-          "output": "\"page, in pager\"",
+          "output": "\"page, end of example, splitter\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -1221,7 +1210,7 @@
               "navigate_to_button": "next_item"
             }
           },
-          "output": "\"(earcon indicating button was activated), add delivery address\"",
+          "output": "\"(earcon indicating button was activated), street, text field\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -1237,8 +1226,8 @@
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
-              "result": "fail",
-              "notes": "Modal state was not conveyed and content outside the modal could be found."
+              "result": "pass",
+              "notes": "Modal state was implied by not being able to navigate to content outside the modal."
             }
           ]
         },
@@ -1255,37 +1244,40 @@
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass",
-              "notes": "Not possible to navigate backwards out of the modal"
+              "result": "partial",
+              "notes": "partial because some content outside the modal was found but obviously not all content"
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass"
+              "result": "partial",
+              "notes": "announced some quotations marks and the main landmark, but not other content"
             }
           ]
         },
         {
-          "command": "previous_item",
+          "command": "next_item",
           "procedure_key": "navigate_forwards_out_of_open_modal",
           "params": {
             "commands": {
               "navigate_to_button": "next_item"
             }
           },
-          "output": "\"Accessibility features, heading level 2\"",
+          "output": "content was not found except for some quotation marks",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "fail"
+              "result": "partial",
+              "notes": "partial because some content outside the modal was found but obviously not all content"
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "fail"
+              "result": "partial",
+              "notes": "announced some quotations marks and the main landmark, but not other content"
             }
           ]
         },
@@ -1297,13 +1289,13 @@
               "navigate_to_button": "next_item"
             }
           },
-          "output": "\"date picker dialog example, link\"",
+          "output": "\"link not found\"",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -1319,7 +1311,7 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"street, edit text\"",
+          "output": "\"street, edit text with autofill menu\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -1348,7 +1340,7 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"add delivery address, web dialog\"",
+          "output": "\"out of add delivery address, web dialog, with 9 items\"",
           "results": [
             {
               "feature_id": "aria/dialog_role",
@@ -1375,8 +1367,7 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"end of, related links\"",
-          "notes": "Could navigate to the main element and the end of the related links, but nothing past that.",
+          "output": "some quotes could be found but not other content",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
@@ -1395,13 +1386,13 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"Heading level 2, example\"",
+          "output": "\"First heading, Heading level 2, add delivery address\"",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1413,13 +1404,13 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "headings, links, and other content was listed and could be navigated to",
+          "output": "only content within the modal was listed",
           "results": [
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "remove_outside_content_from_shortcuts",
               "applied_to": "aria/dialog_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -1457,36 +1448,26 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"add delivery address dialog, street, entry\" ",
+          "output": "content outside could be found (\"add delivery address push button\")",
           "results": [
             {
               "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_role",
-              "result": "pass"
-            },
-            {
-              "feature_id": "aria/dialog_role",
-              "feature_assertion_id": "convey_name",
-              "result": "pass"
-            },
-            {
-              "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass",
+              "result": "fail",
               "notes": ""
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
-              "result": "pass",
+              "result": "fail",
               "notes": ""
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass",
+              "result": "fail",
               "notes": ""
             }
           ]
@@ -1582,22 +1563,26 @@
     {
       "date": "2021-12-05",
       "message": "Added missing aria-modal results for JAWS+Chrome, JAWS+Edge"
+    },
+    {
+      "date": "2022-01-13",
+      "message": "Updates results"
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2022.2110.36",
-          "browser_version": "96",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-12-05"
+          "at_version": "2023.2212.23",
+          "browser_version": "108",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-13"
         },
         "edge": {
           "at_version": "2022.2110.36",
-          "browser_version": "96",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-12-05"
+          "browser_version": "108",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-13"
         },
         "ie": {
           "at_version": "2021.2012.57",
@@ -1607,81 +1592,81 @@
         },
         "firefox": {
           "at_version": "2021.2012.57",
-          "browser_version": "85",
-          "os_version": "Windows 10 version 20h2",
-          "date": "2021-02-03"
+          "browser_version": "108",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-13"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 20h2",
-          "browser_version": "88",
-          "os_version": "Windows 10 version 20h2",
-          "date": "2021-02-03"
+          "at_version": "Windows 11 version 22h2",
+          "browser_version": "108",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-13"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "at_version": "2022.4",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "108",
+          "date": "2023-01-13"
         },
         "edge": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "at_version": "2022.4",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "108",
+          "date": "2023-01-13"
         },
         "firefox": {
-          "at_version": "2020.3",
-          "browser_version": "85",
-          "os_version": "2021-02-03",
-          "date": "2021-02-03"
+          "at_version": "2022.4",
+          "browser_version": "108",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-13"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.38.0",
-          "browser_version": "85",
-          "os_version": "Ubuntu 20.10",
-          "date": "2021-02-03"
+          "at_version": "42.0",
+          "browser_version": "108",
+          "os_version": "Ubuntu 22.04",
+          "date": "2023-01-13"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.2",
-          "browser_version": "88",
-          "os_version": "7",
-          "date": "2021-02-03"
+          "at_version": "13.5",
+          "browser_version": "108",
+          "os_version": "12",
+          "date": "2023-01-13"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "14.3",
-          "browser_version": "14.3",
-          "os_version": "14.3",
-          "date": "2021-02-03"
+          "at_version": "16.2",
+          "browser_version": "16.2",
+          "os_version": "16.2",
+          "date": "2023-01-13"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "11.2",
-          "browser_version": "14.0.3",
-          "os_version": "11.2",
-          "date": "2021-02-03"
+          "at_version": "13.1",
+          "browser_version": "6.1",
+          "os_version": "13.1",
+          "date": "2023-01-13"
         }
       }
     }
