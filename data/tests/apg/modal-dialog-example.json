@@ -712,8 +712,8 @@
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "aria/dialog_role",
-              "result": "pass",
-              "notes": "Implied by content being limited to the modal. See other expectations for details."
+              "result": "fail",
+              "notes": "Not implied by content being limited to the modal. See other expectations for details."
             }
           ]
         },
@@ -725,12 +725,12 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"no next item\"",
+          "output": "elements outside the modal were found",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -742,18 +742,18 @@
               "navigate_to_button": "next_button"
             }
           },
-          "output": "\"no next item\"",
+          "output": "elements outside the modal were found",
           "results": [
             {
               "feature_id": "aria/dialog_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "aria/aria-modal_attribute",
               "feature_assertion_id": "limit_reading_to_children",
               "applied_to": "aria/dialog_role",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
