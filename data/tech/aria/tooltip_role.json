@@ -2,13 +2,68 @@
   "id": "tooltip_role",
   "title": "tooltip role",
   "type": "role",
-  "description": "A contextual popup that displays a description for an element.",
+  "description": "A contextual popup that displays a description for an element. The tooltip is typically referenced via an aria-describedby relationship.",
+  "recommendation": "Recommendation: Avoid using the tooltip role. The role currently provides little value beyond the typical aria-describedby relationship used to define a tooltip. If the tooltip content contains structure or semantics, it may, in theory, be helpful to use the tooltip role to define the tooltip boundary and differentiate it from surrounding content. However, that expectation has little support. Additionally, there is little consensus on how the tooltip role should be supported and it's unclear if, when, or how expectations and support may evolve.",
   "references": [
     {
       "title": "ARIA spec for tooltip",
       "url": "https://www.w3.org/TR/wai-aria-1.1/#tooltip"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_role",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "rationale": "Users need to be aware of the tooltip context if the tooltip contains structured or interactive content",
+      "css_target": "*[role=\"tooltip\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "title": "convey its name",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA"
+      },
+      "rationale": "It's unclear why a name is required, except that the AIRA spec requires it.",
+      "css_target": "*[role=\"tooltip\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "convey boundaries",
+      "rationale": "Users need to know when they enter and exit a tooltip so that they can differentiate it from surrounding content.",
+      "examples": [
+        "Screen readers might announce the starting boundary by conveying the role.",
+        "Screen readers might announce the ending boundary by conveying something like \"leaving tooltip\"."
+      ],
+      "css_target": "*[role=\"tooltip\"]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "expose_content",
+      "title": "expose the semantics of content if accessed directly",
+      "strength": {
+        "sr": "SHOULD",
+        "vc": "NA"
+      },
+      "rationale": "",
+      "css_target": "*[role=\"tooltip\"]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2023-01-25"
 }

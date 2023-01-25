@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tooltip role test suite</title>
+    <style>
+        [role=tooltip] {
+            border: 1px solid #000;
+            margin: 2em;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tooltip role test suite</h1>
+
+<p>This is a test suite for the tooltip role.</p>
+
+<h2>Example 1: open named tooltip role</h2>
+
+<p>Note: In this example, the tooltip is always open to make it easier to test. In practice, this will not be how a tooltip is coded; it will only be displayed dynamically.</p>
+
+<button>Tab stop before</button>
+
+<button aria-describedby="target-1">Learn more (tooltip owner)</button>
+
+<div role="tooltip" aria-label="Example tooltip name" id="target-1">
+    <h3>Example Tooltip</h3>
+    <p>Content within the tooltip</p>
+    <ul>
+        <li>A list of items</li>
+    </ul>
+
+    <a href="#">Learn more</a>
+</div>
+
+<button>Tab stop after</button>
+
+</body>
+</html>

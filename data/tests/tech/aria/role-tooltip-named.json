@@ -1,0 +1,638 @@
+{
+  "title": "named tooltip role",
+  "description": "This tests a named tooltip role",
+  "html_file": "aria/tooltip-role.html",
+  "assertions": [
+    {
+      "feature_id": "aria/tooltip_role",
+      "feature_assertion_id": "convey_role",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/tooltip_role",
+      "feature_assertion_id": "convey_name",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/tooltip_role",
+      "feature_assertion_id": "convey_boundaries",
+      "applied_to": "html/div_element"
+    },
+    {
+      "feature_id": "aria/tooltip_role",
+      "feature_assertion_id": "expose_content",
+      "applied_to": "html/div_element"
+    }
+  ],
+  "commands": {
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 3, example tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example tooltip, heading 3\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Example tooltip, heading level 3\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"Example tooltip name, tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "\"End of, example tooltip name, tooltip\"",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "pass",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "#target-1",
+          "before": {
+            "mode": "auto",
+            "focus_location": "before target",
+            "virtual_location": "before target"
+          },
+          "after": "target",
+          "output": "contents were skipped entirely",
+          "results": [
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "convey_boundaries",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            },
+            {
+              "feature_id": "aria/tooltip_role",
+              "feature_assertion_id": "expose_content",
+              "applied_to": "html/div_element",
+              "result": "fail",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "date": "2023-01-25",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2023.2212.23",
+          "browser_version": "109",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-25"
+        },
+        "edge": {
+          "at_version": "2023.2212.23",
+          "browser_version": "109",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-01-25"
+        },
+        "firefox": {
+          "at_version": "2023.2212.23",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "109",
+          "date": "2023-01-25"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "Windows 11 version 22h2",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "109",
+          "date": "2023-01-25"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2022.4",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "109",
+          "date": "2023-01-25"
+        },
+        "edge": {
+          "at_version": "2022.4",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "109",
+          "date": "2023-01-25"
+        },
+        "firefox": {
+          "at_version": "2022.4",
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "109",
+          "date": "2023-01-25"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "13.5",
+          "os_version": "13",
+          "browser_version": "109",
+          "date": "2023-01-25"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "16.3",
+          "os_version": "16.3",
+          "browser_version": "16.3",
+          "date": "2023-01-25"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "13.1",
+          "os_version": "13.1",
+          "browser_version": "16.2",
+          "date": "2023-01-25"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "42.0",
+          "os_version": "Ubuntu 22.04",
+          "browser_version": "108",
+          "date": "2023-01-25"
+        }
+      }
+    }
+  }
+}
