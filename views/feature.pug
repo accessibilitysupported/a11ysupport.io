@@ -55,6 +55,10 @@ block content
       p
         a(href="/faq#what-are-expectations%3F") What are expectations?
 
+      if data.possible_backend_expectations
+          div.caution
+            p Important: The #{data.title} has expectations that are not directly testable by end users. Continue to use it if it is required by the specification, even if user-facing expectation support is poor. For more information, see <a href="/faq#what-about-expectations-that-are-not-directly-testable-by-users%3F">FAQ: What about expectations that are not directly testable by users?</a>.
+
       if data.assertions.length > 0
 
         each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]

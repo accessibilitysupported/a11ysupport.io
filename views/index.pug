@@ -23,6 +23,9 @@ block content
             div(data-keywords=feature.keywords_string).result
               h3(id="feature-"+index)
                 a(href='/tech/'+feature.techId + '/' + feature.id) #{feature.title} (#{feature.techId})
+              if feature.possible_backend_expectations
+                div.caution
+                  p Important: The #{feature.title} has expectations that are not directly testable by end users. Continue to use it if it is required by the specification, even if user-facing expectation support is poor. For more information, see <a href="/faq#what-about-expectations-that-are-not-directly-testable-by-users%3F">FAQ: What about expectations that are not directly testable by users?</a>.
               if (feature.assertions.length === 0 || feature.total_test_count === 0)
                 p We do not currently have any data on this feature. Please help contribute.
               else

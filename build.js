@@ -148,6 +148,7 @@ let getFeatures = function(techId, buildDir) {
 			techId: feature.techId,
 			title: feature.title,
 			keywords_string: feature.keywords_string,
+			possible_backend_expectations: feature.possible_backend_expectations,
 			core_support: {
 				sr: feature.core_support.sr,
 				vc: feature.core_support.vc
