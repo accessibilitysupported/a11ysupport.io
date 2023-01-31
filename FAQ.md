@@ -1,20 +1,23 @@
 # FAQ
 
 * [What is this?](#what-is-this%3F)
+* [Is this a standard for how assistive technologies need to behave?](#is-this-a-standard-for-how-assistive-technologies-need-to-behave%3F)
 * [How should I interpret results? How do I know if it's okay to use a feature?](#how-should-i-interpret-results%3F-how-do-i-know-if-it's-okay-to-use-a-feature%3F)
 * [How do I get bugs fixed?](#how-do-i-get-bugs-fixed%3F)
 * [What is the status of this project?](#what-is-the-status-of-this-project%3F)
-* [Can't this be automated?](#cant-this-be-automated%3F)
-* [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
+* [Can this be automated?](#can-this-be-automated%3F)
 * [Who runs this?](#who-runs-this%3F)
-* [What are the levels of support?](#what-are-the-levels-of-support%3F)
 * [What are expectations?](#what-are-expectations%3F)
+* [What are the levels of support?](#what-are-the-levels-of-support%3F)
+* [What about expectations that are not directly testable by users?](#what-about-expectations-that-are-not-directly-testable-by-users%3F)
+* [What Assistive Technologies are in scope?](#what-assistive-technologies-are-in-scope%3F)
+* [Where does the name Accessibility Supported come from?](#where-does-the-name-accessibility-supported-come-from%3F)
 
 ## What is this?
 
-This is a community-driven website that aims to help inform developers about what is [accessibility supported](https://www.w3.org/TR/WCAG/#cc4). In order to conform to WCAG, you must write code in ways that are supported by assistive technologies (such as screen readers).
+This is a community-driven website that aims to help inform developers about what code features (roles, states, properties, elements, etc.) are supported by assistive technologies, and what that support looks like. 
 
-Our goal is not to tell you what you can or cannot use, but to help you make informed decisions. For example, you may be able to use unsupported features in a way that does not negatively affect AT interaction.
+Our goal is not to tell you what you can or cannot use, but to help you make informed decisions. For example, you may be able to use unsupported features in a way that does not negatively effect AT interaction.
 
 We also hope to help developers learn how to test with assistive technologies. To accomplish this, we will provide introductory materials on how to use different assistive technologies and provide detailed instructions about how to perform tests. We also hope to run workshops at developer conferences.
 
@@ -25,6 +28,10 @@ There are some other projects that are similar to this, however, most of them:
 - Do not disclose exactly how tests should be performed
 - Only tests a specific technology (or a subset of that technology)
 - Only tests the accessibility API layer, not the end result of the AT
+
+## Is this a standard for how assistive technologies need to behave?
+
+**Important**: This website does not attempt to establish a standard for how assistive technologies (such as screen readers) must behave or dictate how assistive technologies must provide support (no such standard exists). It should not be used as the only source for determining if something is supported. Instead, it is meant to help visitors get a head start in understanding behaviors, general expectations, and support.
 
 ## How should I interpret results? How do I know if it's okay to use a feature?
 
@@ -84,9 +91,9 @@ It's not always easy to tell who is responsible for fixing a bug. If you can fin
   
 ## What is the status of this project?
 
-This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) that has a goal to create a similar project but with a slightly different approach and reduced scope. The ARIA-AT group is still in the planning phase, and I don't expect it to be mature enough to fully overtake this project any time soon. At some point in the future, the ARIA-AT project might nullify this project.
+This project is active and contributions are welcome. That being said, I still consider the project to be a work-in-progress. Additionally, I am co-chairing the [W3C ARIA-AT Community group](https://www.w3.org/community/aria-at/) which has a goal to create a similar project but with a slightly different approach and reduced scope. At some point in the future, the ARIA-AT project might nullify this project.
 
-## Can't this be automated?
+## Can this be automated?
 
 There are many ways that Assistive Technology (AT) interacts with a browser and your code.
 
@@ -97,6 +104,50 @@ There are many ways that Assistive Technology (AT) interacts with a browser and 
 It is possible to automatically test the Accessibility APIs and DOM, but the AT itself might have bugs or not fully implement certain features.
 
 Unfortunately, it is not yet possible to fully drive AT in an automated way, so we are left with having to do manual tests.
+
+Note: over the last few years, there have been many projects created to attempt to automate testing with various screen readers, each with varying degrees of success. However, this area is still not very mature and there is still not a standardized and robust way to perform this sort of testing at scale. For more information on this, please see [ARIA-AT Automation](https://github.com/w3c/aria-at-automation).
+
+## Who runs this?
+
+The community both runs and owns this project. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are open sourced under the [GPL 3.0 license](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/LICENSE).
+
+## What are expectations?
+
+Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support which goes above and beyond. Note that there is not an explicit standard which dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many commands to read, navigate, or otherwise interact with a feature. Only one command is usually required to pass for the expectation to be minimally supported.
+
+## What about expectations that are not directly testable by users?
+
+There may be expectations for features that are not listed on this site. Some of these expectations are not directly testable by end-users. Wherever possible, we try to highlight which features have these expectations in our support listings. As a general rule of thumb, if the specification for the language being used requires the use of a feature, then use it (even if it appears to have poor support in our listings).
+
+Take [aria-controls](https://www.w3.org/TR/wai-aria-1.2/#aria-controls) as an example. As of writing, the attribute generally has poor support for user-facing expectations. However, it is still a required attribute for the [combobox role](https://www.w3.org/TR/wai-aria-1.2/#combobox) and [scrollbar](https://www.w3.org/TR/wai-aria-1.2/#combobox) role. The attribute creates a programmatic relationship between the controlling element and the controlled element. This programmatic relationship helps assistive technologies correctly support the role as a whole. Without the explicit relationship defined by aria-controls, the assistive technology might have to guess what the proper relationship is. Most of the time, it will guess correctly and end-users won't notice anything is wrong. But this guessing comes at the potential cost of reliability and performance.
+
+## What are the levels of support?
+
+There are several levels of support.
+
+For specific commands:
+
+- unknown
+- pass
+- fail
+- partial
+- not applicable
+
+For expectations:
+
+- unknown
+- supported/yes
+- none
+- partial
+- not applicable
+
+
+**Important**: Failing results such as "fail" or "none" just means that there is no known/documented support. There may still be support for this expectation, but it is undocumented. If this is the case, please report this issue.
+
+There are also two grading methods:
+
+- Any: Any command listed must pass for the expectation to be met. This is the default grading method and used for most expectations.
+- All: All commands listed must pass for the expectation to be met.
 
 ## What Assistive Technologies are in scope?
 
@@ -140,46 +191,6 @@ For now, we base our data on the results of the latest
 - [WebAim Screen Reader Survey](https://webaim.org/projects/screenreadersurvey8/).
 - [UK.gov AT Survey](https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/)
 
-## Who runs this?
+## Where does the name Accessibility Supported come from?
 
-The community both runs and owns this project. The original idea and prototype was developed by Michael Fairchild with encouragement from the web development community at the University of Nebraska - Lincoln. The data and software are open sourced under the [GPL 3.0 license](https://github.com/accessibilitysupported/a11ysupport.io/blob/master/LICENSE).
-
-## What are the levels of support?
-
-There are several levels of support.
-
-For specific commands:
-
-- unknown
-- pass
-- fail
-- partial
-- not applicable
-
-For expectations:
-
-- unknown
-- supported/yes
-- none
-- partial
-- not applicable
-
-
-**Important**: Failing results such as "fail" or "none" just means that there is no known/documented support. There may still be support for this expectation, but it is undocumented. If this is the case, please report this issue.
-
-There are also two grading methods:
-
-- Any: Any command listed must pass for the expectation to be met. This is the default grading method and used for most expectations.
-- All: All commands listed must pass for the expectation to be met.
-
-## What are expectations?
-
-Expectations are conditions that must be met for the feature to be considered as "supported". Only "MUST" expectations need to be met for minimal "support". "SHOULD" and "MAY" expectations indicates support which goes above and beyond. Note that there is not an explicit standard which dictates these expectations, and as such, they are likely opinionated. As such, a feature might not meet all "MUST" expectations but still be usable (potentially frustratingly so). Additionally, the assistive technology may provide many commands to read, navigate, or otherwise interact with a feature. Only one command is usually required to pass for the expectation to be minimally supported.
-
-**Important**: This website is not normative and does not attempt to establish a standard for how assistive technologies (such as screen readers) must behave or dictate how assistive technologies must provide support (no such standard exists). It should not be used as the only source for determining if something is supported. Instead, it is meant to help visitors get a head start in understanding behaviors, general expectations, and support.
-
-## What about expectations that are not directly testable by users?
-
-There may be expectations for features that are not listed on this site. Some of these expectations are not directly testable by end-users. Wherever possible, we try to highlight which features have these expectations in our support listings. As a general rule of thumb, if the specification for the language being used requires the use of a feature, then use it (even if it appears to have poor support in our listings).
-
-Take [aria-controls](https://www.w3.org/TR/wai-aria-1.2/#aria-controls) as an example. As of writing, the attribute generally has poor support for user-facing expectations. However, it is still a required attribute for the [combobox role](https://www.w3.org/TR/wai-aria-1.2/#combobox) and [scrollbar](https://www.w3.org/TR/wai-aria-1.2/#combobox) role. The attribute creates a programmatic relationship between the controlling element and the controlled element. This programmatic relationship helps assistive technologies correctly support the role as a whole. Without the explicit relationship defined by aria-controls, the assistive technology might have to guess what the proper relationship is. Most of the time, it will guess correctly and end-users won't notice anything is wrong. But this guessing comes at the potential cost of reliability and performance.
+WCAG has an [accessibility supported](https://www.w3.org/TR/WCAG/#cc4). It basically says that if a feature is relied upon to meet a given success criteria, that feature must be supported by AT. WCAG makes this very unclear by purposefully not defining exactly which AT need to be supported or at what level the support needs to be at. Instead, this decision needs to be made on a case by case basis and within the context of your project and who will be using it.
