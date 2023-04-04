@@ -1,0 +1,368 @@
+{
+  "title": "aria-current change test",
+  "description": "Tests changes of the aria-current attribute.",
+  "html_file": "aria/aria-current-change.html",
+  "assertions": [
+    {
+      "feature_id": "aria/aria-current_attribute",
+      "feature_assertion_id": "convey_addition",
+      "applied_to": "html/a_element"
+    }
+  ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"enter\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"enter\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"enter\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "silence",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"current page\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"current page\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"current page\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "earcon",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail",
+              "notes": "The earcon simply provides feedback that the link was activated, not that it is now the current page"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"about (target) current page link\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "earcon",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail",
+              "notes": "The earcon simply provides feedback that the link was activated, not that it is now the current page"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "activate_link",
+          "css_target": "#target1-activate",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"return\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-current_attribute",
+              "feature_assertion_id": "convey_addition",
+              "applied_to": "html/a_element",
+              "result": "fail"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
+  "history": [
+    {
+      "date": "2023-03-04",
+      "message": "test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2023.2302.15",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "111",
+          "date": "2023-03-04"
+        },
+        "edge": {
+          "at_version": "2023.2302.15",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "111",
+          "date": "2023-03-04"
+        },
+        "firefox": {
+          "at_version": "2023.2302.15",
+          "browser_version": "111",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-03-04"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "111",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-03-04"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "111",
+          "date": "2023-03-04"
+        },
+        "edge": {
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "111",
+          "date": "2023-03-04"
+        },
+        "firefox": {
+          "at_version": "2013.1",
+          "browser_version": "111",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-03-04"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "42.0",
+          "browser_version": "108",
+          "os_version": "Ubuntu 22.04",
+          "date": "2023-03-04"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "13.5",
+          "browser_version": "111",
+          "os_version": "13",
+          "date": "2023-03-04"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "16.4",
+          "browser_version": "16.4",
+          "os_version": "16.4",
+          "date": "2023-03-04"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "13.2.1",
+          "browser_version": "16.3",
+          "os_version": "13.2.1",
+          "date": "2023-03-04"
+        }
+      }
+    }
+  }
+}

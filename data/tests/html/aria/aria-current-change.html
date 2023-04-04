@@ -1,0 +1,58 @@
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>aria-current change test</title>
+    <style>
+        a[href][aria-current] {
+            border-bottom: 3px solid green;
+        }
+        nav ul li {
+            margin-bottom: .5em;
+        }
+    </style>
+</head>
+
+<body>
+<h1><code>aria-current</code> change test</h1>
+
+
+<p>Screen readers should announce "Current page" to indicate the first link is the current page in the navigation.</p>
+
+
+
+<h2>Example</h2>
+<p>Adding aria-current to a link</p>
+<div class="example">
+    <nav id="target1">
+        <ul>
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#" id="target1-activate">About (target)</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+    let target1 = document.querySelector('#target1');
+    let links = target1.querySelectorAll('a[href]')
+    let setCurrentPage = function(newCurrentLink, links) {
+        links.forEach(link => {
+            link.removeAttribute('aria-current');
+        })
+        newCurrentLink.setAttribute('aria-current', 'page');
+    }
+    links.forEach(link => {
+        link.addEventListener('click', e=> {
+            e.preventDefault();
+            setCurrentPage(link, links);
+        });
+    });
+</script>
+
+</body>
+</html>
