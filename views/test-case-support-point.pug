@@ -14,9 +14,11 @@ block content
 
         ul
             li
-                a(href="/tests/"+testHelper.makeSafe(test.id) class="back") Go back to the test
+                a(href="/tests/"+testHelper.makeSafe(test.id)) Go back to the test
             li
-                a(href="/tests/"+testHelper.makeSafe(test.id)+"/run") Run this test and submit your results
+                a(href="/tests/"+testHelper.makeSafe(test.id)+"/run") Submit new test results
+            li
+                a(href="/tests/html/" + test.html_file) Open the test case HTML file
 
         table
             caption Details
