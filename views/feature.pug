@@ -9,6 +9,8 @@ block content
         p= 'Screen reader support level: ' + data.core_support_string.sr.string
       div(class="current-support-container " + data.core_support_string.vc.class)
         p= 'Voice Control support level: ' + data.core_support_string.vc.string
+      div(class="current-support-container " + data.core_support_string.kb.class)
+        p= 'Keyboard support level: ' + data.core_support_string.kb.string
 
       if data.assertions.length
         h2 On this page
@@ -61,7 +63,10 @@ block content
 
       if data.assertions.length > 0
 
-        each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}]
+        each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}, {type: 'kb', title: 'Keyboard'}]
+          if !data.supports_at.includes(at_type.type)
+            - continue
+
           h3(id='support-table-by-assertion-and-at-'+at_type.type) #{at_type.title} support by expectation
           - var some_support_behind_settings = false
           - var colspan = 0;
@@ -207,7 +212,7 @@ block content
                     tr
                       each at_id in ATBrowsers.core_at
                         td(class=feature.core_support_by_at[at_id].string.class) #{feature.core_support_by_at[at_id].string.string}
-              if feature.core_support.sr.includes('u') || feature.core_support.vc.includes('u')
+              if feature.core_support.sr.includes('u') || feature.core_support.vc.includes('u') || feature.core_support.kb.includes('u')
                 p We are missing data on some combinations.
 
     div.sidebar

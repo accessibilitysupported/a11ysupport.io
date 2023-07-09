@@ -30,3 +30,6 @@ Voice Control software allows users to command their computers or devices by voi
 * [Voice Control for iOS](/learn/at/vc_ios)
 * [Windows Speech Recognition](/learn/at/wsr)
 
+### Keyboard
+
+* [Keyboard](/learn/at/win_kb)

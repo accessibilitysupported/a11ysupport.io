@@ -17,7 +17,7 @@
   "assertions": [
     {
       "id": "convey_name",
-      "examples":  [
+      "examples": [
         "A screen reader will announce the name (label).",
         "Voice control software will let the user say something like \"click <name>\" to activate the control."
       ],
@@ -52,7 +52,8 @@
       "rationale": "users might want to increment and decrement the value",
       "strength": {
         "sr": "MAY",
-        "vc": "MAY"
+        "vc": "MAY",
+        "kb": "NA"
       },
       "examples": [
         "Desktop screen readers might allow users to adjust the value by pressing up and down arrows",
@@ -65,8 +66,15 @@
         "sr/interaction",
         "vc"
       ],
-      "exclude_at": {"talkback":  "no_commands", "va_and":  "no_commands", "vc_macos": "no_commands", "wsr": "no_commands"},
-      "exclude_browsers": {"ios_saf":  "no_support"}
+      "exclude_at": {
+        "talkback": "no_commands",
+        "va_and": "no_commands",
+        "vc_macos": "no_commands",
+        "wsr": "no_commands"
+      },
+      "exclude_browsers": {
+        "ios_saf": "no_support"
+      }
     },
     {
       "id": "allow_data_entry",
@@ -84,7 +92,8 @@
       ],
       "strength": {
         "sr": "MUST",
-        "vc": "NA"
+        "vc": "NA",
+        "kb": "NA"
       },
       "css_target": "input[type=\"number\"]",
       "operation_modes": [

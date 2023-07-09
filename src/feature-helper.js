@@ -4,6 +4,7 @@ let now = new moment();
 
 //Grab the ATBrowsers data
 const ATBrowsers = require('./../data/ATBrowsers');
+const at_types = ['sr', 'vc', 'kb'];
 
 /**
  * Generic array sorting
@@ -66,48 +67,31 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	};
 
 	//Set up support properties
-	featureObject.core_support = {
-		sr: [],
-		vc: []
-	};
+	featureObject.core_support = {};
 	featureObject.core_support_by_at = {};
 	featureObject.core_support_by_at_browser = {};
-	featureObject.core_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	featureObject.extended_support = {
-		sr: [],
-		vc: []
-	};
-	featureObject.extended_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	featureObject.core_must_support = {
-		sr: [],
-		vc: []
-	};
-	featureObject.core_must_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	featureObject.core_should_support = {
-		sr: [],
-		vc: []
-	};
-	featureObject.core_should_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	featureObject.core_may_support = {
-		sr: [],
-		vc: []
-	};
-	featureObject.core_may_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
+	featureObject.core_support_string = {};
+	featureObject.extended_support = {};
+	featureObject.extended_support_string = {};
+	featureObject.core_must_support = {};
+	featureObject.core_must_support_string = {};
+	featureObject.core_should_support = {};
+	featureObject.core_should_support_string = {};
+	featureObject.core_may_support = {};
+	featureObject.core_may_support_string = {};
+
+	at_types.forEach(at_type => {
+		featureObject.core_support[at_type] = [];
+		featureObject.core_support_string[at_type] = 'unknown';
+		featureObject.extended_support[at_type] = [];
+		featureObject.extended_support_string[at_type] = 'unknown';
+		featureObject.core_must_support[at_type] = [];
+		featureObject.core_must_support_string[at_type] = 'unknown';
+		featureObject.core_should_support[at_type] = [];
+		featureObject.core_should_support_string[at_type] = 'unknown';
+		featureObject.core_may_support[at_type] = [];
+		featureObject.core_may_support_string[at_type] = 'unknown';
+	})
 
 	if (!featureObject.keywords) {
 		featureObject.keywords = [];
@@ -126,9 +110,10 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey its name",
 					rationale: "A screen reader user needs to know what to enter.",
-                    strength: {
-					  sr: "MUST",
-                      vc: "MUST"
+					strength: {
+						sr: "MUST",
+						vc: "MUST",
+						kb: "NA"
                     },
 					operation_modes: [
 						"sr/reading",
@@ -151,10 +136,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 						"Voice Control software might let the user say something like \"click, <role>\".",
 						"Voice Control software might let the user say something like \"show numbers\", and interactive roles will be flagged with numbers.",
 					],
-                    strength: {
-                        sr: "MUST",
-                        vc: "MUST"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "MUST",
+						kb: "NA"
+					},
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction",
@@ -167,10 +153,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the current value",
 					rationale: "A screen reader user needs to know the current value of the input.",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction"
@@ -181,10 +168,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey changes in value",
 					rationale: "The user needs to know that the value was successfully changed.",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					pass_strategy: "all",
 					operation_modes: [
 						"sr/interaction"
@@ -197,7 +185,8 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					rationale: "The user needs to know that the state was successfully changed.",
 					strength: {
 						sr: "MUST",
-						vc: "NA"
+						vc: "NA",
+						kb: "NA"
 					},
 					pass_strategy: "all",
 					operation_modes: [
@@ -209,10 +198,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the boundaries of the element",
 					rationale: "A user needs to know when they enter and exit an element",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					examples: [
 						"A screen reader might announce the role of the element when entering and say something like \"leaving\" when exiting.",
 						"A screen reader might not explicitly announce entering and existing the element, but instead imply that the is in the containing object by conveying the roles of required children (options in a listbox for example).",
@@ -230,10 +220,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the nesting level",
 					rationale: "A screen reader user might find it helpful to know what nesting level they are at",
-                    strength: {
-                        sr: "SHOULD",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "SHOULD",
+						vc: "NA",
+						kb: "NA"
+					},
 					operation_modes: [
 						"sr/reading",
 						"sr/interaction"
@@ -244,10 +235,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "allow navigating content",
 					rationale: "A user needs to be able to navigate the content",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					examples: [
 						"A screen reader might allow reading-mode navigation, such as reading line-by-line."
 					],
@@ -261,10 +253,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the position in set information",
 					rationale: "A user needs to where the position is in the list",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					examples: [
 						"A screen reader might something like \"1 of 6\".",
 					],
@@ -279,10 +272,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					id: "convey_boolean_property",
 					title: "convey the property",
 					rationale: "The user needs to know that property is set",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					examples: [
 						"A screen reader might announce the property along with the elements name, role, and value"
 					],
@@ -296,10 +290,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "provide shortcuts to jump to this role",
 					rationale: "Screen reader users might want to quickly navigate to elements of this type.",
-                    strength: {
-                        sr: "SHOULD",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "SHOULD",
+						vc: "NA",
+						kb: "NA"
+					},
 					operation_modes: [
 						"sr/reading"
 					]
@@ -309,10 +304,11 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 				featureObject.assertions[assertion_key] = Object.assign({
 					title: "convey the number of items in the list",
 					rationale: "A user needs to be able to understand how many items are in the list",
-                    strength: {
-                        sr: "MUST",
-                        vc: "NA"
-                    },
+					strength: {
+						sr: "MUST",
+						vc: "NA",
+						kb: "NA"
+					},
 					examples: [
 						"A screen reader might convey the position of each item in the list as something like \"x of y\" where y is the number of items in the list.",
 						"A screen reader might convey the number of items in the list when first entering the list."
@@ -328,7 +324,8 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 					rationale: "Users need to be able to enter data",
 					strength: {
 						sr: "NA",
-						vc: "MUST"
+						vc: "MUST",
+						kb: "NA"
 					},
 					examples: [
 						"Voice control software might allow someone to dictate data into a field once it is focused.",
@@ -347,7 +344,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 
 helper.bubbleFeatureSupport = function(featureObject) {
 	// Initialize the feature with defaults
-	["sr", "vc"].forEach(type => {
+	at_types.forEach(type => {
 		featureObject.core_support[type].push('u');
 	});
 	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
@@ -369,14 +366,12 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			featureObject.assertions[assertion_key].rationale = "";
 		}
 
-		if (assertion.operation_modes.includes('sr/reading')
-			|| assertion.operation_modes.includes('sr/interaction')) {
-			featureObject.assertions[assertion_key].supports_at.push('sr');
-		}
-
-		if (assertion.operation_modes.includes('vc')) {
-			featureObject.assertions[assertion_key].supports_at.push('vc');
-		}
+		at_types.forEach(type => {
+			let found = assertion.operation_modes.findIndex(element => element.startsWith(type));
+			if (found > -1) {
+				featureObject.assertions[assertion_key].supports_at.push(type);
+			}
+		});
 	});
 
 	for (let testIndex = 0; testIndex < featureObject.tests.length; testIndex++) {
@@ -407,37 +402,33 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			let assertion_key = featureObject.assertions.findIndex(obj => obj.id === assertion.feature_assertion_id);
 
 			if (!featureObject.assertions[assertion_key].tests.some(e => e.id  === featureObject.tests[testIndex].id)) {
-				featureObject.assertions[assertion_key].tests.push({
+				let tmp_test_summary = {
 					id: featureObject.tests[testIndex].id,
 					title: featureObject.tests[testIndex].title,
-					core_support_string: {
-						sr: featureObject.tests[testIndex].core_support_string.sr,
-						vc: featureObject.tests[testIndex].core_support_string.vc
-					},
+					core_support_string: {},
 					core_assertion_support_by_at_browser: assertion.core_support_by_at_browser
+				}
+				at_types.forEach(type => {
+					tmp_test_summary.core_support_string[type] = featureObject.tests[testIndex].core_support_string[type];
 				});
+
+				featureObject.assertions[assertion_key].tests.push(tmp_test_summary);
 			}
 
 			// Set up the feature assertion properties
 			if (featureObject.assertions[assertion_key].core_support === undefined) {
-				featureObject.assertions[assertion_key].core_support = {
-					sr: [],
-					vc: []
-				};
-				featureObject.assertions[assertion_key].core_support_string = {
-					sr: 'unknown',
-					vc: 'unknown'
-				};
-				featureObject.assertions[assertion_key].extended_support = {
-					sr: [],
-					vc: []
-				};
-				featureObject.assertions[assertion_key].extended_support_string = {
-					sr: 'unknown',
-					vc: 'unknown'
-				};
+				featureObject.assertions[assertion_key].core_support = {};
+				featureObject.assertions[assertion_key].core_support_string = {};
+				featureObject.assertions[assertion_key].extended_support = {};
+				featureObject.assertions[assertion_key].extended_support_string = {};
 				featureObject.assertions[assertion_key].core_support_by_at = {};
 				featureObject.assertions[assertion_key].core_support_by_at_browser = {};
+				at_types.forEach(type => {
+					featureObject.assertions[assertion_key].core_support[type] = [];
+					featureObject.assertions[assertion_key].core_support_string[type] = 'unknown';
+					featureObject.assertions[assertion_key].extended_support[type] = [];
+					featureObject.assertions[assertion_key].extended_support_string[type] = 'unknown';
+				});
 			}
 
 			for(let at in ATBrowsers.at){
@@ -536,10 +527,10 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	featureObject.failing_dates.max = Math.max(...featureObject.failing_dates.all);
 
 	//Set support strings
-	featureObject.core_support_string.sr = helper.generateSupportString(featureObject.core_support.sr);
-	featureObject.extended_support_string.sr = helper.generateSupportString(featureObject.extended_support.sr);
-	featureObject.core_support_string.vc = helper.generateSupportString(featureObject.core_support.vc);
-	featureObject.extended_support_string.vc = helper.generateSupportString(featureObject.extended_support.vc);
+	at_types.forEach(type => {
+		featureObject.core_support_string[type] = helper.generateSupportString(featureObject.core_support[type]);
+		featureObject.extended_support_string[type] = helper.generateSupportString(featureObject.extended_support[type]);
+	});
 
 	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
 		let at = ATBrowsers.core_at[i];
@@ -599,7 +590,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	featureObject.supports_at = [];
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		// aggregate must/should/may core support
-		["sr", "vc"].forEach(type => {
+		at_types.forEach(type => {
 			if (assertion.supports_at.includes(type) && !featureObject.supports_at.includes(type)) {
 				featureObject.supports_at.push(type);
 			}
@@ -623,7 +614,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		});
 	});
 
-	["sr", "vc"].forEach(type => {
+	at_types.forEach(type => {
 		if (!featureObject.supports_at.includes(type)) {
 			featureObject.core_must_support_string[type] = helper.generateSupportString('na');
 			featureObject.core_should_support_string[type] = helper.generateSupportString('na');
@@ -898,46 +889,28 @@ helper.initalizeTestCase = function (testCase) {
 	});
 
 	//Set support properties
-	testCase.core_support = {
-		sr: [],
-		vc: []
-	};
-	testCase.core_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	testCase.extended_support = {
-		sr: [],
-		vc: []
-	};
-	testCase.extended_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	testCase.core_must_support = {
-		sr: [],
-		vc: []
-	};
-	testCase.core_must_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	testCase.core_should_support = {
-		sr: [],
-		vc: []
-	};
-	testCase.core_should_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
-	testCase.core_may_support = {
-		sr: [],
-		vc: []
-	};
-	testCase.core_may_support_string = {
-		sr: 'unknown',
-		vc: 'unknown'
-	};
+	testCase.core_support = {};
+	testCase.core_support_string = {};
+	testCase.extended_support = {};
+	testCase.extended_support_string = {};
+	testCase.core_must_support = {};
+	testCase.core_must_support_string = {};
+	testCase.core_should_support = {};
+	testCase.core_should_support_string = {};
+	testCase.core_may_support = {};
+	testCase.core_may_support_string = {};
+	at_types.forEach(type => {
+		testCase.core_support[type] = [];
+		testCase.core_support_string[type] = 'unknown';
+		testCase.extended_support[type] = [];
+		testCase.extended_support_string[type] = 'unknown';
+		testCase.core_must_support[type] = [];
+		testCase.core_must_support_string[type] = 'unknown';
+		testCase.core_should_support[type] = [];
+		testCase.core_should_support_string[type] = 'unknown';
+		testCase.core_may_support[type] = [];
+		testCase.core_may_support_string[type] = 'unknown';
+	});
 
 	testCase.history = testCase.history.sort(sortByProperty('date'));
 
@@ -953,24 +926,23 @@ helper.initalizeTestCase = function (testCase) {
 
 		// Look at what operations modes the assertion supports and set some helpful flags
 		// We have to do this here because tests are built before features.
-		let supports_sr = false;
-		let supports_vc = false;
+		let supports_by_at = {};
+		at_types.forEach(type => {
+			supports_by_at[type] = false;
+		});
 		testCase.assertions[assertion_key].supports_at = [];
 
 		if (!ref_assertion.operation_modes) {
 			console.log(feature, ref_assertion);
 		}
 
-		if (ref_assertion.operation_modes.includes('sr/reading')
-		|| ref_assertion.operation_modes.includes('sr/interaction')) {
-			supports_sr = true;
-			testCase.assertions[assertion_key].supports_at.push('sr');
-		}
-
-		if (ref_assertion.operation_modes.includes('vc')) {
-			supports_vc = true;
-			testCase.assertions[assertion_key].supports_at.push('vc')
-		}
+		at_types.forEach(type => {
+			let found = ref_assertion.operation_modes.findIndex(element => element.startsWith(type));
+			if (found > -1) {
+				supports_by_at[type] = true;
+				testCase.assertions[assertion_key].supports_at.push(type)
+			}
+		});
 
 		let titleModifier = 'The assistive technology ';
 		if (testCase.assertions[assertion_key].supports_at.length === 1 && testCase.assertions[assertion_key].supports_at[0] === 'sr') {
@@ -999,22 +971,18 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].assertion_notes = ref_assertion.notes;
 		testCase.assertions[assertion_key].assertion_examples = ref_assertion.examples;
 
-		testCase.assertions[assertion_key].core_support = {
-			sr: [],
-			vc: []
-		};
-		testCase.assertions[assertion_key].core_support_string = {
-			sr: supports_sr ? 'unknown' : 'na',
-			vc: supports_vc ? 'unknown' : 'na'
-		};
-		testCase.assertions[assertion_key].extended_support = {
-			sr: [],
-			vc: []
-		};
-		testCase.assertions[assertion_key].extended_support_string = {
-			sr: supports_sr ? 'unknown' : 'na',
-			vc: supports_vc ? 'unknown' : 'na'
-		};
+		testCase.assertions[assertion_key].core_support = {};
+		testCase.assertions[assertion_key].core_support_string = {};
+		testCase.assertions[assertion_key].extended_support = {};
+		testCase.assertions[assertion_key].extended_support_string = {};
+
+		at_types.forEach(type => {
+			testCase.assertions[assertion_key].core_support[type] = [];
+			testCase.assertions[assertion_key].core_support_string[type] = supports_by_at[type] ? 'unknown' : 'na';
+			testCase.assertions[assertion_key].extended_support[type] = [];
+			testCase.assertions[assertion_key].extended_support_string[type] = supports_by_at[type] ? 'unknown' : 'na';
+		});
+
 		testCase.assertions[assertion_key].core_support_by_at_browser = {};
 		testCase.assertions[assertion_key].operation_modes = ref_assertion.operation_modes;
 
@@ -1104,13 +1072,7 @@ helper.initalizeTestCase = function (testCase) {
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
 
-
-				if (!supports_sr && ATBrowsers.at[at].type === "sr") {
-					// This test case does not support this type of AT
-					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
-				}
-
-				if (!supports_vc && ATBrowsers.at[at].type === "vc") {
+				if (!supports_by_at[ATBrowsers.at[at].type]) {
 					// This test case does not support this type of AT
 					testCase.assertions[assertion_key].results[at].browsers[browser].support = "na";
 				}
@@ -1272,7 +1234,7 @@ helper.initalizeTestCase = function (testCase) {
 			testCase.assertions[assertion_key].results[at].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].results[at].extended_support);
 		}
 
-		["sr", "vc"].forEach(type => {
+		at_types.forEach(type => {
 			//Set support strings for the assertion
 			testCase.assertions[assertion_key].core_support_string[type] = helper.generateSupportString(testCase.assertions[assertion_key].core_support[type]);
 			testCase.assertions[assertion_key].extended_support_string[type] = helper.generateSupportString(testCase.assertions[assertion_key].extended_support[type]);
@@ -1300,7 +1262,7 @@ helper.initalizeTestCase = function (testCase) {
 	});
 
 	//Set support strings for the test
-	["sr", "vc"].forEach(type => {
+	at_types.forEach(type => {
 		testCase.core_support_string[type] = helper.generateSupportString(testCase.core_support[type]);
 		testCase.extended_support_string[type] = helper.generateSupportString(testCase.extended_support[type]);
 	});

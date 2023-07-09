@@ -40,10 +40,17 @@
                 "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT", "NA"]
               },
               "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
+            },
+            "kb": {
+              "type": "string",
+              "items": {
+                "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT", "MAY NOT", "NA"]
+              },
+              "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values"
             }
           },
           "description": "the RFC 2119 value of requirement level. only 'MUST' assertions will contribute to core support values",
-          "required": ["sr", "vc"]
+          "required": ["sr", "vc", "kb"]
         },
         "pass_strategy": {
           "type": "string",
@@ -61,13 +68,13 @@
         "operation_modes": {
           "type": "array",
           "items": {
-            "enum": ["sr/reading", "sr/interaction", "vc"]
+            "enum": ["sr/reading", "sr/interaction", "vc", "kb"]
           }
         },
         "supports_at": {
           "type": "array",
           "items": {
-            "enum": ["sr", "vc"]
+            "enum": ["sr", "vc", "kb"]
           }
         },
         "css_target": {

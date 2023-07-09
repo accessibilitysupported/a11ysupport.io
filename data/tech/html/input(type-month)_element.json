@@ -8,8 +8,7 @@
     {
       "title": "WHATWG HTML spec for input[type=\"month\"]",
       "url": "https://html.spec.whatwg.org/multipage/input.html#month-state-(type=month)"
-    }
-    ,
+    },
     {
       "title": "HTML AAM for the input[type=\"month\"]",
       "url": "https://w3c.github.io/html-aam/#el-input-month"
@@ -18,7 +17,7 @@
   "assertions": [
     {
       "id": "convey_name",
-      "examples":  [
+      "examples": [
         "A screen reader will announce the name (label).",
         "Voice control software will let the user say something like \"click <name>\" to activate the control."
       ],
@@ -31,7 +30,6 @@
         "Voice control software will let the user say something like \"click text box\" to focus a the input or flag the role with a number."
       ],
       "css_target": "input[type=\"month\"]"
-
     },
     {
       "id": "convey_value",
@@ -55,7 +53,8 @@
       "notes": "This expectation covers both the date picker widget and the embedded native controls implemented by some browsers. For example, some browsers include multiple tab stops, one each for the day, month, and year, as well as a date picker popup. Because browsers are not consistent with how these controls are implemented, they are lumped into one expectation. This expectation passes if all controls have a name, role, value, and other appropriate semantics passed. Reality check: a user can use all provided controls and successfully enter a date.",
       "strength": {
         "sr": "MUST",
-        "vc": "MUST"
+        "vc": "MUST",
+        "kb": "NA"
       },
       "examples": [
         "If implemented as a text field, this is not applicable",
@@ -69,12 +68,19 @@
         "sr/interaction",
         "vc"
       ],
-      "exclude_browsers": {"ie": "no_support", "firefox":  "no_support", "safari":  "no_support"}
+      "exclude_browsers": {
+        "ie": "no_support",
+        "firefox": "no_support",
+        "safari": "no_support"
+      }
     },
     {
       "id": "allow_data_entry",
       "css_target": "input[type=\"month\"]",
-      "exclude_at": {"va_and": "not_rendered_as_text_input", "vc_ios": "not_rendered_as_text_input"}
+      "exclude_at": {
+        "va_and": "not_rendered_as_text_input",
+        "vc_ios": "not_rendered_as_text_input"
+      }
     }
   ],
   "date_updated": "2018-07-21"

@@ -353,6 +353,7 @@ allTests.forEach(function(test, test_key) {
 let commands = {};
 commands.sr = {};
 commands.vc = {};
+commands.kb = {};
 
 for(let at in ATBrowsers.at) {
 	let type = ATBrowsers.at[at].type;
