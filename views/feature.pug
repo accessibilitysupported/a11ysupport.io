@@ -5,12 +5,11 @@ block content
   div
     div.content
       h1= data.title + ' (' + data.techId + ')'
-      div(class="current-support-container " + data.core_support_string.sr.class)
-        p= 'Screen reader support level: ' + data.core_support_string.sr.string
-      div(class="current-support-container " + data.core_support_string.vc.class)
-        p= 'Voice Control support level: ' + data.core_support_string.vc.string
-      div(class="current-support-container " + data.core_support_string.kb.class)
-        p= 'Keyboard support level: ' + data.core_support_string.kb.string
+      each at_type in [{type: 'sr', title: 'Screen Reader'}, {type: 'vc', title: 'Voice Control'}, {type: 'kb', title: 'Keyboard'}]
+        if !data.supports_at.includes(at_type.type)
+          - continue
+        div(class="current-support-container " + data.core_support_string[at_type.type].class)
+          p= at_type.title + ' support level: ' + data.core_support_string[at_type.type].string
 
       if data.assertions.length
         h2 On this page

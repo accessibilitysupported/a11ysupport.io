@@ -8,13 +8,11 @@ The [Android Accessibility Suite can be found on the Google Play Store](https://
 
 ## How to find your version
 
-1. Open the Play Store
-2. Open the left menu
-3. Tap "My apps & games"
-4. Tap "Installed"
-5. Find and tap "Android Accessibility Suite"
-6. Scroll down and tap the "About this app" heading
-7. Scroll down, and find the version number under the "App info" heading
+1. Open settings
+2. Tap "accessibility"
+3. Tap "TalkBack"
+4. Tap "Settings"
+5. Scroll to the bottom, and the current TalkBack version will be listed
 
 ## Guides, Documentation, and resources
 

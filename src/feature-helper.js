@@ -343,10 +343,6 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 };
 
 helper.bubbleFeatureSupport = function(featureObject) {
-	// Initialize the feature with defaults
-	at_types.forEach(type => {
-		featureObject.core_support[type].push('u');
-	});
 	for (let i = 0; i < ATBrowsers.core_at.length; i++) {
 		featureObject.core_support_by_at[ATBrowsers.core_at[i]] = {};
 		featureObject.core_support_by_at[ATBrowsers.core_at[i]].values = ['u'];
