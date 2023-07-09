@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML inert tests</title>
+
+    <style>
+        [inert], [inert] * {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Inert tests</h1>
+
+<button>tab stop before</button>
+
+<h2>Example 1: inert container with both active and inactive elements</h2>
+
+<div inert>
+    <p>Inert paragraph of text</p>
+    <h3>Inert sub-heading</h3>
+    <button onclick="alert('button clicked')">inert button</button>
+    <a href="#" onclick="alert('link clicked')">Inert link</a>
+</div>
+
+<button>tab stop after</button>
+
+</body>
+</html>

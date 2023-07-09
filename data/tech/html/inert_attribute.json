@@ -1,0 +1,51 @@
+{
+  "id": "inert_attribute",
+  "title": "inert attribute",
+  "type": "attribute",
+  "description": "",
+  "references": [
+    {
+      "title": "WHATWG HTML spec for the inert attribute",
+      "url": "https://html.spec.whatwg.org/#the-inert-attribute"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "disable_keyboard",
+      "title": "disable keyboard functionality (navigation and operation)",
+      "strength": {
+        "sr": "MUST",
+        "vc": "MUST",
+        "kb": "MUST"
+      },
+      "rationale": "The inert attribute will prevent all click events for mouse users and hide content from assistive technologies, so it should also be removed from the tab order.",
+      "css_target": "inert",
+      "examples": [
+        "It is not possible to tab to anything contained within an element that has the inert attribute."
+      ],
+      "operation_modes": [
+        "sr/interaction",
+        "vc",
+        "kb"
+      ]
+    },
+    {
+      "id": "remove_from_reading_order",
+      "title": "remove content from the reading order",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA",
+        "kb": "NA"
+      },
+      "rationale": "Per the HTML specification, the inert attribute is expected to hide all contained content from assistive technologies.",
+      "css_target": "inert",
+      "examples": [
+        "It is not possible to read anything contained within an element that has the inert attribute."
+      ],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2023-07-07"
+}
