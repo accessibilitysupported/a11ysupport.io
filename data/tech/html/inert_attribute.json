@@ -11,17 +11,19 @@
   ],
   "assertions": [
     {
-      "id": "disable_keyboard",
-      "title": "disable keyboard functionality (navigation and operation)",
+      "id": "disable_functionality",
+      "title": "disable functionality of content (navigation and operation)",
       "strength": {
         "sr": "MUST",
         "vc": "MUST",
         "kb": "MUST"
       },
-      "rationale": "The inert attribute will prevent all click events for mouse users and hide content from assistive technologies, so it should also be removed from the tab order.",
+      "rationale": "The inert attribute will prevent all click events for mouse users and hide content from assistive technologies, so all functionality should be removed for assistive technologies. This includes removing the inert content from the tab order, and preventing any interactions with inert content.",
       "css_target": "inert",
       "examples": [
-        "It is not possible to tab to anything contained within an element that has the inert attribute."
+        "For keyboard: inert content will be removed from the tab order and it is not possible to trigger any functionality.",
+        "For screen readers: inert content will be removed from the tab order and it is not possible to trigger any functionality.",
+        "For voice control: it is not possible to trigger any inert functionality."
       ],
       "operation_modes": [
         "sr/interaction",
