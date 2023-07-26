@@ -107,7 +107,7 @@ let getFeatures = function(techId, buildDir) {
 
 			//populate failing tests
 			let found = false;
-			["sr", "vc"].forEach(type => {
+			ATBrowsers.types.forEach(type => {
 				if (found) {
 					return;
 				}
@@ -149,14 +149,8 @@ let getFeatures = function(techId, buildDir) {
 			title: feature.title,
 			keywords_string: feature.keywords_string,
 			possible_backend_expectations: feature.possible_backend_expectations,
-			core_support: {
-				sr: feature.core_support.sr,
-				vc: feature.core_support.vc
-			},
-			core_support_string: {
-				sr: feature.core_support_string.sr,
-				vc: feature.core_support_string.vc
-			},
+			core_support: {},
+			core_support_string: {},
 			core_support_by_at: feature.core_support_by_at,
 			core_support_by_at_browser: feature.core_support_by_at_browser,
 			failing_tests: failingTests,
@@ -171,20 +165,24 @@ let getFeatures = function(techId, buildDir) {
 			core_may_support_string: feature.core_may_support_string
 		};
 
+		ATBrowsers.types.forEach(at_type => {
+			simplifiedFeature.core_support[at_type] = feature.core_support[at_type];
+			simplifiedFeature.core_support_string[at_type] = feature.core_support_string[at_type];
+		});
+
 		feature.assertions.forEach(function(assertion, assertion_key) {
 			simplifiedFeature.assertions[assertion_key] = {
 				id: assertion.id,
 				title: assertion.title,
-				core_support: {
-					sr: assertion.core_support ? assertion.core_support.sr : [],
-					vc: assertion.core_support ? assertion.core_support.vc : []
-				},
-				core_support_string: {
-					sr: assertion.core_support_string ? assertion.core_support_string.sr : 'unknown',
-					vc: assertion.core_support_string ? assertion.core_support_string.vc : 'unknown'
-				},
+				core_support: {},
+				core_support_string: {},
 				core_support_by_at: assertion.core_support_by_at
 			}
+
+			ATBrowsers.types.forEach(at_type => {
+				simplifiedFeature.assertions[assertion_key].core_support[at_type] = assertion.core_support ? assertion.core_support[at_type] : [];
+				simplifiedFeature.assertions[assertion_key].core_support_string[at_type] = assertion.core_support_string? assertion.core_support_string[at_type] : 'unknown'
+			});
 		});
 
 		// Push to the list of features

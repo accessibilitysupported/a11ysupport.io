@@ -4,11 +4,10 @@ let now = new moment();
 
 //Grab the ATBrowsers data
 const ATBrowsers = require('./../data/ATBrowsers');
-const at_types = ['sr', 'vc', 'kb'];
 
 /**
  * Generic array sorting
- *
+ *ƒ
  * @param property
  * @returns {Function}
  */
@@ -80,7 +79,7 @@ helper.initalizeFeatureObject = function(featureObject, techId, id) {
 	featureObject.core_may_support = {};
 	featureObject.core_may_support_string = {};
 
-	at_types.forEach(at_type => {
+	ATBrowsers.types.forEach(at_type => {
 		featureObject.core_support[at_type] = [];
 		featureObject.core_support_string[at_type] = 'unknown';
 		featureObject.extended_support[at_type] = [];
@@ -362,7 +361,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 			featureObject.assertions[assertion_key].rationale = "";
 		}
 
-		at_types.forEach(type => {
+		ATBrowsers.types.forEach(type => {
 			let found = assertion.operation_modes.findIndex(element => element.startsWith(type));
 			if (found > -1) {
 				featureObject.assertions[assertion_key].supports_at.push(type);
@@ -404,7 +403,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 					core_support_string: {},
 					core_assertion_support_by_at_browser: assertion.core_support_by_at_browser
 				}
-				at_types.forEach(type => {
+				ATBrowsers.types.forEach(type => {
 					tmp_test_summary.core_support_string[type] = featureObject.tests[testIndex].core_support_string[type];
 				});
 
@@ -419,7 +418,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 				featureObject.assertions[assertion_key].extended_support_string = {};
 				featureObject.assertions[assertion_key].core_support_by_at = {};
 				featureObject.assertions[assertion_key].core_support_by_at_browser = {};
-				at_types.forEach(type => {
+				ATBrowsers.types.forEach(type => {
 					featureObject.assertions[assertion_key].core_support[type] = [];
 					featureObject.assertions[assertion_key].core_support_string[type] = 'unknown';
 					featureObject.assertions[assertion_key].extended_support[type] = [];
@@ -523,7 +522,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	featureObject.failing_dates.max = Math.max(...featureObject.failing_dates.all);
 
 	//Set support strings
-	at_types.forEach(type => {
+	ATBrowsers.types.forEach(type => {
 		featureObject.core_support_string[type] = helper.generateSupportString(featureObject.core_support[type]);
 		featureObject.extended_support_string[type] = helper.generateSupportString(featureObject.extended_support[type]);
 	});
@@ -586,7 +585,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 	featureObject.supports_at = [];
 	featureObject.assertions.forEach((assertion, assertion_key) => {
 		// aggregate must/should/may core support
-		at_types.forEach(type => {
+		ATBrowsers.types.forEach(type => {
 			if (assertion.supports_at.includes(type) && !featureObject.supports_at.includes(type)) {
 				featureObject.supports_at.push(type);
 			}
@@ -610,7 +609,7 @@ helper.bubbleFeatureSupport = function(featureObject) {
 		});
 	});
 
-	at_types.forEach(type => {
+	ATBrowsers.types.forEach(type => {
 		if (!featureObject.supports_at.includes(type)) {
 			featureObject.core_must_support_string[type] = helper.generateSupportString('na');
 			featureObject.core_should_support_string[type] = helper.generateSupportString('na');
@@ -895,7 +894,7 @@ helper.initalizeTestCase = function (testCase) {
 	testCase.core_should_support_string = {};
 	testCase.core_may_support = {};
 	testCase.core_may_support_string = {};
-	at_types.forEach(type => {
+	ATBrowsers.types.forEach(type => {
 		testCase.core_support[type] = [];
 		testCase.core_support_string[type] = 'unknown';
 		testCase.extended_support[type] = [];
@@ -923,7 +922,7 @@ helper.initalizeTestCase = function (testCase) {
 		// Look at what operations modes the assertion supports and set some helpful flags
 		// We have to do this here because tests are built before features.
 		let supports_by_at = {};
-		at_types.forEach(type => {
+		ATBrowsers.types.forEach(type => {
 			supports_by_at[type] = false;
 		});
 		testCase.assertions[assertion_key].supports_at = [];
@@ -932,7 +931,7 @@ helper.initalizeTestCase = function (testCase) {
 			console.log(feature, ref_assertion);
 		}
 
-		at_types.forEach(type => {
+		ATBrowsers.types.forEach(type => {
 			let found = ref_assertion.operation_modes.findIndex(element => element.startsWith(type));
 			if (found > -1) {
 				supports_by_at[type] = true;
@@ -972,7 +971,7 @@ helper.initalizeTestCase = function (testCase) {
 		testCase.assertions[assertion_key].extended_support = {};
 		testCase.assertions[assertion_key].extended_support_string = {};
 
-		at_types.forEach(type => {
+		ATBrowsers.types.forEach(type => {
 			testCase.assertions[assertion_key].core_support[type] = [];
 			testCase.assertions[assertion_key].core_support_string[type] = supports_by_at[type] ? 'unknown' : 'na';
 			testCase.assertions[assertion_key].extended_support[type] = [];
@@ -1230,7 +1229,7 @@ helper.initalizeTestCase = function (testCase) {
 			testCase.assertions[assertion_key].results[at].extended_support_string = helper.generateSupportString(testCase.assertions[assertion_key].results[at].extended_support);
 		}
 
-		at_types.forEach(type => {
+		ATBrowsers.types.forEach(type => {
 			//Set support strings for the assertion
 			testCase.assertions[assertion_key].core_support_string[type] = helper.generateSupportString(testCase.assertions[assertion_key].core_support[type]);
 			testCase.assertions[assertion_key].extended_support_string[type] = helper.generateSupportString(testCase.assertions[assertion_key].extended_support[type]);
@@ -1258,7 +1257,7 @@ helper.initalizeTestCase = function (testCase) {
 	});
 
 	//Set support strings for the test
-	at_types.forEach(type => {
+	ATBrowsers.types.forEach(type => {
 		testCase.core_support_string[type] = helper.generateSupportString(testCase.core_support[type]);
 		testCase.extended_support_string[type] = helper.generateSupportString(testCase.extended_support[type]);
 	});
