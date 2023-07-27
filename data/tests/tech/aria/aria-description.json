@@ -1,6 +1,6 @@
 {
-  "title": "aria-description attribute on a text input",
-  "description": "This test ensures that the accessible description is computed correctly when `aria-description` is on a text input.",
+  "title": "aria-description attribute test suite",
+  "description": "This test ensures that the accessible description is computed correctly when `aria-description` on a few types of elements.",
   "html_file": "aria/aria-description.html",
   "assertions": [
     {
@@ -12,6 +12,11 @@
       "feature_id": "aria/aria-description_attribute",
       "feature_assertion_id": "convey_description_change",
       "applied_to": "html/input(type-text)_element"
+    },
+    {
+      "feature_id": "aria/aria-description_attribute",
+      "feature_assertion_id": "contribute_to_description",
+      "applied_to": "html/span_element"
     }
   ],
   "commands": {
@@ -20,14 +25,14 @@
       "chrome": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label, edit, error colon {number}\"",
+          "output": "\"Example label, edit, error: {number}\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
@@ -39,20 +44,39 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"error colon {number}\"",
+          "output": "\"error: {number}\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "fail"
             }
           ]
         }
@@ -60,14 +84,14 @@
       "edge": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label, edit, error colon {number}\"",
+          "output": "\"Example label, edit, error: {number}\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
@@ -79,20 +103,39 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"error colon {number}\"",
+          "output": "\"error: {number}\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
               "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "fail"
             }
           ]
         }
@@ -100,14 +143,14 @@
       "firefox": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Example label, edit, error {number}\"",
+          "output": "\"Example label, edit, error: {number}\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
@@ -119,19 +162,38 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
             "focus_location": "target"
           },
           "after": "target",
-          "output": "(only the character was announced)",
+          "output": "\"error: {number}\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
               "result": "fail"
             }
           ]
@@ -142,7 +204,7 @@
       "edge": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -161,7 +223,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -177,6 +239,25 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -184,7 +265,7 @@
       "chrome": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -203,7 +284,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -216,6 +297,25 @@
               "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "convey_description_change",
               "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"I'm help text target button tab stop after\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
               "result": "pass"
             }
           ]
@@ -224,7 +324,7 @@
       "edge": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -243,7 +343,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -259,19 +359,38 @@
               "result": "pass"
             }
           ]
-        }
-      ],
-      "firefox": [
+        },
         {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "command": "next_item",
+          "css_target": "span[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"example, label, edit, error {number}, blank\"",
+          "output": "\"I'm help text target button tab stop after\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_focusable_item",
+          "css_target": "input[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"example, label, edit, has auto complete error {number}, blank\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
@@ -283,7 +402,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -299,6 +418,25 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"I'm help text target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -306,7 +444,7 @@
       "and_chr": [
         {
           "command": "next_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -325,7 +463,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -341,6 +479,25 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target, I'm help text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -349,7 +506,7 @@
       "ios_saf": [
         {
           "command": "next_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -368,7 +525,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -384,6 +541,25 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -391,7 +567,7 @@
       "safari": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -410,7 +586,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -426,6 +602,25 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "fail"
+            }
+          ]
         }
       ]
     },
@@ -433,7 +628,7 @@
       "firefox": [
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -452,7 +647,7 @@
         },
         {
           "command": "enter_text",
-          "css_target": "*[aria-describedby]",
+          "css_target": "input[aria-description]",
           "before": {
             "mode": "auto",
             "virtual_location": "target",
@@ -468,6 +663,25 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "span[aria-description]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"target, I'm help text\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-description_attribute",
+              "feature_assertion_id": "contribute_to_description",
+              "applied_to": "html/span_element",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -477,6 +691,10 @@
   },
   "history": [
     {
+      "date": "2023-07-26",
+      "message": "updated all results and added a test case for aria-description applied to a static element (span)"
+    },
+    {
       "date": "2021-10-19",
       "message": "Add test"
     }
@@ -485,94 +703,94 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "94",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-10-19"
+          "at_version": "2023.2306.37",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-07-26"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "94",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-10-19"
+          "at_version": "2023.2306.37",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2022-07-26"
         },
         "firefox": {
-          "at_version": "2021.2107.12",
-          "browser_version": "93",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-10-19"
+          "at_version": "2023.2306.37",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2022-07-26"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 21h1",
-          "browser_version": "94",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-10-19"
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2022-07-26"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "94",
-          "date": "2021-10-19"
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "115",
+          "date": "2022-07-26"
         },
         "edge": {
-          "at_version": "2021.2",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "94",
-          "date": "2021-10-19"
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "115",
+          "date": "2022-07-26"
         },
         "firefox": {
-          "at_version": "2021.2",
-          "os_version": "Windows 10 version 1909",
-          "browser_version": "93",
-          "date": "2021-10-19"
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "115",
+          "date": "2022-07-26"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.38.0",
-          "browser_version": "93",
-          "os_version": "Ubuntu 21.04",
-          "date": "2021-10-19"
+          "at_version": "44.0",
+          "browser_version": "115",
+          "os_version": "Ubuntu 23.04",
+          "date": "2023-07-26"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "15.0.1",
-          "browser_version": "15.0.1",
-          "os_version": "15.0.1",
-          "date": "2021-10-19"
+          "at_version": "16.6",
+          "browser_version": "16.6",
+          "os_version": "16.6",
+          "date": "2023-07-26"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "11.6",
-          "browser_version": "15.0",
-          "os_version": "11.6",
-          "date": "2021-10-19"
+          "at_version": "13.5",
+          "browser_version": "16.6",
+          "os_version": "13.5",
+          "date": "2023-07-26"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "9.1",
-          "browser_version": "94",
-          "os_version": "7.0",
-          "date": "2021-10-19"
+          "at_version": "13.5",
+          "browser_version": "115",
+          "os_version": "13",
+          "date": "2023-07-26"
         }
       }
     }
