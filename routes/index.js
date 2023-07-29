@@ -17,6 +17,17 @@ router.get('/', function(req, res, next) {
 	});
 });
 
+router.get('/updates', function(req, res, next) {
+	let updates = require(__dirname+'/../build/recent_updates.json');
+	res.render('updates', {
+		title: 'Recent Updates | Accessibility Support',
+		updates: updates,
+		ATBrowsers: require(__dirname+'/../data/ATBrowsers.json'),
+		testHelper: testHelper,
+		moment: moment
+	});
+});
+
 router.get('/contribute', function(req, res, next) {
 	let markdown = fs.readFileSync(__dirname+'/../CONTRIBUTING.md', 'utf8');
 	let MarkdownIt = require('markdown-it');

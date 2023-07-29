@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div.content
+        ul
+            each update, index in updates
+                if (index > 5)
+                    - break
+                li #{update.date}!{' '}
+                    a(href='/tests/'+testHelper.makeSafe(update.testID)) #{update.title}
+                    span !{' '} - #{update.message}

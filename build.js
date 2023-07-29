@@ -9,6 +9,7 @@ let testMap = {};
 let allTests = [];
 let featureMap = {};
 let allFeatures = [];
+let recentUpdates = [];
 
 /**
  * Generic array sorting
@@ -32,7 +33,6 @@ let sortByKeys = function(unordered) {
 	});
 	return ordered;
 };
-
 
 let initalizeFeatures = function(techId, buildDir) {
 	let dir_feature = __dirname + '/data/tech/'+techId;
@@ -314,6 +314,15 @@ testFiles.forEach(function(file) {
 		assertions: []
 	};
 
+	recentUpdates.push(
+		{
+			testID: test.id,
+			title: test.title,
+			date: simplifiedTest.last_update.date,
+			message: simplifiedTest.last_update.message,
+		}
+	);
+
 	var feature_titles = [];
 	test.assertions.forEach(function(assertion, assertion_key) {
 		let tech_id = assertion.feature_id.split('/')[0];
@@ -343,10 +352,6 @@ testFiles.forEach(function(file) {
 	allTests.push(simplifiedTest);
 });
 
-allTests.forEach(function(test, test_key) {
-
-});
-
 
 let commands = {};
 commands.sr = {};
@@ -369,6 +374,7 @@ commands.vc = sortByKeys(commands.vc);
 allTests.sort(sortByProperty('title'));
 allFeatures.sort(sortByProperty('title'));
 supportPoints.sort(sortByProperty('priority'));
+recentUpdates.sort(sortByProperty('date')).reverse();
 
 fs.writeFileSync(buildDir+'/tech.json', JSON.stringify(tech, null, 2));
 fs.writeFileSync(buildDir+'/test_map.json', JSON.stringify(testMap, null, 2));
@@ -376,3 +382,4 @@ fs.writeFileSync(buildDir+'/features.json', JSON.stringify(allFeatures, null, 2)
 fs.writeFileSync(buildDir+'/tests.json', JSON.stringify(allTests, null, 2));
 fs.writeFileSync(buildDir+'/support_points.json', JSON.stringify(supportPoints, null, 2));
 fs.writeFileSync(buildDir+'/command_matrix.json', JSON.stringify(commands, null, 2));
+fs.writeFileSync(buildDir+'/recent_updates.json', JSON.stringify(recentUpdates, null, 2));
