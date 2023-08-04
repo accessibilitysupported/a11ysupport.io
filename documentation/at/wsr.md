@@ -1,6 +1,6 @@
 # Windows Speech Recognition
 
-Voice Control for iOS is a voice control system that can be found in MacOS 10.15 and greater.
+Windows Speech Recognition is a voice control system. It's an older solution, and is being replaced by [Windows Voice Access](/learn/at/va_windows).
 
 There are 2 types of overlays that you can turn on.
 
@@ -11,7 +11,7 @@ There are 2 types of overlays that you can turn on.
 
 ## Install
 
-Windows Speech Recognition is built into Windows.
+Windows Speech Recognition is built into Windows. You can enable it in Settings > Accessibility > speech.
 
 ## How to find your version
 
