@@ -1,6 +1,6 @@
 # Windows Voice Access
 
-Windows Speech Recognition is a modern voice control system. It appears to be replacing [Windows Speech Recognition](/learn/at/wsr).
+Windows Voice Access is a modern voice control system. It appears to be replacing [Windows Speech Recognition](/learn/at/wsr).
 
 There are 2 types of overlays that you can turn on.
 
