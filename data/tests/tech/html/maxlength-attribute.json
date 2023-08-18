@@ -26,7 +26,7 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"blank, edit\"",
+          "output": "\"pin number (4 characters), edit\"",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -67,7 +67,7 @@
           },
           "after": "target",
           "output": "The character that was typed was echoed by the screen reader as if it were actually entered",
-          "notes": "Attempt to enter text once the maximum length has been reached",
+          "notes": "Attempted to enter text once the maximum length has been reached",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -89,7 +89,7 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"blank, edit\"",
+          "output": "\"pin number (4 characters), edit\"",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -130,7 +130,7 @@
           },
           "after": "target",
           "output": "The character that was typed was echoed by the screen reader as if it were actually entered",
-          "notes": "Attempt to enter text once the maximum length has been reached",
+          "notes": "Attempted to enter text once the maximum length has been reached",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -215,7 +215,7 @@
             "virtual_location": "before target"
           },
           "after": "target",
-          "output": "\"pin number (4 characters), edit, type in text\"",
+          "output": "\"pin number (4 characters), edit\"",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -256,7 +256,7 @@
           },
           "after": "target",
           "output": "The character that was typed was echoed by the screen reader as if it were actually entered",
-          "notes": "Attempt to enter text once the maximum length has been reached",
+          "notes": "Attempted to enter text once the maximum length has been reached",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -556,15 +556,14 @@
             "virtual_location": "target"
           },
           "after": "target",
-          "output": "The character that was typed was echoed by the screen reader as if it were actually entered",
-          "notes": "Attempt to enter text once the maximum length has been reached",
+          "output": "\"Deleted <overflow text>\"",
+          "notes": "Attempted to enter text once the maximum length has been reached. Text beyond limit was actually entered, even visually. However, as soon a focus left the field, the value was truncated to the limit and an announcement was made to convey the deletion.",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
               "feature_assertion_id": "convey_max_length_reached",
               "applied_to": "html/input(type-text)_element",
-              "result": "fail",
-              "notes": "was able to enter more than the maxlength, but once the keyboard was closed, the value was truncated to the maxlength"
+              "result": "pass"
             }
           ]
         }
@@ -667,7 +666,7 @@
           },
           "after": "target",
           "output": "nothing was conveyed when attempting to enter text beyond the max length",
-          "notes": "Attempt to enter text once the maximum length has been reached",
+          "notes": "This passes because the screen reader does not suggest the input was accepted by echnoing the character press after the limit was reached.",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -732,7 +731,7 @@
           },
           "after": "target",
           "output": "The character that was typed was echoed by the screen reader as if it were actually entered",
-          "notes": "Attempt to enter text once the maximum length has been reached",
+          "notes": "Attempted to enter text once the maximum length has been reached",
           "results": [
             {
               "feature_id": "html/maxlength_attribute",
@@ -754,6 +753,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2023-08-16",
+      "message": "all test results were updated. Talkback now supports."
     }
   ],
   "versions": {
@@ -770,16 +773,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-08-07"
+          "at_version": "2023.2307.37",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-16"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-08-07"
+          "at_version": "2023.2307.37",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-16"
         },
         "ie": {
           "at_version": "2020.2003.13",
@@ -788,52 +791,52 @@
           "date": "2020-04-04"
         },
         "firefox": {
-          "at_version": "2020.2003.13",
-          "os_version": "Windows 10 version 1909",
-          "browser_version": "74",
-          "date": "2020-04-04"
+          "at_version": "2023.2307.37",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "116",
+          "date": "2023-08-16"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 1909",
-          "os_version": "Windows 10 version 1909",
-          "browser_version": "44",
-          "date": "2020-04-04"
+          "at_version": "Windows 11 version 22H2",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "115",
+          "date": "2023-08-16"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "116",
+          "date": "2023-08-16"
         },
         "edge": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "at_version": "2023.1",
+          "os_version": "Windows 11 version 22H2",
+          "browser_version": "115",
+          "date": "2023-08-16"
         },
         "firefox": {
           "at_version": "2019.3.1",
           "os_version": "Windows 10 version 1909",
-          "browser_version": "74",
-          "date": "2020-04-04"
+          "browser_version": "116",
+          "date": "2023-08-16"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.1",
-          "os_version": "10",
-          "browser_version": "80",
-          "date": "2020-04-04"
+          "at_version": "13.5",
+          "os_version": "13",
+          "browser_version": "116",
+          "date": "2023-08-16"
         }
       }
     },
@@ -850,29 +853,29 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.4",
-          "os_version": "13.4",
-          "browser_version": "13.4",
-          "date": "2020-04-04"
+          "at_version": "16.6",
+          "os_version": "16.6",
+          "browser_version": "16.6",
+          "date": "2023-08-16"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.4",
-          "os_version": "10.15.4",
-          "browser_version": "13.1",
-          "date": "2020-04-04"
+          "at_version": "13.5",
+          "os_version": "13.5",
+          "browser_version": "16.6",
+          "date": "2023-08-16"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.34.0",
-          "os_version": "Ubuntu 19.10",
-          "browser_version": "74",
+          "at_version": "44.0",
+          "os_version": "Ubuntu 23.04",
+          "browser_version": "115",
           "date": "2020-04-04"
         }
       }
