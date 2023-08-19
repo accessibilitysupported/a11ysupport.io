@@ -64,7 +64,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -75,47 +75,9 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button menu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button menu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
-              "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -140,6 +102,25 @@
         },
         {
           "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup listbox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
           "css_target": "*[aria-haspopup=\"tree\"]",
           "before": {
             "mode": "auto",
@@ -147,30 +128,49 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button menu\"",
+          "output": "\"action button has popup tree\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button menu\"",
+          "output": "\"action button has popup grid\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup dialog\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -199,7 +199,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -210,47 +210,9 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button menu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button menu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
-              "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -275,6 +237,25 @@
         },
         {
           "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup listbox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
           "css_target": "*[aria-haspopup=\"tree\"]",
           "before": {
             "mode": "auto",
@@ -282,30 +263,49 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button menu\"",
+          "output": "\"action button has popup tree\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button menu\"",
+          "output": "\"action button has popup grid\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup dialog\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -469,7 +469,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -480,47 +480,9 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button menu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button menu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
-              "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -545,6 +507,25 @@
         },
         {
           "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup listbox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
           "css_target": "*[aria-haspopup=\"tree\"]",
           "before": {
             "mode": "auto",
@@ -552,30 +533,49 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button menu\"",
+          "output": "\"action button has popup tree\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button menu\"",
+          "output": "\"action button has popup grid\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup dialog\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -606,58 +606,21 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button\"",
+          "output": "\"action button collapsed has popup\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
-              "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "partial",
+              "notes": "partial because of the \"has popup\" announcement. This, however, is very generic and doesn't say which kind of popup."
             }
           ]
         },
@@ -670,13 +633,33 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button\"",
+          "output": "\"action button collapsed has popup\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_menu",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "partial",
+              "notes": "partial because of the \"has popup\" announcement. This, however, is very generic and doesn't say which kind of popup."
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "partial"
             }
           ]
         },
@@ -689,32 +672,51 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button\"",
+          "output": "\"action button has popup\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "partial"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action button\"",
+          "output": "\"action button has popup\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button has popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
+              "applied_to": "html/button_element",
+              "result": "partial"
             }
           ]
         }
@@ -743,7 +745,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -754,7 +756,64 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_menu",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"tree\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
               "result": "fail"
             }
@@ -781,77 +840,20 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action menu button subMenu\"",
+          "output": "\"action button subMenu\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"menu\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action menu button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_menu",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"tree\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action menu button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_tree",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action menu button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
-              "applied_to": "html/button_element",
-              "result": "pass"
             }
           ]
         }
@@ -878,7 +880,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -889,7 +891,64 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"menu\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_menu",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"tree\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
               "result": "fail"
             }
@@ -916,77 +975,20 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action menu button subMenu\"",
+          "output": "\"action button subMenu\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"menu\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action menu button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_menu",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"tree\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action menu button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_tree",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action menu button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
-              "applied_to": "html/button_element",
-              "result": "pass"
             }
           ]
         }
@@ -1013,7 +1015,26 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action menu button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_true",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"menu\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1024,7 +1045,45 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_menu",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"tree\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action button subMenu\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
               "result": "fail"
             }
@@ -1051,7 +1110,7 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1062,66 +1121,9 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"menu\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_menu",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"tree\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action button subMenu\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_tree",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "action menu button subMenu",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
-              "applied_to": "html/button_element",
-              "result": "pass"
             }
           ]
         }
@@ -1285,39 +1287,39 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, pop up button\"",
+          "output": "\"action, menu pop up button\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
+          "css_target": "*[aria-haspopup=\"menu\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, pop up button\"",
+          "output": "\"action, menu pop up button\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
+              "feature_assertion_id": "convey_value_menu",
               "applied_to": "html/button_element",
-              "result": "partial"
+              "result": "pass"
             }
           ]
         },
@@ -1335,25 +1337,6 @@
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_listbox",
-              "applied_to": "html/button_element",
-              "result": "partial"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-haspopup=\"menu\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, pop up button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_menu",
               "applied_to": "html/button_element",
               "result": "partial"
             }
@@ -1380,7 +1363,7 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
@@ -1391,7 +1374,26 @@
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
+              "applied_to": "html/button_element",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, pop up button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "partial"
             }
@@ -1423,56 +1425,18 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, popup button, dialog popup\"",
+          "output": "\"action, popup button, menu popup\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, popup button, grid popup\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, popup button, list box popup\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -1499,6 +1463,25 @@
         },
         {
           "command": "next_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, popup button, list box popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
           "css_target": "*[aria-haspopup=\"tree\"]",
           "before": {
             "mode": "auto",
@@ -1518,18 +1501,37 @@
         },
         {
           "command": "next_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, popup button, menu popup\"",
+          "output": "\"action, popup button, grid popup\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, popup button, dialog popup\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -1560,56 +1562,18 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, dialog popup, button\"",
+          "output": "\"action, menu popup, button\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, grid popup, button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "pass"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, list box popup, button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -1636,6 +1600,25 @@
         },
         {
           "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, list box popup, button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
           "css_target": "*[aria-haspopup=\"tree\"]",
           "before": {
             "mode": "auto",
@@ -1655,18 +1638,37 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, menu popup, button\"",
+          "output": "\"action, grid popup, button\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
+              "applied_to": "html/button_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, dialog popup, button\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
               "applied_to": "html/button_element",
               "result": "pass"
             }
@@ -1697,58 +1699,20 @@
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "css_target": "*[aria-haspopup=\"true\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, push button\"",
+          "output": "\"action, push button, opens menu\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_dialog",
+              "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"grid\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, push button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_grid",
-              "applied_to": "html/button_element",
-              "result": "fail"
-            }
-          ]
-        },
-        {
-          "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"listbox\"]",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "before target",
-            "focus_location": "before target"
-          },
-          "after": "target",
-          "output": "\"action, push button\"",
-          "results": [
-            {
-              "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_listbox",
-              "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1761,13 +1725,32 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, push button\"",
+          "output": "\"action, push button, opens menu\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_menu",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"listbox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, push button, opens listbox\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_listbox",
+              "applied_to": "html/button_element",
+              "result": "pass"
             }
           ]
         },
@@ -1780,32 +1763,51 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, push button\"",
+          "output": "\"action, push button, opens tree\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_tree",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
         {
           "command": "next_focusable_item",
-          "css_target": "*[aria-haspopup=\"true\"]",
+          "css_target": "*[aria-haspopup=\"grid\"]",
           "before": {
             "mode": "auto",
             "virtual_location": "before target",
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, push button\"",
+          "output": "\"action, push button, opens grid\"",
           "results": [
             {
               "feature_id": "aria/aria-haspopup_attribute",
-              "feature_assertion_id": "convey_value_true",
+              "feature_assertion_id": "convey_value_grid",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_focusable_item",
+          "css_target": "*[aria-haspopup=\"dialog\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"action, push button, opens dialog\"",
+          "results": [
+            {
+              "feature_id": "aria/aria-haspopup_attribute",
+              "feature_assertion_id": "convey_value_dialog",
+              "applied_to": "html/button_element",
+              "result": "pass"
             }
           ]
         }
@@ -1835,22 +1837,26 @@
     {
       "date": "2021-07-28",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2023-08-16",
+      "message": "Updated results. Jaws and Orca now support."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-07-28"
+          "at_version": "2023.2307.37",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-16"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-07-28"
+          "at_version": "2023.2307.37",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-16"
         },
         "ie": {
           "at_version": "2019.1906.10",
@@ -1859,20 +1865,20 @@
           "date": "2019-06-28"
         },
         "firefox": {
-          "at_version": "2019.1906.10",
-          "browser_version": "67",
-          "os_version": "Windows 10 version 1903",
-          "date": "2019-06-28"
+          "at_version": "2023.2307.37",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-16"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 1903",
-          "browser_version": "44.17763",
-          "os_version": "Windows 10 version 1903",
-          "date": "2019-06-28"
+          "at_version": "Windows 11 version 22h2",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-16"
         }
       }
     },
@@ -1880,21 +1886,21 @@
       "browsers": {
         "chrome": {
           "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-07-28"
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "116",
+          "date": "2023-08-16"
         },
         "edge": {
           "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-07-28"
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "115",
+          "date": "2023-08-16"
         },
         "firefox": {
           "at_version": "2019.1.1",
-          "browser_version": "67",
-          "os_version": "Windows 10 version 1903",
-          "date": "2019-06-28"
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-16"
         },
         "ie": {
           "at_version": "2019.1.1",
@@ -1907,30 +1913,30 @@
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.31.4",
-          "browser_version": "69",
-          "os_version": "Ubuntu 19.04",
-          "date": "2019-09-16"
+          "at_version": "44.0",
+          "os_version": "Ubuntu 23.04",
+          "browser_version": "115",
+          "date": "2020-04-04"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.1",
-          "browser_version": "13.1",
-          "os_version": "13.1",
-          "date": "2019-10-09"
+          "at_version": "16.6",
+          "os_version": "16.6",
+          "browser_version": "16.6",
+          "date": "2023-08-16"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15",
-          "browser_version": "13.0.2",
-          "os_version": "10.15",
-          "date": "2019-10-09"
+          "at_version": "13.5",
+          "os_version": "13.5",
+          "browser_version": "16.6",
+          "date": "2023-08-16"
         }
       }
     },
@@ -1940,7 +1946,7 @@
           "at_version": "7.3.0",
           "browser_version": "75",
           "os_version": "7.0",
-          "date": "2019-07-27"
+          "date": "2023-08-16"
         }
       }
     }
