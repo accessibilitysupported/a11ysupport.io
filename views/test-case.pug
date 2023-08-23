@@ -55,7 +55,7 @@ block content
 
             h2(id="test-html") Test HTML
             if (test.html_file.startsWith('http'))
-                a(href=test.html_file) view the external test
+                a(href=test.html_file).open-test-page view the external test
             else if (testHTML && testHTML.split(/\r\n|\r|\n/).length < 30)
                 a(href="/tests/html/" + test.html_file).open-test-page Open the test case HTML file
                 pre.test-html

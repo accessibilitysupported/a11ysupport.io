@@ -1,7 +1,7 @@
 {
-  "title": "DRAFT ARIA 1.2 Editable Combobox With List Autocomplete Example",
-  "description": "This is a test of the DRAFT ARIA 1.2 combobox",
-  "html_file": "https://w3c.github.io/aria-practices/examples/combobox/combobox-autocomplete-list.html",
+  "title": "APG Editable Combobox With List Autocomplete Example",
+  "description": "This is a test of the Aria Authoring Practices Editable Combobox With List Autocomplete Example",
+  "html_file": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
   "assertions": [
     {
       "feature_id": "aria/combobox_role",
@@ -747,6 +747,63 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "activate_role",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "",
+          "notes": "na because there is not a specific command for the option role",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "na"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"click states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_role",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"click button\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -786,7 +843,8 @@
               "feature_id": "aria/aria-autocomplete_attribute",
               "feature_assertion_id": "convey_value_list",
               "applied_to": "aria/combobox_role",
-              "result": "fail"
+              "result": "fail",
+              "notes": "Fail because the announcement is the same as if aria-autocomplete was set to none."
             },
             {
               "feature_id": "aria/aria-haspopup_attribute",
@@ -811,13 +869,13 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
-          "output": "\"edit, combo\"",
+          "output": "\"State, edit, combo, collapsed, alabama\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/combobox_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -853,7 +911,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"states list box, nebraska, 1 of 6, to move to an item press the arrow keys\"",
+          "output": "\"states list with 6 items, nebraska, 1 of 6, to move to an item press the arrow keys\"",
           "results": [
             {
               "feature_id": "aria/listbox_role",
@@ -903,7 +961,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"move to controlled element, states list box\"",
+          "output": "\"move to controlled element, list box\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -989,7 +1047,7 @@
               "navigate_to_button_2": "next_button"
             }
           },
-          "output": "\"move to controlled element, states list box\"",
+          "output": "\"move to controlled element, list box\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -1035,7 +1093,8 @@
               "feature_id": "aria/aria-autocomplete_attribute",
               "feature_assertion_id": "convey_value_list",
               "applied_to": "aria/combobox_role",
-              "result": "fail"
+              "result": "fail",
+              "notes": "Fail because the announcement is the same as if aria-autocomplete was set to none."
             },
             {
               "feature_id": "aria/aria-haspopup_attribute",
@@ -1060,13 +1119,13 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
-          "output": "\"edit, combo\"",
+          "output": "\"State, edit, combo, collapsed, alabama\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/combobox_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1102,7 +1161,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"states list box, nebraska, 1 of 6, to move to an item press the arrow keys\"",
+          "output": "\"states list with 6 items, nebraska, 1 of 6, to move to an item press the arrow keys\"",
           "results": [
             {
               "feature_id": "aria/listbox_role",
@@ -1152,7 +1211,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"move to controlled element, states list box\"",
+          "output": "\"move to controlled element, list box\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -1238,7 +1297,7 @@
               "navigate_to_button_2": "next_button"
             }
           },
-          "output": "\"move to controlled element, states list box\"",
+          "output": "\"move to controlled element, list box\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -1538,7 +1597,8 @@
               "feature_id": "aria/aria-autocomplete_attribute",
               "feature_assertion_id": "convey_value_list",
               "applied_to": "aria/combobox_role",
-              "result": "fail"
+              "result": "fail",
+              "notes": "Fail because the announcement is the same as if aria-autocomplete was set to none."
             },
             {
               "feature_id": "aria/aria-haspopup_attribute",
@@ -1563,13 +1623,13 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
-          "output": "\"ne, edit, combo\"",
+          "output": "\"State, edit, combo, collapsed, alabama\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/combobox_role",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1605,7 +1665,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"states list box, nebraska, 1 of 6, to move to an item press the arrow keys\"",
+          "output": "\"states list with 6 items, nebraska, 1 of 6, to move to an item press the arrow keys\"",
           "results": [
             {
               "feature_id": "aria/listbox_role",
@@ -1655,7 +1715,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"move to controlled element, states list box\"",
+          "output": "\"move to controlled element, list box\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -1727,7 +1787,7 @@
               "feature_id": "aria/aria-controls_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "html/button_element",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -1741,7 +1801,7 @@
               "navigate_to_button_2": "next_button"
             }
           },
-          "output": "\"move to controlled element, states list box\"",
+          "output": "\"move to controlled element, list box\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -1758,7 +1818,7 @@
         {
           "command": "next_focusable_item",
           "procedure_key": "navigate_forward_to_combobox_collapsed_with_no_value",
-          "output": "\"state, combo, edit, has popup, scan off\"",
+          "output": "\"scan off, state, combo, edit, collapsed, has popup\"",
           "results": [
             {
               "feature_id": "aria/combobox_role",
@@ -1821,14 +1881,13 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
-          "output": "\"\"",
-          "notes": "unable to test - impossible to move the virtual cursor out of the combobox input without automatically collapsing the list box.",
+          "output": "\"state, ne, combo, edit, expanded, has popup ne, scan off\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/combobox_role",
-              "result": "na"
+              "result": "pass"
             }
           ]
         },
@@ -1864,7 +1923,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"states, nebraska, 1 of 6, selected\"",
+          "output": "\"scan, states, nebraska, 1 of 6, selected\"",
           "results": [
             {
               "feature_id": "aria/listbox_role",
@@ -1903,7 +1962,8 @@
               "feature_id": "aria/aria-activedescendant_attribute",
               "feature_assertion_id": "convey_value",
               "applied_to": "aria/combobox_role",
-              "result": "pass"
+              "result": "partial",
+              "notes": "Partial because Narrator switched to scan mode, and is no longer respecting the activedescendant. However, if you manually exit scan mode, activedescendant works as expected."
             }
           ]
         },
@@ -1915,7 +1975,7 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "each option was conveyed. After last option was conveyed, focus was looped back to the first option.",
+          "output": "each option was conveyed. After last option was conveyed, the cursor exited the listbox, but the end boundary was conveyed.",
           "results": [
             {
               "feature_id": "aria/listbox_role",
@@ -1927,7 +1987,8 @@
               "feature_id": "aria/aria-activedescendant_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "aria/combobox_role",
-              "result": "pass"
+              "result": "partial",
+              "notes": "partial because Narrator stayed in scan mode and did not respect activedescendant. However, if you manually exit scan mode, activedescendant works as expected."
             }
           ]
         },
@@ -1957,26 +2018,25 @@
         {
           "command": "next_button",
           "procedure_key": "navigate_forward_to_button_for_combobox_expanded_with_no_value",
-          "output": "\"\"",
-          "notes": "unable to test - impossible to move the virtual cursor out of the combobox input without automatically collapsing the list box.",
+          "output": "states, button expanded",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "na"
+              "result": "pass"
             },
             {
               "feature_id": "aria/aria-controls_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "html/button_element",
-              "result": "na"
+              "result": "fail"
             },
             {
               "feature_id": "aria/aria-controls_attribute",
               "feature_assertion_id": "allow_jump_to_controlled",
               "applied_to": "html/button_element",
-              "result": "na"
+              "result": "fail"
             }
           ]
         }
@@ -2755,7 +2815,8 @@
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "aria/combobox_role",
-              "result": "na"
+              "result": "na",
+              "notes": "na because list box does not expand"
             },
             {
               "feature_id": "aria/combobox_role",
@@ -2773,7 +2834,7 @@
               "navigate_to_button": "nex_item"
             }
           },
-          "output": "\"expanded, showing US QWERTY keyboard\"",
+          "output": "\"expanded, 6 auto complete options available.\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
@@ -2791,7 +2852,7 @@
               "navigate_to_combobox": "next_item"
             }
           },
-          "output": "\"states, list box\" (swipe right again) \"nebraska\"",
+          "output": "\"states, list box\" (swipe right again) \"end of example, splitter\"",
           "results": [
             {
               "feature_id": "aria/listbox_role",
@@ -2806,13 +2867,12 @@
             {
               "feature_id": "aria/option_role",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "aria/option_role",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "implied by listbox context"
+              "result": "fail"
             },
             {
               "feature_id": "aria/option_role",
@@ -2823,7 +2883,8 @@
               "feature_id": "aria/aria-selected_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/option_role",
-              "result": "fail"
+              "result": "na",
+              "notes": "na because it was not possible to navigate to an option and test"
             },
             {
               "feature_id": "aria/aria-activedescendant_attribute",
@@ -2842,13 +2903,13 @@
               "navigate_to_combobox": "next_item"
             }
           },
-          "output": "each option was conveyed. When the last option received focus, an earcon was made. No other indication of boundaries was given.",
+          "output": "all options were skipped",
           "results": [
             {
               "feature_id": "aria/listbox_role",
               "feature_assertion_id": "convey_boundaries",
               "result": "pass",
-              "notes": "boundaries implied starting role + earcon at the end"
+              "notes": "boundaries implied starting role. It was not possible to navigate within."
             },
             {
               "feature_id": "aria/aria-activedescendant_attribute",
@@ -2920,14 +2981,14 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "input was not focused",
+          "output": "input was flagged",
           "notes": "said \"tap state\"",
           "results": [
             {
               "feature_id": "aria/combobox_role",
               "feature_assertion_id": "convey_name",
               "applied_to": "html/input(type-text)_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -2984,6 +3045,44 @@
           "results": [
             {
               "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"tap states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
               "feature_assertion_id": "convey_role",
               "result": "pass"
             }
@@ -3109,13 +3208,15 @@
               "navigate_to_button": "nex_item"
             }
           },
-          "output": "\"states, expanded\"",
+          "output": "\"Sate, ne, combobox, list box popup, expanded, double tap to collapse\"",
+          "notes": "focus was moved to the combobox after activating the button.",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "aria/combobox_role",
-              "result": "pass"
+              "result": "na",
+              "notes": "na because focus did not remain on the button - so this is not testable."
             }
           ]
         },
@@ -3127,12 +3228,12 @@
               "navigate_to_combobox": "next_item"
             }
           },
-          "output": "\"nebraska, list start\"",
+          "output": "\"states, nebraska, list start\"",
           "results": [
             {
               "feature_id": "aria/listbox_role",
               "feature_assertion_id": "convey_name",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/listbox_role",
@@ -3355,35 +3456,35 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "\"nebraska, selected, 1 of 6\"",
+          "output": "nothing was conveyed",
           "results": [
             {
               "feature_id": "aria/option_role",
               "feature_assertion_id": "convey_name",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "aria/option_role",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "implied by listbox context (although it won't always be announced) + combobox role + position information + end boundary"
+              "result": "fail",
+              "notes": ""
             },
             {
               "feature_id": "aria/option_role",
               "feature_assertion_id": "convey_posinset",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "aria/aria-selected_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/option_role",
-              "result": "pass"
+              "result": "fail"
             },
             {
               "feature_id": "aria/aria-activedescendant_attribute",
               "feature_assertion_id": "convey_value",
               "applied_to": "aria/combobox_role",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -3413,19 +3514,18 @@
               "navigate_to_combobox": "next_focusable_item"
             }
           },
-          "output": "each option was conveyed.",
+          "output": "contents of listbox were skipped entirely",
           "results": [
             {
               "feature_id": "aria/listbox_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass",
-              "notes": "boundaries implied by position in set information"
+              "result": "fail"
             },
             {
               "feature_id": "aria/aria-activedescendant_attribute",
               "feature_assertion_id": "convey_change_in_value",
               "applied_to": "aria/combobox_role",
-              "result": "pass"
+              "result": "fail"
             }
           ]
         },
@@ -3588,13 +3688,14 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_forward_to_combobox_expanded_with_value",
-          "output": "\"state, editable combobox, ne, states, collapsed, push button\"",
+          "output": "\"editable combobox, ne, states, expanded, push button\"",
           "results": [
             {
               "feature_id": "aria/aria-expanded_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "aria/combobox_role",
-              "result": "pass"
+              "result": "fail",
+              "notes": "fail because the state was conveyed, but only because orca read both the combobox and the button. The conveyed state in the part of the announcement from the button, not the combobox."
             }
           ]
         },
@@ -3786,6 +3887,25 @@
               "result": "pass"
             }
           ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"tap states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -3868,6 +3988,44 @@
               "result": "fail"
             }
           ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"tap states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
         }
       ]
     },
@@ -3922,7 +4080,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "role was not activated",
+          "output": "role was activated",
           "notes": "said \"click alaska\"",
           "results": [
             {
@@ -3941,11 +4099,405 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "role was not flagged with a number",
+          "output": "role was flagged with a number",
           "notes": "said \"show numbers\"",
           "results": [
             {
               "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"click states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"combobox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click state\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"combobox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was flagged with a number",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click alaska\"",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was flagged with a number",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"click states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_windows": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"combobox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click state\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"combobox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was flagged with a number",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click alaska\"",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was flagged with a number",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"click states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"combobox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click state\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_name",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"combobox\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was flagged with a number",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/combobox_role",
+              "feature_assertion_id": "convey_role",
+              "applied_to": "html/input(type-text)_element",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click alaska\"",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "*[role=\"option\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was flagged with a number",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "aria/option_role",
+              "feature_assertion_id": "convey_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "activate_name",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was activated",
+          "notes": "said \"click states\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "show_numbers",
+          "css_target": "button[tabindex=-1]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "button was flagged",
+          "notes": "said \"show numbers\"",
+          "results": [
+            {
+              "feature_id": "html/button_element",
               "feature_assertion_id": "convey_role",
               "result": "pass"
             }
@@ -3966,33 +4518,37 @@
     {
       "date": "2021-11-10",
       "message": "Updated VoiceOver tests to illustrate a bug where aria-activedescendant is not respected when the combobox input has no value."
+    },
+    {
+      "date": "2023-08-22",
+      "message": "Updated results. Support was largely similar to when it was last tested, except that both VoiceOver for MacOS and Talkback for Android appear to have lost support for options within a listbox."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-08-07"
+          "at_version": "2023.2307.37",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-22"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-08-07"
+          "at_version": "2023.2307.37",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-22"
+        },
+        "firefox": {
+          "at_version": "2023.2307.37",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-22"
         },
         "ie": {
           "at_version": "2021.2011.16",
           "os_version": "2004",
           "browser_version": "11",
-          "date": "2020-11-12"
-        },
-        "firefox": {
-          "at_version": "2021.2011.16",
-          "os_version": "2004",
-          "browser_version": "82",
           "date": "2020-11-12"
         }
       }
@@ -4000,10 +4556,10 @@
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "2004",
-          "os_version": "2004",
-          "browser_version": "86",
-          "date": "2020-11-12"
+          "at_version": "Windows 11 version 22h2",
+          "browser_version": "115",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-22"
         }
       }
     },
@@ -4011,111 +4567,133 @@
       "browsers": {
         "chrome": {
           "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "116",
+          "date": "2023-08-22"
         },
         "edge": {
           "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "os_version": "Windows 11 version 22h2",
+          "browser_version": "115",
+          "date": "2023-08-22"
         },
         "firefox": {
-          "at_version": "2020.3",
-          "os_version": "2004",
-          "browser_version": "82",
-          "date": "2020-11-12"
+          "at_version": "2019.1.1",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22h2",
+          "date": "2023-08-22"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.2",
-          "os_version": "9",
-          "browser_version": "86",
-          "date": "2020-11-12"
+          "at_version": "13.5",
+          "os_version": "13",
+          "browser_version": "116",
+          "date": "2023-08-22"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "14.2",
-          "os_version": "14.2",
-          "browser_version": "14.2",
-          "date": "2020-11-12"
+          "at_version": "16.6",
+          "os_version": "16.6",
+          "browser_version": "16.6",
+          "date": "2023-08-22"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "12.0.1",
-          "os_version": "12.0.1",
-          "browser_version": "15.1",
-          "date": "2021-11-10"
+          "at_version": "13.5",
+          "os_version": "13.5",
+          "browser_version": "16.6",
+          "date": "2023-08-22"
         }
       }
     },
     "orca": {
       "browsers": {
         "firefox": {
-          "at_version": "3.38.0",
-          "os_version": "Ubuntu 20.10",
-          "browser_version": "82",
-          "date": "2020-11-12"
+          "at_version": "44.0",
+          "os_version": "Ubuntu 23.04",
+          "browser_version": "115",
+          "date": "2023-08-22"
         }
       }
     },
     "dragon_win": {
       "browsers": {
         "chrome": {
-          "at_version": "15.30",
-          "browser_version": "87",
-          "os_version": "2004",
-          "date": "2020-12-01"
+          "at_version": "16.0",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-22"
         }
       }
     },
     "va_and": {
       "browsers": {
         "and_chr": {
-          "at_version": "3.1",
-          "browser_version": "87",
-          "os_version": "7",
-          "date": "2020-12-01"
+          "at_version": "6.1",
+          "browser_version": "116",
+          "os_version": "13",
+          "date": "2023-08-22"
         }
       }
     },
     "vc_macos": {
       "browsers": {
         "safari": {
-          "at_version": "11.0.1",
-          "browser_version": "14.0.1",
-          "os_version": "11.0.1",
-          "date": "2020-12-01"
+          "at_version": "13.5",
+          "os_version": "13.5",
+          "browser_version": "16.6",
+          "date": "2023-08-22"
         }
       }
     },
     "vc_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "14.2",
-          "browser_version": "14.2",
-          "os_version": "14.2",
-          "date": "2020-12-01"
+          "at_version": "16.6",
+          "os_version": "16.6",
+          "browser_version": "16.6",
+          "date": "2023-08-22"
         }
       }
     },
     "wsr": {
       "browsers": {
         "chrome": {
-          "at_version": "Windows 10 version 1903",
-          "browser_version": "87",
-          "os_version": "2004",
-          "date": "2020-12-01"
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-22"
+        },
+        "edge": {
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-22"
+        }
+      }
+    },
+    "va_windows": {
+      "browsers": {
+        "chrome": {
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-22"
+        },
+        "edge": {
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "116",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2023-08-22"
         }
       }
     }

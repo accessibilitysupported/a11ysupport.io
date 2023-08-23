@@ -828,6 +828,9 @@ helper.initalizeTestCase = function (testCase) {
 					delete output.results;
 
 					// handle dates
+					if (!testCase.versions[at].browsers[browser]) {
+						console.log('no version for ' + at + ' / ' + browser)
+					}
 					testCase.assertions[assertion_key].all_dates.all.push(new Date(testCase.versions[at].browsers[browser].date).getTime());
 					testCase.assertions[assertion_key].results[at].browsers[browser].output.push(output);
 					if (isCoreCombination(at, browser)) {
