@@ -1,0 +1,775 @@
+{
+  "title": "ARIA headings greater than level 6",
+  "description": "This tests aria-level values greater than 6 on role=heading",
+  "html_file": "aria/headings-above-6.html",
+  "assertions": [
+    {
+      "feature_id": "aria/heading_role",
+      "feature_assertion_id": "convey_role_and_name"
+    },
+    {
+      "feature_id": "aria/heading_role",
+      "feature_assertion_id": "provide_shortcuts"
+    },
+    {
+      "feature_id": "aria/aria-level_attribute",
+      "feature_assertion_id": "convey_presence_and_value",
+      "applied_to": "aria/heading_role"
+    }
+  ],
+  "commands": {
+    "dragon_win": {},
+    "jaws": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "fail",
+              "notes": "incorrectly announced level as 2 for all values greater than 6"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "listed all headings at level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "fail",
+              "notes": "incorrectly announced level as 2 for all values greater than 6"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "listed all headings at level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level 2, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "fail",
+              "notes": "incorrectly announced level as 2 for all values greater than 6"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "listed all headings at level 2",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "narrator": {
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name> at level <level if below 11, otherwise announces at level 2>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass",
+              "note": "heading level implied by level and other shortcuts."
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "In list of headings. Levels not listed.",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level  <level if below 11, otherwise announces at level 2>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "nvda": {
+      "chrome": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level <level if below 10, otherwise announces at level 2> <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "name and level are conveyed as expected except for levels > 9. Levels > 9 are listed as if they were at level 2.",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name> heading level <level if below 10, otherwise announces at level 2>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level <level if below 10, otherwise announces at level 2> <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "partial"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "name and level are conveyed as expected except for levels > 9. Levels > 9 are listed as if they were at level 2.",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name> heading level <level if below 10, otherwise announces at level 2>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level <level> <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "name and level are conveyed as expected.",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name> heading level <level if below 10, otherwise announces at level 2>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "talkback": {
+      "and_chr": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2 (level is only announced if > 9; ignored for 7-9)\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "fail"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level 2 (level is only announced if > 9; ignored for 7-9)\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_and": {},
+    "vo_ios": {
+      "ios_saf": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_item_of_type",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vo_macos": {
+      "safari": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"heading level <level>, <name>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "open_element_list",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "all headings included in a tree list with levels starting at zero. levels in this view are based on the tree, not the role or aria-level.",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "convey_role_and_name",
+              "result": "pass"
+            },
+            {
+              "feature_id": "aria/aria-level_attribute",
+              "feature_assertion_id": "convey_presence_and_value",
+              "applied_to": "aria/heading_role",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "next_heading",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"<name>, heading level <level>\"",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        },
+        {
+          "command": "list_headings",
+          "css_target": "*[role=\"heading\"]",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "within target",
+            "focus_location": "within target"
+          },
+          "after": "end of target",
+          "output": "all headings and heading levels were listed",
+          "results": [
+            {
+              "feature_id": "aria/heading_role",
+              "feature_assertion_id": "provide_shortcuts",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "vc_ios": {},
+    "vc_macos": {},
+    "wsr": {}
+  },
+  "history": [
+    {
+      "date": "2024-01-31",
+      "message": "Test added"
+    }
+  ],
+  "versions": {
+    "jaws": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2024.2312.53",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        },
+        "edge": {
+          "at_version": "2024.2312.53",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        },
+        "firefox": {
+          "at_version": "2024.2312.53",
+          "browser_version": "122",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        }
+      }
+    },
+    "narrator": {
+      "browsers": {
+        "edge": {
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        }
+      }
+    },
+    "nvda": {
+      "browsers": {
+        "chrome": {
+          "at_version": "2023.3.3",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        },
+        "edge": {
+          "at_version": "2023.3.3",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        },
+        "firefox": {
+          "at_version": "2023.3.3",
+          "browser_version": "122",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-01-31"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "42.0",
+          "browser_version": "122",
+          "os_version": "Ubuntu 22.04",
+          "date": "2024-01-31"
+        }
+      }
+    },
+    "talkback": {
+      "browsers": {
+        "and_chr": {
+          "at_version": "13.5",
+          "browser_version": "115",
+          "os_version": "13.0",
+          "date": "2024-01-31"
+        }
+      }
+    },
+    "vo_ios": {
+      "browsers": {
+        "ios_saf": {
+          "at_version": "17.3",
+          "browser_version": "17.3",
+          "os_version": "17.3",
+          "date": "2024-01-31"
+        }
+      }
+    },
+    "vo_macos": {
+      "browsers": {
+        "safari": {
+          "at_version": "14.3",
+          "browser_version": "17.3",
+          "os_version": "14.3",
+          "date": "2024-01-31"
+        }
+      }
+    }
+  }
+}
