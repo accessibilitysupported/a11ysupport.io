@@ -1,37 +1,49 @@
-* {
-  --background-light: #fafafa;
-  --background-dark: #101010;
-  --background-main-light: white;
-  --background-main-dark: black;
-  --background-nav-light: #efeded;
-  --background-nav-dark: #151212;
-  --background-paper-light: #eee;
-  --background-paper-dark: #111;
-  --background-input-light: white;
-  --background-input-dark: #303030;
-  --background-warning-light: #ffbfbd;
-  --background-warning-dark: #420200;
-  --background-assertion-light: #f5f5f5;
-  --background-assertion-dark: #0a0a0a;
-  --foreground-light: black;
-  --foreground-dark: white;
-  --border-light: #999;
-  --border-dark: #666;
-  --border-search-light: #363636;
-  --border-search-dark: #c9c9c9;
-  --border-input-light: #ccc;
-  --border-input-dark: #333;
+:root {
+  --background: #fafafa;
+  --background-main: white;
+  --background-nav: #efeded;
+  --background-paper: #eee;
+  --background-input: white;
+  --background-warning: #ffbfbd;
+  --background-assertion: #f5f5f5;
+  --foreground: black;
+  --border: #999;
+  --border-search: #363636;
+  --border-input: #ccc;
   --main: #00cc21;
   --link: #2f6fad;
-  --support-no-light: #b94a48;
-  --support-yes-light: #03a678;
-  --support-partial-light: #e9c906;
-  --support-unknown-light: #e7e7e7;
+  --link-warning: #0a5297;
+  --support-no-background: #b94a48;
+  --support-no-foreground: #fff;
+  --support-yes-background: #03a678;
+  --support-yes-foreground: #000;
+  --support-partial-background: #e9c906;
+  --support-partial-foreground: #000;
+  --support-unknown-background: #e7e7e7;
+  --support-unknown-foreground: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #101010;
+    --background-main: black;
+    --background-nav: #151212;
+    --background-paper: #111;
+    --background-input: #303030;
+    --background-warning: #420200;
+    --background-assertion: #0a0a0a;
+    --foreground: white;
+    --border: #666;
+    --border-search: #c9c9c9;
+    --border-input: #333;
+    --link: #50a3f4;
+    --link-warning: #50a3f4;
+  }
 }
 
 html {
-  background-color: var(--background-light);
-  color: var(--foreground-light);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 body {
   padding: 0;
@@ -48,7 +60,7 @@ main:focus:not(.show-focus-outline) {
 }
 
 td.support-case {
-  color: var(--foreground-light);
+  color: var(--foreground);
   text-align: center;
   min-width: 5em;
   max-width: 5em;
@@ -58,33 +70,41 @@ td.support-case a {
   color: inherit;
 }
 td.support-case.n, td.support-case.no, .expectation-summary .no {
-  background-color: var(--support-no-light);
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
 }
 td.support-case.y, td.support-case.ye, .expectation-summary .ye {
-  background-color: var(--support-yes-light);
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
 }
 td.support-case.p, td.support-case.pa, .expectation-summary .pa,
 td.support-case.k, td.support-case.kn, .expectation-summary .kn {
-  background-color: var(--support-partial-light);
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
 }
 td.support-case.u, td.support-case.un, .expectation-summary .un {
-  background-color: var(--support-unknoqn-light);
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
 }
 
 span.output-result {
   padding: .1em .25em;
 }
 span.output-result.fail {
-  background-color: var(--support-no-light);
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
 }
 span.output-result.pass {
-  background-color: var(--support-yes-light);
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
 }
 span.output-result.partial {
-  background-color: var(--support-partial-light);
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
 }
 span.output-result.unknown {
-  background-color: var(--support-partial-light);
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
 }
 
 table {
@@ -93,7 +113,7 @@ table {
 }
 
 table, td, th {
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border);
 }
 
 td {
@@ -109,7 +129,7 @@ th, td {
 }
 
 th {
-  background-color: var(--background-paper-light);
+  background-color: var(--background-paper);
 }
 
 thead th {
@@ -117,9 +137,9 @@ thead th {
 }
 
 input {
-  background-color: var(--background-input-light);
-  color: var(--foreground-light);
-  border: 1px solid var(--border-light);
+  background-color: var(--background-input);
+  color: var(--foreground);
+  border: 1px solid var(--border);
 }
 
 
@@ -153,7 +173,7 @@ header {
 }
 
 main, header {
-  background-color: var(--background-main-light);
+  background-color: var(--background-main);
 }
 
 body {
@@ -165,7 +185,7 @@ body {
 }
 
 nav {
-  background-color: var(--background-nav-light);
+  background-color: var(--background-nav);
 }
 
 nav ul {
@@ -203,18 +223,18 @@ nav ul li a {
 }
 
 footer {
-  border-top: 2px solid var(--border-light);
+  border-top: 2px solid var(--border);
 }
 
 .beta-warning {
-  background-color: var(--background-warning-light);
+  background-color: var(--background-warning);
   width: 100%;
   padding: .5em;
   box-sizing: border-box;
 }
 
 .beta-warning a, .beta-warning a:visited {
-  color: var(--link);
+  color: var(--link-warning);
 }
 
 .beta-warning > p {
@@ -225,7 +245,7 @@ footer {
 /* caution */
 
 .caution {
-  border-left: .5em solid var(--support-partial-light);
+  border-left: .5em solid var(--support-partial-background);
   width: 100%;
   padding: .5em;
   box-sizing: border-box;
@@ -242,7 +262,7 @@ footer {
 
 .current-support-container {
   padding: .25em .5em;
-  background-color: var(--background-nav-light);
+  background-color: var(--background-nav);
   border-radius: .2em;
 }
 
@@ -251,20 +271,24 @@ footer {
 }
 
 .current-support-container.ye, .support-case.yes {
-  background-color: var(--support-yes-light);
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
 }
 
 .current-support-container.no, .support-case.no {
-  background-color: var(--support-no-light);
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
 }
 
 .current-support-container.pa, .support-case.pa,
 .current-support-container.kn, .support-case.kn {
-  background-color: var(--support-partial-light);
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
 }
 
 .current-support-container.un, .support-case.un {
-  background-color: var(--support-unknown-light);
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
 }
 
 .skip-nav {
@@ -285,7 +309,7 @@ a.skip-nav:hover {
   width: auto;
   height: auto;
   overflow: visible;
-  background-color: var(--background-light);
+  background-color: var(--background);
   padding:1em;
 }
 
@@ -295,7 +319,7 @@ a.back {
 }
 
 p.note, .call-out {
-  background-color: var(--background-paper-light);
+  background-color: var(--background-paper);
   padding: .25em .5em;
   margin-top: .25em;
 }
@@ -342,7 +366,7 @@ p .inline-quote {
   width: 100%;
   font-size: 2em;
   padding: .25em .5em;
-  border: 3px solid var(--border-search-light);
+  border: 3px solid var(--border-search);
   box-sizing: border-box;
 }
 
@@ -352,10 +376,11 @@ p .inline-quote {
 }
 
 .search-container form button {
-  border: 3px solid var(--background-nav-light);
-  background-color: var(--background-nav-light);
+  border: 3px solid var(--background-nav);
+  background-color: var(--background-nav);
   padding: .25em .5em;
   font-size: 1em;
+  color: var(--foreground);
 }
 
 .search-results {
@@ -364,27 +389,31 @@ p .inline-quote {
 
 .search-results td {
   text-align: center;
-  color: var(--foreground-light);
+  color: var(--foreground);
 }
 
 .search-results td.no {
-  background-color: var(--support-no-light);
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
 }
 
 .search-results td.ye {
-  background-color: var(--support-yes-light);
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
 }
 
 .search-results td.pa, .search-results td.kn {
-  background-color: var(--support-partial-light);
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
 }
 
 .search-results td.un {
-  background-color: var(--support-unknown-light);
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
 }
 
 .search-results .result {
-  background-color: var(--background-light);
+  background-color: var(--background);
   padding: .5em;
   margin-bottom: .5em;
 }
@@ -421,7 +450,7 @@ form.stacked-form input,
   padding: .5em;
   margin-top: .25em;
   margin-bottom: .25em;
-  border: 1px solid var(--border-input-light);
+  border: 1px solid var(--border-input);
   box-sizing: border-box;
   width: 100%;
 }
@@ -441,7 +470,7 @@ form.stacked-form .control {
 #run-test-container {
   margin-left: .5em;
   padding-left: 1em;
-  border-left: 2px solid var(--border-input-light);
+  border-left: 2px solid var(--border-input);
 }
 
 dt {
@@ -477,7 +506,7 @@ details.indent {
 form.testing-pref {
   margin-left: .5em;
   margin-bottom: 1em;
-  border-left: 1px solid var(--border-input-light);
+  border-left: 1px solid var(--border-input);
   padding-left: .5em;
 
 }
@@ -488,7 +517,7 @@ form.testing-pref p {
 }
 
 .assertion-container {
-  background-color: var(--background-assertion-light);
+  background-color: var(--background-assertion);
   margin-bottom: 1.5em;
   padding: .5em 1em .5em 1em;
   overflow: auto; /* tables are wide; helpful for mobile */
@@ -555,10 +584,10 @@ table caption {
   font-weight: bold;
   line-height: 2em;
   font-size: .75em;
-  border-top: 1px solid var(--border-light);
-  border-left: 1px solid var(--border-light);
-  border-right: 1px solid var(--border-light);
-  background-color: var(--background-paper-light);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background-color: var(--background-paper);
   padding: .25em .25em;
 }
 
@@ -584,7 +613,7 @@ th a .applied_to {
 }
 
 .expectation-summary li {
-  color: var(--foreground-light);
+  color: var(--foreground);
   display: inline-block;
   padding: .5em .25em;
   border-radius: .25em;
@@ -601,7 +630,7 @@ th a .applied_to {
 }
 
 .search-results .at-container {
-  background-color: var(--background-paper-light);
+  background-color: var(--background-paper);
 }
 
 .search-results .at-container h4 {
@@ -620,65 +649,4 @@ th a .applied_to {
   border-radius: .25em;
   font-size: 1.33em;
   display: inline-block;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    background-color: var(--background-dark);
-    color: var(--foreground-dark);
-  }
-
-  main, header {
-    background-color: var(--background-main-dark);
-  }
-
-  nav {
-    background-color: var(--background-nav-dark);
-  }
-
-  table, td, th, footer, table caption {
-    border-color: var(--border-dark);
-  }
-
-  input {
-    background-color: var(--background-input-dark);
-    color: var(--foreground-dark);
-    border-color: var(--border-dark);
-  }
-
-  .search-container form button {
-    border-color: var(--background-nav-dark);
-    background-color: var(--background-nav-dark);
-  }
-
-  .search-container .search-controls input.search {
-    border-color: var(--border-search-dark);
-  }
-
-  .search-results .result {
-    background-color: var(--background-dark);
-  }
-
-  a.skip-nav:active,
-  a.skip-nav:focus,
-  a.skip-nav:hover {
-    background-color: var(--background-dark);
-  }
-
-  p.note, .call-out, .search-results .at-container, th, table caption {
-    background-color: var(--background-paper-dark);
-  }
-
-  .beta-warning {
-    background-color: var(--background-warning-dark);
-  }
-
-  form.stacked-form input,form.stacked-form textarea, form.stacked-form select,
-  form.testing-pref, #run-test-container {
-    border-color: var(--border-input-dark);
-  }
-
-  .assertion-container {
-    background-color: var(--background-assertion-dark);
-  }
 }
