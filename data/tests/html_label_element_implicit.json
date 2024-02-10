@@ -30,46 +30,6 @@
             }
           ]
         }
-      ],
-      "ie": [
-        {
-          "command": "activate_name",
-          "css_target": "label",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
-          "output": "(input was not focused)",
-          "results": [
-            {
-              "feature_id": "html/label_element",
-              "feature_assertion_id": "accessible_name",
-              "result": "fail"
-            }
-          ]
-        }
-      ],
-      "firefox": [
-        {
-          "command": "activate_name",
-          "css_target": "label",
-          "before": {
-            "mode": "auto",
-            "virtual_location": "na",
-            "focus_location": "na"
-          },
-          "after": "na",
-          "output": "(input was not focused)",
-          "results": [
-            {
-              "feature_id": "html/label_element",
-              "feature_assertion_id": "accessible_name",
-              "result": "fail"
-            }
-          ]
-        }
       ]
     },
     "jaws": {
@@ -343,13 +303,13 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "command was not recognized",
+          "output": "The label and the input were both flagged with a number for selection. This is the same behavior as the explicit label.",
           "notes": "said \"tap your name\"",
           "results": [
             {
               "feature_id": "html/label_element",
               "feature_assertion_id": "accessible_name",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -530,7 +490,7 @@
           },
           "after": "na",
           "output": "input was not focused",
-          "notes": "said \"click your name\"",
+          "notes": "said \"click your name\". Also tried \"show names\" ",
           "results": [
             {
               "feature_id": "html/label_element",
@@ -542,6 +502,50 @@
       ]
     },
     "wsr": {
+      "chrome": [
+        {
+          "command": "activate_name",
+          "css_target": "label",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click your name\"",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ],
+      "edge": [
+        {
+          "command": "activate_name",
+          "css_target": "label",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "na",
+            "focus_location": "na"
+          },
+          "after": "na",
+          "output": "role was activated",
+          "notes": "said \"click your name\"",
+          "results": [
+            {
+              "feature_id": "html/label_element",
+              "feature_assertion_id": "accessible_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
+    "va_windows": {
       "chrome": [
         {
           "command": "activate_name",
@@ -634,6 +638,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2024-02-09",
+      "message": "Updating voice control support and added voice access for windows."
     }
   ],
   "versions": {
@@ -768,46 +776,62 @@
     "vc_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.6.1",
-          "browser_version": "13.6.1",
-          "os_version": "13.6.1",
-          "date": "2020-08-21"
+          "at_version": "17.3",
+          "browser_version": "17.3",
+          "os_version": "17.3",
+          "date": "2024-02-09"
         }
       }
     },
     "va_and": {
       "browsers": {
         "and_chr": {
-          "at_version": "4.0",
-          "browser_version": "84",
-          "os_version": "7",
-          "date": "2020-08-21"
+          "at_version": "6.1.530397167",
+          "browser_version": "121",
+          "os_version": "Android 13",
+          "date": "2024-02-09"
         }
       }
     },
     "vc_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.6",
-          "browser_version": "13.1.2",
-          "os_version": "10.15.6",
-          "date": "2020-08-21"
+          "at_version": "14.3",
+          "browser_version": "17.3",
+          "os_version": "14.3",
+          "date": "2024-02-09"
         }
       }
     },
     "wsr": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 1903",
-          "browser_version": "44",
-          "os_version": "Windows 10 version 1903",
-          "date": "2019-10-18"
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-02-09"
         },
         "chrome": {
-          "at_version": "2004",
-          "browser_version": "84",
-          "os_version": "2004",
-          "date": "2020-08-21"
+          "at_version": "Windows 11 Version 22H2",
+          "browser_version": "121",
+          "os_version": "Windows 11 Version 22H2",
+          "date": "2024-02-09"
+        }
+      }
+    },
+    "va_windows": {
+      "browsers": {
+        "edge": {
+          "at_version": "Windows 11 version 22H2",
+          "browser_version": "121",
+          "os_version": "Windows 11 version 22H2",
+          "date": "2024-02-09"
+        },
+        "chrome": {
+          "at_version": "Windows 11 Version 22H2",
+          "browser_version": "121",
+          "os_version": "Windows 11 Version 22H2",
+          "date": "2024-02-09"
         }
       }
     }
