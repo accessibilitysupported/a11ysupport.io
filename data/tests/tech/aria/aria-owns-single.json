@@ -271,21 +271,21 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_through_list",
-          "output": "(referenced element was not included as a child in the correct order)",
+          "output": "(referenced element was included as a child in the correct order)",
           "results": [
             {
               "feature_id": "aria/aria-owns_attribute",
               "feature_assertion_id": "convey_single_relationship",
               "applied_to": "html/li_element",
               "references": ["html/ul_element"],
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/aria-owns_attribute",
               "feature_assertion_id": "order_after_existing_children",
               "applied_to": "html/li_element",
               "references": ["html/ul_element"],
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -296,21 +296,21 @@
         {
           "command": "next_item",
           "procedure_key": "navigate_through_list",
-          "output": "(referenced element was not included as a child in the correct order)",
+          "output": "(referenced element was included as a child in the correct order)",
           "results": [
             {
               "feature_id": "aria/aria-owns_attribute",
               "feature_assertion_id": "convey_single_relationship",
               "applied_to": "html/li_element",
               "references": ["html/ul_element"],
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/aria-owns_attribute",
               "feature_assertion_id": "order_after_existing_children",
               "applied_to": "html/li_element",
               "references": ["html/ul_element"],
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -350,6 +350,10 @@
     {
       "date": "2021-07-28",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2024-04-19",
+      "message": "Updated results for VoiceOver (MacOS and iOS), which now pass."
     }
   ],
   "versions": {
@@ -426,20 +430,20 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "13.6.1",
-          "os_version": "13.6.1",
-          "browser_version": "13.6.1",
-          "date": "2020-08-31"
+          "at_version": "17.4.1",
+          "os_version": "17.4.1",
+          "browser_version": "17.4.1",
+          "date": "2024-04-19"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.6",
-          "os_version": "10.15.6",
-          "browser_version": "13.1.2",
-          "date": "2020-08-31"
+          "at_version": "14.4",
+          "os_version": "14.4",
+          "browser_version": "17.4",
+          "date": "2024-04-19"
         }
       }
     },
