@@ -1,0 +1,62 @@
+{
+  "id": "title_attribute",
+  "title": "title attribute",
+  "type": "attribute",
+  "description": "The title attribute should be avoided due to poor support.",
+  "references": [
+    {
+      "title": "WHATWG HTML spec for the th element",
+      "url": "https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "contribute_to_accessible_name",
+      "title": "contribute to the accessible name when no other method is used to name the element",
+      "rationale": "A user needs to understand the purpose of the element.",
+      "strength": {
+        "sr": "MUST",
+        "vc": "MUST",
+        "kb": "NA"
+      },
+      "css_target": "[title]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "contribute_to_description",
+      "title": "contribute to the description when the element is already named",
+      "rationale": "A user needs to be aware of the further information provided by the tooltip.",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA",
+        "kb": "NA"
+      },
+      "css_target": "[title]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading",
+        "sr/interaction"
+      ]
+    },
+    {
+      "id": "display_value",
+      "title": "display the value",
+      "rationale": "Users need to be aware of the content of the tooltip.",
+      "strength": {
+        "sr": "NA",
+        "vc": "NA",
+        "kb": "MUST"
+      },
+      "css_target": "[title]",
+      "preconditions": [],
+      "operation_modes": [
+        "kb"
+      ]
+    }
+  ],
+  "date_updated": "2024-10-04"
+}
