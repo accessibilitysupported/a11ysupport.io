@@ -408,7 +408,28 @@
         }
       ]
     },
-    "orca": {},
+    "orca": {
+      "firefox": [
+        {
+          "command": "next_item",
+          "css_target": "svg",
+          "before": {
+            "mode": "auto",
+            "virtual_location": "before target",
+            "focus_location": "before target"
+          },
+          "after": "target",
+          "output": "\"red square image\"",
+          "results": [
+            {
+              "feature_id": "svg/title_element",
+              "feature_assertion_id": "convey_name",
+              "result": "pass"
+            }
+          ]
+        }
+      ]
+    },
     "vc_ios": {},
     "vc_macos": {},
     "wsr": {}
@@ -433,6 +454,10 @@
     {
       "date": "2021-08-07",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2025-01-12",
+      "message": "Added test case and result for Orca+Firefox."
     }
   ],
   "versions": {
@@ -493,6 +518,16 @@
           "browser_version": "88",
           "os_version": "Windows 10 version 20h2",
           "date": "2021-05-30"
+        }
+      }
+    },
+    "orca": {
+      "browsers": {
+        "firefox": {
+          "at_version": "46.3",
+          "browser_version": "133.0.3",
+          "os_version": "Ubuntu 24.04 LTS",
+          "date": "2025-01-04"
         }
       }
     },
