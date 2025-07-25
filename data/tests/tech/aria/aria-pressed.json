@@ -42,7 +42,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"action, toggle button, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -61,7 +61,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"action, toggle button, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -118,7 +118,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button, partially checked\"",
+          "output": "\"action, toggle button, partially checked, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -137,7 +137,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button, partially checked\"",
+          "output": "\"action, toggle button, partially checked, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -215,7 +215,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"action, toggle button, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -234,7 +234,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"action, toggle button, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -291,7 +291,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button, partially checked\"",
+          "output": "\"action, toggle button, partially checked, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -310,7 +310,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button, partially checked\"",
+          "output": "\"action, toggle button, partially checked, not pressed\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -737,7 +737,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"button, off, action\"",
+          "output": "\"toggle button, off, action\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -756,7 +756,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, button, off\"",
+          "output": "\"action, toggle button, off\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -775,7 +775,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"button, on, action\"",
+          "output": "\"toggle button, on, action\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -794,7 +794,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, button, on\"",
+          "output": "\"action, toggle button, on\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -813,7 +813,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"button, indeterminate, action\"",
+          "output": "\"toggle button, indeterminate, action\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -833,7 +833,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, button, indeterminate\"",
+          "output": "\"action, toggle button, indeterminate\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
@@ -891,14 +891,14 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "nothing was conveyed",
+          "output": "action, toggle button, [indeterminate | on | off]",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_change_in_state",
               "applied_to": "html/button_element",
-              "result": "fail",
-              "notes": ""
+              "result": "partial",
+              "notes": "partial since on and off are conveyed, but indeterminate is not conveyed as mixed"
             }
           ]
         }
@@ -1445,13 +1445,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"off, action, toggle button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_false",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1464,13 +1464,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"on, action, toggle button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1483,14 +1483,14 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"action, toggle button\"",
+          "output": "\"off, action, toggle button\"",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_value_mixed",
               "applied_to": "html/button_element",
               "result": "fail",
-              "notes": "fail because it was conveyed as not checked"
+              "notes": "fail because it was not conveyed as mixed"
             }
           ]
         },
@@ -1642,14 +1642,14 @@
             "focus_location": "target"
           },
           "after": "target",
-          "output": "\"<earcon> (nothing)|checked|(nothing)\"",
+          "output": "mixed |checked| unchecked",
           "results": [
             {
               "feature_id": "aria/aria-pressed_attribute",
               "feature_assertion_id": "convey_change_in_state",
               "applied_to": "html/button_element",
-              "result": "partial",
-              "notes": "earcon was made on change, but not the new value was never correctly conveyed."
+              "result": "pass",
+              "notes": ""
             }
           ]
         }
@@ -2050,22 +2050,26 @@
     {
       "date": "2021-07-28",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results."
+    },
+    {
+      "date": "2025-07-25",
+      "message": "Updated results for JAWS, NVDA, narrator and VO+safari."
     }
   ],
   "versions": {
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-07-28"
+          "at_version": "2025.2412.50",
+          "browser_version": "137",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-07-25"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-07-28"
+          "at_version": "2025.2412.50",
+          "browser_version": "137",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-07-25"
         },
         "ie": {
           "at_version": "2020.2008.24",
@@ -2074,72 +2078,72 @@
           "date": "2020-10-25"
         },
         "firefox": {
-          "at_version": "2020.2008.24",
-          "os_version": "Windows 10 version 2004",
-          "browser_version": "81",
-          "date": "2020-10-25"
+          "at_version": "2025.2412.50",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "139",
+          "date": "2025-07-25"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 2004",
-          "os_version": "Windows 10 version 2004",
-          "browser_version": "86",
-          "date": "2020-10-25"
+          "at_version": "Windows 10 Pro version 2009",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-07-25"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-07-28"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-07-25"
         },
         "edge": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-07-28"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-07-25"
         },
         "firefox": {
-          "at_version": "2020.3",
-          "os_version": "Windows 10 version 2004",
-          "browser_version": "81",
-          "date": "2020-10-25"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "139",
+          "date": "2025-07-25"
         }
       }
     },
     "talkback": {
       "browsers": {
         "and_chr": {
-          "at_version": "8.2",
-          "os_version": "11",
-          "browser_version": "86",
-          "date": "2020-10-25"
+          "at_version": "16",
+          "os_version": "16",
+          "browser_version": "138",
+          "date": "2025-07-25"
         }
       }
     },
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "14.0",
-          "os_version": "14.0",
-          "browser_version": "14.0",
-          "date": "2020-10-25"
+          "at_version": "18.5",
+          "os_version": "18.5",
+          "browser_version": "18.5",
+          "date": "2025-07-25"
         }
       }
     },
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "10.15.7",
-          "os_version": "10.15.7",
-          "browser_version": "14.0",
-          "date": "2020-10-25"
+          "at_version": "18.5",
+          "os_version": "18.5",
+          "browser_version": "18.5",
+          "date": "2025-07-25"
         }
       }
     },
