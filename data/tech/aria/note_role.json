@@ -9,6 +9,49 @@
       "url": "https://www.w3.org/TR/wai-aria-1.1/#note"
     }
   ],
-  "assertions": [],
-  "date_updated": "2019-01-06"
+  "assertions": [
+    {
+      "id": "convey_role",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA",
+        "kb": "NA"
+      },
+      "rationale": "Users need to be aware of the note context",
+      "css_target": "*[role=\"note\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_name",
+      "title": "convey its name",
+      "strength": {
+        "sr": "MUST",
+        "vc": "NA",
+        "kb": "NA"
+      },
+      "rationale": "convey the name of the note",
+      "css_target": "*[role=\"note\"]",
+      "preconditions": [],
+      "operation_modes": [
+        "sr/reading"
+      ]
+    },
+    {
+      "id": "convey_boundaries",
+      "title": "convey boundaries",
+      "rationale": "Users need to know when they enter and exit a note so that they can differentiate it from surrounding content.",
+      "examples": [
+        "Screen readers might announce the starting boundary by conveying the role.",
+        "Screen readers might announce the ending boundary by conveying something like \"leaving note\"."
+      ],
+      "css_target": "*[role=\"note\"]",
+      "operation_modes": [
+        "sr/reading"
+      ]
+    }
+  ],
+  "date_updated": "2025-09-12"
 }
