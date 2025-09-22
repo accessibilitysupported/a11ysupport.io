@@ -74,7 +74,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, button, menu\"",
+          "output": "\"actions, button, menu, Press space to activate then navigate the menu with arrow keys\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -134,7 +134,7 @@
           },
           "after": "target",
           "notes": "activate the menu button, and focus will be sent to the target (menu)",
-          "output": "\"menu, Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
+          "output": "\"Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
           "results": [
             {
               "feature_id": "aria/menu_role",
@@ -213,7 +213,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, button, menu\"",
+          "output": "\"actions, button, menu Press space to activate the menu then navigate with arrow keys\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -253,7 +253,7 @@
           },
           "after": "after target",
           "notes": "unable to navigate to the button with the menu expanded",
-          "output": "\"\"",
+          "output": "\"failed to move to element\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
@@ -273,7 +273,7 @@
           },
           "after": "target",
           "notes": "activate the menu button, and focus will be sent to the target (menu)",
-          "output": "\"menu, Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
+          "output": "\"Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
           "results": [
             {
               "feature_id": "aria/menu_role",
@@ -491,7 +491,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, button, menu\"",
+          "output": "\"actions, button, menu Press space to activate the menu then navigate with arrow keys\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -531,13 +531,13 @@
           },
           "after": "after target",
           "notes": "tab to the button with it expanded, then execute this command",
-          "output": "\"move to controlled element, action 1, menu\"",
+          "output": "\"alt m\"",
           "results": [
             {
               "feature_id": "aria/aria-controls_attribute",
               "feature_assertion_id": "allow_jump_to_controlled",
               "applied_to": "html/button_element",
-              "result": "pass"
+              "result": "na"
             }
           ]
         },
@@ -551,7 +551,7 @@
           },
           "after": "target",
           "notes": "activate the menu button, and focus will be sent to the target (menu)",
-          "output": "\"menu, Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
+          "output": "\"Actions menu, Action 1, 1 of 4, To move through items press up or down arrow.\"",
           "results": [
             {
               "feature_id": "aria/menu_role",
@@ -632,7 +632,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, button\"",
+          "output": "\"actions, button, collapsed, has popup\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -650,7 +650,7 @@
               "feature_id": "aria/aria-haspopup_attribute",
               "feature_assertion_id": "convey_value_true",
               "applied_to": "html/button_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             },
             {
@@ -678,7 +678,7 @@
           },
           "after": "target",
           "notes": "activate the menu button, and focus will be sent to the target (menu)",
-          "output": "\"Actions, menu\"",
+          "output": "\"Action 1, menu item, 1 of 4\"",
           "results": [
             {
               "feature_id": "aria/menu_role",
@@ -711,7 +711,7 @@
           },
           "after": "target",
           "notes": "press up and down arrows to navigate menu items",
-          "output": "\"action 3, menu item\"",
+          "output": "\"menu item, 3 of 4, action 3\"",
           "results": [
             {
               "feature_id": "aria/aria-activedescendant_attribute",
@@ -735,13 +735,13 @@
             {
               "feature_id": "aria/menuitem_role",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/menu_role",
               "feature_assertion_id": "convey_boundaries",
-              "result": "pass",
-              "notes": "implied by looping back to the first item"
+              "result": "fail",
+              "notes": "moved out of menu and to next element on page"
             }
           ]
         }
@@ -759,7 +759,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, menu button, subMenu\"",
+          "output": "\"actions, menu button, collapsed, subMenu\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -816,8 +816,8 @@
             {
               "feature_id": "aria/menu_role",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "possibly implied by the aria-haspopup attribute on the button that opens the menu, but if a button was missing that attribute, this information may not be implied."
+              "result": "fail",
+              "notes": null
             },
             {
               "feature_id": "aria/aria-activedescendant_attribute",
@@ -884,7 +884,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, menu button, subMenu\"",
+          "output": "\"actions, menu button, collapsed, subMenu\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -941,8 +941,8 @@
             {
               "feature_id": "aria/menu_role",
               "feature_assertion_id": "convey_role",
-              "result": "pass",
-              "notes": "possibly implied by the aria-haspopup attribute on the button that opens the menu, but if a button was missing that attribute, this information may not be implied."
+              "result": "fail",
+              "notes": null
             },
             {
               "feature_id": "aria/aria-activedescendant_attribute",
@@ -1009,7 +1009,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, menu button, submenu\"",
+          "output": "\"actions, menu button, collapsed, submenu\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -1034,7 +1034,7 @@
               "feature_id": "aria/aria-controls_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "html/button_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             },
             {
@@ -1055,7 +1055,7 @@
           },
           "after": "target",
           "notes": "activate the menu button, and focus will be sent to the target (menu)",
-          "output": "\"expanded, actions menu, action 1, 1 of 4\"",
+          "output": "\"Action 1, 1 of 4, Actions, menu\"",
           "results": [
             {
               "feature_id": "aria/menu_role",
@@ -1402,7 +1402,7 @@
           },
           "after": "target",
           "notes": "tab to the button with it collapsed",
-          "output": "\"actions, menu popup button\"",
+          "output": "\"actions, menu popup button, You are currently on a button. To display a list of options, press Control-Option-Space.\"",
           "results": [
             {
               "feature_id": "html/button_element",
@@ -1427,7 +1427,7 @@
               "feature_id": "aria/aria-controls_attribute",
               "feature_assertion_id": "convey_presence",
               "applied_to": "html/button_element",
-              "result": "fail",
+              "result": "pass",
               "notes": null
             },
             {
@@ -1448,7 +1448,7 @@
           },
           "after": "target",
           "notes": "activate the menu button, and focus will be sent to the target (menu)",
-          "output": "\"menu, 4 items, action 1\"",
+          "output": "\"actions, menu popup button, You are currently on a menu item. To choose this item, press Control-Option-Space. To close this menu, press Escape.\"",
           "results": [
             {
               "feature_id": "aria/menu_role",
@@ -1481,7 +1481,7 @@
           },
           "after": "target",
           "notes": "press up and down arrows to navigate menu items",
-          "output": "\"action 3, menu item\"",
+          "output": "\"action 3, menu item, (3 of 4), menu Actions\"",
           "results": [
             {
               "feature_id": "aria/aria-activedescendant_attribute",
@@ -1505,7 +1505,7 @@
             {
               "feature_id": "aria/menuitem_role",
               "feature_assertion_id": "convey_posinset",
-              "result": "fail"
+              "result": "pass"
             },
             {
               "feature_id": "aria/menu_role",
@@ -1996,6 +1996,10 @@
     {
       "date": "2021-11-10",
       "message": "Retested with VoiceOver. No major changes."
+    },
+    {
+      "date": "2025-09-09",
+      "message": "Updated results and version support for NVDA, JAWS, Narrator, and VoiceOver for Chrome, Edge, Firefox, and Safari desktop."
     }
   ],
   "versions": {
@@ -2012,16 +2016,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-08-07"
+          "at_version": "2025",
+          "browser_version": "137",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-09-09"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-08-07"
+          "at_version": "2025",
+          "browser_version": "137",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-09-09"
         },
         "ie": {
           "at_version": "2020.2003.13",
@@ -2030,42 +2034,42 @@
           "date": "2020-11-09"
         },
         "firefox": {
-          "at_version": "2020.2003.13",
-          "os_version": "Windows 10 version 1909",
-          "browser_version": "74",
-          "date": "2020-11-09"
+          "at_version": "2025",
+          "browser_version": "139",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-09-09"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 1909",
-          "os_version": "Windows 10 version 1909",
-          "browser_version": "44",
-          "date": "2020-03-30"
+          "at_version": "21H2",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-09-09"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-09-09"
         },
         "edge": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-08-07"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-09-09"
         },
         "firefox": {
-          "at_version": "2019.3.1",
-          "os_version": "Windows 10 version 1909",
-          "browser_version": "74",
-          "date": "2020-03-30"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "139",
+          "date": "2025-09-09"
         }
       }
     },
@@ -2102,10 +2106,10 @@
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "12.0.1",
-          "os_version": "12.0.1",
-          "browser_version": "15.1",
-          "date": "2021-11-10"
+          "at_version": "15.5",
+          "browser_version": "18.5",
+          "os_version": "15.5",
+          "date": "2025-09-09"
         }
       }
     },
