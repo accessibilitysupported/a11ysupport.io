@@ -43,9 +43,9 @@ Interpreting results can be fairly complex, so here are some general suggestions
 - Be careful when using features that are listed as having partial support. Partial support might mean that specific aspects of a feature are not supported or that certain assistive technology commands do not work as expected.
 - Understand that this is a project of user-contributed data. As such it may not always be the most up to date resource and may not always be accurate. We do our best to validate contributions and ensure a high level of quality, but mistakes do happen, and technology rapidly changes.
 - The best way to determine how well your code works for people with disabilities is to test your code with people with disabilities.
-- Be sure you conform to [WCAG 2.x level AA](https://www.w3.org/WAI/WCAG21/quickref/) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.org/)
+- Be sure you conform to [WCAG 2.x level AA](https://www.w3.org/WAI/WCAG21/quickref/) and strive to meet the [Inclusive Design Principles](https://inclusivedesignprinciples.info/)
 - It's not always clear who is responsible for fixing a support bug. This might be you, as a developer. Or it might be an issue with the browser, the assistive technology, the operating system, or another part of the technology stack.
-- WCAG has a [normative accessibility supported conformance requirement]((https://www.w3.org/TR/WCAG/#cc4)). It basically says that if a feature is relied upon to meet a given SC, that feature must be supported by AT. WCAG makes this very unclear by purposefully not defining exactly which AT need to be supported or at what level the support needs to be at. Instead, this decision needs to be made on a case by case basis and within the context of your project and who will be using it.
+- WCAG has a [normative accessibility supported conformance requirement](https://www.w3.org/TR/WCAG/#cc4). It basically says that if a feature is relied upon to meet a given SC, that feature must be supported by AT. WCAG makes this very unclear by purposefully not defining exactly which AT need to be supported or at what level the support needs to be at. Instead, this decision needs to be made on a case by case basis and within the context of your project and who will be using it.
 - It might be helpful to look at this from the perspective of an end user. If something isn't working, end users are not likely to think "oh, that's an issue with my screen reader or browser and not the site that I'm using. I'm fine with it not working."
 - The question of whether or not a developer should address the support gap needs to be decided on a case-by-case basis. There are a lot of factors at play here. For example:
   - It might be possible to change the design slightly so that the feature isn't relied upon to meet any specific WCAG SC.
@@ -84,9 +84,8 @@ It's not always easy to tell who is responsible for fixing a bug. If you can fin
 
 ### Report issues with browsers:
 
-- [Edge issue tracker](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/)
 - [Firefox issue tracker](https://bugzilla.mozilla.org/)
-- [Google Chrome issue tracker](https://www.chromium.org/for-testers/bug-reporting-guidelines)
+- [Chromium issue tracker](https://www.chromium.org/for-testers/bug-reporting-guidelines)
 - [Safari issue tracker](https://bugreport.apple.com/web/)
   
 ## What is the status of this project?
