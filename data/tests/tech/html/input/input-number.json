@@ -162,13 +162,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, edit, spinbox 11\"",
+          "output": "\"11, edit, spinbox\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass",
-              "notes": "announced the name when entering the input and did not automatically switch to forms mode."
+              "result": "fail",
+              "notes": "did not announce name of the input"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -342,13 +342,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, edit, spinbox 11\"",
+          "output": "\"11, edit, spinbox\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass",
-              "notes": "announced the name when entering the input and did not automatically switch to forms mode."
+              "result": "fail",
+              "notes": "did not announce name when focus lands on the input"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -702,13 +702,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, edit, spinbox 11\"",
+          "output": "\"11, edit, spinbox\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "pass",
-              "notes": "announced the name when entering the input and did not automatically switch to forms mode."
+              "result": "fail",
+              "notes": "did not announce the name when focus lands on the input"
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -830,7 +830,8 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_change_in_value",
-              "result": "pass"
+              "result": "fail",
+              "notes": "each keypress was echoed and the value was changed to \"two11\""
             }
           ]
         },
@@ -867,7 +868,7 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_rejected_input",
               "result": "pass",
-              "notes": "it appears that firefox allows invalid input but marks the field as invalid instead of outright rejecting the input."
+              "notes": "it appears that firefox allows invalid input but marks the field as invalid instead of outright rejecting the input, but does not inform the user when they are on the field, only if they leave and return to it."
             }
           ]
         }
@@ -884,7 +885,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"Your favorite number, number, 11, minimum zero, and maximum zero, 11.\"",
+          "output": "\"Your favorite number, spin button, 11, minimum zero, and maximum zero, 11.\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -940,7 +941,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, spin button, 11, minimum zero, and maximum zero, 11 selected\"",
+          "output": "\"your favorite number, spin button, 11, minimum zero, and maximum zero, press space to edit,11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1060,7 +1061,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, spin button, editable, selected\"",
+          "output": "\"your favorite number, spin button, editable, selected 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1075,7 +1076,7 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1177,8 +1178,8 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "increment_decrement",
-              "result": "fail",
-              "notes": "Used up and down arrows. Value was visually changed, but announced as blank"
+              "result": "pass",
+              "notes": "Used up and down arrows. Value was incremented and decremented appropriately."
             }
           ]
         },
@@ -1239,7 +1240,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, spin button, editable, selected\"",
+          "output": "\"your favorite number, spin button, editable, selected, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1254,7 +1255,7 @@
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_value",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -1357,7 +1358,7 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "increment_decrement",
               "result": "fail",
-              "notes": "Used up and down arrows. Value was visually changed, but announced as blank"
+              "notes": "Used up and down arrows. Value was incremented and decremented appropriately."
             }
           ]
         },
@@ -1418,7 +1419,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, spin button, has auto complete, editable, 11\"",
+      "output": "\"your favorite number, spin button, has auto complete, editable, selected, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1446,7 +1447,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"your favorite number, spin button, has auto complete, editable, 11\"",
+          "output": "\"your favorite number, spin button, has auto complete, editable, selected, 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1479,13 +1480,13 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form controls as \"11; spin button; has auto complete; editable;\"",
+          "output": "in list of form controls as \"Your favorite number?; spin button; has auto complete editable; 11\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_name",
-              "result": "partial",
-              "notes": "name is present if the input is blank"
+              "result": "pass",
+              "notes": null
             },
             {
               "feature_id": "html/input(type-number)_element",
@@ -1555,7 +1556,7 @@
               "feature_id": "html/input(type-number)_element",
               "feature_assertion_id": "convey_rejected_input",
               "result": "pass",
-              "notes": "Firefox allows invalid input to be provided, but marks the field as invalid."
+              "notes": "Firefox allows invalid input to be provided, but announces the field as invalid."
             }
           ]
         }
@@ -1833,7 +1834,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+          "output": "\"11, contents selected, your favorite number? incrementable edit text number field\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1861,7 +1862,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+          "output": "\"11, contents selected, your favorite number? incrementable edit text number field\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1889,7 +1890,7 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"11, contents selected, your favorite number? incrementable edit text\"",
+          "output": "\"11, contents selected, your favorite number? incrementable edit text number field\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -1922,7 +1923,7 @@
             "focus_location": "na"
           },
           "after": "na",
-          "output": "in list of form controls as \"11 your favorite number? incrementable edit text\"",
+          "output": "in list of form controls as \"11 your favorite number? incrementable edit text number field\"",
           "results": [
             {
               "feature_id": "html/input(type-number)_element",
@@ -2402,6 +2403,10 @@
     {
       "date": "2021-07-29",
       "message": "Added Narrator results for NVDA and JAWS, updated NVDA+Chrome results. NVDA now fails to convey the value of the number input in certain circumstances."
+    },
+    {
+      "date": "2025-09-16",
+      "message": "Updated results for NVDA, JAWS, Narrator, and VoiceOver for desktop browsers (Chrome, Edge, Firefox, Safari)."
     }
   ],
   "versions": {
@@ -2418,16 +2423,16 @@
     "jaws": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-07-29"
+          "at_version": "2025",
+          "browser_version": "137",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-09-16"
         },
         "edge": {
-          "at_version": "2021.2107.12",
-          "browser_version": "92",
-          "os_version": "Windows 10 version 21h1",
-          "date": "2021-07-29"
+          "at_version": "2025",
+          "browser_version": "137",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-09-16"
         },
         "ie": {
           "at_version": "2021.2102.34",
@@ -2436,42 +2441,42 @@
           "date": "2020-03-17"
         },
         "firefox": {
-          "at_version": "2021.2102.34",
-          "os_version": "Windows 10 version 20h2",
-          "browser_version": "86",
-          "date": "2020-03-17"
+          "at_version": "2025",
+          "browser_version": "139",
+          "os_version": "Windows 10 Pro version 2009",
+          "date": "2025-09-16"
         }
       }
     },
     "narrator": {
       "browsers": {
         "edge": {
-          "at_version": "Windows 10 version 20h2",
-          "os_version": "Windows 10 version 20h2",
-          "browser_version": "89",
-          "date": "2020-03-17"
+          "at_version": "21H2",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-09-16"
         }
       }
     },
     "nvda": {
       "browsers": {
         "chrome": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-07-29"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-09-16"
         },
         "edge": {
-          "at_version": "2021.1",
-          "os_version": "Windows 10 version 21h1",
-          "browser_version": "92",
-          "date": "2021-07-29"
+          "at_version": "2025.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "137",
+          "date": "2025-09-16"
         },
         "firefox": {
-          "at_version": "2020.4",
-          "os_version": "Windows 10 version 20h2",
-          "browser_version": "86",
-          "date": "2020-03-17"
+          "at_version": "2025.1.1",
+          "os_version": "Windows 10 Pro version 2009",
+          "browser_version": "139",
+          "date": "2025-09-16"
         }
       }
     },
@@ -2508,10 +2513,10 @@
     "vo_macos": {
       "browsers": {
         "safari": {
-          "at_version": "11.2.3",
-          "os_version": "11.2.3",
-          "browser_version": "14.0.3",
-          "date": "2020-03-17"
+          "at_version": "15.5",
+          "os_version": "15.5",
+          "browser_version": "26.0",
+          "date": "2025-09-16"
         }
       }
     },
