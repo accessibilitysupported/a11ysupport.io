@@ -513,13 +513,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"example label, text field, double tap to edit\"",
+          "output": "\"Example label, description, error: 0, Text field, Double tap to edit\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/input(type-text)_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         },
@@ -551,13 +551,13 @@
             "focus_location": "before target"
           },
           "after": "target",
-          "output": "\"target\"",
+          "output": "\"target, description, I'm help text\"",
           "results": [
             {
               "feature_id": "aria/aria-description_attribute",
               "feature_assertion_id": "contribute_to_description",
               "applied_to": "html/span_element",
-              "result": "fail"
+              "result": "pass"
             }
           ]
         }
@@ -691,6 +691,10 @@
   },
   "history": [
     {
+      "date": "2026-02-27",
+      "message": "Updated vo_ios/ios_saf results: aria-description is now conveyed for input[aria-description] and span[aria-description] with next_item command; updated at_version and browser_version to 18.7.3"
+    },
+    {
       "date": "2023-07-26",
       "message": "updated all results and added a test case for aria-description applied to a static element (span)"
     },
@@ -767,10 +771,10 @@
     "vo_ios": {
       "browsers": {
         "ios_saf": {
-          "at_version": "16.6",
-          "browser_version": "16.6",
+          "at_version": "18.7.3",
+          "browser_version": "18.7.3",
           "os_version": "16.6",
-          "date": "2023-07-26"
+          "date": "2026-02-27"
         }
       }
     },
