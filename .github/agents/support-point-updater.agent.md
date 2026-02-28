@@ -33,7 +33,7 @@ Add a history object to the json file's history property. This object contains d
 
 ## Step 4: Update versions
 
-If the relevant at or browser versions in the json file are different than what is provided in the issue description, then update the ones in the json file to match the issue description.
+If the relevant at, browser or os versions in the json file are different than what is provided in the issue description, then update the ones in the json file to match the issue description.
 
 
 
