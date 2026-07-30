@@ -67,6 +67,12 @@ the static fixture, not the SPA route.
 
 ## Gate 5 — HTML parity
 
+**Known, accepted diff**: every `<a>` rendered via React Router's `<Link>` carries a
+`data-discover="true"` attribute the original markup never had — an internal route-discovery
+marker with zero visual, accessibility-tree, or keyboard effect (confirmed: not read by any AT,
+not styled, not part of any test assertion). Do not chase this to zero; it is intrinsic to the
+router.
+
 Always compare via a browser's DOM serialization (`page.content()`, as `capture.ts` does), never
 raw HTTP response bytes (`curl`). Browsers don't re-encode characters like `"` in text nodes that
 don't require escaping there, so a raw-byte diff produces false positives (e.g., a markdown

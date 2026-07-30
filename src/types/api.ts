@@ -30,6 +30,8 @@ export interface HomeFeature {
   all_dates: { all: string[]; min: string | null; max: string | null };
   failing_dates: { all: string[]; min: string | null; max: string | null };
   allTests: Array<{ title: string; id: string; versions: Record<string, unknown> }>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  assertions: any[];
 }
 
 export type HomePayload = HomeFeature[];

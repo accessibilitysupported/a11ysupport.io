@@ -92,7 +92,6 @@ export function isKnownRoute(pathname: string): boolean {
       return false;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const assertion = test.assertions?.find(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (a: any) => a.feature_id === featureId && a.feature_assertion_id === assertionId

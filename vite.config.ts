@@ -17,6 +17,10 @@ export default defineConfig({
       // process (server/app.ts) instead.
       '/api': 'http://localhost:3000',
       '/tests/html': 'http://localhost:3000',
+      // Until Phase 5 splits style.css into CSS modules, dev mode proxies the still-existing
+      // global stylesheet (served from public/ by server/app.ts) so pages can be visually
+      // verified against real styling while Phase 4 is in progress.
+      '/stylesheets': 'http://localhost:3000',
     },
   },
 });
