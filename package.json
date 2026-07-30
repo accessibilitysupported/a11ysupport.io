@@ -12,7 +12,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha --reporter progress",
-    "build": "node ./build.js",
+    "build": "tsx src/build/index.ts",
+    "build:legacy": "node ./build.js",
     "build:baseline": "npm run build && tsx tools/baseline/capture.ts",
     "test:visual": "playwright test tests/e2e/visual.spec.ts",
     "types": "json2ts data/schema/dev-test.json src/types/dev-test.ts && json2ts data/schema/dev-feature.json src/types/dev-feature.ts && json2ts data/schema/test.json src/types/test.ts && cd data/schema && json2ts feature.json ../../src/types/feature.ts",
@@ -26,6 +27,7 @@
     "@types/compression": "^1.8.1",
     "@types/express": "^5.0.6",
     "@types/markdown-it": "^14.1.2",
+    "@types/minimist": "^1.2.5",
     "@types/node": "^22.20.1",
     "@types/supertest": "^7.2.1",
     "@vitejs/plugin-react": "^6.0.5",
