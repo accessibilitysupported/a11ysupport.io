@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Test: ARIA alertdialog role must use document mode | Accessibility Support
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="canonical"
+      href="https://a11ysupport.io/tests/aria_alertdialog_document_mode/run"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/js/vendor/details-polyfill.js"></script>
+    <script src="/js/vendor/formdata.min.js"></script>
+    <script src="/js/head.js"></script>
+  </head>
+  <body>
+    <header role="banner">
+      <a class="skip-nav" href="#main" id="skip-nav">Skip to main content</a>
+      <div class="logo-area">
+        <div class="site-title"><a href="/">Accessibility Support</a></div>
+        <span>Will your code work with assistive technologies?</span>
+      </div>
+      <nav role="navigation">
+        <ul>
+          <li><a href="/tests">All Tests</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/learn">Learn</a></li>
+          <li><a href="/updates">Recent updates</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main role="main" id="main" tabindex="-1">
+      <div class="beta-warning">
+        <p>
+          <strong>Important</strong>: This website does not attempt to establish
+          a standard for how assistive technologies must behave.
+          <a href="/faq">Read the FAQ for more information</a>. Additionally,
+          this is a work in progress.
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new"
+            >Please submit feedback or suggestions</a
+          >.
+        </p>
+      </div>
+      <div class="content-wrapper">
+        <div class="content">
+          <h1>Run Test: ARIA alertdialog role must use document mode</h1>
+          <div class="current-support-container undefined">
+            <p>Current support: undefined</p>
+          </div>
+          <p>
+            This test ensures the alertdialog role does not invoke application
+            mode in screen readers. The default mode (document) must be used.
+            <a href="https://www.w3.org/TR/wai-aria-1.0/roles#alertdialog"
+              >ARIA 1.0 had language for the alertdialog role</a
+            >
+            that could suggest that application mode must be invoked. However,
+            that language was
+            <a href="https://www.w3.org/TR/wai-aria-1.1/#alertdialog"
+              >clarified in aria 1.1</a
+            >.
+          </p>
+          <a href="/tests/aria_alertdialog_document_mode"
+            >Go back to the test details page</a
+          >
+          <div id="run-test-container">
+            <h2 id="at-browser-combo">Step 1: What are you testing with?</h2>
+            <form class="testing-pref">
+              <label for="combination">Select your testing combination.</label>
+              <div>
+                <select id="combination">
+                  <optgroup label="Core combinations">
+                    <option value="dragon_win/chrome">
+                      Dragon / Chrome (core)
+                    </option>
+                    <option value="jaws/chrome">JAWS / Chrome (core)</option>
+                    <option value="jaws/edge">JAWS / Edge (core)</option>
+                    <option value="jaws/firefox">JAWS / Firefox (core)</option>
+                    <option value="narrator/edge">
+                      Narrator / Edge (core)
+                    </option>
+                    <option value="nvda/chrome">NVDA / Chrome (core)</option>
+                    <option value="nvda/edge">NVDA / Edge (core)</option>
+                    <option value="nvda/firefox">NVDA / Firefox (core)</option>
+                    <option value="orca/firefox">Orca / Firefox (core)</option>
+                    <option value="talkback/and_chr">
+                      TalkBack / Chrome (core)
+                    </option>
+                    <option value="va_and/and_chr">
+                      Voice Access / Chrome (core)
+                    </option>
+                    <option value="vc_ios/ios_saf">
+                      VC iOS / Safari (core)
+                    </option>
+                    <option value="vc_macos/safari">
+                      VC MacOS / Safari (core)
+                    </option>
+                    <option value="vo_ios/ios_saf">
+                      VoiceOver (iOS) / Safari (core)
+                    </option>
+                    <option value="vo_macos/safari">
+                      VoiceOver (macOS) / Safari (core)
+                    </option>
+                    <option value="wsr/edge">
+                      Speech Recognition / Edge (core)
+                    </option>
+                    <option value="wsr/chrome">
+                      Speech Recognition / Chrome (core)
+                    </option>
+                    <option value="va_windows/edge">
+                      Windows Voice Access / Edge (core)
+                    </option>
+                    <option value="va_windows/chrome">
+                      Windows Voice Access / Chrome (core)
+                    </option>
+                    <option value="win_kb/chrome">
+                      Windows / Chrome (core)
+                    </option>
+                    <option value="win_kb/firefox">
+                      Windows / Firefox (core)
+                    </option>
+                    <option value="win_kb/edge">Windows / Edge (core)</option>
+                    <option value="mac_kb/chrome">Mac / Chrome (core)</option>
+                    <option value="mac_kb/safari">Mac / Safari (core)</option>
+                    <option value="ios_kb/ios_saf">iOS / Safari (core)</option>
+                    <option value="and_kb/and_chr">
+                      Android Keyboard / Chrome (core)
+                    </option>
+                  </optgroup>
+                  <optgroup label="Extended combinations">
+                    <option value="dragon_win/ie">
+                      Dragon / IE (extended)
+                    </option>
+                    <option value="dragon_win/firefox">
+                      Dragon / Firefox (extended)
+                    </option>
+                    <option value="jaws/ie">JAWS / IE (extended)</option>
+                    <option value="narrator/firefox">
+                      Narrator / Firefox (extended)
+                    </option>
+                    <option value="narrator/chrome">
+                      Narrator / Chrome (extended)
+                    </option>
+                    <option value="narrator/ie">
+                      Narrator / IE (extended)
+                    </option>
+                    <option value="nvda/ie">NVDA / IE (extended)</option>
+                    <option value="talkback/and_ff">
+                      TalkBack / Firefox (extended)
+                    </option>
+                    <option value="va_and/and_ff">
+                      Voice Access / Firefox (extended)
+                    </option>
+                    <option value="vo_ios/ios_chr">
+                      VoiceOver (iOS) / Chrome (extended)
+                    </option>
+                    <option value="vo_macos/chrome">
+                      VoiceOver (macOS) / Chrome (extended)
+                    </option>
+                    <option value="vo_macos/firefox">
+                      VoiceOver (macOS) / Firefox (extended)
+                    </option>
+                    <option value="orca/chrome">
+                      Orca / Chrome (extended)
+                    </option>
+                    <option value="vc_macos/chrome">
+                      VC MacOS / Chrome (extended)
+                    </option>
+                    <option value="vc_macos/firefox">
+                      VC MacOS / Firefox (extended)
+                    </option>
+                    <option value="mac_kb/firefox">
+                      Mac / Firefox (extended)
+                    </option>
+                    <option value="and_kb/firefox">
+                      Android Keyboard / Firefox (extended)
+                    </option>
+                  </optgroup>
+                </select>
+              </div>
+              <p>
+                Note: your selection will be saved until you change it or clear
+                your browser cache.
+              </p>
+              <button>save my testing combination</button>
+            </form>
+            <div id="testing-pref-results"></div>
+            <div class="call-out">
+              <h3>Make sure everything is up to date</h3>
+              <p>
+                Always make sure that your OS, Browser, and Assistive technology
+                are up to date with the latest production versions before
+                submitting test results. Also make sure that your assistive
+                technology is set to factory defaults.
+              </p>
+            </div>
+            <p>
+              Please be sure to read the full instructions before completing the
+              test.
+            </p>
+            <div id="step2">
+              <h2>Step 2: Run test cases and submit your findings</h2>
+              <ol>
+                <li>
+                  Launch the chosen assistive technology that you want to test
+                  with.
+                </li>
+                <li>
+                  Ensure that your OS, AT, and Browser are all up to date.
+                </li>
+                <li>
+                  Navigate to the test page iframe (after these instructions) or
+                  <a href="/tests/html/aria_alertdialog_document_mode.html"
+                    >open the test page</a
+                  >.
+                </li>
+                <li>
+                  For each test case, locate the target element(s) and test
+                  whether or not the expectations are met
+                </li>
+              </ol>
+              <p class="note">
+                Note: Screen readers will usually announce an element in the
+                format:
+                <span class="inline-quote"
+                  >"&lt;role&gt;, &lt;accessible name&gt;, &lt;other states and
+                  properties&gt;, &lt;accessible description&gt;"</span
+                >. The order in which the name, role, and properties are
+                announced might differ between screen readers. The exact
+                vocabulary used will also differ.
+              </p>
+              <form class="submit-test-result stacked-form">
+                <input
+                  type="hidden"
+                  name="title"
+                  value="aria_alertdialog_document_mode"
+                /><input type="hidden" name="at" id="at" /><input
+                  type="hidden"
+                  name="browser"
+                  id="browser"
+                />
+                <div id="error_container"></div>
+                <div class="control">
+                  <fieldset>
+                    <legend>Technology information</legend>
+                    <div class="control at-browser-combo">
+                      <p>
+                        <strong>The selected AT/Browser combo is: </strong
+                        ><span class="selected-at-browser-combo"></span>
+                      </p>
+                      <p>
+                        Use the
+                        <a href="#at-browser-combo"
+                          >"what are you testing with?"</a
+                        >
+                        form to change your combination.
+                      </p>
+                    </div>
+                    <div class="control">
+                      <label for="at_version">AT Version (required)</label
+                      ><input
+                        type="text"
+                        name="at_version"
+                        id="at_version"
+                        aria-required="true"
+                      />
+                    </div>
+                    <div class="control">
+                      <label for="os_version">OS Version (required)</label
+                      ><input
+                        type="text"
+                        name="os_version"
+                        id="os_version"
+                        aria-required="true"
+                      />
+                    </div>
+                    <div class="control">
+                      <label for="browser_version"
+                        >Browser Version (required)</label
+                      ><input
+                        type="text"
+                        name="browser_version"
+                        id="browser_version"
+                        aria-required="true"
+                      />
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="control" id="assertions">
+                  <div class="combo" id="combo-dragon_win-chrome" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Dragon Naturally Speaking + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-dragon_win-ie" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Dragon Naturally Speaking + IE
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-dragon_win-firefox" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Dragon Naturally Speaking + Firefox
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-jaws-chrome" hidden="">
+                    <h3 tabindex="-1">Test cases for JAWS + Chrome</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch JAWS and Chrome.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> Down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="jaws-chrome-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="jaws-chrome-0-output-before"
+                        value="target"
+                      /><label for="jaws-chrome-0-output">Output</label
+                      ><textarea class="output-after" id="jaws-chrome-0-output">
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="jaws-chrome-0-notes-before"
+                      /><label for="jaws-chrome-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="jaws-chrome-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="jaws-chrome-0-behind-setting-before"
+                      /><label for="jaws-chrome-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="jaws-chrome-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="jaws-chrome-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="jaws-chrome-0-results-0-result-before"
+                          value="pass"
+                        /><label for="jaws-chrome-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="jaws-chrome-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="jaws-chrome-0-results-0-notes-before"
+                        /><label for="jaws-chrome-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="jaws-chrome-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-jaws-edge" hidden="">
+                    <h3 tabindex="-1">Test cases for JAWS + Edge</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch JAWS and Edge.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> Down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="jaws-edge-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="jaws-edge-0-output-before"
+                        value="target"
+                      /><label for="jaws-edge-0-output">Output</label
+                      ><textarea class="output-after" id="jaws-edge-0-output">
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="jaws-edge-0-notes-before"
+                      /><label for="jaws-edge-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="jaws-edge-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="jaws-edge-0-behind-setting-before"
+                      /><label for="jaws-edge-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="jaws-edge-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="jaws-edge-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="jaws-edge-0-results-0-result-before"
+                          value="pass"
+                        /><label for="jaws-edge-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="jaws-edge-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="jaws-edge-0-results-0-notes-before"
+                        /><label for="jaws-edge-0-results-0-notes">Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="jaws-edge-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-jaws-firefox" hidden="">
+                    <h3 tabindex="-1">Test cases for JAWS + Firefox</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch JAWS and Firefox.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> Down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="jaws-firefox-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="jaws-firefox-0-output-before"
+                        value="target"
+                      /><label for="jaws-firefox-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="jaws-firefox-0-output"
+                      >
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="jaws-firefox-0-notes-before"
+                      /><label for="jaws-firefox-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="jaws-firefox-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="jaws-firefox-0-behind-setting-before"
+                      /><label for="jaws-firefox-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="jaws-firefox-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="jaws-firefox-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="jaws-firefox-0-results-0-result-before"
+                          value="pass"
+                        /><label for="jaws-firefox-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="jaws-firefox-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="jaws-firefox-0-results-0-notes-before"
+                        /><label for="jaws-firefox-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="jaws-firefox-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-jaws-ie" hidden="">
+                    <h3 tabindex="-1">Test cases for JAWS + IE</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch JAWS and IE.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> Down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="jaws-ie-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="jaws-ie-0-output-before"
+                        value="target"
+                      /><label for="jaws-ie-0-output">Output</label
+                      ><textarea class="output-after" id="jaws-ie-0-output">
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="jaws-ie-0-notes-before"
+                      /><label for="jaws-ie-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="jaws-ie-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="jaws-ie-0-behind-setting-before"
+                      /><label for="jaws-ie-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="jaws-ie-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="jaws-ie-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="jaws-ie-0-results-0-result-before"
+                          value="pass"
+                        /><label for="jaws-ie-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="jaws-ie-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="jaws-ie-0-results-0-notes-before"
+                        /><label for="jaws-ie-0-results-0-notes">Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="jaws-ie-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-narrator-edge" hidden="">
+                    <h3 tabindex="-1">Test cases for Narrator + Edge</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Down arrow (Jump to next item (scan
+                        mode)) to navigate forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch Narrator and Edge.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> Down arrow</code
+                          ><span> (Jump to next item (scan mode))</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="narrator-edge-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="narrator-edge-0-output-before"
+                        value="target"
+                      /><label for="narrator-edge-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="narrator-edge-0-output"
+                      >
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="narrator-edge-0-notes-before"
+                      /><label for="narrator-edge-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="narrator-edge-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="narrator-edge-0-behind-setting-before"
+                      /><label for="narrator-edge-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="narrator-edge-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="narrator-edge-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="narrator-edge-0-results-0-result-before"
+                          value="pass"
+                        /><label for="narrator-edge-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="narrator-edge-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="narrator-edge-0-results-0-notes-before"
+                        /><label for="narrator-edge-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="narrator-edge-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-narrator-firefox" hidden="">
+                    <h3 tabindex="-1">Test cases for Narrator + Firefox</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-narrator-chrome" hidden="">
+                    <h3 tabindex="-1">Test cases for Narrator + Chrome</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-narrator-ie" hidden="">
+                    <h3 tabindex="-1">Test cases for Narrator + IE</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-nvda-chrome" hidden="">
+                    <h3 tabindex="-1">Test cases for NVDA + Chrome</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch NVDA and Chrome.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="nvda-chrome-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="nvda-chrome-0-output-before"
+                        value="target"
+                      /><label for="nvda-chrome-0-output">Output</label
+                      ><textarea class="output-after" id="nvda-chrome-0-output">
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="nvda-chrome-0-notes-before"
+                      /><label for="nvda-chrome-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="nvda-chrome-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="nvda-chrome-0-behind-setting-before"
+                      /><label for="nvda-chrome-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="nvda-chrome-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="nvda-chrome-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="nvda-chrome-0-results-0-result-before"
+                          value="pass"
+                        /><label for="nvda-chrome-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="nvda-chrome-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="nvda-chrome-0-results-0-notes-before"
+                        /><label for="nvda-chrome-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="nvda-chrome-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-nvda-edge" hidden="">
+                    <h3 tabindex="-1">Test cases for NVDA + Edge</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch NVDA and Edge.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="nvda-edge-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="nvda-edge-0-output-before"
+                        value="target"
+                      /><label for="nvda-edge-0-output">Output</label
+                      ><textarea class="output-after" id="nvda-edge-0-output">
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="nvda-edge-0-notes-before"
+                      /><label for="nvda-edge-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="nvda-edge-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="nvda-edge-0-behind-setting-before"
+                      /><label for="nvda-edge-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="nvda-edge-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="nvda-edge-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="nvda-edge-0-results-0-result-before"
+                          value="pass"
+                        /><label for="nvda-edge-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="nvda-edge-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="nvda-edge-0-results-0-notes-before"
+                        /><label for="nvda-edge-0-results-0-notes">Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="nvda-edge-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-nvda-firefox" hidden="">
+                    <h3 tabindex="-1">Test cases for NVDA + Firefox</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch NVDA and Firefox.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="nvda-firefox-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="nvda-firefox-0-output-before"
+                        value="target"
+                      /><label for="nvda-firefox-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="nvda-firefox-0-output"
+                      >
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="nvda-firefox-0-notes-before"
+                      /><label for="nvda-firefox-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="nvda-firefox-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="nvda-firefox-0-behind-setting-before"
+                      /><label for="nvda-firefox-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="nvda-firefox-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="nvda-firefox-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="nvda-firefox-0-results-0-result-before"
+                          value="pass"
+                        /><label for="nvda-firefox-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="nvda-firefox-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="nvda-firefox-0-results-0-notes-before"
+                        /><label for="nvda-firefox-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="nvda-firefox-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-nvda-ie" hidden="">
+                    <h3 tabindex="-1">Test cases for NVDA + IE</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-talkback-and_chr" hidden="">
+                    <h3 tabindex="-1">Test cases for TalkBack + Chrome</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Swipe right (or alt+right arrow) (Read
+                        next item) to navigate forward to
+                        `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch TalkBack and Chrome.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code>
+                            Swipe right (or alt+right arrow)</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="talkback-and_chr-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="talkback-and_chr-0-output-before"
+                        value="target"
+                      /><label for="talkback-and_chr-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="talkback-and_chr-0-output"
+                      >
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="talkback-and_chr-0-notes-before"
+                      /><label for="talkback-and_chr-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="talkback-and_chr-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="talkback-and_chr-0-behind-setting-before"
+                      /><label for="talkback-and_chr-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="talkback-and_chr-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="talkback-and_chr-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="talkback-and_chr-0-results-0-result-before"
+                          value="pass"
+                        /><label for="talkback-and_chr-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="talkback-and_chr-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="talkback-and_chr-0-results-0-notes-before"
+                        /><label for="talkback-and_chr-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="talkback-and_chr-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-talkback-and_ff" hidden="">
+                    <h3 tabindex="-1">Test cases for TalkBack + Firefox</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-va_and-and_chr" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Voice Access (Android) + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-va_and-and_ff" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Voice Access (Android) + Firefox
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vo_ios-ios_saf" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for VoiceOver (iOS) + Safari
+                    </h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use Swipe Right (Next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch VoiceOver (iOS) and Safari.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> Swipe Right</code
+                          ><span> (Next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="vo_ios-ios_saf-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="vo_ios-ios_saf-0-output-before"
+                        value="target"
+                      /><label for="vo_ios-ios_saf-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="vo_ios-ios_saf-0-output"
+                      >
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="vo_ios-ios_saf-0-notes-before"
+                      /><label for="vo_ios-ios_saf-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="vo_ios-ios_saf-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="vo_ios-ios_saf-0-behind-setting-before"
+                      /><label for="vo_ios-ios_saf-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="vo_ios-ios_saf-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="vo_ios-ios_saf-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="vo_ios-ios_saf-0-results-0-result-before"
+                          value="pass"
+                        /><label for="vo_ios-ios_saf-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="vo_ios-ios_saf-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="vo_ios-ios_saf-0-results-0-notes-before"
+                        /><label for="vo_ios-ios_saf-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="vo_ios-ios_saf-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-vo_ios-ios_chr" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for VoiceOver (iOS) + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vo_macos-safari" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for VoiceOver (macOS) + Safari
+                    </h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use VO + Right arrow (Read next item) to
+                        navigate forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch VoiceOver (macOS) and Safari.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> VO + Right arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="vo_macos-safari-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="vo_macos-safari-0-output-before"
+                        value="target"
+                      /><label for="vo_macos-safari-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="vo_macos-safari-0-output"
+                      >
+target</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="vo_macos-safari-0-notes-before"
+                      /><label for="vo_macos-safari-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="vo_macos-safari-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="vo_macos-safari-0-behind-setting-before"
+                      /><label for="vo_macos-safari-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="vo_macos-safari-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="vo_macos-safari-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="vo_macos-safari-0-results-0-result-before"
+                          value="pass"
+                        /><label for="vo_macos-safari-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="vo_macos-safari-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="vo_macos-safari-0-results-0-notes-before"
+                        /><label for="vo_macos-safari-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="vo_macos-safari-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-vo_macos-chrome" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for VoiceOver (macOS) + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vo_macos-firefox" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for VoiceOver (macOS) + Firefox
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-orca-firefox" hidden="">
+                    <h3 tabindex="-1">Test cases for Orca + Firefox</h3>
+                    <fieldset class="command">
+                      <legend>
+                        Test case: Use down arrow (Read next item) to navigate
+                        forward to `*[role="alertdialog"]`
+                      </legend>
+                      <ol>
+                        <li>Launch Orca and Firefox.</li>
+                        <li>
+                          Navigate to
+                          <a
+                            href="/tests/html/aria_alertdialog_document_mode.html"
+                            >the test page</a
+                          >.
+                        </li>
+                        <li>
+                          Find the target element(s) that you will test against.
+                          Identify all elements that match this selector:<code
+                            >*[role="alertdialog"]</code
+                          >
+                          <ul>
+                            <li>
+                              If multiple elements match the selector, repeat
+                              this test for all instances. However, choose a
+                              single instance to report against. If you feel
+                              that the selector should be more specific, please
+                              open a GitHub Issue.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Position and configure the screen reader so that the
+                          following conditions are met
+                          <ul>
+                            <li>Virtual focus is: before target</li>
+                            <li>Keyboard focus is: before target</li>
+                            <li>
+                              Mode is: auto<span>
+                                (do not explicitly change the mode)</span
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          Issue the command:<code> down arrow</code
+                          ><span> (Read next item)</span>
+                          <ul>
+                            <li>
+                              After issuing the command, virtual focus should
+                              be: target
+                            </li>
+                          </ul>
+                        </li>
+                        <li>Record results for the relevant expectations</li>
+                      </ol>
+                      <!-- Command key--><input
+                        class="command"
+                        type="hidden"
+                        id="orca-firefox-0-command"
+                        value="next_item"
+                      /><!--output--><input
+                        class="output-before"
+                        type="hidden"
+                        id="orca-firefox-0-output-before"
+                        value='"target"'
+                      /><label for="orca-firefox-0-output">Output</label
+                      ><textarea
+                        class="output-after"
+                        id="orca-firefox-0-output"
+                      >
+"target"</textarea
+                      ><!-- notes--><input
+                        class="notes-before"
+                        type="hidden"
+                        id="orca-firefox-0-notes-before"
+                      /><label for="orca-firefox-0-notes">Notes</label
+                      ><textarea
+                        class="notes-after"
+                        id="orca-firefox-0-notes"
+                      ></textarea
+                      ><!-- behind_setting--><input
+                        class="behind-setting-before"
+                        type="hidden"
+                        id="orca-firefox-0-behind-setting-before"
+                      /><label for="orca-firefox-0-behind-setting"
+                        >If support is hidden behind non-default settings,
+                        briefly describe that setting</label
+                      ><textarea
+                        class="behind-setting-after"
+                        id="orca-firefox-0-behind-setting"
+                      ></textarea>
+                      <fieldset>
+                        <legend>
+                          alertdialog role, MUST NOT automatically switch away
+                          from reading mode
+                        </legend>
+                        <input
+                          class="result-key"
+                          type="hidden"
+                          id="orca-firefox-0-results-0-result-key"
+                          value="aria/alertdialog_role; stay_in_reading_mode"
+                        /><!-- result--><input
+                          class="result-before"
+                          type="hidden"
+                          id="orca-firefox-0-results-0-result-before"
+                          value="pass"
+                        /><label for="orca-firefox-0-results-0-result"
+                          >Result
+                          <div>
+                            <select
+                              class="result-after"
+                              id="orca-firefox-0-results-0-result"
+                            >
+                              <option value="unknown">unknown</option>
+                              <option value="pass" selected="">pass</option>
+                              <option value="fail">fail</option>
+                              <option value="partial">partial</option>
+                            </select>
+                          </div></label
+                        ><!-- result notes--><input
+                          class="note-before"
+                          type="hidden"
+                          id="orca-firefox-0-results-0-notes-before"
+                        /><label for="orca-firefox-0-results-0-notes"
+                          >Notes</label
+                        ><textarea
+                          class="note-after"
+                          id="orca-firefox-0-results-0-notes"
+                        ></textarea>
+                      </fieldset>
+                    </fieldset>
+                  </div>
+                  <div class="combo" id="combo-orca-chrome" hidden="">
+                    <h3 tabindex="-1">Test cases for Orca + Chrome</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vc_ios-ios_saf" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Voice Control (iOS) + Safari
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vc_macos-safari" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Voice Control (MacOS) + Safari
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vc_macos-chrome" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Voice Control (MacOS) + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-vc_macos-firefox" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Voice Control (MacOS) + Firefox
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-wsr-edge" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Speech Recognition + Edge
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-wsr-chrome" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Speech Recognition + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-va_windows-edge" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Voice Access + Edge
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-va_windows-chrome" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Voice Access + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-win_kb-chrome" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Keyboard + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-win_kb-firefox" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Keyboard + Firefox
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-win_kb-edge" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Windows Keyboard + Edge
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-mac_kb-chrome" hidden="">
+                    <h3 tabindex="-1">Test cases for Mac Keyboard + Chrome</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-mac_kb-safari" hidden="">
+                    <h3 tabindex="-1">Test cases for Mac Keyboard + Safari</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-mac_kb-firefox" hidden="">
+                    <h3 tabindex="-1">Test cases for Mac Keyboard + Firefox</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-ios_kb-ios_saf" hidden="">
+                    <h3 tabindex="-1">Test cases for iOS Keyboard + Safari</h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-win_kb-and_chr" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Android Keyboard + Chrome
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                  <div class="combo" id="combo-win_kb-firefox" hidden="">
+                    <h3 tabindex="-1">
+                      Test cases for Android Keyboard + Firefox
+                    </h3>
+                    <p>
+                      The test has not been configured for this combination.
+                      Please open a GitHub issue.
+                    </p>
+                  </div>
+                </div>
+                <div class="control"><button>Create GitHub Issue</button></div>
+                <div id="output" hidden="">
+                  <h2 tabindex="-1" id="output-heading">
+                    Copy/paste this into a github issue
+                  </h2>
+                  <label for="issue-body"
+                    >We generated an issue for you. Just copy paste this text
+                    into a github issue.</label
+                  ><textarea id="issue-body" readonly="" rows="12"></textarea
+                  ><a href="" target="_new" id="issue-link"
+                    >Use this link to create the issue</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar">
+          <h2>Related Features</h2>
+          <p>This test is found in the following features:</p>
+          <ul>
+            <li><a href="/tech/aria/alertdialog_role">alertdialog role</a></li>
+          </ul>
+          <h2>Is something not right?</h2>
+          <p>
+            We use our
+            <a
+              href="https://github.com/accessibilitysupported/accessibilitysupported"
+              >GitHub repository</a
+            >
+            to manage our issue tracking. Please provide as much information as
+            you can for issues, and please leave the id in the issue title
+            intact.
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=aria_alertdialog_document_mode&amp;labels=test%20case"
+                >There is a problem with this test case (the test file,
+                procedure, expected results, etc)</a
+              >
+            </li>
+            <li>
+              <p>
+                Use the support tables to view details and report issues or
+                changes.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script src="/js/feature-test.js"></script>
+    </main>
+    <footer role="contentinfo">
+      <p>
+        This work was originally created by Michael Fairchild. This is a
+        community-driven and open source project. Text and data is available
+        under the
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+      <p>
+        <a
+          href="https://github.com/accessibilitysupported/accessibilitysupported/"
+          >Find us on GitHub</a
+        >
+      </p>
+      <script>
+        // only show the focus outline for skip nav if a keyboard event triggered it.
+        var skipnav = document.querySelector("#skip-nav");
+        var main = document.querySelector("main");
+        skipnav.addEventListener("click", function () {
+          main.classList.add("show-focus-outline");
+          main.focus();
+        });
+        main.addEventListener("blur", function () {
+          main.classList.remove("show-focus-outline");
+        });
+      </script>
+    </footer>
+  </body>
+</html>

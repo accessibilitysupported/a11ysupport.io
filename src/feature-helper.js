@@ -1,6 +1,5 @@
 let helper = {};
 const moment = require('moment');
-let now = new moment();
 
 //Grab the ATBrowsers data
 const ATBrowsers = require('./../data/ATBrowsers');
@@ -659,7 +658,11 @@ helper.checkForOnlyNegativeSupport = function(featureObject) {
 	}
 };
 
-helper.initalizeTestCase = function (testCase) {
+helper.initalizeTestCase = function (testCase, now) {
+	if (!now) {
+		now = new moment();
+	}
+
 	// transform the commands object to the assertions array
 	if (!testCase.assertions) {
 		testCase.assertions = [];

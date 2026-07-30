@@ -1,0 +1,46 @@
+{
+  "route": "/this-route-does-not-exist",
+  "status": 404,
+  "violations": [
+    {
+      "id": "document-title",
+      "impact": "serious",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag242",
+        "TTv5",
+        "TT12.a",
+        "EN-301-549",
+        "EN-9.2.4.2",
+        "ACT",
+        "RGAAv4",
+        "RGAA-8.5.1"
+      ],
+      "description": "Ensure each HTML document contains a non-empty <title> element",
+      "help": "Documents must have <title> element to aid in navigation",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/document-title?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "doc-has-title",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Document does not have a non-empty <title> element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  Document does not have a non-empty <title> element"
+        }
+      ]
+    }
+  ]
+}

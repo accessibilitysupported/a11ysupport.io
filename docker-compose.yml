@@ -1,0 +1,26 @@
+services:
+  # Baseline capture and visual/HTML/axe comparison must run in the same environment every time —
+  # screenshots and rendered HTML captured on the host (macOS/Linux, varying font rendering) are
+  # not comparable to CI. This pins both to the same official Playwright image.
+  #
+  # Version MUST match the `@playwright/test` version in package.json (Phase 1). Bump both
+  # together.
+  baseline:
+    image: mcr.microsoft.com/playwright:v1.62.1-jammy
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - BUILD_NOW
+    command: >
+      sh -c "npm run build:baseline"
+
+  visual:
+    image: mcr.microsoft.com/playwright:v1.62.1-jammy
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - BUILD_NOW
+    command: >
+      sh -c "npm run test:visual"

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="canonical"
+      href="https://a11ysupport.io/this-route-does-not-exist"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/js/vendor/details-polyfill.js"></script>
+    <script src="/js/vendor/formdata.min.js"></script>
+    <script src="/js/head.js"></script>
+  </head>
+  <body>
+    <header role="banner">
+      <a class="skip-nav" href="#main" id="skip-nav">Skip to main content</a>
+      <div class="logo-area">
+        <div class="site-title"><a href="/">Accessibility Support</a></div>
+        <span>Will your code work with assistive technologies?</span>
+      </div>
+      <nav role="navigation">
+        <ul>
+          <li><a href="/tests">All Tests</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/learn">Learn</a></li>
+          <li><a href="/updates">Recent updates</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main role="main" id="main" tabindex="-1">
+      <div class="beta-warning">
+        <p>
+          <strong>Important</strong>: This website does not attempt to establish
+          a standard for how assistive technologies must behave.
+          <a href="/faq">Read the FAQ for more information</a>. Additionally,
+          this is a work in progress.
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new"
+            >Please submit feedback or suggestions</a
+          >.
+        </p>
+      </div>
+      <div class="content">
+        <h1>Not Found</h1>
+        <h2>404</h2>
+        <!-- pre #{error.stack}-->
+      </div>
+    </main>
+    <footer role="contentinfo">
+      <p>
+        This work was originally created by Michael Fairchild. This is a
+        community-driven and open source project. Text and data is available
+        under the
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+      <p>
+        <a
+          href="https://github.com/accessibilitysupported/accessibilitysupported/"
+          >Find us on GitHub</a
+        >
+      </p>
+      <script>
+        // only show the focus outline for skip nav if a keyboard event triggered it.
+        var skipnav = document.querySelector("#skip-nav");
+        var main = document.querySelector("main");
+        skipnav.addEventListener("click", function () {
+          main.classList.add("show-focus-outline");
+          main.focus();
+        });
+        main.addEventListener("blur", function () {
+          main.classList.remove("show-focus-outline");
+        });
+      </script>
+    </footer>
+  </body>
+</html>

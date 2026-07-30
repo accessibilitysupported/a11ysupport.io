@@ -13,10 +13,15 @@
     "start": "node ./bin/www",
     "test": "mocha --reporter progress",
     "build": "node ./build.js",
+    "build:baseline": "npm run build && tsx tools/baseline/capture.ts",
+    "test:visual": "playwright test tests/e2e/visual.spec.ts",
     "prepublishOnly": "npm install && npm run build"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "1.62.1",
     "ajv": "^6.12.3",
+    "axe-core": "^4.12.1",
     "axios": ">=1.15.0",
     "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.3",
@@ -26,18 +31,22 @@
     "esprima": "^4.0.1",
     "express": "^4.22.1",
     "github-api": "^3.4.0",
+    "glob": "^11.0.0",
     "http-errors": "~1.6.2",
     "js-beautify": "^1.13.5",
     "jstransformer-markdown-it": "^2.1.0",
     "markdown-it-anchor": "^5.2.4",
     "minimist": "^1.2.6",
-    "moment": "^2.29.2",
     "mocha": "^10.8.2",
+    "moment": "^2.29.2",
     "morgan": "^1.10.1",
     "node-fetch": "^3.1.1",
     "node-glob": "^1.2.0",
+    "prettier": "^3.4.2",
     "pug": "^3.0.3",
     "rimraf": "^2.6.3",
-    "sanitize-filename": "^1.6.1"
+    "sanitize-filename": "^1.6.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   }
 }

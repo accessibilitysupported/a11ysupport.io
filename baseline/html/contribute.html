@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contributing | Accessibility Support</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="canonical" href="https://a11ysupport.io/contribute" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/js/vendor/details-polyfill.js"></script>
+    <script src="/js/vendor/formdata.min.js"></script>
+    <script src="/js/head.js"></script>
+  </head>
+  <body>
+    <header role="banner">
+      <a class="skip-nav" href="#main" id="skip-nav">Skip to main content</a>
+      <div class="logo-area">
+        <div class="site-title"><a href="/">Accessibility Support</a></div>
+        <span>Will your code work with assistive technologies?</span>
+      </div>
+      <nav role="navigation">
+        <ul>
+          <li><a href="/tests">All Tests</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/learn">Learn</a></li>
+          <li><a href="/updates">Recent updates</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main role="main" id="main" tabindex="-1">
+      <div class="beta-warning">
+        <p>
+          <strong>Important</strong>: This website does not attempt to establish
+          a standard for how assistive technologies must behave.
+          <a href="/faq">Read the FAQ for more information</a>. Additionally,
+          this is a work in progress.
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new"
+            >Please submit feedback or suggestions</a
+          >.
+        </p>
+      </div>
+      <div class="content">
+        <h1 id="contributing">Contributing</h1>
+        <p>Thank you for your interest in contributing to our data.</p>
+        <p>There are a few ways that you can contribute:</p>
+        <ol>
+          <li>
+            <a href="#tell-us-that-something-is-wrong"
+              >Tell us that something is wrong</a
+            >
+          </li>
+          <li>
+            <a href="#add-or-modify-a-support-point"
+              >Add or modify a support point</a
+            >
+          </li>
+          <li>
+            <a href="#suggest-a-missing-test-case"
+              >Suggest a missing test case</a
+            >
+          </li>
+          <li><a href="#improve-a-test-case">Improve a test case</a></li>
+          <li>
+            <a href="#suggest-a-new-technology">Suggest a new technology</a>
+          </li>
+          <li><a href="#suggest-a-new-feature">Suggest a new feature</a></li>
+        </ol>
+        <h2 id="tell-us-that-something-is-wrong">
+          Tell us that something is wrong
+        </h2>
+        <p>
+          We can't get everything right. And let's be honest, this project
+          represents a huge amount of work by a lot of people. We are human and
+          we make mistakes. But in order for us to fix those mistakes, we must
+          first know about them. Please
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues"
+            >create an issue</a
+          >
+          to bring something to our attention.
+        </p>
+        <p>When creating an issue, please be as detailed as you can.</p>
+        <h2 id="add-or-modify-a-support-point">
+          Add or modify a support point
+        </h2>
+        <p>
+          The best thing you can do to help us out is to run tests against
+          specific AT/Browser combinations and contribute your findings back to
+          us.
+        </p>
+        <p>A support point is the support value for a given AT/Browser/Test.</p>
+        <ol>
+          <li>Find a test that you want to run.</li>
+          <li>
+            Read the provided instructions so that you understand the expected
+            results.
+          </li>
+          <li>Use the chosen AT/Browser combination to run the test.</li>
+          <li>
+            Use the provided form to open an issue that details the results. You
+            can also create a pull request with your findings. Be sure to
+            provide specific versions of the AT, Browser, and OS that were used.
+          </li>
+          <li>
+            If creating a pull request, add an entry to the history array for
+            the test that describes any changes and set the support point's date
+            to today's date.
+          </li>
+          <li>
+            Your findings should be verified by at least one other person before
+            they are accepted. Verification must either be done manually or by
+            citing a trustworthy 3rd party resource.
+          </li>
+        </ol>
+        <p>An issue to add or modify a support point should include:</p>
+        <ol>
+          <li>The name of the test</li>
+          <li>The AT name</li>
+          <li>The AT version</li>
+          <li>The Browser Name</li>
+          <li>The Browser version</li>
+          <li>The OS version</li>
+          <li>
+            The specific command(s) used to access the target element with the
+            AT (keys used, touch gestures, or voice command)
+          </li>
+          <li>
+            The output announced by the screen reader for each specific command
+            (if using a screen reader). #7 and #8 help to make the test easier
+            to replicate.
+          </li>
+          <li>Whether or not you think the test passes or fails and why</li>
+        </ol>
+        <h2 id="suggest-a-missing-test-case">Suggest a missing test case</h2>
+        <p>
+          Please
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues"
+            >create an issue</a
+          >
+          or create a pull request to suggest a new test case.
+        </p>
+        <p>
+          A test case provides instructions to test the functionality of a
+          feature when used with AT. For example, a test case might include a
+          specific attribute or value that is used to modify a feature. If
+          <code>aria-hidden</code> is a feature, separate test cases should
+          exist to test <code>aria-hidden="true"</code> and
+          <code>aria-hidden="false"</code>.
+        </p>
+        <p>Details for the test case should include:</p>
+        <ol>
+          <li>A name for the test case.</li>
+          <li>
+            Sample code for the test case (preferably committed to this project
+            so that it doesn't change without our knowledge).
+          </li>
+          <li>
+            List the feature(s) should reference the test case. If you are
+            making a pull request, update the features to reference the test.
+          </li>
+          <li>
+            Describe the Expected output and instructions. This must be
+            objective and empirical in nature and must correlate to the output
+            that is described by associated standards. The following should be
+            listed
+            <ul>
+              <li>The CSS selector for the target element</li>
+              <li>
+                The expected role, accessible name, accessible description,
+                states, and properties of the element
+              </li>
+            </ul>
+          </li>
+          <li>
+            Any current support if you know it (follow the instructions for
+            adding a new support point).
+          </li>
+        </ol>
+        <p>We support three kinds of test cases:</p>
+        <ol>
+          <li>
+            Assertion test - usually used to verify proper mapping of the
+            accessible name, description, states, and properties. Can include
+            custom instructions for tests that depend on specific interactions.
+          </li>
+          <li>
+            External test - (experimental) Used to include the rests of an
+            external test. These tests should include details on methodology, as
+            well as detailed information about AT, Browser, and OS versions.
+          </li>
+          <li>
+            Custom test - (experimental) these tests check for functionality not
+            covered by an AAM test. This might include dynamic functionality
+            such as aria-live and always requires custom instructions to be
+            developed.
+          </li>
+        </ol>
+        <p>All new test cases must be approved by at least one other person.</p>
+        <h3
+          id="determine-the-expected-role%2C-accessible-name%2C-accessible-description%2C-states%2C-and-properties"
+        >
+          Determine the expected role, accessible name, accessible description,
+          states, and properties
+        </h3>
+        <p>
+          Use the
+          <a href="https://www.w3.org/TR/core-aam-1.1/"
+            >Accessibility API Mapping standards</a
+          >
+          wherever possible to determine the expected values.
+        </p>
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/accname-1.1/"
+              >Accessible Name and Description Computation</a
+            >
+            - general expectations
+          </li>
+          <li>
+            <a href="https://www.w3.org/TR/html-aam-1.0/">HTML AAM</a> -
+            specific HTML rules
+          </li>
+          <li>
+            <a href="https://www.w3.org/TR/svg-aam-1.0/">SVG AAM</a> - specific
+            SVG rules
+          </li>
+          <li>
+            <a href="https://w3c.github.io/html-aria/">ARIA in HTML</a> -
+            guidelines for using ARIA in the host language: HTML.
+          </li>
+        </ul>
+        <h2 id="improve-a-test-case">Improve a test case</h2>
+        <p>
+          If you find a problem with a test case, please
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues"
+            >create an issue</a
+          >
+          or create a pull request to detail the problem. Any changes to a test
+          case must be approved by one other person.
+        </p>
+        <h2 id="suggest-a-new-feature">Suggest a new feature</h2>
+        <p>
+          Please
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues"
+            >create an issue</a
+          >
+          or create a pull request to suggest a new feature.
+        </p>
+        <p>
+          What is and is not a feature can be hard to define and might depend on
+          the technology or unique circumstances. In general, a feature is a
+          high-level object that is provided by a technology.
+        </p>
+        <p>
+          In HTML, a feature might be an element. Note that an HTML tag does not
+          necessarily map 1:1 with an element. For example, an
+          <code>input</code> tag with the attribute
+          <code>type="text"</code> represents a different element than
+          <code>input[type="email"]</code>.
+        </p>
+        <p>
+          In ARIA, a feature might be a role or an attribute. For example, the
+          <code>aria-hidden</code> attribute should be considered a feature in
+          the same way that the <code>heading</code> role is a feature.
+        </p>
+        <p>
+          For both ARIA and HTML, attributes that can be used across many
+          different features should also be considered features. However,
+          attributes that are restricted to specific features are not. Separate
+          test cases should be created for these feature-specific modifiers.
+        </p>
+        <p>A new feature will only be accepted if it includes:</p>
+        <ol>
+          <li>A name for the feature.</li>
+          <li>A description of the feature.</li>
+          <li>
+            Links to relevant standards to support the feature and describe how
+            AT interaction is supposed to work.
+          </li>
+          <li>At least one test case with at least one support point.</li>
+          <li>Any support details that you are aware of.</li>
+        </ol>
+        <p>All new features must be approved by at least one other person.</p>
+        <h2 id="suggest-a-new-technology">Suggest a new technology</h2>
+        <p>
+          Please
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues"
+            >create an issue</a
+          >
+          or create a pull request to suggest a new technology. A new technology
+          should include:
+        </p>
+        <ol>
+          <li>A link to the standard that supports the technology</li>
+          <li>
+            Any relevant links to aid in determining the correct AT behavior
+            when interacting with the technology. There must be at least one.
+          </li>
+          <li>
+            At least one feature with at least one test with at least one
+            support point (follow relevant instructions).
+          </li>
+        </ol>
+        <p>
+          All new technologies must be approved by at least one other person.
+        </p>
+        <h2 id="working-with-ai-coding-agents">
+          Working with AI coding agents
+        </h2>
+        <p>
+          This repo carries agent tooling for both GitHub Copilot and Claude
+          Code:
+        </p>
+        <ul>
+          <li>
+            <code>.github/agents/my-agent.agent.md</code> — a Copilot custom
+            agent that updates support points from issue descriptions.
+          </li>
+          <li>
+            <code>.github/skills/building-accessible-ui/</code> — an
+            accessibility checklist skill, canonical for Copilot.
+            <code>.claude/skills/building-accessible-ui</code> is a symlink to
+            it so Claude Code loads the same content (Claude Code only discovers
+            skills under <code>.claude/skills/</code>). Edit the file under
+            <code>.github/skills/</code> — the symlink has no independent
+            content. If your OS or checkout doesn't support symlinks (some
+            Windows configurations), you'll see the symlink as a small text file
+            instead of the skill directory; this only affects Claude Code's
+            view, not Copilot's.
+          </li>
+          <li>
+            <code>.specify/</code> —
+            <a href="https://github.com/github/spec-kit">GitHub spec-kit</a>
+            scaffolding for spec-driven development, installed for the
+            <code>claude</code> integration. Its skills live in
+            <code>.claude/skills/speckit-*</code> and are invoked as
+            <code>/speckit-specify</code>, <code>/speckit-plan</code>,
+            <code>/speckit-tasks</code>,
+            <code>/speckit-implement</code> (optionally
+            <code>/speckit-clarify</code>, <code>/speckit-analyze</code>,
+            <code>/speckit-checklist</code> in between).
+            <code>.specify/memory/constitution.md</code> encodes this file's
+            rules (data integrity, bookkeeping, second-person verification) for
+            agentic consumption, and
+            <code>.specify/templates/overrides/</code> adds an accessibility
+            section to the generated spec/plan/tasks documents for any feature
+            that touches the site's UI.
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer role="contentinfo">
+      <p>
+        This work was originally created by Michael Fairchild. This is a
+        community-driven and open source project. Text and data is available
+        under the
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+      <p>
+        <a
+          href="https://github.com/accessibilitysupported/accessibilitysupported/"
+          >Find us on GitHub</a
+        >
+      </p>
+      <script>
+        // only show the focus outline for skip nav if a keyboard event triggered it.
+        var skipnav = document.querySelector("#skip-nav");
+        var main = document.querySelector("main");
+        skipnav.addEventListener("click", function () {
+          main.classList.add("show-focus-outline");
+          main.focus();
+        });
+        main.addEventListener("blur", function () {
+          main.classList.remove("show-focus-outline");
+        });
+      </script>
+    </footer>
+  </body>
+</html>

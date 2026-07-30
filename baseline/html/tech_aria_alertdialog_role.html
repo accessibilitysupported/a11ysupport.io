@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alertdialog_role (aria) | Accessibility Support</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="canonical"
+      href="https://a11ysupport.io/tech/aria/alertdialog_role"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/js/vendor/details-polyfill.js"></script>
+    <script src="/js/vendor/formdata.min.js"></script>
+    <script src="/js/head.js"></script>
+  </head>
+  <body>
+    <header role="banner">
+      <a class="skip-nav" href="#main" id="skip-nav">Skip to main content</a>
+      <div class="logo-area">
+        <div class="site-title"><a href="/">Accessibility Support</a></div>
+        <span>Will your code work with assistive technologies?</span>
+      </div>
+      <nav role="navigation">
+        <ul>
+          <li><a href="/tests">All Tests</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/learn">Learn</a></li>
+          <li><a href="/updates">Recent updates</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main role="main" id="main" tabindex="-1">
+      <div class="beta-warning">
+        <p>
+          <strong>Important</strong>: This website does not attempt to establish
+          a standard for how assistive technologies must behave.
+          <a href="/faq">Read the FAQ for more information</a>. Additionally,
+          this is a work in progress.
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new"
+            >Please submit feedback or suggestions</a
+          >.
+        </p>
+      </div>
+      <div>
+        <div class="content">
+          <h1>alertdialog role (aria)</h1>
+          <div class="current-support-container ye">
+            <p>Screen Reader support level: supported</p>
+          </div>
+          <h2>On this page</h2>
+          <ul class="link-list">
+            <li><a href="#description">About this feature</a></li>
+            <li><a href="#age-of-results">Age of results</a></li>
+            <li>
+              <a href="#expectations">Expectations</a>
+              <ul>
+                <li><a href="#support-table-0">convey its role</a></li>
+                <li>
+                  <a href="#support-table-1"
+                    >NOT automatically switch away from reading mode</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="#related-tests">Related tests</a></li>
+            <li><a href="#feedback">Is something not right?</a></li>
+          </ul>
+          <h2 id="description">About this feature</h2>
+          <p></p>
+          <p>
+            A type of dialog that contains an alert message, where initial focus
+            goes to an element within the dialog. See related alert and dialog.
+          </p>
+          <p></p>
+          <h2 id="age-of-results">Age of results</h2>
+          <p>
+            Results across all tests for this feature range from 2 years ago to
+            9 years ago. Detailed dates and version information can be found in
+            <a href="#related-tests">associated tests</a>.
+          </p>
+          <h2 id="expectations">Expectations</h2>
+          <p>
+            <a href="/faq#what-are-expectations%3F">What are expectations?</a>
+          </p>
+          <h3 id="support-table-by-assertion-and-at-sr">
+            Screen Reader support by expectation
+          </h3>
+          <div class="responsive-table" tabindex="0">
+            <table
+              class="support-summary-table"
+              aria-labelledby="support-table-by-assertion-and-at-sr"
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <colgroup span="3"></colgroup>
+              <colgroup span="1"></colgroup>
+              <colgroup span="3"></colgroup>
+              <colgroup span="1"></colgroup>
+              <colgroup span="1"></colgroup>
+              <colgroup span="1"></colgroup>
+              <colgroup span="1"></colgroup>
+              <tbody>
+                <tr>
+                  <th rowspan="2">Expectation</th>
+                  <th colspan="3" scope="colgroup">JAWS</th>
+                  <th colspan="1" scope="colgroup">Narrator</th>
+                  <th colspan="3" scope="colgroup">NVDA</th>
+                  <th colspan="1" scope="colgroup">Orca</th>
+                  <th colspan="1" scope="colgroup">TalkBack</th>
+                  <th colspan="1" scope="colgroup">VoiceOver (iOS)</th>
+                  <th colspan="1" scope="colgroup">VoiceOver (macOS)</th>
+                </tr>
+                <tr>
+                  <th scope="col">Chrome</th>
+                  <th scope="col">Edge</th>
+                  <th scope="col">Firefox</th>
+                  <th scope="col">Edge</th>
+                  <th scope="col">Chrome</th>
+                  <th scope="col">Edge</th>
+                  <th scope="col">Firefox</th>
+                  <th scope="col">Firefox</th>
+                  <th scope="col">Chrome</th>
+                  <th scope="col">Safari</th>
+                  <th scope="col">Safari</th>
+                </tr>
+                <tr>
+                  <th>
+                    <a href="#support-table-1"
+                      >MUST NOT automatically switch away from reading mode</a
+                    >
+                  </th>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                  <td class="support-case ye">supported</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="assertion-container">
+            <h3 id="support-table-0">Expectation: convey its role</h3>
+            <h4>Rationale:</h4>
+            <p>
+              A screen reader user needs to know how they can interact with the
+              element. Voice control software might use the role to help users
+              activate controls that do not have a visible name.
+            </p>
+            <h4>
+              Strength of this expectation for different types of assistive
+              technologies:
+            </h4>
+            <ul>
+              <li>Screen Readers: MUST</li>
+              <li>Voice Control: NA</li>
+            </ul>
+            <h4>Examples:</h4>
+            <ul>
+              <li>
+                A screen reader might announce an element as something like
+                "&lt;name&gt;, &lt;role&gt;"
+              </li>
+              <li>
+                A screen reader might imply the role by the presence of certain
+                context roles
+              </li>
+              <li>
+                Voice Control software might let the user say something like
+                "click, &lt;role&gt;".
+              </li>
+              <li>
+                Voice Control software might let the user say something like
+                "show numbers", and interactive roles will be flagged with
+                numbers.
+              </li>
+            </ul>
+            <p>No tests reference this expectation yet.</p>
+          </div>
+          <div class="assertion-container">
+            <h3 id="support-table-1">
+              Expectation: NOT automatically switch away from reading mode
+            </h3>
+            <h4>
+              Strength of this expectation for different types of assistive
+              technologies:
+            </h4>
+            <ul>
+              <li>Screen Readers: MUST</li>
+              <li>Voice Control: NA</li>
+            </ul>
+            <div class="responsive-table" tabindex="0">
+              <table class="support-summary-table">
+                <caption>
+                  Screen Reader support for 'MUST NOT automatically switch away
+                  from reading mode'
+                </caption>
+                <colgroup>
+                  <col />
+                </colgroup>
+                <colgroup span="3"></colgroup>
+                <colgroup span="1"></colgroup>
+                <colgroup span="3"></colgroup>
+                <colgroup span="1"></colgroup>
+                <colgroup span="1"></colgroup>
+                <colgroup span="1"></colgroup>
+                <colgroup span="1"></colgroup>
+                <tbody>
+                  <tr>
+                    <th rowspan="2">Test</th>
+                    <th colspan="3" scope="colgroup">JAWS</th>
+                    <th colspan="1" scope="colgroup">Narrator</th>
+                    <th colspan="3" scope="colgroup">NVDA</th>
+                    <th colspan="1" scope="colgroup">Orca</th>
+                    <th colspan="1" scope="colgroup">TalkBack</th>
+                    <th colspan="1" scope="colgroup">VoiceOver (iOS)</th>
+                    <th colspan="1" scope="colgroup">VoiceOver (macOS)</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Chrome</th>
+                    <th scope="col">Edge</th>
+                    <th scope="col">Firefox</th>
+                    <th scope="col">Edge</th>
+                    <th scope="col">Chrome</th>
+                    <th scope="col">Edge</th>
+                    <th scope="col">Firefox</th>
+                    <th scope="col">Firefox</th>
+                    <th scope="col">Chrome</th>
+                    <th scope="col">Safari</th>
+                    <th scope="col">Safari</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="/tests/aria_alertdialog_document_mode"
+                        >ARIA alertdialog role must use document mode</a
+                      >
+                    </th>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--jaws-chrome"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--jaws-edge"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--jaws-firefox"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--narrator-edge"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--nvda-chrome"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--nvda-edge"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--nvda-firefox"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--orca-firefox"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--talkback-and_chr"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--vo_ios-ios_saf"
+                        >supported</a
+                      >
+                    </td>
+                    <td class="support-case ye">
+                      <a
+                        href="/tests/aria_alertdialog_document_mode#assertion-aria-alertdialog_role-stay_in_reading_mode--vo_macos-safari"
+                        >supported</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar">
+          <h2 id="related-tests">Tests</h2>
+          <table aria-labelledby="related-tests">
+            <tbody>
+              <tr>
+                <th>Test</th>
+                <th>Last update</th>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/tests/aria_alertdialog_document_mode"
+                    >ARIA alertdialog role must use document mode</a
+                  >
+                </td>
+                <td>2024-12-08</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="feedback">Is something not right?</h2>
+          <p>
+            We use our
+            <a
+              href="https://github.com/accessibilitysupported/accessibilitysupported"
+              >GitHub repository</a
+            >
+            to manage our issue tracking. Please provide as much information as
+            you can for issues, and please leave the id in the issue title
+            intact.
+          </p>
+          <a
+            href="https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=aria/alertdialog_role&amp;labels=tech%20feature"
+            >Create an issue for this feature</a
+          >
+          <h2 id="related-features">References</h2>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/TR/wai-aria-1.1/#alertdialog"
+                >ARIA spec for alertdialog</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer role="contentinfo">
+      <p>
+        This work was originally created by Michael Fairchild. This is a
+        community-driven and open source project. Text and data is available
+        under the
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+      <p>
+        <a
+          href="https://github.com/accessibilitysupported/accessibilitysupported/"
+          >Find us on GitHub</a
+        >
+      </p>
+      <script>
+        // only show the focus outline for skip nav if a keyboard event triggered it.
+        var skipnav = document.querySelector("#skip-nav");
+        var main = document.querySelector("main");
+        skipnav.addEventListener("click", function () {
+          main.classList.add("show-focus-outline");
+          main.focus();
+        });
+        main.addEventListener("blur", function () {
+          main.classList.remove("show-focus-outline");
+        });
+      </script>
+    </footer>
+  </body>
+</html>

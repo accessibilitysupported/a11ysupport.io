@@ -1,8 +1,10 @@
 let fs = require('fs');
 let rimraf = require('rimraf');
 let glob = require('glob');
+let moment = require('moment');
 
 let helper = require(__dirname+'/src/feature-helper');
+let buildNow = process.env.BUILD_NOW ? moment(process.env.BUILD_NOW) : new moment();
 let tech = require(__dirname+"/data/tech.json");
 let ATBrowsers = require(__dirname+"/data/ATBrowsers.json");
 let testMap = {};
@@ -236,7 +238,7 @@ testFiles.forEach(function(file) {
 	}
 
 	// Set up the test case
-	helper.initalizeTestCase(test);
+	helper.initalizeTestCase(test, buildNow);
 
 	test.assertions.forEach(assertion => {
 		if (!testMap[test.id]) {
