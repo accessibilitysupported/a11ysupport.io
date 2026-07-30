@@ -1,0 +1,87 @@
+/**
+ * Phase 5: split of public/stylesheets/style.css — generic table structure (lines 110-137,
+ * 335-341, 537-553, 578-601), verbatim.
+ *
+ * The `td { padding: .2em }` / `th, td { padding: .25em .25em }` pair below has equal
+ * specificity (0,0,0,1) on the same property — source order decides the winner (`th, td` wins,
+ * so `td` padding is actually `.25em .25em`, not `.2em`). Kept in original relative order.
+ */
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+table, td, th {
+  border: 1px solid var(--border);
+}
+
+td {
+  padding: .2em;
+}
+
+th {
+  text-align: left;
+}
+
+th, td {
+  padding: .25em .25em;
+}
+
+th {
+  background-color: var(--background-paper);
+}
+
+thead th {
+  text-align: center;
+}
+
+.responsive-table {
+  overflow-x: auto;
+}
+
+.responsive-table table {
+  width: 100%;
+}
+
+.support-summary-by-at {
+  margin-bottom: 0;
+}
+
+th .feature-title {
+  font-weight: normal
+}
+
+.summary-matrix th.assertion {
+  min-width: 15em;
+  max-width: 15em;
+}
+
+.summary-matrix th.feature {
+  font-size: 1.25em;
+  padding: .5em;
+}
+
+.support-summary-table {
+  margin-bottom: 1em;
+}
+
+table caption {
+  text-align: left;
+  font-weight: bold;
+  line-height: 2em;
+  font-size: .75em;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background-color: var(--background-paper);
+  padding: .25em .25em;
+}
+
+table.support-table caption {
+  font-size: 1.5em;
+}
+
+th a .applied_to {
+  display: block;
+  font-size: .75em;
+}

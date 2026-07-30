@@ -1,0 +1,47 @@
+/**
+ * Phase 5: split of public/stylesheets/style.css (lines 1-42), verbatim. Global by nature —
+ * custom properties can't be scoped per-component, so this stays a plain global sheet rather
+ * than a CSS module (plan.md, Phase 5).
+ */
+:root {
+  --background: #fafafa;
+  --background-main: white;
+  --background-nav: #efeded;
+  --background-paper: #eee;
+  --background-input: white;
+  --background-warning: #ffbfbd;
+  --background-assertion: #f5f5f5;
+  --foreground: black;
+  --border: #999;
+  --border-search: #363636;
+  --border-input: #ccc;
+  --main: #00cc21;
+  --link: #2f6fad;
+  --link-warning: #0a5297;
+  --support-no-background: #b94a48;
+  --support-no-foreground: #fff;
+  --support-yes-background: #03a678;
+  --support-yes-foreground: #000;
+  --support-partial-background: #e9c906;
+  --support-partial-foreground: #000;
+  --support-unknown-background: #e7e7e7;
+  --support-unknown-foreground: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #101010;
+    --background-main: black;
+    --background-nav: #151212;
+    --background-paper: #111;
+    --background-input: #303030;
+    --background-warning: #420200;
+    --background-assertion: #0a0a0a;
+    --foreground: white;
+    --border: #666;
+    --border-search: #c9c9c9;
+    --border-input: #333;
+    --link: #50a3f4;
+    --link-warning: #50a3f4;
+  }
+}
