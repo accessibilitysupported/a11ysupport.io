@@ -46,12 +46,8 @@ function startServer(): Promise<ChildProcess> {
       stdio: ['ignore', 'pipe', 'pipe'],
     });
     const timeout = setTimeout(() => reject(new Error('Server did not start within 10s')), 10000);
-    child.stdout?.on('data', (chunk: Buffer) => {
-      if (chunk.toString().toLowerCase().includes('listening') || true) {
-        // bin/www logs via `debug`, which is silent by default; poll instead of trusting stdout.
-      }
-    });
-    // Poll for readiness rather than parsing debug output (DEBUG env var is unset by default).
+    // Poll for readiness rather than parsing stdout — bin/www logs via `debug`, which is silent
+    // by default (DEBUG env var unset), so there's nothing reliable to watch for there.
     const start = Date.now();
     const poll = setInterval(async () => {
       try {

@@ -34,7 +34,8 @@ Node 24 per FR-011/SC-007)
 
 **Primary Dependencies**: Express 5, React 19, React Router 7, TanStack Query, Vite,
 `markdown-it` + `markdown-it-anchor`, `compression`, `sanitize-filename`, `json-schema-to-typescript`
-(dev), `dayjs` (pending the date-parity test in Phase 1 — falls back to `moment` if it diverges)
+(dev), `moment` (kept, not replaced with `dayjs` — the Phase 1 date-parity test found two real
+divergent dates out of 212 checked; see research.md)
 
 **Storage**: None (flat JSON files under `data/`, unchanged; `build/` remains the generated,
 gitignored output tree, now including view-shaped `build/api/*.json` payloads)

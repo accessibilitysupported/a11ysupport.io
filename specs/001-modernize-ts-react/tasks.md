@@ -98,11 +98,13 @@ environment-pinned "before" snapshot that every later phase diffs against.
       `chai`.
 - [ ] T014 Delete `.travis.yml` (dead legacy CI config superseded by
       `.github/workflows/node.js.yml`).
-- [ ] T015 [P] [US2] Write `tests/unit/date-parity.test.ts`: runs both `moment` and `dayjs`
-      `fromNow()` over every date present in `build/` (`all_dates`, `failing_dates`,
-      `versions[*].date`, `history[*].date`) against the pinned `BUILD_NOW` from T001, asserting
-      identical output. This test's result decides whether Phase 2/4 use `dayjs` or keep
-      `moment` — do not assume the outcome.
+- [x] T015 [US2] Ran `tests/unit/date-parity.test.ts`: `moment` vs `dayjs` `fromNow()` over all
+      212 dates present in `build/` at the time (`all_dates`, `failing_dates`,
+      `versions[*].date`, `history[*].date`), plus a swept set of threshold-boundary offsets.
+      Found two real divergences (`2020-01-31`, `2024-01-31` — year-boundary rounding; see
+      research.md). **Decision: keep `moment`.** `dayjs` removed from `devDependencies`; the
+      test file was deleted after recording the finding in research.md rather than left in the
+      suite permanently red or permanently skipped.
 - [ ] T016 [P] Generate `src/types/dev-test.ts`, `src/types/dev-feature.ts`, `src/types/test.ts`,
       `src/types/feature.ts` via `json-schema-to-typescript` from `data/schema/*.json`; wire into
       an `npm run types` script so future schema edits regenerate these.

@@ -67,6 +67,15 @@ the static fixture, not the SPA route.
 
 ## Gate 5 — HTML parity
 
+Always compare via a browser's DOM serialization (`page.content()`, as `capture.ts` does), never
+raw HTTP response bytes (`curl`). Browsers don't re-encode characters like `"` in text nodes that
+don't require escaping there, so a raw-byte diff produces false positives (e.g., a markdown
+renderer emitting `&quot;` vs a literal `"` in prose text) that disappear once both sides are
+parsed and reserialized identically. Confirmed while upgrading `markdown-it`/`markdown-it-anchor`
+in Phase 1 — a `curl`-based check showed spurious diffs that a `page.content()`-based check did
+not.
+
+
 ```bash
 docker compose run baseline    # captures baseline/html, baseline/png, baseline/axe (Phase 0, once)
 docker compose run visual -- --compare-html

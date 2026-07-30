@@ -4,7 +4,7 @@ let fs = require('fs');
 let sanitize = require("sanitize-filename");
 let createError = require('http-errors');
 let MarkdownIt = require('markdown-it');
-let md = new MarkdownIt().use(require('markdown-it-anchor'));
+let md = new MarkdownIt().use(require('markdown-it-anchor'), { tabIndex: false });
 let testHelper = require('../src/test-id-helper.js');
 const moment = require('moment');
 

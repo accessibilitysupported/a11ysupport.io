@@ -11,7 +11,6 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { glob } from 'glob';
 
 const ROOT = path.resolve(__dirname, '../..');
 const buildFile = (p: string) => path.join(ROOT, 'build', p);
@@ -64,21 +63,18 @@ function homeRoutes(): BaselineRoute[] {
 function techRoutes(): BaselineRoute[] {
   const tech = readJson<Record<string, any>>(buildFile('tech.json'));
   const routes: BaselineRoute[] = [{ path: '/tech', label: 'tech-index' }];
-  let sparsest: [string, any] | null = null;
-  for (const [id, entry] of Object.entries(tech)) {
-    const count = (entry.features || []).length;
-    if (!sparsest || count < (sparsest[1].features || []).length) {
-      sparsest = [id, entry];
-    }
-  }
+  const entries = Object.entries(tech);
+  if (entries.length === 0) return routes;
+
+  const byFeatureCount = [...entries].sort(
+    (a, b) => (a[1].features || []).length - (b[1].features || []).length
+  );
   // A true zero-feature technology doesn't exist in the current dataset (every tech has >=1
   // feature); the sparsest one (svg, 1 feature today) is the closest available edge case for
   // "tech with few/no features" and is what this route exercises.
-  const [sparseId] = sparsest ?? Object.keys(tech).map((k) => [k])[0];
+  const [sparseId] = byFeatureCount[0]!;
   routes.push({ path: `/tech/${sparseId}`, label: `tech (sparsest feature list: ${sparseId})` });
-  const richId = Object.entries(tech).sort(
-    (a, b) => (b[1].features || []).length - (a[1].features || []).length
-  )[0][0];
+  const [richId] = byFeatureCount[byFeatureCount.length - 1]!;
   if (richId !== sparseId) {
     routes.push({ path: `/tech/${richId}`, label: `tech (richest feature list: ${richId})` });
   }

@@ -31,7 +31,7 @@ router.get('/updates', function(req, res, next) {
 router.get('/contribute', function(req, res, next) {
 	let markdown = fs.readFileSync(__dirname+'/../CONTRIBUTING.md', 'utf8');
 	let MarkdownIt = require('markdown-it');
-	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+	let md = new MarkdownIt().use(require('markdown-it-anchor'), { tabIndex: false });
 	let result = md.render(markdown);
 	res.render('static-page', {
 		title: 'Contributing | Accessibility Support',
@@ -53,7 +53,7 @@ router.get('/run-tests', function(req, res, next) {
 router.get('/faq', function(req, res, next) {
 	let markdown = fs.readFileSync(__dirname+'/../FAQ.md', 'utf8');
 	let MarkdownIt = require('markdown-it');
-	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+	let md = new MarkdownIt().use(require('markdown-it-anchor'), { tabIndex: false });
 	let result = md.render(markdown);
 	res.render('static-page', {
 		title: 'FAQ | Accessibility Support',
@@ -64,7 +64,7 @@ router.get('/faq', function(req, res, next) {
 router.get('/learn', function(req, res, next) {
 	let markdown = fs.readFileSync(__dirname+'/../documentation/learn.md', 'utf8');
 	let MarkdownIt = require('markdown-it');
-	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+	let md = new MarkdownIt().use(require('markdown-it-anchor'), { tabIndex: false });
 	let result = md.render(markdown);
 	res.render('static-page', {
 		title: 'Learn | Accessibility Support',
@@ -75,7 +75,7 @@ router.get('/learn', function(req, res, next) {
 router.get('/learn/vc_differences', function(req, res, next) {
 	let markdown = fs.readFileSync(__dirname+'/../documentation/vc_differences.md', 'utf8');
 	let MarkdownIt = require('markdown-it');
-	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+	let md = new MarkdownIt().use(require('markdown-it-anchor'), { tabIndex: false });
 	let result = md.render(markdown);
 	res.render('static-page', {
 		title: 'Voice Control differences | Accessibility Support',
@@ -101,7 +101,7 @@ router.get('/learn/at/:id', function(req, res, next) {
 
 	let markdown = fs.readFileSync(__dirname+'/../documentation/at/'+req.params.id+'.md', 'utf8');
 	let MarkdownIt = require('markdown-it');
-	let md = new MarkdownIt().use(require('markdown-it-anchor'));
+	let md = new MarkdownIt().use(require('markdown-it-anchor'), { tabIndex: false });
 	let result = md.render(markdown);
 	let at_id = req.params.id;
 

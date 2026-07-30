@@ -60,17 +60,35 @@ exact class names into `support_string.class`, and hashing them would break that
   600-line/single-responsibility goal. Mitigated by extracting one file at a time with a
   screenshot diff after each (source plan, Phase 5).
 
-## Decision: Date formatting — verify before swapping `moment` → `dayjs`
+## Decision: Date formatting — keep `moment`, verified rather than assumed
 
 **Rationale**: `moment`'s relative-time strings ("2 years ago") are user-visible on several
-templates. `dayjs` is the natural lighter-weight replacement but its `fromNow()` boundary rounding
-is not guaranteed identical. Treated as a test (`date-parity.test.ts`, Phase 6), not an
-assumption — keep `moment` if any divergence is found across the dates actually present in
-`build/`.
+templates. `dayjs` was evaluated as a lighter-weight replacement and tested (Phase 1) against
+every date actually present in `build/` at the time — 212 dates — plus a swept set of threshold
+boundaries. Two real divergences were found, both year-boundary rounding artifacts:
 
-**Alternatives considered**: *Assume parity and swap unconditionally* — rejected as the assumption
-was already flagged as unverified during plan review; a migration promising "no product change"
-cannot afford an unverified swap of user-visible text.
+| Date | `moment().fromNow()` | `dayjs().fromNow()` |
+|---|---|---|
+| `2020-01-31` | "7 years ago" | "6 years ago" |
+| `2024-01-31` | "3 years ago" | "2 years ago" |
+
+This is exactly the class of divergence the test was written to catch, and it's user-visible
+(these are feature/test "age of results" strings shown on `feature.pug`/`test-case.pug`). Per the
+test's own decision rule: any divergence means keep `moment`. **`moment` stays** — `dayjs` was
+removed from `devDependencies` after the finding was recorded here.
+
+**Alternatives considered**: *Assume parity and swap unconditionally* — this was the original,
+unverified plan; the test above is exactly why it wasn't trusted. *Swap anyway, accept the two
+divergent dates as a documented exception* — rejected because "the exact same UI" was the
+explicit brief, and a silently-shifted "years ago" count on two specific historical results has
+no offsetting benefit worth that risk.
+
+**Cost accepted**: `.fromNow()` is computed client-side in the SPA (not pre-baked at build time —
+that's precisely why Gate 5 pins the browser clock to `BUILD_NOW` for HTML parity: a pre-computed
+string wouldn't need that), so `moment` (~72KB gzipped incl. English locale) ships to the client
+bundle where `dayjs` (~3KB with the `relativeTime` plugin) would not have. This is a real,
+known bundle-size cost, accepted deliberately in exchange for verified fidelity on a migration
+whose explicit brief is "the exact same UI" — not a case where the trade was overlooked.
 
 ## Decision: Testing stack — Vitest + Playwright + `@axe-core/playwright`
 
