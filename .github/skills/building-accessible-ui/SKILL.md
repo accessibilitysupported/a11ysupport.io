@@ -2,7 +2,7 @@
 name: building-accessible-ui
 description: MUST BE USED for any UI work. Invoke this skill before generating, modifying, or reviewing any code that renders, styles, or wires up a user-facing interface — including markup, components, templates, styles, and the JavaScript/TypeScript that drives them. Also invoke this skill when writing or reviewing a spec, plan, design doc, PRD, RFC, ADR, ticket, or task list for a user-facing feature — the accessibility contract belongs in the spec, before implementation. This skill encodes the accessibility (WCAG 2.2 AA) requirements every UI change must satisfy; skipping it produces inaccessible output. Applies across web, mobile, and desktop. If the task touches the UI layer in any way, use this skill first. Already invoked earlier in this session? Don't invoke again — apply the checklist and any component/reference files you already loaded to the new task.
 version: 1.0.0
-source: in-repo (authored for weather-demo; not vendored from an external skill repository)
+source: in-repo (authored for a11ysupport; not vendored from an external skill repository)
 ---
 
 # building-accessible-ui
