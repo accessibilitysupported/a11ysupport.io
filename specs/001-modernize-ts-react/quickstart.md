@@ -12,9 +12,11 @@ npm ci
 docker pull mcr.microsoft.com/playwright:<version pinned in package.json>
 ```
 
-The Playwright container is required for Gates 5–8 (visual/HTML/axe/manual parity) — screenshots
-and rendered HTML captured outside it are not comparable (research.md, environment-parity
-decision).
+The Playwright container was required for Gates 5–8 (visual/HTML/axe/manual parity) while the
+migration was in progress — screenshots and rendered HTML captured outside it are not comparable
+(research.md, environment-parity decision). Gates 5 and 6 compared against the legacy Pug/Express
+app, which no longer exists (deleted once Phase 6's test suite proved the React SPA replacement
+complete) — see the note under each gate below.
 
 ## Gate 1 — Build parity (byte-identical output)
 
@@ -67,13 +69,19 @@ the static fixture, not the SPA route.
 
 ## Gate 5 — HTML parity
 
+**This gate compared against the legacy app and can no longer be run as written** — `capture.ts`,
+`docker-compose.yml`, and the legacy app it captured from (`app.js`, `bin/www`, `routes/*.js`,
+`views/**`) have all since been deleted; there is nothing left to diff against. It passed during
+the migration (documented below for the record); a similar check going forward would need to
+compare the current app against its own prior state, not be resurrected against a deleted target.
+
 **Known, accepted diff**: every `<a>` rendered via React Router's `<Link>` carries a
 `data-discover="true"` attribute the original markup never had — an internal route-discovery
 marker with zero visual, accessibility-tree, or keyboard effect (confirmed: not read by any AT,
 not styled, not part of any test assertion). Do not chase this to zero; it is intrinsic to the
 router.
 
-Always compare via a browser's DOM serialization (`page.content()`, as `capture.ts` does), never
+Always compare via a browser's DOM serialization (`page.content()`, as the now-deleted `capture.ts` did), never
 raw HTTP response bytes (`curl`). Browsers don't re-encode characters like `"` in text nodes that
 don't require escaping there, so a raw-byte diff produces false positives (e.g., a markdown
 renderer emitting `&quot;` vs a literal `"` in prose text) that disappear once both sides are
@@ -82,24 +90,19 @@ in Phase 1 — a `curl`-based check showed spurious diffs that a `page.content()
 not.
 
 
-```bash
-docker compose run baseline    # captures baseline/html, baseline/png, baseline/axe (Phase 0, once)
-docker compose run visual -- --compare-html
-```
-
-**Expected outcome**: rendered SPA HTML matches `baseline/html/` for every route in the
-branch-driven inventory (source plan, Phase 0), with the browser clock pinned to the same
-`BUILD_NOW` used in Gate 1. The only accepted diffs are the loading region, the route announcer,
-and the twelve corrected defects listed in spec.md (note the Gate 1 exception above for defect
-#10's effect on `priority` fields specifically).
+**Expected outcome (as it ran during the migration)**: rendered SPA HTML matched `baseline/html/`
+for every route in the branch-driven inventory (source plan, Phase 0), with the browser clock
+pinned to the same `BUILD_NOW` used in Gate 1. The only accepted diffs were the loading region, the
+route announcer, and the twelve corrected defects listed in spec.md (note the Gate 1 exception
+above for defect #10's effect on `priority` fields specifically).
 
 ## Gate 6 — Visual parity
 
-```bash
-docker compose run visual
-```
-
-**Expected outcome**: screenshot diff clean at 1920/1441/1280/320px against `baseline/png/`.
+**Removed as an ongoing capability** — this compared full-page screenshots against
+`baseline/png/`, captured from the same now-deleted legacy app. It passed at 1920/1441/1280/320px
+for every route in the branch-driven inventory during the migration. `tests/e2e/visual.spec.ts`
+and the `docker-compose.yml` services that drove it have since been deleted rather than kept
+around silently no-op'ing against a baseline that can never be regenerated.
 
 ## Gate 7 — Accessibility (axe)
 

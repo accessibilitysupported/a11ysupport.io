@@ -6,9 +6,9 @@ import path from 'node:path';
 // the dev server — the dev server doesn't exercise the production module graph (source plan,
 // Phase 6: "Test the SPA against a real built bundle").
 //
-// BUILD_NOW is pinned to the same instant as the Phase 0 baseline (baseline/BUILD_NOW) so the
-// data build's priority/date-derived fields match what a11y.spec.ts and visual.spec.ts compare
-// against — same rationale as tools/baseline/capture.ts's own BUILD_NOW pinning.
+// BUILD_NOW is pinned (baseline/BUILD_NOW) so date-derived content and the data build's priority
+// escalation stay deterministic across test runs, rather than depending on the day the suite
+// happens to run.
 const BUILD_NOW_PATH = path.resolve(__dirname, 'baseline/BUILD_NOW');
 export const BUILD_NOW = fs.existsSync(BUILD_NOW_PATH) ? fs.readFileSync(BUILD_NOW_PATH, 'utf8').trim() : new Date().toISOString();
 

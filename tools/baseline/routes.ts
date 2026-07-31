@@ -3,11 +3,11 @@
  *
  * One route per template proves very little — the templates branch heavily on data (189
  * features, 128 tests). This queries `build/` and `data/` at runtime to pick a concrete route
- * for every branch listed in the source plan's Phase 0 table, so the baseline actually exercises
+ * for every branch listed in the source plan's Phase 0 table, so the e2e suite actually exercises
  * the conditionals in each template rather than just its happy path.
  *
  * Run directly (`tsx tools/baseline/routes.ts`) to print the inventory as JSON. Imported by
- * `tools/baseline/capture.ts` (T004) to drive the actual capture.
+ * tests/e2e/routes.spec.ts and tests/e2e/a11y.spec.ts to drive their test cases.
  */
 import fs from 'node:fs';
 import path from 'node:path';
