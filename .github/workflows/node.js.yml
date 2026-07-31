@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x, 22.x, 24.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -30,5 +30,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - run: npm run lint
+    - run: npm run typecheck
     - run: npm run build --if-present
     - run: npm run test
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps chromium
+    - name: Regenerate baseline/png (gitignored; needed by tests/e2e/visual.spec.ts)
+      run: BUILD_NOW=$(cat baseline/BUILD_NOW) npm run build:baseline
+    - run: npm run test:e2e
+    - name: Upload Playwright report on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report-${{ matrix.node-version }}
+        path: |
+          playwright-report/
+          test-results/
+        retention-days: 7
