@@ -66,8 +66,6 @@ that skill's checklist applies in addition to the principles above.
 - The most common change is a single-file edit to one `data/tests/**/*.json` (a support-point
   update). Treat larger changes — a new test case, a new feature, a new technology — as requiring
   the approval path in `CONTRIBUTING.md`, not just a passing build.
-- `axe-linter` (`.github/workflows/axe-linter.yml`) runs on PRs touching the site's own markup;
-  a failure there is an accessibility regression in the site, not the AT-support data.
 
 ## Governance
 
@@ -77,7 +75,13 @@ documents are updated, this file MUST be amended to match in the same change. Sp
 produced via `/speckit-specify` / `/speckit-plan` / `/speckit-tasks` MUST be checked against
 Principles I–VI before being marked ready for implementation.
 
-**Version**: 1.0.2 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-31
+**Version**: 1.0.3 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-31
+
+_1.0.3: removed the `axe-linter` CI reference — `.github/workflows/axe-linter.yml` was deleted
+(the third-party `dequelabs/axe-linter-action` was failing on an apparent API-key/subscription
+issue unrelated to this repo's code, and there was no active subscription to fix it against).
+Site-markup accessibility regressions are still covered by `tests/e2e/a11y.spec.ts` (axe-core,
+baseline-gated). No principle's substance changed._
 
 _1.0.2: dropped Node 18 from the supported/CI version set — `vite@8`/`rolldown` require
 `^20.19.0 || >=22.12.0` (discovered when CI's `npx vite build` crashed on Node 18.20.8 with a
