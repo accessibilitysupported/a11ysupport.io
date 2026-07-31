@@ -98,10 +98,17 @@ export function FeaturePage() {
         )}
 
         <h2 id="description">About this feature</h2>
-        <p dangerouslySetInnerHTML={{ __html: data.descriptionHtml }} />
-        {data.recommendationHtml && (
-          <p dangerouslySetInnerHTML={{ __html: data.recommendationHtml }} />
-        )}
+        {/* `<div>`, not `<p>`: descriptionHtml/recommendationHtml are full markdown renders,
+            which already wrap their content in a <p>. `dangerouslySetInnerHTML` sets innerHTML
+            directly on the target node rather than re-parsing a full document, so a `<p>` wrapper
+            here doesn't get the browser's usual "close the open <p>" auto-correction a full-page
+            parse would apply (confirmed against the legacy Pug app, which has this exact same
+            `p!= md.render(...)` markup but renders it into a real page load: the browser closes
+            its outer <p> empty and treats the rendered one as a sibling) — it creates a genuinely
+            invalid <p> nested inside a <p>, caught by prettier's strict parser while diffing HTML
+            for parity (Gate 5). */}
+        <div dangerouslySetInnerHTML={{ __html: data.descriptionHtml }} />
+        {data.recommendationHtml && <div dangerouslySetInnerHTML={{ __html: data.recommendationHtml }} />}
 
         <h2 id="age-of-results">Age of results</h2>
         <p>

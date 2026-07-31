@@ -17,6 +17,11 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
+  // The default 30s can be tight for axe-core on /run-tests specifically: corrected-defect #10's
+  // fix means that page now legitimately renders ~4x more DOM (spec.md), and axe's full-page
+  // scan there took ~22-26s even in isolation — comfortably fine alone, but tight under full
+  // parallel suite load where it competes for CPU with everything else.
+  timeout: 60_000,
   reporter: [['list']],
   use: {
     baseURL: process.env.BASE_URL ?? 'http://localhost:3000',
