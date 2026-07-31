@@ -10,7 +10,6 @@ import minimist from 'minimist';
 import fs from 'node:fs';
 import path from 'node:path';
 import moment from 'moment';
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 import GitHub from 'github-api';
 import { spMdToObject } from '../src/lib/sp-md-to-obj';
 import { readJson } from '../src/build/load-data';

@@ -1,8 +1,8 @@
 /**
- * T044: port of app.js. No view engine (the SPA renders client-side), so `cookie-parser`,
- * `express.json()`, and `express.urlencoded()` are dropped — confirmed unused anywhere in the
- * current app (`req.cookies`, `res.cookie`, `req.body` appear nowhere in routes/*.js or
- * views/**), not carried forward speculatively.
+ * T044: port of the now-deleted app.js. No view engine (the SPA renders client-side), so
+ * `cookie-parser`, `express.json()`, and `express.urlencoded()` are dropped — confirmed unused
+ * anywhere in the app (`req.cookies`, `res.cookie`, `req.body` appeared nowhere in the legacy
+ * routes/*.js or views/**), not carried forward speculatively.
  */
 import express from 'express';
 import path from 'node:path';
@@ -24,8 +24,9 @@ export function createApp() {
   app.use(logger('dev'));
 
   // Preserved public URLs (FR-012, contracts/api.md): other tools and the client itself fetch
-  // these directly, and the npm package publishes build/*.
-  app.use(express.static(path.join(ROOT, 'public')));
+  // these directly, and the npm package publishes build/*. (The old app also mounted `public/`
+  // here — that directory only ever held the pre-migration static assets, now deleted, so there's
+  // nothing left for it to serve.)
   app.use(express.static(path.join(ROOT, 'build')));
   app.use(express.static(path.join(ROOT, 'data')));
 

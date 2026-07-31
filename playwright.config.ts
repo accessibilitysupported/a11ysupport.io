@@ -31,11 +31,8 @@ export default defineConfig({
   webServer: process.env.BASE_URL
     ? undefined
     : {
-        // `npm start` still boots the legacy bin/www until T046 (tasks.md) flips it over once
-        // the SPA is proven complete — e2e tests target the new app directly instead of waiting
-        // on that cutover: build the data + API layer, build the client bundle, then boot
-        // server/index.ts (start:new).
-        command: 'npm run build && npx vite build && npm run start:new',
+        // Build the data + API layer, build the client bundle, then boot the server.
+        command: 'npm run build && npx vite build && npm start',
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
         timeout: 120_000,

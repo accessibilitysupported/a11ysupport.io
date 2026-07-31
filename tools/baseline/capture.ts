@@ -1,17 +1,18 @@
 /**
- * T004 (Phase 0): capture the pre-migration baseline.
+ * T004 (Phase 0): captured the pre-migration baseline — a ONE-TIME snapshot of the legacy Pug/
+ * Express app, taken before it was deleted at the end of specs/001-modernize-ts-react.
  *
- * For every route in the branch-driven inventory (routes.ts), saves:
- *   - rendered HTML, normalized via prettier, to baseline/html/
- *   - full-page screenshots at 1920/1441/1280/320px to baseline/png/
- *   - axe-core violation results to baseline/axe/
+ * For every route in the branch-driven inventory (routes.ts), saved:
+ *   - rendered HTML, normalized via prettier, to baseline/html/ (committed)
+ *   - full-page screenshots at 1920/1441/1280/320px to baseline/png/ (gitignored)
+ *   - axe-core violation results to baseline/axe/ (committed)
  *
- * Everything is pinned to the same instant: BUILD_NOW drives both the data build (build.js) and
- * the Express server's request-time `moment()` calls (bin/www), and the Playwright browser clock
- * is pinned to the same value here, so re-running this script produces byte-identical HTML.
- *
- * Usage: BUILD_NOW=<ISO instant> tsx tools/baseline/capture.ts
- * (intended to run inside the pinned Playwright container via `npm run build:baseline`)
+ * This script can no longer run: it spawns `node ./bin/www`, and `bin/www`/`app.js`/`routes/*.js`/
+ * `views/**` were deleted once tests/e2e (Phase 6) proved the React SPA replacement complete. The
+ * committed baseline/html and baseline/axe are now a frozen historical record — what the
+ * pre-migration app actually produced — not something to regenerate. If you need to re-derive
+ * gitignored baseline/png locally, check out this file and the legacy app files from a commit
+ * before the cutover (search the `modernize` branch history for "Complete the cutover").
  */
 import fs from 'node:fs';
 import path from 'node:path';

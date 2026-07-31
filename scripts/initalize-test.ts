@@ -49,8 +49,8 @@ function addCommand(
     test.commands[at][browser] = [];
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let command_index = test.commands[at][browser].findIndex(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (obj: any) =>
       obj.command === command.command &&
       obj.css_target === command.css_target &&

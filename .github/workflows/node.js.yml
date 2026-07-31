@@ -36,8 +36,9 @@ jobs:
     - run: npm run test
     - name: Install Playwright browsers
       run: npx playwright install --with-deps chromium
-    - name: Regenerate baseline/png (gitignored; needed by tests/e2e/visual.spec.ts)
-      run: BUILD_NOW=$(cat baseline/BUILD_NOW) npm run build:baseline
+    # tests/e2e/visual.spec.ts compares against baseline/png, which is gitignored and can no
+    # longer be regenerated (it depended on the now-deleted legacy app — see baseline/README.md)
+    # — it skips every route it has no baseline image for, so this just runs everything else.
     - run: npm run test:e2e
     - name: Upload Playwright report on failure
       if: failure()

@@ -1,19 +1,22 @@
 # Pre-migration baseline
 
-Captured by `tools/baseline/capture.ts` (Phase 0 of `specs/001-modernize-ts-react`). Everything
-here reflects the **current Pug/Express app**, pinned to `BUILD_NOW` (see `BUILD_NOW` in this
-directory) — it is what every later phase's Gate 5 (HTML parity), Gate 6 (visual parity), and
-Gate 7 (axe) diff against.
+Captured by `tools/baseline/capture.ts` (Phase 0 of `specs/001-modernize-ts-react`), pinned to
+`BUILD_NOW` (see `BUILD_NOW` in this directory). Everything here reflects the **legacy Pug/
+Express app as it existed before the migration** — it is what Gate 5 (HTML parity), Gate 6
+(visual parity), and Gate 7 (axe) were diffed against while the migration was in progress.
 
 - `html/` — normalized rendered HTML per route (committed; ~8.3MB, text-diffable)
 - `axe/` — axe-core violation results per route (committed; ~120KB)
-- `png/` — full-page screenshots at 1920/1441/1280/320px (**gitignored**, ~167MB; regenerate with
-  `npm run build:baseline` whenever Gate 6 needs to run — not worth committing against a ~3.5MB
-  repo with no git-lfs configured)
+- `png/` — full-page screenshots at 1920/1441/1280/320px (**gitignored**, ~167MB; not worth
+  committing against a ~3.5MB repo with no git-lfs configured)
 
-Regenerate everything: `BUILD_NOW=<pinned-instant> npm run build:baseline` (or
-`docker compose run baseline` for the environment-pinned version Gates 5–7 actually compare
-against).
+**This is now a frozen historical record, not a regenerable fixture.** `tools/baseline/
+capture.ts` spawned the legacy app (`node ./bin/www`) to produce all three directories; that app
+(`app.js`, `bin/www`, `routes/*.js`, `views/**`) was deleted once Phase 6's test suite proved the
+React SPA replacement complete. `baseline/png` therefore cannot be regenerated on a fresh clone —
+`tests/e2e/visual.spec.ts` simply skips any route whose baseline PNG isn't present
+(`fs.existsSync` guard). If you need it, check out the legacy app files from a commit before the
+cutover on the `modernize` branch history and run `capture.ts` there.
 
 ## Pre-existing axe violations (5 instances, 4 rules, across 32 captured routes)
 

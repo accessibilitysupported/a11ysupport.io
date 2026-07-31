@@ -18,22 +18,6 @@ export default tseslint.config(
       'src/types/dev-feature.ts',
       'src/types/test.ts',
       'src/types/feature.ts',
-      // Legacy CommonJS app being replaced phase-by-phase (specs/001-modernize-ts-react). Not
-      // part of "the new codebase" the lint/file-size gates apply to (plan.md Constraints) —
-      // each of these is deleted by a task in that migration (T046/T080/T088/T107) once its
-      // TypeScript replacement lands, not brought up to the new lint standard in place.
-      'public/**',
-      'views/**',
-      'app.js',
-      'bin/www',
-      'build.js',
-      'test.js',
-      'routes/**',
-      'src/feature-helper.js',
-      'src/test-id-helper.js',
-      'src/sp-md-to-obj.js',
-      'scripts/**',
-      'data/validate.js',
     ],
   },
   js.configs.recommended,
