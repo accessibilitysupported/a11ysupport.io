@@ -21,7 +21,11 @@ export function CommandsPage() {
   const atBrowsers = atBrowsersQuery.data;
 
   return (
-    <div className="content">
+    // No `.content` wrapper here — unlike every other page template, commands.pug never had one
+    // (verified against every views/*.pug: 12 wrap in div.content, commands.pug alone doesn't),
+    // and `.content`'s `line-height: 1.5em` cascading into these tables made every row ~24%
+    // taller than the original (caught by tests/e2e/visual.spec.ts's baseline comparison).
+    <>
       <h1>All commands</h1>
       {(Object.keys(commands) as AtType[]).map((typeKey) => {
         const atsOfType = Object.values(atBrowsers.at).filter((at) => at.type === typeKey);
@@ -55,6 +59,6 @@ export function CommandsPage() {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }

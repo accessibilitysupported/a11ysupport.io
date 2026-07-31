@@ -33,7 +33,8 @@ export function FeaturePage() {
 
   if (featureQuery.isPending || atBrowsersQuery.isPending) return <LoadingStatus />;
   if (featureQuery.isError) return <ErrorPage message={(featureQuery.error as Error).message} />;
-  if (atBrowsersQuery.isError) return <ErrorPage message={(atBrowsersQuery.error as Error).message} />;
+  if (atBrowsersQuery.isError)
+    return <ErrorPage message={(atBrowsersQuery.error as Error).message} />;
 
   const { feature: data, relatedFeatures } = featureQuery.data;
   const atBrowsers = atBrowsersQuery.data;
@@ -47,7 +48,10 @@ export function FeaturePage() {
         {AT_TYPES.map(
           (atType) =>
             data.supports_at.includes(atType.type) && (
-              <div key={atType.type} className={`current-support-container ${data.core_support_string[atType.type].class}`}>
+              <div
+                key={atType.type}
+                className={`current-support-container ${data.core_support_string[atType.type].class}`}
+              >
                 <p>
                   {atType.title} support level: {data.core_support_string[atType.type].string}
                 </p>
@@ -95,12 +99,15 @@ export function FeaturePage() {
 
         <h2 id="description">About this feature</h2>
         <p dangerouslySetInnerHTML={{ __html: data.descriptionHtml }} />
-        {data.recommendationHtml && <p dangerouslySetInnerHTML={{ __html: data.recommendationHtml }} />}
+        {data.recommendationHtml && (
+          <p dangerouslySetInnerHTML={{ __html: data.recommendationHtml }} />
+        )}
 
         <h2 id="age-of-results">Age of results</h2>
         <p>
-          Results across all tests for this feature range from {moment(data.all_dates.max).fromNow()} to{' '}
-          {moment(data.all_dates.min).fromNow()}. Detailed dates and version information can be found in{' '}
+          Results across all tests for this feature range from{' '}
+          {moment(data.all_dates.max).fromNow()} to {moment(data.all_dates.min).fromNow()}. Detailed
+          dates and version information can be found in{' '}
           <a href="#related-tests">associated tests</a>.
         </p>
         {data.failing_dates.max && moment().diff(data.failing_dates.max, 'months') >= 9 ? (
@@ -129,9 +136,9 @@ export function FeaturePage() {
         {data.possible_backend_expectations && (
           <div className="caution">
             <p>
-              Important: The {data.title} has expectations that are not directly testable by end users. Continue
-              to use it if it is required by the specification, even if user-facing expectation support is poor.
-              For more information, see{' '}
+              Important: The {data.title} has expectations that are not directly testable by end
+              users. Continue to use it if it is required by the specification, even if user-facing
+              expectation support is poor. For more information, see{' '}
               <a href="/faq#what-about-expectations-that-are-not-directly-testable-by-users%3F">
                 FAQ: What about expectations that are not directly testable by users?
               </a>
@@ -146,83 +153,115 @@ export function FeaturePage() {
               if (!data.supports_at.includes(atType.type)) return null;
               let someSupportBehindSettings = false;
               let assertionsFound = 0;
-              const coreAtForType = atBrowsers.core_at.filter((at) => atBrowsers.at[at]!.type === atType.type);
-              const colspan = coreAtForType.reduce((sum, at) => sum + atBrowsers.at[at]!.core_browsers.length, 0);
+              const coreAtForType = atBrowsers.core_at.filter(
+                (at) => atBrowsers.at[at]!.type === atType.type
+              );
+              const colspan = coreAtForType.reduce(
+                (sum, at) => sum + atBrowsers.at[at]!.core_browsers.length,
+                0
+              );
 
               const rows = data.assertions
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 .map((assertion: any, index: number) => ({ assertion, index }))
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                .filter(({ assertion }: any) => assertion.strength[atType.type] !== 'NA' && assertion.tests.length > 0);
+                .filter(
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  ({ assertion }: any) =>
+                    assertion.strength[atType.type] !== 'NA' && assertion.tests.length > 0
+                );
               assertionsFound = rows.length;
 
               return (
                 <div key={atType.type}>
-                  <h3 id={`support-table-by-assertion-and-at-${atType.type}`}>{atType.title} support by expectation</h3>
+                  <h3 id={`support-table-by-assertion-and-at-${atType.type}`}>
+                    {atType.title} support by expectation
+                  </h3>
                   <ResponsiveTable>
-                    <table aria-labelledby={`support-table-by-assertion-and-at-${atType.type}`} className="support-summary-table">
+                    <table
+                      aria-labelledby={`support-table-by-assertion-and-at-${atType.type}`}
+                      className="support-summary-table"
+                    >
                       <colgroup span={1} />
                       {coreAtForType.map((at) => (
                         <colgroup key={at} span={atBrowsers.at[at]!.core_browsers.length} />
                       ))}
-                      <thead>
-                        <tr>
-                          <th rowSpan={2}>Expectation</th>
-                          {coreAtForType.map((at) => (
-                            <th key={at} colSpan={atBrowsers.at[at]!.core_browsers.length} scope="colgroup">
-                              {atBrowsers.at[at]!.title}
+                      {/* No thead/tbody here — feature.pug:74-91 has none, just bare <tr>s
+                          directly under <table> (browsers implicitly wrap them all in one
+                          tbody). Wrapping the header rows in <thead> would make
+                          `thead th { text-align: center }` apply where the original leaves the
+                          base `th { text-align: left }` in effect, shifting header text —
+                          caught by tests/e2e/visual.spec.ts's baseline comparison. */}
+                      <tr>
+                        <th rowSpan={2}>Expectation</th>
+                        {coreAtForType.map((at) => (
+                          <th
+                            key={at}
+                            colSpan={atBrowsers.at[at]!.core_browsers.length}
+                            scope="colgroup"
+                          >
+                            {atBrowsers.at[at]!.title}
+                          </th>
+                        ))}
+                      </tr>
+                      <tr>
+                        {coreAtForType.flatMap((at) =>
+                          atBrowsers.at[at]!.core_browsers.map((browser) => (
+                            <th key={`${at}-${browser}`} scope="col">
+                              {atBrowsers.browsers[browser]!.title}
                             </th>
-                          ))}
-                        </tr>
-                        <tr>
+                          ))
+                        )}
+                      </tr>
+                      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                      {rows.map(({ assertion, index }: any) => (
+                        <tr key={assertion.id}>
+                          <th>
+                            <a href={`#support-table-${index}`}>
+                              {assertion.strength[atType.type]}{' '}
+                              {trimTechFromAssertion(assertion.title)}
+                            </a>
+                          </th>
                           {coreAtForType.flatMap((at) =>
-                            atBrowsers.at[at]!.core_browsers.map((browser) => (
-                              <th key={`${at}-${browser}`} scope="col">
-                                {atBrowsers.browsers[browser]!.title}
-                              </th>
-                            ))
+                            atBrowsers.at[at]!.core_browsers.map((browser) => {
+                              const cell = assertion.core_support_by_at_browser[at][browser];
+                              if (cell.some_support_behind_settings)
+                                someSupportBehindSettings = true;
+                              return (
+                                <td
+                                  className={`support-case ${cell.string.class}`}
+                                  key={`${at}-${browser}`}
+                                >
+                                  {cell.string.string}
+                                  {cell.some_support_behind_settings && '*'}
+                                </td>
+                              );
+                            })
                           )}
                         </tr>
-                      </thead>
-                      <tbody>
-                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                        {rows.map(({ assertion, index }: any) => (
-                          <tr key={assertion.id}>
-                            <th>
-                              <a href={`#support-table-${index}`}>
-                                {assertion.strength[atType.type]} {trimTechFromAssertion(assertion.title)}
-                              </a>
-                            </th>
-                            {coreAtForType.flatMap((at) =>
-                              atBrowsers.at[at]!.core_browsers.map((browser) => {
-                                const cell = assertion.core_support_by_at_browser[at][browser];
-                                if (cell.some_support_behind_settings) someSupportBehindSettings = true;
-                                return (
-                                  <td className={`support-case ${cell.string.class}`} key={`${at}-${browser}`}>
-                                    {cell.string.string}
-                                    {cell.some_support_behind_settings && '*'}
-                                  </td>
-                                );
-                              })
-                            )}
-                          </tr>
-                        ))}
-                        {assertionsFound === 0 && (
-                          <tr>
-                            <td colSpan={colspan + 1}>Not applicable</td>
-                          </tr>
-                        )}
-                      </tbody>
+                      ))}
+                      {assertionsFound === 0 && (
+                        <tr>
+                          <td colSpan={colspan + 1}>Not applicable</td>
+                        </tr>
+                      )}
                     </table>
                   </ResponsiveTable>
-                  {someSupportBehindSettings && <p>* means that some support is hidden behind settings</p>}
+                  {someSupportBehindSettings && (
+                    <p>* means that some support is hidden behind settings</p>
+                  )}
                 </div>
               );
             })}
 
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {data.assertions.map((assertion: any, index: number) => (
-              <AssertionDetail key={assertion.id} assertion={assertion} index={index} data={data} atBrowsers={atBrowsers} />
+              <AssertionDetail
+                key={assertion.id}
+                assertion={assertion}
+                index={index}
+                data={data}
+                atBrowsers={atBrowsers}
+              />
             ))}
           </>
         ) : (
@@ -235,7 +274,11 @@ export function FeaturePage() {
             <p>These are features that are usually used in combination with this feature.</p>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {relatedFeatures.map((feature: any) => (
-              <div key={`${feature.techId}/${feature.id}`} data-keywords={feature.keywords_string} className="result">
+              <div
+                key={`${feature.techId}/${feature.id}`}
+                data-keywords={feature.keywords_string}
+                className="result"
+              >
                 <h2>
                   <Link to={`/tech/${feature.techId}/${feature.id}`}>
                     {feature.title} ({feature.techId})
@@ -263,7 +306,9 @@ export function FeaturePage() {
                 </ResponsiveTable>
                 {(feature.core_support.sr?.includes('u') ||
                   feature.core_support.vc?.includes('u') ||
-                  feature.core_support.kb?.includes('u')) && <p>We are missing data on some combinations.</p>}
+                  feature.core_support.kb?.includes('u')) && (
+                  <p>We are missing data on some combinations.</p>
+                )}
               </div>
             ))}
           </div>
@@ -307,11 +352,15 @@ export function FeaturePage() {
         <h2 id="feedback">Is something not right?</h2>
         <p>
           We use our{' '}
-          <a href="https://github.com/accessibilitysupported/accessibilitysupported">GitHub repository</a> to
-          manage our issue tracking. Please provide as much information as you can for issues, and please leave
-          the id in the issue title intact.
+          <a href="https://github.com/accessibilitysupported/accessibilitysupported">
+            GitHub repository
+          </a>{' '}
+          to manage our issue tracking. Please provide as much information as you can for issues,
+          and please leave the id in the issue title intact.
         </p>
-        <a href={`https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=${data.id}&labels=tech%20feature`}>
+        <a
+          href={`https://github.com/accessibilitysupported/accessibilitysupported/issues/new?title=${data.id}&labels=tech%20feature`}
+        >
           Create an issue for this feature
         </a>
 

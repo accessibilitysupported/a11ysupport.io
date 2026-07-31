@@ -30,22 +30,41 @@ export function RouteAnnouncer() {
       return;
     }
 
-    const heading = document.querySelector<HTMLElement>('main h1');
-    if (heading) {
+    // Every page's own first render after a route change shows LoadingStatus (no <h1> yet) —
+    // real content, including the h1, only lands once its query resolves. A bare
+    // `document.querySelector` here would run against that empty first commit and find nothing,
+    // silently dropping focus/announcement for every not-yet-cached navigation (only "worked" in
+    // manual testing when a page's data happened to already be cached from an earlier visit).
+    // Try immediately for the (rare) already-cached case, then watch for the heading to actually
+    // appear otherwise.
+    let done = false;
+    const focusHeading = (): boolean => {
+      const heading = document.querySelector<HTMLElement>('main h1');
+      if (!heading || done) return false;
+      done = true;
       if (!heading.hasAttribute('tabindex')) {
         heading.setAttribute('tabindex', '-1');
       }
       heading.focus();
-    }
+      setAnnouncement(document.title);
+      if (window.gtag) {
+        window.gtag('event', 'page_view', {
+          page_path: location.pathname + location.search,
+          page_title: document.title,
+        });
+      }
+      return true;
+    };
 
-    setAnnouncement(document.title);
+    if (focusHeading()) return;
 
-    if (window.gtag) {
-      window.gtag('event', 'page_view', {
-        page_path: location.pathname + location.search,
-        page_title: document.title,
-      });
-    }
+    const main = document.getElementById('main');
+    if (!main) return;
+    const observer = new MutationObserver(() => {
+      if (focusHeading()) observer.disconnect();
+    });
+    observer.observe(main, { childList: true, subtree: true });
+    return () => observer.disconnect();
   }, [location.pathname, location.search]);
 
   return (

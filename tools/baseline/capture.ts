@@ -20,23 +20,18 @@ import prettier from 'prettier';
 import { chromium, type Browser } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { buildRouteInventory } from './routes';
+import { slugify, WIDTHS } from './route-slug';
 
 const ROOT = path.resolve(__dirname, '../..');
 const PORT = 3099; // distinct from the dev-default 3000 so this never collides with a running app
 const BASE_URL = `http://localhost:${PORT}`;
 const BUILD_NOW = process.env.BUILD_NOW ?? new Date().toISOString();
-const WIDTHS = [1920, 1441, 1280, 320] as const;
 
 const outDirs = {
   html: path.join(ROOT, 'baseline', 'html'),
   png: path.join(ROOT, 'baseline', 'png'),
   axe: path.join(ROOT, 'baseline', 'axe'),
 };
-
-function slugify(routePath: string): string {
-  if (routePath === '/') return 'index';
-  return routePath.replace(/^\//, '').replace(/[/:()]/g, '_');
-}
 
 function startServer(): Promise<ChildProcess> {
   return new Promise((resolve, reject) => {
