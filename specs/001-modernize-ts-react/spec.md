@@ -154,7 +154,7 @@ known pre-existing issue does not cause an unrelated check to fail.
 - **FR-012**: Public data endpoints that other tools or pages currently fetch directly (the
   AT/browser reference data, the latest-version reference data, and the full support-result
   datasets) MUST continue to be available at their current locations.
-- **FR-013**: The eleven specific pre-existing defects identified during discovery (listed in
+- **FR-013**: The twelve specific pre-existing defects identified during discovery (listed in
   Assumptions) MUST be fixed as part of the migration, since fixing them changes broken behavior
   to correct behavior rather than changing the product.
 - **FR-014**: The published package's contents MUST continue to match its current scope (the
@@ -228,7 +228,7 @@ left implicit):**
 - **AR-013**: If content fails to load, a clearly announced error state MUST appear in place of
   the missing content, with the same heading structure as today's error page.
 
-**Corrected behavior (eleven specific defects present today, fixed as part of this migration
+**Corrected behavior (twelve specific defects present today, fixed as part of this migration
 because a defect is not a product feature to preserve):**
 
 1. The technology overview page must correctly display each feature's support-level summary
@@ -259,6 +259,16 @@ because a defect is not a product feature to preserve):**
    Today it re-joins a value the data-processing layer has already joined into a plain string,
    throwing and returning a server error for every such test — discovered live during migration
    (confirmed reproducible on an existing test today) while capturing the pre-migration baseline.
+12. Every in-page jump link ("On this page" tables of contents, "back to top" links, run-test
+   validation error links) MUST move keyboard/screen-reader focus to the heading or section it
+   points to, not just scroll the viewport there. Today it does neither: native browser fragment
+   navigation only focuses an anchor's target if that target is itself focusable, and every target
+   here is a plain heading with no `tabindex` — confirmed present in the current app by inspecting
+   its own markup (`h2(id='description')` etc., no `tabindex`), not something the migration
+   introduced. The practical effect is that a screen reader user gets no cue the page moved at all,
+   and a keyboard user's next Tab press restarts from the top of the document instead of
+   continuing from the section they just jumped to — discovered by inspection during migration
+   review, not part of the original catalogue of eleven.
 
 **Non-goals / opt-outs**: Two known-existing issues are intentionally left unchanged because
 fixing them would go beyond a faithful port: the scrollable-table keyboard regions do not have an

@@ -27,7 +27,7 @@ export function AssertionDetail({
 }) {
   return (
     <div className="assertion-container">
-      <h3 id={`support-table-${index}`}>Expectation: {assertion.title}</h3>
+      <h3 id={`support-table-${index}`} tabIndex={-1}>Expectation: {assertion.title}</h3>
 
       {assertion.rationale && (
         <>

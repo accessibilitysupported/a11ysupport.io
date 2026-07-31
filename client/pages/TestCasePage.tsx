@@ -97,12 +97,12 @@ export function TestCasePage() {
           </li>
         </OnThisPage>
 
-        <h2 id="description">About this test</h2>
+        <h2 id="description" tabIndex={-1}>About this test</h2>
         <div dangerouslySetInnerHTML={{ __html: test.descriptionHtml }} />
 
         <Link to={`/tests/${makeSafe(test.id)}/run`}>Submit new test results</Link>
 
-        <h2 id="age-of-results">Age of results</h2>
+        <h2 id="age-of-results" tabIndex={-1}>Age of results</h2>
         <p>
           Results in this test range from {moment(test.all_dates.max).fromNow()} to{' '}
           {moment(test.all_dates.min).fromNow()}. See{' '}
@@ -126,7 +126,7 @@ export function TestCasePage() {
           )
         )}
 
-        <h2 id="test-html">Test HTML</h2>
+        <h2 id="test-html" tabIndex={-1}>Test HTML</h2>
         {test.html_file.startsWith('http') ? (
           <a href={test.html_file} className="open-test-page">
             view the external test
@@ -157,7 +157,7 @@ export function TestCasePage() {
               return (
                 <details open key={atType.type}>
                   <summary>
-                    <h2 id={`support-summary-by-at-${atType.type}`}>Summary of {atType.title} support by expectation</h2>
+                    <h2 id={`support-summary-by-at-${atType.type}`} tabIndex={-1}>Summary of {atType.title} support by expectation</h2>
                   </summary>
                   {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- keyboard-scrollable region, WCAG 2.1.1 */}
                   <div className="responsive-table" tabIndex={0}>
@@ -276,7 +276,7 @@ export function TestCasePage() {
       </div>
 
       <div className="sidebar">
-        <h2 id="related-features">Related Features</h2>
+        <h2 id="related-features" tabIndex={-1}>Related Features</h2>
         <p>This test is found in the following features:</p>
         <ul>
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
@@ -287,7 +287,7 @@ export function TestCasePage() {
           ))}
         </ul>
 
-        <h2 id="contribute">Feedback and Contribute</h2>
+        <h2 id="contribute" tabIndex={-1}>Feedback and Contribute</h2>
         <p>
           We use our{' '}
           <a href="https://github.com/accessibilitysupported/accessibilitysupported">GitHub repository</a> to

@@ -14,7 +14,7 @@ export function TestCaseAssertionDetail({ assertion, test, atBrowsers }: { asser
 
   return (
     <div className="assertion-container">
-      <h3 id={anchorId}>
+      <h3 id={anchorId} tabIndex={-1}>
         Expectation for the {assertion.feature_title}: {assertion.assertion_title}
         {assertion.applied_to && <span> - applied to the {assertion.applied_to_title}</span>}
         {assertion.references?.length > 0 && <span> - references the {assertion.references_titles}</span>}

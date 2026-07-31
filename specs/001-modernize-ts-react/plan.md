@@ -18,7 +18,7 @@ untyped CommonJS) to TypeScript with byte-identical output; replace the Express+
 frontend with a TypeScript JSON API plus a React single-page application; cover every one of the
 18 live page templates with Playwright + axe-core accessibility tests; and keep every source file
 at or under 600 lines. The rendered UI — content, layout, and every existing accessibility
-semantic — must come out unchanged, with eleven specific pre-existing defects corrected along the
+semantic — must come out unchanged, with twelve specific pre-existing defects corrected along the
 way (spec.md, Accessibility Requirements, "Corrected behavior").
 
 **Approach**: Vite-built React SPA + Express JSON API, served by one Node process (`npm start`

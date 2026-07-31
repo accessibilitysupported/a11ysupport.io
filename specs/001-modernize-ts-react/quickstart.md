@@ -90,7 +90,7 @@ docker compose run visual -- --compare-html
 **Expected outcome**: rendered SPA HTML matches `baseline/html/` for every route in the
 branch-driven inventory (source plan, Phase 0), with the browser clock pinned to the same
 `BUILD_NOW` used in Gate 1. The only accepted diffs are the loading region, the route announcer,
-and the eleven corrected defects listed in spec.md (note the Gate 1 exception above for defect
+and the twelve corrected defects listed in spec.md (note the Gate 1 exception above for defect
 #10's effect on `priority` fields specifically).
 
 ## Gate 6 — Visual parity

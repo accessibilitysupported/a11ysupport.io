@@ -8,7 +8,7 @@ export function VersionsTable({ test, atBrowsers }: { test: any; atBrowsers: ATB
   return (
     <details open>
       <summary>
-        <h2 id="versions">Dates and Versions of tested combinations</h2>
+        <h2 id="versions" tabIndex={-1}>Dates and Versions of tested combinations</h2>
       </summary>
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- keyboard-scrollable region, WCAG 2.1.1 */}
       <div className="responsive-table" tabIndex={0}>

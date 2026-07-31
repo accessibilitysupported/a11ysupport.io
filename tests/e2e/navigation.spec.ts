@@ -61,3 +61,41 @@ test('a slow response past 200ms shows the visible, announced loading indicator'
 
   await expect(page.getByRole('status').filter({ hasText: 'Loading' })).toBeVisible();
 });
+
+test.describe('in-page anchor links move focus to their target (corrected-defect #12)', () => {
+  test('a jump-link on a feature page focuses its heading, not just scrolling to it', async ({ page }) => {
+    await page.goto('/tech/html/button_element');
+    await expect(page.locator('h1')).toBeVisible();
+
+    await page.locator('a[href="#age-of-results"]').click();
+
+    const focused = await page.evaluate(() => ({
+      tag: document.activeElement?.tagName,
+      id: document.activeElement?.id,
+      tabIndex: document.activeElement?.getAttribute('tabindex'),
+    }));
+    expect(focused).toEqual({ tag: 'H2', id: 'age-of-results', tabIndex: '-1' });
+  });
+
+  test('a jump-link on a test-case page focuses its heading', async ({ page }) => {
+    await page.goto('/tests/tech__html__buttons');
+    await expect(page.locator('h1')).toBeVisible();
+
+    await page.locator('a[href="#history"]').click();
+
+    const focused = await page.evaluate(() => ({ tag: document.activeElement?.tagName, id: document.activeElement?.id }));
+    expect(focused).toEqual({ tag: 'H2', id: 'history' });
+  });
+
+  test('a run-test validation error link focuses the section heading it points to', async ({ page }) => {
+    await page.goto('/tests/tech__html__buttons/run');
+    await expect(page.locator('h1')).toContainText('Run Test:');
+
+    // Submitting step 2 with no combination selected produces an error link to #at-browser-combo.
+    await page.getByRole('button', { name: 'Create GitHub Issue' }).click();
+    await page.getByRole('link', { name: "'AT used' is required" }).click();
+
+    const focused = await page.evaluate(() => ({ tag: document.activeElement?.tagName, id: document.activeElement?.id }));
+    expect(focused).toEqual({ tag: 'H2', id: 'at-browser-combo' });
+  });
+});

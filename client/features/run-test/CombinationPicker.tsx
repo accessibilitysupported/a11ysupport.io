@@ -24,7 +24,7 @@ export function CombinationPicker({ atBrowsers, onSave, savedAt, savedBrowser }:
 
   return (
     <>
-      <h2 id="at-browser-combo">Step 1: What are you testing with?</h2>
+      <h2 id="at-browser-combo" tabIndex={-1}>Step 1: What are you testing with?</h2>
       <form className="testing-pref" onSubmit={handleSubmit}>
         <label htmlFor="combination">Select your testing combination.</label>
         <div>

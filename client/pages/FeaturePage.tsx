@@ -97,7 +97,7 @@ export function FeaturePage() {
           </OnThisPage>
         )}
 
-        <h2 id="description">About this feature</h2>
+        <h2 id="description" tabIndex={-1}>About this feature</h2>
         {/* `<div>`, not `<p>`: descriptionHtml/recommendationHtml are full markdown renders,
             which already wrap their content in a <p>. `dangerouslySetInnerHTML` sets innerHTML
             directly on the target node rather than re-parsing a full document, so a `<p>` wrapper
@@ -110,7 +110,7 @@ export function FeaturePage() {
         <div dangerouslySetInnerHTML={{ __html: data.descriptionHtml }} />
         {data.recommendationHtml && <div dangerouslySetInnerHTML={{ __html: data.recommendationHtml }} />}
 
-        <h2 id="age-of-results">Age of results</h2>
+        <h2 id="age-of-results" tabIndex={-1}>Age of results</h2>
         <p>
           Results across all tests for this feature range from{' '}
           {moment(data.all_dates.max).fromNow()} to {moment(data.all_dates.min).fromNow()}. Detailed
@@ -135,7 +135,7 @@ export function FeaturePage() {
           )
         )}
 
-        <h2 id="expectations">Expectations</h2>
+        <h2 id="expectations" tabIndex={-1}>Expectations</h2>
         <p>
           <a href="/faq#what-are-expectations%3F">What are expectations?</a>
         </p>
@@ -323,7 +323,7 @@ export function FeaturePage() {
       </div>
 
       <div className="sidebar">
-        <h2 id="related-tests">Tests</h2>
+        <h2 id="related-tests" tabIndex={-1}>Tests</h2>
         <table aria-labelledby="related-tests">
           <tbody>
             <tr>
@@ -344,7 +344,7 @@ export function FeaturePage() {
 
         {data.related_issues?.length > 0 && (
           <>
-            <h2 id="at-browser-issues">Related issues, discussions, and bugs</h2>
+            <h2 id="at-browser-issues" tabIndex={-1}>Related issues, discussions, and bugs</h2>
             <ul>
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {data.related_issues.map((link: any) => (
@@ -356,7 +356,7 @@ export function FeaturePage() {
           </>
         )}
 
-        <h2 id="feedback">Is something not right?</h2>
+        <h2 id="feedback" tabIndex={-1}>Is something not right?</h2>
         <p>
           We use our{' '}
           <a href="https://github.com/accessibilitysupported/accessibilitysupported">
@@ -376,7 +376,7 @@ export function FeaturePage() {
             {/* Pre-existing: this heading is really "References," reused as the target for the
                 "Related features" jump link above (feature.pug:29 vs :241) — preserved as-is,
                 a documented pre-existing gap, not one of the 11 corrected defects. */}
-            <h2 id="related-features">References</h2>
+            <h2 id="related-features" tabIndex={-1}>References</h2>
             <ul>
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {data.references.map((reference: any) => (

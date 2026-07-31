@@ -635,7 +635,7 @@ before opening the single PR (the user's chosen delivery approach).
       this gate sequence asserts it directly.
 - [ ] T120 Run Gate 5 (HTML parity): diff rendered SPA HTML vs. `baseline/html/`, browser clock
       pinned to `BUILD_NOW`; review every diff — only accepted deltas are the loading region, the
-      route announcer, and the eleven corrected defects.
+      route announcer, and the twelve corrected defects.
 - [ ] T121 Run Gate 6 (visual parity): screenshot diff vs. `baseline/png/`, four widths, pinned
       container.
 - [ ] T122 Run Gate 7 (axe): zero violations absent from `baseline/axe/`.

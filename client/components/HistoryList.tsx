@@ -5,7 +5,7 @@
 export function HistoryList({ history }: { history: any[] }) {
   return (
     <>
-      <h2 id="history">History</h2>
+      <h2 id="history" tabIndex={-1}>History</h2>
       <ul>
         {history.map((record, i) => (
           <li key={i}>
