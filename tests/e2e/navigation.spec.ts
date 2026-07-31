@@ -62,6 +62,54 @@ test('a slow response past 200ms shows the visible, announced loading indicator'
   await expect(page.getByRole('status').filter({ hasText: 'Loading' })).toBeVisible();
 });
 
+test.describe('route change falls back to <main> when the new page has no <h1>', () => {
+  // /tests and /updates genuinely have no <h1> of their own (a pre-existing gap, baseline/
+  // README.md's page-has-heading-one violation) — RouteAnnouncer must still move focus and
+  // announce by falling back to the <main> landmark instead of silently doing nothing.
+
+  test('fast navigation to /tests focuses <main>', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('header').getByRole('link', { name: 'All Tests', exact: true }).click();
+
+    await expect.poll(() => page.evaluate(() => document.activeElement?.id)).toBe('main');
+    const focused = await page.evaluate(() => ({
+      tag: document.activeElement?.tagName,
+      tabIndex: document.activeElement?.getAttribute('tabindex'),
+    }));
+    expect(focused).toEqual({ tag: 'MAIN', tabIndex: '-1' });
+    await expect(page.locator('[role="status"].visually-hidden')).toHaveText('All tests | Accessibility Support');
+  });
+
+  test('a slow navigation to /tests (past LoadingStatus\'s own 200ms visibility swap) still falls back to <main>, not the loading placeholder', async ({ page }) => {
+    // LoadingStatus mutates its own DOM at 200ms (an invisible marker becomes a visible
+    // "Loading…") — an earlier, broken version of the fallback mistook that for "page settled"
+    // and gave up before the real content ever arrived. Prove the fix holds past that point.
+    await page.route('**/api/tests', async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      await route.continue();
+    });
+
+    await page.goto('/');
+    await page.locator('header').getByRole('link', { name: 'All Tests', exact: true }).click();
+
+    await expect.poll(() => page.evaluate(() => document.activeElement?.id), { timeout: 5000 }).toBe('main');
+  });
+
+  test('a slow navigation to a page that DOES have an <h1> still focuses the h1, not <main>', async ({ page }) => {
+    // Regression guard for the same bug: confirm the LoadingStatus mutation doesn't cause a
+    // premature main-fallback on a page that legitimately has a heading coming.
+    await page.route('**/api/tech/aria/alert_role', async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      await route.continue();
+    });
+
+    await page.goto('/tech/aria');
+    await page.locator('a[href="/tech/aria/alert_role"]').first().click();
+
+    await expect.poll(() => page.evaluate(() => document.activeElement?.tagName), { timeout: 5000 }).toBe('H1');
+  });
+});
+
 test.describe('in-page anchor links move focus to their target (corrected-defect #12)', () => {
   test('a jump-link on a feature page focuses its heading, not just scrolling to it', async ({ page }) => {
     await page.goto('/tech/html/button_element');

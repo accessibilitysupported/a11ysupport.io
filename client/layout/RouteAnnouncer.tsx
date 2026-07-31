@@ -38,14 +38,12 @@ export function RouteAnnouncer() {
     // Try immediately for the (rare) already-cached case, then watch for the heading to actually
     // appear otherwise.
     let done = false;
-    const focusHeading = (): boolean => {
-      const heading = document.querySelector<HTMLElement>('main h1');
-      if (!heading || done) return false;
+    const focusTarget = (target: HTMLElement) => {
       done = true;
-      if (!heading.hasAttribute('tabindex')) {
-        heading.setAttribute('tabindex', '-1');
+      if (!target.hasAttribute('tabindex')) {
+        target.setAttribute('tabindex', '-1');
       }
-      heading.focus();
+      target.focus();
       setAnnouncement(document.title);
       if (window.gtag) {
         window.gtag('event', 'page_view', {
@@ -53,15 +51,37 @@ export function RouteAnnouncer() {
           page_title: document.title,
         });
       }
+    };
+
+    const tryFocusHeading = (): boolean => {
+      const heading = document.querySelector<HTMLElement>('main h1');
+      if (!heading || done) return false;
+      focusTarget(heading);
       return true;
     };
 
-    if (focusHeading()) return;
+    if (tryFocusHeading()) return;
 
     const main = document.getElementById('main');
     if (!main) return;
     const observer = new MutationObserver(() => {
-      if (focusHeading()) observer.disconnect();
+      if (tryFocusHeading()) {
+        observer.disconnect();
+        return;
+      }
+      // LoadingStatus is the only thing that ever renders `role="status"` inside <main> — while
+      // it's still there, this mutation was just its own internal 200ms visibility swap (an
+      // invisible marker becoming a visible "Loading…"), not the page's real content landing.
+      // (Learned the hard way: an earlier version of this fallback fired on that transition and
+      // never got a second look at the real content once it arrived a moment later.)
+      if (main.querySelector('[role="status"]')) return;
+      // No status placeholder and still no <h1>: the page has settled and genuinely has no
+      // heading of its own — /tests and /updates don't (a pre-existing gap, baseline/README.md's
+      // page-has-heading-one violation). Stop waiting for one that will never arrive and fall
+      // back to the <main> landmark itself (already focusable, Layout.tsx) so focus/announcement/
+      // analytics still fire instead of silently doing nothing.
+      focusTarget(main);
+      observer.disconnect();
     });
     observer.observe(main, { childList: true, subtree: true });
     return () => observer.disconnect();
