@@ -1,5 +1,8 @@
-public/
-routes/
-scripts/
-src/
-views/
+# package.json's "files": ["build/*"] is what actually controls what gets published — this file
+# is a defense-in-depth backstop, not the primary mechanism. Written as an allow-list (exclude
+# everything, carve out build/) rather than naming individual source directories by name: the
+# previous version excluded `public/ routes/ scripts/ src/ views/`, which after the TypeScript/
+# React migration (specs/001-modernize-ts-react) would have let `server/`, `client/`, `tests/`,
+# `tools/`, `dist/`, and `baseline/` all leak into the published package.
+*
+!build/**

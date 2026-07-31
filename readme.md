@@ -8,24 +8,31 @@ Status: help wanted
 
 1. Install required node packages: `npm ci`
 2. Build data: `npm run build`
-3. Run tests: `npm run test`
-4. Serve: `npm run start`
+3. Build the client: `npx vite build`
+4. Run tests: `npm run test` (Vitest — unit + API) and `npm run test:e2e` (Playwright)
+5. Serve: `npm run start`
 
 While working and making changes to the project, you can do all of this in one command:
 
 ```
-npm run build && npm run test && npm run start
+npm run build && npx vite build && npm run test && npm run start
 ```
 
 Once the project is running, it should be available at 'http://localhost:3000'
 
 ## Structure
 
-This project is built on express js, and all data lives in json files in the `data` directory. These json files are processed during the build step and saved to the `build` directory.
+The backend is a TypeScript Express app (`server/`) that serves a JSON API under `/api/*` plus
+the built client; the frontend is a React single-page app (`client/`, built with Vite). All data
+lives in json files in the `data` directory. These json files are processed during the build step
+(`src/build/`) and saved to the `build` directory, including the view-shaped `build/api/*`
+payloads the client fetches.
 
 * `tech` - tech are different categories of technology (html, css, aria, svg, etc)
 * `feature` - features are specific features of a technology, such as elements, attributes, properties, etc.
 * `tests` - tests are specific test cases for a feature (or many features). Each feature should have at least one test that only tests that feature.
+
+See `documentation/architecture.md` for the full file structure and build pipeline.
 
 ### the data directory
 
@@ -37,13 +44,13 @@ These files are essentially slimmed down versions of the full json files that ar
 
 Users can run tests for specific AT/Browser combinations (support point) and post their findings to a github issue. These findings should be verified by another user before being added to the repository.
 
-Once a support point is verified, it is ready to be added to the repository. There is a script at `scripts/sync-support-point.js` that makes this a easy.
+Once a support point is verified, it is ready to be added to the repository. There is a script at `scripts/sync-support-point.ts` that makes this a easy.
 
 ### Step 1: sync the test json file from a github issue (or comment)
 
-Run `node scripts/sync-support-point.js --issue {issue number}` to update the appropriate json file with the results that were found. This will take the results in the issue body.
+Run `npx tsx scripts/sync-support-point.ts --issue {issue number}` to update the appropriate json file with the results that were found. This will take the results in the issue body.
 
-Run `node scripts/sync-support-point.js --comment {comment id}` to accept the results in a comment ID. This might be needed if a difference was found during the verification step. You can get the comment ID from the URL that is generated when the time stamp is clicked for the specific comment on GitHub.
+Run `npx tsx scripts/sync-support-point.ts --comment {comment id}` to accept the results in a comment ID. This might be needed if a difference was found during the verification step. You can get the comment ID from the URL that is generated when the time stamp is clicked for the specific comment on GitHub.
 
 ### Step 2: Review and commit
 
@@ -51,7 +58,7 @@ Now you just need to make sure that everything was synced correctly. If you thin
 
 1. make sure you are on the right branch: `git checkout master`
 2. make sure your clone is up to date: `git pull origin master`
-3. build the project and test: `npm run build && npm run test`
+3. build the project and test: `npm run build && npx vite build && npm run test`
 4. (optional) manually verify that everything looks good `npm run start`
 4. commit the changes: `git commit -m 'closes #{issue-number}'`
 5. push the changes `git push origin master`
