@@ -60,8 +60,9 @@ that skill's checklist applies in addition to the principles above.
 
 - Standard sequence for any change: edit `data/` (or `src/`, `server/`, `client/`) → `npm run build`
   → `npm run test` → commit. CI (`.github/workflows/node.js.yml`) runs
-  `npm ci && npm run lint && npm run typecheck && npm run build && npm run test && npm run test:e2e`
-  on Node 18/20/22/24 for every PR to `master`.
+  `npm ci && npm run lint && npm run typecheck && npm run build && npx vite build && npm run test
+  && npm run test:e2e` on Node 20/22/24 for every PR to `master` (18.x dropped: `vite@8`/`rolldown`
+  require `^20.19.0 || >=22.12.0`, `package.json`'s `engines.node`).
 - The most common change is a single-file edit to one `data/tests/**/*.json` (a support-point
   update). Treat larger changes — a new test case, a new feature, a new technology — as requiring
   the approval path in `CONTRIBUTING.md`, not just a passing build.
@@ -76,7 +77,13 @@ documents are updated, this file MUST be amended to match in the same change. Sp
 produced via `/speckit-specify` / `/speckit-plan` / `/speckit-tasks` MUST be checked against
 Principles I–VI before being marked ready for implementation.
 
-**Version**: 1.0.1 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-30
+**Version**: 1.0.2 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-31
+
+_1.0.2: dropped Node 18 from the supported/CI version set — `vite@8`/`rolldown` require
+`^20.19.0 || >=22.12.0` (discovered when CI's `npx vite build` crashed on Node 18.20.8 with a
+`node:util` SyntaxError) — and added the missing `npx vite build` step CI needs before
+`npm run test`, since `tests/api/*.test.ts` calls `createApp()` directly and its SPA fallback
+503s until `dist/` exists. No principle's substance changed._
 
 _1.0.1: updated file paths for the TypeScript/React migration
 (specs/001-modernize-ts-react) — `build.js`/`src/feature-helper.js` → `src/build/`,
