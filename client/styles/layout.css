@@ -1,0 +1,122 @@
+/**
+ * Phase 5: split of public/stylesheets/style.css — page shell/grid layout (lines 146-267),
+ * verbatim. The 1441px grid breakpoint is not arbitrary (plan.md, Phase 5) — keep it exact.
+ */
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+  line-height: 1.5em;
+}
+
+main, header, footer {
+  max-width: calc(5vw * 2 + 1280px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+main {
+  display: block;
+  min-height: 15em;
+  padding-bottom: 1em;
+}
+
+header {
+  padding-top: .25em;
+}
+
+main, header {
+  background-color: var(--background-main);
+}
+
+.site-title {
+  font-size: 2em;
+}
+
+nav {
+  background-color: var(--background-nav);
+}
+
+nav ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  max-width: 40em;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0;
+  padding: .5em;
+}
+
+nav ul li a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.content-wrapper {
+  display: block;
+}
+
+@media (min-width: 1441px) {
+  .content-wrapper {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+    grid-template-areas: "content sidebar";
+  }
+}
+
+footer {
+  border-top: 2px solid var(--border);
+}
+
+.beta-warning {
+  background-color: var(--background-warning);
+  width: 100%;
+  padding: .5em;
+  box-sizing: border-box;
+}
+
+.beta-warning a, .beta-warning a:visited {
+  color: var(--link-warning);
+}
+
+.beta-warning > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.caution {
+  border-left: .5em solid var(--support-partial-background);
+  width: 100%;
+  padding: .5em;
+  box-sizing: border-box;
+}
+
+.caution p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.caution h3 {
+  margin-top: 0;
+}
+
+.current-support-container {
+  padding: .25em .5em;
+  background-color: var(--background-nav);
+  border-radius: .2em;
+}
+
+.current-support-container p {
+  margin: 0;
+}

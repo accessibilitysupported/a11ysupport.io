@@ -110,3 +110,24 @@ Please [create an issue](https://github.com/accessibilitysupported/accessibility
 3. At least one feature with at least one test with at least one support point (follow relevant instructions).
 
 All new technologies must be approved by at least one other person.
+
+## Working with AI coding agents
+
+This repo carries agent tooling for both GitHub Copilot and Claude Code:
+
+- `.github/agents/my-agent.agent.md` — a Copilot custom agent that updates support points from
+  issue descriptions.
+- `.github/skills/building-accessible-ui/` — an accessibility checklist skill, canonical for
+  Copilot. `.claude/skills/building-accessible-ui` is a symlink to it so Claude Code loads the same
+  content (Claude Code only discovers skills under `.claude/skills/`). Edit the file under
+  `.github/skills/` — the symlink has no independent content. If your OS or checkout doesn't
+  support symlinks (some Windows configurations), you'll see the symlink as a small text file
+  instead of the skill directory; this only affects Claude Code's view, not Copilot's.
+- `.specify/` — [GitHub spec-kit](https://github.com/github/spec-kit) scaffolding for spec-driven
+  development, installed for the `claude` integration. Its skills live in
+  `.claude/skills/speckit-*` and are invoked as `/speckit-specify`, `/speckit-plan`,
+  `/speckit-tasks`, `/speckit-implement` (optionally `/speckit-clarify`, `/speckit-analyze`,
+  `/speckit-checklist` in between). `.specify/memory/constitution.md` encodes this file's rules
+  (data integrity, bookkeeping, second-person verification) for agentic consumption, and
+  `.specify/templates/overrides/` adds an accessibility section to the generated spec/plan/tasks
+  documents for any feature that touches the site's UI.

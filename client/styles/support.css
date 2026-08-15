@@ -1,0 +1,125 @@
+/**
+ * Phase 5: split of public/stylesheets/style.css — the AT-support status color classes (lines
+ * 62-108, 273-292, 395-413, 603-625), verbatim. These class names (`y`/`ye`, `n`/`no`, `p`/`pa`,
+ * `k`/`kn`, `u`/`un`) are literal strings baked into the build output's `support_string.class`
+ * field and read as plain data at render time (feature-helper.js) — global by necessity, not
+ * choice; hashing them via CSS modules would require the build layer and every consumer
+ * component to agree on module-scoped names instead of plain data.
+ */
+td.support-case {
+  color: var(--foreground);
+  text-align: center;
+  min-width: 5em;
+  max-width: 5em;
+}
+
+td.support-case a {
+  color: inherit;
+}
+td.support-case.n, td.support-case.no, .expectation-summary .no {
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
+}
+td.support-case.y, td.support-case.ye, .expectation-summary .ye {
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
+}
+td.support-case.p, td.support-case.pa, .expectation-summary .pa,
+td.support-case.k, td.support-case.kn, .expectation-summary .kn {
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
+}
+td.support-case.u, td.support-case.un, .expectation-summary .un {
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
+}
+
+span.output-result {
+  padding: .1em .25em;
+}
+span.output-result.fail {
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
+}
+span.output-result.pass {
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
+}
+span.output-result.partial {
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
+}
+span.output-result.unknown {
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
+}
+
+.current-support-container.ye, .support-case.yes {
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
+}
+
+.current-support-container.no, .support-case.no {
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
+}
+
+.current-support-container.pa, .support-case.pa,
+.current-support-container.kn, .support-case.kn {
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
+}
+
+.current-support-container.un, .support-case.un {
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
+}
+
+.search-results td {
+  text-align: center;
+  color: var(--foreground);
+}
+
+.search-results td.no {
+  background-color: var(--support-no-background);
+  color: var(--support-no-foreground);
+}
+
+.search-results td.ye {
+  background-color: var(--support-yes-background);
+  color: var(--support-yes-foreground);
+}
+
+.search-results td.pa, .search-results td.kn {
+  background-color: var(--support-partial-background);
+  color: var(--support-partial-foreground);
+}
+
+.search-results td.un {
+  background-color: var(--support-unknown-background);
+  color: var(--support-unknown-foreground);
+}
+
+.expectation-summary {
+  font-size: .75em;
+  width: 100%;
+}
+
+.expectation-summary ul {
+  display: inline;
+  margin-left: 0;
+  padding-left: 0;
+  line-height: 2em;
+}
+
+.expectation-summary li {
+  color: var(--foreground);
+  display: inline-block;
+  padding: .5em .25em;
+  border-radius: .25em;
+  margin-left: .25em;
+  margin-right: .25em;
+  border: 1px solid #000;
+  font-size: .8em;
+  line-height: .8em;
+}

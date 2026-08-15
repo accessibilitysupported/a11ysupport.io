@@ -1,0 +1,38 @@
+/**
+ * Phase 5: split of public/stylesheets/style.css — the skip-nav and visually-hidden utility
+ * classes (lines 294-314, 431-440), verbatim. Global by nature: `.visually-hidden` and
+ * `.skip-nav` are applied from many independent components (SkipLink, RouteAnnouncer, search
+ * live regions, ...), so scoping them per-component would defeat the point.
+ */
+.skip-nav {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+a.skip-nav:active,
+a.skip-nav:focus,
+a.skip-nav:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background-color: var(--background);
+  padding: 1em;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+}

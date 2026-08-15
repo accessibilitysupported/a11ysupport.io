@@ -42,18 +42,24 @@ Details of the grading method and a high level overview of the project include:
 
 From the root directory of the project
 
-* `/build/` contains the JSON files that are generated during the build process and used by the front end
+* `/build/` contains the JSON files generated during the build process — the raw per-artifact
+  files (`tech.json`, `tests.json`, `support_points.json`, …) plus `/build/api/`, the view-shaped
+  payloads the client actually fetches (per-technology and per-feature splits, a pre-filtered
+  `run-tests.json`, pre-rendered markdown for the static docs)
 * `/data/` contains the JSON data that drives the project
   * `/data/schema/` contains JSON files that describe other JSON files (used to validate JSON files)
   * `/data/tech/` contains JSON files that describe different technology features
   * `/data/tests/` contains JSON files that describe tests and test results
     * `/data/tests/html/` contains the static HTML files referenced by tests
 * `/documentation/` contains documentation on the project
-* `/public/` public facing assets that are served by the front end
-* `/routes/` contains logic to route front end requests
+* `/client/` the React SPA (pages, components, layout, and the run-test form), built by Vite into `/dist/`
+* `/server/` the Express JSON API (`/api/*`) and the SPA's static/fallback serving
 * `/scripts/` contains scripts to manage the project
-* `/src/` contains helper functions and other source files
-* `/views/` contains PUG files for the front end
+* `/src/` contains shared TypeScript source: `/src/build/` (the data-build pipeline), `/src/lib/`
+  (helpers shared by `server/` and `client/`), `/src/types/` (schema-generated and hand-written types)
+* `/tests/` Vitest unit/API tests (`/tests/unit/`, `/tests/api/`) and Playwright end-to-end/
+  accessibility tests (`/tests/e2e/`)
+* `/tools/baseline/` the pre-migration baseline capture used by the visual/HTML/axe parity checks
 
 ## Data model
 
@@ -217,17 +223,17 @@ The `versions` object defines the AT, browser, os and date values used while tes
 
 ## Build process
 
-The build process:
+`npm run build` (`src/build/index.ts`) runs the data-build pipeline:
 
 * loops over each feature, test, and assertion, combining them and adding empty at/browser combinations where none have been defined
 * bubbles support data from each command `result` object all the way to the `feature` object, creating matching support strings along the way
-* outputs all of this generated data to the `/build/` directory.
+* outputs all of this generated data to the `/build/` directory, then (`src/build/emit-api-payloads.ts`) writes the view-shaped `/build/api/*` payloads described above
 
-This built data makes coding the frontend easy. The frontend itself does not contain any logic around filling in gaps of support data or bubbling information.
+This built data makes coding the frontend easy. The frontend itself does not contain any logic around filling in gaps of support data or bubbling information. `npx vite build` separately builds the React client into `/dist/`; `npm start` serves both `/dist/` and `/api/*` from one Express process (`server/index.ts`).
 
 ## Front end
 
-The frontend is built with NodeJS, Express.js, Pug templating, JavaScript, and CSS.
+The frontend is a React 19 single-page app (`client/`), built with Vite and TanStack Query, served client-side by React Router. It talks to the backend exclusively through the `/api/*` JSON endpoints in `server/`; there is no server-rendered HTML for application pages.
 
 ## Workflow to update data
 
@@ -241,7 +247,7 @@ The frontend is built with NodeJS, Express.js, Pug templating, JavaScript, and C
 8. User submits the form and is taken to github with an issue body already filled out. The issue body contains a table that describes their results.
 9. User submits github issue
 10. Discussions happen if necessary. Findings are verified.
-11. admin uses the script at `/scripts/sync-support-point.js` by giving it a GitHub issue ID. The script finds the table in the issue and updates the JSON file accordingly.
+11. admin uses the script at `/scripts/sync-support-point.ts` (`npx tsx scripts/sync-support-point.ts`) by giving it a GitHub issue ID. The script finds the table in the issue and updates the JSON file accordingly.
 12. admin commits changes and pushes.
 13. results are eventually deployed to production
 
