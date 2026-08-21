@@ -192,4 +192,4 @@ For now, we base our data on the results of the latest
 
 ## Where does the name Accessibility Supported come from?
 
-WCAG has an [accessibility supported](https://www.w3.org/TR/WCAG/#cc4). It basically says that if a feature is relied upon to meet a given success criteria, that feature must be supported by AT. WCAG makes this very unclear by purposefully not defining exactly which AT need to be supported or at what level the support needs to be at. Instead, this decision needs to be made on a case by case basis and within the context of your project and who will be using it.
+WCAG has an [accessibility supported](https://www.w3.org/TR/WCAG/#cc4) conformance requirement. It basically says that if a feature is relied upon to meet a given success criteria, that feature must be supported by AT. WCAG makes this very unclear by purposefully not defining exactly which AT need to be supported or at what level the support needs to be at. Instead, this decision needs to be made on a case by case basis and within the context of your project and who will be using it.
